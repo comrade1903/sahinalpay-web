@@ -75,9 +75,6 @@ Thumbs.db
 *.mov
 *.wmv
 
-# Private/unpublished site content (not for the public repo)
-src/content.ts
-
 # Personal/local Claude Code overrides
 .claude/settings.local.json
 
