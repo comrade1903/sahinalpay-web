@@ -6,6 +6,8 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react'
+import AppV2 from './design-b/AppV2'
+import DesignToggle from './components/DesignToggle'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   Routes,
@@ -1236,7 +1238,7 @@ function RouteFor({ lang, pageKey }: { lang: Lang; pageKey: PageKey }) {
   return <PageForKey pageKey={pageKey} lang={lang} />
 }
 
-export default function App() {
+export function AppV1() {
   return (
     <>
       <CanonicalSync />
@@ -1287,6 +1289,23 @@ export default function App() {
       <Footer />
     </>
   )
+}
+
+export default function App() {
+  const [design, setDesign] = useState<'v1' | 'v2'>(() => {
+    return (localStorage.getItem('sahinalpay-design') as 'v1' | 'v2') || 'v1';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('sahinalpay-design', design);
+  }, [design]);
+
+  return (
+    <>
+      {design === 'v1' ? <AppV1 /> : <AppV2 />}
+      <DesignToggle current={design} onChange={setDesign} />
+    </>
+  );
 }
 
 function NotFound() {

@@ -1,0 +1,52 @@
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+@theme {
+  --font-headline: "Literata", serif;
+  --font-display: "Literata", serif;
+  --font-body: "Nunito Sans", sans-serif;
+  --font-label: "Nunito Sans", sans-serif;
+
+  --color-primary: #1d4ed8;
+  --color-background-warm: #ffffff;
+  --color-secondary: #475569;
+  --color-tertiary: #1e3a5f;
+  --color-surface: #ffffff;
+  --color-surface-container: #eff6ff;
+}
+
+/* Elegant fade-in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Minimal reset scoped to this design only — we skip Tailwind's global
+   Preflight so the classic design's plain CSS is never touched, but that
+   also leaves native browser button/input chrome showing through.
+   :where() keeps this at zero specificity so it never outranks the
+   Tailwind utility classes (e.g. bg-[#1d4ed8]) applied on the same elements. */
+:where(#app-root) button {
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:where(#app-root) input,
+:where(#app-root) select {
+  font: inherit;
+  color: inherit;
+}
