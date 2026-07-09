@@ -99,3 +99,24 @@ Run once now against `p24.ts`. Reused later for Zaman/Today's Zaman (or any futu
 4. Type a search term that only appears inside a P24 article body (not in its title/excerpt) — confirm the article appears after a brief delay, and the "searching full text" hint appears/disappears correctly.
 5. Open a P24 article directly (deep link) — confirm body renders after a brief load state, reading-progress bar and font-size controls still work.
 6. Confirm outlets with no content (Cumhuriyet, Zaman, etc.) are unaffected — no crashes on empty seed arrays, no dead loader entries.
+
+## Results
+
+Mid-implementation, `main` independently gained English-language support (`archiveData.columns` split into `{tr, en}`), a `manualChunks` Vite config, and ~700 lines of other `App.tsx` changes. This branch was rebased onto that `main` (one conflict in `src/archive/index.ts`, resolved by combining the `tr`/`en` structure with this project's `outletKey` threading). That also meant the pre-existing `manualChunks` attempt could be measured directly: it does **not** solve the problem on its own — see below.
+
+**Home-page-equivalent initial JS payload** (`index` + `archive-data` chunks — the two chunks that load on every page, including home):
+
+| | raw | gzip |
+|---|---|---|
+| `main` tip, **with** its own `manualChunks` config but **without** this project's lazy-loading (baseline) | 488.03 kB (57.32 + 430.71) | 173.05 kB (15.64 + 157.41) |
+| This branch, with lazy-loading complete | 82.92 kB (58.31 + 24.61) | 24.33 kB (15.96 + 8.37) |
+| **Reduction** | **~405 kB (−83%)** | **~149 kB (−86%)** |
+
+`main`'s `manualChunks` config does correctly produce a separate `archive-data` chunk by name, but since `src/archive/index.ts` still statically imports every outlet's seed data (including full body text) and `App.tsx` imports `archiveData` at module scope for the home page/hub counts, that chunk is still referenced directly from `index.html` and loads on every single page — chunk naming alone doesn't defer anything. Confirmed via `grep -o 'assets/[^"]*\.js' dist/index.html`: `main`'s baseline lists `archive-data-*.js` directly; this branch's `index.html` does not list `archive-tr-p24-*.js` at all — it's a true on-demand `import()` chunk (410.39 kB raw / 153.16 kB gzip), fetched only when a P24 article is opened or a list-page search actually runs.
+
+**Manual verification** (dev server, network tab):
+- Home page and `/tr/kose-yazilari` (columns list) load with no `p24.body.ts` request.
+- Typing "Stina" (a body-only term, not in any title/excerpt) into the columns search triggers the "İçerik aranıyor…" hint, fetches `p24.body.ts`, and narrows results to the 3 matching articles (confirmed via network log and accessibility snapshot).
+- Typing a title-only term resolves instantly, no `p24.body.ts` fetch.
+- Opening a P24 article directly renders full body text correctly; reading-progress bar and font-size controls work.
+- Outlets with empty seed arrays (Cumhuriyet, Sabah, Milliyet, Zaman) render without error.
