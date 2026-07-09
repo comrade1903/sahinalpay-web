@@ -30,6 +30,7 @@ import {
   itemHasSourceKind,
   itemScanClippings,
   loadArticleBody,
+  loadOutletBodies,
   withFlatSectionItems,
   withOutletSectionItems,
   type ArchiveItem,
@@ -908,6 +909,44 @@ function ArchiveRow({
   )
 }
 
+function useDebouncedValue<T>(value: T, delayMs: number): T {
+  const [debounced, setDebounced] = useState(value)
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebounced(value), delayMs)
+    return () => clearTimeout(timeout)
+  }, [value, delayMs])
+  return debounced
+}
+
+/** Lazily loads full body text for `items` once the user has typed a
+ *  non-empty search query, so list pages don't pay for body bytes until
+ *  full-text search is actually used. `bodyVersion` bumps once loading
+ *  resolves so callers can force a re-filter that includes body matches. */
+function useBodySearchIndex(
+  items: ArchiveItem[],
+  search: string,
+): { bodyVersion: number; searchingBody: boolean } {
+  const debouncedSearch = useDebouncedValue(search, 400)
+  const [bodyVersion, setBodyVersion] = useState(0)
+  const [searchingBody, setSearchingBody] = useState(false)
+
+  useEffect(() => {
+    if (!debouncedSearch) return
+    let cancelled = false
+    setSearchingBody(true)
+    loadOutletBodies(items).then(() => {
+      if (cancelled) return
+      setSearchingBody(false)
+      setBodyVersion((v) => v + 1)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [debouncedSearch, items])
+
+  return { bodyVersion, searchingBody }
+}
+
 function matchesFilters(
   item: ArchiveItem,
   search: string,
@@ -1260,6 +1299,8 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
+  const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
+  const { bodyVersion, searchingBody } = useBodySearchIndex(sectionItems, search)
   const visibleOutlets = data.outlets.filter(
     (o) => activeOutlet === 'all' || o.outlet === activeOutlet,
   )
@@ -1275,7 +1316,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
         (entry) => entry.item.date,
         sort,
       ),
-    [visibleOutlets, search, fromYear, toYear, sourceKind, sort],
+    [visibleOutlets, search, fromYear, toYear, sourceKind, sort, bodyVersion],
   )
   const totalPages = Math.max(1, Math.ceil(flatEntries.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1372,6 +1413,11 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
+                {searchingBody && (
+                  <p className="search-status">
+                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+                  </p>
+                )}
               </div>
               <div className="filter-card">
                 <h3>{lang === 'tr' ? 'Yayın Kuruluşu' : 'Outlet'}</h3>
@@ -1501,6 +1547,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
+  const { bodyVersion, searchingBody } = useBodySearchIndex(data.items, search)
   const filtered = useMemo(
     () =>
       sortItems(
@@ -1509,7 +1556,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
         ),
         sort,
       ),
-    [data.items, search, fromYear, toYear, sourceKind, sort],
+    [data.items, search, fromYear, toYear, sourceKind, sort, bodyVersion],
   )
   const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1600,6 +1647,11 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
+                {searchingBody && (
+                  <p className="search-status">
+                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+                  </p>
+                )}
               </div>
               <YearRangeFilter
                 lang={lang}
