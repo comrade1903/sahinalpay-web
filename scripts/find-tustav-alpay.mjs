@@ -50,18 +50,40 @@ function issueLabel(source, url) {
   return `${source}:${file.replace(/\.pdf$/i, '')}`
 }
 
+/* tustav.org's HTTP/2 connections occasionally drop mid-download (GOAWAY) —
+   retry transient network failures a few times before giving up on an issue. */
+async function withRetry(fn, { attempts = 4, baseDelayMs = 2000 } = {}) {
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fn()
+    } catch (error) {
+      lastError = error
+      if (attempt === attempts) break
+      const delay = baseDelayMs * 2 ** (attempt - 1)
+      console.error(`  retry ${attempt}/${attempts - 1} after error: ${error.message} (waiting ${delay}ms)`)
+      await new Promise((resolve) => setTimeout(resolve, delay))
+    }
+  }
+  throw lastError
+}
+
 async function fetchText(url) {
-  const response = await fetch(url)
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`)
-  return response.text()
+  return withRetry(async () => {
+    const response = await fetch(url)
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`)
+    return response.text()
+  })
 }
 
 async function download(url, filePath) {
   if (fs.existsSync(filePath)) return
-  const response = await fetch(url)
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`)
-  fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(filePath, Buffer.from(await response.arrayBuffer()))
+  await withRetry(async () => {
+    const response = await fetch(url)
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`)
+    fs.mkdirSync(path.dirname(filePath), { recursive: true })
+    fs.writeFileSync(filePath, Buffer.from(await response.arrayBuffer()))
+  })
 }
 
 function isIssuePdf(source, url) {
@@ -201,7 +223,17 @@ for (const [source, pageUrl] of sourceEntries) {
     console.error(`[${source}] ${index + 1}/${pdfLinks.length} ${issueLabel(source, pdfUrl)}`)
     const fileName = decodeURIComponent(pdfUrl.split('/').at(-1) ?? 'issue.pdf').replaceAll('/', '-')
     const pdfPath = path.join(cacheDir, source, fileName)
-    await download(pdfUrl, pdfPath)
+    try {
+      await download(pdfUrl, pdfPath)
+    } catch (error) {
+      sourceReport.needsOcr.push({
+        label: issueLabel(source, pdfUrl),
+        pdfUrl,
+        reason: `download failed: ${error.message}`,
+      })
+      fs.writeFileSync(outPath, JSON.stringify([...report, sourceReport], null, 2))
+      continue
+    }
     let extracted = extractPdfText(pdfPath)
     let ocrApplied = false
     const isSparse =
@@ -242,6 +274,10 @@ for (const [source, pageUrl] of sourceEntries) {
         hits: scanned.hits,
       })
     }
+
+    // Persist progress after every issue so a crash doesn't lose completed work.
+    fs.mkdirSync(path.dirname(outPath), { recursive: true })
+    fs.writeFileSync(outPath, JSON.stringify([...report, sourceReport], null, 2))
   }
 
   report.push(sourceReport)
