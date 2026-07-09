@@ -1,4 +1,5 @@
 export type ArchiveCategory = 'columns' | 'analyses' | 'interviews' | 'academic'
+export type ArchiveLang = 'tr' | 'en'
 
 export interface ArchiveClipping {
   src: string

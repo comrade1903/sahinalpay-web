@@ -39,7 +39,9 @@ export function langForPath(pathname: string): Lang {
 export function pageKeyForPath(pathname: string): PageKey {
   const lang = langForPath(pathname)
   const entries = Object.entries(paths[lang]) as [PageKey, string][]
-  const found = entries.find(([, p]) => p === pathname)
+  const found = entries
+    .filter(([, p]) => pathname === p || pathname.startsWith(`${p}/`))
+    .sort((a, b) => b[1].length - a[1].length)[0]
   return found ? found[0] : 'home'
 }
 

@@ -7,9 +7,6 @@ const staticRoutes = [
   ['/', 'monthly', '1.0'],
   ['/about', 'monthly', '0.8'],
   ['/columns', 'weekly', '0.8'],
-  ['/analyses', 'weekly', '0.7'],
-  ['/interviews', 'weekly', '0.7'],
-  ['/academic-articles', 'weekly', '0.7'],
   ['/books', 'monthly', '0.8'],
   ['/tr', 'monthly', '1.0'],
   ['/tr/kimdir', 'monthly', '0.8'],
@@ -20,9 +17,10 @@ const staticRoutes = [
   ['/tr/kitaplar', 'monthly', '0.8'],
 ]
 
-const archiveRoutes = readArchiveEntries().flatMap((entry) => [
-  [routeForEntry(entry, 'tr'), 'yearly', '0.6'],
-  [routeForEntry(entry, 'en'), 'yearly', '0.6'],
+const archiveRoutes = readArchiveEntries().map((entry) => [
+  routeForEntry(entry, entry.lang),
+  'yearly',
+  '0.6',
 ])
 
 const urls = [...staticRoutes, ...archiveRoutes]

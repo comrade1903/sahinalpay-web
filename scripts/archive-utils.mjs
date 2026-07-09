@@ -132,6 +132,10 @@ function categoryForFile(filePath) {
   return 'columns'
 }
 
+function langForFile(filePath) {
+  return filePath.includes(`${path.sep}archive${path.sep}en${path.sep}`) ? 'en' : 'tr'
+}
+
 function outletForFile(filePath) {
   const base = path.basename(filePath, '.ts')
   const names = {
@@ -150,7 +154,10 @@ function outletForFile(filePath) {
 }
 
 export function readArchiveEntries() {
-  const files = readFiles(path.join(ROOT, 'src/archive/tr'))
+  const files = [
+    ...readFiles(path.join(ROOT, 'src/archive/tr')),
+    ...readFiles(path.join(ROOT, 'src/archive/en')),
+  ]
   return files.flatMap((filePath) => {
     const source = fs.readFileSync(filePath, 'utf8')
     return extractObjects(extractArray(source)).map((objectSource) => {
@@ -161,6 +168,7 @@ export function readArchiveEntries() {
       const category = categoryForFile(filePath)
       return {
         id: stringField(objectSource, 'id') ?? `${category}-${slug}`,
+        lang: langForFile(filePath),
         slug,
         title,
         date: stringField(objectSource, 'date'),

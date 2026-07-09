@@ -21,6 +21,8 @@ const outPath = args.get('out') ?? 'tmp/tustav-alpay-report.json'
 const cacheDir = args.get('cache') ?? 'tmp/tustav-pdfs'
 const python = args.get('python') ?? '/Users/inancozgirgin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3'
 const include = args.get('include')
+const noOcr = args.get('no-ocr') === 'true'
+const ocrDpi = args.has('ocr-dpi') ? Number(args.get('ocr-dpi')) : 200
 
 const SEARCH_PATTERNS = [
   'şahin alpay',
@@ -114,6 +116,38 @@ print(json.dumps(pages, ensure_ascii=False))
   return { pages: JSON.parse(result.stdout) }
 }
 
+/* Aydınlık and İşçi-Köylü issues are scanned images with no text layer, so
+   pdfplumber returns empty/near-empty pages — fall back to rendering each
+   page and running Tesseract (Turkish) over it. */
+function extractPdfTextViaOcr(pdfPath, dpi) {
+  const code = `
+import json
+import sys
+import pdf2image
+import pytesseract
+
+pdf_path, dpi = sys.argv[1], int(sys.argv[2])
+images = pdf2image.convert_from_path(pdf_path, dpi=dpi)
+pages = []
+for index, image in enumerate(images, start=1):
+    text = pytesseract.image_to_string(image, lang="tur")
+    pages.append({"page": index, "text": text})
+print(json.dumps(pages, ensure_ascii=False))
+`
+
+  const result = spawnSync(python, ['-c', code, pdfPath, String(dpi)], {
+    encoding: 'utf8',
+    maxBuffer: 1024 * 1024 * 256,
+    timeout: 30 * 60 * 1000,
+  })
+
+  if (result.status !== 0) {
+    return { error: result.stderr || result.stdout || 'OCR failed', pages: [] }
+  }
+
+  return { pages: JSON.parse(result.stdout) }
+}
+
 function scanPages(pages) {
   const hits = []
   let totalChars = 0
@@ -168,13 +202,29 @@ for (const [source, pageUrl] of sourceEntries) {
     const fileName = decodeURIComponent(pdfUrl.split('/').at(-1) ?? 'issue.pdf').replaceAll('/', '-')
     const pdfPath = path.join(cacheDir, source, fileName)
     await download(pdfUrl, pdfPath)
-    const extracted = extractPdfText(pdfPath)
-    if (extracted.error) {
-      sourceReport.needsOcr.push({ label: issueLabel(source, pdfUrl), pdfUrl, reason: extracted.error })
-      continue
+    let extracted = extractPdfText(pdfPath)
+    let ocrApplied = false
+    const isSparse =
+      !extracted.error && scanPages(extracted.pages).totalChars < extracted.pages.length * 30
+
+    if (!noOcr && (extracted.error || isSparse)) {
+      console.error(`  -> OCR (${extracted.error ? 'no text layer' : 'sparse text'})`)
+      const ocrResult = extractPdfTextViaOcr(pdfPath, ocrDpi)
+      if (!ocrResult.error) {
+        extracted = ocrResult
+        ocrApplied = true
+      } else if (extracted.error) {
+        sourceReport.needsOcr.push({
+          label: issueLabel(source, pdfUrl),
+          pdfUrl,
+          reason: ocrResult.error,
+        })
+        continue
+      }
     }
+
     const scanned = scanPages(extracted.pages)
-    if (scanned.totalChars < extracted.pages.length * 30) {
+    if (!ocrApplied && scanned.totalChars < extracted.pages.length * 30) {
       sourceReport.needsOcr.push({
         label: issueLabel(source, pdfUrl),
         pdfUrl,
@@ -188,6 +238,7 @@ for (const [source, pageUrl] of sourceEntries) {
         label: issueLabel(source, pdfUrl),
         pdfUrl,
         pages: extracted.pages.length,
+        ocrApplied,
         hits: scanned.hits,
       })
     }

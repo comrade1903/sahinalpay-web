@@ -1,6 +1,18 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["react", "typescript", "oxc"],
+  "ignorePatterns": [
+    ".codex/**",
+    ".claude/**",
+    "agent-skills/**",
+    "sahinalpay-web/**",
+    "stitch_ahin_alpay_dijital_ar_ivi/**",
+    "şahin-alpay-arşivi/**",
+    "şahin-alpay-arşivi/**",
+    "*ahin-alpay-ar*ivi/**",
+    "dist/**",
+    "public/sitemap.xml"
+  ],
   "rules": {
     "react/rules-of-hooks": "error",
     "react/only-export-components": ["warn", { "allowConstantExport": true }]

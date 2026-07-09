@@ -1,5 +1,6 @@
 import type {
   ArchiveCategory,
+  ArchiveLang,
   ArchiveItem,
   ArchiveItemSeed,
   FlatArchiveSection,
@@ -30,13 +31,16 @@ function outlet(
 }
 
 export const archiveData = {
-  columns: [
-    outlet('Cumhuriyet', 'columns', cumhuriyetColumnSeeds),
-    outlet('Sabah', 'columns', sabahColumnSeeds),
-    outlet('Milliyet', 'columns', milliyetColumnSeeds),
-    outlet('Zaman', 'columns', zamanColumnSeeds),
-    outlet('P24', 'columns', p24ColumnSeeds),
-  ],
+  columns: {
+    tr: [
+      outlet('Cumhuriyet', 'columns', cumhuriyetColumnSeeds),
+      outlet('Sabah', 'columns', sabahColumnSeeds),
+      outlet('Milliyet', 'columns', milliyetColumnSeeds),
+      outlet('Zaman', 'columns', zamanColumnSeeds),
+      outlet('P24', 'columns', p24ColumnSeeds),
+    ],
+    en: [] as OutletGroup[],
+  } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: [
     outlet('Forum', 'analyses', forumAnalysisSeeds),
     outlet('Aydınlık (Sosyalist Dergi/Proleter Devrimci)', 'analyses', aydinlikAnalysisSeeds),
@@ -62,7 +66,8 @@ export function withFlatSectionItems(
 
 export function allArchiveItems(): ArchiveItem[] {
   return [
-    ...archiveData.columns.flatMap((group) => group.items),
+    ...archiveData.columns.tr.flatMap((group) => group.items),
+    ...archiveData.columns.en.flatMap((group) => group.items),
     ...archiveData.analyses.flatMap((group) => group.items),
     ...archiveData.interviews,
     ...archiveData.academicArticles,
@@ -99,6 +104,7 @@ export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | '
 }
 
 export type {
+  ArchiveLang,
   ArchiveClipping,
   ArchiveItem,
   ArchiveItemSeed,
