@@ -23,6 +23,7 @@ import { academicArticleSeeds } from './tr/academic'
 
 function outlet(
   outletName: string,
+  outletKey: string,
   category: ArchiveCategory,
   seeds: ArchiveItemSeed[],
   medium?: ArchiveMedium,
@@ -30,7 +31,7 @@ function outlet(
   return {
     outlet: outletName,
     medium,
-    items: normalizeArchiveItems(outletName, category, seeds, medium),
+    items: normalizeArchiveItems(outletName, outletKey, category, seeds, medium),
   }
 }
 
@@ -40,21 +41,21 @@ function outlet(
 export const archiveData = {
   columns: {
     tr: [
-      outlet('Cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'print'),
-      outlet('Sabah', 'columns', sabahColumnSeeds, 'print'),
-      outlet('Milliyet', 'columns', milliyetColumnSeeds, 'print'),
-      outlet('Zaman', 'columns', zamanColumnSeeds, 'print'),
-      outlet('P24', 'columns', p24ColumnSeeds, 'online'),
+      outlet('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'print'),
+      outlet('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'print'),
+      outlet('Milliyet', 'milliyet', 'columns', milliyetColumnSeeds, 'print'),
+      outlet('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'print'),
+      outlet('P24', 'p24', 'columns', p24ColumnSeeds, 'online'),
     ],
-    en: [outlet("Today's Zaman", 'columns', todaysZamanColumnSeeds, 'print')],
+    en: [outlet("Today's Zaman", 'todays-zaman', 'columns', todaysZamanColumnSeeds, 'print')],
   } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: [
-    outlet('Forum', 'analyses', forumAnalysisSeeds),
-    outlet('Aydınlık (Sosyalist Dergi/Proleter Devrimci)', 'analyses', aydinlikAnalysisSeeds),
-    outlet('İşçi Köylü', 'analyses', isciKoyluAnalysisSeeds),
+    outlet('Forum', 'forum', 'analyses', forumAnalysisSeeds),
+    outlet('Aydınlık (Sosyalist Dergi/Proleter Devrimci)', 'aydinlik', 'analyses', aydinlikAnalysisSeeds),
+    outlet('İşçi Köylü', 'isci-koylu', 'analyses', isciKoyluAnalysisSeeds),
   ],
-  interviews: normalizeArchiveItems('Söyleşiler', 'interviews', interviewSeeds),
-  academicArticles: normalizeArchiveItems('Akademik Makaleler', 'academic', academicArticleSeeds),
+  interviews: normalizeArchiveItems('Söyleşiler', 'interviews', 'interviews', interviewSeeds),
+  academicArticles: normalizeArchiveItems('Akademik Makaleler', 'academic', 'academic', academicArticleSeeds),
 }
 
 export function withOutletSectionItems(
@@ -112,7 +113,7 @@ export function itemScanClippings(item: ArchiveItem) {
 
 export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | 'clipping') {
   if (kind === 'all') return true
-  if (kind === 'digital') return Boolean(item.url || item.body?.length)
+  if (kind === 'digital') return Boolean(item.url || item.hasBody)
   return Boolean(itemScanClippings(item).length || item.imageSrc)
 }
 

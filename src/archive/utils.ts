@@ -32,6 +32,7 @@ export function slugFromSourceUrl(url: string): string {
 
 export function normalizeArchiveItems(
   outlet: string,
+  outletKey: string,
   category: ArchiveCategory,
   seeds: ArchiveItemSeed[],
   medium?: ArchiveMedium,
@@ -43,6 +44,7 @@ export function normalizeArchiveItems(
       id: seed.id ?? `${category}-${slug}`,
       slug,
       outlet,
+      outletKey,
       category,
       medium,
     }
