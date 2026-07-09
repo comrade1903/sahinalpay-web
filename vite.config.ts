@@ -12,6 +12,7 @@ export default defineConfig({
           if (id.includes('/node_modules/motion/')) return 'motion'
           if (id.includes('/node_modules/')) return 'vendor'
           if (id.includes('/src/archive/tr/columns/zaman')) return 'archive-tr-zaman'
+          if (id.includes('/src/archive/en/columns/todays-zaman')) return 'archive-en-todays-zaman'
           if (id.includes('/src/archive/tr/columns/p24')) return 'archive-tr-p24'
           if (id.includes('/src/archive/')) return 'archive-data'
         },

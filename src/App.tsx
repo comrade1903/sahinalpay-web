@@ -28,6 +28,7 @@ import {
   archiveData,
   archiveItemText,
   itemHasSourceKind,
+  itemScanClippings,
   withFlatSectionItems,
   withOutletSectionItems,
   type ArchiveItem,
@@ -839,6 +840,13 @@ function archiveLink(
   return null
 }
 
+/** User-facing label for where a piece originally ran: printed newspaper
+ *  column vs. online news-blog column (e.g. P24). */
+function mediumLabel(medium: 'print' | 'online', lang: Lang): string {
+  if (medium === 'print') return lang === 'tr' ? 'Gazete' : 'Print'
+  return lang === 'tr' ? 'E-yayın' : 'Online'
+}
+
 function ArchiveRow({
   item,
   outlet,
@@ -855,7 +863,10 @@ function ArchiveRow({
       <div className="archive-row-meta">
         {item.date && <span className="archive-row-date">{item.date}</span>}
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
-        {item.clippings?.length ? (
+        {item.medium && (
+          <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
+        )}
+        {itemScanClippings(item).length ? (
           <span className="archive-row-badge">
             {lang === 'tr' ? 'Kupür' : 'Clipping'}
           </span>
@@ -1861,7 +1872,10 @@ function ArticlePage({ lang }: { lang: Lang }) {
             </span>
             <span className="article-byline-text">
               <span className="article-byline-name">Şahin Alpay</span>
-              {item.date}
+              {[item.date, item.outlet].filter(Boolean).join(' · ')}
+              {item.medium
+                ? ` (${mediumLabel(item.medium, lang).toLocaleLowerCase(lang)})`
+                : ''}
             </span>
           </div>
         </Reveal>
@@ -1918,11 +1932,21 @@ function ArticlePage({ lang }: { lang: Lang }) {
           <p className="article-image-credit">{item.imageCredit}</p>
         )}
         {item.sourceNote && <p className="article-image-credit">{item.sourceNote}</p>}
-        {item.url && (
+        {(item.url || item.archiveUrl) && (
           <p className="article-source">
-            <a href={item.url} target="_blank" rel="noreferrer">
-              P24 — orijinal kaynak
-            </a>
+            {item.url && (
+              <a href={item.url} target="_blank" rel="noreferrer">
+                {item.outlet} — {lang === 'tr' ? 'orijinal kaynak' : 'original source'}
+              </a>
+            )}
+            {item.url && item.archiveUrl && <span className="article-source-sep"> · </span>}
+            {item.archiveUrl && (
+              <a href={item.archiveUrl} target="_blank" rel="noreferrer">
+                {lang === 'tr'
+                  ? 'arşiv kopyası (web.archive.org)'
+                  : 'archived copy (web.archive.org)'}
+              </a>
+            )}
           </p>
         )}
         {related.length > 0 && (

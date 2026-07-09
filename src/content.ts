@@ -264,15 +264,9 @@ export const content: Record<Lang, Content> = {
       kicker: 'Columns',
       title: 'Columns',
       intro:
-        'Five decades of newspaper columns. This archive is being assembled outlet by outlet — links and clippings are added as they are recovered.',
+        "English-language newspaper columns written for Today's Zaman between 2003 and 2016. For the Turkish-press columns, switch to the Turkish site.",
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
-      outlets: [
-        { outlet: 'Cumhuriyet', items: [] },
-        { outlet: 'Sabah', items: [] },
-        { outlet: 'Milliyet', items: [] },
-        { outlet: 'Zaman', items: [] },
-        { outlet: 'P24', items: [] },
-      ],
+      outlets: [{ outlet: "Today's Zaman", items: [] }],
     },
     analyses: {
       kicker: 'Analyses',
@@ -302,7 +296,7 @@ export const content: Record<Lang, Content> = {
     },
     books: {
       kicker: 'Selected Works',
-      title: 'Kitaplar',
+      title: 'Books',
       intro:
         'His published books, in the original Turkish. Full texts and summaries are hosted externally.',
       externalLabel: 'View book summaries ↗',
@@ -404,17 +398,14 @@ export const content: Record<Lang, Content> = {
       kicker: 'Köşe Yazıları',
       title: 'Köşe Yazıları',
       intro:
-        'Beş on yılı aşkın gazete yazılarından bir arşiv. Bağlantılar ve gazete küpürleri, yayın bazında eklenmektedir.',
+        'Beş on yılı aşkın köşe yazısı arşivi: gazetelerde basılmış köşe yazıları (Cumhuriyet, Sabah, Milliyet, Zaman) ile e-yayınlarda çıkan yazılar (P24) bir arada.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       outlets: [
         { outlet: 'Cumhuriyet', items: [] },
         { outlet: 'Sabah', items: [] },
         { outlet: 'Milliyet', items: [] },
         { outlet: 'Zaman', items: [] },
-        {
-          outlet: 'P24',
-          items: [],
-        },
+        { outlet: 'P24', items: [] },
       ],
     },
     analyses: {

@@ -13,12 +13,18 @@ export interface ArchiveClipping {
   kind?: 'photo' | 'scan'
 }
 
+/** Where a piece originally ran: a print newspaper column or an
+    online-only outlet (news site / blog platform such as P24). */
+export type ArchiveMedium = 'print' | 'online'
+
 export interface ArchiveItemSeed {
   id?: string
   slug?: string
   title: string
   date?: string
   url?: string
+  /** web.archive.org snapshot — shown next to the (often defunct) source link. */
+  archiveUrl?: string
   imageSrc?: string
   excerpt?: string
   subtitle?: string
@@ -33,10 +39,12 @@ export interface ArchiveItem extends ArchiveItemSeed {
   slug: string
   outlet: string
   category: ArchiveCategory
+  medium?: ArchiveMedium
 }
 
 export interface OutletGroup {
   outlet: string
+  medium?: ArchiveMedium
   items: ArchiveItem[]
 }
 
