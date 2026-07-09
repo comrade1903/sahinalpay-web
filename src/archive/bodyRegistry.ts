@@ -6,7 +6,9 @@ type BodyLoader = () => Promise<BodyMap>
 /** One entry per split outlet, keyed by `${category}:${outletKey}`.
     Add an entry here once an outlet has been split by
     scripts/split-archive-body.mjs (see Task 5 for the first one, P24). */
-const bodyLoaders: Record<string, BodyLoader> = {}
+const bodyLoaders: Record<string, BodyLoader> = {
+  'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
+}
 
 const bodyMapPromises = new Map<string, Promise<BodyMap>>()
 const resolvedBodyCache = new Map<string, string[]>()
