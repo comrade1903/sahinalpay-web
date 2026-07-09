@@ -29,6 +29,10 @@ export interface ArchiveItemSeed {
   excerpt?: string
   subtitle?: string
   body?: string[]
+  /** True when the article has full body text, even if `body` itself is
+      empty on this seed because it was split into a separate lazily
+      loaded module (see archive/bodyRegistry.ts). */
+  hasBody?: boolean
   imageCredit?: string
   sourceNote?: string
   clippings?: ArchiveClipping[]
@@ -38,6 +42,10 @@ export interface ArchiveItem extends ArchiveItemSeed {
   id: string
   slug: string
   outlet: string
+  /** Stable machine key for this outlet (e.g. 'p24'), used to look up its
+      lazy body-loader in archive/bodyRegistry.ts. Distinct from `outlet`,
+      which is the display name. */
+  outletKey: string
   category: ArchiveCategory
   medium?: ArchiveMedium
 }
