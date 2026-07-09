@@ -15,15 +15,42 @@ if (!pdfDir) {
 const p24Path = 'src/archive/tr/columns/p24.ts'
 const tempDir = path.join('tmp', 'p24-pdf-images')
 const entries = readArchiveEntries().filter((entry) => entry.outlet === 'P24')
-const bySlug = new Map(entries.map((entry) => [entry.slug, entry]))
 const pdfFiles = fs
   .readdirSync(pdfDir)
   .filter((file) => file.toLowerCase().endsWith('.pdf'))
   .sort()
 
-function slugFromPdfName(file) {
-  const stem = path.basename(file, '.pdf')
-  return slugify(stem.replace(/_\d{8}$/, '').replace(/_/g, ' '))
+/* PDF filenames come from article titles while entry slugs come from source
+   URLs, so the two can drift apart (apostrophes dropped, decomposed accents,
+   or a URL slug worded differently from the title). Match in widening rings:
+   exact slug, hyphen-insensitive slug, then the same two against a slug
+   derived from the entry title. Ambiguous compact keys are discarded. */
+function buildLookup(keyOf) {
+  const map = new Map()
+  for (const entry of entries) {
+    const key = keyOf(entry)
+    if (!key) continue
+    map.set(key, map.has(key) ? null : entry)
+  }
+  return map
+}
+
+const bySlug = buildLookup((entry) => entry.slug)
+const byCompactSlug = buildLookup((entry) => entry.slug.replaceAll('-', ''))
+const byTitleSlug = buildLookup((entry) => slugify(entry.title))
+const byCompactTitleSlug = buildLookup((entry) => slugify(entry.title).replaceAll('-', ''))
+
+function entryForPdf(file) {
+  const stem = path.basename(file, '.pdf').normalize('NFC')
+  const slug = slugify(stem.replace(/_\d{8}$/, '').replace(/_/g, ' '))
+  const compact = slug.replaceAll('-', '')
+  return (
+    bySlug.get(slug) ??
+    byCompactSlug.get(compact) ??
+    byTitleSlug.get(slug) ??
+    byCompactTitleSlug.get(compact) ??
+    null
+  )
 }
 
 function yearOf(entry) {
@@ -117,29 +144,31 @@ const exportsBySlug = new Map()
 let matched = 0
 let exported = 0
 
+const unmatchedFiles = []
+
 for (const file of pdfFiles) {
-  const slug = slugFromPdfName(file)
-  const entry = bySlug.get(slug)
-  if (!entry) continue
+  const entry = entryForPdf(file)
+  if (!entry) {
+    unmatchedFiles.push(file)
+    continue
+  }
 
   matched += 1
   const year = yearOf(entry)
   const sourcePdf = path.join(pdfDir, file)
-  const outDir = path.join('public', 'archive', 'clippings', 'p24', year, slug)
-  const renderPrefix = path.join(tempDir, slug)
+  const outDir = path.join('public', 'archive', 'clippings', 'p24', year, entry.slug)
+  const renderPrefix = path.join(tempDir, entry.slug)
   const rendered = `${renderPrefix}.png`
-  const outputDiskPath = path.join(outDir, 'image-1.png')
+  const outputDiskPath = path.join(outDir, 'image-1.jpg')
 
   fs.mkdirSync(outDir, { recursive: true })
   renderFirstPage(sourcePdf, renderPrefix)
   cropHeroImage(rendered, outputDiskPath)
 
   const publicPath = `/${path.relative('public', outputDiskPath).replaceAll(path.sep, '/')}`
-  exportsBySlug.set(slug, {
+  exportsBySlug.set(entry.slug, {
     src: publicPath,
     alt: entry.title,
-    pageLabel: 'Article image',
-    sourceNote: 'P24 PDF',
   })
   exported += 1
 }
@@ -160,7 +189,7 @@ for (const entry of entries) {
   const lineEnd = p24Source.indexOf('\n', urlIndex)
   const clippingBlock = [
     '              clippings: [',
-    `                { src: '${clipping.src}', alt: '${escapedTitle}', pageLabel: '${clipping.pageLabel}', sourceNote: '${clipping.sourceNote}' },`,
+    `                { src: '${clipping.src}', alt: '${escapedTitle}', kind: 'photo' },`,
     '              ],',
   ].join('\n')
 
@@ -175,7 +204,7 @@ console.log(
     {
       pdfs: pdfFiles.length,
       matched,
-      unmatched: pdfFiles.length - matched,
+      unmatched: unmatchedFiles,
       exported,
       inserted,
     },

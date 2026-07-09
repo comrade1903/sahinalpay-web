@@ -1693,6 +1693,23 @@ a.archive-row:hover .archive-row-title {
   color: var(--ink);
   font-size: 0.95rem;
 }
+.article-lead-photos {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.article-lead-photo {
+  margin: 0;
+}
+.article-lead-photo img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  background: var(--surface-mid);
+}
+
 .article-body {
   margin-top: var(--space-5);
   display: flex;

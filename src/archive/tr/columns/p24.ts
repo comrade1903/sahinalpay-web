@@ -5,6 +5,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Hocam ve dostum Tomas Hammar’a veda',
               date: '1 Ağustos 2024',
               url: 'https://platform24.org/arsiv/hocam-ve-dostum-tomas-hammara-veda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2024/hocam-ve-dostum-tomas-hammara-veda/image-1.jpg', alt: 'Hocam ve dostum Tomas Hammar’a veda', kind: 'photo' },
+              ],
               body: [
                 "1972'nin Kasım ayıydı. Türkiye'de askeri yönetim tarafından aranıyordum. Rahmetli ağabeyimin yüklü bir para karşılığı sahibinden satın aldığı, yakın bir arkadaşımın da kimliğime uydurduğu pasaport ile ülkeden kaçmayı başarmış, neticede daha önce aklımdan hiç geçmeyen İsveç'e kapağı atıp siyasi iltica istemiştim. Bu gerçekleşir gerçekleşmez üç yıldır ayrı olduğum eşimi, altı yaşındaki küçük kızımızla birlikte İsveç'e gelmeye razı etmek esas çabam oldu. Ama uzunca bir süre kalmamın kaçınılmaz göründüğü İsveç'te ben ne iş yapacaktım?",
                 "İlk günlerden itibaren, imkan bulursam Ankara Üniversitesi Siyasal Bilgiler Fakültesi'nde (AÜSBF) başladığım doktora çalışmasına devam etmeyi aklıma koymuştum. Stockholm Üniversitesi'nde (SÜ) doktora programına nasıl kabul edilebilirdim? Bunu öğrenmek için ilk fırsat, İsveç'e resmi iltica başvurusu yaptığım sırada karşıma çıktı. Sorgulamamı yapan polis müfettişiyle İngilizce konuştuk, ama yasal zorunluluk gereği müfettişin yanında bir Türkçe çevirmen de bulunuyordu. Çevirmen, SÜ'de siyaset bilimi öğrenimi gören Doğan adında bir Türk genciydi.",
@@ -38,6 +41,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: '“Ergun Abi”ye veda',
               date: '9 Kasım 2023',
               url: 'https://platform24.org/arsiv/ergun-abiye-veda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/ergun-abiye-veda/image-1.jpg', alt: '“Ergun Abi”ye veda', kind: 'photo' },
+              ],
               subtitle: "Çalışmalarını Türkiye'nin demokratik bir hukuk devleti olma çabalarının hizmetine verdi; her dönemde otoriterleşmeye kararlılıkla karşı çıktı.",
               body: [
                 "Türk anayasa hukukçusu ve siyaset bilimcilerin duayeni Prof. Dr. Ergun Özbudun 1 Kasım günü vefat etti. Onunla yaklaşık 60 yıl önce, 1960'ların sonlarında Ankara Üniversitesi Eğitim Fakültesi'nde Prof. Dr. Bülent Nuri Esen'in başında olduğu Anayasa Hukuku ve İnsan Hakları kürsüsünde asistanlık yaptığım sırada tanıştım. Özbudun o sıra yine Esen'in başkanlığını yaptığı A. Ü. Hukuk Fakültesi'nin Anayasa Hukuku kürsünde doçentti. Tanıştığımız ilk günlerden itibaren kendisine, sadece benden 6-7 yaş büyük olduğu için değil, her zaman gösterdiği yakınlık ve üstün nitelikli akademisyenliğine duyduğum saygı nedeniyle hep \"Ergun Abi\" diye hitap ettim.",
@@ -55,6 +61,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: '“Ne zaman geleceksin?”',
               date: '10 Ekim 2023',
               url: 'https://platform24.org/arsiv/ne-zaman-geleceksin/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/ne-zaman-geleceksin/image-1.jpg', alt: '“Ne zaman geleceksin?”', kind: 'photo' },
+              ],
               subtitle: "Bir gece konuğu oldum, çok sevdiği orman yürüyüşünü birlikte yaptık; geride kalan yılları, hayal kırıklıklarımızı konuştuk.",
               body: [
                 "Metin Münir 23 Eylül'de anayurdu Kıbrıs'ta, son yıllarını geçirdiği Ozanköy'de hayatını kaybetti ve 26 Eylül'de orada toprağa verildi. Hem haberciliği, hem de yorum yazarlığıyla Türkiye'de \"gazeteci ve yazar\" sıfatını hakeden ender kişilerden biriydi. Benim açımdan çok daha önemlisi yakın arkadaşım ve fikirdaşım olmasıydı. Onunla 1960'ların ikinci yarısında, yani yaklaşık 60 yıl önce Ankara Üniversitesi Siyasal Bilgiler Fakültesi, Diplomasi ve Dış Münasebetler Şubesi'ndeki öğrenciliğimiz sırasında tanıştık. O öğrenime ara verip anayurdu Kıbrıs'ta Rum tedhişçilere karşı halkını savunmak için silaha sarıldığı için, ben de yabancı okulda hazırlık okuduğumdan akranlarımıza nazaran iki yıl gecikmiş olarak aynı sınıfta buluşmuştuk. Ders aralarında birlikte volta atarak siyasi konularda derin sohbetler yaptığımızı hatırlıyorum. Diplomasi ve Dış Münasebetler Şubesi'nde okuyorduk, ama ne onun ne de benim diplomat olma hevesimiz vardı.",
@@ -74,6 +83,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Bir dostluk hikâyesi',
               date: '26 Ağustos 2023',
               url: 'https://platform24.org/arsiv/bir-dostluk-hik-yesi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/bir-dostluk-hik-yesi/image-1.jpg', alt: 'Bir dostluk hikâyesi', kind: 'photo' },
+              ],
               subtitle: "Metin Kılıçlı olağanüstü bir kişilikti. Tanıdığım en parlak beyin, en fedakar dost kuşkusuz oydu. Nur içinde yat Metinciğim.",
               body: [
                 "Metin Kılıçlı ile 1955-56 ders yılında, henüz 11-12 yaşlarındayken İstanbul Nişantaşı'ndaki (1979'da kapanacak olan) İngiliz Erkek Lisesi'nde (EHSB) hazırlık okumaya başladığımızda tanıştık. Zamanla Metin özellikle fen derslerinde, ben edebiyat derslerinde temayüz ediyor olsak da; o aşırı serinkanlı, ben biraz fazla sıcak kanlı; zamanın göstereceği üzere o çok gerçekçi ben ise hayli hayalci olsam da sanırım fikir alışverişine o günlerden verdiğimiz değer nedeniyle giderek yakınlaşmıştık. Orta III'te, Nisan 1960'ta öğle tatillerinde Maçka Taşlık'ta turlarken DP iktidarına karşı giderek kabaran öğrenci gösterilerine anlam vermeye çalışmamız en canlı anılarımdan biridir. Onunla ilgili unutmadığım bir anı da, yok yere kendisine küfreden emekli asker jimnastik öğretmenine verdiği cevaptı: \"Babandır…\" Buz gibi donmuştuk; muhatap da cevabı sineye çekmekten başka çare bulamamıştı. Metin'in cesaret ve serinkanlılığının tanık olacağım ilk işareti buydu. EHSB'de iki yıl hazırlık, üç yıl da orta okuduktan sonra 1960-61 ders yılında, 30 kişilik sınıfımızın yarısıyla birlikte giriş sınavını kazanarak o sıra Bebek'te bulunan Robert Lisesi'ne transfer olduk. O gündüzcü, ben yatılı olduğum halde; üstelik Lise II'de bir bursla ABD'ye gitmeme rağmen Metin'le dostluğumuz hep sıcak kaldı. Metin bütün sınıfları yüksek şeref listesinde bitirdi. O gelene kadar fen derslerinin rakipsiz yıldızı olan sınıf arkadaşımız sevgili Avedis'in Metin'in rekabetinden hayli huzursuz olduğunu hatırlıyorum. Robert Lisesi'nden mezun olduğumuz 1963'te, okul yıllığı Reflections'a Metin için şu (pek bilgiç) satırları yazmıştım (Türkçesiyle aktarıyorum): \"Metin kampüsteki sessiz adamdır. Yalnızca onu uzun zamandır tanıyanlar onu iyi tanır. Akıllarının yönettiği pek az insan vardır ve onlar arasında pek azı 'aklının' gerçek aracı olabilir. Metin aklının aracıdır ve aklı onu birçok şeyi farketmeye götürmüş, onu zaman zaman 'göreli gerçeklikle' yüzleşmek durumunda bırakmıştır. Bu yüzleşmeler onu, çizilen yola bakmaksızın her yönde daha çok bilmeye yöneltmiştir. Onu bir gün çizilen yolda bulmayı umuyoruz, çünkü o da biliyor ki 'özgürlüğe giden yol' gerçek olandan değil, kişinin kendinden, toplumdan, boşuna olandan geçer. Robert Lisesi'nin en parlak öğrencilerinden birine iyi şanslar…\"",
@@ -96,6 +108,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Fark, karizma olabilir mi?',
               date: '13 Haziran 2023',
               url: 'https://platform24.org/arsiv/fark-karizma-olabilir-mi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/fark-karizma-olabilir-mi/image-1.jpg', alt: 'Fark, karizma olabilir mi?', kind: 'photo' },
+              ],
               subtitle: "İfade ve örgütlenme, basın ve yayın özgürlüklerinin olmadığı yerde ne siyasal, ne de ekonomik istikrar sağlanabilir.",
               body: [
                 "Tarihimizin biri TBMM üyelerini, diğeri (yürütmede tam yetkili) Cumhurbaşkanı'nı seçmek için 14 / 18 Mayıs 2023 günlerinde yapılan ilk ikili genel seçimlerin sonuçlarını hazmetmem biraz zaman aldı. Zor hazmettim, zira toplumu saran bunca adaletsizliğe, % 80'lere tırmanan enflasyona, yani korkunç hayat pahalılığına ve güvenilir sayılan kamuoyu yoklamalarına bakarak seçimi CHP lideri Kemal Kılıçdaroğlu ve Millet İttifakı'nın kazanacağını tahmin ve umut ediyordum. Bunun nedenlerini de \"Bilen, bölen değil birleştiren lider\" başlıklı bir yazıyla okurlarla paylaşmıştım. Şöyle diyordum: \"Kılıçdaroğlu, CHP bir yanda İYİP, öteki yanda HDP ile ittifak kurmadan, muhalefet geniş bir cephede birleşmeden ülkenin tek adam rejiminden kurtulmasının mümkün olamayacağını, kendisinin temel amacının da bunu gerçekleştirmek olduğunu\" söylüyor. \"Recep T. Erdoğan tarihe, iktidarının ikinci yarısında toplumu giderek kutuplaştıran lider olarak geçti. Kılıçdaroğlu ise, Türkiye siyasetine büyük bir yenilik getiren, toplumu 'birleştiren' lider olarak geçecek. Dini inançları, etnik kökenleri, siyasi tercihleri, ekonomik koşulları açısından çok parçalı Türkiye toplumunda siyaset, ancak birleştirerek, ittifaklar kurarak, güçbirliği yaparak önündeki sorunların üstesinden gelebilir. Nitekim denebilir ki Erdoğan da toplumu birleştirdiği, siyasi gücü paylaştığı ölçüde başarılı olmuştu; kutuplaştırdığı, iktidarı tekeline aldığı ölçüde kaybetmekte. Umarım birleştiren politikanın kazandığını göreceğiz. Umudumuz Kılıçdaroğlu.\" (T24, Konuk yazar, 9 Mart 2023)",
@@ -113,6 +128,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Manga komutanıma veda',
               date: '8 Haziran 2023',
               url: 'https://platform24.org/arsiv/manga-komutanima-veda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/manga-komutanima-veda/image-1.jpg', alt: 'Manga komutanıma veda', kind: 'photo' },
+              ],
               subtitle: "Kendi kurduğumuz manga yakın arkadaşlarım: Zafer Toprak, Gündüz Vassaf, Cengiz Çandar, Ömer Madra, Şefik Kahramankaptan, İlnur Çevik…",
               body: [
                 "İngiliz Erkek Lisesi orta kısmında başlayan tiyatro oyunculuğum Robert Lisesi'nde ve sonra da Ankara Üniversitesi Siyasal Bilgiler Fakültesi'nde devam etmişti. SBF Tiyatro Kulübü üyeliğim bana hayat boyu sürecek dostluklar kazandırdı. Zafer Toprak, bu dostların en değerli olanlarından biriydi; mektepten sonra çok farklı yollardan yürümemize, farklı idealler peşinden gitmemize, uzun yıllar ayrı kalmamıza rağmen dostluğumuza hiç halel gelmedi, her zaman çok yakın olduk. Onun hiç beklenmedik bir sırada, hele benden önce vefat etmesi beni derinden yaraladı. İki yaş ve sınıf küçük Zafer, hatırladığım kadarıyla solcu öğrencilerin toplandığı SBF Fikir Kulübü'ne hiç üye olmamış, sempatizan kalmıştı; çünkü o hayat planını yapmış, akademisyen olmaya karar vermişti. Polisçe aranan arkadaşlarını, \"devrimci\" gençleri evinde saklamaktan geri durmamış ama kendisi solculuğunu fikir dünyasıyla sınırlamıştı. SBF sıralarındayken hepimiz sosyalizmi Kemalizm'in bir devamı, daha radikal bir biçimi olarak anlıyorduk. Birçoğumuz Kemalizm'i terk edip komünistlik, hatta Maoculuk yaptıktan sonra ya Kemalizm'e rücuda karar kıldık ya da (benim gibi) sosyal liberalizme meylettik. Zafer ise zamanla özgürlükçü demokrasiye sıkı bir bağlılıkla birleştirdiği, sol Kemalizm diye niteleyebileceğimiz anlayışına hep sadık kaldı. Zafer'in, tanımak mutluluğuna erdiğim, annesi Sabiha Hanım ve babası İsmet Bey toplumun eğitilmesiyle kalkınabileceğine inanan, birer aydınlanmacı Kemalisttiler. Zafer'in erken yaşta bir akademisyen, sosyal bilimci olarak topluma hizmet etme idealini benimsemesinde başlıca rolü hiç kuşkusuz onların fikri mirasına sadık kalması oynamıştır. Yakın dostların ortak özelliği, çok uzun yıllar ayrı kaldıktan sonra buluştuklarında bıraktıkları yerden devam etmeleridir. Biz de Zafer ile uzun yıllar ayrı kaldık; izlediğimiz yollar, vardığımız fikirler farklı oldu ama dostluğumuz bundan hiç zarar görmedi. Akademisyen olmaya kararlı Zafer, 1969'da SBF'den mezun olduktan sonra yüksek lisansını Londra Üniversitesi'nde, doktorasını İstanbul İktisat Fakültesi'nde yaptı. Ben genel af üzerine vatana döndüm. 1975'te kısa dönem yedek subay olarak askerliğimizi (net 70 günde) yaptığımız Çanakkale Er Eğitim Tugayı'nda tekrar biraraya geldik. Hem de ne biraraya geliş…",
@@ -130,6 +148,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Ali Kemal’in fikirleri değerini koruyor',
               date: '25 Nisan 2023',
               url: 'https://platform24.org/arsiv/ali-kemalin-fikirleri-degerini-koruyor/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/ali-kemalin-fikirleri-degerini-koruyor/image-1.jpg', alt: 'Ali Kemal’in fikirleri değerini koruyor', kind: 'photo' },
+              ],
               subtitle: "Türkiye Cumhuriyeti kuruluşundan 100 yıl sonra dahi özgürlükler açısından Ali Kemal’in arzuladığı toplum olmaktan uzak.",
               body: [
                 "Ali Kemal'in (1867 – 1922) Osmanlı – Türk siyasi tarihinin belki de ilk gerçek anlamda liberal düşünürü olduğunu biliyordum. Osmanlı devletinin (örneğin Britanya gibi) meşrutileşerek, anayasal bir rejime kavuşarak, farklı etnik ve dinsel kimliklerden yurttaşlarının hak ve özgürlüklerine saygı göstererek bütünlüğünü koruyabileceğini savunan, gününün etkili bir yorum yazarı olduğunu biliyordum. Şunları da biliyordum: Ali Kemal, İttihat ve Terakki (İTC) diktatörlüğüne, Türkiye'yi Birinci Dünya Savaşı'na sokmasına, savaş sırasında ülkenin Ermeni yurttaşlarını Suriye çölüne tehcire, zorunlu göçe tabi tutarak en az yarısının açlık ve hastalıktan kırılarak, yollarda katledilerek telef olmasına kararlılıkla karşı çıkmıştı.",
@@ -145,6 +166,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Artık bilelim: Deprem değil, bina öldürür',
               date: '16 Şubat 2023',
               url: 'https://platform24.org/arsiv/artik-bilelim-deprem-degil-bina-oldurur/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/artik-bilelim-deprem-degil-bina-oldurur/image-1.jpg', alt: 'Artık bilelim: Deprem değil, bina öldürür', kind: 'photo' },
+              ],
               subtitle: "Depreme hazırlanmanın ilk şartı, işleri kadere bırakmayan, bilim doğrultusunda kenti depreme hazırlayan bir yönetime sahip olmak.",
               body: [
                 "6 Şubat 2023 günü üst üste gelen 7.7 ve 7.6 şiddetinde iki deprem Türkiye'nin güneydeki 10 ilinde ve Suriye'nin kuzeybatısında adeta cehennemi yaşattı. Bu satırların yazıldığı sırada sadece Türkiye'de 36 binden fazla yurttaş yıkıntıların altında can verdi; can kaybının 75 bine ulaşabileceği hesaplanıyor. Söylenecek ilk şey şu: Türkiye çağdaşlaşma sınavını başaramadı; 1999'da yaşanan Marmara depreminden ders alamadı… Deprem felaketlerini niçin bir türlü önleyemiyoruz? Yaşananlardan niçin bir türlü ders alamıyoruz? Bu yıkımların bir daha yaşanmaması için ne yapmalıyız? Bu soruları konuşmak ve çıkan dersler ışığında önlem almak zorundayız.",
@@ -163,6 +187,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Büyükelçilikten insan hakları savunuculuğuna',
               date: '15 Ocak 2023',
               url: 'https://platform24.org/arsiv/buyukelcilikten-insan-haklari-savunuculuguna/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/buyukelcilikten-insan-haklari-savunuculuguna/image-1.jpg', alt: 'Büyükelçilikten insan hakları savunuculuğuna', kind: 'photo' },
+              ],
               subtitle: "Rıza Türmen’in kitapları, Türkiye’deki demokrasinin çoğunluk diktatörlüğünden başka bir şey olmadığının anlaşılmasına çok değerli birer katkı.",
               body: [
                 "Emekli Büyükelçi, 1998 – 2008 arasında Avrupa İnsan Hakları Mahkemesi'nin Türk yargıcı, 2011 – 2005 arasında İzmir CHP milletvekili Rıza Türmen'in üçüncü kitabı yakınlarda yayımlandı. Türmen'in insan hakları konularındaki denemelerden oluşan ilk kitabı Güçsüzlerin Gücü 2015'te basılmıştı. \"Sivil toplumu canlı tutmak, kamusal alanda demokrasi mücadelesi verilmesine katkıda bulunmak\" amacıyla kaleme aldığı ve \"Demokrasi için Birlik platformunun doğmasını\" hazırlayan yazılarının yer aldığı ikinci kitabı Türkiye'de Demokrasi Arayışı'nı (2021) izleyen son kitabı Bir AİHM Yargıcının Not Defteri de (2022) geçtiğimiz günlerde çıktı. Türmen yeni kitabını sunarken şöyle diyor: \"Türkiye'deki rejim değişmeden insan hakları sorunlarının çözülmesi beklenemez. İnsan hakları bakımından uygun bir ortam meydana geldiğinde neler yapılması gerektiği hakkında bu kitabın yardımcı olabileceğini düşünüyorum.\" Kitap, Türmen'in İtalya'da insan hakları alanında doktora yapan Işıl Kurnaz'a son iki yıl içinde verdiği mülakatlardan oluşmakta. Türmen \"Hak ve özgürlüklerinden yoksun bırakılan, sesi duyulmayanlara\" adadığı ve insan hakları mücadelesinin hemen her alanını kapsayan katkılardan oluşan kitabını sunarken şöyle diyor: \"Bu kitap Avrupa İnsan Hakları Mahkemesi ve onun kararları üzerine. Öncelikle amacı, önemli ve yerleşik içtihat haline gelmiş AİHM kararları ve bu kararların dayandığı ilkeler hakkında kolay okunur bir format içinde bilgi vermek. AİHM kararlarını 10 yıllık görev süremde edinmiş olduğum kişisel deneyimlerimle de harmanladım.\" Türmen'in üç kitabı da, Türkiye'de tanık olduğumuz insan haklarının saygı görmediği türden bir demokrasinin gerçekte çoğunluk diktatörlüğünden başka bir şey olmadığının olanca açıklığıyla anlaşılmasına çok değerli birer katkı; bu alanda vazgeçilmez üç okuma. Yazarın son kitabının önsözünde, Türkiye Cumhuriyeti büyükelçiliğinden, AİHM yargıçlığına geçiş süreci hakkında söyledikleri çok dikkate değer: \"Sadece meslek değiştirmiyordum. Aynı zamanda insan haklarına başka bir pencereden bakmayı öğreniyordum. İnsan hakları konusu benim için yeni değildi. Dışişleri Bakanlığı'nda uzun süredir bu alanda çalışıyordum. En büyük amacım Türkiye'deki insan hakları sorunlarına çözüm getirmekti. Ama ister istemez insan haklarına devlet penceresinden bakıyordum. AİHM yargıçlığına geçince, bu bakış açısı değişti. Devleti savunan konumundan, devleti yargılayan konumuna geçtim. Bu kolay olmadı. Belirli bir geçiş dönemine gereksinim gösterdi.\" (s. 12)",
@@ -173,6 +200,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Stockholm’e Dönüş',
               date: '2 Ocak 2023',
               url: 'https://platform24.org/arsiv/stockholm-e-donus/',
+              clippings: [
+                { src: '/archive/clippings/p24/2023/stockholm-e-donus/image-1.jpg', alt: 'Stockholm’e Dönüş', kind: 'photo' },
+              ],
               subtitle: "P24'e yazdığım yazılara uzun süredir çeşitli nedenlerle ara vermiştim. Ne var ki, son yazıdan bu yana bu sessizliği bozmam için birçok neden yaşandı.",
               body: [
                 "27 Temmuz 2016'da tutuklanmamla birlikte pasaportum geçerliğini yitirmişti. 17 Mart 2018'de Silivri'den tahliye olmamdan sonra da, doğrusu, yargılanma süreci bitmeden hakkımdaki yurtdışı seyahat yasağının kalkabileceği ve pasaportumu geri alabileceğim aklımın ucuna dahi gelmemişti. Ama bir sürpriz oldu ve 28 Haziran 2022 tarihindeki duruşmada İstanbul 13. Ağır Ceza Mahkemesi, bu davada yargılanan benim yanısıra Ali Bulaç, Ahmet Turan Alkan ve Mümtazer Türköne için yurtdışı seyahat yasağını kaldırdı. Bu karar, bende yurtdışına seyahat özgürlüğünü geri kazanıyor olabileceğim umudunu uyandırdığı gibi, belki de sonuçta ağır bir ceza almayabileceğime dair bir işaret olması bakımından da sevindiriciydi. Öncesinde yurtdışına sık seyahat eden biri olarak, 2015'ten beri 7 yıldır yurtdışına çıkamamış olmak bende tutsaklığın başka bir boyutta devam ettiği duygusunu uyandırıyordu. Bir an önce pasaport alıp yurtdışına çıkabilmeli, öncelikle de 9 yıldır gidemediğim, hayatımın 9 yılını geçirdiğim kente, Stockholm'e gitmeli; 94 yaşına gelmiş olan, 1970'lerde Stockholm Üniversitesi'ndeki doktora tez hocam, birçok desteğini gördüğüm profesör Tomas Hammar'ı ziyaret etmeliydim.",
@@ -194,6 +224,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Gün Zileli’nin anıları üzerine',
               date: '17 Ekim 2022',
               url: 'https://platform24.org/arsiv/gun-zileli-nin-anilari-uzerine/',
+              clippings: [
+                { src: '/archive/clippings/p24/2022/gun-zileli-nin-anilari-uzerine/image-1.jpg', alt: 'Gün Zileli’nin anıları üzerine', kind: 'photo' },
+              ],
               subtitle: "Benim kuşağımın Marxist – Leninist ideali de; özgürlükçü bir demokrasi getirme çabasına sarılması da bugüne kadar bir yere varamadı.",
               body: [
                 "Gün Zileli ile Ağustos 1968'de yayımlanmaya başlayan Aydınlık dergisi yazı kurulunda tanıştık. SBF'den mezun olduktan sonra, o sıra yakın arkadaşım olan Doğu Perinçek'in aracılığıyla o zamanların tanınmış anayasa profesörü Bülent Nuri Esen'in Ankara Üniversitesi Eğitim Fakültesi'ndeki kürsüsüne asistan girmiştim. Üç yıldır evliydim ve yeni baba olmuştum. DTCF'de okuyan Gün ise Perinçek'in yazı kuruluna davet ettiği, devrimci gençlik hareketinde temayüz eden (Hukuk'tan Atıl Ant ve Siyasal'dan Cengiz Çandar'ın yanısıra) üniversite öğrencilerinden biriydi. 12 Mart 1971 askeri müdahalesiyle sonuçlanacak olan dönemde, Aydınlık Sosyalist Dergi'nin yazı kurulu toplantıları dışında Gün ile yollarımız pek seyrek kesişmiş, karşı karşıya oturup sohbet etmişliğimiz olmamıştı. Aradan elliden fazla yıl geçtikten sonra, 21 Mayıs 2022'de Gün'e, Robert Lisesi ve SBF'den, sonrasında hayat boyu dostum olan Erdal Yavuz'un Rumelihisarı kabristanında toprağa verilişi sırasında rastlamak hayli şaşırtıcı olmuştu. Zira Gün'ün Erdal'la yakınlığı olduğunu tabii bilmiyordum. Bana dostça gözlerle bakmasına, yanındaki eşiyle tanıştırmasına da şaşırmıştım, çünkü birkaç yıl önce kaleme aldığı kimi makalelerde hakkımda söyledikleri hayli olumsuzdu. Bunlardan biri benimle ilgili yargısını şöyle özetliyordu: \"Dönemin en sert devrimci teorisiyle yola çıktı; orta yaşlarda bir liberale dönüştü; altmışlı yaşlarında karşıdevrimci bir muhafazakar, Türkiye'nin en reaksiyoner kesimlerinden biri olan Fethullah cemaatinin hizmetine girip onun yazarı oldu. Yani öldü…\" diyordu (\"Elim bir zayi: Şahin Alpay\", 11 Temmuz 2012). Kimi ortak tanıdıklarımız bu yazılardan beni haberdar etmişlerdi ama bunlara cevap vermek gereğini duymamıştım.",
@@ -210,6 +243,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Sevgili dost Oblomov Erdal’a veda',
               date: '26 Mayıs 2022',
               url: 'https://platform24.org/arsiv/sevgili-dost-oblomov-erdala-veda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2022/sevgili-dost-oblomov-erdala-veda/image-1.jpg', alt: 'Sevgili dost Oblomov Erdal’a veda', kind: 'photo' },
+              ],
               subtitle: "Erdal Yavuz, tanıdığım insanların en duyarlısı, en şefkatlisi, en iyisi ve en akıllılarından biriydi.",
               body: [
                 "Mayıs ayı çok gaddar başladı. Önce yakın dostum Ömer Madra ile çok yıllar önce kaybettiğimiz rahmetli eşi, sevgili arkadaşımız Tanju'nun oğulları Cem'in hiç mi hiç beklenmedik, onu tanıyan herkesi derinden sarsan ölüm haberi geldi. Ardından Robert Lisesi'nden sınıf arkadaşım, nice yıllar sonra WhatsApp'ta buluştuğum sevgili Morris Mizrahi'nin grubumuzdaki mesajları kesilince aniden kalbinin durduğunu öğrendik. Hemen ardından da Robert Lisesi sıralarında başlayıp, Ankara Üniversitesi Siyasal Bilgiler Fakültesi'nde ve sonra ömür boyu süren bir dostlukla bağlı olduğum Erdal Yavuz aramızdan ayrıldı. Cem'in ölümüyle hayat öykümden bir parça koptu. Fatma'yla ben 1965 yılında evlendik; Tanju'yla Ömer 1966'da. Bizim kızımız Elvan 1968'de doğdu; onların oğlu Cem 1969'da. Ben Ömer'le, Fatma Tanju ile ne kadar yakın arkadaş olduysak, Elvan ile Cem de o kadar yakın arkadaş oldular. O bizim Cemo'muzdu. Henüz çocukken babasının hapse düşmesi, ardından annesinin hastalanıp zamansız (sadece 32 yaşında) ölümü Cemo'nun hayatına derin bir damga vurdu. Birçok bakımdan olağanüstü yeteneklere sahip, farklı kumaştan biriydi. Sıradışı bir insandı, sıradışı bir hayat yaşadı; tanıyanların bilincinde derin bir iz bırakarak aramızdan ayrıldı. Onu yazma işini yakın dostlarına bırakıyorum.",
@@ -226,6 +262,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: '“Bana ne, lan!” diyememek',
               date: '11 Nisan 2022',
               url: 'https://platform24.org/arsiv/bana-ne-lan-diyememek/',
+              clippings: [
+                { src: '/archive/clippings/p24/2022/bana-ne-lan-diyememek/image-1.jpg', alt: '“Bana ne, lan!” diyememek', kind: 'photo' },
+              ],
               subtitle: "Hasan'a duyduğum yakınlığın nedeni, üzerimize vazife olmayan soruların cevaplarını aramak, \"Bana ne lan!\" diyememek huyumuz olabilir.",
               body: [
                 "Prof. Dr. Hasan Yazıcı, Türkiye'nin yetiştirdiği en değerli tıp ve biliminsanlarından biridir. Romatoloji bilim dalının ülkemizdeki kurucularındandır. Özellikle Behçet hastalığı üzerine çok sayıda bilimsel yayını vardır. TÜBİTAK Bilim, Avrupa Romatizmayla Savaş Derneği Üstün Hizmet ödüllerine ve Amerika Romatoloji Derneği'nin Master unvanına sahiptir. Türkiye Bilimler Akademisi Bilim Ahlâk Komitesi'nin ve İstanbul Üniversitesi Etik Komitesi'nin kurucu başkanlığını yapmıştır. 2012 yılında İstanbul Üniversitesi Cerrahpaşa Tıp Fakültesi'nden emekli olmuştur.",
@@ -249,6 +288,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Aydın Engin anısına saygı ve şükranlarımla',
               date: '27 Mart 2022',
               url: 'https://platform24.org/arsiv/aydin-engin-anisina-saygi-ve-sukranlarimla/',
+              clippings: [
+                { src: '/archive/clippings/p24/2022/aydin-engin-anisina-saygi-ve-sukranlarimla/image-1.jpg', alt: 'Aydın Engin anısına saygı ve şükranlarımla', kind: 'photo' },
+              ],
               subtitle: "Bu yazılar Aydın'ın mirasını, gelmiş geçmiş en tutarlı, en yürekli ifade özgürlüğü kahramanlarından biri olduğunu ortaya koymakta.",
               body: [
                 "Aydın Engin ile pek az biraraya gelmek, görüşmek nasip oldu, ama Aydın en çok değer verdiğim, en yakınlarımdan saydığım bir dostumdu. Bu nedenle onun ardından yazmak, ona saygımı ve şükranlarımı bir kez daha dile getirmek istiyorum.",
@@ -280,6 +322,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Hayat Hanım’ın iki yüzü',
               date: '7 Mart 2022',
               url: 'https://platform24.org/arsiv/hayat-hanimin-iki-yuzu/',
+              clippings: [
+                { src: '/archive/clippings/p24/2022/hayat-hanimin-iki-yuzu/image-1.jpg', alt: 'Hayat Hanım’ın iki yüzü', kind: 'photo' },
+              ],
               subtitle: "Romanın bir yüzünde özel hayatlarla kamusal hayat arasındaki gerginlik var, öteki yüzünde 15 Temmuz sonrası Türkiye’nin ruhu.",
               body: [
                 "Ahmet Altan'ın yeni romanı Hayat Hanım'ı iki şekilde okumak mümkün. Bir okuma romanın baş kahramanının birbirine neredeyse zıt özellikleri olan iki kadına birden duyduğu ve birini tercih zorunda bırakan aşk öyküsüne odaklanabilir; öteki ise bu öykünün çevresinde yaşanan toplumsal hayatın boğuculuğuna.",
@@ -297,6 +342,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Harikalar diyarında',
               date: '18 Aralık 2020',
               url: 'https://platform24.org/arsiv/harikalar-diyarinda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/harikalar-diyarinda/image-1.jpg', alt: 'Harikalar diyarında', kind: 'photo' },
+              ],
               subtitle: "Liberal demokrasinin yerleşebilmesi öncelikle İslamcıların ve Kürt siyasî hareketinin sisteme dahil edebilmesiyle mümkün olabilirdi",
               body: [
                 "Geçenlerde genç bir arkadaşla sohbet ediyoruz. Beni yeni tanıyan birçokları gibi, \"Sizin nasıl olup da Zaman gazetesinde yazdığınızı, nasıl olup da Gülen cemaatine olumlu bakabildiğinizi anlayamıyorum…\" diyor. Ve beni uzun uzun açıklamaya teşvik ediyor. Anlatıyorum:",
@@ -320,6 +368,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Kaçık Radyo’ya uzun ömürler',
               date: '6 Aralık 2020',
               url: 'https://platform24.org/arsiv/kacik-radyoya-uzun-omurler/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/kacik-radyoya-uzun-omurler/image-1.jpg', alt: 'Kaçık Radyo’ya uzun ömürler', kind: 'photo' },
+              ],
               subtitle: "Ömer Madra Açık Radyo ile özgür seslerin duyulabileceği az sayıdaki mahreçlerden birini 25 yıldır ayakta tutmayı başardı",
               body: [
                 "Ömer Madra, beni tanıyan herkesin bildiği gibi, yakın arkadaşlarımın en eskisi ve en yakınıdır. Arkadaşlığımızın tam olarak ne zaman başladığını hatırlamıyorum. 1950'lerin başlarında Ayvalık, Çamlık'ta, deniz kenarındaki \"saha\"da futbol oynayarak başlamış olmalı. Sonrasındaki hayat öykülerimiz şaşılacak bir paralellik gösterir. Hikayelerimizde belki en ayırt edici fark, bir yıl farkla (ben 1944'te, o 1945'te) doğmuş olmamızdan kaynaklanır. 1950'lerin ilk yarısında ben Nişantaşı'ndaki Nilüfer Hatun ilkokuluna devam ederken, o Nişantaşı'ndaki Şişli Terakki Lisesi'nin ilkokuluna gidiyordu. Ben annem ve kardeşlerimle Valikonağı Cad. üzerinde, o annesiyle Şakayık sokakta oturuyordu.",
@@ -343,6 +394,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Kemalizmin amaçlanmayan sonuçları',
               date: '14 Kasım 2020',
               url: 'https://platform24.org/arsiv/kemalizmin-amaclanmayan-sonuclari/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/kemalizmin-amaclanmayan-sonuclari/image-1.jpg', alt: 'Kemalizmin amaçlanmayan sonuçları', kind: 'photo' },
+              ],
               subtitle: "Kemalizmin otoriter kimlik politikalarının Kürt yurttaşların ülkeye bağlılığını güçlendirmediği muhakkak. Tersine.",
               body: [
                 "Geçen yazımda dostum Prof. Dr. Zafer Toprak'ın Türkiye Cumhuriyeti'nin \"kurucu felsefesi\"nin esin kaynaklarını ve dayandığı temel görüşleri irdeleyen Atatürk: Kurucu Felsefenin Evrimi (Türkiye İş Bankası, 2020) başlıklı son kitabından söz ettim. Toprak'ın kitabı okuru Cumhuriyet'in Kemalizm olarak da anılan \"kurucu felsefesi\"nin ya da resmi ideolojisinin yaklaşık yüzyıl sonra bugün geldiği ve ülkeyi getirdiği yeri sorgulamaya sevketmekte. Kısacası kitabın zihinlerde uyandırdığı soru şu: Kemalizm nasıl bir Türkiye tasarlıyordu ve yaklaşık yüz yıl sonra karşımıza çıkan Türkiye nasıl bir yer?",
@@ -362,6 +416,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: '“Kurucu felsefe”nin esin kaynakları',
               date: '5 Kasım 2020',
               url: 'https://platform24.org/arsiv/kurucu-felsefenin-esin-kaynaklari/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/kurucu-felsefenin-esin-kaynaklari/image-1.jpg', alt: '“Kurucu felsefe”nin esin kaynakları', kind: 'photo' },
+              ],
               subtitle: "Zafer Toprak'ın Atatürk: Kurucu Felsefenin Evrimi başlığını taşıyan son kitabının önemine dikkat çekmek istiyorum",
               body: [
                 "Prof. Dr. Zafer Toprak, kuşku yok ki Türkiye'nin en üretken, en değerli sosyal bilimcilerinden biridir. Türkiye'de Milli İktisat, İttihat ve Terakki ve Cihan Harbi, Türkiye'de Ekonomi ve Toplum, İttihat-Terakki ve Devletçilik (1908-1950), Türkiye'de İşçi Sınıfı (1908 – 1946), Türkiye'de Kadın Özgürlüğü ve Feminizm (1908-1935), Türkiye'de Yeni Hayat, Darwin'den Dersim'e Cumhuriyet ve Antropoloji, Türkiye'de Popülizm (1908-1923) ve yakınlarda yayımlanan Atatürk: Kurucu Felsefenin Evrimi başlıklı kitapları yanısıra kurumların tarihi üzerine araştırmaları ile modernleşme çağında Türkiye'nin iktisadi ve siyasi tarihinin anlaşılmasına büyük bir katkıda bulunmuştur.",
@@ -380,6 +437,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Darbecilikle boğuşurken popülizme yakalanmak',
               date: '28 Eylül 2020',
               url: 'https://platform24.org/arsiv/darbecilikle-bogusurken-populizme-yakalanmak/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/darbecilikle-bogusurken-populizme-yakalanmak/image-1.jpg', alt: 'Darbecilikle boğuşurken popülizme yakalanmak', kind: 'photo' },
+              ],
               subtitle: "Popülist otoriter rejimlerin sermaye, medya ve yargı üzerinde kurdukları hâkimiyet demokratik dönüşümleri çok güç bir hâle getiriyor",
               body: [
                 "Ergun Özbudun'la Hukuk Fakültesi'nin hamiliğinde kurulan Ankara Üniversitesi Eğitim Fakültesi'nin Anayasa ve İnsan Hakları Hukuku kürsüsüne asistan olarak atandığım 1968 yılında tanıştım. (Dile kolay, 52 sene olmuş!..) Doğu Perinçek o sıra Hukuk Fakültesi'nde Dr. asistan (bugün inanılır gibi değil ama) benim de yakın bir arkadaşımdı. Beni o sıralar pek \"devrimci\" eğilimleri olan Esen ile tanıştırmış, o da beni Eğitim Fakültesi'ndeki kürsüsüne asistan almıştı. \"Ergun abi\" o günlerde henüz doçentti.",
@@ -400,6 +460,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Assar Lindbeck ve liberal sosyal demokrasi',
               date: '20 Eylül 2020',
               url: 'https://platform24.org/arsiv/assar-lindbeck-ve-liberal-sosyal-demokrasi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/assar-lindbeck-ve-liberal-sosyal-demokrasi/image-1.jpg', alt: 'Assar Lindbeck ve liberal sosyal demokrasi', kind: 'photo' },
+              ],
               subtitle: "\"Sosyal bilimlerde katışıksız bilimsel araştırmalar ile politika önerileri arasında iyi bir dengeye rastlamak zordur.\"",
               body: [
                 "Ünlü iktisatçı Assar Lindbeck'in (1930 – 2020) 28 Ağustos'ta vefat ettiğini Stockholm Üniversitesi'ndeki doktora öğrencilerinden biri olan, Boğaziçi Üniversitesi iktisat profesörlerinden arkadaşım Refik Erzan'ın yolladığı mesajdan öğrendim.",
@@ -417,6 +480,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Yeni dünya görüşüm',
               date: '19 Temmuz 2020',
               url: 'https://platform24.org/arsiv/yeni-dunya-gorusum/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/yeni-dunya-gorusum/image-1.jpg', alt: 'Yeni dünya görüşüm', kind: 'photo' },
+              ],
               subtitle: "Ne kadar yaşayacağımızı, ne zaman, ne şekilde öleceğimizi bilmiyoruz. O hâlde dünde ya da yarında değil bugünde, şu anda yaşamayı akıl edin",
               body: [
                 "Silivri'den çıktıktan, ardından Fatma'nın kaybıyla yaşadığım travma ve başıma gelen acı ve tatlı bir yığın şeyden sonra, hayatımın şu son evresinde belki de son paradigma (dünyayı algılama merceği) değişimini yaşıyorum. Okurlarım bilir, ben birkaç kez paradigma değiştirdim; dönekliğimle övünürüm; yanlış olduğu anlaşılana yanlış demeyi erdem sayarım.",
@@ -435,6 +501,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Kadri bilinmemiş bir şah-eser',
               date: '6 Mayıs 2020',
               url: 'https://platform24.org/arsiv/kadri-bilinmemis-bir-sah-eser/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/kadri-bilinmemis-bir-sah-eser/image-1.jpg', alt: 'Kadri bilinmemiş bir şah-eser', kind: 'photo' },
+              ],
               subtitle: "Ömer Madra’nın “Romanımla Sana Bir Ses…” adlı romanı kadri bilinmemiş bir şah-eserdir",
               body: [
                 "Bana göre romanın iyisi otobiyografik (ögeleri) olan romandır. Kimilerine göre, bütün büyük yazarların bazı önemli eserlerinde bu ögeler vardır. Mesela Masumiyet Müzesi bana göre bir başyapıttır; elime aldığımda bırakamadım. Üstelik bana söylediği, bana hitap eden bir şey de vardı: Karşılıksız aşk süründürür… Buna karşılık mesela Kar bana hiç sahici gelmedi; okuyup bitiremedim. Otobiyografik deyince, bana göre Ömer Madra'nın Romanımla Sana Bir Ses… adlı romanı kadri bilinmemiş bir şah-eserdir. İlk kez 1991'de yayımlandı; sonra uzun süre sesi soluğu çıkmadı. Oysa Orhan Pamuk hemen okumuş, çok da beğenmişti. Çeyrek yüzyıl sonra, 2015'te ikinci kez basıldığında da, doğrusu, fazla bir yankı bulmadı. Üzüldüm.",
@@ -457,6 +526,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Trump’ın dünyaya verdiği dersler',
               date: '28 Nisan 2020',
               url: 'https://platform24.org/arsiv/trumpin-dunyaya-verdigi-dersler/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/trumpin-dunyaya-verdigi-dersler/image-1.jpg', alt: 'Trump’ın dünyaya verdiği dersler', kind: 'photo' },
+              ],
               subtitle: "Başkanlık sisteminin en büyük dezavantajı, bir şarlatanın elinde bir tek-adam yönetimine, otoriter bir rejime doğru gidebilecek olması",
               body: [
                 "Yürütme gücünün bütün yetkileri elinde toplamasına izin vermeyen denge ve denetim mekanizmalarından yoksun, yani liberal olmayan, yani sadece çoğunluk yönetimi anlamında demokrasinin, çoğunluk diktatörlüğüne dönüşebileceği teorik olarak biliniyordu… Gerek faşist, gerekse komünist diktatörlükler de halk çoğunluğunu temsil etme iddiası üzerine kuruluydu.",
@@ -475,6 +547,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Ne umduk, ne bulduk',
               date: '17 Nisan 2020',
               url: 'https://platform24.org/arsiv/ne-umduk-ne-bulduk/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/ne-umduk-ne-bulduk/image-1.jpg', alt: 'Ne umduk, ne bulduk', kind: 'photo' },
+              ],
               subtitle: "Hani fikirlerin ve malların serbestçe dolaştığı bir globalleşme çağındaydık? Aksine, toplumlar \"yerli ve milli\" düzene doğru gitmiyor mu?",
               body: [
                 "Anılarımı yazıyorum. Ölmeden bitirmek istediğim anılarım için bazı dostlarım, \"Geç kaldın, herkes yazdı bitirdi\" dediler. Hiç bir laf bundan daha yanlış olamazdı. Şöyle açıkladım: Aksine! Evet ölüp bitirememek riskim var, ama anılarımı ancak şimdi, kendimce tarihime bakışta bir olgunluğa erdiğimde yazmamın bir anlamı olabilirdi. \"Olgunluğa ermek de ne demek?\" diye sorabilirsiniz. O da şu: insanın kendi tarihine bakabilecek duruma geldiğine kani olmak.",
@@ -498,6 +573,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Korona’nın da İsveç modeli var',
               date: '30 Mart 2020',
               url: 'https://platform24.org/arsiv/koronanin-da-isvec-modeli-var/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/koronanin-da-isvec-modeli-var/image-1.jpg', alt: 'Korona’nın da İsveç modeli var', kind: 'photo' },
+              ],
               subtitle: "Siyasi iktidar, özerk kamu organlarının işlerine karışamıyor; onlar ne derse onu yapıyor. Korona salgını hakkında Halk Sağlığı Kurumu karar veriyor.",
               body: [
                 "Demek İsveç'i artık eskisi kadar yakından izlemiyormuşum ki, orada olan biteni bir süredir Stockholm'de oturan Cengiz'in telefonundan öğrendim. Çok öfkeliydi. İsveç'i sevmeme dönemini yaşadığı için köpürüyordu: \"Bu İsveç hükümeti aklını peynir ekmekle yemiş; herkes sokakta, lokantalar, okullar, sınırlar, her yer açık… Çok fena… Ne olacağımızı bilmiyoruz…\" Hemen gazeteleri taradım ve evet, eski memleketim Korona'da da farklı bir model uyguluyormuş; ne sonuç vereceği konusunda tereddütlü olanlar varmış, ama yetkililer modeli şimdilik ısrarla uyguluyormuş. Korona günlerinde İsveç'i yazmaktan kendimi alamadım.",
@@ -516,6 +594,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Bu dünyadan Oğuz da geçti',
               date: '23 Mart 2020',
               url: 'https://platform24.org/arsiv/bu-dunyadan-oguz-da-gecti/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/bu-dunyadan-oguz-da-gecti/image-1.jpg', alt: 'Bu dünyadan Oğuz da geçti', kind: 'photo' },
+              ],
               subtitle: "Oğuz Öztuzcu (1942 – 2020) Türkiye'nin en yaratıcı, en özgün projelere imza atan mimarlarından biri olarak hatırlanacak",
               body: [
                 "Hayatımda iz bırakan dostlarım bir bir gidiyor. Yaprak dökümü Silivri cezaevine tıkılmamdan kısa süre önce Tosun Terzioğlu'nun vefatı ile başladı. Kodeste olduğumdan Fahrettin Yağcı'yı anma toplantısına katılamadım. Cemal Uşşak, Ataman Onar, İshak Alaton, İnci Akyürek, hepsi ben içerideyken veda ettiler. Hapisten çıktıktan sonra Arif Tlabar ile ancak bir telefon görüşmesi yapabildim. Ardından sevgilim, bir tanem Fatma gitti. Geçen ay Haluk Beker, geçen gün de Oğuz Öztuzcu'yu uğurladık. İmkanım olduğunda kaybettiğim yakın dostlarımın ardından yazmayı aziz hatıralarına borç bildim. Ne mutlu ki Bağımsız Gazetecilik Platformu (P24) bana bu borcu yerine getirme fırsatını tanıyor.",
@@ -533,6 +614,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Haluk Beker’in ardından',
               date: '3 Şubat 2020',
               url: 'https://platform24.org/arsiv/haluk-bekerin-ardindan/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/haluk-bekerin-ardindan/image-1.jpg', alt: 'Haluk Beker’in ardından', kind: 'photo' },
+              ],
               subtitle: "\"Sana imreniyorum, bu iki kitabı okumamış olup, bu tatilde Bali'ye gitmek yerine onları okumak ne güzel olurdu. Hasret ve muhabbet.\"",
               body: [
                 "Robert Lisesi'nde birinci ve üçüncü sınıfı okuduktan sonra (ikinci sınıfta bir bursla ABD'ye gitmiştim) 1963'te mezun oldum. Bu iki kısa yıl içinde ömür boyu sürecek dostluklar edindim. Prof. Dr. Haluk Beker de o dostlarımdan biridir. Fakat ilginçtir ki, aynı sınıfta okuduğumuz günlerde Haluk'la bir yakınlığımız olmamıştı. Dostluğumuz çok sonraları, 60 yaşını devirdikten sonra gelişti.",
@@ -551,6 +635,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Gerçekle aramız hiç iyi değil',
               date: '27 Ocak 2020',
               url: 'https://platform24.org/arsiv/gercekle-aramiz-hic-iyi-degil/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/gercekle-aramiz-hic-iyi-degil/image-1.jpg', alt: 'Gerçekle aramız hiç iyi değil', kind: 'photo' },
+              ],
               subtitle: "Gerçeği gerçekten öğrenmek istemeden, gerçeği bir yerde kutsamadan nasıl düzgün bilim olmazsa, adalet, hukuk ve yargı da olamaz",
               body: [
                 "12 Eylül askerî yönetiminin ilk işlerinden biri Prof. İhsan Doğramacı'yı üniversite özerkliğini bitirmekle görevli despot olarak atamak olmuştu. O tarihe kadar yüksek öğretimde özerklik ve çoğulculuk ilkelerinin savunuculuğunu yapmış olan Doğramacı, aniden bunun tam tersini benimseyip uygular olmuştu. Bunun için ondan hiç haz etmiyorduk. Onun Annenin El Kitabı (1952) başlıklı kitabının Amerikalı Dr. Benjamin Spock'un Çocuk Bakımı ve Eğitimi (1946) başlığıyla Türkçeye çevrilen kitabından aşırmalarla (çalıntılarla) dolu olduğunu da biliyorduk. Bunu ilk kez Ömer Madra'dan duymuştum. O sıralarda Ömer, oğlu Cem'in dünyaya gelmesi üzerine rahmetli eşi Tanju ile birlikte (bugün iklim değişikliğine duyduğu derin ilgiye benzer bir şekilde) çocuk bakımı ve eğitimi yazınına merak salmıştı. Bunun sonucunda, yukarıda sözünü ettiğim keşfi 1969'da yapmış, büyük bir heyecanla dostlarıyla, bu arada rahmetli Uğur Mumcu ile paylaşmıştı. (Yeni öğrendim: Meğer Prof. Korkut Boratav aynı keşfi, Ömer'den çok önce, 1960'da yapmış; Mumcu'ya ve başka dostlarına söylemiş.) Anlayacağınız, Doğramacı'nın Spock'tan aşırmalar yaptığı 1960'lardan itibaren birçoklarınca bilinen bir gerçekti. Bu gerçeğin kamuya mal olması için yaklaşık 20 yıl geçmesi gerekti. Rahmetli Uğur Mumcu \"Dr. Spock ve Prof. Doğramacı\" (Cumhuriyet, 29 Kasım 1981) başlıklı köşe yazısında, kendine has alaycı uslubuyla, \"Spock'un Doğramacı'nın kitabından geniş ölçüde yararlandığını\" (yani tersini) örnekleriyle gösterdikten sonra yazısını \"Seni hınzır Amerikalı seni!\" diye bitiriyordu. Mumcu'nun yazısının yayımlanmasından birkaç gün sonra, rahmetli Ufuk Güldemir Doğramacı ile bir söyleşi yapmış (Cumhuriyet, 6 Aralık 1981), iki kitap arasındaki benzerliklerin nedenini sormuştu. Doğramacı bu benzerlikleri (büyük bir pişkinlikle) \"çünkü birbirimizi seviyoruz\" diyerek açıklamıştı.",
@@ -569,6 +656,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: '“2020 Yılında Türkiye”',
               date: '8 Ocak 2020',
               url: 'https://platform24.org/arsiv/2020-yilinda-turkiye/',
+              clippings: [
+                { src: '/archive/clippings/p24/2020/2020-yilinda-turkiye/image-1.jpg', alt: '“2020 Yılında Türkiye”', kind: 'photo' },
+              ],
               subtitle: "Beraat etmeyi bekliyorum. Çünkü 16. Ceza Dairesi Mehmet Altan'ın beraatine karar verirken, AYM'nin benimle ilgili kararına gönderme yaptı",
               body: [
                 "Görmeyeceğimi sandığım 2020 geldi işte. Sevgilim artık yok, ama bütün hayal kırıklıklarımla ben buradayım. Belki daha göreceklerim de var.",
@@ -602,6 +692,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Vargas Llosa’nın keşfi',
               date: '14 Aralık 2019',
               url: 'https://platform24.org/arsiv/vargas-llosanin-kesfi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/vargas-llosanin-kesfi/image-1.jpg', alt: 'Vargas Llosa’nın keşfi', kind: 'photo' },
+              ],
               subtitle: "Gönlümde bir şeyler kıpırdatan kızın kalbini kazanmak için uzun mücadeleler verdim. Fatma geçen yıl vefatına değin beni dünyanın en mutlu erkeği yaptı",
               body: [
                 "Geçen yazılarımdan birinde sözünü ettiğim gibi, Silivri'yle birlikte edebiyatla ikinci baharımı yaşıyorum. Sosyal bilim kitaplarını elime alamıyorum. Günümüz koşullarında en iyisi de bu… 2018 yazında (birlikte geçirdiğimiz son yaz) Fatma'yla el ele verdik, Ayvalık'taki kitaplığımızı ayıkladık. Cezaevlerinde kitaplara duyulan ihtiyacı iyi öğrenmiştim. Onun için vazgeçemeyeceklerimiz dışındaki kitapları götürüp Altınova'daki Kadın Açık Ceza İnfaz Kurumu, yani hapishanesinin kitaplığına teslim ettim. Müdire hanım pek memnun oldu; çay ikram etti. Sakladığımız kitaplardan biri, anlaşılan Fatma'nın bir ara alıp okuduğu, Don Rigoberto'nun Not Defteri adlı roman geçen yaz elime geçti; Mario Vargas Llosa'yı böyle keşfettim. Geçenlerde de onun Üveyanneye Övgü adlı romanını bulup okudum. (Celal Üster'in yaptığı çeviri süper.) Henüz sadece iki romanını okumuş olduğum hâlde Vargas Llosa en beğendiğim yazarlar arasına girince hakkında okumaya başladım.",
@@ -620,6 +713,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Hayat bir mucize',
               date: '29 Kasım 2019',
               url: 'https://platform24.org/arsiv/hayat-bir-mucize/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/hayat-bir-mucize/image-1.jpg', alt: 'Hayat bir mucize', kind: 'photo' },
+              ],
               subtitle: "Bir gün gelecek yüz milyarlarca galaksi, onlardan biri olan Samanyolu, güneş sistemimiz ve minik gezegenimiz dünya da yok olacak",
               body: [
                 "Güneç Kıyak'ın T24'te yayımlanan haftalık bilim yazılarını kaçırmamaya çalışıyorum. 13 Ekim'de çıkan, \"2019 Nobel Fizik Ödülü\" konulu yazısı beni hayli düşündürdü. Şu nedenle: Bu yılki ödülü kazanan üç bilim adamından ikisi, İsviçreli fizikçiler Michel Mayor ile Didier Queloz 1995 yılında bizim Güneş sisteminden 51 ışık yılı uzaklıkta bir cüce yıldızın yörüngesinde hareket eden ve bir gaz devi olan \"51 Pegasi b\" adı verilen bir gezegen keşfetmişler. \"Bu keşiften sonra Samanyolu galaksisinde günümüze kadar 4 bin dolayında dış gezegen daha\" keşfedilmiş! Prof. Dr. Kıyak bunu şöyle yorumluyor: \"Evrenin hayal sınırlarımızı aşan büyüklüğü içinde, yüz milyarlarca galaksiden biri olan Samanyolu'nun bir cüce yıldızının, minik bir gezegenin üzerinde konuşlanmış mini-minnacık varlıklar olarak inanılmazı başarıyoruz.\"",
@@ -635,6 +731,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Cumhuriyet, demokrasi ve özgürlük ilişkisi',
               date: '8 Kasım 2019',
               url: 'https://platform24.org/arsiv/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi/image-1.jpg', alt: 'Cumhuriyet, demokrasi ve özgürlük ilişkisi', kind: 'photo' },
+              ],
               subtitle: "Kollektivist bir anlam yüklenen bütün rejimler özgürlüğü boğmuştur. Özgürlük ancak öznesi birey, fert, yurttaş, insan olduğu sürece gerçek olabilir",
               body: [
                 "Yaşadığım hayal kırıklıklarıyla, doğrusu genel olarak ve Türkiye'de siyaset üzerine yazmak içimden gelmiyor. Ama ne var ki ben de kuşağımın kimi mensupları gibi bir \"siyasî hayvan\"ım, yani siyaset bilimi öğrenimi gördüm, küçük yaştan itibaren dünyada ve yurtta siyasetin sorunlarıyla (yakamı kurtaramayacak kadar) uzun süre ilgilendim. Nitekim, 29 Ekim 2019 dolayısıyla cumhuriyet, demokrasi, hukukun üstünlüğü, özgürlük üzerine yazılan ve söylenenlerin teşvikiyle bu yazıyı yazmak ihtiyacını duydum.",
@@ -651,6 +750,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Mirası siyasi özgürlük ve sosyal adalet için mücadele',
               date: '23 Ekim 2019',
               url: 'https://platform24.org/arsiv/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine/image-1.jpg', alt: 'Mirası siyasi özgürlük ve sosyal adalet için mücadele', kind: 'photo' },
+              ],
               subtitle: "Çetin Altan'ın ölümünün dördüncü yıldönümünde 22 Ekim 2019'da İstanbul Edebiyat Evi'nde düzenlenen anma toplantısında yaptığım konuşma",
               body: [
                 "Herkese merhaba… Yetmiş beş yaşındayım. 27 Mayıs 1960 askerî müdahalesiyle gözlerini Türkiye siyasetine açan bir kuşağa mensubum. Dolayısıyla, bugün dördüncü ölüm yıldönümünde andığımız Çetin Altan'ın bir fikir adamı, bir siyaset yorumcusu olarak yakın tarihimizde oynadığı rolün bir tanığıyım. Çetin Bey'in ölümünün ilk iki yıldönümünde, onun oğullarıyla birlikte Silivri'de hapistim. Geçen sene, eşimi kaybettiğim için burada bulunamadım. Bu yıl davet edildiğimde, mutlaka gelmek istedim. Sanırım bu anmaya yapabileceğim en iyi katkı da, onunla ilgili anılarımı paylaşmak olacaktır.",
@@ -670,6 +772,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Fikirdaşlık ve arkadaşlık üzerine',
               date: '2 Eylül 2019',
               url: 'https://platform24.org/arsiv/fikirdaslik-ve-arkadaslik-uzerine/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/fikirdaslik-ve-arkadaslik-uzerine/image-1.jpg', alt: 'Fikirdaşlık ve arkadaşlık üzerine', kind: 'photo' },
+              ],
               subtitle: "Zülfü görüşlerime itirazlarında haklı çıktı; ben de Zülfü’nün Kemalist bakış açısı konusundaki itirazlarımda haklı olduğumu düşünüyorum",
               body: [
                 "Yetmiş beş yaşındayım. Kendi kendime \"Yetmiş beş yıllık yaşamından çıkardığın, yakınlarınla, öğrencilerinle, okurlarınla paylaşmak istediğin 'dersler' nelerdir?\" diye sorduğumda sıralayabileceklerim çok… Bu yazıda bu derslerden biri üzerinde durmak istiyorum.",
@@ -687,6 +792,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Komplo teorisi nedir, ne değildir',
               date: '22 Ağustos 2019',
               url: 'https://platform24.org/arsiv/komplo-teorisi-nedir-ne-degildir/',
+              clippings: [
+                { src: '/archive/clippings/p24/2019/komplo-teorisi-nedir-ne-degildir/image-1.jpg', alt: 'Komplo teorisi nedir, ne değildir', kind: 'photo' },
+              ],
               subtitle: "Emperyalistlerin, kapitalistlerin, komünistlerin, faşistlerin, teröristlerin, Yahudilerin, Siyonistlerin, masonların, irticanın, üst aklın…",
               body: [
                 "Stockholm Üniversitesi'nde doktora yapıp 1980'lerin başında İsveç'ten yurda döndüğümde, siyaset bilimi eğitimi görmüş yeni zihnimle yeniden baktığım ülkemle ilgili iki temel gözlemim oldu:",
@@ -711,6 +819,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Fatma’ya veda',
               date: '10 Ekim 2018',
               url: 'https://platform24.org/arsiv/fatma-ya-veda/',
+              clippings: [
+                { src: '/archive/clippings/p24/2018/fatma-ya-veda/image-1.jpg', alt: 'Fatma’ya veda', kind: 'photo' },
+              ],
               subtitle: "Şahin Alpay eşi Fatma Nur Alpay’ı bu konuşmayla uğurladı: “Birlikte yaşadıklarımızın hikâyesini yazıp ölmek istiyorum”",
               body: [
                 "Sevgili dost ve akrabalarımız, Hepimizin çok sevdiği eşim Fatma'yı son yolculuğuna uğurlamak için toplandık. Fatma benim aşkım, en yakın dostum, kurduğum ailenin temel direğiydi. Onun için ardından bir çift söz etmek istiyorum. Onu size anlatmama gerek yok. Sizler onu bütün güzellikleriyle, aklı, dirayeti, özgüveni, fikri hür ve vicdanı hür kişiliğiyle tanıyorsunuz. Ona ilkokulda âşık oldum, ortaokulda aşkımı ilan ettim, üniversitede onu kazandım. 21 yaşında evlendik. Ben aklımın ve duygularımın rüzgârına kapılıp savrulurken o hep sağlam durdu. Kurduğumuz aileyi korudu. Beni dünyanın en mutlu eşlerinden biri yaptı. Bana canımdan çok sevdiğim çocuklarımı ve torunlarımı kazandırdı. Çektiğimiz bütün sıkıntılarda dik durdu ve bana da dik durmayı telkin etti. Huzurunuzda ona bir kez daha teşekkür etmek istiyorum. 55 yıl süren beraberliğimizin maalesef üç yılını sürgünde, iki yılını da hapiste geçirdim. Ondan ayrı kaldığım beş yıl için kendimi affetmiyorum. Huzurunuzda ondan bir kez daha af diliyorum. Görüşlerimi ve kimi davranışlarımı paylaşmadığı hâlde Fatma ile bunca yıl süren mutlu birlikteliğimizin temeli neydi? Kendisine sorarsanız çocuklarımız hayrına beni bırakmadı. Bazı dostlarıma göre o sıra dışı kişiliğimden hoşnuttu. Başkalarına göre ise o bana aşkla bağlıydı. Belki hepsi birden geçerli oldu. Onu uğurlarken yegâne tesellim bize vakarına ve kişiliğine uygun bir şekilde veda etmiş olması. Ne çekti, ne de çektirdi… Bağımsızlığına çok düşkündü, kimseye tabi olmadan yaşadı ve öldü. Hepinizin bildiği gibi Fatmasız yaşamak benim için çok zor olacak… Birlikte yaşadıklarımızın hikâyesini yazıp ölmek istiyorum. Bu uğurlamaya katıldığınız, acımızı paylaştığınız için hepinize candan teşekkürler."
@@ -745,6 +856,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Dünyayı güzellik kurtaracak',
               date: '16 Mart 2018',
               url: 'https://platform24.org/arsiv/dunyayi-guzellik-kurtaracak/',
+              clippings: [
+                { src: '/archive/clippings/p24/2018/dunyayi-guzellik-kurtaracak/image-1.jpg', alt: 'Dünyayı güzellik kurtaracak', kind: 'photo' },
+              ],
               subtitle: "\"Hasretinden prangalar eskittiğim\" eşimin ve kızımın güzel yüzlerine ne zaman kavuşabileceğim, zihnimi, ruhumu ırgalayan esas soru bu",
               body: [
                 "Silivri cezaevinden yazdığım mektuplarda, merak eden dost ve okurlarıma, beden ve ruh hâlimi anlatmaya çalışıyorum. Beden sağlığımla başlayayım. 27 Şubat'ta yapılan anjiyo yaklaşık 2 ay önceki anjiyoyla %90 tıkalı olduğu görülen kalp damarıma bir değil iki stent yerleştirildi. Şöyle oldu: Saat 9 gibi cezaevinden alınarak, ellerim kelepçeli olarak, biri makinalı tüfekli 3 jandarma eri, bir de çavuşu korumasında Halkalı'daki Mehmet Akif Ersoy hastanesine götürüldüm. Mehmet Akif'te (diğer hastanelerde mevcut) nezarethane bulunmadığından cezaevi aracında saat 15'e kadar bekletildim. Bu yaklaşık 6 saat zarfında ekmek ve baldan oluşan kumanyamı yemek için bir 15 dakika kelepçelerim çıkarıldı. (Etrafı jandarmalarla çevrili, kapıları kilitlenen aracın içinde niye kelepçe takıldığını sorduğumda, \"Emir böyle\" dendi.) Prostat hastası olduğum için 2-3 kez jandarmaların korumasında tuvalete götürüldüm. Tuvalet teftiş edildikten sonra kelepçelerim kapıda çözülerek ihtiyacımı gördüm. Sonunda \"Mahkûm Servisi\" adını taşıyan, iki yataklı, pencereleri duvara bakan koğuşa alındım.",
@@ -760,6 +874,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Yalanda yaşamayı reddetmek',
               date: '19 Şubat 2018',
               url: 'https://platform24.org/arsiv/yalanda-yasamayi-reddetmek/',
+              clippings: [
+                { src: '/archive/clippings/p24/2018/yalanda-yasamayi-reddetmek/image-1.jpg', alt: 'Yalanda yaşamayı reddetmek', kind: 'photo' },
+              ],
               subtitle: "Hasan Cemal'e beslediğim güvenin kaynağında onun bir entellektüel olarak dürüstlüğüne, yalanda yaşamayı reddetmesine duyduğum saygı var",
               body: [
                 "Hasan Cemal, sağolsun, anılarını içeren Hayat işte böyle geçip gidiyor başlıklı yeni kitabını dumanı üzerinde tüterken, avukatlar aracılığıyla bana ulaştırdı. Bir solukta değil, altını çize çize okudum. Ne de olsa Hasan Cemal'in kendine ait hayatının değil, ama meslek, ve daha çok, fikir hayatının en yakın tanıklarından biriyim. Onun da hayatımda önemli bir rolü olmuştur. Dostluğumuzun 50 yıllık bir geçmişi var; 1960'ların sonlarında Devrim ve Aydınlık dergilerinin kapı komşu olduğu yıllara uzanıyor. O sıra HC bir \"cuntacı\" bende \"hattâ Maocu\"ydum. 1970'lerden itibaren ikimiz de adım adım siyasi özgürlük ve çoğulcu demokrasinin vazgeçilmez olduğunda karar kıldık.",
@@ -780,6 +897,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Silivri Mektubu: Uğradığım haksızlık son bulmalı',
               date: '23 Ocak 2018',
               url: 'https://platform24.org/arsiv/silivri-mektubu-ugradigim-haksizlik-son-bulmali/',
+              clippings: [
+                { src: '/archive/clippings/p24/2018/silivri-mektubu-ugradigim-haksizlik-son-bulmali/image-1.jpg', alt: 'Silivri Mektubu: Uğradığım haksızlık son bulmalı', kind: 'photo' },
+              ],
               subtitle: "Tahliye edilmeyeceğim anlaşılınca, büyük hayal kırıklığına uğradım. Bunu beklemiyordum. Tahliye olacağım diye bütün hazırlıklarımı yapmıştım",
               body: [
                 "P24'te, 25.12.2017'de yayınlanan mektubumda, \"Hayatımın İronisi\"nden söz etmiştim. Şöyle diyordum: \"Hayatıma anlam veren, özgürlükçü ve çoğulcu demokrasiye hizmetin hiç beklenmedik sonucu 'darbeci ve terörist' suçlamasıyla hapse atılmak olmuştu. Hayatımda birçok ironi bulunabilir, ama bu hayatımın ironisiydi.\"",
@@ -806,6 +926,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Anjiyo oldum',
               date: '9 Ocak 2018',
               url: 'https://platform24.org/arsiv/anjiyo-oldum/',
+              clippings: [
+                { src: '/archive/clippings/p24/2018/anjiyo-oldum/image-1.jpg', alt: 'Anjiyo oldum', kind: 'photo' },
+              ],
               subtitle: "Az sonra bir personel geldi, 24 saat sonra normal yaşama dönebileceğimi, bu gece Silivri'ye geri gideceğimi bildirdi. Sevindim!",
               body: [
                 "Bu mektubu ailem aracılığıyla selam sevgilerini yollayan dost, meslektaş ve eski öğrencilerime 2018'in daha iyi günlere açılan bir kapı olması dileğiyle başlamak istiyorum.",
@@ -840,6 +963,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Hayatın ironisi',
               date: '25 Aralık 2017',
               url: 'https://platform24.org/arsiv/hayatin-ironisi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2017/hayatin-ironisi/image-1.jpg', alt: 'Hayatın ironisi', kind: 'photo' },
+              ],
               subtitle: "Anayasa Mahkemesi’nin kişisel başvurusunu görüşmesi arefesinde, 17 aydır tutuklu Şahin Alpay’ın Silivri’den yazdığı 5. mektubu yayımlıyoruz",
               body: [
                 "Üç dört yıl önce Zaman'da çıkan 7 yazım sadece başlıklarıyla delil gösterilerek, darbecilik ve terör örgütü üyeliği iddiasıyla tutukluyum. Hakkımda üç kez ağırlaştırılmış müebbet artı 15 yıl hapis cezası isteniyor. 8 Aralık 2017'de yapılan ikinci duruşmada da tahliye çıkmadı. Dava 5 Nisan 2018'e ertelendi. 19 Eylül 2017'deki ilk duruşmada kronik hastalıklarım nedeniyle hapiste kalıp kalamayacağıma karar verilmesi için, mahkeme heyeti Adlî Tıp Kurumu'na sevkimi istedi. Üç buçuk ay oldu, henüz gerekli rapor tamamlanamadı; kardiyoloğun öngördüğü anjiyo da yapılmayı bekliyor. Tutsaklığım 17 ayı buldu. Hapishanede hayatımın ironileri, çelişkileri üzerine düşünmek için bol vakit buluyorum. Hayatımın temel ironisi nerede?",
@@ -857,6 +983,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Silivri Mektubu: Sağlığım gittikçe kötülüyor',
               date: '21 Kasım 2017',
               url: 'https://platform24.org/arsiv/silivri-mektubu-sagligim-gittikce-kotuluyor/',
+              clippings: [
+                { src: '/archive/clippings/p24/2017/silivri-mektubu-sagligim-gittikce-kotuluyor/image-1.jpg', alt: 'Silivri Mektubu: Sağlığım gittikçe kötülüyor', kind: 'photo' },
+              ],
               subtitle: "16 Kasım'da ilk kez kardiyolog muayenesine alındım. Muayene ve eforlu test sonucu fazla gecikmeden anjiyo olmam gerektiği söylendi",
               body: [
                 "Arkadaşlarım, öğrencilerim ve okurlarımın sağlık durumumu merak ettiklerini tahmin ediyorum. Onun için Silivri Kapalı Ceza İnfaz Kurumu'ndan gönderdiğim bu 4. açık mektubumda sağlık raporumu vermek istiyorum.",
@@ -894,6 +1023,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Silivri’de “Masumiyet Müzesi”',
               date: '7 Kasım 2017',
               url: 'https://platform24.org/arsiv/silivri-de-masumiyet-muzesi/',
+              clippings: [
+                { src: '/archive/clippings/p24/2017/silivri-de-masumiyet-muzesi/image-1.jpg', alt: 'Silivri’de “Masumiyet Müzesi”', kind: 'photo' },
+              ],
               subtitle: "Bu, içinde yaşanmış öğelerin bol olduğu, \"yaşanmış\" kitabın sahiciliği, beni bir edebiyat şaheseriyle karşı karşıya olduğum sonucuna götürdü",
               body: [
                 "6 Kasım 2017 / 468'inci Gün Cezaevinden yazdığım ilk mektupta, zamanı okuyup yazarak değerlendirmeye çalıştığımı, edebiyata duyduğum ilgide ikinci baharı yaşadığımı söylemiştim. Daha önce tam bilincine varamadığım bazı hususları da burada kavradığımı yazmıştım. Bu hususlardan biri de, Türkçe edebiyatın dünya yazınına yaptığı azımsanmayacak katkı. Bunun gereğince takdir edilmeyişinin içteki bir nedeni, bir çoğumuzun paylaştığı oryantalizm, Batı hayranlığı olabilir. Dıştaki temel nedeni de muhakkak ki, çoğu büyük yazarlarımızın eserlerinin dünya dillerine kazandırılmamış olması.",
@@ -910,6 +1042,9 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
               title: 'Silivri Mektubu: Sağmalcılar’dan Silivri’ye',
               date: '26 Ekim 2017',
               url: 'https://platform24.org/arsiv/silivri-mektubu-sagmalcilar-dan-silivri-ye/',
+              clippings: [
+                { src: '/archive/clippings/p24/2017/silivri-mektubu-sagmalcilar-dan-silivri-ye/image-1.jpg', alt: 'Silivri Mektubu: Sağmalcılar’dan Silivri’ye', kind: 'photo' },
+              ],
               subtitle: "2017'de Silivri'de yatanların 30-35 yıl önce Sağmalcılar'da yatanlara nazaran üstünlüğü olduğu muhakkak: dilediğimiz zaman yıkanabiliyoruz",
               body: [
                 "Geçen Mayıs ayında Ümit Aslanbay'ın Ali Sirmen ile yaptığı ve Bir eski Cumhuriyet için başlığıyla yayımlanan söyleşinin ilanını görünce meraklandım; çocuklarımdan hemen bu kitaptan bir nüsha getirmelerini rica ettim.",

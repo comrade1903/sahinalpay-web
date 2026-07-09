@@ -1348,6 +1348,8 @@ function ArticlePage({ lang }: { lang: Lang }) {
   }
 
   const related = relatedArticles(lang, item, 3)
+  const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
+  const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
 
   return (
     <section className="section section-solo article-page">
@@ -1406,6 +1408,15 @@ function ArticlePage({ lang }: { lang: Lang }) {
             </span>
           </div>
         </Reveal>
+        {photos.length > 0 && (
+          <Reveal as="div" delay={0.08} className="article-lead-photos">
+            {photos.map((clipping) => (
+              <figure className="article-lead-photo" key={clipping.src}>
+                <img src={clipping.src} alt={clipping.alt ?? item.title} loading="lazy" />
+              </figure>
+            ))}
+          </Reveal>
+        )}
         <Reveal
           as="div"
           delay={0.08}
@@ -1416,7 +1427,7 @@ function ArticlePage({ lang }: { lang: Lang }) {
             <p key={i}>{paragraph}</p>
           ))}
         </Reveal>
-        {(item.imageSrc || item.clippings?.length) && (
+        {(item.imageSrc || scans.length > 0) && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>
             <h2>{lang === 'tr' ? 'Gazete Kupürü' : 'Newspaper Clipping'}</h2>
             {item.imageSrc && (
@@ -1424,7 +1435,7 @@ function ArticlePage({ lang }: { lang: Lang }) {
                 <img src={item.imageSrc} alt={item.title} loading="lazy" />
               </figure>
             )}
-            {item.clippings?.map((clipping, index) => (
+            {scans.map((clipping, index) => (
               <figure className="clipping-frame" key={clipping.src}>
                 <img
                   src={clipping.src}

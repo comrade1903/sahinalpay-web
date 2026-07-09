@@ -7,6 +7,9 @@ export interface ArchiveClipping {
   ocrText?: string
   pageLabel?: string
   sourceNote?: string
+  /** 'photo' renders as the article's lead image; 'scan' (default) goes in the
+      newspaper-clipping viewer at the end. */
+  kind?: 'photo' | 'scan'
 }
 
 export interface ArchiveItemSeed {
