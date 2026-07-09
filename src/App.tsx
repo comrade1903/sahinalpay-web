@@ -29,6 +29,7 @@ import {
   archiveItemText,
   itemHasSourceKind,
   itemScanClippings,
+  loadArticleBody,
   withFlatSectionItems,
   withOutletSectionItems,
   type ArchiveItem,
@@ -1734,10 +1735,27 @@ const FONT_SCALE_MIN = 0.85
 const FONT_SCALE_MAX = 1.5
 const FONT_SCALE_STEP = 0.125
 
+function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
+  const [body, setBody] = useState<string[] | undefined>(item?.body)
+  useEffect(() => {
+    setBody(item?.body)
+    if (!item || item.body || !item.hasBody) return
+    let cancelled = false
+    loadArticleBody(item).then((loaded) => {
+      if (!cancelled) setBody(loaded)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [item])
+  return body
+}
+
 function ArticlePage({ lang }: { lang: Lang }) {
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
   const item = slug ? findArchiveItemBySlug(lang, slug) : undefined
+  const body = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
   const t = content[lang]
@@ -1801,7 +1819,7 @@ function ArticlePage({ lang }: { lang: Lang }) {
     ],
   } : null)
 
-  if (!item || (!item.body?.length && !item.clippings?.length && !item.imageSrc)) {
+  if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
     return <Navigate to={paths[lang].columns!} replace />
   }
 
@@ -1893,9 +1911,13 @@ function ArticlePage({ lang }: { lang: Lang }) {
           className="article-body"
           style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
         >
-          {(item.body ?? []).map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+          {body && body.length > 0 ? (
+            body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+          ) : item.hasBody ? (
+            <p className="article-body-loading">
+              {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
+            </p>
+          ) : null}
         </Reveal>
         {(item.imageSrc || scans.length > 0) && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>

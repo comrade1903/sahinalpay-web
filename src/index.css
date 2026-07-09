@@ -1984,6 +1984,10 @@ a.archive-row:hover .archive-row-title {
   margin: 0.05em 0.08em 0 0;
   color: var(--accent-ink);
 }
+.article-body-loading {
+  color: var(--muted);
+  font-style: italic;
+}
 .article-image-credit {
   font-size: 0.78rem;
   color: var(--muted);
