@@ -9,6 +9,7 @@ import type {
   OutletGroup,
 } from './types'
 import { normalizeArchiveItems } from './utils'
+import { getCachedBody } from './bodyRegistry'
 import { cumhuriyetColumnSeeds } from './tr/columns/cumhuriyet'
 import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
@@ -87,13 +88,14 @@ export function findArchiveItem(slug: string): ArchiveItem | undefined {
 }
 
 export function archiveItemText(item: ArchiveItem): string {
+  const body = item.body ?? getCachedBody(item.id)
   return [
     item.title,
     item.subtitle,
     item.excerpt,
     item.sourceNote,
     item.imageCredit,
-    ...(item.body ?? []),
+    ...(body ?? []),
     ...(item.clippings ?? []).flatMap((clipping) => [
       clipping.alt,
       clipping.ocrText,
@@ -116,6 +118,8 @@ export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | '
   if (kind === 'digital') return Boolean(item.url || item.hasBody)
   return Boolean(itemScanClippings(item).length || item.imageSrc)
 }
+
+export { loadArticleBody, loadOutletBodies } from './bodyRegistry'
 
 export type {
   ArchiveLang,
