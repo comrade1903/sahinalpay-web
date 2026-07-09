@@ -561,7 +561,7 @@ function recentArticles(lang: Lang, count: number): ArchiveItem[] {
   const pool: ArchiveItem[] = [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
-  ].filter((item) => item.body && item.body.length > 0)
+  ].filter((item) => item.hasBody)
 
   pool.sort((a, b) => {
     const da = a.date ? parseTurkishDate(a.date) : null
@@ -832,7 +832,7 @@ function archiveLink(
   item: ArchiveItem,
   lang: Lang,
 ): { href: string; internal: boolean } | null {
-  if ((item.body && item.body.length > 0) || itemScanClippings(item).length > 0) {
+  if (item.hasBody || itemScanClippings(item).length > 0) {
     return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
@@ -857,7 +857,7 @@ function ArchiveRow({
   lang: Lang
 }) {
   const link = archiveLink(item, lang)
-  const preview = item.excerpt ?? item.subtitle ?? item.body?.[0]
+  const preview = item.excerpt ?? item.subtitle
   const inner = (
     <>
       <div className="archive-row-meta">
@@ -1691,7 +1691,7 @@ function findArchiveItemBySlug(lang: Lang, slug: string): ArchiveItem | undefine
 function relatedArticles(lang: Lang, current: ArchiveItem, count: number): ArchiveItem[] {
   const currentTs = current.date ? parseTurkishDate(current.date) : null
   return archivePool(lang)
-    .filter((item) => item !== current && item.body && item.body.length > 0)
+    .filter((item) => item !== current && item.hasBody)
     .map((item) => {
       const ts = item.date ? parseTurkishDate(item.date) : null
       const dateScore =
