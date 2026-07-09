@@ -83,4 +83,8 @@ Thumbs.db
 /şahin-alpay-arşivi/
 /stitch_ahin_alpay_dijital_ar_ivi/
 /agent-skills/
+/awesome-claude-code-subagents/
 .env*
+
+# Scratch/output directory (large unrelated research artifacts get dropped here)
+/tmp/
