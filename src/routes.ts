@@ -16,6 +16,9 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     home: '/',
     about: '/about',
     columns: '/columns',
+    analyses: '/analyses',
+    interviews: '/interviews',
+    academic: '/academic-articles',
     books: '/books',
   },
   tr: {

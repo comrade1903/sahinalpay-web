@@ -6,8 +6,6 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react'
-import AppV2 from './design-b/AppV2'
-import DesignToggle from './components/DesignToggle'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   Routes,
@@ -23,17 +21,24 @@ import {
   content,
   type Content,
   type Lang,
-  type OutletArchiveSection,
-  type FlatArchiveSection,
   type BooksSection,
-  type ArchiveItem,
 } from './content'
+import {
+  archiveData,
+  archiveItemText,
+  findArchiveItem,
+  itemHasSourceKind,
+  withFlatSectionItems,
+  withOutletSectionItems,
+  type ArchiveItem,
+  type FlatArchiveSection,
+  type OutletArchiveSection,
+} from './archive'
 import {
   paths,
   langForPath,
   pageKeyForPath,
   equivalentPath,
-  slugFromUrl,
   type PageKey,
 } from './routes'
 import { parseTurkishDate } from './dateUtils'
@@ -59,6 +64,43 @@ function usePageMeta(title: string, description: string) {
   }, [title, description])
 }
 
+function useJsonLd(id: string, data: Record<string, unknown> | null) {
+  useEffect(() => {
+    const scriptId = `jsonld-${id}`
+    let tag = document.getElementById(scriptId) as HTMLScriptElement | null
+
+    if (!data) {
+      tag?.remove()
+      return
+    }
+
+    if (!tag) {
+      tag = document.createElement('script')
+      tag.id = scriptId
+      tag.type = 'application/ld+json'
+      document.head.appendChild(tag)
+    }
+    tag.textContent = JSON.stringify(data)
+  }, [id, data])
+}
+
+function pageUrl(pathname: string) {
+  return `https://sahinalpay.net${pathname}`
+}
+
+function archiveBasePath(lang: Lang, item: ArchiveItem): string {
+  switch (item.category) {
+    case 'analyses':
+      return paths[lang].analyses ?? paths[lang].columns!
+    case 'interviews':
+      return paths[lang].interviews ?? paths[lang].columns!
+    case 'academic':
+      return paths[lang].academic ?? paths[lang].columns!
+    case 'columns':
+      return paths[lang].columns!
+  }
+}
+
 function Reveal({
   children,
   delay = 0,
@@ -68,7 +110,7 @@ function Reveal({
 }: {
   children: ReactNode
   delay?: number
-  as?: 'div' | 'section' | 'li' | 'article'
+  as?: 'div' | 'section' | 'li' | 'article' | 'aside'
   className?: string
   style?: CSSProperties
 }) {
@@ -262,18 +304,21 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
-          <figure className="portrait">
-            {PORTRAIT ? (
-              <img src={PORTRAIT} alt={t.hero.portraitAlt} />
-            ) : (
-              <div className="portrait-placeholder">
-                <span className="portrait-monogram">ŞA</span>
-              </div>
-            )}
-            <figcaption className="portrait-caption">
-              {t.hero.portraitCaption}
-            </figcaption>
-          </figure>
+          <div className="portrait-frame">
+            <div className="portrait-echo" aria-hidden="true" />
+            <figure className="portrait">
+              {PORTRAIT ? (
+                <img src={PORTRAIT} alt={t.hero.portraitAlt} />
+              ) : (
+                <div className="portrait-placeholder">
+                  <span className="portrait-monogram">ŞA</span>
+                </div>
+              )}
+              <figcaption className="portrait-caption">
+                {t.hero.portraitCaption}
+              </figcaption>
+            </figure>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -295,15 +340,13 @@ const HUB_ICONS: Record<PageKey, string> = {
 function hubCount(key: PageKey, t: Content): number | null {
   switch (key) {
     case 'columns':
-      return t.columns.outlets.reduce((sum, o) => sum + o.items.length, 0)
+      return archiveData.columns.reduce((sum, o) => sum + o.items.length, 0)
     case 'analyses':
-      return t.analyses
-        ? t.analyses.outlets.reduce((sum, o) => sum + o.items.length, 0)
-        : null
+      return archiveData.analyses.reduce((sum, o) => sum + o.items.length, 0)
     case 'interviews':
-      return t.interviews ? t.interviews.items.length : null
+      return archiveData.interviews.length
     case 'academic':
-      return t.academicArticles ? t.academicArticles.items.length : null
+      return archiveData.academicArticles.length
     case 'books':
       return t.books.books.length
     default:
@@ -330,7 +373,7 @@ function HubGrid({ t, lang }: { t: Content; lang: Lang }) {
                 delay={(i % 4) * 0.06}
                 className={wide ? 'hub-card-wide' : undefined}
               >
-                <Link to={paths[lang][h.key]!} className="hub-card">
+                <Link to={paths[lang][h.key]!} className={`hub-card hub-card-${h.key}`}>
                   <div className="hub-card-top">
                     <span
                       className="material-symbols-outlined hub-card-icon"
@@ -371,12 +414,10 @@ function HubGrid({ t, lang }: { t: Content; lang: Lang }) {
 
 /** Real, most-recently-dated full articles across every outlet — used
  *  instead of fabricated "featured" picks. */
-function recentArticles(t: Content, count: number): ArchiveItem[] {
+function recentArticles(count: number): ArchiveItem[] {
   const pool: ArchiveItem[] = [
-    ...t.columns.outlets.flatMap((o) => o.items.map((item) => ({ ...item, outlet: o.outlet }))),
-    ...(t.analyses?.outlets.flatMap((o) =>
-      o.items.map((item) => ({ ...item, outlet: o.outlet })),
-    ) ?? []),
+    ...archiveData.columns.flatMap((o) => o.items),
+    ...archiveData.analyses.flatMap((o) => o.items),
   ].filter((item) => item.body && item.body.length > 0)
 
   pool.sort((a, b) => {
@@ -391,41 +432,120 @@ function recentArticles(t: Content, count: number): ArchiveItem[] {
   return pool.slice(0, count)
 }
 
-function RecentArticles({ t, lang }: { t: Content; lang: Lang }) {
-  const items = recentArticles(t, 3)
+function RecentArticles({ lang }: { lang: Lang }) {
+  const items = recentArticles(3)
   if (items.length === 0) return null
 
   return (
     <section className="section">
       <div className="container">
-        <Reveal>
-          <p className="kicker">{lang === 'tr' ? 'Güncel' : 'Latest'}</p>
-          <h2 className="section-title">
-            {lang === 'tr' ? 'Son Eklenenler' : 'Recently Added'}
-          </h2>
-        </Reveal>
-        <div className="recent-grid">
-          {items.map((item, i) => (
-            <Reveal as="div" key={item.title} delay={i * 0.06}>
-              <Link
-                to={`${paths[lang].columns}/${slugFromUrl(item.url!)}`}
-                className="recent-card"
-              >
-                <span className="recent-card-meta">
-                  {(item as ArchiveItem & { outlet?: string }).outlet}
-                  {item.date ? ` · ${item.date}` : ''}
-                </span>
-                <h3>{item.title}</h3>
-                <span className="recent-card-cta">
-                  {lang === 'tr' ? 'Oku' : 'Read'}
-                  <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
-                    arrow_forward
+        <div className="recent-panel">
+          <div className="recent-panel-glow" aria-hidden="true" />
+          <Reveal className="recent-panel-inner">
+            <p className="kicker kicker-center">{lang === 'tr' ? 'Güncel' : 'Latest'}</p>
+            <h2 className="section-title section-title-center">
+              {lang === 'tr' ? 'Son Eklenenler' : 'Recently Added'}
+            </h2>
+          </Reveal>
+          <div className="recent-grid">
+            {items.map((item, i) => (
+              <Reveal as="div" key={item.title} delay={i * 0.06}>
+                <Link
+                  to={`${archiveBasePath(lang, item)}/${item.slug}`}
+                  className="recent-card"
+                >
+                  <div className="recent-card-media" aria-hidden="true">
+                    <span className="material-symbols-outlined">article</span>
+                  </div>
+                  <span className="recent-card-meta">
+                    {item.outlet}
+                    {item.date ? ` · ${item.date}` : ''}
                   </span>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+                  <h3>{item.title}</h3>
+                  <span className="recent-card-cta">
+                    {lang === 'tr' ? 'Oku' : 'Read'}
+                    <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
+                      arrow_forward
+                    </span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
+      </div>
+    </section>
+  )
+}
+
+/* Slots for real photos once available — kept null rather than filled
+   with stock imagery standing in for people/places that aren't ours. */
+const HERITAGE_PHOTOS: [string | null, string | null, string | null, string | null] = [
+  null,
+  null,
+  null,
+  null,
+]
+
+function AcademicHeritage({ t, lang }: { t: Content; lang: Lang }) {
+  return (
+    <section className="section">
+      <div className="container heritage-grid">
+        <Reveal className="heritage-copy">
+          <span className="badge-pill">
+            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
+              school
+            </span>
+            {lang === 'tr' ? 'Akademik Katkı' : 'Academic Contribution'}
+          </span>
+          <h2 className="section-title">
+            {lang === 'tr'
+              ? 'Fikir Mirası ve Akademik Araştırmalar'
+              : 'A Legacy of Ideas and Academic Research'}
+          </h2>
+          <p className="lead">{t.about.lead}</p>
+          <div className="heritage-features">
+            <div className="heritage-feature">
+              <span className="material-symbols-outlined" aria-hidden="true">
+                link
+              </span>
+              <div>
+                <h4>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h4>
+                <p>
+                  {lang === 'tr'
+                    ? 'Her yazı, orijinal yayınına doğrudan bağlantılıdır.'
+                    : 'Every piece links directly back to its original publication.'}
+                </p>
+              </div>
+            </div>
+            <div className="heritage-feature">
+              <span className="material-symbols-outlined" aria-hidden="true">
+                update
+              </span>
+              <div>
+                <h4>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h4>
+                <p>
+                  {lang === 'tr'
+                    ? 'İçerik, zaman içinde yeni gazete küpürleri ve bağlantılarla genişletilmektedir.'
+                    : 'Content keeps expanding over time with new clippings and links.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal className="heritage-photos" delay={0.1}>
+          {HERITAGE_PHOTOS.map((src, i) => (
+            <div className="heritage-photo" key={i}>
+              {src ? (
+                <img src={src} alt="" />
+              ) : (
+                <span className="material-symbols-outlined" aria-hidden="true">
+                  image
+                </span>
+              )}
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   )
@@ -455,7 +575,8 @@ function HomePage({ lang }: { lang: Lang }) {
     <>
       <Hero t={t} lang={lang} />
       <HubGrid t={t} lang={lang} />
-      <RecentArticles t={t} lang={lang} />
+      <RecentArticles lang={lang} />
+      <AcademicHeritage t={t} lang={lang} />
     </>
   )
 }
@@ -557,10 +678,14 @@ function archiveLink(
   lang: Lang,
 ): { href: string; internal: boolean } | null {
   if (item.url && item.body && item.body.length > 0) {
-    return { href: `${paths[lang].columns}/${slugFromUrl(item.url)}`, internal: true }
+    return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
+  }
+  if (item.body && item.body.length > 0) {
+    return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
   if (item.imageSrc) return { href: item.imageSrc, internal: false }
+  if (item.clippings?.[0]?.src) return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   return null
 }
 
@@ -580,6 +705,11 @@ function ArchiveRow({
       <div className="archive-row-meta">
         {item.date && <span className="archive-row-date">{item.date}</span>}
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
+        {item.clippings?.length ? (
+          <span className="archive-row-badge">
+            {lang === 'tr' ? 'Kupür' : 'Clipping'}
+          </span>
+        ) : null}
       </div>
       <div className="archive-row-body">
         <h3 className="archive-row-title">{item.title}</h3>
@@ -622,8 +752,11 @@ function matchesFilters(
   search: string,
   fromYear: string,
   toYear: string,
+  sourceKind: 'all' | 'digital' | 'clipping',
 ): boolean {
-  if (search && !item.title.toLowerCase().includes(search.toLowerCase())) {
+  if (!itemHasSourceKind(item, sourceKind)) return false
+
+  if (search && !archiveItemText(item).toLowerCase().includes(search.toLowerCase())) {
     return false
   }
   if (fromYear || toYear) {
@@ -723,14 +856,132 @@ function SortSelect({
   )
 }
 
+function SourceKindFilter({
+  lang,
+  sourceKind,
+  setSourceKind,
+}: {
+  lang: Lang
+  sourceKind: 'all' | 'digital' | 'clipping'
+  setSourceKind: (v: 'all' | 'digital' | 'clipping') => void
+}) {
+  const options: { value: 'all' | 'digital' | 'clipping'; label: string }[] = [
+    { value: 'all', label: lang === 'tr' ? 'Tüm kaynaklar' : 'All sources' },
+    { value: 'digital', label: lang === 'tr' ? 'Dijital metin' : 'Digital text' },
+    { value: 'clipping', label: lang === 'tr' ? 'Gazete kupürü' : 'Clipping' },
+  ]
+
+  return (
+    <div className="filter-card">
+      <h3>{lang === 'tr' ? 'Kaynak Türü' : 'Source type'}</h3>
+      <div className="chip-row">
+        {options.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            className="chip"
+            data-active={sourceKind === option.value}
+            onClick={() => setSourceKind(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const ARCHIVE_PAGE_SIZE = 20
+
+function Pagination({
+  lang,
+  currentPage,
+  totalPages,
+  onPageChange,
+}: {
+  lang: Lang
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+}) {
+  if (totalPages <= 1) return null
+
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).filter(
+    (page) =>
+      page === 1 ||
+      page === totalPages ||
+      Math.abs(page - currentPage) <= 1,
+  )
+
+  return (
+    <nav className="pagination" aria-label={lang === 'tr' ? 'Sayfalama' : 'Pagination'}>
+      <button
+        type="button"
+        className="pagination-btn"
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        {lang === 'tr' ? 'Önceki' : 'Previous'}
+      </button>
+      <div className="pagination-pages">
+        {pages.map((page, index) => {
+          const previous = pages[index - 1]
+          const hasGap = previous && page - previous > 1
+          return (
+            <span className="pagination-page-wrap" key={page}>
+              {hasGap && <span className="pagination-gap">…</span>}
+              <button
+                type="button"
+                className="pagination-page"
+                data-active={currentPage === page}
+                onClick={() => onPageChange(page)}
+              >
+                {page}
+              </button>
+            </span>
+          )
+        })}
+      </div>
+      <button
+        type="button"
+        className="pagination-btn"
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        {lang === 'tr' ? 'Sonraki' : 'Next'}
+      </button>
+    </nav>
+  )
+}
+
 function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: Lang }) {
   usePageMeta(`${data.title} — Şahin Alpay`, data.intro)
+  const location = useLocation()
+  useJsonLd('collection', {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: data.title,
+    description: data.intro,
+    inLanguage: lang,
+    url: pageUrl(location.pathname),
+    about: { '@id': 'https://sahinalpay.net/#person' },
+    mainEntity: data.outlets.flatMap((group) =>
+      group.items.slice(0, 25).map((item) => ({
+        '@type': 'Article',
+        headline: item.title,
+        datePublished: item.date,
+        url: `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
+      })),
+    ),
+  })
   const [searchParams] = useSearchParams()
   const [search, setSearch] = useState(searchParams.get('q') ?? '')
   const [activeOutlet, setActiveOutlet] = useState('all')
   const [fromYear, setFromYear] = useState('')
   const [toYear, setToYear] = useState('')
   const [sort, setSort] = useState<'newest' | 'oldest'>('newest')
+  const [sourceKind, setSourceKind] = useState<'all' | 'digital' | 'clipping'>('all')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const visibleOutlets = data.outlets.filter(
     (o) => activeOutlet === 'all' || o.outlet === activeOutlet,
@@ -741,20 +992,32 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
       sortByDate(
         visibleOutlets.flatMap((o) =>
           o.items
-            .filter((item) => matchesFilters(item, search, fromYear, toYear))
+            .filter((item) => matchesFilters(item, search, fromYear, toYear, sourceKind))
             .map((item) => ({ item, outlet: o.outlet })),
         ),
         (entry) => entry.item.date,
         sort,
       ),
-    [visibleOutlets, search, fromYear, toYear, sort],
+    [visibleOutlets, search, fromYear, toYear, sourceKind, sort],
   )
+  const totalPages = Math.max(1, Math.ceil(flatEntries.length / ARCHIVE_PAGE_SIZE))
+  const paginatedEntries = flatEntries.slice(
+    (currentPage - 1) * ARCHIVE_PAGE_SIZE,
+    currentPage * ARCHIVE_PAGE_SIZE,
+  )
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [search, activeOutlet, fromYear, toYear, sourceKind, sort])
 
   const resetFilters = () => {
     setSearch('')
     setActiveOutlet('all')
     setFromYear('')
     setToYear('')
+    setSourceKind('all')
+    setSort('newest')
+    setCurrentPage(1)
   }
 
   return (
@@ -778,8 +1041,8 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder={lang === 'tr' ? 'Başlıkta ara…' : 'Search titles…'}
-                  aria-label={lang === 'tr' ? 'Başlıkta ara' : 'Search titles'}
+                  placeholder={lang === 'tr' ? 'Metin, konu veya OCR ara…' : 'Search text, topic or OCR…'}
+                  aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                 />
               </div>
             </div>
@@ -815,10 +1078,15 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                 setFromYear={setFromYear}
                 setToYear={setToYear}
               />
-              <button type="button" className="filter-reset" onClick={resetFilters}>
-                {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
-              </button>
             </div>
+            <SourceKindFilter
+              lang={lang}
+              sourceKind={sourceKind}
+              setSourceKind={setSourceKind}
+            />
+            <button type="button" className="filter-reset" onClick={resetFilters}>
+              {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
+            </button>
           </aside>
 
           <div className="archive-main">
@@ -840,12 +1108,18 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                 </p>
               ) : (
                 <ul className="archive-list">
-                  {flatEntries.map(({ item, outlet }) => (
+                  {paginatedEntries.map(({ item, outlet }) => (
                     <ArchiveRow item={item} outlet={outlet} lang={lang} key={item.title} />
                   ))}
                 </ul>
               )}
             </Reveal>
+            <Pagination
+              lang={lang}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
           </div>
         </div>
       </div>
@@ -855,25 +1129,57 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
 
 function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang }) {
   usePageMeta(`${data.title} — Şahin Alpay`, data.intro)
+  const location = useLocation()
+  useJsonLd('collection', {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: data.title,
+    description: data.intro,
+    inLanguage: lang,
+    url: pageUrl(location.pathname),
+    about: { '@id': 'https://sahinalpay.net/#person' },
+    mainEntity: data.items.slice(0, 25).map((item) => ({
+      '@type': 'Article',
+      headline: item.title,
+      datePublished: item.date,
+      url: `${pageUrl(location.pathname)}/${item.slug}`,
+    })),
+  })
   const [searchParams] = useSearchParams()
   const [search, setSearch] = useState(searchParams.get('q') ?? '')
   const [fromYear, setFromYear] = useState('')
   const [toYear, setToYear] = useState('')
   const [sort, setSort] = useState<'newest' | 'oldest'>('newest')
+  const [sourceKind, setSourceKind] = useState<'all' | 'digital' | 'clipping'>('all')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const filtered = useMemo(
     () =>
       sortItems(
-        data.items.filter((item) => matchesFilters(item, search, fromYear, toYear)),
+        data.items.filter((item) =>
+          matchesFilters(item, search, fromYear, toYear, sourceKind),
+        ),
         sort,
       ),
-    [data.items, search, fromYear, toYear, sort],
+    [data.items, search, fromYear, toYear, sourceKind, sort],
   )
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PAGE_SIZE))
+  const paginated = filtered.slice(
+    (currentPage - 1) * ARCHIVE_PAGE_SIZE,
+    currentPage * ARCHIVE_PAGE_SIZE,
+  )
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [search, fromYear, toYear, sourceKind, sort])
 
   const resetFilters = () => {
     setSearch('')
     setFromYear('')
     setToYear('')
+    setSourceKind('all')
+    setSort('newest')
+    setCurrentPage(1)
   }
 
   return (
@@ -897,8 +1203,8 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder={lang === 'tr' ? 'Başlıkta ara…' : 'Search titles…'}
-                  aria-label={lang === 'tr' ? 'Başlıkta ara' : 'Search titles'}
+                  placeholder={lang === 'tr' ? 'Metin, konu veya OCR ara…' : 'Search text, topic or OCR…'}
+                  aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                 />
               </div>
             </div>
@@ -910,10 +1216,15 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                 setFromYear={setFromYear}
                 setToYear={setToYear}
               />
-              <button type="button" className="filter-reset" onClick={resetFilters}>
-                {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
-              </button>
             </div>
+            <SourceKindFilter
+              lang={lang}
+              sourceKind={sourceKind}
+              setSourceKind={setSourceKind}
+            />
+            <button type="button" className="filter-reset" onClick={resetFilters}>
+              {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
+            </button>
           </aside>
 
           <div className="archive-main">
@@ -934,12 +1245,18 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                 </p>
               ) : (
                 <ul className="archive-list">
-                  {filtered.map((item) => (
+                  {paginated.map((item) => (
                     <ArchiveRow item={item} lang={lang} key={item.title} />
                   ))}
                 </ul>
               )}
             </Reveal>
+            <Pagination
+              lang={lang}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
           </div>
         </div>
       </div>
@@ -948,17 +1265,18 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
 }
 
 function archivePool(lang: Lang): ArchiveItem[] {
-  const t = content[lang]
+  void lang
   return [
-    ...t.columns.outlets.flatMap((o) => o.items),
-    ...(t.analyses?.outlets.flatMap((o) => o.items) ?? []),
-    ...(t.interviews?.items ?? []),
-    ...(t.academicArticles?.items ?? []),
+    ...archiveData.columns.flatMap((o) => o.items),
+    ...archiveData.analyses.flatMap((o) => o.items),
+    ...archiveData.interviews,
+    ...archiveData.academicArticles,
   ]
 }
 
 function findArchiveItemBySlug(lang: Lang, slug: string): ArchiveItem | undefined {
-  return archivePool(lang).find((item) => item.url && slugFromUrl(item.url) === slug)
+  void lang
+  return findArchiveItem(slug)
 }
 
 /** Other full articles (real body text, not the current one) — used for
@@ -999,8 +1317,33 @@ function ArticlePage({ lang }: { lang: Lang }) {
     item ? `${item.title} — Şahin Alpay` : t.htmlTitle,
     item ? (item.subtitle ?? item.title) : t.htmlDescription,
   )
+  const articleUrl = item ? `${pageUrl(archiveBasePath(lang, item))}/${item.slug}` : ''
+  useJsonLd('article', item ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: item.title,
+    description: item.subtitle ?? item.excerpt ?? item.title,
+    datePublished: item.date,
+    inLanguage: lang,
+    url: articleUrl,
+    author: {
+      '@type': 'Person',
+      '@id': 'https://sahinalpay.net/#person',
+      name: 'Şahin Alpay',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Şahin Alpay',
+      url: 'https://sahinalpay.net/',
+    },
+    isPartOf: {
+      '@type': 'CollectionPage',
+      name: t.columns.title,
+      url: item ? pageUrl(archiveBasePath(lang, item)) : pageUrl(paths[lang].columns!),
+    },
+  } : null)
 
-  if (!item || !item.body || item.body.length === 0) {
+  if (!item || (!item.body?.length && !item.clippings?.length && !item.imageSrc)) {
     return <Navigate to={paths[lang].columns!} replace />
   }
 
@@ -1014,11 +1357,11 @@ function ArticlePage({ lang }: { lang: Lang }) {
       <div className="container container-narrow">
         <Reveal>
           <div className="article-tools">
-            <Link className="back-link" to={paths[lang].columns!}>
+            <Link className="back-link" to={archiveBasePath(lang, item)}>
               <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
                 arrow_back
               </span>
-              {t.columns.title}
+              {item.category === 'columns' ? t.columns.title : item.outlet}
             </Link>
             <div className="article-tools-group">
               <button
@@ -1069,13 +1412,44 @@ function ArticlePage({ lang }: { lang: Lang }) {
           className="article-body"
           style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
         >
-          {item.body.map((paragraph, i) => (
+          {(item.body ?? []).map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
           ))}
         </Reveal>
+        {(item.imageSrc || item.clippings?.length) && (
+          <Reveal as="aside" className="clipping-viewer" delay={0.12}>
+            <h2>{lang === 'tr' ? 'Gazete Kupürü' : 'Newspaper Clipping'}</h2>
+            {item.imageSrc && (
+              <figure className="clipping-frame">
+                <img src={item.imageSrc} alt={item.title} loading="lazy" />
+              </figure>
+            )}
+            {item.clippings?.map((clipping, index) => (
+              <figure className="clipping-frame" key={clipping.src}>
+                <img
+                  src={clipping.src}
+                  alt={clipping.alt ?? item.title}
+                  loading="lazy"
+                />
+                <figcaption>
+                  {clipping.pageLabel ??
+                    (lang === 'tr' ? `${index + 1}. sayfa` : `Page ${index + 1}`)}
+                  {clipping.sourceNote ? ` · ${clipping.sourceNote}` : ''}
+                </figcaption>
+                {clipping.ocrText && (
+                  <details className="clipping-ocr">
+                    <summary>{lang === 'tr' ? 'OCR metnini göster' : 'Show OCR text'}</summary>
+                    <p>{clipping.ocrText}</p>
+                  </details>
+                )}
+              </figure>
+            ))}
+          </Reveal>
+        )}
         {item.imageCredit && (
           <p className="article-image-credit">{item.imageCredit}</p>
         )}
+        {item.sourceNote && <p className="article-image-credit">{item.sourceNote}</p>}
         {item.url && (
           <p className="article-source">
             <a href={item.url} target="_blank" rel="noreferrer">
@@ -1210,22 +1584,36 @@ function PageForKey({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
     case 'about':
       return <AboutPage lang={lang} />
     case 'columns':
-      return <OutletArchivePage data={t.columns} lang={lang} />
+      return (
+        <OutletArchivePage
+          data={withOutletSectionItems(t.columns, archiveData.columns)}
+          lang={lang}
+        />
+      )
     case 'analyses':
       return t.analyses ? (
-        <OutletArchivePage data={t.analyses} lang={lang} />
+        <OutletArchivePage
+          data={withOutletSectionItems(t.analyses, archiveData.analyses)}
+          lang={lang}
+        />
       ) : (
         <Navigate to={paths[lang].home!} replace />
       )
     case 'interviews':
       return t.interviews ? (
-        <FlatArchivePage data={t.interviews} lang={lang} />
+        <FlatArchivePage
+          data={withFlatSectionItems(t.interviews, archiveData.interviews)}
+          lang={lang}
+        />
       ) : (
         <Navigate to={paths[lang].home!} replace />
       )
     case 'academic':
       return t.academicArticles ? (
-        <FlatArchivePage data={t.academicArticles} lang={lang} />
+        <FlatArchivePage
+          data={withFlatSectionItems(t.academicArticles, archiveData.academicArticles)}
+          lang={lang}
+        />
       ) : (
         <Navigate to={paths[lang].home!} replace />
       )
@@ -1251,6 +1639,22 @@ export function AppV1() {
             path="/columns"
             element={<RouteFor lang="en" pageKey="columns" />}
           />
+          <Route path="/columns/:slug" element={<ArticlePage lang="en" />} />
+          <Route
+            path="/analyses"
+            element={<RouteFor lang="en" pageKey="analyses" />}
+          />
+          <Route path="/analyses/:slug" element={<ArticlePage lang="en" />} />
+          <Route
+            path="/interviews"
+            element={<RouteFor lang="en" pageKey="interviews" />}
+          />
+          <Route path="/interviews/:slug" element={<ArticlePage lang="en" />} />
+          <Route
+            path="/academic-articles"
+            element={<RouteFor lang="en" pageKey="academic" />}
+          />
+          <Route path="/academic-articles/:slug" element={<ArticlePage lang="en" />} />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
@@ -1271,12 +1675,24 @@ export function AppV1() {
             element={<RouteFor lang="tr" pageKey="analyses" />}
           />
           <Route
+            path="/tr/analizler/:slug"
+            element={<ArticlePage lang="tr" />}
+          />
+          <Route
             path="/tr/soylesiler"
             element={<RouteFor lang="tr" pageKey="interviews" />}
           />
           <Route
+            path="/tr/soylesiler/:slug"
+            element={<ArticlePage lang="tr" />}
+          />
+          <Route
             path="/tr/akademik-makaleler"
             element={<RouteFor lang="tr" pageKey="academic" />}
+          />
+          <Route
+            path="/tr/akademik-makaleler/:slug"
+            element={<ArticlePage lang="tr" />}
           />
           <Route
             path="/tr/kitaplar"
@@ -1292,20 +1708,7 @@ export function AppV1() {
 }
 
 export default function App() {
-  const [design, setDesign] = useState<'v1' | 'v2'>(() => {
-    return (localStorage.getItem('sahinalpay-design') as 'v1' | 'v2') || 'v1';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('sahinalpay-design', design);
-  }, [design]);
-
-  return (
-    <>
-      {design === 'v1' ? <AppV1 /> : <AppV2 />}
-      <DesignToggle current={design} onChange={setDesign} />
-    </>
-  );
+  return <AppV1 />
 }
 
 function NotFound() {
