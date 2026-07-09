@@ -5,14 +5,15 @@ import { readArchiveEntries, slugify } from './archive-utils.mjs'
 
 const pdfDir = process.argv[2]
 const python = process.argv[3] ?? 'python3'
+const pdftoppm = process.argv[4] ?? 'pdftoppm'
 
 if (!pdfDir) {
-  console.error('Usage: node scripts/import-p24-pdf-images.mjs <pdf-dir> [python]')
+  console.error('Usage: node scripts/import-p24-pdf-images.mjs <pdf-dir> [python] [pdftoppm]')
   process.exit(1)
 }
 
 const p24Path = 'src/archive/tr/columns/p24.ts'
-const publicRoot = 'public'
+const tempDir = path.join('tmp', 'p24-pdf-images')
 const entries = readArchiveEntries().filter((entry) => entry.outlet === 'P24')
 const bySlug = new Map(entries.map((entry) => [entry.slug, entry]))
 const pdfFiles = fs
@@ -22,147 +23,159 @@ const pdfFiles = fs
 
 function slugFromPdfName(file) {
   const stem = path.basename(file, '.pdf')
-  const withoutDate = stem.replace(/_\d{8}$/, '')
-  return slugify(withoutDate.replace(/_/g, ' '))
+  return slugify(stem.replace(/_\d{8}$/, '').replace(/_/g, ' '))
 }
 
-const mappings = pdfFiles
-  .map((file) => {
-    const slug = slugFromPdfName(file)
-    return {
-      file,
-      sourcePdf: path.join(pdfDir, file),
-      slug,
-      entry: bySlug.get(slug),
-    }
-  })
-  .filter((mapping) => mapping.entry)
+function yearOf(entry) {
+  return entry.date?.match(/\d{4}/)?.[0] ?? 'unknown'
+}
 
-const tempInput = path.join('tmp', 'p24-pdf-image-input.json')
-const tempOutput = path.join('tmp', 'p24-pdf-image-output.json')
-fs.mkdirSync('tmp', { recursive: true })
-fs.writeFileSync(
-  tempInput,
-  JSON.stringify(
-    mappings.map((mapping) => ({
-      slug: mapping.slug,
-      title: mapping.entry.title,
-      year: mapping.entry.date?.match(/\d{4}/)?.[0] ?? 'unknown',
-      sourcePdf: mapping.sourcePdf,
-      outDir: path.join(publicRoot, 'archive', 'clippings', 'p24', mapping.entry.date?.match(/\d{4}/)?.[0] ?? 'unknown', mapping.slug),
-    })),
-    null,
-    2,
-  ),
-)
+function renderFirstPage(sourcePdf, outputPrefix) {
+  const result = spawnSync(
+    pdftoppm,
+    ['-png', '-f', '1', '-singlefile', sourcePdf, outputPrefix],
+    { encoding: 'utf8', stdio: 'pipe' },
+  )
 
-const extractor = `
-import json
-import os
+  if (result.status !== 0) {
+    throw new Error(result.stderr || result.stdout || `pdftoppm failed for ${sourcePdf}`)
+  }
+}
+
+function cropHeroImage(inputPng, outputPng) {
+  const cropper = `
+from PIL import Image
 import sys
 
-try:
-    import fitz
-except Exception as exc:
-    print(f"PyMuPDF unavailable: {exc}", file=sys.stderr)
-    sys.exit(2)
+image = Image.open(sys.argv[1]).convert("RGB")
+width, height = image.size
+limit_y = int(height * 0.52)
+pixels = image.load()
 
-with open(sys.argv[1], "r", encoding="utf-8") as handle:
-    jobs = json.load(handle)
+row_counts = []
+for y in range(limit_y):
+    count = 0
+    for x in range(width):
+        r, g, b = pixels[x, y]
+        if not (r > 242 and g > 242 and b > 242):
+            count += 1
+    row_counts.append(count)
 
-results = []
-for job in jobs:
-    os.makedirs(job["outDir"], exist_ok=True)
-    document = fitz.open(job["sourcePdf"])
-    candidates = []
-    for page_index in range(len(document)):
-        page = document[page_index]
-        for image_index, image in enumerate(page.get_images(full=True)):
-            xref = image[0]
-            info = document.extract_image(xref)
-            width = info.get("width", 0)
-            height = info.get("height", 0)
-            ext = info.get("ext", "png")
-            if width < 240 or height < 160:
-                continue
-            candidates.append({
-                "bytes": info["image"],
-                "width": width,
-                "height": height,
-                "ext": ext,
-                "page": page_index + 1,
-                "area": width * height,
-            })
-    candidates.sort(key=lambda item: item["area"], reverse=True)
-    exported = []
-    for index, candidate in enumerate(candidates[:2], start=1):
-        ext = "jpg" if candidate["ext"] == "jpeg" else candidate["ext"]
-        filename = f"image-{index}.{ext}"
-        out_path = os.path.join(job["outDir"], filename)
-        with open(out_path, "wb") as image_file:
-            image_file.write(candidate["bytes"])
-        exported.append({
-            "src": "/" + os.path.relpath(out_path, "public").replace(os.sep, "/"),
-            "pageLabel": f"PDF page {candidate['page']}",
-            "sourceNote": "P24 PDF",
-            "width": candidate["width"],
-            "height": candidate["height"],
-        })
-    results.append({"slug": job["slug"], "title": job["title"], "clippings": exported})
+threshold = max(80, int(width * 0.18))
+bands = []
+start = None
+for index, count in enumerate(row_counts):
+    if count >= threshold and start is None:
+        start = index
+    if (count < threshold or index == len(row_counts) - 1) and start is not None:
+        end = index if count < threshold else index + 1
+        if end - start > 80:
+            bands.append((start, end))
+        start = None
 
-with open(sys.argv[2], "w", encoding="utf-8") as handle:
-    json.dump(results, handle, ensure_ascii=False, indent=2)
+if not bands:
+    image.save(sys.argv[2])
+    sys.exit(0)
+
+y1, y2 = max(bands, key=lambda band: band[1] - band[0])
+col_counts = []
+for x in range(width):
+    count = 0
+    for y in range(y1, y2):
+        r, g, b = pixels[x, y]
+        if not (r > 242 and g > 242 and b > 242):
+            count += 1
+    col_counts.append(count)
+
+col_threshold = max(40, int((y2 - y1) * 0.2))
+xs = [x for x, count in enumerate(col_counts) if count >= col_threshold]
+if xs:
+    x1 = max(0, min(xs) - 8)
+    x2 = min(width, max(xs) + 9)
+else:
+    x1 = 0
+    x2 = width
+
+y1 = max(0, y1 - 8)
+y2 = min(height, y2 + 8)
+image.crop((x1, y1, x2, y2)).save(sys.argv[2])
 `
 
-const result = spawnSync(python, ['-c', extractor, tempInput, tempOutput], {
-  encoding: 'utf8',
-  stdio: 'pipe',
-})
+  const result = spawnSync(python, ['-c', cropper, inputPng, outputPng], {
+    encoding: 'utf8',
+    stdio: 'pipe',
+  })
 
-if (result.status !== 0) {
-  console.error(result.stderr || result.stdout)
-  process.exit(result.status ?? 1)
+  if (result.status !== 0) {
+    throw new Error(result.stderr || result.stdout || `crop failed for ${inputPng}`)
+  }
 }
 
-const extraction = JSON.parse(fs.readFileSync(tempOutput, 'utf8'))
-const byExtractedSlug = new Map(extraction.map((item) => [item.slug, item]))
+fs.mkdirSync(tempDir, { recursive: true })
+
+const exportsBySlug = new Map()
+let matched = 0
+let exported = 0
+
+for (const file of pdfFiles) {
+  const slug = slugFromPdfName(file)
+  const entry = bySlug.get(slug)
+  if (!entry) continue
+
+  matched += 1
+  const year = yearOf(entry)
+  const sourcePdf = path.join(pdfDir, file)
+  const outDir = path.join('public', 'archive', 'clippings', 'p24', year, slug)
+  const renderPrefix = path.join(tempDir, slug)
+  const rendered = `${renderPrefix}.png`
+  const outputDiskPath = path.join(outDir, 'image-1.png')
+
+  fs.mkdirSync(outDir, { recursive: true })
+  renderFirstPage(sourcePdf, renderPrefix)
+  cropHeroImage(rendered, outputDiskPath)
+
+  const publicPath = `/${path.relative('public', outputDiskPath).replaceAll(path.sep, '/')}`
+  exportsBySlug.set(slug, {
+    src: publicPath,
+    alt: entry.title,
+    pageLabel: 'Article image',
+    sourceNote: 'P24 PDF',
+  })
+  exported += 1
+}
 
 let p24Source = fs.readFileSync(p24Path, 'utf8')
 let inserted = 0
 
 for (const entry of entries) {
-  const extracted = byExtractedSlug.get(entry.slug)
-  if (!extracted?.clippings?.length) continue
-  if (p24Source.includes(`src: '${extracted.clippings[0].src}'`)) continue
+  const clipping = exportsBySlug.get(entry.slug)
+  if (!clipping) continue
+  if (p24Source.includes(`src: '${clipping.src}'`)) continue
 
-  const titleNeedle = `title: '${entry.title.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}',`
+  const escapedTitle = entry.title.replace(/\\/g, '\\\\').replace(/'/g, "\\'")
+  const titleNeedle = `title: '${escapedTitle}',`
   const titleIndex = p24Source.indexOf(titleNeedle)
   if (titleIndex < 0) continue
   const urlIndex = p24Source.indexOf('url:', titleIndex)
   const lineEnd = p24Source.indexOf('\n', urlIndex)
-  const clippingLines = [
+  const clippingBlock = [
     '              clippings: [',
-    ...extracted.clippings.map(
-      (clipping, index) =>
-        `                { src: '${clipping.src}', alt: '${entry.title.replace(/'/g, "\\'")}', pageLabel: '${clipping.pageLabel}', sourceNote: '${clipping.sourceNote}${index > 0 ? ` ${index + 1}` : ''}' },`,
-    ),
+    `                { src: '${clipping.src}', alt: '${escapedTitle}', pageLabel: '${clipping.pageLabel}', sourceNote: '${clipping.sourceNote}' },`,
     '              ],',
   ].join('\n')
-  p24Source = `${p24Source.slice(0, lineEnd + 1)}${clippingLines}\n${p24Source.slice(lineEnd + 1)}`
+
+  p24Source = `${p24Source.slice(0, lineEnd + 1)}${clippingBlock}\n${p24Source.slice(lineEnd + 1)}`
   inserted += 1
 }
 
 fs.writeFileSync(p24Path, p24Source)
 
-const matched = mappings.length
-const exported = extraction.filter((item) => item.clippings.length > 0).length
-const unmatched = pdfFiles.length - matched
 console.log(
   JSON.stringify(
     {
       pdfs: pdfFiles.length,
       matched,
-      unmatched,
+      unmatched: pdfFiles.length - matched,
       exported,
       inserted,
     },

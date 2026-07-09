@@ -1,7 +1,7 @@
 /* ============================================================
    Şahin Alpay — Digital Archive Design System
    Style: Civic legacy system — Literata + Nunito Sans
-   Palette: clear institutional surfaces, civic green, statesman blue, brass
+   Palette: neutral paper surfaces, statesman ink blue, brass
    ============================================================ */
 
 :root {
@@ -12,40 +12,37 @@
   --label: 'Nunito Sans', system-ui, sans-serif;
 
   /* Light theme (default) */
-  --bg: #f7f8f4;
-  --surface: #f7f8f4;
+  --bg: #f7f6f2;
+  --surface: #f7f6f2;
   --surface-lowest: #ffffff;
-  --surface-low: #eef2ea;
-  --surface-mid: #e4ebe3;
-  --surface-high: #d8e3dc;
-  --surface-highest: #ccd9d3;
-  --surface-dim: #dce2dc;
+  --surface-low: #efede7;
+  --surface-mid: #e7e4dc;
+  --surface-high: #dbd7cd;
+  --surface-highest: #cdc9bf;
+  --surface-dim: #e3e1da;
 
-  --ink: #17201d;
-  --ink-soft: #35413c;
-  --muted: #5c6660;
-  --line: #c8d2ca;
-  --line-strong: #a9b8b0;
+  --ink: #1a1d21;
+  --ink-soft: #383d44;
+  --muted: #5e646c;
+  --line: #d0cdc5;
+  --line-strong: #b1ada2;
 
-  --accent: #1f6f5b;
-  --accent-ink: #15513f;
-  --accent-soft: rgba(31, 111, 91, 0.11);
+  --accent: #2e5f8e;
+  --accent-ink: #1e4569;
+  --accent-soft: rgba(46, 95, 142, 0.11);
   --on-accent: #ffffff;
-  --accent-container: #d9ebe5;
+  --accent-container: #dbe7f2;
 
   --tertiary: #b58b2b;
   --tertiary-ink: #6f4f12;
   --tertiary-soft: rgba(181, 139, 43, 0.16);
   --tertiary-container: #f3e5bf;
-  --statesman: #274c77;
-  --statesman-soft: rgba(39, 76, 119, 0.12);
-  --oxide: #9b3d2e;
 
   --error: #b83230;
   --on-error: #ffffff;
 
-  --shadow-soft: 0 4px 20px rgba(23, 32, 29, 0.07);
-  --shadow-lift: 0 10px 32px -8px rgba(23, 32, 29, 0.18);
+  --shadow-soft: 0 4px 20px rgba(24, 29, 36, 0.07);
+  --shadow-lift: 0 10px 32px -8px rgba(24, 29, 36, 0.18);
 
   /* Radius scale */
   --radius: 0.5rem;
@@ -84,26 +81,26 @@
 /* Dark theme (system preference) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #1b1e1c;
-    --surface: #1f2220;
-    --surface-lowest: #161815;
-    --surface-low: #262a28;
-    --surface-mid: #2b2f2d;
-    --surface-high: #343833;
-    --surface-highest: #3e423c;
-    --surface-dim: #161815;
+    --bg: #16181c;
+    --surface: #1a1d22;
+    --surface-lowest: #101317;
+    --surface-low: #21252b;
+    --surface-mid: #262b32;
+    --surface-high: #2f353d;
+    --surface-highest: #394049;
+    --surface-dim: #101317;
 
-    --ink: #e8e4db;
-    --ink-soft: #c8ccc0;
-    --muted: #8d9187;
-    --line: #444843;
-    --line-strong: #565a53;
+    --ink: #e8e6e0;
+    --ink-soft: #c5c8cc;
+    --muted: #8b9097;
+    --line: #3f444c;
+    --line-strong: #525862;
 
-    --accent: #8ecf9e;
-    --accent-ink: #a8dab5;
-    --accent-soft: rgba(142, 207, 158, 0.14);
-    --on-accent: #0d2b1a;
-    --accent-container: #2a6038;
+    --accent: #90b9de;
+    --accent-ink: #abcbea;
+    --accent-soft: rgba(144, 185, 222, 0.14);
+    --on-accent: #0e2947;
+    --accent-container: #274b6e;
 
     --tertiary: #dcc48e;
     --tertiary-ink: #e8d6a8;
@@ -120,26 +117,26 @@
 
 /* Explicit dark override (theme toggle) — wins in both directions */
 :root[data-theme='dark'] {
-  --bg: #1b1e1c;
-  --surface: #1f2220;
-  --surface-lowest: #161815;
-  --surface-low: #262a28;
-  --surface-mid: #2b2f2d;
-  --surface-high: #343833;
-  --surface-highest: #3e423c;
-  --surface-dim: #161815;
+  --bg: #16181c;
+  --surface: #1a1d22;
+  --surface-lowest: #101317;
+  --surface-low: #21252b;
+  --surface-mid: #262b32;
+  --surface-high: #2f353d;
+  --surface-highest: #394049;
+  --surface-dim: #101317;
 
-  --ink: #e8e4db;
-  --ink-soft: #c8ccc0;
-  --muted: #8d9187;
-  --line: #444843;
-  --line-strong: #565a53;
+  --ink: #e8e6e0;
+  --ink-soft: #c5c8cc;
+  --muted: #8b9097;
+  --line: #3f444c;
+  --line-strong: #525862;
 
-  --accent: #8ecf9e;
-  --accent-ink: #a8dab5;
-  --accent-soft: rgba(142, 207, 158, 0.14);
-  --on-accent: #0d2b1a;
-  --accent-container: #2a6038;
+  --accent: #90b9de;
+  --accent-ink: #abcbea;
+  --accent-soft: rgba(144, 185, 222, 0.14);
+  --on-accent: #0e2947;
+  --accent-container: #274b6e;
 
   --tertiary: #dcc48e;
   --tertiary-ink: #e8d6a8;
@@ -166,6 +163,8 @@ body {
   color: var(--ink-soft);
   min-height: 100dvh;
   overflow-x: hidden;
+  /* Inherited by all text: long words/URLs wrap instead of pushing past the viewport */
+  overflow-wrap: break-word;
 }
 
 img {
@@ -654,24 +653,24 @@ select {
   font-size: 0.72rem;
   letter-spacing: 0.03em;
   color: #f6f3ec;
-  background: linear-gradient(transparent, rgba(20, 24, 20, 0.72));
+  background: linear-gradient(transparent, rgba(17, 20, 26, 0.72));
 }
 
 /* ---------- Bento category grid (home) ---------- */
 .hub-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
 @media (min-width: 700px) {
   .hub-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (min-width: 1080px) {
   .hub-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .hub-card-wide {
     grid-column: span 2;
@@ -803,7 +802,7 @@ select {
 }
 @media (min-width: 700px) {
   .recent-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 .recent-card {
@@ -991,13 +990,13 @@ select {
 /* ---------- Facts strip ---------- */
 .facts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4) var(--space-3);
   margin-top: var(--space-2);
 }
 @media (min-width: 600px) {
   .facts {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 .fact-num {
@@ -1105,12 +1104,12 @@ select {
 }
 @media (min-width: 640px) {
   .works-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (min-width: 1000px) {
   .works-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1160,17 +1159,19 @@ select {
 /* ---------- Books list with covers (Kitaplar page) ---------- */
 .books-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
   margin-top: var(--space-5);
 }
 @media (min-width: 800px) {
   .books-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 .book-card {
   display: flex;
   gap: var(--space-3);
+  min-width: 0;
   background: var(--surface-lowest);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -1181,6 +1182,13 @@ select {
   transform: translateY(-3px);
   border-color: var(--accent);
   box-shadow: var(--shadow-soft);
+}
+/* Very narrow screens: the fixed-width cover + long title words can't share a
+   row without overflowing, so stack the card vertically */
+@media (max-width: 419px) {
+  .book-card {
+    flex-direction: column;
+  }
 }
 .book-cover {
   flex-shrink: 0;
