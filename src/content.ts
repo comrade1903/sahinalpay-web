@@ -189,6 +189,9 @@ export const content: Record<Lang, Content> = {
     nav: [
       { key: 'about', label: 'About' },
       { key: 'columns', label: 'Columns' },
+      { key: 'analyses', label: 'Analyses' },
+      { key: 'interviews', label: 'Interviews' },
+      { key: 'academic', label: 'Academic Articles' },
       { key: 'books', label: 'Books' },
     ],
     contactLabel: 'Contact',
@@ -215,6 +218,21 @@ export const content: Record<Lang, Content> = {
         key: 'columns',
         title: 'Columns',
         description: 'A newspaper-columns archive, organized by outlet.',
+      },
+      {
+        key: 'analyses',
+        title: 'Analyses',
+        description: 'Long-form political and intellectual essays, organized by publication.',
+      },
+      {
+        key: 'interviews',
+        title: 'Interviews',
+        description: 'Conversations, profiles, and published interviews.',
+      },
+      {
+        key: 'academic',
+        title: 'Academic Articles',
+        description: 'Academic publications and research writing.',
       },
       {
         key: 'books',
@@ -249,6 +267,32 @@ export const content: Record<Lang, Content> = {
         "English-language newspaper columns written for Today's Zaman between 2003 and 2016. For the Turkish-press columns, switch to the Turkish site.",
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       outlets: [{ outlet: "Today's Zaman", items: [] }],
+    },
+    analyses: {
+      kicker: 'Analyses',
+      title: 'Analyses',
+      intro:
+        'Magazine and newspaper analyses, grouped by source as the archive is expanded.',
+      emptyLabel: 'No items yet. Links and archived clippings will be added here.',
+      outlets: [
+        { outlet: 'Forum', items: [] },
+        { outlet: 'Aydınlık (Sosyalist Dergi/Proleter Devrimci)', items: [] },
+        { outlet: 'İşçi Köylü', items: [] },
+      ],
+    },
+    interviews: {
+      kicker: 'Interviews',
+      title: 'Interviews',
+      intro: 'Published interviews and conversations with Şahin Alpay.',
+      emptyLabel: 'No items yet. Links and archived clippings will be added here.',
+      items: [],
+    },
+    academicArticles: {
+      kicker: 'Academic Articles',
+      title: 'Academic Articles',
+      intro: 'Academic articles and research publications.',
+      emptyLabel: 'No items yet. Links will be added here.',
+      items: [],
     },
     books: {
       kicker: 'Selected Works',

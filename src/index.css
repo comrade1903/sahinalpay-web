@@ -1400,6 +1400,11 @@ main:focus {
   max-width: var(--measure);
   margin: var(--space-3) 0 0;
 }
+.archive-language-note {
+  max-width: var(--measure);
+  margin: var(--space-3) 0;
+  color: var(--ink-soft);
+}
 
 .archive-layout {
   display: flex;

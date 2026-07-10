@@ -2409,7 +2409,54 @@ function ArchiveLoading({ lang }: { lang: Lang }) {
   )
 }
 
+type TurkishOnlyArchiveKey = 'analyses' | 'interviews' | 'academic'
+
+function TurkishArchiveHub({ pageKey }: { pageKey: TurkishOnlyArchiveKey }) {
+  const location = useLocation()
+  const t = content.en
+  const section =
+    pageKey === 'analyses'
+      ? t.analyses!
+      : pageKey === 'interviews'
+        ? t.interviews!
+        : t.academicArticles!
+
+  usePageMeta({
+    title: `${section.title} — Şahin Alpay`,
+    description: section.intro,
+    alternates: pageAlternates(location.pathname),
+  })
+
+  return (
+    <section className="section section-solo">
+      <div className="container container-narrow">
+        <Reveal>
+          <p className="kicker">{section.kicker}</p>
+          <h1 className="section-title">{section.title}</h1>
+          <p className="archive-intro">{section.intro}</p>
+          <p className="archive-language-note">
+            Source material for this section is currently available in Turkish.
+          </p>
+          <Link className="btn btn-primary" to={paths.tr[pageKey]!} lang="tr">
+            Türkçe arşivi görüntüle
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
+  if (
+    lang === 'en' &&
+    (pageKey === 'analyses' || pageKey === 'interviews' || pageKey === 'academic')
+  ) {
+    return <TurkishArchiveHub pageKey={pageKey} />
+  }
+  return <LoadedArchiveRoutePage pageKey={pageKey} lang={lang} />
+}
+
+function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
   const archiveData = useArchiveData()
   const t = content[lang]
 
@@ -2497,17 +2544,17 @@ function MainShell() {
           <Route path="/columns/:slug" element={<ArticlePage lang="en" />} />
           <Route
             path="/analyses"
-            element={<Navigate to="/" replace />}
+            element={<RouteFor lang="en" pageKey="analyses" />}
           />
           <Route path="/analyses/:slug" element={<Navigate to="/" replace />} />
           <Route
             path="/interviews"
-            element={<Navigate to="/" replace />}
+            element={<RouteFor lang="en" pageKey="interviews" />}
           />
           <Route path="/interviews/:slug" element={<Navigate to="/" replace />} />
           <Route
             path="/academic-articles"
-            element={<Navigate to="/" replace />}
+            element={<RouteFor lang="en" pageKey="academic" />}
           />
           <Route
             path="/academic-articles/:slug"
