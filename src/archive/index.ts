@@ -1,6 +1,7 @@
 import type {
   ArchiveCategory,
   ArchiveLang,
+  ArchiveMedium,
   ArchiveItem,
   ArchiveItemSeed,
   FlatArchiveSection,
@@ -13,6 +14,7 @@ import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
 import { zamanColumnSeeds } from './tr/columns/zaman'
 import { p24ColumnSeeds } from './tr/columns/p24'
+import { todaysZamanColumnSeeds } from './en/columns/todays-zaman'
 import { forumAnalysisSeeds } from './tr/analyses/forum'
 import { aydinlikAnalysisSeeds } from './tr/analyses/aydinlik'
 import { isciKoyluAnalysisSeeds } from './tr/analyses/isci-koylu'
@@ -23,23 +25,28 @@ function outlet(
   outletName: string,
   category: ArchiveCategory,
   seeds: ArchiveItemSeed[],
+  medium?: ArchiveMedium,
 ): OutletGroup {
   return {
     outlet: outletName,
-    items: normalizeArchiveItems(outletName, category, seeds),
+    medium,
+    items: normalizeArchiveItems(outletName, category, seeds, medium),
   }
 }
 
+/* Columns are per-language: the Turkish page lists the Turkish-press
+   outlets, the English page lists Today's Zaman. 'print' columns ran in
+   the physical newspaper; P24 pieces are online news-blog columns. */
 export const archiveData = {
   columns: {
     tr: [
-      outlet('Cumhuriyet', 'columns', cumhuriyetColumnSeeds),
-      outlet('Sabah', 'columns', sabahColumnSeeds),
-      outlet('Milliyet', 'columns', milliyetColumnSeeds),
-      outlet('Zaman', 'columns', zamanColumnSeeds),
-      outlet('P24', 'columns', p24ColumnSeeds),
+      outlet('Cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'print'),
+      outlet('Sabah', 'columns', sabahColumnSeeds, 'print'),
+      outlet('Milliyet', 'columns', milliyetColumnSeeds, 'print'),
+      outlet('Zaman', 'columns', zamanColumnSeeds, 'print'),
+      outlet('P24', 'columns', p24ColumnSeeds, 'online'),
     ],
-    en: [] as OutletGroup[],
+    en: [outlet("Today's Zaman", 'columns', todaysZamanColumnSeeds, 'print')],
   } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: [
     outlet('Forum', 'analyses', forumAnalysisSeeds),
@@ -97,14 +104,21 @@ export function archiveItemText(item: ArchiveItem): string {
     .join(' ')
 }
 
+/** Scanned newspaper clippings only — article photos (kind 'photo') don't
+    make an item a "clipping". */
+export function itemScanClippings(item: ArchiveItem) {
+  return (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
+}
+
 export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | 'clipping') {
   if (kind === 'all') return true
   if (kind === 'digital') return Boolean(item.url || item.body?.length)
-  return Boolean(item.clippings?.length || item.imageSrc)
+  return Boolean(itemScanClippings(item).length || item.imageSrc)
 }
 
 export type {
   ArchiveLang,
+  ArchiveMedium,
   ArchiveClipping,
   ArchiveItem,
   ArchiveItemSeed,
