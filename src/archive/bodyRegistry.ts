@@ -17,6 +17,9 @@ type BodyLoader = () => Promise<BodyMap>
     Give every new outlet (in either language) its own outletKey. */
 const bodyLoaders: Record<string, BodyLoader> = {
   'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
+  'columns:zaman': () => import('./tr/columns/zaman.body').then((m) => m.zamanBodies),
+  'columns:todays-zaman': () =>
+    import('./en/columns/todays-zaman.body').then((m) => m.todaysZamanBodies),
 }
 
 const bodyMapPromises = new Map<string, Promise<BodyMap>>()

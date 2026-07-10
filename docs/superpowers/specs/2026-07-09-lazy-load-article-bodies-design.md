@@ -120,3 +120,22 @@ Mid-implementation, `main` independently gained English-language support (`archi
 - Typing a title-only term resolves instantly, no `p24.body.ts` fetch.
 - Opening a P24 article directly renders full body text correctly; reading-progress bar and font-size controls work.
 - Outlets with empty seed arrays (Cumhuriyet, Sabah, Milliyet, Zaman) render without error.
+
+## Follow-up: Zaman and Today's Zaman landed for real
+
+After the above was merged, `main` gained a second concurrent update that populated `src/archive/tr/columns/zaman.ts` (617 items) and added `src/archive/en/columns/todays-zaman.ts` (411 items) — exactly the scenario this design's Goals section anticipated. Both arrived un-split (full body inline), pushing `archive-data` to **4.9 MB raw / 1.67 MB gzip**. Rebased onto that commit (one more conflict in `src/archive/index.ts`, merging its new `medium`/`ArchiveMedium` field with this project's `outletKey` threading) and re-ran `scripts/split-archive-body.mjs` against both files — no script changes needed, confirming the "reusable for future outlets" goal:
+
+```
+node scripts/split-archive-body.mjs src/archive/tr/columns/zaman.ts src/archive/en/columns/todays-zaman.ts
+```
+
+Registered `'columns:zaman'` and `'columns:todays-zaman'` in `bodyRegistry.ts`. Result:
+
+| chunk | raw | gzip |
+|---|---|---|
+| `archive-data` (all outlets' metadata, before Zaman/Today's Zaman split) | 4,899.84 kB | 1,669.00 kB |
+| `archive-data` (after split) | 430.03 kB | 131.87 kB |
+| `archive-tr-zaman` (lazy, on-demand) | 2,668.42 kB | 946.38 kB |
+| `archive-en-todays-zaman` (lazy, on-demand) | 1,930.87 kB | 658.88 kB |
+
+Confirmed via `dist/index.html` that neither lazy chunk is referenced in the initial HTML, and via dev-server network logs that `zaman.body.ts`/`todays-zaman.body.ts` each load only when their respective article page is opened. One real-content article in each language (Turkish Zaman, English Today's Zaman) verified rendering correctly end-to-end, including the concurrently-added `medium` badge ("Gazete"/"Print").
