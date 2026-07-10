@@ -27,6 +27,7 @@ import {
 import {
   archiveData,
   archiveItemText,
+  getCachedBody,
   itemHasSourceKind,
   itemScanClippings,
   loadArticleBody,
@@ -931,14 +932,23 @@ function useBodySearchIndex(
   const [searchingBody, setSearchingBody] = useState(false)
 
   useEffect(() => {
-    if (!debouncedSearch) return
+    if (!debouncedSearch) {
+      setSearchingBody(false)
+      return
+    }
     let cancelled = false
     setSearchingBody(true)
-    loadOutletBodies(items).then(() => {
-      if (cancelled) return
-      setSearchingBody(false)
-      setBodyVersion((v) => v + 1)
-    })
+    loadOutletBodies(items)
+      .then(() => {
+        if (cancelled) return
+        setSearchingBody(false)
+        setBodyVersion((v) => v + 1)
+      })
+      .catch((error) => {
+        if (cancelled) return
+        setSearchingBody(false)
+        console.error('Failed to load body text for search', error)
+      })
     return () => {
       cancelled = true
     }
@@ -1788,14 +1798,21 @@ const FONT_SCALE_MAX = 1.5
 const FONT_SCALE_STEP = 0.125
 
 function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
-  const [body, setBody] = useState<string[] | undefined>(item?.body)
+  const [body, setBody] = useState<string[] | undefined>(
+    item ? (item.body ?? getCachedBody(item.id)) : undefined,
+  )
   useEffect(() => {
-    setBody(item?.body)
+    setBody(item ? (item.body ?? getCachedBody(item.id)) : undefined)
     if (!item || item.body || !item.hasBody) return
+    if (getCachedBody(item.id)) return
     let cancelled = false
-    loadArticleBody(item).then((loaded) => {
-      if (!cancelled) setBody(loaded)
-    })
+    loadArticleBody(item)
+      .then((loaded) => {
+        if (!cancelled) setBody(loaded)
+      })
+      .catch((error) => {
+        if (!cancelled) console.error('Failed to load article body', error)
+      })
     return () => {
       cancelled = true
     }

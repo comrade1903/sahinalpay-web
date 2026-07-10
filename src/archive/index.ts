@@ -119,7 +119,7 @@ export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | '
   return Boolean(itemScanClippings(item).length || item.imageSrc)
 }
 
-export { loadArticleBody, loadOutletBodies } from './bodyRegistry'
+export { loadArticleBody, loadOutletBodies, getCachedBody } from './bodyRegistry'
 
 export type {
   ArchiveLang,

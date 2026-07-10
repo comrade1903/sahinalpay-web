@@ -5,7 +5,16 @@ type BodyLoader = () => Promise<BodyMap>
 
 /** One entry per split outlet, keyed by `${category}:${outletKey}`.
     Add an entry here once an outlet has been split by
-    scripts/split-archive-body.mjs (see Task 5 for the first one, P24). */
+    scripts/split-archive-body.mjs (see Task 5 for the first one, P24).
+
+    IMPORTANT: outletKey must be globally unique per category across
+    BOTH languages (archiveData.columns.tr and .en) — this key, and the
+    ArchiveItem.id (`${category}-${slug}`) used as the resolved-body
+    cache key, do not currently include `lang`. If an English outlet is
+    added under the same category with a reused outletKey (or a slug
+    that collides with a Turkish item's slug in the same category), its
+    body cache entries would silently collide with the Turkish outlet's.
+    Give every new outlet (in either language) its own outletKey. */
 const bodyLoaders: Record<string, BodyLoader> = {
   'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
 }
@@ -23,7 +32,10 @@ function loadBodyMap(category: ArchiveCategory, outletKey: string): Promise<Body
   if (!loader) return undefined
   let pending = bodyMapPromises.get(key)
   if (!pending) {
-    pending = loader()
+    pending = loader().catch((error) => {
+      bodyMapPromises.delete(key)
+      throw error
+    })
     bodyMapPromises.set(key, pending)
   }
   return pending
