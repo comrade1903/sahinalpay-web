@@ -823,20 +823,19 @@ function AboutPage({ lang }: { lang: Lang }) {
 }
 
 /** Where a row should link: internally to the full-article page when we
- *  have real body text, externally to the source otherwise. */
+ *  have real body text or scanned clippings to show, externally to the
+ *  source otherwise. Body/clippings win over a bare `url` so a scanned
+ *  piece opens its own reader page instead of jumping straight to the
+ *  (often third-party, sometimes defunct) source link. */
 function archiveLink(
   item: ArchiveItem,
   lang: Lang,
 ): { href: string; internal: boolean } | null {
-  if (item.url && item.body && item.body.length > 0) {
-    return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
-  }
-  if (item.body && item.body.length > 0) {
+  if ((item.body && item.body.length > 0) || itemScanClippings(item).length > 0) {
     return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
   if (item.imageSrc) return { href: item.imageSrc, internal: false }
-  if (item.clippings?.[0]?.src) return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   return null
 }
 
