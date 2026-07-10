@@ -9,7 +9,6 @@ import type {
   OutletGroup,
 } from './types'
 import { normalizeArchiveItems } from './utils'
-import { getCachedBody } from './bodyRegistry'
 import { cumhuriyetColumnSeeds } from './tr/columns/cumhuriyet'
 import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
@@ -27,12 +26,13 @@ function outlet(
   outletKey: string,
   category: ArchiveCategory,
   seeds: ArchiveItemSeed[],
+  lang: ArchiveLang,
   medium?: ArchiveMedium,
 ): OutletGroup {
   return {
     outlet: outletName,
     medium,
-    items: normalizeArchiveItems(outletName, outletKey, category, seeds, medium),
+    items: normalizeArchiveItems(outletName, outletKey, category, seeds, lang, medium),
   }
 }
 
@@ -42,21 +42,48 @@ function outlet(
 export const archiveData = {
   columns: {
     tr: [
-      outlet('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'print'),
-      outlet('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'print'),
-      outlet('Milliyet', 'milliyet', 'columns', milliyetColumnSeeds, 'print'),
-      outlet('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'print'),
-      outlet('P24', 'p24', 'columns', p24ColumnSeeds, 'online'),
+      outlet('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'tr', 'print'),
+      outlet('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'tr', 'print'),
+      outlet('Milliyet', 'milliyet', 'columns', milliyetColumnSeeds, 'tr', 'print'),
+      outlet('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'tr', 'print'),
+      outlet('P24', 'p24', 'columns', p24ColumnSeeds, 'tr', 'online'),
     ],
-    en: [outlet("Today's Zaman", 'todays-zaman', 'columns', todaysZamanColumnSeeds, 'print')],
+    en: [
+      outlet(
+        "Today's Zaman",
+        'todays-zaman',
+        'columns',
+        todaysZamanColumnSeeds,
+        'en',
+        'print',
+      ),
+    ],
   } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: [
-    outlet('Forum', 'forum', 'analyses', forumAnalysisSeeds),
-    outlet('Aydınlık (Sosyalist Dergi/Proleter Devrimci)', 'aydinlik', 'analyses', aydinlikAnalysisSeeds),
-    outlet('İşçi Köylü', 'isci-koylu', 'analyses', isciKoyluAnalysisSeeds),
+    outlet('Forum', 'forum', 'analyses', forumAnalysisSeeds, 'tr'),
+    outlet(
+      'Aydınlık (Sosyalist Dergi/Proleter Devrimci)',
+      'aydinlik',
+      'analyses',
+      aydinlikAnalysisSeeds,
+      'tr',
+    ),
+    outlet('İşçi Köylü', 'isci-koylu', 'analyses', isciKoyluAnalysisSeeds, 'tr'),
   ],
-  interviews: normalizeArchiveItems('Söyleşiler', 'interviews', 'interviews', interviewSeeds),
-  academicArticles: normalizeArchiveItems('Akademik Makaleler', 'academic', 'academic', academicArticleSeeds),
+  interviews: normalizeArchiveItems(
+    'Söyleşiler',
+    'interviews',
+    'interviews',
+    interviewSeeds,
+    'tr',
+  ),
+  academicArticles: normalizeArchiveItems(
+    'Akademik Makaleler',
+    'academic',
+    'academic',
+    academicArticleSeeds,
+    'tr',
+  ),
 }
 
 export function withOutletSectionItems(
@@ -86,40 +113,6 @@ export function allArchiveItems(): ArchiveItem[] {
 export function findArchiveItem(slug: string): ArchiveItem | undefined {
   return allArchiveItems().find((item) => item.slug === slug)
 }
-
-export function archiveItemText(item: ArchiveItem): string {
-  const body = item.body ?? getCachedBody(item.id)
-  return [
-    item.title,
-    item.subtitle,
-    item.excerpt,
-    item.sourceNote,
-    item.imageCredit,
-    ...(body ?? []),
-    ...(item.clippings ?? []).flatMap((clipping) => [
-      clipping.alt,
-      clipping.ocrText,
-      clipping.sourceNote,
-      clipping.pageLabel,
-    ]),
-  ]
-    .filter(Boolean)
-    .join(' ')
-}
-
-/** Scanned newspaper clippings only — article photos (kind 'photo') don't
-    make an item a "clipping". */
-export function itemScanClippings(item: ArchiveItem) {
-  return (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
-}
-
-export function itemHasSourceKind(item: ArchiveItem, kind: 'all' | 'digital' | 'clipping') {
-  if (kind === 'all') return true
-  if (kind === 'digital') return Boolean(item.url || item.hasBody)
-  return Boolean(itemScanClippings(item).length || item.imageSrc)
-}
-
-export { loadArticleBody, loadOutletBodies, getCachedBody } from './bodyRegistry'
 
 export type {
   ArchiveLang,

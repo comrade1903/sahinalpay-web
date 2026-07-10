@@ -1,4 +1,10 @@
-import type { ArchiveCategory, ArchiveItem, ArchiveItemSeed, ArchiveMedium } from './types'
+import type {
+  ArchiveCategory,
+  ArchiveItem,
+  ArchiveItemSeed,
+  ArchiveLang,
+  ArchiveMedium,
+} from './types'
 
 const TURKISH_CHAR_MAP: Record<string, string> = {
   ç: 'c',
@@ -35,6 +41,7 @@ export function normalizeArchiveItems(
   outletKey: string,
   category: ArchiveCategory,
   seeds: ArchiveItemSeed[],
+  lang: ArchiveLang,
   medium?: ArchiveMedium,
 ): ArchiveItem[] {
   return seeds.map((seed) => {
@@ -43,6 +50,7 @@ export function normalizeArchiveItems(
       ...seed,
       id: seed.id ?? `${category}-${slug}`,
       slug,
+      lang,
       outlet,
       outletKey,
       category,

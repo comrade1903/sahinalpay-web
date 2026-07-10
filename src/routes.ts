@@ -9,16 +9,13 @@ export type PageKey =
   | 'academic'
   | 'books'
 
-/* English has three archive categories; Turkish has all six (Analizler /
-   Söyleşiler / Akademik Makaleler are Turkish-only, per the source material). */
+/* English has Columns + Books; Analyses, Interviews and Academic Articles
+   are Turkish-only, per the source material. */
 export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
   en: {
     home: '/',
     about: '/about',
     columns: '/columns',
-    analyses: '/analyses',
-    interviews: '/interviews',
-    academic: '/academic-articles',
     books: '/books',
   },
   tr: {

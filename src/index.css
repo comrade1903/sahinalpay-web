@@ -58,6 +58,19 @@
   --shadow-soft: 0 4px 20px rgba(24, 29, 36, 0.07);
   --shadow-lift: 0 10px 32px -8px rgba(24, 29, 36, 0.18);
 
+  /* Component tokens */
+  --control-hit-size: 44px;
+  --control-border: var(--line-strong);
+  --control-bg: transparent;
+  --control-fg: var(--ink-soft);
+  --control-bg-hover: var(--accent-soft);
+  --control-border-hover: var(--accent);
+  --control-fg-hover: var(--accent-ink);
+  --control-disabled-opacity: 0.45;
+  --menu-bg: var(--surface-lowest);
+  --menu-border: var(--line);
+  --menu-scrim: rgba(16, 19, 23, 0.48);
+
   /* Radius scale */
   --radius: 0.5rem;
   --radius-lg: 1rem;
@@ -179,6 +192,18 @@ body {
   overflow-x: hidden;
   /* Inherited by all text: long words/URLs wrap instead of pushing past the viewport */
   overflow-wrap: break-word;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 img {
@@ -450,15 +475,15 @@ main:focus {
 
 .lang-toggle {
   appearance: none;
-  border: 1px solid var(--line-strong);
-  background: transparent;
-  color: var(--ink-soft);
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--control-fg);
   font-family: var(--label);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--control-hit-size);
+  min-height: var(--control-hit-size);
   padding-inline: 0.75rem;
   border-radius: var(--radius-full);
   display: inline-grid;
@@ -468,18 +493,18 @@ main:focus {
 }
 .lang-toggle:hover,
 .lang-toggle:focus-visible {
-  color: var(--accent-ink);
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--control-fg-hover);
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
 }
 
 .mobile-menu-toggle {
   appearance: none;
-  border: 1px solid var(--line-strong);
-  background: transparent;
-  color: var(--ink-soft);
-  width: 44px;
-  height: 44px;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--control-fg);
+  width: var(--control-hit-size);
+  height: var(--control-hit-size);
   border-radius: var(--radius-full);
   display: inline-grid;
   place-items: center;
@@ -488,9 +513,9 @@ main:focus {
 }
 .mobile-menu-toggle:hover,
 .mobile-menu-toggle:focus-visible {
-  color: var(--accent-ink);
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--control-fg-hover);
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
 }
 @media (min-width: 900px) {
   .mobile-menu-toggle {
@@ -500,11 +525,11 @@ main:focus {
 
 .theme-toggle {
   appearance: none;
-  border: 1px solid var(--line-strong);
-  background: transparent;
-  color: var(--ink-soft);
-  width: 44px;
-  height: 44px;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--control-fg);
+  width: var(--control-hit-size);
+  height: var(--control-hit-size);
   border-radius: var(--radius-full);
   display: inline-grid;
   place-items: center;
@@ -513,9 +538,9 @@ main:focus {
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-  color: var(--accent-ink);
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--control-fg-hover);
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
 }
 .theme-toggle svg {
   width: 18px;
@@ -526,7 +551,7 @@ main:focus {
   position: fixed;
   inset: 72px 0 0;
   display: none;
-  background: rgba(16, 19, 23, 0.22);
+  background: var(--menu-scrim);
 }
 .mobile-nav-backdrop[data-open='true'] {
   display: block;
@@ -540,8 +565,8 @@ main:focus {
   grid-template-columns: 1fr;
   gap: 0.25rem;
   padding: var(--space-2);
-  background: var(--surface-lowest);
-  border: 1px solid var(--line);
+  background: var(--menu-bg);
+  border: 1px solid var(--menu-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lift);
 }
@@ -1913,6 +1938,18 @@ a.archive-row:hover .archive-row-title {
 .article-tools-group {
   display: flex;
   gap: 0.25rem;
+}
+.icon-btn:disabled {
+  cursor: not-allowed;
+  opacity: var(--control-disabled-opacity);
+}
+.icon-btn:disabled:hover {
+  color: var(--control-fg);
+  background: var(--control-bg);
+}
+.archive-loading {
+  color: var(--muted);
+  font-style: italic;
 }
 .article-subtitle {
   font-family: var(--headline);
