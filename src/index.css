@@ -1483,6 +1483,13 @@ main:focus {
   color: var(--muted);
 }
 
+.search-status {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
 .chip-row {
   display: flex;
   flex-wrap: wrap;
@@ -1983,6 +1990,10 @@ a.archive-row:hover .archive-row-title {
   line-height: 0.85;
   margin: 0.05em 0.08em 0 0;
   color: var(--accent-ink);
+}
+.article-body-loading {
+  color: var(--muted);
+  font-style: italic;
 }
 .article-image-credit {
   font-size: 0.78rem;

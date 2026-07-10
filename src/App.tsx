@@ -27,8 +27,11 @@ import {
 import {
   archiveData,
   archiveItemText,
+  getCachedBody,
   itemHasSourceKind,
   itemScanClippings,
+  loadArticleBody,
+  loadOutletBodies,
   withFlatSectionItems,
   withOutletSectionItems,
   type ArchiveItem,
@@ -560,7 +563,7 @@ function recentArticles(lang: Lang, count: number): ArchiveItem[] {
   const pool: ArchiveItem[] = [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
-  ].filter((item) => item.body && item.body.length > 0)
+  ].filter((item) => item.hasBody)
 
   pool.sort((a, b) => {
     const da = a.date ? parseTurkishDate(a.date) : null
@@ -831,7 +834,7 @@ function archiveLink(
   item: ArchiveItem,
   lang: Lang,
 ): { href: string; internal: boolean } | null {
-  if ((item.body && item.body.length > 0) || itemScanClippings(item).length > 0) {
+  if (item.hasBody || itemScanClippings(item).length > 0) {
     return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
@@ -856,7 +859,7 @@ function ArchiveRow({
   lang: Lang
 }) {
   const link = archiveLink(item, lang)
-  const preview = item.excerpt ?? item.subtitle ?? item.body?.[0]
+  const preview = item.excerpt ?? item.subtitle
   const inner = (
     <>
       <div className="archive-row-meta">
@@ -905,6 +908,53 @@ function ArchiveRow({
       <div className="archive-row archive-row-static">{inner}</div>
     </li>
   )
+}
+
+function useDebouncedValue<T>(value: T, delayMs: number): T {
+  const [debounced, setDebounced] = useState(value)
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebounced(value), delayMs)
+    return () => clearTimeout(timeout)
+  }, [value, delayMs])
+  return debounced
+}
+
+/** Lazily loads full body text for `items` once the user has typed a
+ *  non-empty search query, so list pages don't pay for body bytes until
+ *  full-text search is actually used. `bodyVersion` bumps once loading
+ *  resolves so callers can force a re-filter that includes body matches. */
+function useBodySearchIndex(
+  items: ArchiveItem[],
+  search: string,
+): { bodyVersion: number; searchingBody: boolean } {
+  const debouncedSearch = useDebouncedValue(search, 400)
+  const [bodyVersion, setBodyVersion] = useState(0)
+  const [searchingBody, setSearchingBody] = useState(false)
+
+  useEffect(() => {
+    if (!debouncedSearch) {
+      setSearchingBody(false)
+      return
+    }
+    let cancelled = false
+    setSearchingBody(true)
+    loadOutletBodies(items)
+      .then(() => {
+        if (cancelled) return
+        setSearchingBody(false)
+        setBodyVersion((v) => v + 1)
+      })
+      .catch((error) => {
+        if (cancelled) return
+        setSearchingBody(false)
+        console.error('Failed to load body text for search', error)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [debouncedSearch, items])
+
+  return { bodyVersion, searchingBody }
 }
 
 function matchesFilters(
@@ -1259,6 +1309,8 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
+  const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
+  const { bodyVersion, searchingBody } = useBodySearchIndex(sectionItems, search)
   const visibleOutlets = data.outlets.filter(
     (o) => activeOutlet === 'all' || o.outlet === activeOutlet,
   )
@@ -1274,7 +1326,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
         (entry) => entry.item.date,
         sort,
       ),
-    [visibleOutlets, search, fromYear, toYear, sourceKind, sort],
+    [visibleOutlets, search, fromYear, toYear, sourceKind, sort, bodyVersion],
   )
   const totalPages = Math.max(1, Math.ceil(flatEntries.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1371,6 +1423,11 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
+                {searchingBody && (
+                  <p className="search-status">
+                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+                  </p>
+                )}
               </div>
               <div className="filter-card">
                 <h3>{lang === 'tr' ? 'Yayın Kuruluşu' : 'Outlet'}</h3>
@@ -1500,6 +1557,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
+  const { bodyVersion, searchingBody } = useBodySearchIndex(data.items, search)
   const filtered = useMemo(
     () =>
       sortItems(
@@ -1508,7 +1566,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
         ),
         sort,
       ),
-    [data.items, search, fromYear, toYear, sourceKind, sort],
+    [data.items, search, fromYear, toYear, sourceKind, sort, bodyVersion],
   )
   const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1599,6 +1657,11 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
+                {searchingBody && (
+                  <p className="search-status">
+                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+                  </p>
+                )}
               </div>
               <YearRangeFilter
                 lang={lang}
@@ -1690,7 +1753,7 @@ function findArchiveItemBySlug(lang: Lang, slug: string): ArchiveItem | undefine
 function relatedArticles(lang: Lang, current: ArchiveItem, count: number): ArchiveItem[] {
   const currentTs = current.date ? parseTurkishDate(current.date) : null
   return archivePool(lang)
-    .filter((item) => item !== current && item.body && item.body.length > 0)
+    .filter((item) => item !== current && item.hasBody)
     .map((item) => {
       const ts = item.date ? parseTurkishDate(item.date) : null
       const dateScore =
@@ -1734,10 +1797,34 @@ const FONT_SCALE_MIN = 0.85
 const FONT_SCALE_MAX = 1.5
 const FONT_SCALE_STEP = 0.125
 
+function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
+  const [body, setBody] = useState<string[] | undefined>(
+    item ? (item.body ?? getCachedBody(item.id)) : undefined,
+  )
+  useEffect(() => {
+    setBody(item ? (item.body ?? getCachedBody(item.id)) : undefined)
+    if (!item || item.body || !item.hasBody) return
+    if (getCachedBody(item.id)) return
+    let cancelled = false
+    loadArticleBody(item)
+      .then((loaded) => {
+        if (!cancelled) setBody(loaded)
+      })
+      .catch((error) => {
+        if (!cancelled) console.error('Failed to load article body', error)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [item])
+  return body
+}
+
 function ArticlePage({ lang }: { lang: Lang }) {
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
   const item = slug ? findArchiveItemBySlug(lang, slug) : undefined
+  const body = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
   const t = content[lang]
@@ -1801,7 +1888,7 @@ function ArticlePage({ lang }: { lang: Lang }) {
     ],
   } : null)
 
-  if (!item || (!item.body?.length && !item.clippings?.length && !item.imageSrc)) {
+  if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
     return <Navigate to={paths[lang].columns!} replace />
   }
 
@@ -1893,9 +1980,13 @@ function ArticlePage({ lang }: { lang: Lang }) {
           className="article-body"
           style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
         >
-          {(item.body ?? []).map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+          {body && body.length > 0 ? (
+            body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+          ) : item.hasBody ? (
+            <p className="article-body-loading">
+              {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
+            </p>
+          ) : null}
         </Reveal>
         {(item.imageSrc || scans.length > 0) && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>
