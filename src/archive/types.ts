@@ -41,6 +41,7 @@ export interface ArchiveItemSeed {
 export interface ArchiveItem extends ArchiveItemSeed {
   id: string
   slug: string
+  lang: ArchiveLang
   outlet: string
   /** Stable machine key for this outlet (e.g. 'p24'), used to look up its
       lazy body-loader in archive/bodyRegistry.ts. Distinct from `outlet`,

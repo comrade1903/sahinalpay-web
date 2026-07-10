@@ -9,8 +9,8 @@ export type PageKey =
   | 'academic'
   | 'books'
 
-/* English has three archive categories; Turkish has all six (Analizler /
-   Söyleşiler / Akademik Makaleler are Turkish-only, per the source material). */
+/* English includes hub pages for every archive category. Full source items
+   remain language-specific: only English-language articles get English readers. */
 export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
   en: {
     home: '/',

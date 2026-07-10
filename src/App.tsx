@@ -25,19 +25,20 @@ import {
   type BooksSection,
 } from './content'
 import {
-  archiveData,
   archiveItemText,
-  getCachedBody,
   itemHasSourceKind,
   itemScanClippings,
+} from './archive/itemUtils'
+import {
+  getCachedBody,
   loadArticleBody,
   loadOutletBodies,
-  withFlatSectionItems,
-  withOutletSectionItems,
-  type ArchiveItem,
-  type FlatArchiveSection,
-  type OutletArchiveSection,
-} from './archive'
+} from './archive/bodyRegistry'
+import type {
+  ArchiveItem,
+  FlatArchiveSection,
+  OutletArchiveSection,
+} from './archive/types'
 import {
   paths,
   langForPath,
@@ -54,6 +55,27 @@ import { parseTurkishDate } from './dateUtils'
    `import portrait from './assets/portrait.jpg'` and set PORTRAIT below.
 ------------------------------------------------------------------ */
 const PORTRAIT: string | null = null
+
+type ArchiveData = (typeof import('./archive'))['archiveData']
+
+let archiveDataPromise: Promise<ArchiveData> | null = null
+
+function useArchiveData(): ArchiveData | null {
+  const [data, setData] = useState<ArchiveData | null>(null)
+
+  useEffect(() => {
+    let active = true
+    archiveDataPromise ??= import('./archive').then((module) => module.archiveData)
+    archiveDataPromise.then((loaded) => {
+      if (active) setData(loaded)
+    })
+    return () => {
+      active = false
+    }
+  }, [])
+
+  return data
+}
 
 type PageMeta = {
   title: string
@@ -88,6 +110,7 @@ function usePageMeta(titleOrMeta: string | PageMeta, description?: string) {
 
   useEffect(() => {
     const canonical = pageUrl(canonicalPath ?? location.pathname)
+    const pageLang = langForPath(canonicalPath ?? location.pathname)
     document.title = title
     upsertMeta('meta[name="description"]', {
       name: 'description',
@@ -113,6 +136,10 @@ function usePageMeta(titleOrMeta: string | PageMeta, description?: string) {
       property: 'og:url',
       content: canonical,
     })
+    upsertMeta('meta[property="og:locale"]', {
+      property: 'og:locale',
+      content: pageLang === 'tr' ? 'tr_TR' : 'en_US',
+    })
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
       content: 'summary',
@@ -134,10 +161,23 @@ function usePageMeta(titleOrMeta: string | PageMeta, description?: string) {
     }
     canonicalTag.setAttribute('href', canonical)
 
-    document.querySelectorAll('link[data-route-alternate="true"]').forEach((tag) => tag.remove())
+    document
+      .querySelectorAll('link[rel="alternate"][hreflang]')
+      .forEach((tag) => tag.remove())
     const alternateEntries = Object.entries(
       JSON.parse(alternatesKey) as Partial<Record<Lang, string>>,
     )
+    document
+      .querySelectorAll('meta[property="og:locale:alternate"]')
+      .forEach((tag) => tag.remove())
+    alternateEntries
+      .filter(([langCode]) => langCode !== pageLang)
+      .forEach(([langCode]) => {
+        const tag = document.createElement('meta')
+        tag.setAttribute('property', 'og:locale:alternate')
+        tag.setAttribute('content', langCode === 'tr' ? 'tr_TR' : 'en_US')
+        document.head.appendChild(tag)
+      })
     alternateEntries.forEach(([langCode, path]) => {
       const tag = document.createElement('link')
       tag.setAttribute('rel', 'alternate')
@@ -146,6 +186,15 @@ function usePageMeta(titleOrMeta: string | PageMeta, description?: string) {
       tag.setAttribute('data-route-alternate', 'true')
       document.head.appendChild(tag)
     })
+    const englishPath = alternateEntries.find(([langCode]) => langCode === 'en')?.[1]
+    if (englishPath) {
+      const tag = document.createElement('link')
+      tag.setAttribute('rel', 'alternate')
+      tag.setAttribute('hreflang', 'x-default')
+      tag.setAttribute('href', pageUrl(englishPath))
+      tag.setAttribute('data-route-alternate', 'true')
+      document.head.appendChild(tag)
+    }
   }, [alternatesKey, canonicalPath, location.pathname, metaDescription, robots, title, type])
 }
 
@@ -186,10 +235,10 @@ function isoDateFromArchiveDate(date?: string): string | undefined {
 
 function pageAlternates(pathname: string): Partial<Record<Lang, string>> {
   const key = pageKeyForPath(pathname)
-  return {
-    tr: paths.tr[key] ?? paths.tr.home!,
-    en: paths.en[key] ?? paths.en.home!,
-  }
+  const alternates: Partial<Record<Lang, string>> = {}
+  if (paths.tr[key]) alternates.tr = paths.tr[key]
+  if (paths.en[key]) alternates.en = paths.en[key]
+  return alternates
 }
 
 function archiveBasePath(lang: Lang, item: ArchiveItem): string {
@@ -210,12 +259,14 @@ function Reveal({
   delay = 0,
   as = 'div',
   className,
+  id,
   style,
 }: {
   children: ReactNode
   delay?: number
   as?: 'div' | 'section' | 'li' | 'article' | 'aside'
   className?: string
+  id?: string
   style?: CSSProperties
 }) {
   const reduce = useReducedMotion()
@@ -223,6 +274,7 @@ function Reveal({
   return (
     <MotionTag
       className={className}
+      id={id}
       style={style}
       initial={reduce ? false : { opacity: 0, y: 24 }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
@@ -236,19 +288,29 @@ function Reveal({
 
 function useTheme() {
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null)
+  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+  )
+
   useEffect(() => {
     if (theme === null) delete document.documentElement.dataset.theme
     else document.documentElement.dataset.theme = theme
   }, [theme])
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-color-scheme: dark)')
+    const onChange = (event: MediaQueryListEvent) =>
+      setSystemTheme(event.matches ? 'dark' : 'light')
+    query.addEventListener('change', onChange)
+    return () => query.removeEventListener('change', onChange)
+  }, [])
+
   const toggle = () =>
     setTheme((t) => {
-      const system = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
-      const current = t ?? system
+      const current = t ?? systemTheme
       return current === 'dark' ? 'light' : 'dark'
     })
-  return { toggle }
+  return { toggle, isDark: (theme ?? systemTheme) === 'dark' }
 }
 
 function SunMoon() {
@@ -272,9 +334,11 @@ function Header() {
   const navigate = useNavigate()
   const lang = langForPath(location.pathname)
   const t = content[lang]
-  const { toggle } = useTheme()
+  const { toggle, isDark } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null)
+  const mobileNavRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -293,11 +357,46 @@ function Header() {
 
   useEffect(() => {
     if (!menuOpen) return undefined
+    const background = [
+      ...document.querySelectorAll<HTMLElement>(
+        '.wordmark, .nav, .lang-toggle, .theme-toggle',
+      ),
+      document.getElementById('main-content'),
+      document.querySelector('footer'),
+    ].filter(Boolean) as HTMLElement[]
+    background.forEach((element) => element.setAttribute('inert', ''))
+
+    const firstLink = mobileNavRef.current?.querySelector<HTMLAnchorElement>('a')
+    const focusFrame = window.requestAnimationFrame(() => firstLink?.focus())
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus())
+        return
+      }
+      if (event.key !== 'Tab') return
+
+      const links = Array.from(
+        mobileNavRef.current?.querySelectorAll<HTMLAnchorElement>('a') ?? [],
+      )
+      const focusables = [menuButtonRef.current, ...links].filter(Boolean) as HTMLElement[]
+      const first = focusables[0]
+      const last = focusables.at(-1)
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last?.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first?.focus()
+      }
     }
     document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
+    return () => {
+      window.cancelAnimationFrame(focusFrame)
+      background.forEach((element) => element.removeAttribute('inert'))
+      document.removeEventListener('keydown', onKeyDown)
+    }
   }, [menuOpen])
 
   const onToggleLang = () => {
@@ -333,6 +432,7 @@ function Header() {
             <button
               type="button"
               className="mobile-menu-toggle"
+              ref={menuButtonRef}
               aria-label={lang === 'tr' ? 'Menüyü aç veya kapat' : 'Open or close menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
@@ -356,6 +456,7 @@ function Header() {
             className="theme-toggle"
             onClick={toggle}
             aria-label={t.themeToggleLabel}
+            aria-pressed={isDark}
           >
             <SunMoon />
           </button>
@@ -364,12 +465,16 @@ function Header() {
         <div
           className="mobile-nav-backdrop"
           data-open={menuOpen}
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {
+            setMenuOpen(false)
+            window.requestAnimationFrame(() => menuButtonRef.current?.focus())
+          }}
           aria-hidden="true"
         />
         <nav
           id="mobile-nav"
           className="mobile-nav"
+          ref={mobileNavRef}
           data-open={menuOpen}
           aria-label={lang === 'tr' ? 'Mobil menü' : 'Mobile menu'}
         >
@@ -482,16 +587,25 @@ const HUB_ICONS: Record<PageKey, string> = {
 
 /** Real item counts per section — never fabricated. Returns null where a
  *  count doesn't apply (e.g. the About page). */
-function hubCount(key: PageKey, t: Content, lang: Lang): number | null {
+function hubCount(
+  key: PageKey,
+  t: Content,
+  lang: Lang,
+  archiveData: ArchiveData | null,
+): number | null {
   switch (key) {
     case 'columns':
-      return archiveData.columns[lang].reduce((sum, o) => sum + o.items.length, 0)
+      return archiveData
+        ? archiveData.columns[lang].reduce((sum, o) => sum + o.items.length, 0)
+        : null
     case 'analyses':
-      return archiveData.analyses.reduce((sum, o) => sum + o.items.length, 0)
+      return archiveData
+        ? archiveData.analyses.reduce((sum, o) => sum + o.items.length, 0)
+        : null
     case 'interviews':
-      return archiveData.interviews.length
+      return archiveData?.interviews.length ?? null
     case 'academic':
-      return archiveData.academicArticles.length
+      return archiveData?.academicArticles.length ?? null
     case 'books':
       return t.books.books.length
     default:
@@ -499,7 +613,15 @@ function hubCount(key: PageKey, t: Content, lang: Lang): number | null {
   }
 }
 
-function HubGrid({ t, lang }: { t: Content; lang: Lang }) {
+function HubGrid({
+  t,
+  lang,
+  archiveData,
+}: {
+  t: Content
+  lang: Lang
+  archiveData: ArchiveData | null
+}) {
   return (
     <section className="section">
       <div className="container">
@@ -509,7 +631,7 @@ function HubGrid({ t, lang }: { t: Content; lang: Lang }) {
         </Reveal>
         <div className="hub-grid">
           {t.hub.map((h, i) => {
-            const count = hubCount(h.key, t, lang)
+            const count = hubCount(h.key, t, lang, archiveData)
             const wide = h.key === 'columns' || h.key === 'books'
             return (
               <Reveal
@@ -559,7 +681,11 @@ function HubGrid({ t, lang }: { t: Content; lang: Lang }) {
 
 /** Real, most-recently-dated full articles across every outlet — used
  *  instead of fabricated "featured" picks. */
-function recentArticles(lang: Lang, count: number): ArchiveItem[] {
+function recentArticles(
+  archiveData: ArchiveData,
+  lang: Lang,
+  count: number,
+): ArchiveItem[] {
   const pool: ArchiveItem[] = [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
@@ -577,8 +703,15 @@ function recentArticles(lang: Lang, count: number): ArchiveItem[] {
   return pool.slice(0, count)
 }
 
-function RecentArticles({ lang }: { lang: Lang }) {
-  const items = recentArticles(lang, 3)
+function RecentArticles({
+  lang,
+  archiveData,
+}: {
+  lang: Lang
+  archiveData: ArchiveData | null
+}) {
+  if (!archiveData) return null
+  const items = recentArticles(archiveData, lang, 3)
   if (items.length === 0) return null
 
   return (
@@ -698,6 +831,7 @@ function AcademicHeritage({ t, lang }: { t: Content; lang: Lang }) {
 
 function HomePage({ lang }: { lang: Lang }) {
   const t = content[lang]
+  const archiveData = useArchiveData()
   const navigate = useNavigate()
   const location = useLocation()
   usePageMeta({
@@ -723,8 +857,8 @@ function HomePage({ lang }: { lang: Lang }) {
   return (
     <>
       <Hero t={t} lang={lang} />
-      <HubGrid t={t} lang={lang} />
-      <RecentArticles lang={lang} />
+      <HubGrid t={t} lang={lang} archiveData={archiveData} />
+      <RecentArticles lang={lang} archiveData={archiveData} />
       <AcademicHeritage t={t} lang={lang} />
     </>
   )
@@ -897,7 +1031,15 @@ function ArchiveRow({
   if (link) {
     return (
       <li>
-        <a href={link.href} target="_blank" rel="noreferrer" className="archive-row">
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="archive-row"
+          aria-label={`${item.title} ${
+            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+          }`}
+        >
           {inner}
         </a>
       </li>
@@ -919,16 +1061,20 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
   return debounced
 }
 
-/** Lazily loads full body text for `items` once the user has typed a
- *  non-empty search query, so list pages don't pay for body bytes until
- *  full-text search is actually used. `bodyVersion` bumps once loading
- *  resolves so callers can force a re-filter that includes body matches. */
+function archiveItemKey(item: ArchiveItem): string {
+  return `${item.lang}:${item.id}`
+}
+
+/** Lazily loads full body text once the user searches. The returned map is
+ *  both the search input and the state change that triggers re-filtering. */
 function useBodySearchIndex(
   items: ArchiveItem[],
   search: string,
-): { bodyVersion: number; searchingBody: boolean } {
+): { bodyIndex: ReadonlyMap<string, string[]>; searchingBody: boolean } {
   const debouncedSearch = useDebouncedValue(search, 400)
-  const [bodyVersion, setBodyVersion] = useState(0)
+  const [bodyIndex, setBodyIndex] = useState<ReadonlyMap<string, string[]>>(
+    () => new Map(),
+  )
   const [searchingBody, setSearchingBody] = useState(false)
 
   useEffect(() => {
@@ -942,7 +1088,14 @@ function useBodySearchIndex(
       .then(() => {
         if (cancelled) return
         setSearchingBody(false)
-        setBodyVersion((v) => v + 1)
+        setBodyIndex(
+          new Map(
+            items.flatMap((item) => {
+              const body = getCachedBody(item)
+              return body ? [[archiveItemKey(item), body] as const] : []
+            }),
+          ),
+        )
       })
       .catch((error) => {
         if (cancelled) return
@@ -954,7 +1107,7 @@ function useBodySearchIndex(
     }
   }, [debouncedSearch, items])
 
-  return { bodyVersion, searchingBody }
+  return { bodyIndex, searchingBody }
 }
 
 function matchesFilters(
@@ -963,10 +1116,16 @@ function matchesFilters(
   fromYear: string,
   toYear: string,
   sourceKind: 'all' | 'digital' | 'clipping',
+  bodyIndex: ReadonlyMap<string, string[]>,
 ): boolean {
   if (!itemHasSourceKind(item, sourceKind)) return false
 
-  if (search && !archiveItemText(item).toLowerCase().includes(search.toLowerCase())) {
+  if (
+    search &&
+    !archiveItemText(item, bodyIndex.get(archiveItemKey(item)))
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  ) {
     return false
   }
   if (fromYear || toYear) {
@@ -1310,7 +1469,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
   const requestedPage = positivePage(searchParams.get('page'))
 
   const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
-  const { bodyVersion, searchingBody } = useBodySearchIndex(sectionItems, search)
+  const { bodyIndex, searchingBody } = useBodySearchIndex(sectionItems, search)
   const visibleOutlets = data.outlets.filter(
     (o) => activeOutlet === 'all' || o.outlet === activeOutlet,
   )
@@ -1320,13 +1479,15 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
       sortByDate(
         visibleOutlets.flatMap((o) =>
           o.items
-            .filter((item) => matchesFilters(item, search, fromYear, toYear, sourceKind))
+            .filter((item) =>
+              matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
+            )
             .map((item) => ({ item, outlet: o.outlet })),
         ),
         (entry) => entry.item.date,
         sort,
       ),
-    [visibleOutlets, search, fromYear, toYear, sourceKind, sort, bodyVersion],
+    [visibleOutlets, search, fromYear, toYear, sourceKind, sort, bodyIndex],
   )
   const totalPages = Math.max(1, Math.ceil(flatEntries.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1424,7 +1585,12 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                   />
                 </div>
                 {searchingBody && (
-                  <p className="search-status">
+                  <p
+                    className="search-status"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
                     {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
                   </p>
                 )}
@@ -1479,7 +1645,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
             </div>
           </aside>
 
-          <div className="archive-main">
+          <div className="archive-main" aria-busy={searchingBody}>
             <div className="archive-toolbar">
               <span className="archive-count">
                 {lang === 'tr' ? `${flatEntries.length} yazı` : `${flatEntries.length} pieces`}
@@ -1557,16 +1723,16 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
-  const { bodyVersion, searchingBody } = useBodySearchIndex(data.items, search)
+  const { bodyIndex, searchingBody } = useBodySearchIndex(data.items, search)
   const filtered = useMemo(
     () =>
       sortItems(
         data.items.filter((item) =>
-          matchesFilters(item, search, fromYear, toYear, sourceKind),
+          matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
         ),
         sort,
       ),
-    [data.items, search, fromYear, toYear, sourceKind, sort, bodyVersion],
+    [data.items, search, fromYear, toYear, sourceKind, sort, bodyIndex],
   )
   const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PAGE_SIZE))
   const currentPage = Math.min(requestedPage, totalPages)
@@ -1658,7 +1824,12 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                   />
                 </div>
                 {searchingBody && (
-                  <p className="search-status">
+                  <p
+                    className="search-status"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
                     {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
                   </p>
                 )}
@@ -1687,7 +1858,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
             </div>
           </aside>
 
-          <div className="archive-main">
+          <div className="archive-main" aria-busy={searchingBody}>
             <div className="archive-toolbar">
               <span className="archive-count">
                 {lang === 'tr' ? `${filtered.length} yazı` : `${filtered.length} pieces`}
@@ -1731,7 +1902,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
   )
 }
 
-function archivePool(lang: Lang): ArchiveItem[] {
+function archivePool(archiveData: ArchiveData, lang: Lang): ArchiveItem[] {
   return [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr'
@@ -1744,15 +1915,24 @@ function archivePool(lang: Lang): ArchiveItem[] {
   ]
 }
 
-function findArchiveItemBySlug(lang: Lang, slug: string): ArchiveItem | undefined {
-  return archivePool(lang).find((item) => item.slug === slug)
+function findArchiveItemBySlug(
+  archiveData: ArchiveData,
+  lang: Lang,
+  slug: string,
+): ArchiveItem | undefined {
+  return archivePool(archiveData, lang).find((item) => item.slug === slug)
 }
 
 /** Other full articles (real body text, not the current one) — used for
  *  "related pieces" instead of a fabricated recommendation engine. */
-function relatedArticles(lang: Lang, current: ArchiveItem, count: number): ArchiveItem[] {
+function relatedArticles(
+  archiveData: ArchiveData,
+  lang: Lang,
+  current: ArchiveItem,
+  count: number,
+): ArchiveItem[] {
   const currentTs = current.date ? parseTurkishDate(current.date) : null
-  return archivePool(lang)
+  return archivePool(archiveData, lang)
     .filter((item) => item !== current && item.hasBody)
     .map((item) => {
       const ts = item.date ? parseTurkishDate(item.date) : null
@@ -1799,12 +1979,12 @@ const FONT_SCALE_STEP = 0.125
 
 function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
   const [body, setBody] = useState<string[] | undefined>(
-    item ? (item.body ?? getCachedBody(item.id)) : undefined,
+    item ? (item.body ?? getCachedBody(item)) : undefined,
   )
   useEffect(() => {
-    setBody(item ? (item.body ?? getCachedBody(item.id)) : undefined)
+    setBody(item ? (item.body ?? getCachedBody(item)) : undefined)
     if (!item || item.body || !item.hasBody) return
-    if (getCachedBody(item.id)) return
+    if (getCachedBody(item)) return
     let cancelled = false
     loadArticleBody(item)
       .then((loaded) => {
@@ -1821,9 +2001,21 @@ function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
 }
 
 function ArticlePage({ lang }: { lang: Lang }) {
+  const archiveData = useArchiveData()
+  if (!archiveData) return <ArchiveLoading lang={lang} />
+  return <LoadedArticlePage lang={lang} archiveData={archiveData} />
+}
+
+function LoadedArticlePage({
+  lang,
+  archiveData,
+}: {
+  lang: Lang
+  archiveData: ArchiveData
+}) {
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
-  const item = slug ? findArchiveItemBySlug(lang, slug) : undefined
+  const item = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
   const body = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
@@ -1892,7 +2084,7 @@ function ArticlePage({ lang }: { lang: Lang }) {
     return <Navigate to={paths[lang].columns!} replace />
   }
 
-  const related = relatedArticles(lang, item, 3)
+  const related = relatedArticles(archiveData, lang, item, 3)
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
 
@@ -1919,11 +2111,17 @@ function ArticlePage({ lang }: { lang: Lang }) {
               </span>
               {item.category === 'columns' ? t.columns.title : item.outlet}
             </Link>
-            <div className="article-tools-group">
+            <div
+              className="article-tools-group"
+              role="group"
+              aria-label={lang === 'tr' ? 'Yazı boyutu' : 'Text size'}
+            >
               <button
                 type="button"
                 className="icon-btn"
                 aria-label={lang === 'tr' ? 'Yazı tipini küçült' : 'Decrease font size'}
+                aria-controls="article-body"
+                disabled={fontScale <= FONT_SCALE_MIN}
                 onClick={() =>
                   setFontScale((s) =>
                     Math.max(FONT_SCALE_MIN, +(s - FONT_SCALE_STEP).toFixed(3)),
@@ -1938,6 +2136,8 @@ function ArticlePage({ lang }: { lang: Lang }) {
                 type="button"
                 className="icon-btn"
                 aria-label={lang === 'tr' ? 'Yazı tipini büyüt' : 'Increase font size'}
+                aria-controls="article-body"
+                disabled={fontScale >= FONT_SCALE_MAX}
                 onClick={() =>
                   setFontScale((s) =>
                     Math.min(FONT_SCALE_MAX, +(s + FONT_SCALE_STEP).toFixed(3)),
@@ -1948,6 +2148,10 @@ function ArticlePage({ lang }: { lang: Lang }) {
                   text_increase
                 </span>
               </button>
+              <output className="sr-only" aria-live="polite">
+                {lang === 'tr' ? 'Yazı boyutu' : 'Text size'}{' '}
+                {Math.round(fontScale * 100)}%
+              </output>
             </div>
           </div>
           <h1 className="section-title">{item.title}</h1>
@@ -1978,12 +2182,13 @@ function ArticlePage({ lang }: { lang: Lang }) {
           as="div"
           delay={0.08}
           className="article-body"
+          id="article-body"
           style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
         >
           {body && body.length > 0 ? (
             body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
           ) : item.hasBody ? (
-            <p className="article-body-loading">
+            <p className="article-body-loading" role="status" aria-live="polite">
               {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
             </p>
           ) : null}
@@ -2025,13 +2230,31 @@ function ArticlePage({ lang }: { lang: Lang }) {
         {(item.url || item.archiveUrl) && (
           <p className="article-source">
             {item.url && (
-              <a href={item.url} target="_blank" rel="noreferrer">
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${item.outlet} — ${
+                  lang === 'tr'
+                    ? 'orijinal kaynak (yeni sekmede açılır)'
+                    : 'original source (opens in a new tab)'
+                }`}
+              >
                 {item.outlet} — {lang === 'tr' ? 'orijinal kaynak' : 'original source'}
               </a>
             )}
             {item.url && item.archiveUrl && <span className="article-source-sep"> · </span>}
             {item.archiveUrl && (
-              <a href={item.archiveUrl} target="_blank" rel="noreferrer">
+              <a
+                href={item.archiveUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={
+                  lang === 'tr'
+                    ? 'Arşiv kopyası (yeni sekmede açılır)'
+                    : 'Archived copy (opens in a new tab)'
+                }
+              >
                 {lang === 'tr'
                   ? 'arşiv kopyası (web.archive.org)'
                   : 'archived copy (web.archive.org)'}
@@ -2077,6 +2300,9 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
               href={data.externalUrl}
               target="_blank"
               rel="noreferrer"
+              aria-label={`${data.externalLabel} ${
+                lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+              }`}
             >
               {data.externalLabel}
             </a>
@@ -2113,7 +2339,17 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                 </h3>
                 <p className="book-desc">{b.desc}</p>
                 {b.purchaseUrl && (
-                  <a className="book-buy" href={b.purchaseUrl} target="_blank" rel="noreferrer">
+                  <a
+                    className="book-buy"
+                    href={b.purchaseUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${b.title}: ${
+                      lang === 'tr'
+                        ? 'Kitapyurdu’ndan satın al (yeni sekmede açılır)'
+                        : 'Buy on Kitapyurdu (opens in a new tab)'
+                    }`}
+                  >
                     {lang === 'tr' ? 'Kitapyurdu’ndan satın al' : 'Buy on Kitapyurdu'}
                     <span
                       className="material-symbols-outlined"
@@ -2163,24 +2399,81 @@ function Footer() {
   )
 }
 
-function PageForKey({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
+function ArchiveLoading({ lang }: { lang: Lang }) {
+  return (
+    <section className="section section-solo archive-loading" aria-busy="true">
+      <div className="container" role="status" aria-live="polite">
+        {lang === 'tr' ? 'Arşiv yükleniyor…' : 'Loading archive…'}
+      </div>
+    </section>
+  )
+}
+
+type TurkishOnlyArchiveKey = 'analyses' | 'interviews' | 'academic'
+
+function TurkishArchiveHub({ pageKey }: { pageKey: TurkishOnlyArchiveKey }) {
+  const location = useLocation()
+  const t = content.en
+  const section =
+    pageKey === 'analyses'
+      ? t.analyses!
+      : pageKey === 'interviews'
+        ? t.interviews!
+        : t.academicArticles!
+
+  usePageMeta({
+    title: `${section.title} — Şahin Alpay`,
+    description: section.intro,
+    alternates: pageAlternates(location.pathname),
+  })
+
+  return (
+    <section className="section section-solo">
+      <div className="container container-narrow">
+        <Reveal>
+          <p className="kicker">{section.kicker}</p>
+          <h1 className="section-title">{section.title}</h1>
+          <p className="archive-intro">{section.intro}</p>
+          <p className="archive-language-note">
+            Source material for this section is currently available in Turkish.
+          </p>
+          <Link className="btn btn-primary" to={paths.tr[pageKey]!} lang="tr">
+            Türkçe arşivi görüntüle
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
+  if (
+    lang === 'en' &&
+    (pageKey === 'analyses' || pageKey === 'interviews' || pageKey === 'academic')
+  ) {
+    return <TurkishArchiveHub pageKey={pageKey} />
+  }
+  return <LoadedArchiveRoutePage pageKey={pageKey} lang={lang} />
+}
+
+function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
+  const archiveData = useArchiveData()
   const t = content[lang]
+
+  if (!archiveData) return <ArchiveLoading lang={lang} />
+
   switch (pageKey) {
-    case 'home':
-      return <HomePage lang={lang} />
-    case 'about':
-      return <AboutPage lang={lang} />
     case 'columns':
       return (
         <OutletArchivePage
-          data={withOutletSectionItems(t.columns, archiveData.columns[lang])}
+          data={{ ...t.columns, outlets: archiveData.columns[lang] }}
           lang={lang}
         />
       )
     case 'analyses':
       return t.analyses ? (
         <OutletArchivePage
-          data={withOutletSectionItems(t.analyses, archiveData.analyses)}
+          data={{ ...t.analyses, outlets: archiveData.analyses }}
           lang={lang}
         />
       ) : (
@@ -2189,7 +2482,7 @@ function PageForKey({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
     case 'interviews':
       return t.interviews ? (
         <FlatArchivePage
-          data={withFlatSectionItems(t.interviews, archiveData.interviews)}
+          data={{ ...t.interviews, items: archiveData.interviews }}
           lang={lang}
         />
       ) : (
@@ -2198,14 +2491,27 @@ function PageForKey({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
     case 'academic':
       return t.academicArticles ? (
         <FlatArchivePage
-          data={withFlatSectionItems(t.academicArticles, archiveData.academicArticles)}
+          data={{ ...t.academicArticles, items: archiveData.academicArticles }}
           lang={lang}
         />
       ) : (
         <Navigate to={paths[lang].home!} replace />
       )
+    default:
+      return <Navigate to={paths[lang].home!} replace />
+  }
+}
+
+function PageForKey({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
+  switch (pageKey) {
+    case 'home':
+      return <HomePage lang={lang} />
+    case 'about':
+      return <AboutPage lang={lang} />
     case 'books':
-      return <BooksPage data={t.books} lang={lang} />
+      return <BooksPage data={content[lang].books} lang={lang} />
+    default:
+      return <ArchiveRoutePage pageKey={pageKey} lang={lang} />
   }
 }
 
@@ -2240,17 +2546,20 @@ function MainShell() {
             path="/analyses"
             element={<RouteFor lang="en" pageKey="analyses" />}
           />
-          <Route path="/analyses/:slug" element={<ArticlePage lang="en" />} />
+          <Route path="/analyses/:slug" element={<Navigate to="/" replace />} />
           <Route
             path="/interviews"
             element={<RouteFor lang="en" pageKey="interviews" />}
           />
-          <Route path="/interviews/:slug" element={<ArticlePage lang="en" />} />
+          <Route path="/interviews/:slug" element={<Navigate to="/" replace />} />
           <Route
             path="/academic-articles"
             element={<RouteFor lang="en" pageKey="academic" />}
           />
-          <Route path="/academic-articles/:slug" element={<ArticlePage lang="en" />} />
+          <Route
+            path="/academic-articles/:slug"
+            element={<Navigate to="/" replace />}
+          />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
