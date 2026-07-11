@@ -679,31 +679,51 @@ function HubGrid({
   )
 }
 
-/** Real, most-recently-dated full articles across every outlet — used
- *  instead of fabricated "featured" picks. */
-function recentArticles(
-  archiveData: ArchiveData,
-  lang: Lang,
-  count: number,
-): ArchiveItem[] {
+/** Deterministic mulberry32 PRNG — same seed always produces the same
+ *  sequence, so every visitor sees the same picks during a given week. */
+function mulberry32(seed: number): () => number {
+  let state = seed
+  return () => {
+    state = (state + 0x6d2b79f5) | 0
+    let t = Math.imul(state ^ (state >>> 15), 1 | state)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+/** ISO-8601 week number combined with its year (e.g. 2026 week 3 -> 202603),
+ *  so the seed — and therefore the picks below — changes once a week. */
+function isoWeekKey(date: Date): number {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+  const dayNum = (d.getUTCDay() + 6) % 7
+  d.setUTCDate(d.getUTCDate() - dayNum + 3)
+  const firstThursday = new Date(Date.UTC(d.getUTCFullYear(), 0, 4))
+  const firstThursdayDayNum = (firstThursday.getUTCDay() + 6) % 7
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstThursdayDayNum + 3)
+  const week = 1 + Math.round((d.getTime() - firstThursday.getTime()) / (7 * 86400000))
+  return d.getUTCFullYear() * 100 + week
+}
+
+/** A random-but-stable set of full articles, reshuffled once a week (not a
+ *  fabricated "featured" pick — every item is real, just chosen by a seed
+ *  that only changes on ISO week boundaries). */
+function weeklyPicks(archiveData: ArchiveData, lang: Lang, count: number): ArchiveItem[] {
   const pool: ArchiveItem[] = [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
   ].filter((item) => item.hasBody)
 
-  pool.sort((a, b) => {
-    const da = a.date ? parseTurkishDate(a.date) : null
-    const db = b.date ? parseTurkishDate(b.date) : null
-    if (da === null && db === null) return 0
-    if (da === null) return 1
-    if (db === null) return -1
-    return db - da
-  })
+  const random = mulberry32(isoWeekKey(new Date()))
+  const shuffled = [...pool]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
 
-  return pool.slice(0, count)
+  return shuffled.slice(0, count)
 }
 
-function RecentArticles({
+function WeeklyPicks({
   lang,
   archiveData,
 }: {
@@ -711,7 +731,7 @@ function RecentArticles({
   archiveData: ArchiveData | null
 }) {
   if (!archiveData) return null
-  const items = recentArticles(archiveData, lang, 3)
+  const items = weeklyPicks(archiveData, lang, 3)
   if (items.length === 0) return null
 
   return (
@@ -720,9 +740,9 @@ function RecentArticles({
         <div className="recent-panel">
           <div className="recent-panel-glow" aria-hidden="true" />
           <Reveal className="recent-panel-inner">
-            <p className="kicker kicker-center">{lang === 'tr' ? 'Güncel' : 'Latest'}</p>
+            <p className="kicker kicker-center">{lang === 'tr' ? 'Haftalık' : 'Weekly'}</p>
             <h2 className="section-title section-title-center">
-              {lang === 'tr' ? 'Son Eklenenler' : 'Recently Added'}
+              {lang === 'tr' ? 'Benden Seçkiler' : 'My Picks'}
             </h2>
           </Reveal>
           <div className="recent-grid">
@@ -858,7 +878,7 @@ function HomePage({ lang }: { lang: Lang }) {
     <>
       <Hero t={t} lang={lang} />
       <HubGrid t={t} lang={lang} archiveData={archiveData} />
-      <RecentArticles lang={lang} archiveData={archiveData} />
+      <WeeklyPicks lang={lang} archiveData={archiveData} />
       <AcademicHeritage t={t} lang={lang} />
     </>
   )
@@ -2529,6 +2549,11 @@ function MainShell() {
       didMount.current = true
       return
     }
+    // A route change is a new page, not a scroll within the old one — start
+    // at the top regardless of where the previous page had scrolled to.
+    // Explicit 'instant' overrides the site-wide smooth scroll-behavior,
+    // which would otherwise animate all the way up from the old position.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     mainRef.current?.focus({ preventScroll: true })
   }, [location.pathname])
 
