@@ -44,7 +44,7 @@ There is no test suite/framework configured in this repo (no test script, no `*.
 ## Styling
 
 - All styling is a **hand-written design system in `src/index.css`** (~2,200 lines): CSS custom properties (`--display`, `--ink`, …) plus semantic class names (`.section`, `.container`, `.kicker`, `.btn btn-primary`, `.filter-card`, …). Extend this system; reuse existing classes and variables before inventing new ones.
-- **Tailwind 4 is installed (`@tailwindcss/vite`) but not actually used** — nothing imports it and there are no utility classes in the markup. Do NOT start writing Tailwind utility classes; keep the semantic-class approach.
+- **There is no CSS framework** — Tailwind was removed after sitting unused; don't (re)introduce one or start writing utility classes. Keep the semantic-class approach.
 - Fonts are Literata (display/headline) + Nunito Sans (body/label) from Google Fonts; icons are **Material Symbols Outlined** ligatures (`<span className="material-symbols-outlined">`), not an icon component library.
 - Dark/light theme sets `data-theme` on `<html>` (`null` = follow system preference). Visual changes must be checked in both themes.
 - Animations go through `motion` and must respect `useReducedMotion` — the site's audience skews older; never add motion that can't be turned off.
@@ -81,4 +81,4 @@ Several top-level directories are **not part of the active app** — don't treat
 - `agent-skills/`, `awesome-claude-code-subagents/` — vendored third-party skill/agent repos, unrelated to this site's code.
 - `docs/superpowers/` — vendored skill docs, not project documentation.
 
-`AGENTS.md` is a stale older copy of this file written for Codex, which is no longer used on this project — when it contradicts this file, this file wins. `README.md` is still the unmodified Vite template. `.mcp.json` configures a 21st.dev MCP server that expects an `API_KEY_21ST` environment variable.
+`.mcp.json` configures a 21st.dev MCP server that expects an `API_KEY_21ST` environment variable.
