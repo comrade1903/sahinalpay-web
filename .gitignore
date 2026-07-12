@@ -79,7 +79,6 @@ Thumbs.db
 .claude/settings.local.json
 
 # Vendored / unrelated scratch directories, not part of the app build
-/sahinalpay-web/
 /şahin-alpay-arşivi/
 /stitch_ahin_alpay_dijital_ar_ivi/
 /agent-skills/
@@ -88,3 +87,6 @@ Thumbs.db
 
 # Scratch/output directory (large unrelated research artifacts get dropped here)
 /tmp/
+
+# direnv local env (per-directory GitHub account switch) — never committed
+.envrc

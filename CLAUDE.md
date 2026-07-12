@@ -75,7 +75,6 @@ A change is complete only when all of the following hold:
 ## Repo layout caveats
 
 Several top-level directories are **not part of the active app** — don't treat them as source to import from or keep in sync with `src/`:
-- `sahinalpay-web/` — a separate nested git repository (leftover), not referenced by this project's build.
 - `şahin-alpay-arşivi/` — an earlier standalone prototype with its own `package.json`/Vite config.
 - `stitch_ahin_alpay_dijital_ar_ivi/` — static HTML/design mockups (Google Stitch output), reference only.
 - `agent-skills/`, `awesome-claude-code-subagents/` — vendored third-party skill/agent repos, unrelated to this site's code.
