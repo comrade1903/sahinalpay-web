@@ -12,6 +12,8 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 **Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
 
+**GitHub account switching**: this repo authenticates as `comrade1903` (not the machine's default `iozgirgin` account) via a gitignored `.envrc` that exports `GH_CONFIG_DIR=~/.config/gh-comrade1903`, loaded by direnv in interactive shells only. Non-interactive shells (including Claude Code's Bash tool) never trigger direnv — prefix `git push`/`gh` commands with `GH_CONFIG_DIR="$HOME/.config/gh-comrade1903"`, otherwise the push fails with `Repository not found` (a 404 from authenticating as the wrong account, not a missing repo).
+
 ## Commands
 
 ```bash
