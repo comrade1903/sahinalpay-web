@@ -8,6 +8,7 @@ export type PageKey =
   | 'interviews'
   | 'academic'
   | 'books'
+  | 'cookies'
 
 /* English includes hub pages for every archive category. Full source items
    remain language-specific: only English-language articles get English readers. */
@@ -20,6 +21,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     interviews: '/interviews',
     academic: '/academic-articles',
     books: '/books',
+    cookies: '/cookie-policy',
   },
   tr: {
     home: '/tr',
@@ -29,6 +31,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     interviews: '/tr/soylesiler',
     academic: '/tr/akademik-makaleler',
     books: '/tr/kitaplar',
+    cookies: '/tr/cerez-politikasi',
   },
 }
 

@@ -91,6 +91,19 @@ export interface Content {
     backToTop: string
     rights: string
     tagline: string
+    cookieLabel: string
+  }
+  cookieNotice: {
+    ariaLabel: string
+    text: string
+    policyLinkLabel: string
+    acceptLabel: string
+  }
+  cookiePolicy: {
+    kicker: string
+    title: string
+    intro: string
+    sections: { heading: string; body: string[] }[]
   }
 }
 
@@ -313,6 +326,46 @@ export const content: Record<Lang, Content> = {
       backToTop: 'Back to top ↑',
       rights: 'All rights reserved.',
       tagline: 'A personal & political legacy.',
+      cookieLabel: 'Cookie Policy',
+    },
+    cookieNotice: {
+      ariaLabel: 'Cookie notice',
+      text: 'This site uses no tracking or advertising cookies. It only stores your language and theme preference in your browser to remember your choices.',
+      policyLinkLabel: 'Cookie Policy',
+      acceptLabel: 'Got it',
+    },
+    cookiePolicy: {
+      kicker: 'Privacy',
+      title: 'Cookie & Data Notice',
+      intro:
+        "This page explains, under Turkey's Personal Data Protection Law (KVKK) and the GDPR, what this website stores in your browser and what data leaves your device. In short: this site uses no cookies and does not track you.",
+      sections: [
+        {
+          heading: 'No cookies, no tracking',
+          body: [
+            'This website sets no cookies. There is no analytics, advertising, or third-party profiling of any kind — your visits are not measured or shared.',
+          ],
+        },
+        {
+          heading: 'What we store in your browser',
+          body: [
+            "To remember your choices, the site saves two functional items in your browser's local storage: your language preference and your light/dark theme preference. These are strictly necessary for the site to work the way you set it and, under KVKK and the GDPR, require disclosure but not prior consent.",
+            'When you dismiss the notice at the bottom of the page, that acknowledgement is also stored locally (under the key "cookie-consent") so the notice is not shown again. You can remove all of these at any time by clearing your browser\'s site data.',
+          ],
+        },
+        {
+          heading: 'Fonts loaded from Google',
+          body: [
+            "The site's typefaces are loaded from Google Fonts. When your browser requests them, your IP address may be transmitted to Google's servers. This is the only third-party request the site makes; no other data about you is sent.",
+          ],
+        },
+        {
+          heading: 'Your rights and contact',
+          body: [
+            'Because the only personal data involved is the browser storage described above, there is very little to access, correct, or delete beyond clearing your own browser data. For any question about this notice or your rights under KVKK, you can reach the data controller at contact@sahinalpay.net.',
+          ],
+        },
+      ],
     },
   },
 
@@ -452,6 +505,46 @@ export const content: Record<Lang, Content> = {
       backToTop: 'Başa dön ↑',
       rights: 'Tüm hakları saklıdır.',
       tagline: 'Kişisel ve siyasi bir miras.',
+      cookieLabel: 'Çerez Politikası',
+    },
+    cookieNotice: {
+      ariaLabel: 'Çerez bildirimi',
+      text: 'Bu site izleme veya reklam çerezi kullanmaz. Yalnızca tercihlerinizi hatırlamak için dil ve tema seçiminizi tarayıcınızda saklar.',
+      policyLinkLabel: 'Çerez Politikası',
+      acceptLabel: 'Anladım',
+    },
+    cookiePolicy: {
+      kicker: 'Gizlilik',
+      title: 'Çerez ve Veri Aydınlatma Metni',
+      intro:
+        'Bu sayfa, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve GDPR kapsamında, bu web sitesinin tarayıcınızda ne sakladığını ve cihazınızdan hangi verilerin çıktığını açıklar. Kısacası: bu site çerez kullanmaz ve sizi izlemez.',
+      sections: [
+        {
+          heading: 'Çerez yok, izleme yok',
+          body: [
+            'Bu web sitesi hiçbir çerez kullanmaz. Hiçbir analitik, reklam veya üçüncü taraf profilleme yoktur — ziyaretleriniz ölçülmez ya da paylaşılmaz.',
+          ],
+        },
+        {
+          heading: 'Tarayıcınızda ne saklıyoruz',
+          body: [
+            'Tercihlerinizi hatırlamak için site, tarayıcınızın yerel deposunda (localStorage) iki işlevsel öğe saklar: dil tercihiniz ve açık/koyu tema tercihiniz. Bunlar sitenin sizin ayarladığınız gibi çalışması için zorunludur ve KVKK ile GDPR kapsamında önceden onay değil, yalnızca bilgilendirme gerektirir.',
+            'Sayfanın altındaki bildirimi kapattığınızda, bu onay da ("cookie-consent" anahtarıyla) yerel olarak saklanır; böylece bildirim size tekrar gösterilmez. Bunların tümünü, tarayıcınızın site verilerini temizleyerek istediğiniz zaman silebilirsiniz.',
+          ],
+        },
+        {
+          heading: "Google'dan yüklenen yazı tipleri",
+          body: [
+            "Sitenin yazı tipleri Google Fonts üzerinden yüklenir. Tarayıcınız bunları talep ederken IP adresiniz Google'ın sunucularına iletilebilir. Bu, sitenin yaptığı tek üçüncü taraf isteğidir; hakkınızda başka hiçbir veri gönderilmez.",
+          ],
+        },
+        {
+          heading: 'Haklarınız ve iletişim',
+          body: [
+            'İşlenen tek kişisel veri yukarıda açıklanan tarayıcı depolaması olduğundan, kendi tarayıcı verinizi temizlemenin ötesinde erişilecek, düzeltilecek veya silinecek çok az şey vardır. Bu metin veya KVKK kapsamındaki haklarınızla ilgili her türlü soru için veri sorumlusuna contact@sahinalpay.net adresinden ulaşabilirsiniz.',
+          ],
+        },
+      ],
     },
   },
 }

@@ -583,6 +583,7 @@ const HUB_ICONS: Record<PageKey, string> = {
   interviews: 'forum',
   academic: 'school',
   books: 'menu_book',
+  cookies: 'cookie',
 }
 
 /** Real item counts per section — never fabricated. Returns null where a
