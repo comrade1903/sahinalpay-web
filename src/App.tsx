@@ -2390,6 +2390,35 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   )
 }
 
+function CookiePolicyPage({ lang }: { lang: Lang }) {
+  const t = content[lang].cookiePolicy
+  const location = useLocation()
+  usePageMeta({
+    title: `${t.title} — Şahin Alpay`,
+    description: t.intro,
+    alternates: pageAlternates(location.pathname),
+  })
+  return (
+    <section className="section section-solo">
+      <div className="container container-narrow">
+        <p className="kicker">{t.kicker}</p>
+        <h1 className="section-title">{t.title}</h1>
+        <div className="prose">
+          <p className="lead">{t.intro}</p>
+          {t.sections.map((section) => (
+            <div key={section.heading} className="policy-block">
+              <h2>{section.heading}</h2>
+              {section.body.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   const location = useLocation()
   const lang = langForPath(location.pathname)
@@ -2407,6 +2436,7 @@ function Footer() {
             <Link to={paths[lang].columns!}>{t.footer.columnsLabel}</Link>
             <Link to={paths[lang].books!}>{t.footer.booksLabel}</Link>
             <Link to={paths[lang].home!}>{t.footer.backToTop}</Link>
+            <Link to={paths[lang].cookies!}>{t.footer.cookieLabel}</Link>
           </nav>
         </div>
         <div className="footer-meta">
@@ -2587,6 +2617,7 @@ function MainShell() {
             element={<Navigate to="/" replace />}
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
           <Route
@@ -2629,10 +2660,66 @@ function MainShell() {
             path="/tr/kitaplar"
             element={<RouteFor lang="tr" pageKey="books" />}
           />
+          <Route
+            path="/tr/cerez-politikasi"
+            element={<CookiePolicyPage lang="tr" />}
+          />
 
           <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
+  )
+}
+
+const CONSENT_KEY = 'cookie-consent'
+const CONSENT_VALUE = 'ok'
+
+function readConsent(): boolean {
+  try {
+    return localStorage.getItem(CONSENT_KEY) === CONSENT_VALUE
+  } catch {
+    return false
+  }
+}
+
+function CookieConsent() {
+  const location = useLocation()
+  const lang = langForPath(location.pathname)
+  const t = content[lang].cookieNotice
+  const reduce = useReducedMotion()
+  const [acknowledged, setAcknowledged] = useState(() => readConsent())
+
+  if (acknowledged) return null
+
+  const accept = () => {
+    try {
+      localStorage.setItem(CONSENT_KEY, CONSENT_VALUE)
+    } catch {
+      // Storage unavailable (private mode); dismiss for this session only.
+    }
+    setAcknowledged(true)
+  }
+
+  return (
+    <motion.aside
+      className="cookie-notice"
+      role="region"
+      aria-label={t.ariaLabel}
+      initial={reduce ? false : { y: 24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: reduce ? 0 : 0.25 }}
+    >
+      <div className="container cookie-notice-inner">
+        <p className="cookie-notice-text">
+          {t.text} <Link to={paths[lang].cookies!}>{t.policyLinkLabel}</Link>
+        </p>
+        <div className="cookie-notice-actions">
+          <button type="button" className="btn btn-primary" onClick={accept}>
+            {t.acceptLabel}
+          </button>
+        </div>
+      </div>
+    </motion.aside>
   )
 }
 
@@ -2642,6 +2729,7 @@ export function AppV1() {
       <Header />
       <MainShell />
       <Footer />
+      <CookieConsent />
     </>
   )
 }

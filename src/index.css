@@ -2160,6 +2160,55 @@ a.archive-row:hover .archive-row-title {
   justify-content: space-between;
 }
 
+/* ---------- Cookie / KVKK notice ---------- */
+.cookie-notice {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 95;
+  padding: 0.85rem 0;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+}
+
+.cookie-notice-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+
+.cookie-notice-text {
+  flex: 1 1 22rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cookie-notice-text a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.cookie-notice-actions {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 560px) {
+  .cookie-notice-actions,
+  .cookie-notice-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Policy page spacing */
+.policy-block {
+  margin-top: var(--space-3);
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
