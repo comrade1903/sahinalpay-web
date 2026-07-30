@@ -1601,7 +1601,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                     type="text"
                     value={search}
                     onChange={(e) => setParam('q', e.target.value)}
-                    placeholder={lang === 'tr' ? 'Metin, konu veya OCR ara…' : 'Search text, topic or OCR…'}
+                    placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
@@ -1840,7 +1840,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                     type="text"
                     value={search}
                     onChange={(e) => setParam('q', e.target.value)}
-                    placeholder={lang === 'tr' ? 'Metin, konu veya OCR ara…' : 'Search text, topic or OCR…'}
+                    placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
                     aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
                   />
                 </div>
