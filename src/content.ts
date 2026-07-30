@@ -108,6 +108,18 @@ export interface Content {
   reader: {
     copySourceLabel: string
   }
+  clippingViewer: {
+    dialogLabel: string
+    viewOriginal: string
+    close: string
+    zoomIn: string
+    zoomOut: string
+    fit: string
+    prevPage: string
+    nextPage: string
+    showOcr: string
+    openNewTab: string
+  }
 }
 
 const BOOKS: Record<Lang, Book[]> = {
@@ -373,6 +385,18 @@ export const content: Record<Lang, Content> = {
     reader: {
       copySourceLabel: 'Source',
     },
+    clippingViewer: {
+      dialogLabel: 'Newspaper clipping viewer',
+      viewOriginal: 'See the original',
+      close: 'Close',
+      zoomIn: 'Zoom in',
+      zoomOut: 'Zoom out',
+      fit: 'Fit to screen',
+      prevPage: 'Previous page',
+      nextPage: 'Next page',
+      showOcr: 'OCR text',
+      openNewTab: 'Open original in new tab',
+    },
   },
 
   tr: {
@@ -554,6 +578,18 @@ export const content: Record<Lang, Content> = {
     },
     reader: {
       copySourceLabel: 'Kaynak',
+    },
+    clippingViewer: {
+      dialogLabel: 'Gazete küpürü görüntüleyici',
+      viewOriginal: 'Aslına bak',
+      close: 'Kapat',
+      zoomIn: 'Yakınlaştır',
+      zoomOut: 'Uzaklaştır',
+      fit: 'Ekrana sığdır',
+      prevPage: 'Önceki sayfa',
+      nextPage: 'Sonraki sayfa',
+      showOcr: 'OCR metni',
+      openNewTab: 'Orijinali yeni sekmede aç',
     },
   },
 }

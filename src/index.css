@@ -2128,6 +2128,118 @@ a.archive-row:hover .archive-row-title {
   line-height: 1.7;
   color: var(--ink-soft);
 }
+
+/* ---------- Clipping "see the original" trigger ---------- */
+.clipping-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+}
+.clipping-open img {
+  width: 100%;
+  border-radius: var(--radius);
+  background: var(--surface-mid);
+  display: block;
+}
+.clipping-open-hint {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--label);
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.clipping-open:hover .clipping-open-hint,
+.clipping-open:focus-visible .clipping-open-hint {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .clipping-open-hint {
+    transition: none;
+    opacity: 1;
+  }
+}
+
+/* ---------- Clipping lightbox ---------- */
+.clipping-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--menu-scrim);
+  display: flex;
+  flex-direction: column;
+}
+.clipping-lightbox-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.55rem 0.9rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.clipping-lightbox-spacer {
+  flex: 1 1 auto;
+}
+.clipping-lightbox-page {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5ch;
+  text-align: center;
+}
+.clipping-lightbox .icon-btn.is-active {
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.clipping-lightbox-stage {
+  flex: 1 1 auto;
+  overflow: auto;
+  display: grid;
+  place-items: start center;
+  padding: 1rem;
+}
+.clipping-lightbox-stage img {
+  display: block;
+  background: var(--surface-lowest);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+}
+.clipping-lightbox-caption {
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.clipping-lightbox-ocr {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  max-height: 30vh;
+  overflow: auto;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.clipping-lightbox-ocr p {
+  margin: 0;
+  max-width: var(--measure);
+}
 .related-articles {
   margin-top: var(--space-5);
   padding-top: var(--space-4);
