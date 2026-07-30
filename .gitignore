@@ -75,8 +75,9 @@ Thumbs.db
 *.mov
 *.wmv
 
-# Personal/local Claude Code overrides
-.claude/settings.local.json
+# Claude Code & Codex tooling (local dev tooling, not part of the app)
+.claude/
+.codex/
 
 # Vendored / unrelated scratch directories, not part of the app build
 /şahin-alpay-arşivi/
