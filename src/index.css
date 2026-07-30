@@ -356,6 +356,9 @@ main:focus {
 .prose p {
   max-width: var(--measure);
   margin-bottom: var(--space-3);
+  font-family: var(--headline);
+  line-height: 1.72;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
 }
 .prose p:last-child {
   margin-bottom: 0;
@@ -1962,6 +1965,14 @@ a.archive-row:hover .archive-row-title {
   font-style: italic;
   color: var(--ink-soft);
   margin: var(--space-2) 0 0;
+  padding-bottom: var(--space-2);
+}
+.article-subtitle::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  margin-top: var(--space-2);
+  border-top: 2px solid var(--tertiary);
 }
 .article-byline {
   display: flex;
@@ -1994,6 +2005,12 @@ a.archive-row:hover .archive-row-title {
   font-weight: 700;
   color: var(--ink);
   font-size: 0.95rem;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.03em;
+}
+.article-byline-date {
+  color: var(--tertiary-ink);
+  font-feature-settings: 'onum' 1;
 }
 .article-lead-photos {
   margin-top: var(--space-4);
@@ -2019,19 +2036,30 @@ a.archive-row:hover .archive-row-title {
   gap: 1.2em;
 }
 .article-body p {
-  font-family: var(--body);
+  font-family: var(--headline);
   font-size: 1em;
-  line-height: 1.8;
+  line-height: 1.72;
   color: var(--ink);
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
 }
 .article-body p:first-of-type::first-letter {
   font-family: var(--headline);
-  font-size: 3.2em;
+  font-size: 3.4em;
   font-weight: 700;
   float: left;
-  line-height: 0.85;
-  margin: 0.05em 0.08em 0 0;
-  color: var(--accent-ink);
+  line-height: 0.82;
+  margin: 0.05em 0.1em 0 0;
+  color: var(--tertiary-ink);
+}
+.article-body.no-dropcap p:first-of-type::first-letter {
+  font: inherit;
+  float: none;
+  margin: 0;
+  color: inherit;
+}
+.article-body p:last-of-type:not(.article-body-loading)::after {
+  content: ' ▪';
+  color: var(--tertiary-ink);
 }
 .article-body-loading {
   color: var(--muted);

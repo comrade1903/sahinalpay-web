@@ -2101,6 +2101,20 @@ function LoadedArticlePage({
     ],
   } : null)
 
+  useEffect(() => {
+    const el = document.getElementById('article-body')
+    if (!el || !item) return
+    const onCopy = (e: ClipboardEvent) => {
+      const selection = window.getSelection()?.toString() ?? ''
+      if (selection.length < 40 || !e.clipboardData) return
+      const attribution = `\n\n— Şahin Alpay, "${item.title}". ${content[lang].reader.copySourceLabel}: ${articleUrl}`
+      e.clipboardData.setData('text/plain', selection + attribution)
+      e.preventDefault()
+    }
+    el.addEventListener('copy', onCopy)
+    return () => el.removeEventListener('copy', onCopy)
+  }, [item, lang, articleUrl])
+
   if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
     return <Navigate to={paths[lang].columns!} replace />
   }
@@ -2108,6 +2122,7 @@ function LoadedArticlePage({
   const related = relatedArticles(archiveData, lang, item, 3)
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
+  const shortOpener = !body || !body[0] || body[0].length < 60
 
   return (
     <section className="section section-solo article-page">
@@ -2183,7 +2198,13 @@ function LoadedArticlePage({
             </span>
             <span className="article-byline-text">
               <span className="article-byline-name">Şahin Alpay</span>
-              {[item.date, item.outlet].filter(Boolean).join(' · ')}
+              {item.date && (
+                <>
+                  <time className="article-byline-date">{item.date}</time>
+                  {item.outlet ? ' · ' : ''}
+                </>
+              )}
+              {item.outlet}
               {item.medium
                 ? ` (${mediumLabel(item.medium, lang).toLocaleLowerCase(lang)})`
                 : ''}
@@ -2202,7 +2223,7 @@ function LoadedArticlePage({
         <Reveal
           as="div"
           delay={0.08}
-          className="article-body"
+          className={`article-body${shortOpener ? ' no-dropcap' : ''}`}
           id="article-body"
           style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
         >

@@ -105,6 +105,9 @@ export interface Content {
     intro: string
     sections: { heading: string; body: string[] }[]
   }
+  reader: {
+    copySourceLabel: string
+  }
 }
 
 const BOOKS: Record<Lang, Book[]> = {
@@ -367,6 +370,9 @@ export const content: Record<Lang, Content> = {
         },
       ],
     },
+    reader: {
+      copySourceLabel: 'Source',
+    },
   },
 
   tr: {
@@ -545,6 +551,9 @@ export const content: Record<Lang, Content> = {
           ],
         },
       ],
+    },
+    reader: {
+      copySourceLabel: 'Kaynak',
     },
   },
 }
