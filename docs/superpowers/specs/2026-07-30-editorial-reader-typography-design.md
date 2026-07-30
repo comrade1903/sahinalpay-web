@@ -65,6 +65,36 @@ archive content edits**, so every article benefits immediately.
    last body paragraph.
 6. **Reading-voice consistency.** Align `.prose` long-form (About/Books/Cookie
    policy) with the same serif reading treatment so the site reads in one voice.
+7. **Copy-attribution ("watermark done right").** When a reader copies a
+   meaningful chunk of an article body, append a short attribution/provenance
+   line to the clipboard instead of blocking the copy. This turns copying into
+   free attribution + source-of-record, aligns with the archive's mission
+   (be read and cited) and with the just-shipped "no tracking" privacy stance
+   (purely client-side, nothing sent anywhere).
+   - Attach a `copy` event listener scoped to the article body
+     (`#article-body`) in `LoadedArticlePage`.
+   - Only append when the selection is meaningful — threshold ~40+ characters
+     (a couple of words shouldn't get a full citation footer).
+   - Appended line (bilingual, from `content.ts`), e.g.:
+     - TR: `\n\n— Şahin Alpay, "<title>". Kaynak: <full-url>`
+     - EN: `\n\n— Şahin Alpay, "<title>". Source: <full-url>`
+   - Use `event.clipboardData.setData('text/plain', selection + attribution)`
+     plus `event.preventDefault()`; guard for missing `clipboardData`.
+   - Title and canonical URL are already available in `LoadedArticlePage`
+     (`item.title`, `articleUrl`). No new data or backend.
+   - Explicitly NOT doing: disabling selection/right-click, truncating visible
+     content, or logging copy attempts (a static, no-backend, no-tracking site).
+
+### Content-protection decisions (from brainstorming)
+
+The owner chose **copy-attribution only**. Explicitly rejected, with reasons:
+- **Disable selection / right-click** — trivially bypassed, harms
+  accessibility, older readers, and SEO; against the archive's read-and-cite
+  mission.
+- **Copy logging** — needs a backend the static site doesn't have and directly
+  contradicts the live "no tracking / no analytics" KVKK notice.
+- **Clipping image watermark** and **footer copyright/usage line** — not now
+  (may revisit later; not part of this pass).
 
 ### Out of scope (deferred / not this pass)
 
@@ -108,6 +138,10 @@ archive content edits**, so every article benefits immediately.
   - A-/A+ font-size control still scales the serif body.
   - Standfirst, masthead byline, end-mark, and micro-typography look correct.
   - `.prose` pages (About/Books/Cookie policy) share the reading voice.
+  - Copy a full paragraph from an article body and paste it: the attribution
+    line (author, title, URL) is appended, in the correct language. Copying a
+    single word does NOT append it (below threshold). Selecting text is still
+    freely allowed everywhere.
 - Committed with a descriptive message; pushed only on owner confirmation
   (`main` auto-deploys).
 
