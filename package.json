@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "validate:content": "node scripts/validate-content.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "split:archive": "node scripts/split-archive-body.mjs"
+    "split:archive": "node scripts/split-archive-body.mjs",
+    "extract:tustav-pdf": "node scripts/extract-tustav-pdf.mjs"
   },
   "dependencies": {
     "motion": "^12.42.2",
