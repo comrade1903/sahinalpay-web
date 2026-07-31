@@ -2330,6 +2330,7 @@ function LoadedArticlePage({
                   href={item.pdfSrc}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${content[lang].clippingViewer.openPdf} ${content[lang].clippingViewer.openPdfHint}`}
                 >
                   <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
                   <span className="clipping-open-hint">

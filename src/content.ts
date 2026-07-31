@@ -115,6 +115,7 @@ export interface Content {
   clippingViewer: {
     heading: string
     openPdf: string
+    openPdfHint: string
     pagesSuffix: string
   }
 }
@@ -395,6 +396,7 @@ export const content: Record<Lang, Content> = {
     clippingViewer: {
       heading: 'Newspaper Clipping',
       openPdf: 'Read the full scan as a PDF',
+      openPdfHint: '(opens in a new tab)',
       pagesSuffix: 'pages',
     },
   },
@@ -592,6 +594,7 @@ export const content: Record<Lang, Content> = {
     clippingViewer: {
       heading: 'Gazete Kupürü',
       openPdf: 'Tamamını PDF olarak oku',
+      openPdfHint: '(yeni sekmede açılır)',
       pagesSuffix: 'sayfa',
     },
   },
