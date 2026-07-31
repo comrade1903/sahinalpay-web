@@ -221,6 +221,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Interviews' },
       { key: 'academic', label: 'Academic Articles' },
       { key: 'books', label: 'Books' },
+      { key: 'chronicle', label: 'Chronicle' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -266,6 +267,11 @@ export const content: Record<Lang, Content> = {
         key: 'books',
         title: 'Books',
         description: 'Published books and memoirs.',
+      },
+      {
+        key: 'chronicle',
+        title: 'Chronicle',
+        description: 'His published voice, year by year, against the events he wrote through.',
       },
     ],
     about: {
@@ -410,6 +416,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Söyleşiler' },
       { key: 'academic', label: 'Akademik Makaleler' },
       { key: 'books', label: 'Kitaplar' },
+      { key: 'chronicle', label: 'Kronik' },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -455,6 +462,11 @@ export const content: Record<Lang, Content> = {
         key: 'books',
         title: 'Kitaplar',
         description: 'Yayımlanmış kitapları ve kitap özetleri.',
+      },
+      {
+        key: 'chronicle',
+        title: 'Kronik',
+        description: 'Yayımlanmış sesi, yıl yıl, içinde yazdığı olayların karşısında.',
       },
     ],
     about: {

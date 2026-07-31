@@ -48,6 +48,7 @@ import {
   type PageKey,
 } from './routes'
 import { parseTurkishDate } from './dateUtils'
+import { chronicleEvents } from './chronicle'
 
 /* ------------------------------------------------------------------
    Şahin Alpay — a personal & political legacy site. Bilingual (EN/TR),
@@ -584,6 +585,7 @@ const HUB_ICONS: Record<PageKey, string> = {
   interviews: 'forum',
   academic: 'school',
   books: 'menu_book',
+  chronicle: 'timeline',
   cookies: 'cookie',
 }
 
@@ -2668,6 +2670,130 @@ function ClippingLightbox({
   )
 }
 
+function yearPicks(items: ArchiveItem[], year: number, n: number): ArchiveItem[] {
+  const pool = items.filter((i) => i.hasBody)
+  const src = pool.length ? pool : items
+  const random = mulberry32(year)
+  const shuffled = [...src]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled.slice(0, n)
+}
+
+function ChroniclePage({ lang }: { lang: Lang }) {
+  const location = useLocation()
+  usePageMeta({
+    title: `${lang === 'tr' ? 'Kronik' : 'Chronicle'} — Şahin Alpay`,
+    description:
+      lang === 'tr'
+        ? 'Şahin Alpay’ın yayımlanmış sesi, yıl yıl, Türkiye’nin olaylarının karşısında.'
+        : "Şahin Alpay's published voice, year by year, against Turkey's events.",
+    alternates: pageAlternates(location.pathname),
+  })
+  const archiveData = useArchiveData()
+  if (!archiveData) return <ArchiveLoading lang={lang} />
+  return <LoadedChronicle lang={lang} archiveData={archiveData} />
+}
+
+function LoadedChronicle({
+  lang,
+  archiveData,
+}: {
+  lang: Lang
+  archiveData: ArchiveData
+}) {
+  const items: ArchiveItem[] = [
+    ...archiveData.columns[lang].flatMap((o) => o.items),
+    ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
+  ]
+
+  const byYear = new Map<number, ArchiveItem[]>()
+  for (const it of items) {
+    const ts = it.date ? parseTurkishDate(it.date) : null
+    if (ts == null) continue
+    const y = new Date(ts).getUTCFullYear()
+    const bucket = byYear.get(y)
+    if (bucket) bucket.push(it)
+    else byYear.set(y, [it])
+  }
+
+  const counts = [...byYear.entries()].map(([y, arr]) => [y, arr.length] as const)
+  const maxCount = Math.max(1, ...counts.map(([, c]) => c))
+  const total = counts.reduce((n, [, c]) => n + c, 0)
+  const dataYears = counts.map(([y]) => y)
+  const firstYear = dataYears.length ? Math.min(...dataYears) : 0
+  const lastYear = dataYears.length ? Math.max(...dataYears) : 0
+
+  const years = Array.from(
+    new Set([...byYear.keys(), ...chronicleEvents.map((e) => e.year)]),
+  ).sort((a, b) => a - b)
+
+  return (
+    <section className="section section-solo chronicle">
+      <div className="container container-narrow">
+        <Reveal>
+          <p className="kicker">{lang === 'tr' ? 'Zaman Çizgisi' : 'Timeline'}</p>
+          <h1 className="section-title">{lang === 'tr' ? 'Kronik' : 'Chronicle'}</h1>
+          <p className="lead">
+            {lang === 'tr'
+              ? `${firstYear}–${lastYear} arasında ${total.toLocaleString('tr')} yazı. 2016’da bir kalem susturuldu; grafik bunu gösteriyor.`
+              : `${total.toLocaleString('en')} pieces between ${firstYear} and ${lastYear}. In 2016 a pen was silenced — the chart shows it.`}
+          </p>
+        </Reveal>
+
+        <div className="chronicle-spine">
+          {years.map((year) => {
+            const yearItems = byYear.get(year) ?? []
+            const count = yearItems.length
+            const events = chronicleEvents.filter((e) => e.year === year)
+            const picks = count > 0 ? yearPicks(yearItems, year, 2) : []
+            return (
+              <Reveal as="div" className="chronicle-row" key={year}>
+                <div className="chronicle-year">{year}</div>
+                <div className="chronicle-body">
+                  {count > 0 && (
+                    <div className="chronicle-bar" aria-hidden="true">
+                      <span
+                        className="chronicle-bar-fill"
+                        style={{ width: `${Math.max(4, (count / maxCount) * 100)}%` }}
+                      />
+                    </div>
+                  )}
+                  {count > 0 && (
+                    <p className="chronicle-count">
+                      {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+                    </p>
+                  )}
+                  {events.map((e) => (
+                    <p
+                      className={`chronicle-event chronicle-event-${e.kind}`}
+                      key={`${e.year}-${e.en}`}
+                    >
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        {e.kind === 'personal' ? 'person' : 'flag'}
+                      </span>
+                      {e[lang]}
+                    </p>
+                  ))}
+                  {picks.length > 0 && (
+                    <ul className="archive-list chronicle-picks">
+                      {picks.map((p) => (
+                        <ArchiveRow item={p} lang={lang} key={p.id} />
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </Reveal>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function CookiePolicyPage({ lang }: { lang: Lang }) {
   const t = content[lang].cookiePolicy
   const location = useLocation()
@@ -2895,6 +3021,7 @@ function MainShell() {
             element={<Navigate to="/" replace />}
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
+          <Route path="/chronicle" element={<ChroniclePage lang="en" />} />
           <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
@@ -2938,6 +3065,7 @@ function MainShell() {
             path="/tr/kitaplar"
             element={<RouteFor lang="tr" pageKey="books" />}
           />
+          <Route path="/tr/kronik" element={<ChroniclePage lang="tr" />} />
           <Route
             path="/tr/cerez-politikasi"
             element={<CookiePolicyPage lang="tr" />}

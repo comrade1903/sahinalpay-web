@@ -17,6 +17,7 @@ const staticRoutes = [
   ['/interviews', 'monthly', '0.6'],
   ['/academic-articles', 'monthly', '0.6'],
   ['/books', 'monthly', '0.8'],
+  ['/chronicle', 'monthly', '0.7'],
   ['/cookie-policy', 'yearly', '0.3'],
   ['/tr', 'monthly', '1.0'],
   ['/tr/kimdir', 'monthly', '0.8'],
@@ -25,6 +26,7 @@ const staticRoutes = [
   ['/tr/soylesiler', 'weekly', '0.7'],
   ['/tr/akademik-makaleler', 'weekly', '0.7'],
   ['/tr/kitaplar', 'monthly', '0.8'],
+  ['/tr/kronik', 'monthly', '0.7'],
   ['/tr/cerez-politikasi', 'yearly', '0.3'],
 ]
 
