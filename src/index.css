@@ -1934,11 +1934,40 @@ a.archive-row:hover .archive-row-title {
   border-color: var(--accent);
 }
 .article-tools {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
   margin-bottom: var(--space-3);
+}
+.cite-box {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 5;
+  margin-top: 0.4rem;
+  max-width: min(92vw, 34rem);
+  padding: 0.75rem 0.9rem;
+  background: var(--surface-lowest);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+}
+.cite-status {
+  margin: 0 0 0.4rem;
+  font-family: var(--label);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--tertiary-ink);
+}
+.cite-text {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  user-select: all;
 }
 .article-tools .back-link {
   margin-bottom: 0;

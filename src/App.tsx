@@ -2030,6 +2030,76 @@ function ArticlePage({ lang }: { lang: Lang }) {
   return <LoadedArticlePage lang={lang} archiveData={archiveData} />
 }
 
+function buildCitation(item: ArchiveItem, articleUrl: string, lang: Lang): string {
+  const parts = [`Şahin Alpay, "${item.title}"`]
+  if (item.outlet) parts.push(item.outlet)
+  if (item.date) parts.push(item.date)
+  const today = new Date().toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  return `${parts.join(', ')}. ${articleUrl} (${content[lang].reader.accessed} ${today}).`
+}
+
+function CiteThis({
+  item,
+  articleUrl,
+  lang,
+}: {
+  item: ArchiveItem
+  articleUrl: string
+  lang: Lang
+}) {
+  const t = content[lang].reader
+  const [open, setOpen] = useState(false)
+  const [copied, setCopied] = useState<'ok' | 'manual' | null>(null)
+  const citation = buildCitation(item, articleUrl, lang)
+
+  const onClick = async () => {
+    if (open) {
+      setOpen(false)
+      setCopied(null)
+      return
+    }
+    setOpen(true)
+    try {
+      await navigator.clipboard.writeText(citation)
+      setCopied('ok')
+    } catch {
+      setCopied('manual')
+    }
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        className="icon-btn"
+        aria-label={t.citeLabel}
+        aria-expanded={open}
+        onClick={onClick}
+      >
+        <span
+          className="material-symbols-outlined"
+          aria-hidden="true"
+          style={{ fontSize: '18px' }}
+        >
+          format_quote
+        </span>
+      </button>
+      {open && (
+        <div className="cite-box">
+          <p className="cite-status" role="status" aria-live="polite">
+            {copied === 'ok' ? t.copied : t.copyManual}
+          </p>
+          <p className="cite-text">{citation}</p>
+        </div>
+      )}
+    </>
+  )
+}
+
 function LoadedArticlePage({
   lang,
   archiveData,
@@ -2197,6 +2267,7 @@ function LoadedArticlePage({
                 {Math.round(fontScale * 100)}%
               </output>
             </div>
+            <CiteThis item={item} articleUrl={articleUrl} lang={lang} />
           </div>
           <h1 className="section-title">{item.title}</h1>
           {item.subtitle && <p className="article-subtitle">{item.subtitle}</p>}

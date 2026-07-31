@@ -107,6 +107,10 @@ export interface Content {
   }
   reader: {
     copySourceLabel: string
+    citeLabel: string
+    copied: string
+    copyManual: string
+    accessed: string
   }
   clippingViewer: {
     dialogLabel: string
@@ -390,6 +394,10 @@ export const content: Record<Lang, Content> = {
     },
     reader: {
       copySourceLabel: 'Source',
+      citeLabel: 'Cite',
+      copied: 'Copied ✓',
+      copyManual: 'Select and copy the text below',
+      accessed: 'Accessed',
     },
     clippingViewer: {
       dialogLabel: 'Newspaper clipping viewer',
@@ -590,6 +598,10 @@ export const content: Record<Lang, Content> = {
     },
     reader: {
       copySourceLabel: 'Kaynak',
+      citeLabel: 'Alıntıla',
+      copied: 'Kopyalandı ✓',
+      copyManual: 'Aşağıdaki metni seçip kopyalayın',
+      accessed: 'Erişim:',
     },
     clippingViewer: {
       dialogLabel: 'Gazete küpürü görüntüleyici',
