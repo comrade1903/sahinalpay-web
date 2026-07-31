@@ -25,13 +25,27 @@ usable for search. Three concrete failures today:
 
 ## Ground truth (verified in the codebase)
 
-- **Source PDFs are not encrypted.** `pdfinfo tmp/tustav-pdfs/aydinlik/asd_01.pdf`
-  reports `Encrypted: no`. Text cannot be copied because these are pure image
-  scans with no text layer — not because of DRM. Page extraction is therefore
-  unobstructed.
-- `pdfseparate` and `pdfunite` (poppler) are installed; `qpdf`, `pdftk`, and
-  `gs` are not. A verified extraction of Aydınlık `asd_02.pdf` pages 57–74
-  produced a valid 18-page, **3.0 MB** PDF (~170 KB/page).
+- **Encryption differs by outlet, and this constrains the pipeline.**
+  `pdfinfo` reports:
+  - Aydınlık (`asd_*.pdf`, `pda_*.pdf`): `Encrypted: no`.
+  - İşçi-Köylü (all 28 volumes) and Forum (all 149 volumes):
+    `Encrypted: yes (print:no copy:no change:no addNotes:no algorithm:AES)` —
+    permissions-only encryption with no user password, so the files open and
+    render fine but carry restriction flags.
+
+  Consequences, verified by running the tools: `pdftoppm` renders pages from
+  encrypted volumes without complaint (the cover pipeline works everywhere).
+  `pdfseparate` also succeeds. **`pdfunite` refuses encrypted inputs** with
+  `Unimplemented Feature: Could not merge encrypted files`. So a *partial* page
+  range cannot be reassembled out of an encrypted volume with the tools on
+  hand.
+
+  Text cannot be copied from any of these volumes primarily because they are
+  pure image scans with no text layer; the restriction flags are a second,
+  independent lock on İşçi-Köylü and Forum.
+- `pdfinfo`, `pdfseparate`, `pdfunite`, and `pdftoppm` (poppler) are installed;
+  `qpdf`, `pdftk`, and `gs` are not. A verified extraction of Aydınlık
+  `asd_02.pdf` pages 57–74 produced a valid 18-page, **2.9 MB** PDF.
 - **Page mappings already exist and are trustworthy.**
   `tmp/tustav-*-strong-hits.json` holds `{label: "aydinlik:asd_02", pdfUrl,
   pages: [...]}`; `tmp/tustav-rendered-articles.json` and
@@ -159,10 +173,21 @@ Behaviour:
   non-zero with a message naming the expected path — the source volumes are not
   in the repo and a contributor without them must get a clear diagnosis, not a
   stack trace.
-- Runs `pdfseparate -f <firstPage> -l <lastPage>` into a temp dir, then
-  `pdfunite` in numeric page order, writing to `public/archive/pdf/<out>`.
-  Numeric ordering matters: `pdfseparate` emits `p-1.pdf`…`p-10.pdf`, which
-  sort lexicographically as `p-1, p-10, p-2`.
+- Builds the article PDF by one of two paths, chosen from the source's
+  encryption state and the requested range:
+  - **Whole-file range** (`firstPage === 1 && lastPage === pageCount`): copy the
+    source verbatim. No merge, so encryption is irrelevant. This is what
+    İşçi-Köylü issue 16 needs — the issue is two pages and the article is in it.
+  - **Partial range on an unencrypted source:** `pdfseparate -f <firstPage>
+    -l <lastPage>` into a temp dir, then `pdfunite` in numeric page order.
+    Numeric ordering matters: `pdfseparate` emits `p-1.pdf`…`p-10.pdf`, which
+    sort lexicographically as `p-1, p-10, p-2`. This covers all four Aydınlık
+    pieces.
+  - **Partial range on an encrypted source:** not supported by the installed
+    tools. The script must detect this up front and exit with a message naming
+    the file and suggesting `brew install qpdf` plus a `qpdf --decrypt` pre-pass,
+    rather than letting `pdfunite` fail obscurely deep in the run. No current
+    manifest entry hits this path; the Forum sub-project will.
 - Renders the cover from the same source volume:
   `pdftoppm -jpeg -jpegopt quality=82 -f <firstPage> -l <firstPage>
   -scale-to-x 1600 -scale-to-y -1`, written to
@@ -229,9 +254,16 @@ usage is retired or repurposed.
   `cover.jpg` per item in the same directory. `public/archive/clippings/p24/`
   is untouched.
 - Add five PDFs under `public/archive/pdf/{aydinlik,isci-koylu}/<year>/<slug>.pdf`.
-- Net effect: 47 MB of TÜSTAV page scans becomes ~1.5 MB of covers plus ~17 MB
-  of PDFs — roughly **−28 MB** in the working tree. Git history retains the
-  deleted blobs; no history rewrite.
+  Measured sizes: Devrimci Teorik Eğitim 2.9 MB (18 s.), Osmanlı Ticaret
+  Sözleşmeleri 3.8 MB (28 s.), Türkiye'nin Düzeni 4.3 MB (30 s.), İşçi Sınıfı ve
+  MDD 3.6 MB (24 s.), 1 Mayıs 7.9 MB (2 s., whole-issue copy) — **22.5 MB** total.
+- Net effect: 47 MB of TÜSTAV page scans becomes ~1 MB of covers plus 22.5 MB of
+  PDFs — roughly **−23 MB** in the working tree. Git history retains the deleted
+  blobs; no history rewrite.
+- The İşçi-Köylü PDF is republished verbatim, restriction flags and all. The
+  site already hosts full-resolution page scans of the same issues and credits
+  TÜSTAV in `sourceNote`, so this does not change the archive's posture toward
+  the source; it re-hosts the same material in a better format.
 - Each item's `clippings` array is reduced to a single `kind: 'scan'` entry
   pointing at `cover.jpg`. Keeping the array (rather than introducing a
   separate `coverSrc`) means `itemHasSourceKind(item, 'clipping')` and
@@ -291,3 +323,10 @@ implementation is retired.
   a schema change.
 - **Source volumes are not in the repo.** Anyone regenerating PDFs needs
   `tmp/tustav-pdfs/`. The script fails loudly and names the missing path.
+- **The Forum sub-project will hit the encryption wall.** All 149 Forum volumes
+  are AES-encrypted, and Forum articles are a few pages inside a large issue —
+  exactly the partial-range-on-encrypted-source case `pdfunite` refuses. That
+  work will need `qpdf --decrypt` (permissions-only encryption strips without a
+  password) as a pre-pass, adding a dependency. Nothing in this sub-project is
+  blocked by it, but the Forum plan should budget for it rather than discover
+  it late.
