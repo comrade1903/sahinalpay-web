@@ -180,6 +180,7 @@ export function readArchiveEntries() {
           ...stringFields(objectSource, 'src'),
           ...stringFields(objectSource, 'thumbSrc'),
           ...stringFields(objectSource, 'imageSrc'),
+          ...stringFields(objectSource, 'pdfSrc'),
         ].filter((assetPath) => assetPath.startsWith('/archive/')),
       }
     })

@@ -2360,12 +2360,6 @@ function LoadedArticlePage({
                     (lang === 'tr' ? `${index + 1}. sayfa` : `Page ${index + 1}`)}
                   {clipping.sourceNote ? ` · ${clipping.sourceNote}` : ''}
                 </figcaption>
-                {clipping.ocrText && (
-                  <details className="clipping-ocr">
-                    <summary>{lang === 'tr' ? 'OCR metnini göster' : 'Show OCR text'}</summary>
-                    <p>{clipping.ocrText}</p>
-                  </details>
-                )}
               </figure>
             ))}
           </Reveal>

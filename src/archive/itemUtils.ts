@@ -9,10 +9,10 @@ export function archiveItemText(item: ArchiveItem, loadedBody?: string[]): strin
     item.excerpt,
     item.sourceNote,
     item.imageCredit,
+    ...(item.tags ?? []),
     ...(body ?? []),
     ...(item.clippings ?? []).flatMap((clipping) => [
       clipping.alt,
-      clipping.ocrText,
       clipping.sourceNote,
       clipping.pageLabel,
     ]),
