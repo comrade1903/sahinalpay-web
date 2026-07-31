@@ -146,11 +146,27 @@ Create `scripts/tustav-pdf-extracts.json`. `coverPage` is optional and defaults 
     "firstPage": 1,
     "lastPage": 2,
     "coverPage": 2,
+    "coverRenderWidth": 1800,
+    "coverCrop": { "x": 0, "y": 0, "width": 900, "height": 3000 },
+    "coverQuality": 80,
     "pdfOut": "isci-koylu/1970/1-mayis.pdf",
     "coverOut": "isci-koylu/1970/1-mayis/cover.jpg"
   }
 ]
 ```
+
+**Why İşçi-Köylü needs the three extra cover fields.** Its pages are scanned as
+wide landscape two-page spreads (2419×1699 pt), unlike the portrait Aydınlık
+pages. Rendered whole at the default 1600 px width the cover is **665 KB** — over
+the 400 KB budget — and Alpay's article is only the top-left quadrant of the
+frame. Rendering at 1800 px and cropping to the left half yields newspaper page 2
+alone, filling the frame at 900×1267 for **396 KB**. Measured alternatives that
+do NOT work: cropping at higher resolution (1200 px → 736 KB, 1600 px → 811 KB)
+and grayscale (`-gray` saves almost nothing, because JPEG chroma subsampling
+already makes colour cheap — the cost is scan grain, not colour).
+
+These three fields are optional and absent from the four Aydınlık entries, which
+keep the defaults (`coverRenderWidth` 1600, no crop, `coverQuality` 82).
 
 - [ ] **Step 2: Write the extraction script**
 
@@ -273,13 +289,26 @@ function extract(entry) {
     fs.mkdirSync(path.dirname(coverOut), { recursive: true })
     const coverDir = fs.mkdtempSync(path.join(os.tmpdir(), 'tustav-cover-'))
     try {
+      // İşçi-Köylü pages are landscape two-page spreads; cropping to the half
+      // that carries the article keeps the cover both on-topic and under budget.
+      const crop = entry.coverCrop
       run('pdftoppm', [
         '-jpeg',
-        '-jpegopt', `quality=${COVER_QUALITY}`,
+        '-jpegopt', `quality=${entry.coverQuality ?? COVER_QUALITY}`,
         '-f', String(coverPage),
         '-l', String(coverPage),
-        '-scale-to-x', String(COVER_WIDTH),
+        '-scale-to-x', String(entry.coverRenderWidth ?? COVER_WIDTH),
         '-scale-to-y', '-1',
+        ...(crop
+          ? [
+              // pdftoppm clamps the crop box to the rendered page, so a height
+              // larger than the page simply means "down to the bottom edge".
+              '-x', String(crop.x),
+              '-y', String(crop.y),
+              '-W', String(crop.width),
+              '-H', String(crop.height),
+            ]
+          : []),
         sourcePath,
         path.join(coverDir, 'cover'),
       ])
@@ -346,7 +375,7 @@ aydinlik-devrimci-teorik-egitim: pdfPageCount=18 pdf=2.9MB cover=199KB
 aydinlik-osmanli-ticaret-sozlesmeleri: pdfPageCount=28 pdf=3.8MB cover=~200KB
 aydinlik-turkiyenin-duzeni-uzerine: pdfPageCount=30 pdf=4.3MB cover=~200KB
 pda-isci-sinifi-milli-demokratik-devrim: pdfPageCount=24 pdf=3.6MB cover=~200KB
-isci-koylu-1-mayis-1970: pdfPageCount=2 pdf=7.9MB cover=~250KB
+isci-koylu-1-mayis-1970: pdfPageCount=2 pdf=7.9MB cover=~396KB
 Extracted 5 TÜSTAV articles.
 ```
 

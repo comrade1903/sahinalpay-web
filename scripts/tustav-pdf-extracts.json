@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "aydinlik-devrimci-teorik-egitim",
+    "source": "aydinlik/asd_02.pdf",
+    "firstPage": 57,
+    "lastPage": 74,
+    "pdfOut": "aydinlik/1968/devrimci-teorik-egitim.pdf",
+    "coverOut": "aydinlik/1968/devrimci-teorik-egitim/cover.jpg"
+  },
+  {
+    "slug": "aydinlik-osmanli-ticaret-sozlesmeleri",
+    "source": "aydinlik/asd_06.pdf",
+    "firstPage": 24,
+    "lastPage": 51,
+    "pdfOut": "aydinlik/1969/osmanli-ticaret-sozlesmeleri.pdf",
+    "coverOut": "aydinlik/1969/osmanli-ticaret-sozlesmeleri/cover.jpg"
+  },
+  {
+    "slug": "aydinlik-turkiyenin-duzeni-uzerine",
+    "source": "aydinlik/asd_12.pdf",
+    "firstPage": 36,
+    "lastPage": 65,
+    "pdfOut": "aydinlik/1969/turkiyenin-duzeni-uzerine.pdf",
+    "coverOut": "aydinlik/1969/turkiyenin-duzeni-uzerine/cover.jpg"
+  },
+  {
+    "slug": "pda-isci-sinifi-milli-demokratik-devrim",
+    "source": "aydinlik/pda_3_17.pdf",
+    "firstPage": 19,
+    "lastPage": 42,
+    "pdfOut": "aydinlik/1970/isci-sinifi-milli-demokratik-devrim.pdf",
+    "coverOut": "aydinlik/1970/isci-sinifi-milli-demokratik-devrim/cover.jpg"
+  },
+  {
+    "slug": "isci-koylu-1-mayis-1970",
+    "source": "isci-koylu/isci-koylu-16_1970.pdf",
+    "firstPage": 1,
+    "lastPage": 2,
+    "coverPage": 2,
+    "coverRenderWidth": 1800,
+    "coverCrop": { "x": 0, "y": 0, "width": 900, "height": 3000 },
+    "coverQuality": 80,
+    "pdfOut": "isci-koylu/1970/1-mayis.pdf",
+    "coverOut": "isci-koylu/1970/1-mayis/cover.jpg"
+  }
+]

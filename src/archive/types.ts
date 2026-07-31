@@ -5,11 +5,10 @@ export interface ArchiveClipping {
   src: string
   thumbSrc?: string
   alt?: string
-  ocrText?: string
   pageLabel?: string
   sourceNote?: string
-  /** 'photo' renders as the article's lead image; 'scan' (default) goes in the
-      newspaper-clipping viewer at the end. */
+  /** 'photo' renders as the article's lead image; 'scan' (default) is the
+      newspaper cover that links to the full PDF. */
   kind?: 'photo' | 'scan'
 }
 
@@ -36,6 +35,13 @@ export interface ArchiveItemSeed {
   imageCredit?: string
   sourceNote?: string
   clippings?: ArchiveClipping[]
+  /** Free-form Turkish subject tags. Rendered as badges and matched by search.
+      Replaces published OCR text for scan-only items. */
+  tags?: string[]
+  /** Article-scoped PDF sliced out of the source volume, served from public/. */
+  pdfSrc?: string
+  /** Page count of `pdfSrc`, rendered next to the cover. */
+  pdfPageCount?: number
 }
 
 export interface ArchiveItem extends ArchiveItemSeed {

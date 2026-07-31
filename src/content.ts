@@ -113,16 +113,10 @@ export interface Content {
     accessed: string
   }
   clippingViewer: {
-    dialogLabel: string
-    viewOriginal: string
-    close: string
-    zoomIn: string
-    zoomOut: string
-    fit: string
-    prevPage: string
-    nextPage: string
-    showOcr: string
-    openNewTab: string
+    heading: string
+    openPdf: string
+    openPdfHint: string
+    pagesSuffix: string
   }
 }
 
@@ -400,16 +394,10 @@ export const content: Record<Lang, Content> = {
       accessed: 'Accessed',
     },
     clippingViewer: {
-      dialogLabel: 'Newspaper clipping viewer',
-      viewOriginal: 'See the original',
-      close: 'Close',
-      zoomIn: 'Zoom in',
-      zoomOut: 'Zoom out',
-      fit: 'Fit to screen',
-      prevPage: 'Previous page',
-      nextPage: 'Next page',
-      showOcr: 'OCR text',
-      openNewTab: 'Open original in new tab',
+      heading: 'Newspaper Clipping',
+      openPdf: 'Read the full scan as a PDF',
+      openPdfHint: '(opens in a new tab)',
+      pagesSuffix: 'pages',
     },
   },
 
@@ -604,16 +592,10 @@ export const content: Record<Lang, Content> = {
       accessed: 'Erişim:',
     },
     clippingViewer: {
-      dialogLabel: 'Gazete küpürü görüntüleyici',
-      viewOriginal: 'Aslına bak',
-      close: 'Kapat',
-      zoomIn: 'Yakınlaştır',
-      zoomOut: 'Uzaklaştır',
-      fit: 'Ekrana sığdır',
-      prevPage: 'Önceki sayfa',
-      nextPage: 'Sonraki sayfa',
-      showOcr: 'OCR metni',
-      openNewTab: 'Orijinali yeni sekmede aç',
+      heading: 'Gazete Kupürü',
+      openPdf: 'Tamamını PDF olarak oku',
+      openPdfHint: '(yeni sekmede açılır)',
+      pagesSuffix: 'sayfa',
     },
   },
 }

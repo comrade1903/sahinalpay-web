@@ -7,7 +7,6 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react'
-import { createPortal } from 'react-dom'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   Routes,
@@ -36,6 +35,7 @@ import {
   loadOutletBodies,
 } from './archive/bodyRegistry'
 import type {
+  ArchiveClipping,
   ArchiveItem,
   FlatArchiveSection,
   OutletArchiveSection,
@@ -2113,7 +2113,6 @@ function LoadedArticlePage({
   const body = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const t = content[lang]
   const articleCanonicalPath = item ? `${archiveBasePath(lang, item)}/${item.slug}` : location.pathname
   const articleDateIso = isoDateFromArchiveDate(item?.date)
@@ -2197,10 +2196,8 @@ function LoadedArticlePage({
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
-  const openableScans: LightboxScan[] = [
-    ...(item.imageSrc ? [{ src: item.imageSrc, alt: item.title }] : []),
-    ...scans,
-  ]
+  const cover: ArchiveClipping | null =
+    scans[0] ?? (item.imageSrc ? { src: item.imageSrc, alt: item.title } : null)
 
   return (
     <section className="section section-solo article-page">
@@ -2289,6 +2286,15 @@ function LoadedArticlePage({
                 : ''}
             </span>
           </div>
+          {item.tags && item.tags.length > 0 && (
+            <ul className="tag-list">
+              {item.tags.map((tag) => (
+                <li className="tag" key={tag}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
         </Reveal>
         {photos.length > 0 && (
           <Reveal as="div" delay={0.08} className="article-lead-photos">
@@ -2314,60 +2320,36 @@ function LoadedArticlePage({
             </p>
           ) : null}
         </Reveal>
-        {(item.imageSrc || scans.length > 0) && (
+        {cover && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>
-            <h2>{lang === 'tr' ? 'Gazete Kupürü' : 'Newspaper Clipping'}</h2>
-            {item.imageSrc && (
-              <figure className="clipping-frame">
-                <button
-                  type="button"
+            <h2>{content[lang].clippingViewer.heading}</h2>
+            <figure className="clipping-frame">
+              {item.pdfSrc ? (
+                <a
                   className="clipping-open"
-                  aria-label={content[lang].clippingViewer.viewOriginal}
-                  onClick={() => setLightboxIndex(0)}
+                  href={item.pdfSrc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${content[lang].clippingViewer.openPdf} ${content[lang].clippingViewer.openPdfHint}`}
                 >
-                  <img src={item.imageSrc} alt={item.title} loading="lazy" />
+                  <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
                   <span className="clipping-open-hint">
                     <span className="material-symbols-outlined" aria-hidden="true">
-                      zoom_in
+                      picture_as_pdf
                     </span>
-                    {content[lang].clippingViewer.viewOriginal}
+                    {content[lang].clippingViewer.openPdf}
                   </span>
-                </button>
-              </figure>
-            )}
-            {scans.map((clipping, index) => (
-              <figure className="clipping-frame" key={clipping.src}>
-                <button
-                  type="button"
-                  className="clipping-open"
-                  aria-label={content[lang].clippingViewer.viewOriginal}
-                  onClick={() => setLightboxIndex(index + (item.imageSrc ? 1 : 0))}
-                >
-                  <img
-                    src={clipping.src}
-                    alt={clipping.alt ?? item.title}
-                    loading="lazy"
-                  />
-                  <span className="clipping-open-hint">
-                    <span className="material-symbols-outlined" aria-hidden="true">
-                      zoom_in
-                    </span>
-                    {content[lang].clippingViewer.viewOriginal}
-                  </span>
-                </button>
-                <figcaption>
-                  {clipping.pageLabel ??
-                    (lang === 'tr' ? `${index + 1}. sayfa` : `Page ${index + 1}`)}
-                  {clipping.sourceNote ? ` · ${clipping.sourceNote}` : ''}
-                </figcaption>
-                {clipping.ocrText && (
-                  <details className="clipping-ocr">
-                    <summary>{lang === 'tr' ? 'OCR metnini göster' : 'Show OCR text'}</summary>
-                    <p>{clipping.ocrText}</p>
-                  </details>
-                )}
-              </figure>
-            ))}
+                </a>
+              ) : (
+                <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
+              )}
+              <figcaption>
+                {cover.pageLabel ?? item.subtitle}
+                {item.pdfPageCount
+                  ? ` · ${item.pdfPageCount} ${content[lang].clippingViewer.pagesSuffix}`
+                  : ''}
+              </figcaption>
+            </figure>
           </Reveal>
         )}
         {item.imageCredit && (
@@ -2420,16 +2402,6 @@ function LoadedArticlePage({
           </aside>
         )}
       </div>
-      {lightboxIndex !== null && openableScans[lightboxIndex] && (
-        <ClippingLightbox
-          scans={openableScans}
-          index={lightboxIndex}
-          lang={lang}
-          title={item.title}
-          onIndex={setLightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-        />
-      )}
     </section>
   )
 }
@@ -2523,221 +2495,6 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
         </ul>
       </div>
     </section>
-  )
-}
-
-interface LightboxScan {
-  src: string
-  alt?: string
-  ocrText?: string
-  pageLabel?: string
-  sourceNote?: string
-}
-
-const ZOOM_STEPS = ['fit', 1, 1.5, 2.5] as const
-
-function ClippingLightbox({
-  scans,
-  index,
-  lang,
-  title,
-  onIndex,
-  onClose,
-}: {
-  scans: LightboxScan[]
-  index: number
-  lang: Lang
-  title: string
-  onIndex: (i: number) => void
-  onClose: () => void
-}) {
-  const t = content[lang].clippingViewer
-  const dialogRef = useRef<HTMLDivElement>(null)
-  const [zoomIdx, setZoomIdx] = useState(0)
-  const [showOcr, setShowOcr] = useState(false)
-  const scan = scans[index]
-  const total = scans.length
-
-  useEffect(() => {
-    setZoomIdx(0)
-    setShowOcr(false)
-  }, [index])
-
-  useEffect(() => {
-    const dialog = dialogRef.current
-    const appRoot = document.getElementById('root')
-    const previouslyFocused = document.activeElement as HTMLElement | null
-    appRoot?.setAttribute('inert', '')
-    const focusFrame = window.requestAnimationFrame(() => {
-      dialog?.querySelector<HTMLElement>('button, a, [tabindex]')?.focus()
-    })
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        event.preventDefault()
-        onClose()
-        return
-      }
-      if (event.key === 'ArrowLeft' && index > 0) onIndex(index - 1)
-      else if (event.key === 'ArrowRight' && index < total - 1) onIndex(index + 1)
-      else if (event.key === '+' || event.key === '=') {
-        setZoomIdx((z) => Math.min(ZOOM_STEPS.length - 1, z + 1))
-      } else if (event.key === '-' || event.key === '_') {
-        setZoomIdx((z) => Math.max(0, z - 1))
-      } else if (event.key === '0') {
-        setZoomIdx(0)
-      } else if (event.key === 'Tab') {
-        const focusables = Array.from(
-          dialog?.querySelectorAll<HTMLElement>('button, a[href], [tabindex]') ?? [],
-        ).filter((el) => !el.hasAttribute('disabled'))
-        if (focusables.length === 0) return
-        const first = focusables[0]
-        const last = focusables.at(-1)!
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault()
-          last.focus()
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault()
-          first.focus()
-        }
-      }
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      window.cancelAnimationFrame(focusFrame)
-      appRoot?.removeAttribute('inert')
-      document.removeEventListener('keydown', onKeyDown)
-      window.requestAnimationFrame(() => previouslyFocused?.focus())
-    }
-  }, [index, total, onIndex, onClose])
-
-  if (!scan) return null
-
-  const zoom = ZOOM_STEPS[zoomIdx]
-  const imgStyle =
-    zoom === 'fit'
-      ? { maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }
-      : { width: `${zoom * 100}%`, maxWidth: 'none' }
-
-  return createPortal(
-    <div
-      className="clipping-lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-label={t.dialogLabel}
-      ref={dialogRef}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <div className="clipping-lightbox-bar">
-        {total > 1 && (
-          <>
-            <button
-              type="button"
-              className="icon-btn"
-              aria-label={t.prevPage}
-              disabled={index <= 0}
-              onClick={() => onIndex(index - 1)}
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                chevron_left
-              </span>
-            </button>
-            <span className="clipping-lightbox-page">
-              {index + 1} / {total}
-            </span>
-            <button
-              type="button"
-              className="icon-btn"
-              aria-label={t.nextPage}
-              disabled={index >= total - 1}
-              onClick={() => onIndex(index + 1)}
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                chevron_right
-              </span>
-            </button>
-          </>
-        )}
-        <span className="clipping-lightbox-spacer" />
-        <button
-          type="button"
-          className="icon-btn"
-          aria-label={t.zoomOut}
-          disabled={zoomIdx <= 0}
-          onClick={() => setZoomIdx((z) => Math.max(0, z - 1))}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            zoom_out
-          </span>
-        </button>
-        <button type="button" className="icon-btn" aria-label={t.fit} onClick={() => setZoomIdx(0)}>
-          <span className="material-symbols-outlined" aria-hidden="true">
-            fit_screen
-          </span>
-        </button>
-        <button
-          type="button"
-          className="icon-btn"
-          aria-label={t.zoomIn}
-          disabled={zoomIdx >= ZOOM_STEPS.length - 1}
-          onClick={() => setZoomIdx((z) => Math.min(ZOOM_STEPS.length - 1, z + 1))}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            zoom_in
-          </span>
-        </button>
-        {scan.ocrText && (
-          <button
-            type="button"
-            className={`icon-btn${showOcr ? ' is-active' : ''}`}
-            aria-label={t.showOcr}
-            aria-pressed={showOcr}
-            onClick={() => setShowOcr((v) => !v)}
-          >
-            <span className="material-symbols-outlined" aria-hidden="true">
-              description
-            </span>
-          </button>
-        )}
-        <a
-          className="icon-btn"
-          href={scan.src}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t.openNewTab}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            open_in_new
-          </span>
-        </a>
-        <button type="button" className="icon-btn" aria-label={t.close} onClick={onClose}>
-          <span className="material-symbols-outlined" aria-hidden="true">
-            close
-          </span>
-        </button>
-      </div>
-
-      <div className="clipping-lightbox-stage">
-        <img src={scan.src} alt={scan.alt ?? title} style={imgStyle} />
-      </div>
-
-      {(scan.pageLabel || scan.sourceNote) && (
-        <p className="clipping-lightbox-caption">
-          {scan.pageLabel}
-          {scan.pageLabel && scan.sourceNote ? ' · ' : ''}
-          {scan.sourceNote}
-        </p>
-      )}
-
-      {showOcr && scan.ocrText && (
-        <div className="clipping-lightbox-ocr">
-          <p>{scan.ocrText}</p>
-        </div>
-      )}
-    </div>,
-    document.body,
   )
 }
 
