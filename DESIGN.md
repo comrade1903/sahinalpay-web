@@ -18,7 +18,7 @@ colors:
   brass-ink: "#6f4f12"
   brass-container: "#f3e5bf"
   line: "#d0cdc5"
-  line-strong: "#b1ada2"
+  line-strong: "#8f8a7e"
   error: "#b83230"
 typography:
   display:
@@ -46,12 +46,36 @@ typography:
     lineHeight: 1.72
     letterSpacing: "normal"
     fontFeature: "'kern' 1, 'liga' 1, 'onum' 1"
+  lead:
+    fontFamily: "Literata, Georgia, serif"
+    fontSize: "clamp(1.3rem, 2.4vw, 1.6rem)"
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: "0"
+  body-sm:
+    fontFamily: "Literata, Georgia, serif"
+    fontSize: "0.95rem"
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: "normal"
+  ui:
+    fontFamily: "Nunito Sans, system-ui, sans-serif"
+    fontSize: "0.85rem"
+    fontWeight: 600
+    lineHeight: 1.4
+    letterSpacing: "0.01em"
   label:
     fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "0.75rem"
+    fontSize: "0.78rem"
     fontWeight: 800
-    lineHeight: 1
+    lineHeight: 1.3
     letterSpacing: "0.16em"
+  label-sm:
+    fontFamily: "Nunito Sans, system-ui, sans-serif"
+    fontSize: "0.72rem"
+    fontWeight: 800
+    lineHeight: 1.3
+    letterSpacing: "0.06em"
 rounded:
   sm: "0.5rem"
   lg: "1rem"
@@ -201,8 +225,11 @@ themes are equal citizens rather than one being a filter over the other.
 - **Ink 700** (`#383d44`): Default body and UI text — the colour `<body>` actually sets.
 - **Ink 500** (`#5e646c`): Muted metadata — captions, placeholders, source notes, dates
   in secondary position.
-- **Line** (`#d0cdc5`) / **Line Strong** (`#b1ada2`): The hairline vocabulary. Section
-  dividers, list-row rules, card borders, ghost-button strokes.
+- **Line** (`#d0cdc5`) / **Line Strong** (`#8f8a7e`): The hairline vocabulary. Section
+  dividers, list-row rules, card borders, ghost-button strokes. Line Strong is bound to
+  `--control-border` and draws the visible boundary of real controls, so it is held at
+  3:1 against the page (3.18:1 light, 3.32:1 dark) to satisfy WCAG 1.4.11. Plain Line is
+  decorative separation and is exempt.
 - **Error** (`#b83230`): Form and validation only. It never appears as emphasis.
 
 ### Named Rules
@@ -242,11 +269,22 @@ When you are operating the site, you are in Nunito Sans.
   rows sit slightly lower at 1.05rem.
 - **Body** (400, 18px / 17px below 768px, 1.72): Reading text — article bodies, prose,
   biography. Literata, capped at `68ch`, with `'kern' 1, 'liga' 1, 'onum' 1`.
-- **Label** (800, 0.75rem, 0.16em, uppercase): Kickers, eyebrows, outlet names, badges,
-  metadata. Interface text — nav, buttons, chips — is Nunito Sans one step up at
-  0.85rem / 600–700 with near-neutral tracking.
 - **Lead** (500, `clamp(1.3rem, 2.4vw, 1.6rem)`, 1.5): Literata at Ink 900, the
   standfirst under a section title.
+- **Body small** (400, 0.95rem, 1.6): Literata for secondary reading text — card
+  descriptions, notes, the body-load error.
+- **UI** (600, 0.85rem): Nunito Sans for anything operable — nav links, buttons, sort
+  controls, footer links, pagination.
+- **Label** (800, 0.78rem, 0.16em, uppercase): Kickers, eyebrows, outlet names, filter
+  headings, captions.
+- **Label small** (800, 0.72rem, 0.06em, uppercase): Badges, counts, list-row metadata —
+  the smallest type in the system.
+
+**Known drift.** The stylesheet currently uses thirteen distinct sizes between
+0.68rem and 0.95rem where the roles above describe five. The extra steps
+(0.68 / 0.7 / 0.75 / 0.76 / 0.8 / 0.82 / 0.88 / 0.92rem) are drift, not intent, and
+should collapse onto the nearest documented role as those components are next
+touched. New work uses the roles; it does not add a fourteenth value.
 
 ### Named Rules
 
@@ -404,10 +442,29 @@ The system's signature surface, and the one place it lets print show through:
 
 ### The Chronicle Spine
 
-A year-by-year timeline with a gradient rule (accent → line, 50% opacity) running its
-length: a left spine below 900px, a centre spine above it with cards alternating sides.
-Each year carries a proportional bar of published output and a count, so the shape of a
-career — the prolific years, the silent ones — is legible before a single title is read.
+A year-by-year timeline: a 2px left rail with a `4rem` year gutter (`3rem` below 560px)
+at every width — the alternating centre spine belongs to `.timeline` on the About page,
+not here. Each year carries a proportional bar of published output and a count.
+
+The axis runs continuously from the first to the last year the archive can show, and
+runs of years with nothing in them collapse into a labelled gap band — a dashed track
+where the bar would sit, plus the range and a count of years. Omitting an empty year
+would read as "he did not write", which is the one thing this page must never imply
+about material that simply has not been recovered.
+
+### The Coverage Strip
+
+The homepage's answer to "what does this archive hold". One row per outlet on a shared
+year axis: an uppercase outlet label, a track carrying a band across the years that
+outlet covers, the year range, and decade ticks along the bottom. It reuses the
+chronicle's bar vocabulary — accent fill on a `--surface-mid` track — so the front page
+and the timeline read as one system.
+
+Every span is derived from the archive data, so no coverage is claimed for an outlet
+whose material has not been recovered; the gaps between bands are the honest shape of
+the record. The strip lists outlets from both languages, because the archive is
+bilingual and filtering by UI language would show an English reader one outlet instead
+of the real body of work.
 
 ### The Clipping Frame
 
