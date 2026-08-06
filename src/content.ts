@@ -111,6 +111,19 @@ export interface Content {
     copied: string
     copyManual: string
     accessed: string
+    bodyError: string
+    bodyRetry: string
+  }
+  /* Shown instead of silently redirecting home. A citation that resolves to the
+     wrong page with no warning is worse for the record than an honest dead end. */
+  notFound: {
+    kicker: string
+    title: string
+    body: string
+    missingTitle: string
+    missingBody: string
+    backHome: string
+    browseArchive: string
   }
   clippingViewer: {
     heading: string
@@ -392,6 +405,18 @@ export const content: Record<Lang, Content> = {
       copied: 'Copied ✓',
       copyManual: 'Select and copy the text below',
       accessed: 'Accessed',
+      bodyError: 'The full text could not be loaded. Your connection may have dropped.',
+      bodyRetry: 'Try again',
+    },
+    notFound: {
+      kicker: 'Not found',
+      title: 'This address does not resolve',
+      body: 'The page you asked for is not part of this site. It may have been mistyped, or a link may have carried an old address.',
+      missingTitle: 'This piece is not in the archive under that address',
+      missingBody:
+        'The article may be filed under a different address, or it may not have been added yet. Searching for its title is usually the fastest way to find it.',
+      backHome: 'Go to the homepage',
+      browseArchive: 'Browse the columns',
     },
     clippingViewer: {
       heading: 'Newspaper Clipping',
@@ -590,6 +615,18 @@ export const content: Record<Lang, Content> = {
       copied: 'Kopyalandı ✓',
       copyManual: 'Aşağıdaki metni seçip kopyalayın',
       accessed: 'Erişim:',
+      bodyError: 'Yazının tam metni yüklenemedi. Bağlantınız kesilmiş olabilir.',
+      bodyRetry: 'Yeniden dene',
+    },
+    notFound: {
+      kicker: 'Bulunamadı',
+      title: 'Bu adres bir sayfaya karşılık gelmiyor',
+      body: 'İstediğiniz sayfa bu sitede yok. Adres yanlış yazılmış ya da bir bağlantı eski bir adresi taşıyor olabilir.',
+      missingTitle: 'Bu yazı arşivde bu adreste değil',
+      missingBody:
+        'Yazı başka bir adrese kayıtlı olabilir ya da henüz arşive eklenmemiş olabilir. Başlığıyla aramak genellikle en hızlı yol.',
+      backHome: 'Ana sayfaya git',
+      browseArchive: 'Köşe yazılarına göz at',
     },
     clippingViewer: {
       heading: 'Gazete Kupürü',

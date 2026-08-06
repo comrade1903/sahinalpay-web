@@ -2163,6 +2163,38 @@ a.archive-row:hover .archive-row-title {
   color: var(--muted);
   font-style: italic;
 }
+
+/* A failed body fetch is a state the reader can act on, not a stuck loader.
+   The paragraph sits inside .article-body, so the drop cap and the ▪ end mark
+   would otherwise be inherited — both are suppressed explicitly. */
+.article-body-error {
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-low);
+}
+.article-body-error p {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+.article-body-error p::first-letter {
+  font: inherit;
+  float: none;
+  margin: 0;
+  color: inherit;
+}
+.article-body-error p::after {
+  content: none;
+}
+.article-body-error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
 .article-image-credit {
   font-size: 0.78rem;
   color: var(--muted);

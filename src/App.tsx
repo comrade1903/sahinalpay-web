@@ -751,7 +751,7 @@ function WeeklyPicks({
           </Reveal>
           <div className="recent-grid">
             {items.map((item, i) => (
-              <Reveal as="div" key={item.title} delay={i * 0.06}>
+              <Reveal as="div" key={item.id} delay={i * 0.06}>
                 <Link
                   to={`${archiveBasePath(lang, item)}/${item.slug}`}
                   className="recent-card"
@@ -1792,7 +1792,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
               ) : (
                 <ul className="archive-list">
                   {paginatedEntries.map(({ item, outlet }) => (
-                    <ArchiveRow item={item} outlet={outlet} lang={lang} key={item.title} />
+                    <ArchiveRow item={item} outlet={outlet} lang={lang} key={item.id} />
                   ))}
                 </ul>
               )}
@@ -1986,7 +1986,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
               ) : (
                 <ul className="archive-list">
                   {paginated.map((item) => (
-                    <ArchiveRow item={item} lang={lang} key={item.title} />
+                    <ArchiveRow item={item} lang={lang} key={item.id} />
                   ))}
                 </ul>
               )}
@@ -2086,12 +2086,22 @@ const FONT_SCALE_MIN = 0.85
 const FONT_SCALE_MAX = 1.5
 const FONT_SCALE_STEP = 0.125
 
-function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
+/* A failed body fetch used to log to the console and leave "Yazı yükleniyor…" on
+   screen forever, because `body` stayed undefined and the render fell through to
+   the loading branch. The failure is now a state the reader can see and retry. */
+function useArticleBody(item: ArchiveItem | undefined): {
+  body: string[] | undefined
+  failed: boolean
+  retry: () => void
+} {
   const [body, setBody] = useState<string[] | undefined>(
     item ? (item.body ?? getCachedBody(item)) : undefined,
   )
+  const [failed, setFailed] = useState(false)
+  const [attempt, setAttempt] = useState(0)
   useEffect(() => {
     setBody(item ? (item.body ?? getCachedBody(item)) : undefined)
+    setFailed(false)
     if (!item || item.body || !item.hasBody) return
     if (getCachedBody(item)) return
     let cancelled = false
@@ -2100,13 +2110,15 @@ function useArticleBody(item: ArchiveItem | undefined): string[] | undefined {
         if (!cancelled) setBody(loaded)
       })
       .catch((error) => {
-        if (!cancelled) console.error('Failed to load article body', error)
+        if (cancelled) return
+        console.error('Failed to load article body', error)
+        setFailed(true)
       })
     return () => {
       cancelled = true
     }
-  }, [item])
-  return body
+  }, [item, attempt])
+  return { body, failed, retry: () => setAttempt((n) => n + 1) }
 }
 
 function ArticlePage({ lang }: { lang: Lang }) {
@@ -2195,7 +2207,7 @@ function LoadedArticlePage({
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
   const item = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
-  const body = useArticleBody(item)
+  const { body, failed: bodyFailed, retry: retryBody } = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
   const t = content[lang]
@@ -2274,7 +2286,14 @@ function LoadedArticlePage({
   }, [item, lang, articleUrl])
 
   if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
-    return <Navigate to={paths[lang].columns!} replace />
+    return (
+      <DeadEnd
+        lang={lang}
+        title={t.notFound.missingTitle}
+        body={t.notFound.missingBody}
+        searchTerm={slug ? slug.replace(/-/g, ' ') : undefined}
+      />
+    )
   }
 
   const related = relatedArticles(archiveData, lang, item, 3)
@@ -2399,6 +2418,25 @@ function LoadedArticlePage({
         >
           {body && body.length > 0 ? (
             body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+          ) : bodyFailed ? (
+            <div className="article-body-error" role="alert">
+              <p>{content[lang].reader.bodyError}</p>
+              <div className="article-body-error-actions">
+                <button type="button" className="btn btn-ghost" onClick={retryBody}>
+                  {content[lang].reader.bodyRetry}
+                </button>
+                {item.url && (
+                  <a
+                    className="text-link"
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {content[lang].reader.copySourceLabel} ↗
+                  </a>
+                )}
+              </div>
+            </div>
           ) : item.hasBody ? (
             <p className="article-body-loading" role="status" aria-live="polite">
               {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
@@ -2481,7 +2519,7 @@ function LoadedArticlePage({
             <h2>{lang === 'tr' ? 'Benzer Yazılar' : 'Related pieces'}</h2>
             <ul className="archive-list">
               {related.map((r) => (
-                <ArchiveRow item={r} lang={lang} key={r.title} />
+                <ArchiveRow item={r} lang={lang} key={r.id} />
               ))}
             </ul>
           </aside>
@@ -2919,19 +2957,25 @@ function MainShell() {
             path="/analyses"
             element={<RouteFor lang="en" pageKey="analyses" />}
           />
-          <Route path="/analyses/:slug" element={<Navigate to="/" replace />} />
+          <Route
+            path="/analyses/:slug"
+            element={<TurkishItemRedirect pageKey="analyses" />}
+          />
           <Route
             path="/interviews"
             element={<RouteFor lang="en" pageKey="interviews" />}
           />
-          <Route path="/interviews/:slug" element={<Navigate to="/" replace />} />
+          <Route
+            path="/interviews/:slug"
+            element={<TurkishItemRedirect pageKey="interviews" />}
+          />
           <Route
             path="/academic-articles"
             element={<RouteFor lang="en" pageKey="academic" />}
           />
           <Route
             path="/academic-articles/:slug"
-            element={<Navigate to="/" replace />}
+            element={<TurkishItemRedirect pageKey="academic" />}
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
           <Route path="/chronicle" element={<ChroniclePage lang="en" />} />
@@ -3057,8 +3101,69 @@ export default function App() {
   return <AppV1 />
 }
 
+/* One layout for both dead ends: a URL that resolves to nothing, and an article
+   slug that no longer matches an entry. Both used to <Navigate> home, which hands
+   the reader a 200 OK page showing the wrong thing with no signal that anything
+   went wrong — worse for a citable record than an honest dead end. */
+function DeadEnd({
+  lang,
+  title,
+  body,
+  searchTerm,
+}: {
+  lang: Lang
+  title: string
+  body: string
+  searchTerm?: string
+}) {
+  const t = content[lang]
+  const columnsPath = paths[lang].columns!
+  return (
+    <section className="section section-solo">
+      <div className="container container-narrow">
+        <Reveal>
+          <p className="kicker">{t.notFound.kicker}</p>
+          <h1 className="section-title">{title}</h1>
+          <p className="lead">{body}</p>
+          <div className="hero-actions">
+            <Link
+              className="btn btn-primary"
+              to={
+                searchTerm
+                  ? `${columnsPath}?q=${encodeURIComponent(searchTerm)}`
+                  : columnsPath
+              }
+            >
+              {t.notFound.browseArchive}
+            </Link>
+            <Link className="btn btn-ghost" to={paths[lang].home!}>
+              {t.notFound.backHome}
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+/* Analyses, interviews and academic articles are Turkish-only content, but their
+   English URLs are real addresses that appear in citations. Sending them to the
+   homepage threw away a link that points at an article we actually have; send the
+   reader to the piece itself instead. */
+function TurkishItemRedirect({ pageKey }: { pageKey: PageKey }) {
+  const { slug } = useParams<{ slug: string }>()
+  const base = paths.tr[pageKey]!
+  return <Navigate to={slug ? `${base}/${slug}` : base} replace />
+}
+
 function NotFound() {
   const location = useLocation()
   const lang = langForPath(location.pathname)
-  return <Navigate to={paths[lang].home!} replace />
+  const t = content[lang]
+  usePageMeta({
+    title: `${t.notFound.title} — Şahin Alpay`,
+    description: t.notFound.body,
+    robots: 'noindex, follow',
+  })
+  return <DeadEnd lang={lang} title={t.notFound.title} body={t.notFound.body} />
 }
