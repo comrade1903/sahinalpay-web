@@ -782,18 +782,19 @@ main:focus {
   gap: 0.5rem;
   text-align: center;
   color: var(--muted);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(color-mix(in srgb, var(--line) 45%, transparent) 1px, transparent 1px),
-    radial-gradient(circle at 30% 20%, var(--accent-soft), transparent 34%),
-    var(--surface-low);
-  background-size: 48px 48px, 48px 48px, auto, auto;
+  /* Was a 48px tiled hairline grid plus a radial glow — the graph-paper field is
+     a generated-UI signature, and it made the hero's largest element look like a
+     broken asset. A plain paper surface with the monogram reads as a portrait
+     that hasn't arrived yet, which is the truth. */
+  background: var(--surface-low);
 }
 .portrait-monogram {
   font-family: var(--headline);
   font-size: 5rem;
   font-weight: 600;
-  color: var(--accent);
+  /* Brass marks; blue carries. A monogram standing in for a missing photo is a
+     marker, not an action. */
+  color: var(--tertiary-ink);
   line-height: 1;
   padding: 1rem 1.2rem;
   border: 1px solid var(--line);
@@ -809,7 +810,10 @@ main:focus {
   font-size: 0.72rem;
   letter-spacing: 0.03em;
   color: #f6f3ec;
-  background: linear-gradient(transparent, rgba(17, 20, 26, 0.72));
+  /* The scrim used to start fully transparent, so over a light placeholder the
+     near-white caption sat at 1.06:1 — invisible. It now carries enough weight at
+     the top to stay legible on any surface behind it, photo or placeholder. */
+  background: linear-gradient(rgba(17, 20, 26, 0.62), rgba(17, 20, 26, 0.86));
 }
 
 /* ---------- Bento category grid (home) ---------- */
@@ -1193,10 +1197,21 @@ main:focus {
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   line-height: 1.35;
   color: var(--ink);
-  border-left: 3px solid var(--accent);
-  padding-left: var(--space-3);
   margin: var(--space-5) 0;
   max-width: 28ch;
+}
+/* Was a 3px accent bar down the left edge, which broke two of this system's own
+   rules at once: nothing carries a border heavier than 1px, and blue means "this
+   does something" — a pull quote does nothing. It now takes the same 24px brass
+   rule the kickers use, above the quote, which is also the printed convention. */
+.pullquote::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  margin-bottom: var(--space-3);
 }
 .pullquote cite {
   display: block;
