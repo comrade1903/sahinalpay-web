@@ -1656,16 +1656,18 @@ main:focus {
   background: color-mix(in srgb, var(--accent-soft) 160%, transparent);
 }
 
+/* Lives in the archive toolbar above the list, not in the collapsible sidebar.
+   The 16rem flex basis lets the sort control drop to its own line on narrow
+   screens instead of squeezing the filter chips. */
 .active-filter-summary {
-  margin-top: var(--space-3);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--line);
+  flex: 1 1 16rem;
+  min-width: 0;
 }
 .active-filter-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: var(--space-2);
+  margin-top: var(--space-1);
 }
 .active-filter-chip {
   appearance: none;
@@ -1703,9 +1705,16 @@ main:focus {
   min-width: 0;
   width: 100%;
 }
+/* Search is the page's primary task, so it sits above the layout at full width
+   rather than inside the filter panel that collapses below 900px. */
+.archive-search-row {
+  margin-top: var(--space-4);
+  max-width: 32rem;
+}
+
 .archive-toolbar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
   margin-bottom: var(--space-3);

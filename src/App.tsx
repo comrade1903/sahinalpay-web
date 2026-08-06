@@ -1313,6 +1313,43 @@ type ActiveFilter = {
   onClear: () => void
 }
 
+/* Search is the primary task on an archive page, not one filter among several.
+   It lives outside the collapsible panel so a phone user can always see what
+   they searched for and change it without opening anything. */
+function ArchiveSearchRow({
+  lang,
+  search,
+  setSearch,
+  searchingBody,
+}: {
+  lang: Lang
+  search: string
+  setSearch: (value: string) => void
+  searchingBody: boolean
+}) {
+  return (
+    <div className="archive-search-row">
+      <div className="search-field">
+        <span className="material-symbols-outlined" aria-hidden="true">
+          search
+        </span>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
+          aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
+        />
+      </div>
+      {searchingBody && (
+        <p className="search-status" role="status" aria-live="polite" aria-atomic="true">
+          {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+        </p>
+      )}
+    </div>
+  )
+}
+
 function ActiveFilterSummary({
   lang,
   filters,
@@ -1564,7 +1601,12 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
     ),
   })
   const [searchParams, setSearchParams] = useSearchParams()
-  const [filtersOpen, setFiltersOpen] = useState(false)
+  /* Arriving on a filtered URL opens the panel, so the controls that produced the
+     result are visible rather than hidden behind a button. Search is excluded —
+     it has its own always-visible row and shouldn't force the panel open. */
+  const [filtersOpen, setFiltersOpen] = useState(() =>
+    ['outlet', 'from', 'to', 'source'].some((key) => searchParams.get(key)),
+  )
   const search = searchParams.get('q') ?? ''
   const activeOutlet = searchParams.get('outlet') ?? 'all'
   const fromYear = searchParams.get('from') ?? ''
@@ -1656,6 +1698,13 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
           <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
+        <ArchiveSearchRow
+          lang={lang}
+          search={search}
+          setSearch={(value) => setParam('q', value)}
+          searchingBody={searchingBody}
+        />
+
         <div className="archive-layout">
           <aside className="archive-sidebar">
             <button
@@ -1675,31 +1724,6 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
               className="archive-filter-panel"
               data-open={filtersOpen}
             >
-              <div className="filter-card">
-                <h3>{lang === 'tr' ? 'Ara' : 'Search'}</h3>
-                <div className="search-field">
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    search
-                  </span>
-                  <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => setParam('q', e.target.value)}
-                    placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
-                    aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
-                  />
-                </div>
-                {searchingBody && (
-                  <p
-                    className="search-status"
-                    role="status"
-                    aria-live="polite"
-                    aria-atomic="true"
-                  >
-                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
-                  </p>
-                )}
-              </div>
               <div className="filter-card">
                 <h3>{lang === 'tr' ? 'Yayın Kuruluşu' : 'Outlet'}</h3>
                 <div className="chip-row">
@@ -1738,23 +1762,21 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                 sourceKind={sourceKind}
                 setSourceKind={(value) => setParam('source', value)}
               />
+            </div>
+          </aside>
+
+          <div className="archive-main" aria-busy={searchingBody}>
+            {/* The count and the active-filter chips sit above the list at every
+                breakpoint. They used to live inside the collapsed panel, so on a
+                phone the archive silently showed a filtered subset with nothing
+                on screen saying so. */}
+            <div className="archive-toolbar">
               <ActiveFilterSummary
                 lang={lang}
                 filters={activeFilters}
                 count={flatEntries.length}
                 onClearAll={resetFilters}
               />
-              <button type="button" className="filter-reset" onClick={resetFilters}>
-                {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
-              </button>
-            </div>
-          </aside>
-
-          <div className="archive-main" aria-busy={searchingBody}>
-            <div className="archive-toolbar">
-              <span className="archive-count">
-                {lang === 'tr' ? `${flatEntries.length} yazı` : `${flatEntries.length} pieces`}
-              </span>
               <SortSelect lang={lang} sort={sort} setSort={(value) => setParam('sort', value)} />
             </div>
 
@@ -1820,7 +1842,12 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
     })),
   })
   const [searchParams, setSearchParams] = useSearchParams()
-  const [filtersOpen, setFiltersOpen] = useState(false)
+  /* Arriving on a filtered URL opens the panel, so the controls that produced the
+     result are visible rather than hidden behind a button. Search is excluded —
+     it has its own always-visible row and shouldn't force the panel open. */
+  const [filtersOpen, setFiltersOpen] = useState(() =>
+    ['outlet', 'from', 'to', 'source'].some((key) => searchParams.get(key)),
+  )
   const search = searchParams.get('q') ?? ''
   const fromYear = searchParams.get('from') ?? ''
   const toYear = searchParams.get('to') ?? ''
@@ -1895,6 +1922,13 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
           <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
+        <ArchiveSearchRow
+          lang={lang}
+          search={search}
+          setSearch={(value) => setParam('q', value)}
+          searchingBody={searchingBody}
+        />
+
         <div className="archive-layout">
           <aside className="archive-sidebar">
             <button
@@ -1914,31 +1948,6 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
               className="archive-filter-panel"
               data-open={filtersOpen}
             >
-              <div className="filter-card">
-                <h3>{lang === 'tr' ? 'Ara' : 'Search'}</h3>
-                <div className="search-field">
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    search
-                  </span>
-                  <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => setParam('q', e.target.value)}
-                    placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
-                    aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
-                  />
-                </div>
-                {searchingBody && (
-                  <p
-                    className="search-status"
-                    role="status"
-                    aria-live="polite"
-                    aria-atomic="true"
-                  >
-                    {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
-                  </p>
-                )}
-              </div>
               <YearRangeFilter
                 lang={lang}
                 fromYear={fromYear}
@@ -1951,23 +1960,18 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
                 sourceKind={sourceKind}
                 setSourceKind={(value) => setParam('source', value)}
               />
+            </div>
+          </aside>
+
+          <div className="archive-main" aria-busy={searchingBody}>
+            {/* See OutletArchivePage: count and active filters are always visible. */}
+            <div className="archive-toolbar">
               <ActiveFilterSummary
                 lang={lang}
                 filters={activeFilters}
                 count={filtered.length}
                 onClearAll={resetFilters}
               />
-              <button type="button" className="filter-reset" onClick={resetFilters}>
-                {lang === 'tr' ? 'Filtreleri Temizle' : 'Reset filters'}
-              </button>
-            </div>
-          </aside>
-
-          <div className="archive-main" aria-busy={searchingBody}>
-            <div className="archive-toolbar">
-              <span className="archive-count">
-                {lang === 'tr' ? `${filtered.length} yazı` : `${filtered.length} pieces`}
-              </span>
               <SortSelect lang={lang} sort={sort} setSort={(value) => setParam('sort', value)} />
             </div>
             <Reveal delay={0.1}>
