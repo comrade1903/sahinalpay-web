@@ -903,7 +903,7 @@ function AcademicHeritage({
                 link
               </span>
               <div>
-                <h4>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h4>
+                <h3>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h3>
                 <p>
                   {lang === 'tr'
                     ? 'Her yazı, orijinal yayınına doğrudan bağlantılıdır.'
@@ -916,7 +916,7 @@ function AcademicHeritage({
                 update
               </span>
               <div>
-                <h4>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h4>
+                <h3>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h3>
                 <p>
                   {lang === 'tr'
                     ? 'İçerik, zaman içinde yeni gazete küpürleri ve bağlantılarla genişletilmektedir.'
@@ -1707,6 +1707,9 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
 
         <div className="archive-layout">
           <aside className="archive-sidebar">
+            {/* Named landmarks so the filter and outlet headings below sit at h3
+                under a real h2, instead of skipping a level from the page h1. */}
+            <h2 className="sr-only">{lang === 'tr' ? 'Filtreler' : 'Filters'}</h2>
             <button
               type="button"
               className="archive-filter-toggle"
@@ -1766,6 +1769,7 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
           </aside>
 
           <div className="archive-main" aria-busy={searchingBody}>
+            <h2 className="sr-only">{lang === 'tr' ? 'Sonuçlar' : 'Results'}</h2>
             {/* The count and the active-filter chips sit above the list at every
                 breakpoint. They used to live inside the collapsed panel, so on a
                 phone the archive silently showed a filtered subset with nothing
@@ -1931,6 +1935,9 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
 
         <div className="archive-layout">
           <aside className="archive-sidebar">
+            {/* Named landmarks so the filter and outlet headings below sit at h3
+                under a real h2, instead of skipping a level from the page h1. */}
+            <h2 className="sr-only">{lang === 'tr' ? 'Filtreler' : 'Filters'}</h2>
             <button
               type="button"
               className="archive-filter-toggle"
@@ -1964,6 +1971,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
           </aside>
 
           <div className="archive-main" aria-busy={searchingBody}>
+            <h2 className="sr-only">{lang === 'tr' ? 'Sonuçlar' : 'Results'}</h2>
             {/* See OutletArchivePage: count and active filters are always visible. */}
             <div className="archive-toolbar">
               <ActiveFilterSummary
@@ -2586,9 +2594,9 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
               </div>
               <div className="book-card-body">
                 <span className="book-year">{b.year}</span>
-                <h3 className="book-title">
+                <h2 className="book-title">
                   <em lang="tr">{b.title}</em>
-                </h3>
+                </h2>
                 <p className="book-desc">{b.desc}</p>
                 {b.purchaseUrl && (
                   <a

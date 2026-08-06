@@ -39,7 +39,7 @@
   --ink-soft: var(--ink-700);
   --muted: var(--ink-500);
   --line: #d0cdc5;
-  --line-strong: #b1ada2;
+  --line-strong: #8f8a7e;
 
   --accent: var(--blue-700);
   --accent-ink: var(--blue-900);
@@ -121,7 +121,7 @@
     --ink-soft: #c5c8cc;
     --muted: #8b9097;
     --line: #3f444c;
-    --line-strong: #525862;
+    --line-strong: #656b76;
 
     --accent: #90b9de;
     --accent-ink: #abcbea;
@@ -157,7 +157,7 @@
   --ink-soft: #c5c8cc;
   --muted: #8b9097;
   --line: #3f444c;
-  --line-strong: #525862;
+  --line-strong: #656b76;
 
   --accent: #90b9de;
   --accent-ink: #abcbea;
@@ -876,11 +876,14 @@ main:focus {
   padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
 }
+/* Reads on --surface-mid in the interviews card, where --muted lands at 4.4:1 in
+   dark theme. It is also the text a visitor most needs when a section is empty,
+   so it should not be the faintest thing on the card. */
 .hub-card-count-empty {
   font-family: var(--label);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-style: italic;
 }
 .hub-card h3 {
@@ -1052,7 +1055,7 @@ main:focus {
   background: var(--surface-high);
   color: var(--accent);
 }
-.heritage-feature h4 {
+.heritage-feature h3 {
   font-size: 1rem;
   margin-bottom: 0.2rem;
 }
@@ -1574,6 +1577,14 @@ main:focus {
 }
 .search-field input::placeholder {
   color: var(--muted);
+}
+/* The input suppresses its own outline so the ring can wrap the whole pill.
+   Without this the search field had no visible focus state at all — the global
+   :focus-visible rule was overridden and nothing replaced it. */
+.search-field:focus-within,
+.hero-search-field:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .search-status {
@@ -2416,7 +2427,11 @@ a.archive-row:hover .archive-row-title {
   flex-wrap: wrap;
   gap: var(--space-3);
 }
+/* The one interactive class reachable on touch that had no hit-size floor. */
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-hit-size);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ink-soft);
