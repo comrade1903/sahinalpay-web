@@ -780,16 +780,103 @@ function WeeklyPicks({
   )
 }
 
-/* Slots for real photos once available — kept null rather than filled
-   with stock imagery standing in for people/places that aren't ours. */
-const HERITAGE_PHOTOS: [string | null, string | null, string | null, string | null] = [
-  null,
-  null,
-  null,
-  null,
-]
+/* One band per outlet that actually has material, placed on a shared year axis.
+   Everything here is derived from the archive itself — no span is asserted for an
+   outlet we have not recovered yet, so the empty stretches are honest gaps rather
+   than a claim about when he did or didn't write. */
+function CoverageStrip({
+  archiveData,
+  lang,
+}: {
+  archiveData: ArchiveData
+  lang: Lang
+}) {
+  /* Every outlet, in both languages. The strip answers "what does this archive
+     hold", and the archive is bilingual — filtering it by UI language would show
+     an English reader 411 pieces from one paper instead of the real body of work.
+     Outlet names are proper nouns, so they read the same either way. */
+  const groups = [
+    ...archiveData.columns.tr,
+    ...archiveData.columns.en,
+    ...archiveData.analyses,
+  ]
 
-function AcademicHeritage({ t, lang }: { t: Content; lang: Lang }) {
+  const bands = groups
+    .map((group) => {
+      const years = group.items
+        .map((it) => (it.date ? parseTurkishDate(it.date) : null))
+        .filter((ts): ts is number => ts != null)
+        .map((ts) => new Date(ts).getUTCFullYear())
+      if (!years.length) return null
+      return {
+        outlet: group.outlet,
+        from: Math.min(...years),
+        to: Math.max(...years),
+        count: group.items.length,
+      }
+    })
+    .filter((b): b is NonNullable<typeof b> => b != null)
+    .sort((a, b) => a.from - b.from)
+
+  if (!bands.length) return null
+
+  const axisStart = Math.min(...bands.map((b) => b.from))
+  const axisEnd = Math.max(...bands.map((b) => b.to))
+  const span = Math.max(1, axisEnd - axisStart)
+
+  /* Decade gridlines, so a band's position reads as a date and not just a shape. */
+  const firstTick = Math.ceil(axisStart / 10) * 10
+  const ticks: number[] = []
+  for (let year = firstTick; year <= axisEnd; year += 10) ticks.push(year)
+
+  return (
+    <figure className="coverage">
+      <figcaption className="sr-only">
+        {lang === 'tr'
+          ? `Yayın organlarına göre arşiv kapsamı, ${axisStart}–${axisEnd}`
+          : `Archive coverage by publication, ${axisStart}–${axisEnd}`}
+      </figcaption>
+      <div className="coverage-rows">
+        {bands.map((band) => (
+          <div className="coverage-row" key={band.outlet}>
+            <span className="coverage-outlet">{band.outlet}</span>
+            <span className="coverage-track">
+              <span
+                className="coverage-band"
+                style={{
+                  left: `${((band.from - axisStart) / span) * 100}%`,
+                  width: `${Math.max(1.5, ((band.to - band.from) / span) * 100)}%`,
+                }}
+              />
+            </span>
+            <span className="coverage-years">
+              {band.from === band.to ? band.from : `${band.from}–${band.to}`}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="coverage-axis" aria-hidden="true">
+        {ticks.map((year) => (
+          <span
+            className="coverage-tick"
+            key={year}
+            style={{ left: `${((year - axisStart) / span) * 100}%` }}
+          >
+            {year}
+          </span>
+        ))}
+      </div>
+    </figure>
+  )
+}
+
+function AcademicHeritage({
+  lang,
+  archiveData,
+}: {
+  lang: Lang
+  archiveData: ArchiveData | null
+}) {
   return (
     <section className="section">
       <div className="container heritage-grid">
@@ -798,14 +885,18 @@ function AcademicHeritage({ t, lang }: { t: Content; lang: Lang }) {
             <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
               school
             </span>
-            {lang === 'tr' ? 'Akademik Katkı' : 'Academic Contribution'}
+            {lang === 'tr' ? 'Arşivin Kapsamı' : 'Archive Coverage'}
           </span>
           <h2 className="section-title">
             {lang === 'tr'
-              ? 'Fikir Mirası ve Akademik Araştırmalar'
-              : 'A Legacy of Ideas and Academic Research'}
+              ? 'Arşivde ne var, ne yok'
+              : "What the archive holds — and what it doesn't"}
           </h2>
-          <p className="lead">{t.about.lead}</p>
+          <p className="lead">
+            {lang === 'tr'
+              ? 'Yarım yüzyıldan uzun bir yazı hayatı, hangi yayında hangi yıllara ulaşabildiğimizle birlikte. Boşluklar, henüz çıkaramadığımız dönemler.'
+              : "More than half a century of writing, shown as the years we have reached in each publication. The gaps are periods we have not recovered yet."}
+          </p>
           <div className="heritage-features">
             <div className="heritage-feature">
               <span className="material-symbols-outlined" aria-hidden="true">
@@ -835,18 +926,8 @@ function AcademicHeritage({ t, lang }: { t: Content; lang: Lang }) {
             </div>
           </div>
         </Reveal>
-        <Reveal className="heritage-photos" delay={0.1}>
-          {HERITAGE_PHOTOS.map((src, i) => (
-            <div className="heritage-photo" key={i}>
-              {src ? (
-                <img src={src} alt="" />
-              ) : (
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  image
-                </span>
-              )}
-            </div>
-          ))}
+        <Reveal delay={0.1}>
+          {archiveData && <CoverageStrip archiveData={archiveData} lang={lang} />}
         </Reveal>
       </div>
     </section>
@@ -883,7 +964,7 @@ function HomePage({ lang }: { lang: Lang }) {
       <Hero t={t} lang={lang} />
       <HubGrid t={t} lang={lang} archiveData={archiveData} />
       <WeeklyPicks lang={lang} archiveData={archiveData} />
-      <AcademicHeritage t={t} lang={lang} />
+      <AcademicHeritage lang={lang} archiveData={archiveData} />
     </>
   )
 }

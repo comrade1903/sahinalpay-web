@@ -1060,33 +1060,93 @@ main:focus {
   font-size: 0.88rem;
   color: var(--ink-soft);
 }
-.heritage-photos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* Archive coverage strip. Same bar vocabulary as the chronicle — accent fill on a
+   surface-mid track — so the homepage and the timeline read as one system. */
+.coverage {
+  margin: 0;
+}
+.coverage-rows {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-2);
 }
-.heritage-photo {
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--line) 42%, transparent) 1px, transparent 1px),
-    linear-gradient(color-mix(in srgb, var(--line) 34%, transparent) 1px, transparent 1px),
-    var(--surface-mid);
-  background-size: 32px 32px, 32px 32px, auto;
+.coverage-row {
   display: grid;
-  place-items: center;
-  color: var(--muted);
-  box-shadow: var(--shadow-soft);
+  grid-template-columns: 7.5rem 1fr 5.5rem;
+  align-items: center;
+  gap: var(--space-2);
+}
+/* Long outlet names (e.g. "Aydınlık (Sosyalist Dergi/Proleter Devrimci)") are
+   clamped to two lines so one label can't push its row out of alignment. */
+.coverage-outlet {
+  font-family: var(--label);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
-.heritage-photo:nth-child(2),
-.heritage-photo:nth-child(3) {
-  aspect-ratio: 3 / 4;
+.coverage-track {
+  position: relative;
+  display: block;
+  height: 0.5rem;
+  background: var(--surface-mid);
+  border-radius: var(--radius-full);
 }
-.heritage-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.coverage-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+.coverage-years {
+  font-family: var(--label);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: right;
+  font-feature-settings: 'onum' 1;
+}
+.coverage-axis {
+  position: relative;
+  height: 1.6rem;
+  margin-top: var(--space-1);
+  margin-left: calc(7.5rem + var(--space-2));
+  margin-right: calc(5.5rem + var(--space-2));
+  border-top: 1px solid var(--line);
+}
+.coverage-tick {
+  position: absolute;
+  top: 0.35rem;
+  transform: translateX(-50%);
+  font-family: var(--label);
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-feature-settings: 'onum' 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .coverage-row {
+    grid-template-columns: 5.5rem 1fr;
+    row-gap: 0.2rem;
+  }
+  .coverage-years {
+    grid-column: 2;
+    text-align: left;
+    font-size: 0.72rem;
+  }
+  .coverage-axis {
+    margin-left: calc(5.5rem + var(--space-2));
+    margin-right: 0;
+  }
 }
 
 /* ---------- Biography ---------- */
