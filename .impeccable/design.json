@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-06T12:23:21Z",
+  "title": "Design System: Şahin Alpay Archive",
+  "extensions": {
+    "colorMeta": {
+      "paper-50": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#f7f6f2",
+        "darkCounterpart": "#16181c",
+        "note": "The page itself. Warm off-white; never pure white.",
+        "tonalRamp": ["#1a1917", "#2e2c28", "#45423c", "#5f5b53", "#7d7871", "#a09a90", "#c5c0b6", "#f7f6f2"]
+      },
+      "paper-0": {
+        "role": "neutral",
+        "displayName": "Lifted Paper",
+        "canonical": "#ffffff",
+        "darkCounterpart": "#101317",
+        "note": "Reserved for surfaces that have lifted off the page: cards over a panel, inputs, clipping mats, menus.",
+        "tonalRamp": ["#1a1917", "#2e2c28", "#45423c", "#5f5b53", "#7d7871", "#a09a90", "#e7e4dc", "#ffffff"]
+      },
+      "ink-900": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1a1d21",
+        "darkCounterpart": "#e8e6e0",
+        "note": "Headings and reading text. Warm near-black, never #000.",
+        "tonalRamp": ["#0d0f11", "#1a1d21", "#292d33", "#383d44", "#4a5058", "#5e646c", "#8b9097", "#c5c8cc"]
+      },
+      "ink-700": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#383d44",
+        "darkCounterpart": "#c5c8cc",
+        "note": "The default body and UI text colour set on <body>.",
+        "tonalRamp": ["#0d0f11", "#1a1d21", "#292d33", "#383d44", "#4a5058", "#5e646c", "#8b9097", "#c5c8cc"]
+      },
+      "ink-500": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#5e646c",
+        "darkCounterpart": "#8b9097",
+        "note": "Captions, placeholders, source notes, secondary dates.",
+        "tonalRamp": ["#0d0f11", "#1a1d21", "#292d33", "#383d44", "#4a5058", "#5e646c", "#8b9097", "#c5c8cc"]
+      },
+      "blue-700": {
+        "role": "primary",
+        "displayName": "Archive Blue",
+        "canonical": "#2e5f8e",
+        "darkCounterpart": "#90b9de",
+        "note": "The carrying colour. The only colour that means 'this does something'.",
+        "tonalRamp": ["#0b1a29", "#12283f", "#1e4569", "#2e5f8e", "#4a7fae", "#7aa5c9", "#abcbea", "#dbe7f2"]
+      },
+      "blue-900": {
+        "role": "primary",
+        "displayName": "Archive Blue Deep",
+        "canonical": "#1e4569",
+        "darkCounterpart": "#abcbea",
+        "note": "Blue at text weight, where it must pass contrast as type: inline links, outlet names, card CTAs.",
+        "tonalRamp": ["#0b1a29", "#12283f", "#1e4569", "#2e5f8e", "#4a7fae", "#7aa5c9", "#abcbea", "#dbe7f2"]
+      },
+      "blue-container": {
+        "role": "primary",
+        "displayName": "Blue Container",
+        "canonical": "#dbe7f2",
+        "darkCounterpart": "#274b6e",
+        "note": "Quiet fill behind counts and status pills, where blue must read as surface rather than action.",
+        "tonalRamp": ["#0b1a29", "#12283f", "#1e4569", "#2e5f8e", "#4a7fae", "#7aa5c9", "#abcbea", "#dbe7f2"]
+      },
+      "brass-600": {
+        "role": "tertiary",
+        "displayName": "Brass",
+        "canonical": "#b58b2b",
+        "darkCounterpart": "#dcc48e",
+        "note": "The marker. Kicker rules, timeline accents, drop cap, source-badge outline. Never an affordance.",
+        "tonalRamp": ["#241a06", "#3d2d0c", "#56411a", "#6f4f12", "#8f6d1e", "#b58b2b", "#dcc48e", "#f3e5bf"]
+      },
+      "brass-ink": {
+        "role": "tertiary",
+        "displayName": "Brass Ink",
+        "canonical": "#6f4f12",
+        "darkCounterpart": "#e8d6a8",
+        "note": "Brass at text weight: kickers, eyebrows, dates, outlet metadata, drop cap, end mark.",
+        "tonalRamp": ["#241a06", "#3d2d0c", "#56411a", "#6f4f12", "#8f6d1e", "#b58b2b", "#dcc48e", "#f3e5bf"]
+      },
+      "brass-container": {
+        "role": "tertiary",
+        "displayName": "Brass Container",
+        "canonical": "#f3e5bf",
+        "darkCounterpart": "#554020",
+        "note": "Warm tint behind scanned-source archive categories.",
+        "tonalRamp": ["#241a06", "#3d2d0c", "#56411a", "#6f4f12", "#8f6d1e", "#b58b2b", "#dcc48e", "#f3e5bf"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d0cdc5",
+        "darkCounterpart": "#3f444c",
+        "note": "Section dividers, list-row rules, card borders. Card borders soften it to 55% alpha.",
+        "tonalRamp": ["#1a1917", "#2e2c28", "#45423c", "#5f5b53", "#7d7871", "#a09a90", "#d0cdc5", "#efede7"]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#b1ada2",
+        "darkCounterpart": "#525862",
+        "note": "Ghost-button strokes and control borders that must be seen without being loud.",
+        "tonalRamp": ["#1a1917", "#2e2c28", "#45423c", "#5f5b53", "#7d7871", "#a09a90", "#d0cdc5", "#efede7"]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "#b83230",
+        "darkCounterpart": "#ff8983",
+        "note": "Form and validation only. Never used as emphasis.",
+        "tonalRamp": ["#2b0a09", "#4a1110", "#6b1a18", "#8d2422", "#b83230", "#d15c5a", "#e89b99", "#ffd9d7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name in the hero. Once per site." },
+      "headline": { "displayName": "Headline", "purpose": "Section and page titles, capped at 26ch." },
+      "title": { "displayName": "Title", "purpose": "Card headings, hub cards, timeline eras." },
+      "body": { "displayName": "Reading", "purpose": "Article bodies and prose. Literata with old-style figures, capped at 68ch." },
+      "label": { "displayName": "Label", "purpose": "Kickers, badges, metadata. Nunito Sans uppercase. Interface text sits one step up at 0.85rem/600-700." }
+    },
+    "shadows": [
+      {
+        "name": "soft",
+        "value": "0 4px 20px rgba(24, 29, 36, 0.07)",
+        "darkValue": "0 4px 20px rgba(0, 0, 0, 0.35)",
+        "purpose": "Hover response on cards and list surfaces; resting treatment for genuinely separate objects (filter panels, timeline cards, clipping frames)."
+      },
+      {
+        "name": "lift",
+        "value": "0 10px 32px -8px rgba(24, 29, 36, 0.18)",
+        "darkValue": "0 12px 36px -8px rgba(0, 0, 0, 0.55)",
+        "purpose": "True overlays only: skip link, drawers, dialogs, the clipping viewer."
+      }
+    ],
+    "motion": [
+      { "name": "state", "value": "0.2s ease", "purpose": "Default for colour, border and background state changes on controls and links." },
+      { "name": "surface", "value": "0.25s ease", "purpose": "Card hover lift (translateY(-3px)), border shift and shadow fade; nav underline growth." },
+      { "name": "chrome", "value": "0.3s ease", "purpose": "Sticky header background and hairline as the page scrolls." },
+      { "name": "portrait-echo", "value": "0.5s ease", "purpose": "The slow offset shift behind the hero portrait — the system's one unhurried motion." },
+      { "name": "reduced", "value": "0.001ms", "purpose": "Global override under prefers-reduced-motion: reduce. Every animation and transition collapses to its end state; scroll-behavior falls back to auto." }
+    ],
+    "breakpoints": [
+      { "name": "facts", "value": "600px" },
+      { "name": "row", "value": "640px" },
+      { "name": "grid", "value": "700px" },
+      { "name": "text", "value": "768px" },
+      { "name": "desktop", "value": "900px" },
+      { "name": "wide", "value": "1080px" },
+      { "name": "container-max", "value": "1200px" }
+    ],
+    "measure": { "reading": "68ch", "headline": "26ch", "heroIntro": "40ch" },
+    "hitTarget": { "minimum": "44px", "note": "Applies to every interactive control at every breakpoint, including chips and icon buttons whose type is far smaller." }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The carrying action. Archive Blue fill, rises 1px and gains the soft shadow on hover.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Yazıları oku</button>",
+      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-primary { background: var(--accent, #2e5f8e); color: var(--on-accent, #ffffff); border-color: var(--accent, #2e5f8e); } .ds-btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-soft, 0 4px 20px rgba(24,29,36,0.07)); filter: brightness(1.04); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action. Hairline stroke that turns accent, with an 11%-alpha accent wash on hover.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Şahin Alpay kimdir?</button>",
+      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost { color: var(--ink, #1a1d21); border-color: var(--line-strong, #b1ada2); background: transparent; } .ds-btn-ghost:hover { border-color: var(--accent, #2e5f8e); background: var(--accent-soft, rgba(46,95,142,0.11)); color: var(--accent-ink, #1e4569); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill filter control. Transparent at rest, solid accent when active, always 44px tall despite 0.75rem type.",
+      "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip\">Cumhuriyet</button><button class=\"ds-chip\" data-active=\"true\">Zaman</button><button class=\"ds-chip\">P24</button></div>",
+      "css": ".ds-chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-chip { appearance: none; border: 1px solid var(--line, #d0cdc5); background: transparent; color: var(--ink-soft, #383d44); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.75rem; font-weight: 700; min-height: 44px; padding: 0.5rem 0.9rem; border-radius: var(--radius-full, 9999px); cursor: pointer; transition: all 0.2s ease; } .ds-chip:hover, .ds-chip:focus-visible { border-color: var(--accent, #2e5f8e); color: var(--accent-ink, #1e4569); } .ds-chip:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; } .ds-chip[data-active=\"true\"] { background: var(--accent, #2e5f8e); border-color: var(--accent, #2e5f8e); color: var(--on-accent, #ffffff); }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Pill-shaped search input on a lifted white surface, with a leading magnifier and the global focus ring.",
+      "html": "<div class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"M20 20l-4.2-4.2\"></path></svg><input type=\"search\" placeholder=\"Arşivde ara\" /></div>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 0.5rem; background: var(--surface-lowest, #ffffff); border: 1px solid var(--line, #d0cdc5); border-radius: var(--radius-full, 9999px); padding-inline: 0.9rem; max-width: 26rem; } .ds-search svg { color: var(--muted, #5e646c); flex: none; } .ds-search input { flex: 1; background: transparent; border: none; outline: none; min-height: 44px; padding-block: 0.65rem; font-size: 0.9rem; font-family: var(--body, 'Nunito Sans', system-ui, sans-serif); color: var(--ink, #1a1d21); } .ds-search input::placeholder { color: var(--muted, #5e646c); } .ds-search:focus-within { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Hub Card",
+      "kind": "card",
+      "refersTo": "card-hub",
+      "description": "The archive category card. Flat at rest, lifts 3px with an accent border and soft shadow on hover; the arrow's gap widens as a second cue.",
+      "html": "<a class=\"ds-card-hub\" href=\"#\"><div class=\"ds-card-hub-top\"><svg viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 5h16v14H4z\"></path><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg><span class=\"ds-card-hub-count\">617</span></div><div><h3>Köşe Yazıları</h3><p>Gazete köşe yazıları arşivi, yayın organına göre düzenlenmiş.</p></div><span class=\"ds-card-hub-arrow\">Görüntüle <span aria-hidden=\"true\">→</span></span></a>",
+      "css": ".ds-card-hub { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; background: var(--surface-low, #efede7); border: 1px solid color-mix(in srgb, var(--line, #d0cdc5) 55%, transparent); border-radius: var(--radius-lg, 1rem); padding: 1.5rem; min-height: 220px; max-width: 22rem; text-decoration: none; color: var(--ink-soft, #383d44); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-card-hub:hover { transform: translateY(-3px); border-color: var(--accent, #2e5f8e); box-shadow: var(--shadow-soft, 0 4px 20px rgba(24,29,36,0.07)); } .ds-card-hub:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; } .ds-card-hub-top { display: flex; align-items: flex-start; justify-content: space-between; } .ds-card-hub-top svg { color: var(--accent, #2e5f8e); } .ds-card-hub-count { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.72rem; font-weight: 800; color: var(--accent-ink, #1e4569); background: var(--accent-container, #dbe7f2); padding: 0.25rem 0.7rem; border-radius: var(--radius-full, 9999px); } .ds-card-hub h3 { font-family: var(--headline, Literata, Georgia, serif); font-size: 1.3rem; font-weight: 700; line-height: 1.12; color: var(--ink, #1a1d21); margin: 0 0 0.4rem; } .ds-card-hub p { font-size: 0.9rem; line-height: 1.6; margin: 0; } .ds-card-hub-arrow { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--accent-ink, #1e4569); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-weight: 700; font-size: 0.85rem; transition: gap 0.2s ease; } .ds-card-hub:hover .ds-card-hub-arrow { gap: 0.6rem; }"
+    },
+    {
+      "name": "Archive Row",
+      "kind": "custom",
+      "refersTo": "archive-row",
+      "description": "The archive's densest surface: a fixed 9rem metadata column (date over outlet) and a fluid title body, separated by hairlines. Below 640px the meta column unstacks inline.",
+      "html": "<ul class=\"ds-archive-list\"><li><a class=\"ds-archive-row\" href=\"#\"><span class=\"ds-archive-meta\"><span class=\"ds-archive-date\">7 Kasım 2017</span><span class=\"ds-archive-outlet\">Zaman</span></span><span class=\"ds-archive-body\"><span class=\"ds-archive-title\">Demokrasi ve hukuk devleti üzerine</span></span></a></li><li><a class=\"ds-archive-row\" href=\"#\"><span class=\"ds-archive-meta\"><span class=\"ds-archive-date\">12 Mart 1994</span><span class=\"ds-archive-outlet\">Milliyet</span></span><span class=\"ds-archive-body\"><span class=\"ds-archive-title\">Bir gazetecinin sorumluluğu</span><span class=\"ds-archive-badge\">Kupür</span></span></a></li></ul>",
+      "css": ".ds-archive-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; } .ds-archive-row { position: relative; display: flex; flex-direction: row; align-items: baseline; gap: 1.5rem; padding-block: 1.5rem; padding-inline: 1rem; margin-inline: -1rem; border-bottom: 1px solid var(--line, #d0cdc5); text-decoration: none; color: var(--ink-soft, #383d44); transition: background 0.2s ease; } .ds-archive-row:hover { background: color-mix(in srgb, var(--surface-low, #efede7) 70%, transparent); } .ds-archive-row:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; } .ds-archive-meta { display: flex; flex-direction: column; gap: 0.15rem; width: 9rem; flex-shrink: 0; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); } .ds-archive-date { font-size: 0.78rem; color: var(--muted, #5e646c); } .ds-archive-outlet { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink, #1e4569); } .ds-archive-body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; } .ds-archive-title { font-family: var(--headline, Literata, Georgia, serif); font-weight: 700; font-size: 1.05rem; line-height: 1.35; color: var(--ink, #1a1d21); transition: color 0.2s ease; } .ds-archive-row:hover .ds-archive-title { color: var(--accent-ink, #1e4569); } .ds-archive-badge { display: inline-flex; width: fit-content; border: 1px solid color-mix(in srgb, var(--tertiary, #b58b2b) 45%, var(--line, #d0cdc5)); border-radius: var(--radius-full, 9999px); padding: 0.12rem 0.45rem; color: var(--tertiary-ink, #6f4f12); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Kicker",
+      "kind": "custom",
+      "refersTo": "kicker",
+      "description": "The section eyebrow: a 24px brass rule followed by uppercase Nunito Sans at 0.16em tracking. The system's most repeated brass marker.",
+      "html": "<p class=\"ds-kicker\">Benden Seçkiler</p><h2 class=\"ds-section-title\">Bu haftanın yazıları</h2>",
+      "css": ".ds-kicker { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tertiary-ink, #6f4f12); display: inline-flex; align-items: center; gap: 0.6rem; margin: 0 0 1.5rem; } .ds-kicker::before { content: ''; width: 24px; height: 2px; border-radius: var(--radius-full, 9999px); background: var(--tertiary, #b58b2b); } .ds-section-title { font-family: var(--headline, Literata, Georgia, serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.12; color: var(--ink, #1a1d21); max-width: 26ch; margin: 0; text-wrap: balance; }"
+    },
+    {
+      "name": "Article Body",
+      "kind": "custom",
+      "refersTo": "article-body",
+      "description": "The signature reading surface: Literata with old-style figures, a brass drop cap on the first paragraph, and a brass end mark closing the last.",
+      "html": "<div class=\"ds-article-body\"><p>Demokrasinin en kırılgan olduğu anlar, kimsenin ona saldırmadığı anlardır. 1994 yılında bu sütunda yazdığım gibi, kurumlar sessizce aşınır.</p><p>Bugün geriye dönüp baktığımda, o yılların tartışmalarının ne kadar tanıdık göründüğünü fark ediyorum.</p></div>",
+      "css": ".ds-article-body { display: flex; flex-direction: column; gap: 1.2em; max-width: 68ch; } .ds-article-body p { font-family: var(--headline, Literata, Georgia, serif); font-size: 1.125rem; line-height: 1.72; color: var(--ink, #1a1d21); font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; margin: 0; } .ds-article-body p:first-of-type::first-letter { font-family: var(--headline, Literata, Georgia, serif); font-size: 3.4em; font-weight: 700; float: left; line-height: 0.82; margin: 0.05em 0.1em 0 0; color: var(--tertiary-ink, #6f4f12); } .ds-article-body p:last-of-type::after { content: ' ▪'; color: var(--tertiary-ink, #6f4f12); }"
+    },
+    {
+      "name": "Clipping Frame",
+      "kind": "custom",
+      "refersTo": "clipping-frame",
+      "description": "The physical mat around scanned periodical material: white surround, soft shadow, inset well for the scan, and a caption carrying the citation.",
+      "html": "<figure class=\"ds-clipping\"><div class=\"ds-clipping-well\"><svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 5h16v14H4z\"></path><path d=\"M4 16l5-5 4 4 3-3 4 4\"></path><circle cx=\"9\" cy=\"9\" r=\"1.5\"></circle></svg></div><figcaption>Aydınlık, Sayı 12, s. 34 — TÜSTAV Süreli Yayınlar Arşivi</figcaption></figure>",
+      "css": ".ds-clipping { margin: 0; padding: 1rem; background: var(--surface-lowest, #ffffff); border: 1px solid var(--line, #d0cdc5); border-radius: var(--radius-lg, 1rem); box-shadow: var(--shadow-soft, 0 4px 20px rgba(24,29,36,0.07)); max-width: 24rem; } .ds-clipping-well { display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: var(--radius, 0.5rem); background: var(--surface-mid, #e7e4dc); color: var(--muted, #5e646c); } .ds-clipping figcaption { margin-top: 0.6rem; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.78rem; font-weight: 700; color: var(--muted, #5e646c); line-height: 1.5; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Inline link. Underlined by default at 40% accent alpha, solid on hover — never colour-only.",
+      "html": "<p class=\"ds-link-demo\">Tüm köşe yazıları için <a class=\"ds-text-link\" href=\"#\">arşive göz atın</a>.</p>",
+      "css": ".ds-link-demo { font-family: var(--headline, Literata, Georgia, serif); font-size: 1.125rem; line-height: 1.72; color: var(--ink, #1a1d21); margin: 0; } .ds-text-link { color: var(--accent-ink, #1e4569); font-weight: 700; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent, #2e5f8e) 40%, transparent); transition: border-color 0.2s ease; } .ds-text-link:hover { border-color: var(--accent, #2e5f8e); } .ds-text-link:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; border-radius: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Reading Room",
+    "overview": "A quiet, well-lit room where a body of writing is kept and read. Not a monument and not a newsfeed — a room with good light, paper on the tables, ink on the paper, and a few brass fittings that tell you where things are. The interface is the room, not the exhibit: it holds the material at a comfortable height and then gets out of the way. Warmth is deliberate. The palette is built on paper tones and a warm near-black rather than corporate white and cool grey, because the subject is a person's working life, not a database of records.\n\nThe register is composed and unhurried. The material is serious and recent enough to be painful, so the design states things and lets them carry their own weight; it never raises its voice to fill a silence. Two rejections are binding. This is a record, not a memorial — Şahin Alpay is alive, so no mourning palette, no black-and-white gravestone gravity, no valedictory hush. And there is no victim language: the imprisonment is documented, never dramatized, so no bar motifs, no alarm reds, no campaign-poster urgency. Facts stand calmly.\n\nDensity is generous throughout. The readership skews older, so scale, contrast, and hit size are load-bearing structure rather than preference: 18px base text, a 1.72 reading line-height, a 44px floor under every control. Nothing here is small, and nothing is fast.",
+    "keyCharacteristics": [
+      "Paper-and-ink palette; the page is never pure white, never pure black",
+      "Two fonts with two jobs: Literata reads, Nunito Sans operates",
+      "Reading text carries old-style figures — dates sit on the baseline like print",
+      "Flat at rest; depth comes from tonal layering and hairlines, shadow only answers a state",
+      "Brass marks, blue carries; brass is never clickable",
+      "44px minimum on every interactive control, at every breakpoint",
+      "Every motion is optional by construction"
+    ],
+    "rules": [
+      { "name": "The Brass Marker Rule", "body": "Brass marks; blue carries. Brass may label, point at, rule off, or decorate — it may never be the affordance. A brass element the user is expected to click is a defect, not a variant.", "section": "colors" },
+      { "name": "The Paper Floor Rule", "body": "The page is never pure white and text is never pure black. #ffffff is reserved for surfaces that have lifted off the page; the page itself is always paper-50. In dark theme the same rule inverts: the page is #16181c, and the darkest value (#101317) belongs to inset surfaces, not the background.", "section": "colors" },
+      { "name": "The One Accent Rule", "body": "There is exactly one action colour. When a screen seems to need a second, the answer is a tonal surface step or a brass marker — not a new hue.", "section": "colors" },
+      { "name": "The Two Fonts, Two Jobs Rule", "body": "Literata reads, Nunito Sans operates. A paragraph set in Nunito Sans is wrong; a control label set in Literata is wrong. There is no third font, and no weight of one substitutes for the other's job.", "section": "typography" },
+      { "name": "The Old-Style Figures Rule", "body": "Reading text carries onum — the numerals in a 1994 dateline sit on the baseline with ascenders and descenders, the way the original page printed them. Interface numerals (counts, filters, years in badges) stay lining. Never apply onum to a UI number; never strip it from prose.", "section": "typography" },
+      { "name": "The 68ch Rule", "body": "Reading measure is capped at 68ch and never widened for a 'denser' layout. Wide viewports get more margin, not longer lines.", "section": "typography" },
+      { "name": "The Flat-At-Rest Rule", "body": "Surfaces are flat until something happens. Shadow appears on hover, on focus, or because an element has genuinely left the page plane. A card that carries a shadow while idle is over-dressed.", "section": "elevation" },
+      { "name": "The Hairline-First Rule", "body": "When two regions need separating, try a 1px solid var(--line) first, a tonal step second, and a shadow only if the element actually overlays content.", "section": "elevation" },
+      { "name": "The Pill-for-Status Rule", "body": "Fully round means status, filter, or metadata. Rounded rectangle means content container. A pill-shaped card or a rectangular chip breaks the one signal a user can read at a glance.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do use Literata for anything the visitor reads and Nunito Sans for anything the visitor operates.",
+      "Do build depth with the paper ladder and 1px hairlines first; reach for --shadow-soft only as a hover response or for a genuinely separate object.",
+      "Do keep every interactive control at 44px minimum height, including chips and icon buttons whose type is much smaller.",
+      "Do reach for an existing semantic class (.section, .container, .kicker, .btn btn-primary, .filter-card, .chip, .archive-row) before writing new CSS, and for an existing custom property before writing a literal value.",
+      "Do put every animation behind useReducedMotion or the global reduced-motion block, and give reduced-motion users the end state rather than nothing.",
+      "Do pass behavior: 'instant' on any programmatic scroll reset — html sets scroll-behavior: smooth site-wide, so a bare scrollTo silently animates.",
+      "Do check every visual change in both themes and at a mobile width; dark is a designed theme, not a filter.",
+      "Do let empty archive sections read as pending record — a muted italic count and the same card size as a populated one — never as an error or a broken state."
+    ],
+    "donts": [
+      "Don't make brass clickable. It marks, rules off, and labels; blue carries every action.",
+      "Don't introduce a second accent hue. Use a tonal surface step or a brass marker.",
+      "Don't use #ffffff for a page background or #000000 for text. The page is paper-50; text is ink-900/ink-700.",
+      "Don't widen reading text past 68ch, or set prose below the 18px base.",
+      "Don't add a third font family, an icon component library, or a CSS framework. Icons are Material Symbols ligatures; styling is the hand-written system in src/index.css.",
+      "Don't write utility classes. This system is semantic; Tailwind was removed deliberately and is not coming back.",
+      "Don't give a card a resting shadow, or a chip a rectangular corner.",
+      "Don't signal an action with colour alone — links carry an underline, active nav carries a rule, active chips carry a fill.",
+      "Don't dramatize the imprisonment visually: no bars, no alarm reds, no campaign-poster typography. And don't reach for memorial styling — this is a record of a living person."
+    ]
+  }
+}

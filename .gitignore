@@ -91,3 +91,9 @@ Thumbs.db
 
 # direnv local env (per-directory GitHub account switch) — never committed
 .envrc
+
+# Impeccable live-mode transient state (config.json itself stays committed)
+.impeccable/config.local.json
+.impeccable/live/sessions/
+.impeccable/live/roots.json
+.impeccable/live/inject-journal.json
