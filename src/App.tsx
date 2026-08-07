@@ -289,8 +289,24 @@ function Reveal({
   )
 }
 
+const THEME_KEY = 'theme'
+
+/** null = follow the system, which is the documented default. */
+function readStoredTheme(): 'light' | 'dark' | null {
+  try {
+    const stored = localStorage.getItem(THEME_KEY)
+    return stored === 'light' || stored === 'dark' ? stored : null
+  } catch {
+    return null
+  }
+}
+
 function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark' | null>(null)
+  /* The cookie notice tells visitors, in both languages, that the site stores a
+     theme preference. It did not — theme lived in React state only, so an older
+     reader who chose dark lost it on every reload, and the KVKK/GDPR disclosure
+     described processing that never happened. */
+  const [theme, setTheme] = useState<'light' | 'dark' | null>(readStoredTheme)
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() =>
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
   )
@@ -298,6 +314,12 @@ function useTheme() {
   useEffect(() => {
     if (theme === null) delete document.documentElement.dataset.theme
     else document.documentElement.dataset.theme = theme
+    try {
+      if (theme === null) localStorage.removeItem(THEME_KEY)
+      else localStorage.setItem(THEME_KEY, theme)
+    } catch {
+      /* Private mode or storage disabled — the theme still applies for this visit. */
+    }
   }, [theme])
 
   useEffect(() => {
@@ -1526,6 +1548,22 @@ function Pagination({
   totalPages: number
   onPageChange: (page: number) => void
 }) {
+  /* Paginating changes only the query string, so MainShell's pathname-keyed scroll
+     reset never fires: the reader stays where they were and ends up looking at the
+     tail of the new page, with the count and controls off-screen above. It reads as
+     "the button did nothing". Scrolling here rather than on a location.search effect
+     is deliberate — search updates the query string on every keystroke, and that
+     effect would yank the page around while someone is typing. */
+  const goToPage = (page: number) => {
+    onPageChange(page)
+    const main = document.querySelector('.archive-main')
+    if (!main) return
+    // 'instant' is required: index.css sets html { scroll-behavior: smooth }.
+    main.scrollIntoView({ block: 'start', behavior: 'instant' })
+    const heading = main.querySelector<HTMLElement>('#archive-results')
+    heading?.focus({ preventScroll: true })
+  }
+
   if (totalPages <= 1) return null
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1).filter(
@@ -1540,7 +1578,7 @@ function Pagination({
       <button
         type="button"
         className="pagination-btn"
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage === 1}
         aria-label={
           lang === 'tr'
@@ -1565,7 +1603,7 @@ function Pagination({
                 aria-label={
                   lang === 'tr' ? `${page}. sayfaya git` : `Go to page ${page}`
                 }
-                onClick={() => onPageChange(page)}
+                onClick={() => goToPage(page)}
               >
                 {page}
               </button>
@@ -1576,7 +1614,7 @@ function Pagination({
       <button
         type="button"
         className="pagination-btn"
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage === totalPages}
         aria-label={
           lang === 'tr'
@@ -1785,7 +1823,11 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
           </aside>
 
           <div className="archive-main" aria-busy={searchingBody}>
-            <h2 className="sr-only">{lang === 'tr' ? 'Sonuçlar' : 'Results'}</h2>
+            {/* Focus target for pagination, so a page change is announced and not
+                just scrolled to. */}
+            <h2 className="sr-only" id="archive-results" tabIndex={-1}>
+              {lang === 'tr' ? 'Sonuçlar' : 'Results'}
+            </h2>
             {/* The count and the active-filter chips sit above the list at every
                 breakpoint. They used to live inside the collapsed panel, so on a
                 phone the archive silently showed a filtered subset with nothing
@@ -1987,7 +2029,11 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
           </aside>
 
           <div className="archive-main" aria-busy={searchingBody}>
-            <h2 className="sr-only">{lang === 'tr' ? 'Sonuçlar' : 'Results'}</h2>
+            {/* Focus target for pagination, so a page change is announced and not
+                just scrolled to. */}
+            <h2 className="sr-only" id="archive-results" tabIndex={-1}>
+              {lang === 'tr' ? 'Sonuçlar' : 'Results'}
+            </h2>
             {/* See OutletArchivePage: count and active filters are always visible. */}
             <div className="archive-toolbar">
               <ActiveFilterSummary

@@ -446,11 +446,16 @@ A year-by-year timeline: a 2px left rail with a `4rem` year gutter (`3rem` below
 at every width — the alternating centre spine belongs to `.timeline` on the About page,
 not here. Each year carries a proportional bar of published output and a count.
 
-The axis runs continuously from the first to the last year the archive can show, and
-runs of years with nothing in them collapse into a labelled gap band — a dashed track
-where the bar would sit, plus the range and a count of years. Omitting an empty year
-would read as "he did not write", which is the one thing this page must never imply
-about material that simply has not been recovered.
+**Known gap — the axis is not continuous.** Only years that carry an item or an event
+are rendered; a year with neither is omitted, so the spine jumps. A continuous axis
+with labelled gap bands was built and then withdrawn, and this file described that
+behaviour for a while as though it had shipped — it had not.
+
+The design problem the withdrawn work was aimed at is still open and still real: an
+omitted year reads as "he did not write", which is the one thing this page must never
+imply about material that simply has not been recovered. Whatever replaces the current
+axis has to keep that distinction visible. Until it does, this section documents what
+the code does, not what it should do.
 
 ### The Coverage Strip
 
