@@ -695,7 +695,7 @@ function HubGrid({
                     <p>{h.description}</p>
                     <span className="hub-arrow" aria-hidden="true">
                       {lang === 'tr' ? 'İncele' : 'Explore'}
-                      <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
+                      <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                         arrow_forward
                       </span>
                     </span>
@@ -792,7 +792,7 @@ function WeeklyPicks({
                   <h3>{item.title}</h3>
                   <span className="recent-card-cta">
                     {lang === 'tr' ? 'Oku' : 'Read'}
-                    <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
+                    <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-sm)' }}>
                       arrow_forward
                     </span>
                   </span>
@@ -908,7 +908,7 @@ function AcademicHeritage({
       <div className="container heritage-grid">
         <Reveal className="heritage-copy">
           <span className="badge-pill">
-            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>
+            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-sm)' }}>
               school
             </span>
             {lang === 'tr' ? 'Arşivin Kapsamı' : 'Archive Coverage'}
@@ -1079,7 +1079,7 @@ function AboutPage({ lang }: { lang: Lang }) {
           <div className="books-preview-cta">
             <Link to={paths[lang].books!} className="btn btn-primary">
               {lang === 'tr' ? 'Tüm Eserleri Görüntüle' : 'View all works'}
-              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                 arrow_forward
               </span>
             </Link>
@@ -2253,7 +2253,7 @@ function CiteThis({
         <span
           className="material-symbols-outlined"
           aria-hidden="true"
-          style={{ fontSize: '18px' }}
+          style={{ fontSize: 'var(--icon-md)' }}
         >
           format_quote
         </span>
@@ -2397,7 +2397,7 @@ function LoadedArticlePage({
           </nav>
           <div className="article-tools">
             <Link className="back-link" to={archiveBasePath(lang, item)}>
-              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                 arrow_back
               </span>
               {item.category === 'columns' ? t.columns.title : item.outlet}
@@ -2419,7 +2419,7 @@ function LoadedArticlePage({
                   )
                 }
               >
-                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
+                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                   text_decrease
                 </span>
               </button>
@@ -2435,7 +2435,7 @@ function LoadedArticlePage({
                   )
                 }
               >
-                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
+                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                   text_increase
                 </span>
               </button>
@@ -2490,7 +2490,7 @@ function LoadedArticlePage({
           delay={0.08}
           className={`article-body${shortOpener ? ' no-dropcap' : ''}`}
           id="article-body"
-          style={{ fontSize: `${(1.05 * fontScale).toFixed(3)}rem` }}
+          style={{ fontSize: `calc(var(--text-reading) * ${fontScale})` }}
         >
           {body && body.length > 0 ? (
             body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
@@ -2682,7 +2682,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     <span
                       className="material-symbols-outlined"
                       aria-hidden="true"
-                      style={{ fontSize: '16px' }}
+                      style={{ fontSize: 'var(--icon-sm)' }}
                     >
                       arrow_forward
                     </span>

@@ -36,6 +36,19 @@ typography:
     fontWeight: 700
     lineHeight: 1.35
     letterSpacing: "0"
+  title-sm:
+    fontFamily: "Literata, Georgia, serif"
+    fontSize: "1.05rem"
+    fontWeight: 700
+    lineHeight: 1.35
+    letterSpacing: "0"
+  reading:
+    fontFamily: "Literata, Georgia, serif"
+    fontSize: "1.05rem"
+    fontWeight: 400
+    lineHeight: 1.72
+    letterSpacing: "normal"
+    fontFeature: "'kern' 1, 'liga' 1, 'onum' 1"
   body:
     fontFamily: "Literata, Georgia, serif"
     fontSize: "18px"
@@ -314,14 +327,21 @@ When you are operating the site, you are in Nunito Sans.
   coloured second word was the single loudest generic-template tell on the page.
 - **Headline** (700, `clamp(2rem, 4.5vw, 3rem)`, 1.12): Section and page titles, capped
   at 26ch so they break into readable lines rather than stretching the container.
-- **Title** (700, 1.3rem, 1.35): Card headings, hub cards, timeline eras. Article list
-  rows sit slightly lower at 1.05rem.
-- **Body** (400, 18px / 17px below 768px, 1.72): Reading text — article bodies, prose,
-  biography. Literata, capped at `68ch`, with `'kern' 1, 'liga' 1, 'onum' 1`.
+- **Title** (700, 1.3rem, 1.35): Card headings — hub cards, book cards, the clipping
+  viewer, related articles.
+- **Title small** (700, 1.05rem, 1.35): The dense heading step — archive list rows,
+  recent cards, chronicle years, timeline eras, heritage features. Five components had
+  independently reached into the 1–1.15rem gap before this role existed; it is a real
+  role, not drift, and pretending otherwise is what let the gap refill.
+- **Reading** (400, 1.05rem, 1.72): The article reader's own base, a touch above site
+  body because that page is nothing but long-form. The A−/A+ control multiplies this
+  token rather than a number buried in the component.
+- **Body** (400, 18px / 17px below 768px, 1.72): Reading text — prose, biography.
+  Literata, capped at `68ch`, with `'kern' 1, 'liga' 1, 'onum' 1`.
 - **Lead** (500, `clamp(1.3rem, 2.4vw, 1.6rem)`, 1.5): Literata at Ink 900, the
-  standfirst under a section title.
+  standfirst under a section title, and the article subtitle.
 - **Body small** (400, 0.95rem, 1.6): Literata for secondary reading text — card
-  descriptions, notes, the body-load error.
+  descriptions, list-row excerpts, notes, citations, the body-load error.
 - **UI** (600, 0.85rem): Nunito Sans for anything operable — nav links, buttons, sort
   controls, footer links, pagination.
 - **Label** (800, 0.78rem, 0.16em, uppercase): Kickers, eyebrows, outlet names, filter
@@ -329,11 +349,35 @@ When you are operating the site, you are in Nunito Sans.
 - **Label small** (800, 0.72rem, 0.06em, uppercase): Badges, counts, list-row metadata —
   the smallest type in the system.
 
-**Known drift.** The stylesheet currently uses thirteen distinct sizes between
-0.68rem and 0.95rem where the roles above describe five. The extra steps
-(0.68 / 0.7 / 0.75 / 0.76 / 0.8 / 0.82 / 0.88 / 0.92rem) are drift, not intent, and
-should collapse onto the nearest documented role as those components are next
-touched. New work uses the roles; it does not add a fourteenth value.
+Every one of these ships as a custom property (`--text-title-sm`, `--text-ui`, …). A
+literal `font-size` in this stylesheet is now either the root size, an icon step, or one
+of the six one-offs below — there are no other literals, and that is the point.
+
+### The Icon Scale
+
+Material Symbols ligatures are sized independently of the text roles, in **px**, not rem.
+The root size is 18px, so a "1rem" icon would be 18px and every icon in the system would
+silently resize with the reading base. Icon size is a glyph decision; reading size is not.
+
+`--icon-sm` 16px (inline with label and badge text) · `--icon-md` 18px (inline with UI
+text — arrows, the back link) · `--icon-lg` 20px (leading icon inside a field) ·
+`--icon-xl` 36px (section and card icons).
+
+### Lettermarks
+
+Literata initials set inside a frame — the portrait monogram and the about avatar. Not
+type, because nobody reads them, and not icons, because they are letters. Two steps,
+`--lettermark-md` 2rem and `--lettermark-lg` 5rem, and they *do* scale with the reading
+base because they are set in the reading face.
+
+### One-Offs
+
+Six values are deliberately outside every scale, each with a reason recorded at its
+declaration: the root size (18px / 17px), the **wordmark** (1.4rem — a brand lockup sized
+to the 72px header), the **pull quote** (`clamp(1.5rem, 3vw, 2.1rem)` — sized against the
+measure it interrupts), the **fact number** (`clamp(2.1rem, 5vw, 2.8rem)` — a figure, not
+a heading), the **article body paragraph** (`1em`, inheriting the reader's scaled base),
+and the **drop cap** (`3.4em`, relative to the paragraph it opens).
 
 ### Named Rules
 
@@ -348,6 +392,16 @@ apply `onum` to a UI number; never strip it from prose.
 
 **The 68ch Rule.** Reading measure is capped at `68ch` and never widened for a
 "denser" layout. Wide viewports get more margin, not longer lines.
+
+**The No-Literal Rule.** Every `font-size` is `var(--text-*)`, `var(--icon-*)`,
+`var(--lettermark-*)`, or one of the six recorded one-offs. This system reached
+thirty-seven distinct sizes doing the work of ten by adding "just this one" values a
+component at a time, each defensible alone. If a role is genuinely missing, add it here
+and to the tokens — that is a design decision, and it should look like one.
+
+**The Round-Up Rule.** When a size sits between two roles, it collapses to the **larger**
+one. The readership skews older; a system that resolves ties downward quietly erodes the
+legibility floor the rest of this document is built on.
 
 ## Layout
 
