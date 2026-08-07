@@ -1,25 +1,22 @@
 ---
 name: Şahin Alpay Archive
-description: A reading room for a life in print — paper, ink, and a brass marker.
+description: A reading room for a life in print — newsprint, press ink, and the editor's red.
 colors:
-  paper-0: "#ffffff"
-  paper-50: "#f7f6f2"
-  paper-100: "#efede7"
-  paper-200: "#e7e4dc"
-  paper-300: "#dbd7cd"
-  paper-400: "#cdc9bf"
-  ink-900: "#1a1d21"
-  ink-700: "#383d44"
-  ink-500: "#5e646c"
-  blue-700: "#2e5f8e"
-  blue-900: "#1e4569"
-  blue-container: "#dbe7f2"
-  brass-600: "#b58b2b"
-  brass-ink: "#6f4f12"
-  brass-container: "#f3e5bf"
-  line: "#d0cdc5"
-  line-strong: "#87826f"
-  error: "#b83230"
+  paper-0: "#fbfbf9"
+  paper-50: "#eeefeb"
+  paper-100: "#e6e8e2"
+  paper-200: "#dcded7"
+  paper-300: "#cfd2ca"
+  paper-400: "#bec2b8"
+  ink-900: "#191b18"
+  ink-700: "#33362f"
+  ink-500: "#575b52"
+  mark-600: "#a32b22"
+  mark-700: "#7d1f18"
+  mark-container: "#f0dcd8"
+  line: "#c9ccc4"
+  line-strong: "#787d71"
+  error: "#8c1710"
 typography:
   display:
     fontFamily: "Literata, Georgia, serif"
@@ -91,13 +88,13 @@ spacing:
   "7": "9rem"
 components:
   button-primary:
-    backgroundColor: "{colors.blue-700}"
+    backgroundColor: "{colors.ink-900}"
     textColor: "{colors.paper-0}"
     rounded: "{rounded.lg}"
     padding: "0.85rem 1.6rem"
     height: "44px"
   button-primary-hover:
-    backgroundColor: "{colors.blue-700}"
+    backgroundColor: "{colors.ink-700}"
     textColor: "{colors.paper-0}"
   button-ghost:
     backgroundColor: "transparent"
@@ -106,7 +103,7 @@ components:
     padding: "0.85rem 1.6rem"
     height: "44px"
   button-ghost-hover:
-    textColor: "{colors.blue-900}"
+    textColor: "{colors.ink-900}"
     rounded: "{rounded.lg}"
   chip:
     backgroundColor: "transparent"
@@ -115,7 +112,7 @@ components:
     padding: "0.5rem 0.9rem"
     height: "44px"
   chip-active:
-    backgroundColor: "{colors.blue-700}"
+    backgroundColor: "{colors.ink-900}"
     textColor: "{colors.paper-0}"
     rounded: "{rounded.full}"
     padding: "0.5rem 0.9rem"
@@ -127,7 +124,13 @@ components:
     padding: "0 0.9rem"
     height: "44px"
   card-hub:
-    backgroundColor: "{colors.paper-100}"
+    backgroundColor: "{colors.paper-0}"
+    textColor: "{colors.ink-700}"
+    rounded: "{rounded.lg}"
+    padding: "1.5rem"
+    height: "220px"
+  card-hub-pending:
+    backgroundColor: "transparent"
     textColor: "{colors.ink-700}"
     rounded: "{rounded.lg}"
     padding: "1.5rem"
@@ -138,13 +141,18 @@ components:
     rounded: "{rounded.lg}"
     padding: "1.5rem"
   badge-count:
-    backgroundColor: "{colors.blue-container}"
-    textColor: "{colors.blue-900}"
+    backgroundColor: "{colors.paper-200}"
+    textColor: "{colors.ink-900}"
     rounded: "{rounded.full}"
     padding: "0.25rem 0.7rem"
-  badge-source:
+  badge-medium:
     backgroundColor: "transparent"
-    textColor: "{colors.brass-ink}"
+    textColor: "{colors.ink-500}"
+    rounded: "{rounded.full}"
+    padding: "0.12rem 0.45rem"
+  badge-scan:
+    backgroundColor: "transparent"
+    textColor: "{colors.mark-700}"
     rounded: "{rounded.full}"
     padding: "0.12rem 0.45rem"
 ---
@@ -156,12 +164,16 @@ components:
 **Creative North Star: "The Reading Room"**
 
 A quiet, well-lit room where a body of writing is kept and read. Not a monument and
-not a newsfeed — a room with good light, paper on the tables, ink on the paper, and a
-few brass fittings that tell you where things are. The interface is the room, not the
-exhibit: it holds the material at a comfortable height and then gets out of the way.
-Warmth is deliberate. The palette is built on paper tones and a warm near-black
-rather than corporate white and cool grey, because the subject is a person's working
-life, not a database of records.
+not a newsfeed — a room with good light, newsprint on the tables, press ink on the
+newsprint, and an editor's red pencil for the marks that say where things are. The
+interface is the room, not the exhibit: it holds the material at a comfortable height
+and then gets out of the way.
+
+The stock is deliberate. Paper and ink sit on **one hue axis** — the faint green-grey
+that newsprint actually is — rather than a warm paper against a cool grey text, which
+is what the palette used to do and what made it read as two systems bolted together.
+There are exactly two families and one mark. Not cream, not parchment, and no third
+metallic hue: this is a working newspaperman's archive, not a heritage brochure.
 
 The register is composed and unhurried. The material is serious and recent enough to
 be painful, so the design states things and lets them carry their own weight; it never
@@ -177,76 +189,110 @@ reading line-height, a 44px floor under every control. Nothing here is small, an
 nothing is fast.
 
 **Key Characteristics:**
-- Paper-and-ink palette; the page is never pure white, never pure black
+- Newsprint-and-ink palette on one hue axis; the page is never pure white, never pure black
 - Two fonts with two jobs: Literata reads, Nunito Sans operates
 - Reading text carries old-style figures — dates sit on the baseline like print
 - Flat at rest; depth comes from tonal layering and hairlines, shadow only answers a state
-- Brass marks, blue carries; brass is never clickable
+- Ink carries the affordance, red marks the page; red is never a fill
 - 44px minimum on every interactive control, at every breakpoint
 - Every motion is optional by construction
 
 ## Colors
 
-Two warm neutral families — paper and ink — with a single carrying accent and a rarer
-brass marker; every semantic token in the system resolves to one of these, and both
-themes are equal citizens rather than one being a filter over the other.
+Two neutral families on a single hue axis — newsprint paper and press ink — plus one
+mark colour. Every semantic token in the system resolves to one of these, and both
+themes are composed rather than one being a filter over the other.
 
-### Primary
+The system has exactly **two roles**, and the whole palette follows from them:
 
-- **Archive Blue** (`#2e5f8e`): The carrying colour. Every link, button, nav underline,
-  focus ring, active chip, and timeline marker. It is the only colour that means
-  "this does something."
-- **Archive Blue Deep** (`#1e4569`): Text-weight blue. Used where blue must sit *as
-  text* and still pass contrast — inline links, outlet names in list rows, card CTAs,
-  the accent half of the wordmark.
-- **Blue Container** (`#dbe7f2`): The quiet fill behind counts and status pills, where
-  a blue needs to read as a surface rather than an action.
+| Role | Colour | Where it appears |
+|---|---|---|
+| **Affordance** | Ink | Button fills, active chips and pages, link text, hover borders, the skip link |
+| **Mark** | Red | Rules, underlines, the focus ring, "you are here", the drop cap, the end mark, plotted data |
 
-### Tertiary
+### The Mark
 
-- **Brass** (`#b58b2b`): The marker. The 24px rule before every kicker, the timeline
-  and chronicle accents, the drop cap, the source badge outline. It points at things;
-  it is never the thing.
-- **Brass Ink** (`#6f4f12`): Brass at text weight — kickers, eyebrows, dates, outlet
-  metadata, the article drop cap and end mark. In dark theme it lightens to `#e8d6a8`
-  and carries the same jobs.
-- **Brass Container** (`#f3e5bf`): The warm tint behind archive-category cards, keeping
-  scanned-material sections distinguishable from digital ones without adding a hue.
+- **Proof Red** (`#a32b22`, dark `#e2796c`): The editor's pencil. The 24px rule before
+  every kicker, the pull-quote rule, the article-subtitle rule, the nav underline on the
+  current page, the link underline, the focus ring, the drop cap, the end mark, the
+  timeline and chronicle markers, the coverage bands, the reading-progress bar, the
+  monogram stamp. It marks; it never fills.
+- **Proof Red Deep** (`#7d1f18`, dark `#f0968c`): Red at text weight, where it must pass
+  4.5:1 as small type. Only two places earn it: the hero eyebrow, and the clipping badge
+  that says a piece survives only as a scan.
+- **Mark Container** (`#f0dcd8`, dark `#4a221c`): The wash behind **selected text** and
+  nothing else. Counts and status pills are metadata, not marks, so they take a paper
+  step instead — this is the boundary that keeps the mark from leaking.
+
+### The Affordance
+
+There is no separate action *hue*. Ink is the affordance, which is why a primary button
+is a solid press of ink on paper rather than a coloured pill, and why link text sits at
+full ink contrast with a red underline beneath it — the proofreader's convention, and
+the most legible link treatment available to an older readership.
+
+- **Action** (`ink-900` in light, `ink-900` in dark — which is the *pale* value there):
+  Button and active-chip fills. In dark theme ink is the light, so a button correctly
+  inverts to paper-on-black instead of staying a dark rectangle on a dark page.
+- **Action Hover** (`ink-700` light / `#ffffff` dark): The hover step. It is a token, not
+  a `filter: brightness()`, because a brightness multiplier that reads well on a
+  near-black button blows out a near-white one.
 
 ### Neutral
 
-- **Paper 50** (`#f7f6f2`): The page itself. Warm, slightly off-white — the base every
-  surface sits on.
-- **Paper 0** (`#ffffff`): Pure white, reserved. Only lifted or inset surfaces get it:
-  cards over a panel, input fields, clipping frames, menus.
-- **Paper 100–400** (`#efede7` → `#cdc9bf`): The tonal ladder. This is how the system
-  builds depth — a card is a step up the ladder, not a shadow.
-- **Ink 900** (`#1a1d21`): Headings and reading text. A warm near-black, never `#000`.
-- **Ink 700** (`#383d44`): Default body and UI text — the colour `<body>` actually sets.
-- **Ink 500** (`#5e646c`): Muted metadata — captions, placeholders, source notes, dates
-  in secondary position.
-- **Line** (`#d0cdc5`) / **Line Strong** (`#87826f`): The hairline vocabulary. Section
+- **Paper 50** (`#eeefeb`): The page itself. Newsprint — a faint green-grey, not a cream.
+- **Paper 0** (`#fbfbf9`): The lightest sheet, reserved for surfaces lifted off the page:
+  cards holding material, input fields, clipping frames, menus.
+- **Paper 100–400** (`#e6e8e2` → `#bec2b8`): The tonal ladder. This is how the system
+  builds depth — a card is a step along the ladder, not a shadow.
+- **Ink 900** (`#191b18`): Headings, reading text, and every affordance. Never `#000`.
+- **Ink 700** (`#33362f`): Default body and UI text — the colour `<body>` actually sets.
+- **Ink 500** (`#575b52`): Muted metadata — captions, placeholders, source notes, dates,
+  kickers, the medium badge, and the large section icons.
+- **Line** (`#c9ccc4`) / **Line Strong** (`#787d71`): The hairline vocabulary. Section
   dividers, list-row rules, card borders, ghost-button strokes. Line Strong is bound to
   `--control-border` and draws the visible boundary of real controls, so it is held at
-  3:1 against **every surface a control can sit on**, not just the page — 3.56 / 3.29 /
-  3.03 in light and 3.79 / 3.28 / 3.03 in dark, against the page, the low surface and
+  3:1 against **every surface a control can sit on**, not just the page — 3.66 / 3.42 /
+  3.11 in light and 3.99 / 3.45 / 3.12 in dark, against the page, the low surface and
   the mid surface (WCAG 1.4.11). Measuring only against the page is how this token
   shipped under-contrast once already. Plain Line is decorative separation and is exempt.
-- **Error** (`#b83230`): Form and validation only. It never appears as emphasis.
+- **Error** (`#8c1710`, dark `#f5a49a`): Form and validation only. Deeper than the mark so
+  the two do not read as the same signal — and because red is no longer exclusive to
+  failure, an error state must always carry an icon and a worded message as well.
+
+### Dark
+
+Dark is composed, not inverted. The paper goes to a green-black (`#141613`) rather than a
+neutral charcoal, so the stock is recognisably the same stock; ink becomes the light
+(`#e6e8e0`); the mark lifts to `#e2796c` because a proof mark has to stay legible against
+a dark sheet.
+
+`--surface-raised` exists because of this: it is the *lifted* sheet and must move toward
+the light in both themes, which is the opposite direction from `--surface-lowest`, the
+inset end of the ladder that correctly flips to the darkest value after dark. A card that
+holds material uses raised; a card that is inset uses lowest. Using lowest for a lifted
+card is how a card turns into a hole at night.
 
 ### Named Rules
 
-**The Brass Marker Rule.** Brass marks; blue carries. Brass may label, point at, rule
-off, or decorate — it may never be the affordance. A brass element the user is
-expected to click is a defect, not a variant.
+**The Two Roles Rule.** Ink carries the affordance; red marks the page. A red button, a
+red chip fill, or a red pill is a defect, not a variant — red may rule off, underline,
+point at, and plot, but the moment it fills something the user is expected to press, the
+one signal a visitor can read at a glance is gone.
+
+**The Rarity Rule.** The mark earns its force by being rare. A badge that appears on
+almost every row is metadata and takes ink or a paper step; a badge that appears on a
+handful of rows because those pieces survive only as scans is exactly what the mark is
+for. When something reads as "coloured because everything else is", it is drift.
+
+**The One Hue Axis Rule.** Paper and ink share a hue. There is no warm-paper /
+cool-text split, and no third hue — no brass, no gold, no second accent. When a screen
+seems to need another colour, the answer is a tonal surface step or a red mark.
 
 **The Paper Floor Rule.** The page is never pure white and text is never pure black.
-`#ffffff` is reserved for surfaces that have lifted off the page; the page itself is
-always `paper-50`. In dark theme the same rule inverts: the page is `#16181c`, and the
-darkest value (`#101317`) belongs to inset surfaces, not the background.
-
-**The One Accent Rule.** There is exactly one action colour. When a screen seems to
-need a second, the answer is a tonal surface step or a brass marker — not a new hue.
+`paper-0` is reserved for surfaces that have lifted off the page; the page itself is
+always `paper-50`. In dark theme the same rule inverts: the page is `#141613`, and the
+darkest value (`#0e100d`) belongs to inset surfaces, not the background.
 
 ## Typography
 
@@ -264,7 +310,8 @@ When you are operating the site, you are in Nunito Sans.
 ### Hierarchy
 
 - **Display** (700, `clamp(3rem, 9vw, 5.5rem)`, 1.12): The name in the hero, once per
-  site. Its italic span takes Archive Blue Deep at weight 500.
+  site. Its italic span differs by style and weight (500) alone, not by colour — the
+  coloured second word was the single loudest generic-template tell on the page.
 - **Headline** (700, `clamp(2rem, 4.5vw, 3rem)`, 1.12): Section and page titles, capped
   at 26ch so they break into readable lines rather than stretching the container.
 - **Title** (700, 1.3rem, 1.35): Card headings, hub cards, timeline eras. Article list
@@ -337,11 +384,14 @@ Two shadows exist, and both are answers to state or layer:
 
 ### Shadow Vocabulary
 
-- **Soft** (`box-shadow: 0 4px 20px rgba(24, 29, 36, 0.07)`): The hover response on
+- **Soft** (`box-shadow: 0 4px 20px rgba(20, 23, 18, 0.08)`): The hover response on
   cards and list surfaces, and the resting treatment for genuinely separate objects —
   filter panels, timeline cards, clipping frames.
-- **Lift** (`box-shadow: 0 10px 32px -8px rgba(24, 29, 36, 0.18)`): True overlays only —
+- **Lift** (`box-shadow: 0 10px 32px -8px rgba(20, 23, 18, 0.2)`): True overlays only —
   the skip link, drawers, dialogs, the clipping viewer.
+
+Both shadow colours sit on the neutral hue axis, not on a blue-grey — a shadow cast by
+a different light than the page is the kind of detail that reads as assembled.
 
 In dark theme both deepen (`0.35` and `0.55` alpha) because a warm-black surface needs
 more shadow to separate at all.
@@ -360,7 +410,7 @@ first, a tonal step second, and a shadow only if the element actually overlays c
 Two radii, two meanings. **`1rem` (rounded rectangle)** is the container language:
 cards, buttons, panels, filter cards, clipping frames, image wells. **`9999px` (pill)**
 is the status and control language: chips, badges, counts, the search field, the
-timeline marker, the brass kicker rule, the nav underline. `0.5rem` is the inner
+timeline marker, the red kicker rule, the nav underline. `0.5rem` is the inner
 radius — an image or input nested inside an already-rounded container — and `1.5rem`
 is reserved for the largest panels (the home "recently added" panel uses `2rem`, the
 one deliberate outlier).
@@ -382,49 +432,53 @@ one signal a user can read at a glance.
 ### Buttons
 
 - **Shape:** Rounded rectangle (`1rem`), `44px` minimum height, `0.85rem 1.6rem` padding
-- **Primary:** Archive Blue fill, white text, matching border. Nunito Sans 0.85rem/700
-- **Hover:** Rises 1px, gains the Soft shadow, brightens 4% — all over 0.2s ease
+- **Primary:** Ink fill, paper text, matching border. Nunito Sans 0.85rem/700
+- **Hover:** Rises 1px, gains the Soft shadow, and steps to `--action-hover` — all over
+  0.2s ease. A token, not a brightness filter, so it works in both themes
 - **Ghost:** Transparent with a Line Strong stroke and Ink 900 text; on hover the stroke
-  turns Archive Blue, the fill becomes the 11%-alpha accent wash, the text goes Blue Deep
-- **Text link:** Blue Deep at weight 700 with a 40%-alpha accent underline that goes
-  solid on hover — links are underlined by default, never colour-only
+  turns Ink, the fill becomes the 6%-alpha ink wash, the text stays Ink 900
+- **Text link:** Ink 900 at weight 700 with a red underline that goes solid on hover.
+  The underline is the mark and the colour is the contrast — links are never colour-only
 
 ### Chips
 
 - **Style:** Pill, transparent, 1px Line border, Ink 700 label in Nunito Sans 0.75rem/700
-- **Hover / focus:** Border and text shift to accent
-- **Active** (`data-active="true"`): Solid Archive Blue fill with white text
+- **Hover:** Border and text shift to Ink; **focus:** border shifts to the red mark
+- **Active** (`data-active="true"`): Solid Ink fill with paper text
 - **Dismissible variant:** Paper 0 fill with a trailing close affordance, used for the
   active-filter summary. All chips honour the 44px floor despite their small type
 
 ### Cards / Containers
 
 - **Corner Style:** `1rem`
-- **Background:** Paper 100 for grid cards over the page; Paper 0 for cards inside an
-  already-tinted panel. Hub cards additionally take a per-category `color-mix` tint
-  (brass wash for scanned-source sections, blue wash for books) — decoration only, with
-  identical data underneath
+- **Background:** Hub cards carry **state, not decoration**, in two values: a section
+  holding material takes `--surface-raised` (the lifted sheet), a section still pending
+  takes a transparent fill with a dashed Line border. The six near-identical per-category
+  tints this replaced read as muddiness rather than as a system, and carried no
+  information — the counts underneath were identical
 - **Shadow Strategy:** None at rest; Soft on hover (see Elevation)
-- **Border:** 1px at 55% Line alpha
+- **Border:** 1px at 55% Line alpha; dashed on a pending card
 - **Internal Padding:** `1.5rem`, with a `220px` minimum height on hub cards so a
   populated and an empty card sit at the same size
-- **Hover:** `translateY(-3px)`, border to accent, Soft shadow, 0.25s ease
+- **Hover:** `translateY(-3px)`, border to Ink, Soft shadow, 0.25s ease
 
 ### Inputs / Fields
 
 - **Style:** Paper 0 fill, 1px Line border, pill radius for search, `0.5rem` for date
   fields; `44px` minimum height; leading Material Symbol in Ink 500
-- **Focus:** The global treatment — `2px solid var(--accent)` outline at `3px` offset.
-  Inputs do not define their own focus ring
+- **Focus:** The global treatment — `2px solid var(--accent)` (the red mark) at `3px`
+  offset. Inputs do not define their own focus ring. The offset means the ring is
+  measured against the page, which is where it clears 3:1 even over an ink-filled control
 - **Placeholder:** Ink 500
 
 ### Navigation
 
 - Nunito Sans 0.85rem/600 in Ink 700, hidden below 900px. Hover lifts text to Ink 900
-  and grows a 2px accent underline from 0 to 100% width over 0.25s. The current page
-  takes Blue Deep text with the underline already full. Below 900px the same links move
-  into a slide-in drawer over a scrim, where the active item gets a filled accent wash
-  instead of an underline.
+  and grows a 2px red underline from 0 to 100% width over 0.25s. The current page takes
+  Ink 900 text with the underline already full — position is the mark's job, so the
+  underline is red while the text stays ink. Below 900px the same links move into a
+  slide-in drawer over a scrim, where the active item gets a filled red wash instead of
+  an underline.
 - The header is sticky at `72px` with `saturate(1.3) blur(10px)` over a 90%-alpha
   surface, and grows its bottom hairline only once the page has scrolled.
 
@@ -433,9 +487,9 @@ one signal a user can read at a glance.
 The system's signature surface, and the one place it lets print show through:
 
 - A drop cap on the first paragraph — Literata 700 at `3.4em`, floated, `0.82`
-  line-height, in Brass Ink. Suppressible via `.no-dropcap` for texts that open with a
+  line-height, in Proof Red. Suppressible via `.no-dropcap` for texts that open with a
   dateline or an editor's note
-- An end mark: `▪` in Brass Ink, appended to the last paragraph — the printed-page
+- An end mark: `▪` in Proof Red, appended to the last paragraph — the printed-page
   signal that the text is complete and nothing was truncated
 - A byline block with avatar, name, and date; a kicker-ruled subtitle carrying the
   issue and page citation; and a source note in Ink 500 italic below any scan
@@ -464,7 +518,7 @@ the code does, not what it should do.
 The homepage's answer to "what does this archive hold". One row per outlet on a shared
 year axis: an uppercase outlet label, a track carrying a band across the years that
 outlet covers, the year range, and decade ticks along the bottom. It reuses the
-chronicle's bar vocabulary — accent fill on a `--surface-mid` track — so the front page
+chronicle's bar vocabulary — a red band on a `--surface-mid` track — so the front page
 and the timeline read as one system.
 
 Every span is derived from the archive data, so no coverage is claimed for an outlet
@@ -506,11 +560,13 @@ fading in.
 
 ### Don't:
 
-- **Don't** make brass clickable. It marks, rules off, and labels; blue carries every
-  action.
-- **Don't** introduce a second accent hue. Use a tonal surface step or a brass marker.
-- **Don't** use `#ffffff` for a page background or `#000000` for text. The page is
-  `paper-50`; text is `ink-900`/`ink-700`.
+- **Don't** make red clickable. It marks, rules off, underlines, and plots; ink carries
+  every action. And don't spend it on something that appears on every row — rarity is
+  what gives the mark its force.
+- **Don't** introduce a third hue. Paper and ink share one axis and the mark is the only
+  colour; when a screen seems to need another, use a tonal surface step or a red mark.
+- **Don't** use pure `#ffffff` for a page background or `#000000` for text. The page is
+  `paper-50`; text is `ink-900`/`ink-700`. Nothing in the palette is fully desaturated.
 - **Don't** widen reading text past `68ch`, or set prose below the 18px base.
 - **Don't** add a third font family, an icon component library, or a CSS framework.
   Icons are Material Symbols ligatures; styling is the hand-written system in

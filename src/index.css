@@ -1,7 +1,21 @@
 /* ============================================================
    Şahin Alpay — Digital Archive Design System
-   Style: Civic legacy system — Literata + Nunito Sans
-   Palette: neutral paper surfaces, statesman ink blue, brass
+   Style: Newsprint and proof red — Literata + Nunito Sans
+   Palette: one neutral axis (newsprint paper, press ink) plus a
+   single mark colour. Two roles, and only two:
+
+     INK MARKS THE AFFORDANCE.  Anything you can press or follow is
+     ink: button fills, active chips and pages, link text, hover
+     borders. Ink is --action / --accent-ink.
+
+     RED MARKS THE PAGE.  The editor's annotation layer: rules,
+     underlines, the focus ring, the drop cap and end mark, "you are
+     here", and the bands that plot the record itself. Red is
+     --accent, and it is never the fill of anything bigger than a
+     marker. A red button is a defect, not a variant.
+
+   Both families sit on the same hue axis (a faint green-grey, the
+   colour newsprint actually is), so paper and ink share one light.
    ============================================================ */
 
 :root {
@@ -11,19 +25,18 @@
   --body: 'Nunito Sans', system-ui, sans-serif;
   --label: 'Nunito Sans', system-ui, sans-serif;
 
-  /* Primitive palette */
-  --paper-0: #ffffff;
-  --paper-50: #f7f6f2;
-  --paper-100: #efede7;
-  --paper-200: #e7e4dc;
-  --paper-300: #dbd7cd;
-  --paper-400: #cdc9bf;
-  --ink-900: #1a1d21;
-  --ink-700: #383d44;
-  --ink-500: #5e646c;
-  --blue-700: #2e5f8e;
-  --blue-900: #1e4569;
-  --brass-600: #b58b2b;
+  /* Primitive palette — newsprint */
+  --paper-0: #fbfbf9;
+  --paper-50: #eeefeb;
+  --paper-100: #e6e8e2;
+  --paper-200: #dcded7;
+  --paper-300: #cfd2ca;
+  --paper-400: #bec2b8;
+  --ink-900: #191b18;
+  --ink-700: #33362f;
+  --ink-500: #575b52;
+  --mark-600: #a32b22;
+  --mark-700: #7d1f18;
 
   /* Semantic light theme (default) */
   --bg: var(--paper-50);
@@ -34,42 +47,60 @@
   --surface-high: var(--paper-300);
   --surface-highest: var(--paper-400);
   --surface-dim: var(--paper-200);
+  /* A sheet lifted off the page. Not the same as --surface-lowest,
+     which is the *inset* end of the ladder and therefore flips to the
+     darkest value after dark; raised has to move toward the light in
+     both themes or a lifted card reads as a hole at night. */
+  --surface-raised: var(--paper-0);
 
   --ink: var(--ink-900);
   --ink-soft: var(--ink-700);
   --muted: var(--ink-500);
-  --line: #d0cdc5;
-  --line-strong: #87826f;
+  --line: #c9ccc4;
+  --line-strong: #787d71;
 
-  --accent: var(--blue-700);
-  --accent-ink: var(--blue-900);
-  --accent-soft: rgba(46, 95, 142, 0.11);
-  --on-accent: #ffffff;
-  --accent-container: #dbe7f2;
+  /* The mark. Rules, underlines, focus, position, plotted data.
+     --mark-container is the wash behind marked-up text only; counts
+     and badges are metadata and take a paper step instead, so the
+     mark never leaks into things that merely sit there. */
+  --accent: var(--mark-600);
+  --accent-soft: rgba(163, 43, 34, 0.1);
+  --mark-container: #f0dcd8;
 
-  --tertiary: var(--brass-600);
-  --tertiary-ink: #6f4f12;
-  --tertiary-soft: rgba(181, 139, 43, 0.16);
-  --tertiary-container: #f3e5bf;
+  /* The affordance. Fills and pressable surfaces. */
+  --action: var(--ink-900);
+  --action-hover: var(--ink-700);
+  --on-action: var(--paper-0);
+  /* Kept under the old name because 30-odd call sites mean "the
+     colour a link or an active label is set in" — which is now ink. */
+  --accent-ink: var(--ink-900);
+  --on-accent: var(--paper-0);
 
-  --error: #b83230;
-  --on-error: #ffffff;
+  --tertiary: var(--mark-600);
+  --tertiary-ink: var(--muted);
+  --tertiary-soft: rgba(163, 43, 34, 0.1);
+  --tertiary-container: var(--paper-200);
 
-  --shadow-soft: 0 4px 20px rgba(24, 29, 36, 0.07);
-  --shadow-lift: 0 10px 32px -8px rgba(24, 29, 36, 0.18);
+  /* Red is no longer exclusive to failure, so error states must also
+     carry an icon and a worded message — never hue alone. */
+  --error: #8c1710;
+  --on-error: var(--paper-0);
+
+  --shadow-soft: 0 4px 20px rgba(20, 23, 18, 0.08);
+  --shadow-lift: 0 10px 32px -8px rgba(20, 23, 18, 0.2);
 
   /* Component tokens */
   --control-hit-size: 44px;
   --control-border: var(--line-strong);
   --control-bg: transparent;
   --control-fg: var(--ink-soft);
-  --control-bg-hover: var(--accent-soft);
-  --control-border-hover: var(--accent);
-  --control-fg-hover: var(--accent-ink);
+  --control-bg-hover: rgba(25, 27, 24, 0.06);
+  --control-border-hover: var(--action);
+  --control-fg-hover: var(--ink);
   --control-disabled-opacity: 0.45;
   --menu-bg: var(--surface-lowest);
   --menu-border: var(--line);
-  --menu-scrim: rgba(16, 19, 23, 0.48);
+  --menu-scrim: rgba(14, 16, 13, 0.5);
 
   /* Radius scale */
   --radius: 0.5rem;
@@ -105,76 +136,110 @@
   }
 }
 
-/* Dark theme (system preference) */
+/* Dark theme — the same room after hours, not an inverted filter.
+   The paper goes to a green-black rather than a neutral charcoal, so
+   the stock is recognisably the same stock; ink becomes the light,
+   which is why --action inverts to the pale value and buttons read as
+   paper on press-black. The mark lifts to a lighter red because a
+   proof mark has to stay legible against a dark sheet. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #16181c;
-    --surface: #1a1d22;
-    --surface-lowest: #101317;
-    --surface-low: #21252b;
-    --surface-mid: #262b32;
-    --surface-high: #2f353d;
-    --surface-highest: #394049;
-    --surface-dim: #101317;
+    --paper-0: #0e100d;
+    --paper-50: #141613;
+    --paper-100: #20241e;
+    --paper-200: #272c25;
+    --paper-300: #30362e;
+    --paper-400: #3b4238;
+    --ink-900: #e6e8e0;
+    --ink-700: #c3c7bd;
+    --ink-500: #9ba093;
+    --mark-600: #e2796c;
+    --mark-700: #f0968c;
 
-    --ink: #e8e6e0;
-    --ink-soft: #c5c8cc;
-    --muted: #8b9097;
-    --line: #3f444c;
-    --line-strong: #6e7480;
+    --bg: var(--paper-50);
+    --surface: #191c17;
+    --surface-lowest: var(--paper-0);
+    --surface-low: var(--paper-100);
+    --surface-mid: var(--paper-200);
+    --surface-high: var(--paper-300);
+    --surface-highest: var(--paper-400);
+    --surface-dim: var(--paper-0);
+    --surface-raised: var(--paper-100);
 
-    --accent: #90b9de;
-    --accent-ink: #abcbea;
-    --accent-soft: rgba(144, 185, 222, 0.14);
-    --on-accent: #0e2947;
-    --accent-container: #274b6e;
+    --line: #3d4239;
+    --line-strong: #727868;
 
-    --tertiary: #dcc48e;
-    --tertiary-ink: #e8d6a8;
-    --tertiary-soft: rgba(220, 196, 142, 0.14);
-    --tertiary-container: #554020;
+    --accent: var(--mark-600);
+    --accent-soft: rgba(226, 121, 108, 0.14);
+    --mark-container: #4a221c;
 
-    --error: #ff8983;
-    --on-error: #690005;
+    --action: var(--ink-900);
+    --on-action: var(--paper-50);
+    --accent-ink: var(--ink-900);
+    --on-accent: var(--paper-50);
 
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.35);
-    --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.55);
+    --tertiary-container: var(--paper-200);
+    --tertiary-soft: rgba(226, 121, 108, 0.14);
+
+    --error: #f5a49a;
+    --on-error: #45100b;
+
+    --control-bg-hover: rgba(230, 232, 224, 0.09);
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+    --menu-scrim: rgba(6, 8, 5, 0.62);
   }
 }
 
 /* Explicit dark override (theme toggle) — wins in both directions */
 :root[data-theme='dark'] {
-  --bg: #16181c;
-  --surface: #1a1d22;
-  --surface-lowest: #101317;
-  --surface-low: #21252b;
-  --surface-mid: #262b32;
-  --surface-high: #2f353d;
-  --surface-highest: #394049;
-  --surface-dim: #101317;
+  --paper-0: #0e100d;
+  --paper-50: #141613;
+  --paper-100: #20241e;
+  --paper-200: #272c25;
+  --paper-300: #30362e;
+  --paper-400: #3b4238;
+  --ink-900: #e6e8e0;
+  --ink-700: #c3c7bd;
+  --ink-500: #9ba093;
+  --mark-600: #e2796c;
+  --mark-700: #f0968c;
 
-  --ink: #e8e6e0;
-  --ink-soft: #c5c8cc;
-  --muted: #8b9097;
-  --line: #3f444c;
-  --line-strong: #6e7480;
+  --bg: var(--paper-50);
+  --surface: #191c17;
+  --surface-lowest: var(--paper-0);
+  --surface-low: var(--paper-100);
+  --surface-mid: var(--paper-200);
+  --surface-high: var(--paper-300);
+  --surface-highest: var(--paper-400);
+  --surface-dim: var(--paper-0);
+  --surface-raised: var(--paper-100);
 
-  --accent: #90b9de;
-  --accent-ink: #abcbea;
-  --accent-soft: rgba(144, 185, 222, 0.14);
-  --on-accent: #0e2947;
-  --accent-container: #274b6e;
+  --line: #3d4239;
+  --line-strong: #727868;
 
-  --tertiary: #dcc48e;
-  --tertiary-ink: #e8d6a8;
-  --tertiary-soft: rgba(220, 196, 142, 0.14);
-  --tertiary-container: #554020;
+  --accent: var(--mark-600);
+  --accent-soft: rgba(226, 121, 108, 0.14);
+  --mark-container: #4a221c;
 
-  --error: #ff8983;
-  --on-error: #690005;
+  --action: var(--ink-900);
+  --action-hover: #ffffff;
+  --on-action: var(--paper-50);
+  --accent-ink: var(--ink-900);
+  --on-accent: var(--paper-50);
 
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.55);
+  --tertiary-container: var(--paper-200);
+  --tertiary-soft: rgba(226, 121, 108, 0.14);
+
+  --error: #f5a49a;
+  --on-error: #45100b;
+
+  --control-bg-hover: rgba(230, 232, 224, 0.09);
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+  --menu-scrim: rgba(6, 8, 5, 0.62);
 }
 
 /* ---------- Reset ---------- */
@@ -239,9 +304,18 @@ select {
   font-family: inherit;
 }
 
+/* Browser surfaces belong to the palette too: selected text reads as
+   marked-up text, the caret and native controls carry the mark, and
+   the scrollbar is paper rather than the OS default. */
 ::selection {
-  background: var(--accent-soft);
-  color: var(--accent-ink);
+  background: var(--mark-container);
+  color: var(--ink);
+}
+
+html {
+  caret-color: var(--accent);
+  accent-color: var(--accent);
+  scrollbar-color: var(--line-strong) var(--surface-low);
 }
 
 :focus-visible {
@@ -256,7 +330,7 @@ select {
   left: 50%;
   z-index: 999;
   transform: translate(-50%, -140%);
-  background: var(--accent);
+  background: var(--action);
   color: var(--on-accent);
   padding: 0.7rem 1rem;
   border-radius: var(--radius-full);
@@ -616,15 +690,18 @@ main:focus {
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
     border-color 0.2s ease, box-shadow 0.2s ease;
 }
+/* Ink carries the affordance: the primary button is a solid press of
+   ink on paper, not a coloured pill. */
 .btn-primary {
-  background: var(--accent);
-  color: var(--on-accent);
-  border-color: var(--accent);
+  background: var(--action);
+  color: var(--on-action);
+  border-color: var(--action);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-soft);
-  filter: brightness(1.04);
+  background: var(--action-hover);
+  border-color: var(--action-hover);
 }
 .btn-ghost {
   color: var(--ink);
@@ -632,9 +709,9 @@ main:focus {
   background: transparent;
 }
 .btn-ghost:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent-ink);
+  border-color: var(--action);
+  background: var(--control-bg-hover);
+  color: var(--ink);
 }
 
 .text-link {
@@ -669,7 +746,7 @@ main:focus {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tertiary-ink);
+  color: var(--mark-700);
   margin-bottom: var(--space-3);
 }
 .hero-name {
@@ -747,10 +824,12 @@ main:focus {
   max-width: 380px;
   margin-inline: auto;
 }
+/* A second sheet behind the first, not a coloured halo — the depth
+   here is paper stacked on paper. */
 .portrait-echo {
   position: absolute;
   inset: 0;
-  background: var(--accent-soft);
+  background: var(--surface-mid);
   border-radius: var(--radius-xl);
   transform: rotate(-3deg) scale(1.05);
   transition: transform 0.5s ease;
@@ -794,7 +873,7 @@ main:focus {
   font-weight: 600;
   /* Brass marks; blue carries. A monogram standing in for a missing photo is a
      marker, not an action. */
-  color: var(--tertiary-ink);
+  color: var(--accent);
   line-height: 1;
   padding: 1rem 1.2rem;
   border: 1px solid var(--line);
@@ -809,11 +888,12 @@ main:focus {
   padding: 1rem;
   font-size: 0.72rem;
   letter-spacing: 0.03em;
-  color: #f6f3ec;
+  color: #eef0ea;
   /* The scrim used to start fully transparent, so over a light placeholder the
      near-white caption sat at 1.06:1 — invisible. It now carries enough weight at
-     the top to stay legible on any surface behind it, photo or placeholder. */
-  background: linear-gradient(rgba(17, 20, 26, 0.62), rgba(17, 20, 26, 0.86));
+     the top to stay legible on any surface behind it, photo or placeholder.
+     Fixed values, not tokens: this sits over an image in both themes. */
+  background: linear-gradient(rgba(14, 16, 13, 0.62), rgba(14, 16, 13, 0.88));
 }
 
 /* ---------- Bento category grid (home) ---------- */
@@ -852,16 +932,23 @@ main:focus {
 }
 .hub-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--action);
   box-shadow: var(--shadow-soft);
 }
-/* Per-category tint, echoing each section's own accent — purely
-   decorative differentiation, same real counts/copy underneath. */
-.hub-card-analyses { background: color-mix(in srgb, var(--tertiary-container) 22%, var(--surface-low)); }
-.hub-card-interviews { background: var(--surface-mid); }
-.hub-card-academic { background: var(--surface-high); }
-.hub-card-books { background: color-mix(in srgb, var(--accent-container) 28%, var(--surface-low)); }
-.hub-card-about { background: color-mix(in srgb, var(--tertiary-container) 12%, var(--surface-low)); }
+/* Card tone now carries information instead of decoration. Six
+   near-identical per-category tints read as muddiness, not as a
+   system; two states read at a glance. A section holding material
+   sits on the lifted paper, a section still pending stays flush with
+   the page and takes a dashed rule — the same size and the same
+   copy, so pending reads as pending record and not as failure. */
+.hub-card[data-state='filled'] {
+  background: var(--surface-raised);
+}
+.hub-card[data-state='pending'] {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line);
+}
 .hub-card-top {
   display: flex;
   align-items: flex-start;
@@ -869,14 +956,14 @@ main:focus {
 }
 .hub-card-icon {
   font-size: 2.1rem;
-  color: var(--accent);
+  color: var(--ink-soft);
 }
 .hub-card-count {
   font-family: var(--label);
   font-size: 0.72rem;
   font-weight: 800;
   color: var(--accent-ink);
-  background: var(--accent-container);
+  background: var(--surface-mid);
   padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
 }
@@ -926,18 +1013,6 @@ main:focus {
     padding: var(--space-5) var(--space-4);
   }
 }
-.recent-panel-glow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 16rem;
-  height: 16rem;
-  margin-right: -8rem;
-  margin-top: -8rem;
-  border-radius: var(--radius-full);
-  background: var(--accent-soft);
-  pointer-events: none;
-}
 .recent-panel-inner {
   position: relative;
   z-index: 1;
@@ -950,7 +1025,7 @@ main:focus {
   aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   background: var(--surface-mid);
-  color: var(--accent);
+  color: var(--muted);
   margin-bottom: 0.2rem;
 }
 .recent-card-media .material-symbols-outlined {
@@ -980,7 +1055,7 @@ main:focus {
 }
 .recent-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--action);
   box-shadow: var(--shadow-soft);
 }
 .recent-card-meta {
@@ -1027,7 +1102,7 @@ main:focus {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-ink);
-  background: var(--accent-container);
+  background: var(--surface-mid);
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-full);
   margin-bottom: var(--space-3);
@@ -1057,7 +1132,7 @@ main:focus {
   height: 2.5rem;
   border-radius: var(--radius);
   background: var(--surface-high);
-  color: var(--accent);
+  color: var(--ink-soft);
 }
 .heritage-feature h3 {
   font-size: 1rem;
@@ -1183,7 +1258,7 @@ main:focus {
   width: 88px;
   height: 88px;
   border-radius: var(--radius-full);
-  background: var(--accent-container);
+  background: var(--surface-mid);
   color: var(--accent-ink);
   font-family: var(--headline);
   font-weight: 700;
@@ -1201,9 +1276,10 @@ main:focus {
   max-width: 28ch;
 }
 /* Was a 3px accent bar down the left edge, which broke two of this system's own
-   rules at once: nothing carries a border heavier than 1px, and blue means "this
-   does something" — a pull quote does nothing. It now takes the same 24px brass
-   rule the kickers use, above the quote, which is also the printed convention. */
+   rules at once: nothing carries a border heavier than 1px, and the action colour
+   means "this does something" — a pull quote does nothing. It now takes the same
+   24px red rule the kickers use, above the quote, which is also the printed
+   convention. A rule is a mark, so red is the right colour for it. */
 .pullquote::before {
   content: '';
   display: block;
@@ -1363,7 +1439,7 @@ main:focus {
 }
 .book:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--action);
   box-shadow: var(--shadow-soft);
 }
 .book-spine {
@@ -1418,7 +1494,7 @@ main:focus {
 }
 .book-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--action);
   box-shadow: var(--shadow-soft);
 }
 /* Very narrow screens: the fixed-width cover + long title words can't share a
@@ -1469,7 +1545,7 @@ main:focus {
   transition: border-color 0.2s ease;
 }
 .book-buy:hover {
-  border-color: var(--accent);
+  border-color: var(--action);
 }
 
 /* ---------- Archive layout (sidebar + list) ---------- */
@@ -1634,9 +1710,9 @@ main:focus {
   color: var(--accent-ink);
 }
 .chip[data-active='true'] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--on-action);
 }
 
 .date-range {
@@ -1667,7 +1743,7 @@ main:focus {
   min-height: 44px;
   margin-top: var(--space-2);
   padding: 0.6rem;
-  background: var(--accent-soft);
+  background: var(--surface-mid);
   color: var(--accent-ink);
   border: none;
   border-radius: var(--radius);
@@ -1679,7 +1755,7 @@ main:focus {
 }
 .filter-reset:hover,
 .filter-reset:focus-visible {
-  background: color-mix(in srgb, var(--accent-soft) 160%, transparent);
+  background: var(--surface-high);
 }
 
 /* Lives in the archive toolbar above the list, not in the collapsible sidebar.
@@ -1828,17 +1904,25 @@ a.archive-row:hover {
   text-transform: uppercase;
   color: var(--accent-ink);
 }
+/* Two badges share this shape but not the same weight of signal. The
+   medium badge sits on almost every row, so it stays neutral; the
+   clipping badge says "this survives only as a scan", which is
+   exactly the kind of thing the mark exists to point at. */
 .archive-row-badge {
   display: inline-flex;
   width: fit-content;
-  border: 1px solid color-mix(in srgb, var(--tertiary) 45%, var(--line));
+  border: 1px solid var(--line);
   border-radius: var(--radius-full);
   padding: 0.12rem 0.45rem;
-  color: var(--tertiary-ink);
+  color: var(--muted);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+.archive-row-badge-scan {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  color: var(--mark-700);
 }
 .archive-row-body {
   flex: 1;
@@ -1927,9 +2011,9 @@ a.archive-row:hover .archive-row-title {
   padding-inline: 0.5rem;
 }
 .pagination-page[data-active='true'] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--on-action);
 }
 .pagination-btn:hover:not(:disabled),
 .pagination-btn:focus-visible:not(:disabled),
@@ -2026,7 +2110,7 @@ a.archive-row:hover .archive-row-title {
   transition: border-color 0.2s ease;
 }
 .back-link:hover {
-  border-color: var(--accent);
+  border-color: var(--action);
 }
 .article-tools {
   position: relative;
@@ -2110,7 +2194,7 @@ a.archive-row:hover .archive-row-title {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  background: var(--accent-container);
+  background: var(--surface-mid);
   color: var(--accent-ink);
   display: grid;
   place-items: center;
@@ -2173,7 +2257,7 @@ a.archive-row:hover .archive-row-title {
   float: left;
   line-height: 0.82;
   margin: 0.05em 0.1em 0 0;
-  color: var(--tertiary-ink);
+  color: var(--accent);
 }
 .article-body.no-dropcap p:first-of-type::first-letter {
   font: inherit;
@@ -2183,7 +2267,7 @@ a.archive-row:hover .archive-row-title {
 }
 .article-body p:last-of-type:not(.article-body-loading)::after {
   content: ' ▪';
-  color: var(--tertiary-ink);
+  color: var(--accent);
 }
 .article-body-loading {
   color: var(--muted);
@@ -2401,7 +2485,7 @@ a.archive-row:hover .archive-row-title {
 }
 .chronicle-event .material-symbols-outlined {
   font-size: 18px;
-  color: var(--tertiary-ink);
+  color: var(--accent);
 }
 .chronicle-event-personal {
   font-weight: 700;
@@ -2507,8 +2591,10 @@ a.archive-row:hover .archive-row-title {
 }
 
 .cookie-notice-text a {
-  color: var(--accent);
+  color: var(--accent-ink);
   text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
 }
 
 .cookie-notice-actions {

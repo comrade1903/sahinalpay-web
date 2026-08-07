@@ -667,7 +667,11 @@ function HubGrid({
                 delay={(i % 4) * 0.06}
                 className={wide ? 'hub-card-wide' : undefined}
               >
-                <Link to={paths[lang][h.key]!} className={`hub-card hub-card-${h.key}`}>
+                <Link
+                  to={paths[lang][h.key]!}
+                  className={`hub-card hub-card-${h.key}`}
+                  data-state={count === 0 ? 'pending' : 'filled'}
+                >
                   <div className="hub-card-top">
                     <span
                       className="material-symbols-outlined hub-card-icon"
@@ -765,7 +769,6 @@ function WeeklyPicks({
     <section className="section">
       <div className="container">
         <div className="recent-panel">
-          <div className="recent-panel-glow" aria-hidden="true" />
           <Reveal className="recent-panel-inner">
             <p className="kicker kicker-center">{lang === 'tr' ? 'Haftalık' : 'Weekly'}</p>
             <h2 className="section-title section-title-center">
@@ -1131,7 +1134,7 @@ function ArchiveRow({
           <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
         )}
         {itemScanClippings(item).length ? (
-          <span className="archive-row-badge">
+          <span className="archive-row-badge archive-row-badge-scan">
             {lang === 'tr' ? 'Kupür' : 'Clipping'}
           </span>
         ) : null}
