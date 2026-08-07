@@ -18,7 +18,7 @@ colors:
   brass-ink: "#6f4f12"
   brass-container: "#f3e5bf"
   line: "#d0cdc5"
-  line-strong: "#8f8a7e"
+  line-strong: "#87826f"
   error: "#b83230"
 typography:
   display:
@@ -225,11 +225,13 @@ themes are equal citizens rather than one being a filter over the other.
 - **Ink 700** (`#383d44`): Default body and UI text — the colour `<body>` actually sets.
 - **Ink 500** (`#5e646c`): Muted metadata — captions, placeholders, source notes, dates
   in secondary position.
-- **Line** (`#d0cdc5`) / **Line Strong** (`#8f8a7e`): The hairline vocabulary. Section
+- **Line** (`#d0cdc5`) / **Line Strong** (`#87826f`): The hairline vocabulary. Section
   dividers, list-row rules, card borders, ghost-button strokes. Line Strong is bound to
   `--control-border` and draws the visible boundary of real controls, so it is held at
-  3:1 against the page (3.18:1 light, 3.32:1 dark) to satisfy WCAG 1.4.11. Plain Line is
-  decorative separation and is exempt.
+  3:1 against **every surface a control can sit on**, not just the page — 3.56 / 3.29 /
+  3.03 in light and 3.79 / 3.28 / 3.03 in dark, against the page, the low surface and
+  the mid surface (WCAG 1.4.11). Measuring only against the page is how this token
+  shipped under-contrast once already. Plain Line is decorative separation and is exempt.
 - **Error** (`#b83230`): Form and validation only. It never appears as emphasis.
 
 ### Named Rules

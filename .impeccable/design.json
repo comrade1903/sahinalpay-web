@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-06T18:26:20Z",
+  "generatedAt": "2026-08-07T08:36:25Z",
   "title": "Design System: Şahin Alpay Archive",
   "extensions": {
     "colorMeta": {
@@ -211,9 +211,9 @@
       "line-strong": {
         "role": "neutral",
         "displayName": "Strong Hairline",
-        "canonical": "#8f8a7e",
-        "darkCounterpart": "#656b76",
-        "note": "Ghost-button strokes and control borders. Bound to --control-border, so it is held at 3:1 against the page for WCAG 1.4.11 (3.18:1 light, 3.32:1 dark).",
+        "canonical": "#87826f",
+        "darkCounterpart": "#6e7480",
+        "note": "Ghost-button strokes and control borders. Bound to --control-border, so it is held at 3:1 against every surface a control can sit on, not just the page: 3.56 / 3.29 / 3.03 light and 3.79 / 3.28 / 3.03 dark against bg, surface-low and surface-mid (WCAG 1.4.11).",
         "tonalRamp": [
           "#1a1917",
           "#2e2c28",
@@ -380,7 +380,7 @@
       "refersTo": "button-ghost",
       "description": "The secondary action. Hairline stroke that turns accent, with an 11%-alpha accent wash on hover.",
       "html": "<button class=\"ds-btn ds-btn-ghost\">Şahin Alpay kimdir?</button>",
-      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost { color: var(--ink, #1a1d21); border-color: var(--line-strong, #8f8a7e); background: transparent; } .ds-btn-ghost:hover { border-color: var(--accent, #2e5f8e); background: var(--accent-soft, rgba(46,95,142,0.11)); color: var(--accent-ink, #1e4569); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; }"
+      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost { color: var(--ink, #1a1d21); border-color: var(--line-strong, #87826f); background: transparent; } .ds-btn-ghost:hover { border-color: var(--accent, #2e5f8e); background: var(--accent-soft, rgba(46,95,142,0.11)); color: var(--accent-ink, #1e4569); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #2e5f8e); outline-offset: 3px; }"
     },
     {
       "name": "Filter Chip",
