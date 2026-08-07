@@ -1040,7 +1040,7 @@ function AboutPage({ lang }: { lang: Lang }) {
           </Reveal>
           <ul className="works-grid" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {previewBooks.map((b, i) => (
-              <Reveal as="li" key={b.title} className="book" delay={i * 0.06}>
+              <Reveal as="li" key={`${b.year}-${b.title}`} className="book" delay={i * 0.06}>
                 <span className="book-spine" aria-hidden="true" />
                 <span className="book-year">{b.year}</span>
                 <h3 className="book-title">
@@ -2578,7 +2578,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
 
         <ul className="books-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {data.books.map((b, i) => (
-            <Reveal as="li" key={b.title} className="book-card" delay={(i % 2) * 0.08}>
+            <Reveal as="li" key={`${b.year}-${b.title}`} className="book-card" delay={(i % 2) * 0.08}>
               <div className="book-cover">
                 {b.cover ? (
                   <img
@@ -2710,7 +2710,9 @@ function LoadedChronicle({
             const picks = count > 0 ? yearPicks(yearItems, year, 2) : []
             return (
               <Reveal as="div" className="chronicle-row" key={year}>
-                <div className="chronicle-year">{year}</div>
+                {/* The year is this row's heading, so it closes the h1 → h3 gap
+                    that the article rows below would otherwise skip into. */}
+                <h2 className="chronicle-year">{year}</h2>
                 <div className="chronicle-body">
                   {count > 0 && (
                     <div className="chronicle-bar" aria-hidden="true">

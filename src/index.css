@@ -39,7 +39,7 @@
   --ink-soft: var(--ink-700);
   --muted: var(--ink-500);
   --line: #d0cdc5;
-  --line-strong: #8f8a7e;
+  --line-strong: #87826f;
 
   --accent: var(--blue-700);
   --accent-ink: var(--blue-900);
@@ -121,7 +121,7 @@
     --ink-soft: #c5c8cc;
     --muted: #8b9097;
     --line: #3f444c;
-    --line-strong: #656b76;
+    --line-strong: #6e7480;
 
     --accent: #90b9de;
     --accent-ink: #abcbea;
@@ -157,7 +157,7 @@
   --ink-soft: #c5c8cc;
   --muted: #8b9097;
   --line: #3f444c;
-  --line-strong: #656b76;
+  --line-strong: #6e7480;
 
   --accent: #90b9de;
   --accent-ink: #abcbea;
@@ -2232,7 +2232,12 @@ a.archive-row:hover .archive-row-title {
   padding-top: var(--space-3);
   border-top: 1px solid var(--line);
 }
+/* Standalone source links in their own row (separated by a ·), not links inside a
+   sentence — so they take the system's hit-size floor like any other control. */
 .article-source a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-hit-size);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--accent-ink);
@@ -2442,7 +2447,11 @@ a.archive-row:hover .archive-row-title {
   flex-wrap: wrap;
   gap: var(--space-3);
 }
-/* The one interactive class reachable on touch that had no hit-size floor. */
+/* Standalone nav links, so they take the hit-size floor. (An earlier comment here
+   claimed this was the only touch-reachable class missing one — it wasn't;
+   .article-source a was too. Links sitting inside a sentence, such as the one in
+   .cookie-notice-text, are deliberately left alone: WCAG 2.2 SC 2.5.8 exempts
+   inline targets, and forcing 44px there would break the sentence.) */
 .footer-links a {
   display: inline-flex;
   align-items: center;
