@@ -2379,7 +2379,10 @@ function LoadedArticlePage({
   return (
     <section className="section section-solo article-page">
       <div className="reading-progress" aria-hidden="true">
-        <div className="reading-progress-bar" style={{ width: `${progress}%` }} />
+        <div
+          className="reading-progress-bar"
+          style={{ transform: `scaleX(${progress / 100})` }}
+        />
       </div>
       <div className="container container-narrow">
         <Reveal>

@@ -495,29 +495,34 @@ main:focus {
   white-space: nowrap;
   transition: color 0.2s ease;
 }
+/* The rule is drawn at full width and revealed with scaleX from the
+   left, rather than animated from width 0 — a width transition on a
+   sticky header makes the browser lay the row out on every frame. */
 .nav a::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
   height: 2px;
-  width: 0;
+  width: 100%;
   border-radius: var(--radius-full);
   background: var(--accent);
-  transition: width 0.25s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
 }
 .nav a:hover {
   color: var(--ink);
 }
 .nav a:focus-visible::after,
 .nav a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 .nav a[aria-current='page'] {
   color: var(--accent-ink);
 }
 .nav a[aria-current='page']::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .header-actions {
@@ -2066,10 +2071,15 @@ a.archive-row:hover .archive-row-title {
   background: transparent;
   z-index: 90;
 }
+/* Scaled, not resized. This bar updates on every scroll frame of a
+   long article, so animating width would hand the compositor a layout
+   pass per frame for the entire fixed-position row. */
 .reading-progress-bar {
   height: 100%;
+  width: 100%;
+  transform-origin: left center;
   background: var(--accent);
-  transition: width 0.1s linear;
+  transition: transform 0.1s linear;
 }
 .breadcrumb {
   display: flex;
