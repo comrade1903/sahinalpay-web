@@ -48,6 +48,7 @@ import {
   type PageKey,
 } from './routes'
 import { parseTurkishDate } from './dateUtils'
+import { foldSearchText } from './textUtils'
 import { chronicleEvents } from './chronicle'
 
 /* ------------------------------------------------------------------
@@ -1215,6 +1216,21 @@ function useBodySearchIndex(
   return { bodyIndex, searchingBody }
 }
 
+/* Folding costs ~5x a plain toLowerCase, and this runs over every item on every
+   keystroke — with the bodies loaded that is several megabytes of text. The folded
+   form is cached per item and recomputed only when its body arrives, so correct
+   Turkish matching doesn't buy itself a typing lag on the archive's slowest page. */
+const foldedItemText = new Map<string, string>()
+
+function foldedTextFor(item: ArchiveItem, body: string[] | undefined): string {
+  const cacheKey = `${archiveItemKey(item)}:${body ? 'body' : 'meta'}`
+  const cached = foldedItemText.get(cacheKey)
+  if (cached !== undefined) return cached
+  const folded = foldSearchText(archiveItemText(item, body))
+  foldedItemText.set(cacheKey, folded)
+  return folded
+}
+
 function matchesFilters(
   item: ArchiveItem,
   search: string,
@@ -1227,9 +1243,9 @@ function matchesFilters(
 
   if (
     search &&
-    !archiveItemText(item, bodyIndex.get(archiveItemKey(item)))
-      .toLowerCase()
-      .includes(search.toLowerCase())
+    !foldedTextFor(item, bodyIndex.get(archiveItemKey(item))).includes(
+      foldSearchText(search),
+    )
   ) {
     return false
   }
