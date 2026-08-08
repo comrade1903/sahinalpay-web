@@ -68,6 +68,12 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
+  body-xs:
+    fontFamily: "Literata, Georgia, serif"
+    fontSize: "0.85rem"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "normal"
   ui:
     fontFamily: "Nunito Sans, system-ui, sans-serif"
     fontSize: "0.85rem"
@@ -341,7 +347,12 @@ When you are operating the site, you are in Nunito Sans.
 - **Lead** (500, `clamp(1.3rem, 2.4vw, 1.6rem)`, 1.5): Literata at Ink 900, the
   standfirst under a section title, and the article subtitle.
 - **Body small** (400, 0.95rem, 1.6): Literata for secondary reading text — card
-  descriptions, list-row excerpts, notes, citations, the body-load error.
+  descriptions, notes, citations, the body-load error.
+- **Body extra small** (400, 0.85rem, 1.5): Literata for the archive list excerpt, and
+  only there. The archive list is the densest surface in the system and a scannable list
+  outranks the comfort of the reading step; at Body small the rows read well but the list
+  goes sparse enough to lose its shape. Same value as UI, different job and different
+  face — this is prose, not a control label, so it does not borrow the UI role.
 - **UI** (600, 0.85rem): Nunito Sans for anything operable — nav links, buttons, sort
   controls, footer links, pagination.
 - **Label** (800, 0.78rem, 0.16em, uppercase): Kickers, eyebrows, outlet names, filter

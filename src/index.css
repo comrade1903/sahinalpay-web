@@ -40,6 +40,11 @@
   --text-reading: 1.05rem;
   /* --text-body is the root size below, not a token: prose inherits it. */
   --text-body-sm: 0.95rem;
+  /* Reading text in the archive list, the densest surface in the system,
+     where scanning a long list outranks the comfort of the reading step.
+     Same value as --text-ui but a different job and a different face:
+     this is Literata prose, not a control label. */
+  --text-body-xs: 0.85rem;
   --text-ui: 0.85rem;
   --text-label: 0.78rem;
   --text-label-sm: 0.72rem;
@@ -928,7 +933,7 @@ main:focus {
   right: 0;
   bottom: 0;
   padding: 1rem;
-  font-size: var(--text-label);
+  font-size: var(--text-label-sm);
   letter-spacing: 0.03em;
   color: #eef0ea;
   /* The scrim used to start fully transparent, so over a light placeholder the
@@ -1139,7 +1144,7 @@ main:focus {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--label);
-  font-size: var(--text-label);
+  font-size: var(--text-label-sm);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1942,11 +1947,11 @@ a.archive-row:hover {
   }
 }
 .archive-row-date {
-  font-size: var(--text-label-sm);
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .archive-row-outlet {
-  font-size: var(--text-label);
+  font-size: var(--text-label-sm);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1984,7 +1989,7 @@ a.archive-row:hover .archive-row-title {
   color: var(--accent-ink);
 }
 .archive-row-excerpt {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-body-xs);
   color: var(--muted);
   line-height: 1.5;
   margin-top: 0.3rem;
@@ -2050,7 +2055,7 @@ a.archive-row:hover .archive-row-title {
   min-height: 44px;
   padding: 0.35rem 0.75rem;
   font-family: var(--label);
-  font-size: var(--text-ui);
+  font-size: var(--text-label);
   font-weight: 800;
   cursor: pointer;
 }
@@ -2189,14 +2194,14 @@ a.archive-row:hover .archive-row-title {
 .cite-status {
   margin: 0 0 0.4rem;
   font-family: var(--label);
-  font-size: var(--text-label-sm);
+  font-size: var(--text-label);
   font-weight: 700;
   color: var(--tertiary-ink);
 }
 .cite-text {
   margin: 0;
   font-family: var(--body);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-ui);
   line-height: 1.6;
   color: var(--ink-soft);
   user-select: all;
