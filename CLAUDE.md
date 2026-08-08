@@ -8,7 +8,31 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 **Stack**: React 19 + TypeScript ~6.0 (strict unused-checks, `verbatimModuleSyntax`, `erasableSyntaxOnly`), Vite 8, react-router-dom **v7**, `motion` for animation (with `useReducedMotion` respected). Linting is **oxlint** (not ESLint). Deployed as a fully static SPA on Vercel.
 
-**Domain**: code currently references `sahinalpay.net` (index.html metas, `scripts/generate-sitemap.mjs`'s `SITE` constant, `public/llms.txt`), but that domain was never registered. The plan is to publish on **sahinalpay.com** (registered, not yet connected to Vercel). Do NOT change domain references until the owner confirms the switch; when he does, update all of the locations listed above together.
+**Domain**: code currently references `sahinalpay.net`, which was never registered. Production will be **sahinalpay.com** (registered; the owner hands over DNS access once the site is approved). Do NOT change domain references until the owner confirms the switch.
+
+When he does, all of these change **in one commit** — an earlier version of this list named only three of them, which would have shipped a half-migrated site:
+
+| Location | What |
+|---|---|
+| `index.html` | 13 refs: `canonical`, `og:url`, `og:image`, `twitter:image`, and every JSON-LD `@id`/`url` |
+| `src/App.tsx` `pageUrl()` | The hardcoded origin. Feeds the copy-attribution citation, canonical, and JSON-LD — a researcher pastes this into a published article, so a stale value here is the costliest one |
+| `src/App.tsx` JSON-LD | 4 further `@id`/`url` literals |
+| `src/App.tsx` footer | `mailto:contact@sahinalpay.net` |
+| `src/content.ts` | The KVKK data-controller address, **in both languages** — legal copy, must not be missed |
+| `public/robots.txt` | The `Sitemap:` line |
+| `public/llms.txt` | Homepage URL |
+| `scripts/generate-sitemap.mjs` | The `SITE` constant |
+| `public/sitemap.xml` | Generated — re-run `npm run generate:sitemap` and commit |
+| `PRODUCT.md` | The "Undecided / pending" entry and the contact line under Brand Commitments |
+
+Verify with:
+
+```bash
+grep -rn "sahinalpay\.net" --include="*.ts" --include="*.tsx" --include="*.mjs" \
+  --include="*.html" --include="*.txt" --include="*.xml" src/ public/ scripts/ index.html
+```
+
+It must return nothing. Before the switch it returns ~1,124 matches across the seven files above — roughly 1,100 of those are the per-article URLs inside `public/sitemap.xml`, so the count drops in one step when the sitemap is regenerated. Matches under `docs/superpowers/` and `.impeccable/critique/` are archived records of past work and stay as they are.
 
 **Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
 
