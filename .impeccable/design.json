@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-08T05:31:07Z",
+  "generatedAt": "2026-08-08T06:25:17Z",
   "title": "Design System: Şahin Alpay Archive",
   "extensions": {
     "colorMeta": {
@@ -291,7 +291,11 @@
       },
       "body-sm": {
         "displayName": "Body Small",
-        "purpose": "Secondary reading text — card descriptions, list-row excerpts, notes, citations."
+        "purpose": "Secondary reading text — card descriptions, notes, citations."
+      },
+      "body-xs": {
+        "displayName": "Body Extra Small",
+        "purpose": "The archive list excerpt, and only there. Same value as UI but Literata prose, not a control label, so it does not borrow the UI role."
       },
       "ui": {
         "displayName": "UI",
@@ -477,7 +481,7 @@
       "refersTo": "archive-row",
       "description": "The archive's densest surface. Two badges share one shape but not one signal: the medium badge is on nearly every row and stays muted, the clipping badge is rare and takes the mark.",
       "html": "<div class=\"ds-rows\"><a class=\"ds-row\" href=\"#\"><div class=\"ds-row-meta\"><span class=\"ds-row-date\">3 Mayıs 1970</span><span class=\"ds-row-outlet\">İşçi Köylü</span><span class=\"ds-row-badge\">Gazete</span><span class=\"ds-row-badge ds-row-badge-scan\">Kupür</span></div><div class=\"ds-row-body\"><h3 class=\"ds-row-title\">1 Mayıs Bayramı Halkımıza Kutlu Olsun</h3><p class=\"ds-row-excerpt\">1 Mayıs İşçi Bayramı vesilesiyle kaleme alınmış, işçi sınıfının uluslararası…</p></div></a></div>",
-      "css": ".ds-rows { display: flex; flex-direction: column; } .ds-row { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line, #c9ccc4); text-decoration: none; } .ds-row-meta { flex: 0 0 9rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; } .ds-row-date { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 700; color: var(--muted, #575b52); font-feature-settings: 'onum' 1; } .ds-row-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink, #191b18); } .ds-row-badge { display: inline-flex; border: 1px solid var(--line, #c9ccc4); border-radius: var(--radius-full, 9999px); padding: 0.12rem 0.45rem; color: var(--muted, #575b52); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-row-badge-scan { border-color: color-mix(in srgb, var(--accent, #a32b22) 55%, var(--line, #c9ccc4)); color: var(--mark-700, #7d1f18); } .ds-row-body { flex: 1; min-width: 0; } .ds-row-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title-sm, 1.05rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.3rem; color: var(--accent-ink, #191b18); } .ds-row-excerpt { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); line-height: 1.6; color: var(--ink-soft, #33362f); margin: 0; } .ds-row:hover .ds-row-title { text-decoration: underline; text-decoration-color: var(--accent, #a32b22); text-underline-offset: 0.2em; }"
+      "css": ".ds-rows { display: flex; flex-direction: column; } .ds-row { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line, #c9ccc4); text-decoration: none; } .ds-row-meta { flex: 0 0 9rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; } .ds-row-date { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; color: var(--muted, #575b52); font-feature-settings: 'onum' 1; } .ds-row-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink, #191b18); } .ds-row-badge { display: inline-flex; border: 1px solid var(--line, #c9ccc4); border-radius: var(--radius-full, 9999px); padding: 0.12rem 0.45rem; color: var(--muted, #575b52); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-row-badge-scan { border-color: color-mix(in srgb, var(--accent, #a32b22) 55%, var(--line, #c9ccc4)); color: var(--mark-700, #7d1f18); } .ds-row-body { flex: 1; min-width: 0; } .ds-row-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title-sm, 1.05rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.3rem; color: var(--accent-ink, #191b18); } .ds-row-excerpt { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-xs, 0.85rem); line-height: 1.5; color: var(--muted, #575b52); margin: 0.3rem 0 0; } .ds-row:hover .ds-row-title { text-decoration: underline; text-decoration-color: var(--accent, #a32b22); text-underline-offset: 0.2em; }"
     },
     {
       "name": "Kicker",
