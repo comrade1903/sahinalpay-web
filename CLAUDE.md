@@ -32,7 +32,7 @@ grep -rn "sahinalpay\.net" --include="*.ts" --include="*.tsx" --include="*.mjs" 
   --include="*.html" --include="*.txt" --include="*.xml" src/ public/ scripts/ index.html
 ```
 
-It must return nothing. Before the switch it returns ~1,124 matches across the seven files above — roughly 1,100 of those are the per-article URLs inside `public/sitemap.xml`, so the count drops in one step when the sitemap is regenerated. Matches under `docs/superpowers/` and `.impeccable/critique/` are archived records of past work and stay as they are.
+It must return nothing. Before the switch it returns a four-figure count across the seven files above — the overwhelming majority being the per-article URLs inside `public/sitemap.xml`, so the number drops in one step when the sitemap is regenerated and grows whenever archive entries are added. Don't treat the count as a target; the only passing result is zero. Matches under `docs/superpowers/` and `.impeccable/critique/` are archived records of past work and stay as they are.
 
 **Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
 
