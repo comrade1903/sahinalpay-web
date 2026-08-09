@@ -2517,6 +2517,14 @@ function LoadedArticlePage({
             <p className="article-body-loading" role="status" aria-live="polite">
               {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
             </p>
+          ) : item.excerpt ? (
+            /* Scan-only piece: the text lives in the PDF, so the archive's own
+               summary stands in its place — labelled, because it is not the
+               author's prose and must never be read as such. */
+            <div className="article-summary">
+              <p className="kicker">{content[lang].reader.summaryLabel}</p>
+              <p>{item.excerpt}</p>
+            </div>
           ) : null}
         </Reveal>
         {cover && (

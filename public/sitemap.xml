@@ -2,139 +2,271 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sahinalpay.net/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/about</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/columns</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/analyses</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/interviews</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/academic-articles</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/books</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/chronicle</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/cookie-policy</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/kimdir</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/kose-yazilari</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/soylesiler</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/akademik-makaleler</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/kitaplar</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/kronik</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/cerez-politikasi</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler/aydinlik-devrimci-teorik-egitim</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler/aydinlik-osmanli-ticaret-sozlesmeleri</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler/aydinlik-turkiyenin-duzeni-uzerine</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler/pda-isci-sinifi-milli-demokratik-devrim</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.net/tr/analizler/isci-koylu-1-mayis-1970</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/baslarken</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/sabri-ulgenerle-sohbet</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/ideoloji-uzerine-serif-mardinle-sohbet</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/turkiyede-milli-iktisat</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/mete-tuncayla-sohbet</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/karl-popperin-bilim-felsefesi-ve-siyaset-kurami</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/sosyal-demokrasi-ve-marksizm-iliskisi</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/enerji-teknik-bir-sorun-mudur</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/kalkinmada-bir-strateji-arayisi-mi</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/islami-hayat-tarzi-amaclaniyor</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/turk-tarihinin-sifir-noktasi</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/mehmet-ali-aybarin-anilari</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/sair-ismet-ozelin-masali</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/kadro-ve-kadrocular</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/bilim-iktisat-ve-piyasa</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/demokrasi-olmadan-sosyalizm-olamaz</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/pkk-yuzyilin-ilk-yillarini-yasiyor</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/parlamentoda-deprem</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/dis-dusmanlar-ic-dusmanlar</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/sosyalizm-oldu-mu</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/batiyi-nasil-yargilamali</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.net/tr/kose-yazilari/ah-su-emperyalizm</loc>
+    <lastmod>2026-08-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

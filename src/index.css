@@ -2301,14 +2301,42 @@ a.archive-row:hover .archive-row-title {
   flex-direction: column;
   gap: 1.2em;
 }
-.article-body p {
+
+/* Stands in the body's place for a piece that survives only as a page
+   scan. It carries the archive's own words, not the author's, so it is
+   set a step below the reading size and in the softer ink — close enough
+   to read comfortably, far enough that the kicker's claim is visible at a
+   glance. Without it the reader page opened on an empty column. */
+.article-summary {
+  max-width: var(--measure);
+}
+.article-summary .kicker {
+  /* `.article-body p` outranks `.kicker` on specificity and was rendering
+     this label at reading size. Same leak the error block already resets. */
+  font-size: var(--text-label);
+  margin-bottom: var(--space-2);
+}
+.article-summary p:not(.kicker) {
+  font-family: var(--headline);
+  font-size: var(--text-body-sm);
+  line-height: 1.72;
+  color: var(--ink-soft);
+  margin: 0;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+}
+/* Direct children only. The drop cap and the end mark belong to the
+   author's own paragraphs — the end mark in particular claims "this text
+   is complete and nothing was truncated", which neither the archive's
+   summary nor a load-failure notice has any business claiming. Scoping
+   here is why those blocks need no reset of their own. */
+.article-body > p {
   font-family: var(--headline);
   font-size: 1em;
   line-height: 1.72;
   color: var(--ink);
   font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
 }
-.article-body p:first-of-type::first-letter {
+.article-body > p:first-of-type::first-letter {
   font-family: var(--headline);
   font-size: 3.4em;
   font-weight: 700;
@@ -2317,13 +2345,13 @@ a.archive-row:hover .archive-row-title {
   margin: 0.05em 0.1em 0 0;
   color: var(--accent);
 }
-.article-body.no-dropcap p:first-of-type::first-letter {
+.article-body.no-dropcap > p:first-of-type::first-letter {
   font: inherit;
   float: none;
   margin: 0;
   color: inherit;
 }
-.article-body p:last-of-type:not(.article-body-loading)::after {
+.article-body > p:last-of-type:not(.article-body-loading)::after {
   content: ' ▪';
   color: var(--accent);
 }
