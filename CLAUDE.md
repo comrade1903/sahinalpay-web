@@ -48,6 +48,7 @@ npm run preview            # serve the production build locally
 npm run validate:content   # archive integrity: unique id/slug, date sanity, clipping assets exist on disk
 npm run generate:sitemap   # regenerate public/sitemap.xml (committed to the repo)
 npm run split:archive      # re-split large outlets into metadata + .body.ts modules
+npm run ocr:scans          # OCR a directory of incoming clipping scans into tmp/ocr/
 ```
 
 There is no test suite/framework configured in this repo (no test script, no `*.test.*`/`*.spec.*` files). Verification is `build` + `lint` + `validate:content` + checking the running app in a browser.
@@ -79,6 +80,8 @@ There is no test suite/framework configured in this repo (no test script, no `*.
 
 - **Never fabricate archive content**: no invented articles, dates, quotes, excerpts, or links. `Book.purchaseUrl` must be a real retailer product page. Every archive entry must trace to a verifiable source.
 - Entries recovered from scanned periodicals (TUSTAV etc.) require **authorship confirmation** before being added (e.g. the issue's own table of contents naming Şahin Alpay) — a name match in OCR text alone is not enough (falcon metaphors, other Şahins, masthead lists, and citations of his work are all false positives). Cite the exact issue/page in `subtitle`, credit the source archive in `sourceNote` with an OCR-quality caveat, and put page scans under `public/archive/clippings/<outlet>/<year>/<slug>/page-N.jpg`.
+- **Read new scans through `npm run ocr:scans`, not by opening the page images.** It takes a directory of scan PDFs/images (default `tmp/scan-inbox/`, or pass one: `npm run ocr:scans -- path/to/scans`) and writes per-scan `tmp/ocr/<slug>/` holding `text.txt`, a `report.json` of headline candidates ranked by type size, date candidates and byline hits, and `crops/` — small JPEGs of the headline and byline regions cut straight from the PDF. Confirming authorship off an 8 KB byline crop instead of a 550 KB full page is the difference between a batch of scans costing a few thousand tokens and costing a session. Re-runs skip finished scans unless `--force`; flags are `--lang=` (default `tur`) and `--psm=`. Requires `tesseract` + `tesseract-lang` and poppler (`brew install tesseract tesseract-lang poppler`). Raster inputs get text and a report but no crops — cutting them would need ImageMagick, which this machine does not have and the repo does not depend on.
+  - **Everything in `report.json` is a lead, not a fact.** OCR on newsprint mangles names and dates, and on a full page the largest type is regularly an advert or a neighbouring article — on the 1982 Cumhuriyet test pages the true headline came third and second, never first. The authorship rule above is unchanged by any of it: the report tells you where to look, the page tells you what is true.
 - `public/llms.txt` duplicates the bio for AI crawlers — keep it consistent when biography facts change.
 - `tmp/` is a gitignored scratch area for research artifacts (OCR output, scan reports); nothing in it is part of the app.
 
