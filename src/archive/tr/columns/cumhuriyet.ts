@@ -10,6 +10,11 @@ import type { ArchiveItemSeed } from '../../types'
  *
  *  1991-1992: he wrote a signed column, "Ortam".
  *
+ *  Alongside both runs sit signed pieces from elsewhere in the paper:
+ *  dispatches filed from New Orleans, Prague, Tokyo and Bonn, one sports-page
+ *  essay, and a review for the paper's book supplement, Cumhuriyet Kitap,
+ *  whose inner pages carry an issue number but no printed date.
+ *
  *  Every entry is a full broadsheet page, so the scan carries other
  *  writers' work alongside his — on 4 July 1987 his Şerif Mardin interview
  *  runs beside Mehmed Kemal's own column. Titles here were read off the
@@ -112,6 +117,25 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     ],
   },
   {
+    slug: 'bilimsel-devrimlerin-yapisi',
+    title: 'Bilimsel Devrimlerin Yapısı',
+    date: '4 Kasım 1982',
+    subtitle: 'Cumhuriyet, 4 Kasım 1982, s. 5',
+    excerpt:
+      'Thomas S. Kuhn\'un The Structure of Scientific Revolutions (1962) adlı eserinin Nilüfer Kuyaş çevirisiyle Türkçeye kazandırılması üzerine inceleme. Kuhn\'un "paradigma" ve "olağan bilim" kavramları ile bilimin kesintisiz biriken doğrularla ilerlediği görüşüne getirdiği eleştiri.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Thomas Kuhn', 'bilim felsefesi', 'paradigma', 'Karl Popper', '1982'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1982/bilimsel-devrimlerin-yapisi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1982/bilimsel-devrimlerin-yapisi/cover.jpg',
+        alt: 'Cumhuriyet, 4 Kasım 1982, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
     slug: 'karl-popperin-bilim-felsefesi-ve-siyaset-kurami',
     title: "Karl Popper'in Bilim Felsefesi ve Siyaset Kuramı",
     date: '11 Kasım 1982',
@@ -126,6 +150,63 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
       {
         src: '/archive/clippings/cumhuriyet/1982/karl-popperin-bilim-felsefesi-ve-siyaset-kurami/cover.jpg',
         alt: 'Cumhuriyet, 11 Kasım 1982, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'saglikli-bir-bilim-anlayisi',
+    title: 'Sağlıklı bir bilim anlayışı',
+    date: '7 Nisan 1983',
+    subtitle: 'Cumhuriyet, 7 Nisan 1983, s. 5',
+    excerpt:
+      'Sabri F. Ülgener\'in Zihniyet, Aydınlar ve İzm\'ler adlı kitabı üzerine inceleme. Ülgener\'in iktisadi ahlak ve zihniyet araştırmaları, aydın ile bürokrat arasındaki ilişki ve bilim ile ideolojiyi birbirinden ayırma çabası.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Sabri Ülgener', 'zihniyet', 'aydınlar', 'ideoloji', 'iktisat', '1983'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1983/saglikli-bir-bilim-anlayisi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1983/saglikli-bir-bilim-anlayisi/cover.jpg',
+        alt: 'Cumhuriyet, 7 Nisan 1983, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'bilim-demokrasi-iliskisi',
+    title: 'Bilim-demokrasi ilişkisi',
+    date: '2 Şubat 1984',
+    subtitle: 'Cumhuriyet, 2 Şubat 1984, s. 5',
+    excerpt:
+      'YAZKO\'nun Felsefe Yazıları dizisinin 7. kitabı üzerine inceleme. Popper\'in eleştirel akılcılığından hareketle bilimin neden ancak eleştirme özgürlüğünün bulunduğu demokratik bir ortamda gelişebileceği ve bilimsel nesnelliğin toplumsal koşulları.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Karl Popper', 'bilim felsefesi', 'demokrasi', 'Felsefe Yazıları', '1984'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1984/bilim-demokrasi-iliskisi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1984/bilim-demokrasi-iliskisi/cover.jpg',
+        alt: 'Cumhuriyet, 2 Şubat 1984, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'zor-zamanda-konusmak',
+    title: 'Zor zamanda konuşmak',
+    date: '1 Mart 1984',
+    subtitle: 'Cumhuriyet, 1 Mart 1984, s. 5',
+    excerpt:
+      'İsmet Özel\'in Yeni Devir gazetesinde 1977-79 ve 1981-82 yıllarında çıkan günlük fıkralarından seçmeleri kapsayan kitabı üzerine inceleme. Özel\'in bilimin "bir despotluk aracına dönüşmesi" eleştirisine hak verirken, 1960\'ların Mülkiye\'sinden tanıdığı eski dostuyla düşünce özgürlüğünde buluştuklarını yazar.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['İsmet Özel', 'düşünce özgürlüğü', 'bilim eleştirisi', 'Yeni Devir', '1984'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1984/zor-zamanda-konusmak.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1984/zor-zamanda-konusmak/cover.jpg',
+        alt: 'Cumhuriyet, 1 Mart 1984, s. 5',
         pageLabel: 's. 5',
       },
     ],
@@ -150,6 +231,101 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     ],
   },
   {
+    slug: 'fkonun-seruveni',
+    title: "FKÖ'nün serüveni",
+    date: '19 Temmuz 1984',
+    subtitle: 'Cumhuriyet, 19 Temmuz 1984, s. 5',
+    excerpt:
+      'Cengiz Çandar\'ın Tarihle Randevu: Beyrut\'un Ateş Çemberinde FKÖ adlı kitabı üzerine inceleme. 1981 yazından 1983 sonbaharına Filistin Kurtuluş Örgütü\'nün "talihsiz serüveni" ve Çandar\'ın olayı içinde yaşayarak izleyen dış politika muhabirliğinin bizde pek örneği bulunmayan yeri.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Cengiz Çandar', 'FKÖ', 'Filistin', 'Ortadoğu', 'gazetecilik', '1984'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1984/fkonun-seruveni.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1984/fkonun-seruveni/cover.jpg',
+        alt: 'Cumhuriyet, 19 Temmuz 1984, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'siyasetin-kendine-ozgu-yasalari-var-midir',
+    title: 'Siyasetin kendine özgü yasaları var mıdır?',
+    date: '13 Eylül 1984',
+    subtitle: 'Cumhuriyet, 13 Eylül 1984, s. 5',
+    excerpt:
+      'Machiavelli\'nin Hükümdar\'ının Selahattin Bağdatlı çevirisiyle yayımlanması üzerine inceleme. Machiavelli\'nin güçlü devlet kuramı, adı "Makyavelizm"e çıkan değer yargıları ve Floransa\'nın tarihsel ortamının bu düşünceye katkısı.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Machiavelli', 'Hükümdar', 'siyaset felsefesi', 'devlet', '1984'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1984/siyasetin-kendine-ozgu-yasalari-var-midir.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1984/siyasetin-kendine-ozgu-yasalari-var-midir/cover.jpg',
+        alt: 'Cumhuriyet, 13 Eylül 1984, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'toplumu-bicimlendiren-doga-midir',
+    title: 'Toplumu biçimlendiren doğa mıdır?',
+    date: '8 Kasım 1984',
+    subtitle: 'Cumhuriyet, 8 Kasım 1984, s. 5',
+    excerpt:
+      'İlkay Sunar\'ın Düşün ve Toplum adlı kitabı üzerine inceleme. Toplumsal gerçekliğin doğa tarafından mı yoksa insan tarafından mı kurulduğu sorusu çevresinde pozitivist ve hümanist gelenekler ile bilgi, ideoloji ve özgürlük arasındaki ilişki.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['İlkay Sunar', 'pozitivizm', 'sosyal bilimler', 'ideoloji', '1984'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1984/toplumu-bicimlendiren-doga-midir.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1984/toplumu-bicimlendiren-doga-midir/cover.jpg',
+        alt: 'Cumhuriyet, 8 Kasım 1984, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'weber-ilk-kez-dilimize-cevrildi',
+    title: 'Weber ilk kez dilimize çevrildi',
+    date: '14 Şubat 1985',
+    subtitle: 'Cumhuriyet, 14 Şubat 1985, s. 5',
+    excerpt:
+      'Max Weber\'in Protestan Ahlakı ve Kapitalizmin Ruhu ile Donald MacRae\'nin Weber\'i tanıtan kitabının üst üste Türkçeye çevrilmesi üzerine inceleme. Weber\'e duyulan ilginin Marx ve Durkheim\'ın gerisinde kalışı ve Sabri Ülgener\'in Weber okuması.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Max Weber', 'Protestan Ahlakı', 'sosyoloji', 'Sabri Ülgener', 'kapitalizm', '1985'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1985/weber-ilk-kez-dilimize-cevrildi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1985/weber-ilk-kez-dilimize-cevrildi/cover.jpg',
+        alt: 'Cumhuriyet, 14 Şubat 1985, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'mspnin-gelisimi-ve-ideolojisi',
+    title: "MSP'nin gelişimi ve ideolojisi",
+    date: '11 Nisan 1985',
+    subtitle: 'Cumhuriyet, 11 Nisan 1985, s. 5',
+    excerpt:
+      'Ali Yaşar Sarıbay\'ın Türkiye\'de Modernleşme, Din ve Parti Politikası: "MSP Örnek Olayı" adlı kitabı üzerine inceleme. Çok partili parlamenter rejime sahip tek Müslüman ülkede dinin politik bir güç olarak rolü ve MSP üzerine yapılmış akademik çalışmaların dökümü.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Ali Yaşar Sarıbay', 'Milli Selamet Partisi', 'modernleşme', 'din ve siyaset', '1985'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1985/mspnin-gelisimi-ve-ideolojisi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1985/mspnin-gelisimi-ve-ideolojisi/cover.jpg',
+        alt: 'Cumhuriyet, 11 Nisan 1985, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
     slug: 'enerji-teknik-bir-sorun-mudur',
     title: 'Enerji, teknik bir sorun mudur?',
     date: '18 Temmuz 1985',
@@ -165,6 +341,25 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
         src: '/archive/clippings/cumhuriyet/1985/enerji-teknik-bir-sorun-mudur/cover.jpg',
         alt: 'Cumhuriyet, 18 Temmuz 1985, s. 5',
         pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'ceyrek-asir-sonra-abd',
+    title: 'Çeyrek asır sonra ABD',
+    date: '29 Eylül 1985',
+    subtitle: 'Cumhuriyet, 29 Eylül 1985, s. 12',
+    excerpt:
+      'New Orleans\'tan izlenimler. "Milletlerden oluşan bir millet" olarak Amerikan toplumu, kentin Creole ve Cajun köklerinden bugüne kalanlar ve ABD\'nin bir türlü çözemediği ırk sorunu.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['ABD', 'New Orleans', 'ırk sorunu', 'göçmenlik', 'izlenim', '1985'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1985/ceyrek-asir-sonra-abd.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1985/ceyrek-asir-sonra-abd/cover.jpg',
+        alt: 'Cumhuriyet, 29 Eylül 1985, s. 12',
+        pageLabel: 's. 12',
       },
     ],
   },
@@ -203,6 +398,44 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
         src: '/archive/clippings/cumhuriyet/1987/islami-hayat-tarzi-amaclaniyor/cover.jpg',
         alt: 'Cumhuriyet, 4 Temmuz 1987, s. 8',
         pageLabel: 's. 8',
+      },
+    ],
+  },
+  {
+    slug: 'pragda-bahar',
+    title: "Prag'da Bahar",
+    date: '27 Eylül 1987',
+    subtitle: 'Cumhuriyet, 27 Eylül 1987, s. 7',
+    excerpt:
+      'Çekoslovakya\'dan izlenimler. Prag Kalesi\'ndeki yaşlı rehberin sözlerinden yola çıkarak glasnost beklentisinin toplumdaki karşılığı, 18 Temmuz 1987\'de kamuoyuna açıklanan ekonomik reform yasa tasarısı ve devlet işletmelerine özerklik tartışması.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Çekoslovakya', 'Prag', 'glasnost', 'ekonomik reform', 'sosyalizm', '1987'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1987/pragda-bahar.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1987/pragda-bahar/cover.jpg',
+        alt: 'Cumhuriyet, 27 Eylül 1987, s. 7',
+        pageLabel: 's. 7',
+      },
+    ],
+  },
+  {
+    slug: 'japonlarin-calisma-hastaligi',
+    title: 'Japonların çalışma hastalığı',
+    date: '15 Kasım 1987',
+    subtitle: 'Cumhuriyet, 15 Kasım 1987, s. 13',
+    excerpt:
+      'Tokyo\'dan izlenimler. Kişi başına yıllık çalışma saatlerinin ülkelere göre dökümü, Japon eğitim sisteminin yaratıcılığı boğduğu yolundaki eleştiriler ve Japonları daha az çalışıp daha çok eğlenmeye ikna etme tartışması.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Japonya', 'Tokyo', 'çalışma hayatı', 'eğitim', 'izlenim', '1987'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1987/japonlarin-calisma-hastaligi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1987/japonlarin-calisma-hastaligi/cover.jpg',
+        alt: 'Cumhuriyet, 15 Kasım 1987, s. 13',
+        pageLabel: 's. 13',
       },
     ],
   },
@@ -283,6 +516,25 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     ],
   },
   {
+    slug: 'demokrasinin-gelecegi',
+    title: 'Demokrasinin geleceği',
+    date: '3 Kasım 1988',
+    subtitle: 'Cumhuriyet, 3 Kasım 1988, s. 5',
+    excerpt:
+      'Norberto Bobbio\'nun demokrasi ile sosyalizm ilişkisini konu alan eserleri üzerine inceleme. Servetin, siyasi gücün ve bilginin dağılımındaki eşitsizlikler liberal demokrasiyi yetersiz bırakır; ancak bu eşitsizlikler de yine liberal demokratik çerçeve içinde giderilebilir. Yazı sayfanın yedinci yılını da anıyor.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Norberto Bobbio', 'demokrasi', 'sosyalizm', 'liberalizm', '1988'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1988/demokrasinin-gelecegi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1988/demokrasinin-gelecegi/cover.jpg',
+        alt: 'Cumhuriyet, 3 Kasım 1988, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
     slug: 'bilim-iktisat-ve-piyasa',
     title: 'Bilim, iktisat ve piyasa',
     date: '6 Nisan 1989',
@@ -297,6 +549,25 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
       {
         src: '/archive/clippings/cumhuriyet/1989/bilim-iktisat-ve-piyasa/cover.jpg',
         alt: 'Cumhuriyet, 6 Nisan 1989, s. 5',
+        pageLabel: 's. 5',
+      },
+    ],
+  },
+  {
+    slug: 'sosyalizmin-gelecegi',
+    title: 'Sosyalizmin geleceği',
+    date: '15 Haziran 1989',
+    subtitle: 'Cumhuriyet, 15 Haziran 1989, s. 5',
+    excerpt:
+      'Murat Belge\'nin Sosyalizm, Türkiye ve Gelecek adlı kitabı üzerine inceleme. Belge\'nin özgürlükçü, çoğulcu ve özyönetimci bir sosyalizm arayışı, Türkiye\'de egemen ideoloji saydığı korporatizm çözümlemesi ve kavramlarını tanımlamayışının doğurduğu güçlükler.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Murat Belge', 'sosyalizm', 'çoğulculuk', 'korporatizm', 'Türk solu', '1989'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1989/sosyalizmin-gelecegi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1989/sosyalizmin-gelecegi/cover.jpg',
+        alt: 'Cumhuriyet, 15 Haziran 1989, s. 5',
         pageLabel: 's. 5',
       },
     ],
@@ -317,6 +588,64 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
         src: '/archive/clippings/cumhuriyet/1989/demokrasi-olmadan-sosyalizm-olamaz/cover.jpg',
         alt: 'Cumhuriyet, 22 Haziran 1989, s. 16',
         pageLabel: 's. 16',
+      },
+    ],
+  },
+  {
+    slug: 'inonu-stadinda-pazar-keyfi',
+    title: "İnönü Stadı'nda pazar keyfi",
+    date: '24 Kasım 1989',
+    subtitle: 'Cumhuriyet, 24 Kasım 1989, s. 18',
+    excerpt:
+      'Beşiktaş-Ankaragücü maçını, ABD\'den on iki yıl sonra gelen dostu Prof. Timur Kuran ile İnönü Stadı\'nda izlerken yaşadıkları. Numaralı koltuk düzenine yeni geçen stadyumda direğin arkasına düşen koltuklar üzerinden seyirciye gösterilen özeni sorgular.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['futbol', 'İnönü Stadı', 'Beşiktaş', 'Timur Kuran', 'gündelik hayat', '1989'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1989/inonu-stadinda-pazar-keyfi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1989/inonu-stadinda-pazar-keyfi/cover.jpg',
+        alt: 'Cumhuriyet, 24 Kasım 1989, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'turkler-icin-ne-getirecek-ne-goturecek',
+    title: 'Türkler için ne getirecek, ne götürecek?',
+    date: '26 Şubat 1990',
+    subtitle: 'Cumhuriyet, 26 Şubat 1990, s. 16',
+    excerpt:
+      '"Birleşmenin Işığında Almanya" üst başlığıyla Bonn\'dan izlenimler. Doğu Avrupa\'dan gelen kitlesel göçün Batı Almanya\'daki iş ve konut piyasasına etkisi ile Alman birliğinin ülkedeki Türkler açısından olası sonuçları; Essen, Duisburg, Bonn ve Batı Berlin\'de yapılan görüşmeler.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Almanya', 'Bonn', 'Alman birleşmesi', 'göç', 'gurbetçiler', '1990'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1990/turkler-icin-ne-getirecek-ne-goturecek.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1990/turkler-icin-ne-getirecek-ne-goturecek/cover.jpg',
+        alt: 'Cumhuriyet, 26 Şubat 1990, s. 16',
+        pageLabel: 's. 16',
+      },
+    ],
+  },
+  {
+    slug: 'ayet-mi-slogan-mi',
+    title: 'Ayet mi, Slogan mı?',
+    date: '20 Aralık 1990',
+    subtitle: 'Cumhuriyet Kitap, sayı 44, 20 Aralık 1990, s. 17',
+    excerpt:
+      'Ruşen Çakır\'ın Ayet ve Slogan adlı kitabı üzerine inceleme. İslamcı hareketlerin 1980\'lerde gösterdiği gelişmenin nedenleri, "sıradan Müslümanlar" ile İslamcılar arasındaki ayrım ve şeriat düzenini hedefleyen gelenekçi ile radikal çizgilerin ayrışması.',
+    sourceNote:
+      'Cumhuriyet Kitap ekinden alınan tam sayfa taraması. Sayfa künyesinde yalnızca sayı numarası var; tarih arşiv kaydından alındı. Cumhuriyet Gazetesi Arşivi.',
+    tags: ['Ruşen Çakır', 'İslamcılık', 'laiklik', 'şeriat', 'Cumhuriyet Kitap', '1990'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1990/ayet-mi-slogan-mi.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1990/ayet-mi-slogan-mi/cover.jpg',
+        alt: 'Cumhuriyet Kitap, sayı 44, 20 Aralık 1990, s. 17',
+        pageLabel: 's. 17',
       },
     ],
   },
@@ -397,6 +726,63 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     ],
   },
   {
+    slug: 'ayrilikci-teror-ve-ispanya',
+    title: 'Ayrılıkçı Terör ve İspanya',
+    date: '11 Aralık 1991',
+    subtitle: 'Cumhuriyet, 11 Aralık 1991, s. 4',
+    excerpt:
+      'Prof. Arango\'nun "Franko\'dan Demokrasiye Geçiş" konuşmasından hareketle İspanya\'nın bölgesel özerklik modeli. Katalonya, Bask ve Galicia\'ya tanınan yarı federal özerkliğin ayrılıkçı akımları ve terör örgütlerini nasıl tecrit ettiği.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['İspanya', 'Bask', 'Katalonya', 'özerklik', 'terör', 'Kürt sorunu', '1991'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1991/ayrilikci-teror-ve-ispanya.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1991/ayrilikci-teror-ve-ispanya/cover.jpg',
+        alt: 'Cumhuriyet, 11 Aralık 1991, s. 4',
+        pageLabel: 's. 4',
+      },
+    ],
+  },
+  {
+    slug: 'turki-halklar-ve-biz',
+    title: 'Türki Halklar ve Biz',
+    date: '20 Aralık 1991',
+    subtitle: 'Cumhuriyet, 20 Aralık 1991, s. 4',
+    excerpt:
+      'Özbekistan Cumhurbaşkanı İslam Kerimov onuruna verilen davetten izlenimler. Kerimov\'un iki halk arasındaki dil, kültür, soy ve din bağlarına yaptığı vurgu ile koskoca Türki halklar dünyasının varlığına Türkiye\'nin ancak yeni yeni uyanıyor oluşu.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Özbekistan', 'İslam Kerimov', 'Türki cumhuriyetler', 'dış politika', '1991'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1991/turki-halklar-ve-biz.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1991/turki-halklar-ve-biz/cover.jpg',
+        alt: 'Cumhuriyet, 20 Aralık 1991, s. 4',
+        pageLabel: 's. 4',
+      },
+    ],
+  },
+  {
+    slug: 'kurt-aydinlara-dusen-gorev',
+    title: 'Kürt Aydınlara Düşen Görev',
+    date: '27 Aralık 1991',
+    subtitle: 'Cumhuriyet, 27 Aralık 1991, s. 4',
+    excerpt:
+      '20 Ekim 1991 seçimlerinin ardından kurulan DYP-SHP koalisyonunun Kürt sorununda 12 Eylül\'ün yasakçı politikalarına son verme kararlılığı üzerine. Bu ortamda Kürt kökenli politikacılara, bürokratlara, işadamlarına ve aydınlara düşen özel sorumluluk.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Kürt sorunu', 'aydınlar', 'DYP-SHP koalisyonu', 'demokratikleşme', '1991'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1991/kurt-aydinlara-dusen-gorev.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1991/kurt-aydinlara-dusen-gorev/cover.jpg',
+        alt: 'Cumhuriyet, 27 Aralık 1991, s. 4',
+        pageLabel: 's. 4',
+      },
+    ],
+  },
+  {
     slug: 'batiyi-nasil-yargilamali',
     title: "Batı'yı Nasıl Yargılamalı?",
     date: '8 Ocak 1992',
@@ -430,6 +816,25 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
       {
         src: '/archive/clippings/cumhuriyet/1992/ah-su-emperyalizm/cover.jpg',
         alt: 'Cumhuriyet, 15 Şubat 1992, s. 14',
+        pageLabel: 's. 14',
+      },
+    ],
+  },
+  {
+    slug: 'marxi-kesfediyoruz',
+    title: "Marx'ı Keşfediyoruz",
+    date: '19 Şubat 1992',
+    subtitle: 'Cumhuriyet, 19 Şubat 1992, s. 14',
+    excerpt:
+      'Sovyetler Birliği\'nin çöküşünden sonra Batı\'nın muhafazakâr yayın organlarının bile Marx\'ın büyüklüğünü teslim etmesi üzerine. Bilim adamı Marx ile siyaset adamı Marx\'ı birbirinden ayırmayı önerir; Popper\'in ve Jon Elster\'in eleştirileri ışığında hangi teorilerinin savunulabilir kaldığını tartışır.',
+    sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taraması.',
+    tags: ['Karl Marx', 'Marksizm', 'Karl Popper', 'Jon Elster', 'sosyalizm', '1992'],
+    pdfSrc: '/archive/pdf/cumhuriyet/1992/marxi-kesfediyoruz.pdf',
+    pdfPageCount: 1,
+    clippings: [
+      {
+        src: '/archive/clippings/cumhuriyet/1992/marxi-kesfediyoruz/cover.jpg',
+        alt: 'Cumhuriyet, 19 Şubat 1992, s. 14',
         pageLabel: 's. 14',
       },
     ],
