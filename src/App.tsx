@@ -47,6 +47,7 @@ import {
   equivalentPath,
   type PageKey,
 } from './routes'
+import portrait from './assets/portrait.jpg'
 import { parseTurkishDate } from './dateUtils'
 import { foldSearchText } from './textUtils'
 import { chronicleEvents } from './chronicle'
@@ -54,10 +55,15 @@ import { chronicleEvents } from './chronicle'
 /* ------------------------------------------------------------------
    Şahin Alpay — a personal & political legacy site. Bilingual (EN/TR),
    multi-page (each archive category is its own route — see routes.ts).
-   To use a real portrait: drop a photo in src/assets (e.g. portrait.jpg),
-   `import portrait from './assets/portrait.jpg'` and set PORTRAIT below.
+   The hero portrait lives in src/assets; setting PORTRAIT to null falls
+   back to the ŞA monogram, which is what the hero showed before a photo
+   existed.
 ------------------------------------------------------------------ */
-const PORTRAIT: string | null = null
+/* Source: expressioninterrupted.com (P24), the only size that site
+   publishes — 670×310, so the 4/5 frame crops it to roughly 248×310 and
+   upscales from there. Replace this file with a taller, larger original
+   when one is available; nothing else needs to change. */
+const PORTRAIT: string | null = portrait
 
 type ArchiveData = (typeof import('./archive'))['archiveData']
 
