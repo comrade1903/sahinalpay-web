@@ -27,7 +27,7 @@ export const forumAnalysisSeeds: ArchiveItemSeed[] = [
     excerpt:
       'Derginin "Olaylar Karşısında" bölümünün yurtiçi kısmı: Türk-İş\'in Yedinci Genel Kurulu ve "partilerüstü sendikacılık" tutumu, 29 Nisan\'ın sekizinci yılında Devrimciler Güçbirliği, yabancı sermayede monopolleşme eğilimleri, Ordu Yardımlaşma Kurumu\'nun yabancı sermayeyle ortaklıkları ve milli savaş sanayii tartışması.',
     sourceNote:
-      'Forum, sayı 338, 1 Mayıs 1968. Yazı, derginin "İçte" bölümünde Doğu Perinçek ile ortak imzayla yayımlanmıştır; imza başlığın altında bölümün tamamı için verilmiştir. Kapak görüntüsü ve sayfa numaraları sayının tam taramasından alınmıştır.',
+      'Orijinal kaynak: TÜSTAV — Türkiye Sosyal Tarih Araştırma Vakfı, Forum, sayı 338, 1 Mayıs 1968. Yazı, derginin "İçte" bölümünde Doğu Perinçek ile ortak imzayla yayımlanmıştır; imza başlığın altında bölümün tamamı için verilmiştir. Kapak görüntüsü ve sayfa numaraları sayının tam taramasından alınmıştır.',
     url: 'https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/forum/Forum_Say%C4%B1.338_1.May%C4%B1s.1968.pdf',
     pdfSrc:
       'https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/forum/Forum_Say%C4%B1.338_1.May%C4%B1s.1968.pdf',
@@ -57,7 +57,7 @@ export const forumAnalysisSeeds: ArchiveItemSeed[] = [
     excerpt:
       'Derginin "Olaylar Karşısında" bölümünün yurtiçi kısmı: Türkiye Devrimci Güçbirliği\'nin 29 Nisan Mitingi ve güçbirliğinin sınıflararası ittifak olarak yanlış tanımlanma tehlikesi, yaklaşan seçimler ve anti-emperyalist cephe tartışması, Anayasa Mahkemesi\'nin barajlı d\'Hondt sistemini iptal eden 7 Mayıs 1968 kararı, 27 Mayıs ile 1961 Anayasası\'nın değerlendirmesi ve toplumculara düşen görev.',
     sourceNote:
-      'Forum, sayı 339, 15 Mayıs 1968. Yazı, derginin "İçte" bölümünde Doğu Perinçek ile ortak imzayla yayımlanmıştır; imza başlığın altında bölümün tamamı için verilmiştir. Kapak görüntüsü ve sayfa numaraları sayının tam taramasından alınmıştır.',
+      'Orijinal kaynak: TÜSTAV — Türkiye Sosyal Tarih Araştırma Vakfı, Forum, sayı 339, 15 Mayıs 1968. Yazı, derginin "İçte" bölümünde Doğu Perinçek ile ortak imzayla yayımlanmıştır; imza başlığın altında bölümün tamamı için verilmiştir. Kapak görüntüsü ve sayfa numaraları sayının tam taramasından alınmıştır.',
     url: 'https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/forum/Forum_Say%C4%B1.339_15.May%C4%B1s.1968.pdf',
     pdfSrc:
       'https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/forum/Forum_Say%C4%B1.339_15.May%C4%B1s.1968.pdf',
