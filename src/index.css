@@ -1,8 +1,8 @@
 /* ============================================================
    Şahin Alpay — Digital Archive Design System
-   Style: Newsprint and proof red — Literata + Nunito Sans
-   Palette: one neutral axis (newsprint paper, press ink) plus a
-   single mark colour. Two roles, and only two:
+   Style: Lilac paper and proof red — Literata + Nunito Sans
+   Palette: one neutral axis (paper, ink) plus a single mark
+   colour. Two roles, and only two:
 
      INK MARKS THE AFFORDANCE.  Anything you can press or follow is
      ink: button fills, active chips and pages, link text, hover
@@ -15,14 +15,10 @@
      marker. A red button is a defect, not a variant.
 
    Both families sit on the same hue axis, so paper and ink share one
-   light. TRIAL (2026-08-13): the axis is tinted lilac at the owner's
-   request, in place of the neutral green-grey newsprint hue this file
-   otherwise documents throughout — every level kept its original
-   lightness step and every non-neutral colour (the red mark, --error)
-   is untouched. If the trial is dropped, restore the six --paper-*,
-   three --ink-*, --line/--line-strong values (light and dark), the
-   dark --surface and --menu-scrim literals, and the ink-tinted rgba()
-   shadows/hovers to green-grey — see git history on this file.
+   light — a pale lilac (2026-08-13), in place of the neutral
+   green-grey newsprint hue the system launched with. See DESIGN.md's
+   Colors section for the full ramp and the reasoning; full-file diff
+   is in git history if the hue ever needs to move again.
    ============================================================ */
 
 :root {
@@ -71,8 +67,8 @@
   --lettermark-md: 2rem;
   --lettermark-lg: 5rem;
 
-  /* Primitive palette — lilac trial (was newsprint green-grey; see file
-     header). Same lightness ladder, hue turned to a pale violet. */
+  /* Primitive palette — pale lilac (was newsprint green-grey until
+     2026-08-13; see file header). Same lightness ladder throughout. */
   --paper-0: #faf9fb;
   --paper-50: #eeeaf0;
   --paper-100: #e7e0ea;
@@ -184,7 +180,7 @@
 }
 
 /* Dark theme — the same room after hours, not an inverted filter.
-   The paper goes to a green-black rather than a neutral charcoal, so
+   The paper goes to a violet-black rather than a neutral charcoal, so
    the stock is recognisably the same stock; ink becomes the light,
    which is why --action inverts to the pale value and buttons read as
    paper on press-black. The mark lifts to a lighter red because a
@@ -214,7 +210,7 @@
     --surface-raised: var(--paper-100);
 
     --line: #403546;
-    --line-strong: #74637d;
+    --line-strong: #7f6c89;
 
     --accent: var(--mark-600);
     --accent-soft: rgba(226, 121, 108, 0.14);
@@ -264,7 +260,7 @@
   --surface-raised: var(--paper-100);
 
   --line: #403546;
-  --line-strong: #74637d;
+  --line-strong: #7f6c89;
 
   --accent: var(--mark-600);
   --accent-soft: rgba(226, 121, 108, 0.14);
