@@ -2568,7 +2568,25 @@ function LoadedArticlePage({
                   </span>
                 </a>
               ) : (
-                <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
+                /* No PDF behind this one — the clipping image itself is the
+                   only rendering of the scan, so opening it full-size in a
+                   new tab is the only way to read past what the thumbnail
+                   shows. */
+                <a
+                  className="clipping-open"
+                  href={cover.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${content[lang].clippingViewer.openImage} ${content[lang].clippingViewer.openImageHint}`}
+                >
+                  <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
+                  <span className="clipping-open-hint">
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      zoom_in
+                    </span>
+                    {content[lang].clippingViewer.openImage}
+                  </span>
+                </a>
               )}
               <figcaption>
                 {cover.pageLabel ?? item.subtitle}

@@ -133,6 +133,8 @@ export interface Content {
     heading: string
     openPdf: string
     openPdfHint: string
+    openImage: string
+    openImageHint: string
     pagesSuffix: string
   }
 }
@@ -427,6 +429,8 @@ export const content: Record<Lang, Content> = {
       heading: 'Newspaper Clipping',
       openPdf: 'Read the full scan as a PDF',
       openPdfHint: '(opens in a new tab)',
+      openImage: 'Open the full-size clipping',
+      openImageHint: '(opens in a new tab)',
       pagesSuffix: 'pages',
     },
   },
@@ -638,6 +642,8 @@ export const content: Record<Lang, Content> = {
       heading: 'Gazete Kupürü',
       openPdf: 'Tamamını PDF olarak oku',
       openPdfHint: '(yeni sekmede açılır)',
+      openImage: 'Kupürü tam boyutunda aç',
+      openImageHint: '(yeni sekmede açılır)',
       pagesSuffix: 'sayfa',
     },
   },
