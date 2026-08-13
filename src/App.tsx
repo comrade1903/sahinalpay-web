@@ -606,6 +606,24 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
   )
 }
 
+/** His avatar wherever the page already names him in adjacent text — the
+ *  About aside and the article byline. Decorative in both cases, hence the
+ *  empty alt. Falls back to the ŞA lettermark the site carried before a
+ *  photo existed, so clearing PORTRAIT restores the old look everywhere at
+ *  once rather than leaving one lone letterform behind. The frames are
+ *  circles; `object-fit: cover` takes the centre square of the source,
+ *  which lands on head and shoulders. */
+function AuthorAvatar({ className }: { className: string }) {
+  if (PORTRAIT) {
+    return <img className={className} src={PORTRAIT} alt="" aria-hidden="true" />
+  }
+  return (
+    <span className={className} aria-hidden="true">
+      ŞA
+    </span>
+  )
+}
+
 const HUB_ICONS: Record<PageKey, string> = {
   home: 'home',
   about: 'person',
@@ -1015,9 +1033,7 @@ function AboutPage({ lang }: { lang: Lang }) {
       <section className="section section-solo">
         <div className="container bio-grid">
           <Reveal className="bio-aside">
-            <span className="about-avatar" aria-hidden="true">
-              ŞA
-            </span>
+            <AuthorAvatar className="about-avatar" />
             <p className="kicker">{t.about.kicker}</p>
             <h1 className="section-title">{t.about.title}</h1>
             <blockquote className="pullquote">
@@ -2455,9 +2471,7 @@ function LoadedArticlePage({
           <h1 className="section-title">{item.title}</h1>
           {item.subtitle && <p className="article-subtitle">{item.subtitle}</p>}
           <div className="article-byline">
-            <span className="article-byline-avatar" aria-hidden="true">
-              ŞA
-            </span>
+            <AuthorAvatar className="article-byline-avatar" />
             <span className="article-byline-text">
               <span className="article-byline-name">Şahin Alpay</span>
               {item.date && (

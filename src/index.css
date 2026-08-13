@@ -1311,6 +1311,10 @@ main:focus {
   font-weight: 700;
   font-size: var(--lettermark-md);
   margin-bottom: var(--space-3);
+  /* Carries either the portrait or the ŞA lettermark: the type properties
+     above style the letters, this crops the photo to the same circle. The
+     background stays as the ground under a photo that fails to load. */
+  object-fit: cover;
 }
 
 /* One-off: a pull quote is the author's own words lifted out of the
@@ -2260,6 +2264,8 @@ a.archive-row:hover .archive-row-title {
   font-weight: 700;
   font-size: var(--text-body-sm);
   flex-shrink: 0;
+  /* See .about-avatar — same element, two possible contents. */
+  object-fit: cover;
 }
 .article-byline-text {
   font-size: var(--text-ui);
