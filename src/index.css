@@ -14,8 +14,15 @@
      --accent, and it is never the fill of anything bigger than a
      marker. A red button is a defect, not a variant.
 
-   Both families sit on the same hue axis (a faint green-grey, the
-   colour newsprint actually is), so paper and ink share one light.
+   Both families sit on the same hue axis, so paper and ink share one
+   light. TRIAL (2026-08-13): the axis is tinted lilac at the owner's
+   request, in place of the neutral green-grey newsprint hue this file
+   otherwise documents throughout — every level kept its original
+   lightness step and every non-neutral colour (the red mark, --error)
+   is untouched. If the trial is dropped, restore the six --paper-*,
+   three --ink-*, --line/--line-strong values (light and dark), the
+   dark --surface and --menu-scrim literals, and the ink-tinted rgba()
+   shadows/hovers to green-grey — see git history on this file.
    ============================================================ */
 
 :root {
@@ -64,16 +71,17 @@
   --lettermark-md: 2rem;
   --lettermark-lg: 5rem;
 
-  /* Primitive palette — newsprint */
-  --paper-0: #fbfbf9;
-  --paper-50: #eeefeb;
-  --paper-100: #e6e8e2;
-  --paper-200: #dcded7;
-  --paper-300: #cfd2ca;
-  --paper-400: #bec2b8;
-  --ink-900: #191b18;
-  --ink-700: #33362f;
-  --ink-500: #575b52;
+  /* Primitive palette — lilac trial (was newsprint green-grey; see file
+     header). Same lightness ladder, hue turned to a pale violet. */
+  --paper-0: #faf9fb;
+  --paper-50: #eeeaf0;
+  --paper-100: #e7e0ea;
+  --paper-200: #ddd3e2;
+  --paper-300: #d1c4d8;
+  --paper-400: #c1b0ca;
+  --ink-900: #1a171c;
+  --ink-700: #342e37;
+  --ink-500: #59505d;
   --mark-600: #a32b22;
   --mark-700: #7d1f18;
 
@@ -95,8 +103,8 @@
   --ink: var(--ink-900);
   --ink-soft: var(--ink-700);
   --muted: var(--ink-500);
-  --line: #c9ccc4;
-  --line-strong: #787d71;
+  --line: #cbbfd1;
+  --line-strong: #7b6b83;
 
   /* The mark. Rules, underlines, focus, position, plotted data.
      --mark-container is the wash behind marked-up text only; counts
@@ -125,21 +133,21 @@
   --error: #8c1710;
   --on-error: var(--paper-0);
 
-  --shadow-soft: 0 4px 20px rgba(20, 23, 18, 0.08);
-  --shadow-lift: 0 10px 32px -8px rgba(20, 23, 18, 0.2);
+  --shadow-soft: 0 4px 20px rgba(26, 23, 28, 0.08);
+  --shadow-lift: 0 10px 32px -8px rgba(26, 23, 28, 0.2);
 
   /* Component tokens */
   --control-hit-size: 44px;
   --control-border: var(--line-strong);
   --control-bg: transparent;
   --control-fg: var(--ink-soft);
-  --control-bg-hover: rgba(25, 27, 24, 0.06);
+  --control-bg-hover: rgba(26, 23, 28, 0.06);
   --control-border-hover: var(--action);
   --control-fg-hover: var(--ink);
   --control-disabled-opacity: 0.45;
   --menu-bg: var(--surface-lowest);
   --menu-border: var(--line);
-  --menu-scrim: rgba(14, 16, 13, 0.5);
+  --menu-scrim: rgba(15, 12, 17, 0.5);
 
   /* Radius scale */
   --radius: 0.5rem;
@@ -183,20 +191,20 @@
    proof mark has to stay legible against a dark sheet. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper-0: #0e100d;
-    --paper-50: #141613;
-    --paper-100: #20241e;
-    --paper-200: #272c25;
-    --paper-300: #30362e;
-    --paper-400: #3b4238;
-    --ink-900: #e6e8e0;
-    --ink-700: #c3c7bd;
-    --ink-500: #9ba093;
+    --paper-0: #0f0c11;
+    --paper-50: #161018;
+    --paper-100: #231a27;
+    --paper-200: #2b2130;
+    --paper-300: #352a3a;
+    --paper-400: #403445;
+    --ink-900: #e5e1e7;
+    --ink-700: #c4bcc8;
+    --ink-500: #9c91a2;
     --mark-600: #e2796c;
     --mark-700: #f0968c;
 
     --bg: var(--paper-50);
-    --surface: #191c17;
+    --surface: #1d1520;
     --surface-lowest: var(--paper-0);
     --surface-low: var(--paper-100);
     --surface-mid: var(--paper-200);
@@ -205,8 +213,8 @@
     --surface-dim: var(--paper-0);
     --surface-raised: var(--paper-100);
 
-    --line: #3d4239;
-    --line-strong: #727868;
+    --line: #403546;
+    --line-strong: #74637d;
 
     --accent: var(--mark-600);
     --accent-soft: rgba(226, 121, 108, 0.14);
@@ -223,30 +231,30 @@
     --error: #f5a49a;
     --on-error: #45100b;
 
-    --control-bg-hover: rgba(230, 232, 224, 0.09);
+    --control-bg-hover: rgba(229, 225, 231, 0.09);
 
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
-    --menu-scrim: rgba(6, 8, 5, 0.62);
+    --menu-scrim: rgba(7, 5, 8, 0.62);
   }
 }
 
 /* Explicit dark override (theme toggle) — wins in both directions */
 :root[data-theme='dark'] {
-  --paper-0: #0e100d;
-  --paper-50: #141613;
-  --paper-100: #20241e;
-  --paper-200: #272c25;
-  --paper-300: #30362e;
-  --paper-400: #3b4238;
-  --ink-900: #e6e8e0;
-  --ink-700: #c3c7bd;
-  --ink-500: #9ba093;
+  --paper-0: #0f0c11;
+  --paper-50: #161018;
+  --paper-100: #231a27;
+  --paper-200: #2b2130;
+  --paper-300: #352a3a;
+  --paper-400: #403445;
+  --ink-900: #e5e1e7;
+  --ink-700: #c4bcc8;
+  --ink-500: #9c91a2;
   --mark-600: #e2796c;
   --mark-700: #f0968c;
 
   --bg: var(--paper-50);
-  --surface: #191c17;
+  --surface: #1d1520;
   --surface-lowest: var(--paper-0);
   --surface-low: var(--paper-100);
   --surface-mid: var(--paper-200);
@@ -255,8 +263,8 @@
   --surface-dim: var(--paper-0);
   --surface-raised: var(--paper-100);
 
-  --line: #3d4239;
-  --line-strong: #727868;
+  --line: #403546;
+  --line-strong: #74637d;
 
   --accent: var(--mark-600);
   --accent-soft: rgba(226, 121, 108, 0.14);
@@ -274,11 +282,11 @@
   --error: #f5a49a;
   --on-error: #45100b;
 
-  --control-bg-hover: rgba(230, 232, 224, 0.09);
+  --control-bg-hover: rgba(229, 225, 231, 0.09);
 
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
-  --menu-scrim: rgba(6, 8, 5, 0.62);
+  --menu-scrim: rgba(7, 5, 8, 0.62);
 }
 
 /* ---------- Reset ---------- */
@@ -935,12 +943,12 @@ main:focus {
   padding: 1rem;
   font-size: var(--text-label-sm);
   letter-spacing: 0.03em;
-  color: #eef0ea;
+  color: #eeeaf0;
   /* The scrim used to start fully transparent, so over a light placeholder the
      near-white caption sat at 1.06:1 — invisible. It now carries enough weight at
      the top to stay legible on any surface behind it, photo or placeholder.
      Fixed values, not tokens: this sits over an image in both themes. */
-  background: linear-gradient(rgba(14, 16, 13, 0.62), rgba(14, 16, 13, 0.88));
+  background: linear-gradient(rgba(15, 12, 17, 0.62), rgba(15, 12, 17, 0.88));
 }
 
 /* ---------- Bento category grid (home) ---------- */
