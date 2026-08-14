@@ -844,11 +844,18 @@ function CoverageStrip({
   /* Every outlet, in both languages. The strip answers "what does this archive
      hold", and the archive is bilingual — filtering it by UI language would show
      an English reader 411 pieces from one paper instead of the real body of work.
-     Outlet names are proper nouns, so they read the same either way. */
+     Outlet names are proper nouns, so they read the same either way. Academic
+     Articles is the one row that isn't a named outlet — it groups a doctoral
+     dissertation, book chapters and books rather than one publication, so its
+     label is translated like any other UI string instead of staying fixed. */
   const groups = [
     ...archiveData.columns.tr,
     ...archiveData.columns.en,
     ...archiveData.analyses,
+    {
+      outlet: lang === 'tr' ? 'Akademik Makaleler' : 'Academic Articles',
+      items: archiveData.academicArticles,
+    },
   ]
 
   const bands = groups
@@ -2743,16 +2750,35 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   )
 }
 
+/** Academic output (dissertation, book chapters, books) is rarer than a column
+ *  and outranks it: a year that has one always leads with it, then fills the
+ *  remaining slot(s) with a column/analysis piece from the same year if one
+ *  exists. Both picks still come from the same year-seeded shuffle, so the
+ *  choice among several academic or several ordinary pieces stays stable for
+ *  every visitor in a given year, as it did before academic pieces existed. */
 function yearPicks(items: ArchiveItem[], year: number, n: number): ArchiveItem[] {
-  const pool = items.filter((i) => i.hasBody)
-  const src = pool.length ? pool : items
   const random = mulberry32(year)
-  const shuffled = [...src]
-  for (let i = shuffled.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const out = [...arr]
+    for (let i = out.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(random() * (i + 1))
+      ;[out[i], out[j]] = [out[j], out[i]]
+    }
+    return out
   }
-  return shuffled.slice(0, n)
+
+  const academic = items.filter((i) => i.outletKey === 'academic')
+  const rest = items.filter((i) => i.outletKey !== 'academic')
+
+  const picks: ArchiveItem[] = academic.length ? [shuffle(academic)[0]] : []
+
+  const pool = rest.filter((i) => i.hasBody)
+  const src = pool.length ? pool : rest
+  for (const item of shuffle(src)) {
+    if (picks.length >= n) break
+    picks.push(item)
+  }
+  return picks
 }
 
 function ChroniclePage({ lang }: { lang: Lang }) {
@@ -2780,6 +2806,7 @@ function LoadedChronicle({
   const items: ArchiveItem[] = [
     ...archiveData.columns[lang].flatMap((o) => o.items),
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
+    ...(lang === 'tr' ? archiveData.academicArticles : []),
   ]
 
   const byYear = new Map<number, ArchiveItem[]>()

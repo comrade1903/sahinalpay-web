@@ -34,7 +34,11 @@ const MONTHS: Record<string, number> = {
 }
 
 /** Parses a Turkish ("7 Kasım 2017") or English ("7 November 2017") date
- *  string into a sortable timestamp. Returns null when it doesn't match. */
+ *  string into a sortable timestamp. Returns null when it doesn't match.
+ *  Also accepts a bare "Ay Yıl" / "Month Year" (e.g. "Aralık 1968", the
+ *  granularity TÜSTAV periodicals are dated at) and a bare year, both
+ *  anchored to the 1st of the month so they still sort correctly against
+ *  full dates in the same year. */
 export function parseTurkishDate(dateStr: string): number | null {
   const parts = dateStr.trim().toLowerCase().split(/\s+/)
   if (parts.length === 3) {
@@ -43,6 +47,13 @@ export function parseTurkishDate(dateStr: string): number | null {
     const year = parseInt(parts[2], 10)
     if (!Number.isNaN(day) && month !== undefined && !Number.isNaN(year)) {
       return Date.UTC(year, month, day)
+    }
+  }
+  if (parts.length === 2) {
+    const month = MONTHS[parts[0]]
+    const year = parseInt(parts[1], 10)
+    if (month !== undefined && !Number.isNaN(year)) {
+      return Date.UTC(year, month, 1)
     }
   }
   if (parts.length === 1) {
