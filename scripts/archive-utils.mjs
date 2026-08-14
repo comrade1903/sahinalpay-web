@@ -76,6 +76,64 @@ function extractArray(source) {
   return ''
 }
 
+/** Generic bracket-matched extraction of the value following `marker:` inside
+ *  an object's source text — used to pull out a nested array like `clippings:
+ *  [...]` the same way extractArray pulls the top-level seed array. */
+function extractBracketedField(objectSource, marker, openChar, closeChar) {
+  const markerIndex = objectSource.indexOf(`${marker}:`)
+  if (markerIndex < 0) return ''
+  const start = objectSource.indexOf(openChar, markerIndex)
+  if (start < 0) return ''
+
+  let depth = 0
+  let quote = null
+  let escaped = false
+
+  for (let index = start; index < objectSource.length; index += 1) {
+    const char = objectSource[index]
+    if (quote) {
+      if (escaped) {
+        escaped = false
+        continue
+      }
+      if (char === '\\') {
+        escaped = true
+        continue
+      }
+      if (char === quote) quote = null
+      continue
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char
+      continue
+    }
+    if (char === openChar) depth += 1
+    if (char === closeChar) {
+      depth -= 1
+      if (depth === 0) return objectSource.slice(start + 1, index)
+    }
+  }
+  return ''
+}
+
+function booleanField(objectSource, field) {
+  return new RegExp(`${field}:\\s*true\\b`).test(objectSource)
+}
+
+/** Mirrors archiveLink()/itemHasSourceKind() in src/App.tsx: an entry only
+ *  gets a real internal reader page when it has body text, a scan clipping
+ *  (a 'photo'-kind clipping is a lead image, not a readable scan), or a bare
+ *  imageSrc. Anything else — url-only entries included — 404s if visited by
+ *  its own /slug route instead of following the list row's external link, so
+ *  the sitemap must not offer that route at all. */
+function hasInternalPage(objectSource) {
+  if (booleanField(objectSource, 'hasBody')) return true
+  if (stringFields(objectSource, 'imageSrc').length > 0) return true
+  const clippingsSource = extractBracketedField(objectSource, 'clippings', '[', ']')
+  if (!clippingsSource) return false
+  return extractObjects(clippingsSource).some((clip) => stringField(clip, 'kind') !== 'photo')
+}
+
 function extractObjects(arraySource) {
   const objects = []
   let start = -1
@@ -176,6 +234,7 @@ export function readArchiveEntries() {
         category,
         outlet: outletForFile(filePath),
         filePath,
+        hasInternalPage: hasInternalPage(objectSource),
         assetPaths: [
           ...stringFields(objectSource, 'src'),
           ...stringFields(objectSource, 'thumbSrc'),

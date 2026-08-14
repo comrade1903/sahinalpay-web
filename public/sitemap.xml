@@ -109,42 +109,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/doktora-tezi-stockholm-1981</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/turkar-i-stockholm-1980</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/dsp-shp-nerede-birlesiyor-1986</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/2020-yilinda-turkiye-1991</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/journalists-cautious-democrats-1993</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/akademik-makaleler/two-faces-of-the-press-2010</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://sahinalpay.net/tr/analizler/aydinlik-devrimci-teorik-egitim</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
@@ -4425,24 +4389,6 @@
   <url>
     <loc>https://sahinalpay.net/tr/kose-yazilari/irakta-istikrara-katkimiz</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/soylesiler/bir-hikayem-var-medyascope-2024</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/soylesiler/bir-hikayem-var-acik-radyo-2024</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sahinalpay.net/tr/soylesiler/hikayemin-sonu-medyascope-2025</loc>
-    <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

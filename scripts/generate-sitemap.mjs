@@ -30,12 +30,20 @@ const staticRoutes = [
   ['/tr/cerez-politikasi', 'yearly', '0.3'],
 ]
 
-const archiveRoutes = readArchiveEntries().map((entry) => ({
-  route: routeForEntry(entry, entry.lang),
-  changefreq: 'yearly',
-  priority: '0.6',
-  lastmod: isoMtime(entry.filePath),
-}))
+/* Entries with neither body text, a scan clipping, nor an imageSrc have no
+   internal reader page (src/App.tsx's LoadedArticlePage renders "not found"
+   for one even though it exists in the data) — the list row instead points
+   straight at the entry's own url. Sitemapping such a slug would offer
+   crawlers and direct visitors a URL that 404s, so it's excluded here rather
+   than left for App.tsx's routing to disagree with what this file claims. */
+const archiveRoutes = readArchiveEntries()
+  .filter((entry) => entry.hasInternalPage)
+  .map((entry) => ({
+    route: routeForEntry(entry, entry.lang),
+    changefreq: 'yearly',
+    priority: '0.6',
+    lastmod: isoMtime(entry.filePath),
+  }))
 
 const normalizedStaticRoutes = staticRoutes.map(([route, changefreq, priority]) => ({
   route,
