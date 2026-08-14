@@ -341,7 +341,8 @@ export const content: Record<Lang, Content> = {
     academicArticles: {
       kicker: 'Academic Articles',
       title: 'Academic Articles',
-      intro: 'Academic articles and research publications.',
+      intro:
+        'The doctoral dissertation, journal articles, book chapters and books.',
       emptyLabel: 'No items yet. Links will be added here.',
       items: [],
     },
@@ -555,7 +556,7 @@ export const content: Record<Lang, Content> = {
     academicArticles: {
       kicker: 'Akademik Makaleler',
       title: 'Akademik Makaleler',
-      intro: 'Akademik dergilerde yayımlanmış makaleler.',
+      intro: 'Doktora tezi, akademik makaleler, kitap bölümleri ve kitaplar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
       items: [],
     },
