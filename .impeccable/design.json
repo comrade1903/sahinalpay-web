@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-08T06:25:17Z",
+  "generatedAt": "2026-08-13T13:38:36Z",
   "title": "Design System: Şahin Alpay Archive",
   "extensions": {
     "colorMeta": {
@@ -58,188 +58,188 @@
       "ink-900": {
         "role": "secondary",
         "displayName": "Press Black",
-        "canonical": "oklch(21.9% 0.0065 135.0)",
-        "hex": "#191b18",
-        "darkHex": "#e6e8e0",
+        "canonical": "oklch(21.0% 0.0107 312.0)",
+        "hex": "#1a171c",
+        "darkHex": "#e5e1e7",
         "tonalRamp": [
-          "#0a0b0a",
-          "#242623",
-          "#414340",
-          "#60625e",
-          "#81837f",
-          "#a3a6a2",
-          "#c8cac7",
-          "#edefec"
+          "#0d0a0e",
+          "#272429",
+          "#444147",
+          "#646066",
+          "#858188",
+          "#a8a4ab",
+          "#cdc9d0",
+          "#f1ecf4"
         ]
       },
       "ink-700": {
         "role": "secondary",
         "displayName": "Press Black Soft",
-        "canonical": "oklch(32.8% 0.0127 126.1)",
-        "hex": "#33362f",
-        "darkHex": "#c3c7bd",
+        "canonical": "oklch(31.1% 0.0179 314.5)",
+        "hex": "#342e37",
+        "darkHex": "#c4bcc8",
         "tonalRamp": [
-          "#0a0c09",
-          "#242621",
-          "#40433d",
-          "#5f635b",
-          "#80847c",
-          "#a3a69f",
-          "#c7cac3",
-          "#edefea"
+          "#0e0910",
+          "#28232b",
+          "#464049",
+          "#665f69",
+          "#87808b",
+          "#aaa3ae",
+          "#cfc7d3",
+          "#f3ebf7"
         ]
       },
       "ink-500": {
         "role": "neutral",
         "displayName": "Muted Ink",
-        "canonical": "oklch(46.5% 0.0151 126.6)",
-        "hex": "#575b52",
-        "darkHex": "#9ba093",
+        "canonical": "oklch(44.5% 0.0238 315.5)",
+        "hex": "#59505d",
+        "darkHex": "#9c91a2",
         "tonalRamp": [
-          "#0a0c08",
-          "#232620",
-          "#40433c",
-          "#5f635a",
-          "#80847b",
-          "#a3a79e",
-          "#c7cbc3",
-          "#edf0e9"
+          "#0f0812",
+          "#2a222d",
+          "#473f4b",
+          "#675e6b",
+          "#897f8d",
+          "#aca2b1",
+          "#d1c6d5",
+          "#f5eafa"
         ]
       },
       "paper-0": {
         "role": "neutral",
         "displayName": "Lifted Sheet",
-        "canonical": "oklch(98.8% 0.0026 106.4)",
-        "hex": "#fbfbf9",
-        "darkHex": "#0e100d",
+        "canonical": "oklch(98.3% 0.0028 308.4)",
+        "hex": "#faf9fb",
+        "darkHex": "#0f0c11",
         "tonalRamp": [
-          "#0b0b0a",
-          "#252524",
-          "#424241",
-          "#616160",
-          "#828281",
-          "#a5a5a3",
-          "#c9c9c8",
-          "#eeeeed"
+          "#0b0b0c",
+          "#262526",
+          "#434243",
+          "#626163",
+          "#838384",
+          "#a6a6a7",
+          "#cbcacc",
+          "#efeef0"
         ]
       },
       "paper-50": {
         "role": "neutral",
-        "displayName": "Newsprint",
-        "canonical": "oklch(95.0% 0.0054 117.9)",
-        "hex": "#eeefeb",
-        "darkHex": "#141613",
+        "displayName": "Lilac Paper",
+        "canonical": "oklch(94.2% 0.0090 314.8)",
+        "hex": "#eeeaf0",
+        "darkHex": "#161018",
         "tonalRamp": [
-          "#0b0b0a",
-          "#252523",
-          "#42423f",
-          "#61625e",
-          "#82837f",
-          "#a5a5a2",
-          "#c9c9c6",
-          "#eeefec"
+          "#0d0a0e",
+          "#272428",
+          "#444146",
+          "#646065",
+          "#858287",
+          "#a8a4aa",
+          "#cdc9cf",
+          "#f1edf3"
         ]
       },
       "paper-100": {
         "role": "neutral",
-        "displayName": "Newsprint Low",
-        "canonical": "oklch(92.8% 0.0083 121.6)",
-        "hex": "#e6e8e2",
-        "darkHex": "#20241e",
+        "displayName": "Lilac Paper Low",
+        "canonical": "oklch(91.5% 0.0153 316.0)",
+        "hex": "#e7e0ea",
+        "darkHex": "#231a27",
         "tonalRamp": [
-          "#0b0b09",
-          "#242622",
-          "#41433e",
-          "#60625d",
-          "#81837e",
-          "#a4a6a1",
-          "#c8cac5",
-          "#eeefeb"
+          "#0e0910",
+          "#28232a",
+          "#464048",
+          "#655f68",
+          "#87808a",
+          "#aaa3ad",
+          "#cec8d1",
+          "#f3ecf6"
         ]
       },
       "paper-200": {
         "role": "neutral",
-        "displayName": "Newsprint Mid",
-        "canonical": "oklch(89.7% 0.0097 119.6)",
-        "hex": "#dcded7",
-        "darkHex": "#272c25",
+        "displayName": "Lilac Paper Mid",
+        "canonical": "oklch(87.9% 0.0230 314.7)",
+        "hex": "#ddd3e2",
+        "darkHex": "#2b2130",
         "tonalRamp": [
-          "#0b0b09",
-          "#242622",
-          "#41433d",
-          "#60625c",
-          "#81837d",
-          "#a4a6a0",
-          "#c8cac4",
-          "#eeefeb"
+          "#0f0812",
+          "#29222d",
+          "#473f4b",
+          "#675e6b",
+          "#887f8d",
+          "#aca2b0",
+          "#d0c6d5",
+          "#f4eaf9"
         ]
       },
       "paper-300": {
         "role": "neutral",
-        "displayName": "Newsprint High",
-        "canonical": "oklch(85.9% 0.0114 123.5)",
-        "hex": "#cfd2ca",
-        "darkHex": "#30362e",
+        "displayName": "Lilac Paper High",
+        "canonical": "oklch(83.7% 0.0309 314.0)",
+        "hex": "#d1c4d8",
+        "darkHex": "#352a3a",
         "tonalRamp": [
-          "#0b0c09",
-          "#242621",
-          "#41433d",
-          "#60625b",
-          "#81847c",
-          "#a4a69f",
-          "#c8cac4",
-          "#edefeb"
+          "#100714",
+          "#2b2130",
+          "#483e4e",
+          "#685d6e",
+          "#8a7e90",
+          "#ada1b4",
+          "#d2c5d9",
+          "#f6e9fd"
         ]
       },
       "paper-400": {
         "role": "neutral",
-        "displayName": "Newsprint Highest",
-        "canonical": "oklch(80.8% 0.0145 124.6)",
-        "hex": "#bec2b8",
-        "darkHex": "#3b4238",
+        "displayName": "Lilac Paper Highest",
+        "canonical": "oklch(78.0% 0.0409 314.1)",
+        "hex": "#c1b0ca",
+        "darkHex": "#403445",
         "tonalRamp": [
-          "#0a0c08",
-          "#242620",
-          "#40433c",
-          "#5f635a",
-          "#80847b",
-          "#a3a79e",
-          "#c7cac3",
-          "#edefea"
+          "#110617",
+          "#2c1f33",
+          "#4a3c52",
+          "#6a5b72",
+          "#8c7c95",
+          "#b09fb9",
+          "#d4c3de",
+          "#f9e7ff"
         ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "oklch(84.1% 0.0114 123.5)",
-        "hex": "#c9ccc4",
-        "darkHex": "#3d4239",
+        "canonical": "oklch(82.0% 0.0281 314.7)",
+        "hex": "#cbbfd1",
+        "darkHex": "#403546",
         "tonalRamp": [
-          "#0b0c09",
-          "#242621",
-          "#41433d",
-          "#60625b",
-          "#81847c",
-          "#a4a69f",
-          "#c8cac4",
-          "#edefeb"
+          "#100813",
+          "#2a212f",
+          "#483e4d",
+          "#685d6d",
+          "#8a7e8f",
+          "#ada1b3",
+          "#d1c5d8",
+          "#f6e9fc"
         ]
       },
       "line-strong": {
         "role": "neutral",
         "displayName": "Control Boundary",
-        "canonical": "oklch(58.2% 0.0189 125.5)",
-        "hex": "#787d71",
-        "darkHex": "#727868",
+        "canonical": "oklch(55.1% 0.0412 314.5)",
+        "hex": "#7b6b83",
+        "darkHex": "#7f6c89",
         "tonalRamp": [
-          "#0a0c07",
-          "#23261f",
-          "#40443a",
-          "#5f6358",
-          "#7f8478",
-          "#a2a79b",
-          "#c7cbc1",
-          "#edf0e8"
+          "#110617",
+          "#2d1f33",
+          "#4b3c52",
+          "#6b5b72",
+          "#8d7c95",
+          "#b09fb9",
+          "#d5c3de",
+          "#f9e7ff"
         ]
       },
       "error": {
@@ -347,13 +347,13 @@
     "shadows": [
       {
         "name": "soft",
-        "value": "0 4px 20px rgba(20, 23, 18, 0.08)",
+        "value": "0 4px 20px rgba(26, 23, 28, 0.08)",
         "darkValue": "0 4px 20px rgba(0, 0, 0, 0.4)",
         "purpose": "Hover response on cards and list surfaces; resting treatment for genuinely separate objects (filter panels, timeline cards, clipping frames). The shadow colour sits on the neutral hue axis, not a blue-grey."
       },
       {
         "name": "lift",
-        "value": "0 10px 32px -8px rgba(20, 23, 18, 0.2)",
+        "value": "0 10px 32px -8px rgba(26, 23, 28, 0.2)",
         "darkValue": "0 12px 36px -8px rgba(0, 0, 0, 0.6)",
         "purpose": "True overlays only: skip link, drawers, dialogs, the clipping viewer."
       }
@@ -441,7 +441,7 @@
       "refersTo": "button-primary",
       "description": "Ink on paper. The affordance colour is ink, not a hue — a red button is a defect.",
       "html": "<button class=\"ds-btn ds-btn-primary\">Köşe yazılarını okuyun</button>",
-      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-primary { background: var(--action, #191b18); color: var(--on-action, #fbfbf9); border-color: var(--action, #191b18); } .ds-btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-soft, 0 4px 20px rgba(20,23,18,0.08)); background: var(--action-hover, #33362f); border-color: var(--action-hover, #33362f); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
+      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-primary { background: var(--action, #1a171c); color: var(--on-action, #faf9fb); border-color: var(--action, #1a171c); } .ds-btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-soft, 0 4px 20px rgba(26,23,28,0.08)); background: var(--action-hover, #342e37); border-color: var(--action-hover, #342e37); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
     },
     {
       "name": "Ghost Button",
@@ -449,7 +449,7 @@
       "refersTo": "button-ghost",
       "description": "A hairline stroke that firms to ink on hover. No wash of colour, no second hue.",
       "html": "<button class=\"ds-btn ds-btn-ghost\">Şahin Alpay kimdir?</button>",
-      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost { color: var(--ink, #191b18); border-color: var(--line-strong, #787d71); background: transparent; } .ds-btn-ghost:hover { border-color: var(--action, #191b18); background: var(--control-bg-hover, rgba(25,27,24,0.06)); color: var(--ink, #191b18); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
+      "css": ".ds-btn { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 700; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; min-height: 44px; border-radius: var(--radius-lg, 1rem); cursor: pointer; border: 1px solid transparent; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost { color: var(--ink, #1a171c); border-color: var(--line-strong, #7b6b83); background: transparent; } .ds-btn-ghost:hover { border-color: var(--action, #1a171c); background: var(--control-bg-hover, rgba(26,23,28,0.06)); color: var(--ink, #1a171c); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
     },
     {
       "name": "Filter Chip",
@@ -457,7 +457,7 @@
       "refersTo": "chip",
       "description": "Selection is an affordance, so an active chip fills with ink. Focus is a position, so the ring is red.",
       "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip\">Cumhuriyet</button><button class=\"ds-chip\" data-active=\"true\">Zaman</button><button class=\"ds-chip\">P24</button></div>",
-      "css": ".ds-chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-chip { appearance: none; border: 1px solid var(--line, #c9ccc4); background: transparent; color: var(--ink-soft, #33362f); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; min-height: 44px; padding: 0.5rem 0.9rem; border-radius: var(--radius-full, 9999px); cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; } .ds-chip:hover { border-color: var(--action, #191b18); color: var(--ink, #191b18); } .ds-chip:focus-visible { border-color: var(--accent, #a32b22); outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; } .ds-chip[data-active=\"true\"] { background: var(--action, #191b18); border-color: var(--action, #191b18); color: var(--on-action, #fbfbf9); }"
+      "css": ".ds-chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-chip { appearance: none; border: 1px solid var(--line, #cbbfd1); background: transparent; color: var(--ink-soft, #342e37); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; min-height: 44px; padding: 0.5rem 0.9rem; border-radius: var(--radius-full, 9999px); cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; } .ds-chip:hover { border-color: var(--action, #1a171c); color: var(--ink, #1a171c); } .ds-chip:focus-visible { border-color: var(--accent, #a32b22); outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; } .ds-chip[data-active=\"true\"] { background: var(--action, #1a171c); border-color: var(--action, #1a171c); color: var(--on-action, #faf9fb); }"
     },
     {
       "name": "Search Field",
@@ -465,7 +465,7 @@
       "refersTo": "search-field",
       "description": "Pill radius, lifted paper fill, leading Material Symbol at the icon scale. Focus takes the global red ring.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M20 20l-3.5-3.5\"/></svg></span><input class=\"ds-field-input\" type=\"search\" placeholder=\"Yazı veya konu ara…\" /></label>",
-      "css": ".ds-field { display: flex; align-items: center; gap: 0.6rem; padding: 0 0.9rem; min-height: 44px; background: var(--surface-lowest, #fbfbf9); border: 1px solid var(--line, #c9ccc4); border-radius: var(--radius-full, 9999px); } .ds-field-icon { display: grid; place-items: center; color: var(--muted, #575b52); } .ds-field-input { flex: 1; border: none; outline: none; background: transparent; min-height: 44px; font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); color: var(--ink, #191b18); } .ds-field-input::placeholder { color: var(--muted, #575b52); } .ds-field:focus-within { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
+      "css": ".ds-field { display: flex; align-items: center; gap: 0.6rem; padding: 0 0.9rem; min-height: 44px; background: var(--surface-lowest, #faf9fb); border: 1px solid var(--line, #cbbfd1); border-radius: var(--radius-full, 9999px); } .ds-field-icon { display: grid; place-items: center; color: var(--muted, #59505d); } .ds-field-input { flex: 1; border: none; outline: none; background: transparent; min-height: 44px; font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); color: var(--ink, #1a171c); } .ds-field-input::placeholder { color: var(--muted, #59505d); } .ds-field:focus-within { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
     },
     {
       "name": "Hub Card",
@@ -473,7 +473,7 @@
       "refersTo": "card-hub",
       "description": "Tone carries state, not decoration: a section holding material is a lifted sheet, a section still pending is flush with the page and dashed.",
       "html": "<div class=\"ds-hub-grid\"><a class=\"ds-hub-card\" data-state=\"filled\" href=\"#\"><div class=\"ds-hub-top\"><span class=\"ds-hub-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"36\" height=\"36\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 8h8M8 12h8M8 16h5\"/></svg></span><span class=\"ds-hub-count\">664 yazı</span></div><div><h3 class=\"ds-hub-title\">Köşe Yazıları</h3><p class=\"ds-hub-desc\">Gazete yazıları arşivi, yayın bazında düzenlenmiştir.</p></div></a><a class=\"ds-hub-card\" data-state=\"pending\" href=\"#\"><div class=\"ds-hub-top\"><span class=\"ds-hub-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"36\" height=\"36\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 5h16v11H8l-4 4z\"/></svg></span><span class=\"ds-hub-empty\">Yakında</span></div><div><h3 class=\"ds-hub-title\">Söyleşiler</h3><p class=\"ds-hub-desc\">Kendisiyle yapılan söyleşi ve röportajlar.</p></div></a></div>",
-      "css": ".ds-hub-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } .ds-hub-card { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; min-height: 220px; padding: 1.5rem; text-decoration: none; border: 1px solid color-mix(in srgb, var(--line, #c9ccc4) 55%, transparent); border-radius: var(--radius-lg, 1rem); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-hub-card[data-state=\"filled\"] { background: var(--surface-raised, #fbfbf9); } .ds-hub-card[data-state=\"pending\"] { background: transparent; border-style: dashed; border-color: var(--line, #c9ccc4); } .ds-hub-card:hover { transform: translateY(-3px); border-color: var(--action, #191b18); box-shadow: var(--shadow-soft, 0 4px 20px rgba(20,23,18,0.08)); } .ds-hub-top { display: flex; align-items: flex-start; justify-content: space-between; } .ds-hub-icon { color: var(--ink-soft, #33362f); } .ds-hub-count { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; color: var(--ink, #191b18); background: var(--surface-mid, #dcded7); padding: 0.25rem 0.7rem; border-radius: var(--radius-full, 9999px); } .ds-hub-empty { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 700; font-style: italic; color: var(--ink-soft, #33362f); } .ds-hub-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title, 1.3rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.4rem; color: var(--ink, #191b18); } .ds-hub-desc { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); line-height: 1.6; color: var(--ink-soft, #33362f); margin: 0; }"
+      "css": ".ds-hub-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } .ds-hub-card { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; min-height: 220px; padding: 1.5rem; text-decoration: none; border: 1px solid color-mix(in srgb, var(--line, #cbbfd1) 55%, transparent); border-radius: var(--radius-lg, 1rem); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-hub-card[data-state=\"filled\"] { background: var(--surface-raised, #faf9fb); } .ds-hub-card[data-state=\"pending\"] { background: transparent; border-style: dashed; border-color: var(--line, #cbbfd1); } .ds-hub-card:hover { transform: translateY(-3px); border-color: var(--action, #1a171c); box-shadow: var(--shadow-soft, 0 4px 20px rgba(26,23,28,0.08)); } .ds-hub-top { display: flex; align-items: flex-start; justify-content: space-between; } .ds-hub-icon { color: var(--ink-soft, #342e37); } .ds-hub-count { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; color: var(--ink, #1a171c); background: var(--surface-mid, #ddd3e2); padding: 0.25rem 0.7rem; border-radius: var(--radius-full, 9999px); } .ds-hub-empty { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 700; font-style: italic; color: var(--ink-soft, #342e37); } .ds-hub-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title, 1.3rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.4rem; color: var(--ink, #1a171c); } .ds-hub-desc { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); line-height: 1.6; color: var(--ink-soft, #342e37); margin: 0; }"
     },
     {
       "name": "Archive Row",
@@ -481,7 +481,7 @@
       "refersTo": "archive-row",
       "description": "The archive's densest surface. Two badges share one shape but not one signal: the medium badge is on nearly every row and stays muted, the clipping badge is rare and takes the mark.",
       "html": "<div class=\"ds-rows\"><a class=\"ds-row\" href=\"#\"><div class=\"ds-row-meta\"><span class=\"ds-row-date\">3 Mayıs 1970</span><span class=\"ds-row-outlet\">İşçi Köylü</span><span class=\"ds-row-badge\">Gazete</span><span class=\"ds-row-badge ds-row-badge-scan\">Kupür</span></div><div class=\"ds-row-body\"><h3 class=\"ds-row-title\">1 Mayıs Bayramı Halkımıza Kutlu Olsun</h3><p class=\"ds-row-excerpt\">1 Mayıs İşçi Bayramı vesilesiyle kaleme alınmış, işçi sınıfının uluslararası…</p></div></a></div>",
-      "css": ".ds-rows { display: flex; flex-direction: column; } .ds-row { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line, #c9ccc4); text-decoration: none; } .ds-row-meta { flex: 0 0 9rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; } .ds-row-date { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; color: var(--muted, #575b52); font-feature-settings: 'onum' 1; } .ds-row-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink, #191b18); } .ds-row-badge { display: inline-flex; border: 1px solid var(--line, #c9ccc4); border-radius: var(--radius-full, 9999px); padding: 0.12rem 0.45rem; color: var(--muted, #575b52); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-row-badge-scan { border-color: color-mix(in srgb, var(--accent, #a32b22) 55%, var(--line, #c9ccc4)); color: var(--mark-700, #7d1f18); } .ds-row-body { flex: 1; min-width: 0; } .ds-row-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title-sm, 1.05rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.3rem; color: var(--accent-ink, #191b18); } .ds-row-excerpt { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-xs, 0.85rem); line-height: 1.5; color: var(--muted, #575b52); margin: 0.3rem 0 0; } .ds-row:hover .ds-row-title { text-decoration: underline; text-decoration-color: var(--accent, #a32b22); text-underline-offset: 0.2em; }"
+      "css": ".ds-rows { display: flex; flex-direction: column; } .ds-row { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line, #cbbfd1); text-decoration: none; } .ds-row-meta { flex: 0 0 9rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; } .ds-row-date { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; color: var(--muted, #59505d); font-feature-settings: 'onum' 1; } .ds-row-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink, #1a171c); } .ds-row-badge { display: inline-flex; border: 1px solid var(--line, #cbbfd1); border-radius: var(--radius-full, 9999px); padding: 0.12rem 0.45rem; color: var(--muted, #59505d); font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-row-badge-scan { border-color: color-mix(in srgb, var(--accent, #a32b22) 55%, var(--line, #cbbfd1)); color: var(--mark-700, #7d1f18); } .ds-row-body { flex: 1; min-width: 0; } .ds-row-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-title-sm, 1.05rem); font-weight: 700; line-height: 1.35; margin: 0 0 0.3rem; color: var(--accent-ink, #1a171c); } .ds-row-excerpt { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-xs, 0.85rem); line-height: 1.5; color: var(--muted, #59505d); margin: 0.3rem 0 0; } .ds-row:hover .ds-row-title { text-decoration: underline; text-decoration-color: var(--accent, #a32b22); text-underline-offset: 0.2em; }"
     },
     {
       "name": "Kicker",
@@ -489,7 +489,7 @@
       "refersTo": "kicker",
       "description": "The 24px red rule before a section label. The rule is the mark; the text stays muted ink so red never lands on every heading.",
       "html": "<p class=\"ds-kicker\">Keşfet</p><h2 class=\"ds-section-title\">Tüm Bölümler</h2>",
-      "css": ".ds-kicker { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted, #575b52); display: inline-flex; align-items: center; gap: 0.6rem; margin: 0 0 1.5rem; } .ds-kicker::before { content: \"\"; width: 24px; height: 2px; border-radius: var(--radius-full, 9999px); background: var(--tertiary, #a32b22); } .ds-section-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.12; max-width: 26ch; margin: 0; color: var(--ink, #191b18); }"
+      "css": ".ds-kicker { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted, #59505d); display: inline-flex; align-items: center; gap: 0.6rem; margin: 0 0 1.5rem; } .ds-kicker::before { content: \"\"; width: 24px; height: 2px; border-radius: var(--radius-full, 9999px); background: var(--tertiary, #a32b22); } .ds-section-title { font-family: var(--headline, 'Literata', Georgia, serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.12; max-width: 26ch; margin: 0; color: var(--ink, #1a171c); }"
     },
     {
       "name": "Text Link",
@@ -497,7 +497,7 @@
       "refersTo": "text-link",
       "description": "Full-contrast ink with a red underline — the proofreader's mark. Never colour alone, and never a coloured word.",
       "html": "<p class=\"ds-prose\">Anayasa Mahkemesi ve <a class=\"ds-link\" href=\"#\">Avrupa İnsan Hakları Mahkemesi</a> kararları.</p>",
-      "css": ".ds-prose { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); line-height: 1.72; color: var(--ink-soft, #33362f); margin: 0; } .ds-link { color: var(--accent-ink, #191b18); font-weight: 700; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent, #a32b22) 40%, transparent); transition: border-color 0.2s ease; } .ds-link:hover { border-color: var(--accent, #a32b22); } .ds-link:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
+      "css": ".ds-prose { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-body-sm, 0.95rem); line-height: 1.72; color: var(--ink-soft, #342e37); margin: 0; } .ds-link { color: var(--accent-ink, #1a171c); font-weight: 700; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent, #a32b22) 40%, transparent); transition: border-color 0.2s ease; } .ds-link:hover { border-color: var(--accent, #a32b22); } .ds-link:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
     },
     {
       "name": "Article Body",
@@ -505,7 +505,7 @@
       "refersTo": "article-body",
       "description": "The system's signature surface: red drop cap, old-style figures, a 68ch measure, and a red end mark saying nothing was truncated.",
       "html": "<div class=\"ds-article\"><p>1972'nin Kasım ayıydı. Türkiye'de askeri yönetim tarafından aranıyordum. Rahmetli ağabeyimin yüklü bir para karşılığı sahibinden satın aldığı pasaport ile ülkeden kaçmayı başarmıştım.</p><p>İlk günlerden itibaren, imkan bulursam Ankara Üniversitesi'nde başladığım doktora çalışmasına devam etmeyi aklıma koymuştum.</p></div>",
-      "css": ".ds-article { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-reading, 1.05rem); line-height: 1.72; color: var(--ink-soft, #33362f); max-width: 68ch; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; } .ds-article p { margin: 0 0 1.5rem; } .ds-article p:first-of-type::first-letter { float: left; font-size: 3.4em; line-height: 0.82; font-weight: 700; color: var(--accent, #a32b22); padding-right: 0.08em; } .ds-article p:last-of-type::after { content: \" ▪\"; color: var(--accent, #a32b22); }"
+      "css": ".ds-article { font-family: var(--headline, 'Literata', Georgia, serif); font-size: var(--text-reading, 1.05rem); line-height: 1.72; color: var(--ink-soft, #342e37); max-width: 68ch; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; } .ds-article p { margin: 0 0 1.5rem; } .ds-article p:first-of-type::first-letter { float: left; font-size: 3.4em; line-height: 0.82; font-weight: 700; color: var(--accent, #a32b22); padding-right: 0.08em; } .ds-article p:last-of-type::after { content: \" ▪\"; color: var(--accent, #a32b22); }"
     },
     {
       "name": "Clipping Frame",
@@ -513,7 +513,7 @@
       "refersTo": "clipping-frame",
       "description": "Scanned material gets a physical container: a lifted mat, the scan on an inset well, and a caption carrying the OCR caveat.",
       "html": "<figure class=\"ds-clip\"><div class=\"ds-clip-well\"><svg viewBox=\"0 0 120 80\" width=\"100%\" height=\"80\" role=\"img\" aria-label=\"Sayfa taraması\"><rect width=\"120\" height=\"80\" fill=\"currentColor\" opacity=\"0.12\"/><path d=\"M12 18h96M12 28h96M12 38h72M12 52h96M12 62h60\" stroke=\"currentColor\" stroke-width=\"3\" opacity=\"0.35\"/></svg></div><figcaption class=\"ds-clip-cap\">İşçi Köylü, 3 Mayıs 1970, s. 4 — TÜSTAV Süreli Yayınlar Arşivi</figcaption></figure>",
-      "css": ".ds-clip { margin: 0; padding: 1rem; background: var(--surface-lowest, #fbfbf9); border-radius: var(--radius-lg, 1rem); box-shadow: var(--shadow-soft, 0 4px 20px rgba(20,23,18,0.08)); } .ds-clip-well { background: var(--surface-mid, #dcded7); border-radius: var(--radius, 0.5rem); padding: 0.5rem; color: var(--ink, #191b18); } .ds-clip-cap { margin-top: 0.75rem; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; color: var(--muted, #575b52); }"
+      "css": ".ds-clip { margin: 0; padding: 1rem; background: var(--surface-lowest, #faf9fb); border-radius: var(--radius-lg, 1rem); box-shadow: var(--shadow-soft, 0 4px 20px rgba(26,23,28,0.08)); } .ds-clip-well { background: var(--surface-mid, #ddd3e2); border-radius: var(--radius, 0.5rem); padding: 0.5rem; color: var(--ink, #1a171c); } .ds-clip-cap { margin-top: 0.75rem; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 700; color: var(--muted, #59505d); }"
     },
     {
       "name": "Coverage Strip Row",
@@ -521,7 +521,7 @@
       "refersTo": "coverage-strip",
       "description": "One row per outlet on a shared year axis. The band is the mark plotting the record; the gaps between bands are the honest shape of what has been recovered.",
       "html": "<div class=\"ds-cov\"><span class=\"ds-cov-outlet\">Zaman</span><span class=\"ds-cov-track\"><span class=\"ds-cov-band\" style=\"left:38%;right:22%\"></span></span><span class=\"ds-cov-range\">2002–2016</span></div>",
-      "css": ".ds-cov { display: grid; grid-template-columns: 7.5rem 1fr 5.5rem; align-items: center; gap: 1rem; } .ds-cov-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft, #33362f); } .ds-cov-track { position: relative; display: block; height: 0.55rem; background: var(--surface-mid, #dcded7); border-radius: var(--radius-full, 9999px); } .ds-cov-band { position: absolute; top: 0; bottom: 0; background: var(--accent, #a32b22); border-radius: var(--radius-full, 9999px); } .ds-cov-range { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); color: var(--muted, #575b52); text-align: right; font-feature-settings: 'onum' 1; }"
+      "css": ".ds-cov { display: grid; grid-template-columns: 7.5rem 1fr 5.5rem; align-items: center; gap: 1rem; } .ds-cov-outlet { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label, 0.78rem); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft, #342e37); } .ds-cov-track { position: relative; display: block; height: 0.55rem; background: var(--surface-mid, #ddd3e2); border-radius: var(--radius-full, 9999px); } .ds-cov-band { position: absolute; top: 0; bottom: 0; background: var(--accent, #a32b22); border-radius: var(--radius-full, 9999px); } .ds-cov-range { font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-label-sm, 0.72rem); color: var(--muted, #59505d); text-align: right; font-feature-settings: 'onum' 1; }"
     },
     {
       "name": "Navigation",
@@ -529,14 +529,14 @@
       "refersTo": "navigation",
       "description": "Position is the mark's job: the current page keeps ink text and a red rule. The rule is drawn full width and revealed with scaleX, never animated from width 0.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\">Kimdir?</a><a href=\"#\" aria-current=\"page\">Köşe Yazıları</a><a href=\"#\">Kitaplar</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 1.5rem; } .ds-nav a { position: relative; padding-block: 0.4rem; text-decoration: none; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 600; color: var(--ink-soft, #33362f); transition: color 0.2s ease; } .ds-nav a::after { content: \"\"; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; border-radius: var(--radius-full, 9999px); background: var(--accent, #a32b22); transform: scaleX(0); transform-origin: left center; transition: transform 0.25s ease; } .ds-nav a:hover { color: var(--ink, #191b18); } .ds-nav a:hover::after, .ds-nav a:focus-visible::after { transform: scaleX(1); } .ds-nav a[aria-current=\"page\"] { color: var(--accent-ink, #191b18); } .ds-nav a[aria-current=\"page\"]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
+      "css": ".ds-nav { display: flex; gap: 1.5rem; } .ds-nav a { position: relative; padding-block: 0.4rem; text-decoration: none; font-family: var(--label, 'Nunito Sans', system-ui, sans-serif); font-size: var(--text-ui, 0.85rem); font-weight: 600; color: var(--ink-soft, #342e37); transition: color 0.2s ease; } .ds-nav a::after { content: \"\"; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; border-radius: var(--radius-full, 9999px); background: var(--accent, #a32b22); transform: scaleX(0); transform-origin: left center; transition: transform 0.25s ease; } .ds-nav a:hover { color: var(--ink, #1a171c); } .ds-nav a:hover::after, .ds-nav a:focus-visible::after { transform: scaleX(1); } .ds-nav a[aria-current=\"page\"] { color: var(--accent-ink, #1a171c); } .ds-nav a[aria-current=\"page\"]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid var(--accent, #a32b22); outline-offset: 3px; }"
     }
   ],
   "narrative": {
     "northStar": "The Reading Room",
-    "overview": "A quiet, well-lit room where a body of writing is kept and read. Not a monument and\nnot a newsfeed — a room with good light, newsprint on the tables, press ink on the\nnewsprint, and an editor's red pencil for the marks that say where things are. The\ninterface is the room, not the exhibit: it holds the material at a comfortable height\nand then gets out of the way.\n\nThe stock is deliberate. Paper and ink sit on **one hue axis** — the faint green-grey\nthat newsprint actually is — rather than a warm paper against a cool grey text, which\nis what the palette used to do and what made it read as two systems bolted together.\nThere are exactly two families and one mark. Not cream, not parchment, and no third\nmetallic hue: this is a working newspaperman's archive, not a heritage brochure.\n\nThe register is composed and unhurried. The material is serious and recent enough to\nbe painful, so the design states things and lets them carry their own weight; it never\nraises its voice to fill a silence. Two rejections are binding. This is a **record, not\na memorial** — Şahin Alpay is alive, so no mourning palette, no black-and-white\ngravestone gravity, no valedictory hush. And there is **no victim language**: the\nimprisonment is documented, never dramatized, so no bar motifs, no alarm reds, no\ncampaign-poster urgency. Facts stand calmly.\n\nDensity is generous throughout. The readership skews older, so scale, contrast, and\nhit size are load-bearing structure rather than preference: 18px base text, a 1.72\nreading line-height, a 44px floor under every control. Nothing here is small, and\nnothing is fast.",
+    "overview": "A quiet, well-lit room where a body of writing is kept and read. Not a monument and\nnot a newsfeed — a room with good light, lilac paper on the tables, press ink on the\npaper, and an editor's red pencil for the marks that say where things are. The\ninterface is the room, not the exhibit: it holds the material at a comfortable height\nand then gets out of the way.\n\nThe stock is deliberate. Paper and ink sit on **one hue axis** — a pale lilac, tried in\n2026-08 in place of the neutral green-grey the system launched with, per a request to\ntry the archive in a violet stock — rather than a warm paper against a cool grey text,\nwhich is what the palette used to do before that and what made it read as two systems\nbolted together. There are exactly two families and one mark. Not cream, not parchment,\nand no third metallic hue: this is a working archive, not a heritage brochure.\n\nThe register is composed and unhurried. The material is serious and recent enough to\nbe painful, so the design states things and lets them carry their own weight; it never\nraises its voice to fill a silence. Two rejections are binding. This is a **record, not\na memorial** — Şahin Alpay is alive, so no mourning palette, no black-and-white\ngravestone gravity, no valedictory hush. And there is **no victim language**: the\nimprisonment is documented, never dramatized, so no bar motifs, no alarm reds, no\ncampaign-poster urgency. Facts stand calmly.\n\nDensity is generous throughout. The readership skews older, so scale, contrast, and\nhit size are load-bearing structure rather than preference: 18px base text, a 1.72\nreading line-height, a 44px floor under every control. Nothing here is small, and\nnothing is fast.",
     "keyCharacteristics": [
-      "Newsprint-and-ink palette on one hue axis; the page is never pure white, never pure black",
+      "Paper-and-ink palette on one hue axis, currently a pale lilac; the page is never pure white, never pure black",
       "Two fonts with two jobs: Literata reads, Nunito Sans operates",
       "Reading text carries old-style figures — dates sit on the baseline like print",
       "Flat at rest; depth comes from tonal layering and hairlines, shadow only answers a state",
@@ -562,7 +562,7 @@
       },
       {
         "name": "The Paper Floor Rule",
-        "body": "The page is never pure white and text is never pure black. `paper-0` is reserved for surfaces that have lifted off the page; the page itself is always `paper-50`. In dark theme the same rule inverts: the page is `#141613`, and the darkest value (`#0e100d`) belongs to inset surfaces, not the background.",
+        "body": "The page is never pure white and text is never pure black. `paper-0` is reserved for surfaces that have lifted off the page; the page itself is always `paper-50`. In dark theme the same rule inverts: the page is `#161018`, and the darkest value (`#0f0c11`) belongs to inset surfaces, not the background.",
         "section": "colors"
       },
       {
@@ -593,12 +593,12 @@
       {
         "name": "The Flat-At-Rest Rule",
         "body": "Surfaces are flat until something happens. Shadow appears on hover, on focus, or because an element has genuinely left the page plane. A card that carries a shadow while idle is over-dressed.",
-        "section": "elevation-depth"
+        "section": "elevation"
       },
       {
         "name": "The Hairline-First Rule",
         "body": "When two regions need separating, try a `1px solid var(--line)` first, a tonal step second, and a shadow only if the element actually overlays content.",
-        "section": "elevation-depth"
+        "section": "elevation"
       },
       {
         "name": "The Pill-for-Status Rule",
@@ -607,25 +607,25 @@
       }
     ],
     "dos": [
-      "**Do** use Literata for anything the visitor reads and Nunito Sans for anything the",
-      "**Do** build depth with the paper ladder and 1px hairlines first; reach for `--shadow-soft`",
-      "**Do** keep every interactive control at `44px` minimum height, including chips and",
-      "**Do** reach for an existing semantic class (`.section`, `.container`, `.kicker`,",
-      "**Do** put every animation behind `useReducedMotion` or the global reduced-motion",
-      "**Do** pass `behavior: 'instant'` on any programmatic scroll reset — `html` sets",
-      "**Do** check every visual change in both themes and at a mobile width; dark is a",
-      "**Do** let empty archive sections read as pending record — a muted italic count and"
+      "**Do** use Literata for anything the visitor reads and Nunito Sans for anything the visitor operates.",
+      "**Do** build depth with the paper ladder and 1px hairlines first; reach for `--shadow-soft` only as a hover response or for a genuinely separate object.",
+      "**Do** keep every interactive control at `44px` minimum height, including chips and icon buttons whose type is much smaller.",
+      "**Do** reach for an existing semantic class (`.section`, `.container`, `.kicker`, `.btn btn-primary`, `.filter-card`, `.chip`, `.archive-row`) before writing new CSS, and for an existing custom property before writing a literal value.",
+      "**Do** put every animation behind `useReducedMotion` or the global reduced-motion block, and give reduced-motion users the end state rather than nothing.",
+      "**Do** pass `behavior: 'instant'` on any programmatic scroll reset — `html` sets `scroll-behavior: smooth` site-wide, so a bare `scrollTo` silently animates.",
+      "**Do** check every visual change in both themes and at a mobile width; dark is a designed theme, not a filter.",
+      "**Do** let empty archive sections read as pending record — a muted italic count and the same card size as a populated one — never as an error or a broken state."
     ],
     "donts": [
-      "**Don't** make red clickable. It marks, rules off, underlines, and plots; ink carries",
-      "**Don't** introduce a third hue. Paper and ink share one axis and the mark is the only",
-      "**Don't** use pure `#ffffff` for a page background or `#000000` for text. The page is",
+      "**Don't** make red clickable. It marks, rules off, underlines, and plots; ink carries every action. And don't spend it on something that appears on every row — rarity is what gives the mark its force.",
+      "**Don't** introduce a third hue. Paper and ink share one axis and the mark is the only colour; when a screen seems to need another, use a tonal surface step or a red mark.",
+      "**Don't** use pure `#ffffff` for a page background or `#000000` for text. The page is `paper-50`; text is `ink-900`/`ink-700`. Nothing in the palette is fully desaturated.",
       "**Don't** widen reading text past `68ch`, or set prose below the 18px base.",
-      "**Don't** add a third font family, an icon component library, or a CSS framework.",
-      "**Don't** write utility classes. This system is semantic; Tailwind was removed",
+      "**Don't** add a third font family, an icon component library, or a CSS framework. Icons are Material Symbols ligatures; styling is the hand-written system in `src/index.css`.",
+      "**Don't** write utility classes. This system is semantic; Tailwind was removed deliberately and is not coming back.",
       "**Don't** give a card a resting shadow, or a chip a rectangular corner.",
-      "**Don't** signal an action with colour alone — links carry an underline, active nav",
-      "**Don't** dramatize the imprisonment visually: no bars, no alarm reds, no"
+      "**Don't** signal an action with colour alone — links carry an underline, active nav carries a rule, active chips carry a fill.",
+      "**Don't** dramatize the imprisonment visually: no bars, no alarm reds, no campaign-poster typography. And don't reach for memorial styling — this is a record of a living person."
     ]
   }
 }
