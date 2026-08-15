@@ -2,20 +2,20 @@
 name: Şahin Alpay Archive
 description: A reading room for a life in print — lilac paper, press ink, and the editor's red.
 colors:
-  paper-0: "#faf9fb"
-  paper-50: "#eeeaf0"
-  paper-100: "#e7e0ea"
-  paper-200: "#ddd3e2"
-  paper-300: "#d1c4d8"
-  paper-400: "#c1b0ca"
+  paper-0: "#f5f3f7"
+  paper-50: "#e1d8e9"
+  paper-100: "#d7cae2"
+  paper-200: "#cab9da"
+  paper-300: "#bba5cf"
+  paper-400: "#a98dc4"
   ink-900: "#1a171c"
-  ink-700: "#342e37"
-  ink-500: "#59505d"
+  ink-700: "#332e37"
+  ink-500: "#57505d"
   mark-600: "#a32b22"
   mark-700: "#7d1f18"
   mark-container: "#f0dcd8"
-  line: "#cbbfd1"
-  line-strong: "#7b6b83"
+  line: "#bdb0c9"
+  line-strong: "#6c5c7a"
   error: "#8c1710"
 typography:
   display:
@@ -188,12 +188,13 @@ paper, and an editor's red pencil for the marks that say where things are. The
 interface is the room, not the exhibit: it holds the material at a comfortable height
 and then gets out of the way.
 
-The stock is deliberate. Paper and ink sit on **one hue axis** — a pale lilac, tried in
-2026-08 in place of the neutral green-grey the system launched with, per a request to
-try the archive in a violet stock — rather than a warm paper against a cool grey text,
-which is what the palette used to do before that and what made it read as two systems
-bolted together. There are exactly two families and one mark. Not cream, not parchment,
-and no third metallic hue: this is a working archive, not a heritage brochure.
+The stock is deliberate. Paper and ink sit on **one hue axis** — a deeper violet-lilac,
+set on 2026-08-15 one ladder step darker and a few degrees closer to true violet (271°)
+than the pale lilac tried on 2026-08-13, itself in place of the neutral green-grey the
+system launched with — rather than a warm paper against a cool grey text, which is what
+the palette used to do before that and what made it read as two systems bolted together.
+There are exactly two families and one mark. Not cream, not parchment, and no third
+metallic hue: this is a working archive, not a heritage brochure.
 
 The register is composed and unhurried. The material is serious and recent enough to
 be painful, so the design states things and lets them carry their own weight; it never
@@ -209,8 +210,8 @@ reading line-height, a 44px floor under every control. Nothing here is small, an
 nothing is fast.
 
 **Key Characteristics:**
-- Paper-and-ink palette on one hue axis, currently a pale lilac; the page is never pure
-  white, never pure black
+- Paper-and-ink palette on one hue axis, currently a deeper violet-lilac; the page is
+  never pure white, never pure black
 - Two fonts with two jobs: Literata reads, Nunito Sans operates
 - Reading text carries old-style figures — dates sit on the baseline like print
 - Flat at rest; depth comes from tonal layering and hairlines, shadow only answers a state
@@ -220,8 +221,8 @@ nothing is fast.
 
 ## Colors
 
-Two neutral families on a single hue axis — paper and ink, currently a pale lilac — plus
-one mark colour. Every semantic token in the system resolves to one of these, and both
+Two neutral families on a single hue axis — paper and ink, currently a deeper
+violet-lilac — plus one mark colour. Every semantic token in the system resolves to one of these, and both
 themes are composed rather than one being a filter over the other.
 
 The system has exactly **two roles**, and the whole palette follows from them:
@@ -261,34 +262,35 @@ the most legible link treatment available to an older readership.
 
 ### Neutral
 
-- **Paper 50** (`#eeeaf0`): The page itself. A pale lilac, not a cream.
-- **Paper 0** (`#faf9fb`): The lightest sheet, reserved for surfaces lifted off the page:
+- **Paper 50** (`#e1d8e9`): The page itself. A deeper violet-lilac, not a cream — one
+  ladder step darker and more saturated than the pale lilac this replaced on 2026-08-15,
+  per a request to push the stock closer to true violet.
+- **Paper 0** (`#f5f3f7`): The lightest sheet, reserved for surfaces lifted off the page:
   cards holding material, input fields, clipping frames, menus.
-- **Paper 100–400** (`#e7e0ea` → `#c1b0ca`): The tonal ladder. This is how the system
+- **Paper 100–400** (`#d7cae2` → `#a98dc4`): The tonal ladder. This is how the system
   builds depth — a card is a step along the ladder, not a shadow.
 - **Ink 900** (`#1a171c`): Headings, reading text, and every affordance. Never `#000`.
-- **Ink 700** (`#342e37`): Default body and UI text — the colour `<body>` actually sets.
-- **Ink 500** (`#59505d`): Muted metadata — captions, placeholders, source notes, dates,
+- **Ink 700** (`#332e37`): Default body and UI text — the colour `<body>` actually sets.
+- **Ink 500** (`#57505d`): Muted metadata — captions, placeholders, source notes, dates,
   kickers, the medium badge, and the large section icons.
-- **Line** (`#cbbfd1`) / **Line Strong** (`#7b6b83` light, `#7f6c89` dark): The hairline
+- **Line** (`#bdb0c9`) / **Line Strong** (`#6c5c7a` light, `#7b6c89` dark): The hairline
   vocabulary. Section dividers, list-row rules, card borders, ghost-button strokes. Line
   Strong is bound to `--control-border` and draws the visible boundary of real controls,
   so it is held at 3:1 against **every surface a control can sit on**, not just the page
-  — 4.13 / 3.80 / 3.39 in light and 3.93 / 3.53 / 3.23 in dark, against the page, the low
+  — 4.41 / 3.89 / 3.32 in light and 3.91 / 3.52 / 3.25 in dark, against the page, the low
   surface and the mid surface (WCAG 1.4.11). Measuring only against the page is how this
-  token shipped under-contrast once already, and the first lilac pass did it again in
-  dark theme (2.81:1 against the mid surface) until this was checked and Line Strong dark
-  was raised from `#74637d` to `#7f6c89`. Plain Line is decorative separation and is
-  exempt.
+  token shipped under-contrast once already, and the deeper violet-lilac pass of
+  2026-08-15 was checked against all three surfaces before shipping for exactly that
+  reason. Plain Line is decorative separation and is exempt.
 - **Error** (`#8c1710`, dark `#f5a49a`): Form and validation only. Deeper than the mark so
   the two do not read as the same signal — and because red is no longer exclusive to
   failure, an error state must always carry an icon and a worded message as well.
 
 ### Dark
 
-Dark is composed, not inverted. The paper goes to a violet-black (`#161018`) rather than a
+Dark is composed, not inverted. The paper goes to a violet-black (`#140f19`) rather than a
 neutral charcoal, so the stock is recognisably the same stock; ink becomes the light
-(`#e5e1e7`); the mark lifts to `#e2796c` because a proof mark has to stay legible against
+(`#e4e1e7`); the mark lifts to `#e2796c` because a proof mark has to stay legible against
 a dark sheet.
 
 `--surface-raised` exists because of this: it is the *lifted* sheet and must move toward
@@ -315,7 +317,7 @@ seems to need another colour, the answer is a tonal surface step or a red mark.
 
 **The Paper Floor Rule.** The page is never pure white and text is never pure black.
 `paper-0` is reserved for surfaces that have lifted off the page; the page itself is
-always `paper-50`. In dark theme the same rule inverts: the page is `#161018`, and the
+always `paper-50`. In dark theme the same rule inverts: the page is `#140f19`, and the
 darkest value (`#0f0c11`) belongs to inset surfaces, not the background.
 
 ## Typography

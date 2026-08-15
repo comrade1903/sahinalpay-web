@@ -15,10 +15,11 @@
      marker. A red button is a defect, not a variant.
 
    Both families sit on the same hue axis, so paper and ink share one
-   light — a pale lilac (2026-08-13), in place of the neutral
-   green-grey newsprint hue the system launched with. See DESIGN.md's
-   Colors section for the full ramp and the reasoning; full-file diff
-   is in git history if the hue ever needs to move again.
+   light — a deeper violet-lilac (2026-08-15), one ladder step darker
+   and richer than the pale lilac tried on 2026-08-13, itself in place
+   of the neutral green-grey newsprint hue the system launched with.
+   See DESIGN.md's Colors section for the full ramp and the reasoning;
+   full-file diff is in git history if the hue ever needs to move again.
    ============================================================ */
 
 :root {
@@ -67,17 +68,19 @@
   --lettermark-md: 2rem;
   --lettermark-lg: 5rem;
 
-  /* Primitive palette — pale lilac (was newsprint green-grey until
-     2026-08-13; see file header). Same lightness ladder throughout. */
-  --paper-0: #faf9fb;
-  --paper-50: #eeeaf0;
-  --paper-100: #e7e0ea;
-  --paper-200: #ddd3e2;
-  --paper-300: #d1c4d8;
-  --paper-400: #c1b0ca;
+  /* Primitive palette — deeper violet-lilac (was a paler lilac until
+     2026-08-15, and newsprint green-grey before that; see file header).
+     Same lightness ladder throughout, shifted one step darker with the
+     hue pulled a few degrees toward true violet (271°, was ~280°). */
+  --paper-0: #f5f3f7;
+  --paper-50: #e1d8e9;
+  --paper-100: #d7cae2;
+  --paper-200: #cab9da;
+  --paper-300: #bba5cf;
+  --paper-400: #a98dc4;
   --ink-900: #1a171c;
-  --ink-700: #342e37;
-  --ink-500: #59505d;
+  --ink-700: #332e37;
+  --ink-500: #57505d;
   --mark-600: #a32b22;
   --mark-700: #7d1f18;
 
@@ -99,8 +102,8 @@
   --ink: var(--ink-900);
   --ink-soft: var(--ink-700);
   --muted: var(--ink-500);
-  --line: #cbbfd1;
-  --line-strong: #7b6b83;
+  --line: #bdb0c9;
+  --line-strong: #6c5c7a;
 
   /* The mark. Rules, underlines, focus, position, plotted data.
      --mark-container is the wash behind marked-up text only; counts
@@ -188,19 +191,19 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     --paper-0: #0f0c11;
-    --paper-50: #161018;
-    --paper-100: #231a27;
-    --paper-200: #2b2130;
-    --paper-300: #352a3a;
-    --paper-400: #403445;
-    --ink-900: #e5e1e7;
-    --ink-700: #c4bcc8;
-    --ink-500: #9c91a2;
+    --paper-50: #140f19;
+    --paper-100: #211928;
+    --paper-200: #291f32;
+    --paper-300: #32273d;
+    --paper-400: #3d3049;
+    --ink-900: #e4e1e7;
+    --ink-700: #c2bcc8;
+    --ink-500: #9a91a2;
     --mark-600: #e2796c;
     --mark-700: #f0968c;
 
     --bg: var(--paper-50);
-    --surface: #1d1520;
+    --surface: #1b1421;
     --surface-lowest: var(--paper-0);
     --surface-low: var(--paper-100);
     --surface-mid: var(--paper-200);
@@ -209,8 +212,8 @@
     --surface-dim: var(--paper-0);
     --surface-raised: var(--paper-100);
 
-    --line: #403546;
-    --line-strong: #7f6c89;
+    --line: #3e3546;
+    --line-strong: #7b6c89;
 
     --accent: var(--mark-600);
     --accent-soft: rgba(226, 121, 108, 0.14);
@@ -227,7 +230,7 @@
     --error: #f5a49a;
     --on-error: #45100b;
 
-    --control-bg-hover: rgba(229, 225, 231, 0.09);
+    --control-bg-hover: rgba(228, 225, 231, 0.09);
 
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
@@ -238,19 +241,19 @@
 /* Explicit dark override (theme toggle) — wins in both directions */
 :root[data-theme='dark'] {
   --paper-0: #0f0c11;
-  --paper-50: #161018;
-  --paper-100: #231a27;
-  --paper-200: #2b2130;
-  --paper-300: #352a3a;
-  --paper-400: #403445;
-  --ink-900: #e5e1e7;
-  --ink-700: #c4bcc8;
-  --ink-500: #9c91a2;
+  --paper-50: #140f19;
+  --paper-100: #211928;
+  --paper-200: #291f32;
+  --paper-300: #32273d;
+  --paper-400: #3d3049;
+  --ink-900: #e4e1e7;
+  --ink-700: #c2bcc8;
+  --ink-500: #9a91a2;
   --mark-600: #e2796c;
   --mark-700: #f0968c;
 
   --bg: var(--paper-50);
-  --surface: #1d1520;
+  --surface: #1b1421;
   --surface-lowest: var(--paper-0);
   --surface-low: var(--paper-100);
   --surface-mid: var(--paper-200);
@@ -259,8 +262,8 @@
   --surface-dim: var(--paper-0);
   --surface-raised: var(--paper-100);
 
-  --line: #403546;
-  --line-strong: #7f6c89;
+  --line: #3e3546;
+  --line-strong: #7b6c89;
 
   --accent: var(--mark-600);
   --accent-soft: rgba(226, 121, 108, 0.14);
@@ -278,7 +281,7 @@
   --error: #f5a49a;
   --on-error: #45100b;
 
-  --control-bg-hover: rgba(229, 225, 231, 0.09);
+  --control-bg-hover: rgba(228, 225, 231, 0.09);
 
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lift: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
