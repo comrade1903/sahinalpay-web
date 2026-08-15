@@ -1143,6 +1143,13 @@ function mediumLabel(medium: 'print' | 'online', lang: Lang): string {
   return lang === 'tr' ? 'E-yayın' : 'Online'
 }
 
+/** User-facing label for whether a piece is his own column or an interview
+    he conducted (see ArchivePieceKind). */
+function pieceKindLabel(pieceKind: 'column' | 'interview', lang: Lang): string {
+  if (pieceKind === 'interview') return lang === 'tr' ? 'Söyleşi' : 'Interview'
+  return lang === 'tr' ? 'Köşe Yazısı' : 'Column'
+}
+
 function ArchiveRow({
   item,
   outlet,
@@ -1161,6 +1168,9 @@ function ArchiveRow({
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
         {item.medium && (
           <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
+        )}
+        {item.pieceKind && (
+          <span className="archive-row-badge">{pieceKindLabel(item.pieceKind, lang)}</span>
         )}
         {itemScanClippings(item).length ? (
           <span className="archive-row-badge archive-row-badge-scan">
@@ -2492,6 +2502,9 @@ function LoadedArticlePage({
                 ? ` (${mediumLabel(item.medium, lang).toLocaleLowerCase(lang)})`
                 : ''}
             </span>
+            {item.pieceKind && (
+              <span className="archive-row-badge">{pieceKindLabel(item.pieceKind, lang)}</span>
+            )}
           </div>
           {item.tags && item.tags.length > 0 && (
             <ul className="tag-list">

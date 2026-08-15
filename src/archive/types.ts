@@ -16,6 +16,12 @@ export interface ArchiveClipping {
     online-only outlet (news site / blog platform such as P24). */
 export type ArchiveMedium = 'print' | 'online'
 
+/** Whether a piece is Şahin Alpay's own column or an interview he conducted
+    with someone else. Distinct from ArchiveCategory (the archive section a
+    piece lives in) — a column and an interview can share one section, e.g.
+    Milliyet's columns list holds both. */
+export type ArchivePieceKind = 'column' | 'interview'
+
 export interface ArchiveItemSeed {
   id?: string
   slug?: string
@@ -42,6 +48,9 @@ export interface ArchiveItemSeed {
   pdfSrc?: string
   /** Page count of `pdfSrc`, rendered next to the cover. */
   pdfPageCount?: number
+  /** Column vs. interview, for outlets whose columns section mixes both
+      (see ArchivePieceKind). Omitted where the distinction doesn't apply. */
+  pieceKind?: ArchivePieceKind
 }
 
 export interface ArchiveItem extends ArchiveItemSeed {
