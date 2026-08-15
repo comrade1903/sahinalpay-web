@@ -1126,4 +1126,166 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'kurtleri-turk-yapmak',
+    title: 'Kürtleri Türk yapmak',
+    date: '8 Ocak 1998',
+    subtitle: 'Milliyet, 3. Göz, 8 Ocak 1998, s. 18',
+    excerpt:
+      "MGK ve Genelkurmay brifinglerinde Kürtleri 'aslında Türk' saydırma yaklaşımının hâlâ sürdüğünü aktarır; Kürt kimliğini tanımadan onların sadakatini kazanmanın mümkün olmadığını, tersine Kürtleri Türklüğe bağlamanın yolunun da Kürt kimliğini tanımaktan geçtiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Kürt kimliği', 'MGK', 'PKK', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/kurtleri-turk-yapmak/cover.png',
+        alt: 'Milliyet, 8 Ocak 1998, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'refah-karari',
+    title: 'Refah kararı',
+    date: '20 Ocak 1998',
+    subtitle: 'Milliyet, 3. Göz, 20 Ocak 1998, s. 22',
+    excerpt:
+      "Anayasa Mahkemesi'nin RP'yi kapatma kararını değerlendirir; RP'nin temsil ettiği siyasi akımın demokrasiden dışlanamayacağını, partinin toplu cezalandırılmasının hukuken tartışmalı ve siyaseten sakıncalı olduğunu, asıl gereken adımın Siyasi Partiler Kanunu'nun özgürlükçü demokrasiye uygun hale getirilmesi olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Refah Partisi', 'Anayasa Mahkemesi', 'parti kapatma', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/refah-karari/cover.png',
+        alt: 'Milliyet, 20 Ocak 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'tsknin-siyasi-ozerkligi',
+    title: "TSK'nın 'siyasi özerkliği'",
+    date: '10 Mart 1998',
+    subtitle: 'Milliyet, 3. Göz, 10 Mart 1998, s. 22',
+    excerpt:
+      "Princeton'da verdiği dersten yola çıkarak, Türkiye'de askerlerin doğrudan yönetime el koymasa da Ümit Cizre Sakallıoğlu'nun tabiriyle geniş bir 'siyasi özerkliğe' sahip olduğunu; 28 Şubat sürecini örnek göstererek bunun ancak liberal demokrasinin temel ilkeleri üzerinde mutabakatla değişebileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['TSK', 'asker-sivil ilişkileri', '28 Şubat', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/tsknin-siyasi-ozerkligi/cover.png',
+        alt: 'Milliyet, 10 Mart 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'din-ve-bilim',
+    title: 'Din ve bilim',
+    date: '8 Ağustos 1998',
+    subtitle: 'Milliyet, 3. Göz, 8 Ağustos 1998, s. 20',
+    excerpt:
+      "Evrim teorisi tartışmaları vesilesiyle, bilimin ve dinin aynı köke sahip ama zamanla alanlarını ayırmış iki farklı bilgi biçimi olduğunu; bilimin akla, dinin vicdana hitap ettiğini, her birinin diğerinin alanına saygı gösterdiği ölçüde bağdaşabildiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['din', 'bilim felsefesi', 'evrim teorisi', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/din-ve-bilim/cover.png',
+        alt: 'Milliyet, 8 Ağustos 1998, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'devletin-ceteleri',
+    title: 'Devletin çeteleri',
+    date: '27 Ağustos 1998',
+    subtitle: 'Milliyet, 3. Göz, 27 Ağustos 1998, s. 20',
+    excerpt:
+      "Alaaddin Çakıcı'nın Fransa'da yakalanmasıyla açılan 'Susurluk skandalının ikinci perdesi'ni değerlendirir; devlet için adam öldürmesi istenen çetelerin sonunda kişisel çıkarları için suç işlemeye başladığını, devletin bu 'canavarı' kendi doğurduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Susurluk', 'Alaaddin Çakıcı', 'derin devlet', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/devletin-ceteleri/cover.png',
+        alt: 'Milliyet, 27 Ağustos 1998, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'milliyet-onemlidir',
+    title: 'Milliyet önemlidir',
+    date: '15 Ekim 1998',
+    subtitle: 'Milliyet, 3. Göz, 15 Ekim 1998, s. 22',
+    excerpt:
+      "Basın özgürlüğünün ve bağımsız medyanın demokrasinin 'olmazsa olmaz' koşullarından biri olduğunu anlatır; Türk medyasının eksik ve kusurlarına rağmen Türkiye'de demokrasinin belki en önemli gücü olduğunu, Milliyet gazetesinin de bu kurumların başında geldiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['basın özgürlüğü', 'medya', 'Milliyet', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/milliyet-onemlidir/cover.png',
+        alt: 'Milliyet, 15 Ekim 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'muasir-medeniyet',
+    title: "'Muasır medeniyet'",
+    date: '29 Ekim 1998',
+    subtitle: 'Milliyet, 3. Göz, 29 Ekim 1998, s. 22',
+    excerpt:
+      "Cumhuriyet'in 75. yıldönümünde, 1950'de İsmet İnönü öncülüğünde çok partili demokrasiye geçişi Türkiye'nin en büyük başarısı sayar; bugünkü siyasi sıkıntıların demokrasiden değil demokrasinin bütün kurum ve kurallarıyla uygulanamayışından kaynaklandığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Cumhuriyet', 'demokratikleşme', 'Atatürk', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/muasir-medeniyet/cover.png',
+        alt: 'Milliyet, 29 Ekim 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'gazeteci',
+    title: 'Gazeteci',
+    date: '3 Kasım 1998',
+    subtitle: 'Milliyet, 3. Göz, 3 Kasım 1998, s. 20',
+    excerpt:
+      "Antakya'daki bir AB-Türkiye gazeteciler konferansında bir Yunanlı meslektaşının resmi görüşleri tekrarlamasından yola çıkarak, bir gazetecinin görevinin resmi söylemi papağan gibi tekrarlamak değil, sorunlara objektif yaklaşıp çözüme ufuk açmak olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['gazetecilik', 'Türk-Yunan ilişkileri', 'AB', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/gazeteci/cover.png',
+        alt: 'Milliyet, 3 Kasım 1998, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'kurt-sorunu-ve-pkk',
+    title: 'Kürt sorunu ve PKK',
+    date: '3 Aralık 1998',
+    subtitle: 'Milliyet, 3. Göz, 3 Aralık 1998, s. 22',
+    excerpt:
+      "Okurlardan sık gelen sorulara cevap verir: Türkiye'nin liberal demokrasiye hazır olduğunu, Kürt sorununun PKK'dan ayrı bir gerçeklik olduğunu ve Kürt sorunundan söz etmenin PKK'ya meşruiyet kazandırmadığını, PKK'nın Kürtleri temsil etmediğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Kürt sorunu', 'PKK', 'demokrasi', '3. Göz', '1998'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/kurt-sorunu-ve-pkk/cover.png',
+        alt: 'Milliyet, 3 Aralık 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
 ]
