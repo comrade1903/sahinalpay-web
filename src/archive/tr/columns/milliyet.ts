@@ -1807,4 +1807,238 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'avrupa-turkiyenin-kadrini-bilmiyor',
+    title: "'Avrupa Türkiye'nin kadrini bilmiyor'",
+    date: '20 Ocak 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 20 Ocak 1997, s. 20 — Francis Fukuyama ile söyleşi",
+    excerpt:
+      "'Tarihin Sonu' tezinin yazarı Francis Fukuyama ile söyleşi; Fukuyama, Avrupalıların Türkiye'nin Batı savunmasına ve demokrasiye katkısının kadrini bilmediğini, AB'nin tam üyelik konusunda açık bir niyet beyan etmemesinin Türkiye'ye kültürel açıdan güvenilmediğinin bir ifadesi olduğunu söylüyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Francis Fukuyama', 'Avrupa Birliği', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/avrupa-turkiyenin-kadrini-bilmiyor/cover.png',
+        alt: 'Milliyet, 20 Ocak 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'gelecege-umutla-bakiyorum',
+    title: "'Geleceğe umutla bakıyorum'",
+    date: '10 Şubat 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 10 Şubat 1997, s. 18 — Şerafettin Elçi ile söyleşi",
+    excerpt:
+      "Demokratik Kitle Partisi genel başkanı Şerafettin Elçi ile Kürt sorunu üzerine söyleşi; Elçi, sorunun çözümünün Kürt kimliğinin yasal güvenceye kavuşturulması ve adem-i merkeziyetçi bir yönetim modelinden geçtiğini, HADEP'ten ideolojik olarak ayrıldıklarını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Şerafettin Elçi', 'Kürt sorunu', 'Demokratik Kitle Partisi', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/gelecege-umutla-bakiyorum/cover.png',
+        alt: 'Milliyet, 10 Şubat 1997, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'federasyon-disinda-cozum-olamaz',
+    title: "'Federasyon dışında çözüm olamaz'",
+    date: '10 Mart 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 10 Mart 1997, s. 20 — Mehmet Ali Talat ile söyleşi",
+    excerpt:
+      "KKTC ana muhalefet partisi (CTP) lideri Mehmet Ali Talat ile Kıbrıs sorunu üzerine söyleşi; Talat, iki kesimli federasyon dışında bir çözümün mümkün olmadığını, Denktaş'ı desteklemeseler de onu Kıbrıs Türklerinin seçilmiş lideri olarak tanıdıklarını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Mehmet Ali Talat', 'Kıbrıs sorunu', 'KKTC', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/federasyon-disinda-cozum-olamaz/cover.png',
+        alt: 'Milliyet, 10 Mart 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'turkiye-habercinin-cenneti',
+    title: "'Türkiye habercinin cenneti'",
+    date: '11 Nisan 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 11 Nisan 1997, s. 22 — Stephen Kinzer ile söyleşi",
+    excerpt:
+      "The New York Times'ın İstanbul büro şefi Stephen Kinzer ile Türkiye'de gazetecilik üzerine söyleşi; Kinzer, Türk basınında köşe yazarlarının rolünün ABD'ye kıyasla çok daha büyük olduğunu, Türkiye'nin dünyada sesini duyurabilmiş bir ülke olmadığını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Stephen Kinzer', 'The New York Times', 'gazetecilik', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/turkiye-habercinin-cenneti/cover.png',
+        alt: 'Milliyet, 11 Nisan 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'demokrasi-batili-degildir',
+    title: "Demokrasi, Batılı değildir",
+    date: '29 Mayıs 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 29 Mayıs 1997, s. 20 — Leonard Binder ile söyleşi",
+    excerpt:
+      "İslam toplumları üzerine araştırmalarıyla tanınan Leonard Binder ile İslam ve demokrasi üzerine söyleşi; Binder, demokrasinin evrensel bir kavram olduğunu, İslam'ın liberal ya da otoriter yorumlarına göre demokratik ya da otoriter bir topluma varılabileceğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Leonard Binder', 'İslam', 'demokrasi', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/demokrasi-batili-degildir/cover.png',
+        alt: 'Milliyet, 29 Mayıs 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'cogulcu-islama-donmeliyiz',
+    title: "'Çoğulcu İslam'a dönmeliyiz'",
+    date: '6 Haziran 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 6 Haziran 1997, s. 20 — Hassan Hanafi ile söyleşi",
+    excerpt:
+      "'Liberal İslam' akımının temsilcilerinden Mısırlı felsefeci Hassan Hanafi ile söyleşi; Hanafi, İslam'ın çoğulcu bir din olduğunu, İslamcılığın temellerinin 11. yüzyılda ortaya çıkan tekçi ve dogmatik bir anlayışa dayandığını, büyük bir tarihi reform hareketi başlatılması gerektiğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Hassan Hanafi', 'İslam', 'liberal İslam', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/cogulcu-islama-donmeliyiz/cover.png',
+        alt: 'Milliyet, 6 Haziran 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'ekonomik-dev-siyasi-cuce',
+    title: "'Ekonomik dev siyasi cüce'",
+    date: '16 Haziran 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 16 Haziran 1997, s. 20 — Nicole ve Hugh Pope ile söyleşi",
+    excerpt:
+      "'Örtünün Altındaki Türkiye' kitabının yazarları Nicole ve Hugh Pope ile söyleşi; Pope çifti, çok farklılaşmış bir toplum olan Türkiye'nin herhangi bir ideolojik gücün egemenliği altına girebileceğine ihtimal vermediklerini, Türkiye'nin ekonomik dev ama siyasi cüce olduğunu anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Nicole Pope', 'Hugh Pope', 'Türkiye siyaseti', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/ekonomik-dev-siyasi-cuce/cover.png',
+        alt: 'Milliyet, 16 Haziran 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'avrupa-kaplani-olurduk',
+    title: "'Avrupa kaplanı' olurduk",
+    date: '23 Haziran 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 23 Haziran 1997, s. 22 — Asım Erdilek ile söyleşi",
+    excerpt:
+      "İktisatçı Prof. Dr. Asım Erdilek ile Türkiye ekonomisi üzerine söyleşi; Erdilek, Türk ekonomisinin devlet kıskacından kurtulabilseydi 'Avrupa kaplanı' olabileceğini, kronik enflasyonun hiperenflasyona dönüşmemesinin bile Türkiye için köklü bir istikrar programını geciktirdiği için kötü olduğunu savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Asım Erdilek', 'Türkiye ekonomisi', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/avrupa-kaplani-olurduk/cover.png',
+        alt: 'Milliyet, 23 Haziran 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'kalkinmanin-sarti-hukuk-devleti',
+    title: "'Kalkınmanın şartı hukuk devleti'",
+    date: '7 Temmuz 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 7 Temmuz 1997, s. 16 — Jeffrey Sachs ile söyleşi",
+    excerpt:
+      "Harvard Üniversitesi Uluslararası Kalkınma Enstitüsü direktörü Jeffrey Sachs ile kalkınma iktisadı üzerine söyleşi; Sachs, gümrük birliğinin Türkiye için yararlı olduğunu ama ekonomisini tümüyle AB'yle uyumlu hale getirmesinin gerekmediğini, kalkınmanın şartının hukuk devleti olduğunu savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Jeffrey Sachs', 'kalkınma iktisadı', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/kalkinmanin-sarti-hukuk-devleti/cover.png',
+        alt: 'Milliyet, 7 Temmuz 1997, s. 16',
+        pageLabel: 's. 16',
+      },
+    ],
+  },
+  {
+    slug: 'refah-kapatilmamali',
+    title: "'Refah kapatılmamalı'",
+    date: '14 Temmuz 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 14 Temmuz 1997, s. 20 — Binnaz Toprak ile söyleşi",
+    excerpt:
+      "Milli Görüş hareketi üzerine araştırmalarıyla tanınan Prof. Dr. Binnaz Toprak ile söyleşi; Toprak, RP'nin bir İslam devleti kurmak istemediğini, Türkiye'nin yetmiş yıllık laik yaşam tarzı tecrübesinin buna zaten elverişli olmadığını, RP'nin yükselişinin dinin değil sınıfsal dışlanmışlığın bir göstergesi olduğunu savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Binnaz Toprak', 'Refah Partisi', 'Milli Görüş', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/refah-kapatilmamali/cover.png',
+        alt: 'Milliyet, 14 Temmuz 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'sol-islamla-barismali',
+    title: "'Sol, İslam'la barışmalı'",
+    date: '4 Ağustos 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 4 Ağustos 1997, s. 18 — Ziya Öniş ile söyleşi",
+    excerpt:
+      "Prof. Dr. Ziya Öniş ile Refah Partisi'nin yükselişi üzerine söyleşi; Öniş, RP'nin yükselişinin globalleşmenin bir ürünü olduğunu, globalleşmeden hem kazanan hem kaybeden kesimleri İslam çatısı altında birleştirdiğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Ziya Öniş', 'Refah Partisi', 'globalleşme', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/sol-islamla-barismali/cover.png',
+        alt: 'Milliyet, 4 Ağustos 1997, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'biyografik-politika',
+    title: "'Biyografik' politika",
+    date: '7 Kasım 1997',
+    subtitle: 'Milliyet, Entellektüel Bakış, 7 Kasım 1997, s. 22',
+    excerpt:
+      "Polonya'da eski komünistlerin oy artışına rağmen son seçimleri kaybetmesini konu alan bir analiz; Polonya'daki ana siyasi bölünmenin 'Katolikler-Laikler' değil, anti-komünistlerle reforme olmuş eski komünistler arasındaki 'biyografik politika' olduğunu, muhalif Adam Michnik'in Polonya'yı artık 'tam anlamıyla bir demokrasi' saydığını anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Polonya', 'Adam Michnik', 'demokratikleşme', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/biyografik-politika/cover.png',
+        alt: 'Milliyet, 7 Kasım 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'nufus-tespiti-kaynak-israfi',
+    title: "Nüfus tespiti kaynak israfı",
+    date: '8 Aralık 1997',
+    subtitle: "Milliyet, Entellektüel Bakış, 8 Aralık 1997, s. 22 — Cem Behar ile söyleşi",
+    excerpt:
+      "Demograf Prof. Dr. Cem Behar ile 30 Kasım'da yapılan 'nüfus tespiti' üzerine söyleşi; Behar, bunun gerçek bir sayım olmadığını, yalnızca seçim çevrelerine milletvekilliği sayısı belirlemeye yarayacağını, nüfus hakkında anlamlı bilgi toplama amacı açısından bir kaynak israfı olduğunu savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Cem Behar', 'nüfus sayımı', 'demografi', 'söyleşi', '1997'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/nufus-tespiti-kaynak-israfi/cover.png',
+        alt: 'Milliyet, 8 Aralık 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
 ]
