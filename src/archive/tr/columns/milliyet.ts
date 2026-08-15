@@ -1468,4 +1468,181 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'temkinli-iyimser',
+    title: 'Temkinli iyimser',
+    date: '4 Ocak 2000',
+    subtitle: 'Milliyet, 3. Göz, 4 Ocak 2000, s. 22',
+    excerpt:
+      "21. yüzyılın ilk yazısında, Helsinki zirvesiyle açılan AB üyelik ufkunu Osmanlı'dan Cumhuriyet'e uzanan Batılılaşma ve demokratikleşme çizgisinin devamı olarak yorumlar; Türkiye'nin yarı-demokrasi olduğunu ama 'sahte demokrasi' sayılamayacağını, geleceğe temkinli bir iyimserlikle bakılabileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Avrupa Birliği', 'Helsinki zirvesi', 'demokratikleşme', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/temkinli-iyimser/cover.png',
+        alt: 'Milliyet, 4 Ocak 2000, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'islam-ve-siddet',
+    title: 'İslam ve şiddet',
+    date: '3 Şubat 2000',
+    subtitle: 'Milliyet, 3. Göz, 3 Şubat 2000, s. 22',
+    excerpt:
+      "Bosna Müslümanlarının dini lideri Mustafa Çeriç'in 'Saddam Hüseyin ne kadar Müslümansa Hitler de o kadar Hıristiyandır' sözünü aktararak, İslam'ı İslamcı terörle özdeşleştirmenin yanlışlığını; radikal İslamcıların son yirmi yılda işlediği cinayetlerin de İslam'a mal edilemeyeceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İslam', 'terörizm', 'Mustafa Çeriç', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/islam-ve-siddet/cover.png',
+        alt: 'Milliyet, 3 Şubat 2000, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'fazilet-paradoksu',
+    title: 'Fazilet paradoksu',
+    date: '18 Mart 2000',
+    subtitle: 'Milliyet, 3. Göz, 18 Mart 2000, s. 20',
+    excerpt:
+      "Fazilet Partisi'nin TCK 312. maddeye karşı çıkışını haklı bulurken, partinin iki yıl önce aynı maddenin değiştirilmesine karşı çıktığını hatırlatarak paradoksunu eleştirir; FP içindeki 'Yenilikçi' kanadın kazanmasının Türkiye'nin demokratikleşmesine katkı sağlayabileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Fazilet Partisi', 'TCK 312', 'ifade özgürlüğü', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/fazilet-paradoksu/cover.png',
+        alt: 'Milliyet, 18 Mart 2000, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'fpnin-iki-yuzu',
+    title: "FP'nin iki yüzü",
+    date: '11 Mayıs 2000',
+    subtitle: 'Milliyet, 3. Göz, 11 Mayıs 2000',
+    excerpt:
+      "1995'teki 'Refah'ın iki yüzü' yazısına dönerek, Milli Görüş hareketinin RP'den FP'ye geçişte nasıl değiştiğini değerlendirir; FP'deki 'Yenilikçi' kanadın kongreyi kazanması halinde partinin Türkiye'nin özlemini duyduğu bir Müslüman Demokrat Parti'ye dönüşebileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Fazilet Partisi', 'Milli Görüş', 'Recai Kutan', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/fpnin-iki-yuzu/cover.jpg',
+        alt: 'Milliyet, 11 Mayıs 2000',
+      },
+    ],
+  },
+  {
+    slug: 'inkar-kulturu',
+    title: "'İnkâr kültürü'",
+    date: '3 Ağustos 2000',
+    subtitle: 'Milliyet, 3. Göz, 3 Ağustos 2000, s. 24',
+    excerpt:
+      "The New York Times'ın eski İstanbul büro şefi Stephen Kinzer'in 'inkâr kültürü' gözlemini, Alevilik, Kürt kimliği ve 1915 Ermeni tehciri örnekleriyle genişletir; toplumun rahatsız eden gerçeklerle giderek daha fazla yüzleşmeye başladığını ama bundan tam kurtulamadığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['inkâr kültürü', 'Stephen Kinzer', 'kimlik siyaseti', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/inkar-kulturu/cover.png',
+        alt: 'Milliyet, 3 Ağustos 2000, s. 24',
+        pageLabel: 's. 24',
+      },
+    ],
+  },
+  {
+    slug: 'soykirim-somurusu',
+    title: "'Soykırım sömürüsü'",
+    date: '8 Ağustos 2000',
+    subtitle: 'Milliyet, 3. Göz, 8 Ağustos 2000, s. 24',
+    excerpt:
+      "Norman Finkelstein'ın bazı Amerikalı Yahudi kuruluşlarının Soykırım'ı sömürdüğünü iddia eden kitabını tartışır; Yahudi Soykırımı'nın önemini azaltmadan, Finkelstein'a Kudüs ve Filistin meselesinde ABD'nin taraflılığı konusunda hak verir.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Norman Finkelstein', 'Soykırım', 'İsrail-Filistin', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/soykirim-somurusu/cover.png',
+        alt: 'Milliyet, 8 Ağustos 2000, s. 24',
+        pageLabel: 's. 24',
+      },
+    ],
+  },
+  {
+    slug: '1915-tabusu',
+    title: '1915 tabusu',
+    date: '30 Eylül 2000',
+    subtitle: 'Milliyet, 3. Göz, 30 Eylül 2000',
+    excerpt:
+      "1915'teki Ermeni tehcirinin tarihsel arka planını ve ölü sayısına dair farklı tahminleri özetler; 1915 olayları Türkiye'de tabu olmaya devam ettiği sürece toplumun konu hakkında sağlıklı düşünüp kalıcı bir çözüme ulaşamayacağını, çarenin serbest araştırma ve tartışmada olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['1915', 'Ermeni tehciri', 'tarih tartışması', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/1915-tabusu/cover.jpg',
+        alt: 'Milliyet, 30 Eylül 2000',
+      },
+    ],
+  },
+  {
+    slug: 'seytana-uymak',
+    title: "'Şeytan'a uymak'",
+    date: '30 Kasım 2000',
+    subtitle: 'Milliyet, 3. Göz, 30 Kasım 2000',
+    excerpt:
+      "Şerif Mardin'in 'özgün, aykırı fikir üretebilen yazar' kıtlığını iç sansüre bağlayan sözlerinden yola çıkarak, Türkiye'de resmi görüşleri sorgulayanların ağır ceza ve 'vatan hainliği' suçlamasıyla karşılaştığını; buna rağmen 'Şeytan'a uyup uçan' aydınların var olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Şerif Mardin', 'iç sansür', 'ifade özgürlüğü', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/seytana-uymak/cover.jpg',
+        alt: 'Milliyet, 30 Kasım 2000',
+      },
+    ],
+  },
+  {
+    slug: 'din-ile-bilim',
+    title: 'Din ile bilim',
+    date: '28 Aralık 2000',
+    subtitle: 'Milliyet, 3. Göz, 28 Aralık 2000, s. 18',
+    excerpt:
+      "Jeolog Celal Şengör'ün Grönland'da yaşadığı bir deneyimden yola çıkarak dinin açıklayıcı, düzenleyici ve psikolojik işlevlerini tartışır; bilimin bulgularıyla çelişen dinsel açıklamaların geçersiz olduğunu, ama bilimin de insanın Tanrı'ya sığınma ihtiyacını hiçbir zaman gideremeyeceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['din', 'bilim felsefesi', 'Celal Şengör', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/din-ile-bilim/cover.png',
+        alt: 'Milliyet, 28 Aralık 2000, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'batidaki-catlak',
+    title: "Batı'daki çatlak",
+    date: '18 Ocak 2001',
+    subtitle: 'Milliyet, 3. Göz, 18 Ocak 2001, s. 18',
+    excerpt:
+      "AB'nin kuracağı Acil Müdahale Gücü etrafında NATO içinde ABD, AB ve Türkiye arasında yaşanan güven bunalımını anlatır; Türkiye'nin güvenlik ihtiyacının da Kopenhag kriterlerini yerine getirip Avrupalı kimliğini kazanmayı gerektirdiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['NATO', 'Avrupa Birliği', 'güvenlik politikası', '3. Göz', '2001'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2001/batidaki-catlak/cover.png',
+        alt: 'Milliyet, 18 Ocak 2001, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
 ]
