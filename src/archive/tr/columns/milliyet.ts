@@ -2203,4 +2203,76 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'ekonomide-devlet-gerekli',
+    title: 'Ekonomide devlet gerekli',
+    date: '11 Şubat 2000',
+    subtitle: "Milliyet, Entellektüel Bakış, 11 Şubat 2000, s. 22 — Ayşe Buğra ile söyleşi",
+    excerpt:
+      "Kişisel ilişki ağlarının ekonomideki rolünü araştıran Prof. Dr. Ayşe Buğra ile söyleşi; Buğra, Türkiye'de devletin konut ve tüketici kredisi gibi alanları düzenlemeyişinin, aile ve hemşehri dayanışmasından gecekondu mafyasına uzanan gayrı resmi ilişki ağlarının yerini doldurduğunu, herkesin uyması gereken kuralları koyan bir devletin gerekli olduğunu anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Ayşe Buğra', 'devlet-piyasa ilişkisi', 'söyleşi', '2000'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/ekonomide-devlet-gerekli/cover.png',
+        alt: 'Milliyet, 11 Şubat 2000, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'ab-yuruyecegine-kosuyor',
+    title: "AB yürüyeceğine koşuyor",
+    date: '22 Mart 2000',
+    subtitle: "Milliyet, Entellektüel Bakış, 22 Mart 2000, s. 22 — Norman Stone ile söyleşi",
+    excerpt:
+      "Oxford'dan Bilkent'e taşınan Rusya tarihçisi Norman Stone ile Rusya, Avrupa ve Türkiye üzerine söyleşi; Stone, Türkiye'nin AB dışındaki seçenekleri de açık tutması gerektiğini, AB bütünleşmesinin kendi yapısı gereği yürüyeceğine koşacak kadar hızlı ilerleyemeyeceğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Norman Stone', 'Rusya', 'Avrupa Birliği', 'söyleşi', '2000'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/ab-yuruyecegine-kosuyor/cover.png',
+        alt: 'Milliyet, 22 Mart 2000, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'siddet-tesvik-edilemez',
+    title: 'Şiddet teşvik edilemez',
+    date: '31 Mart 2000',
+    subtitle: "Milliyet, Entellektüel Bakış, 31 Mart 2000, s. 24 — Rıza Türmen ile söyleşi",
+    excerpt:
+      "AİHM Türk yargıcı Dr. Rıza Türmen ile ifade özgürlüğünün sınırları üzerine söyleşi; Türmen, AİHM içtihadına göre ifade özgürlüğünün sınırının iftira, hakaret, şiddete teşvik ve tahrik olduğunu, 'Kürt devleti' ya da 'din devleti' savunmanın tek başına bu sınırı aşmadığını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Rıza Türmen', 'AİHM', 'ifade özgürlüğü', 'söyleşi', '2000'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/siddet-tesvik-edilemez/cover.png',
+        alt: 'Milliyet, 31 Mart 2000, s. 24',
+        pageLabel: 's. 24',
+      },
+    ],
+  },
+  {
+    slug: 'mikrasiates',
+    title: "'Mikrasiates'",
+    date: '4 Kasım 2000',
+    subtitle: 'Milliyet, Entellektüel Bakış, 4 Kasım 2000, s. 26',
+    excerpt:
+      "Oxford antropoloji profesörü Renée Hirschon'un Pire'ye yerleşmiş Anadolu Rumları ('Mikrasiates') üzerine araştırmasının Türkçe çevirisini ('Mübadele Çocukları') tanıtan bir yazı; Hirschon'un araştırmasına göre Anadolu'daki yaşamlarına dair anıları olumlu olan mültecilerin, sorunların halklar arası nefretten değil politikacılardan kaynaklandığını düşündüklerini aktarır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Renée Hirschon', 'mübadele', 'Anadolu Rumları', 'söyleşi', '2000'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/mikrasiates/cover.png',
+        alt: 'Milliyet, 4 Kasım 2000, s. 26',
+        pageLabel: 's. 26',
+      },
+    ],
+  },
 ]
