@@ -1645,4 +1645,166 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'herkes-baskasinin-teroristini-hosgorme-egiliminde',
+    title: "'Herkes başkasının teröristini hoşgörme eğiliminde'",
+    date: '5 Nisan 1995',
+    subtitle: "Milliyet, Entellektüel Bakış, 5 Nisan 1995, s. 18 — Andrew Mango ile söyleşi",
+    excerpt:
+      "Türkiye uzmanı İngiliz gazeteci ve yazar Andrew Mango ile PKK terörü, Kuzey Irak harekatı ve Türkiye'nin Kürt siyaseti üzerine söyleşi; Mango, herkesin başkasının teröristine karşı daha hoşgörülü davranma eğiliminde olduğunu, ama Türkiye'nin de Kürt meselesinde belirli bir politikadan yoksun olduğunu söylüyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Andrew Mango', 'PKK', 'Kuzey Irak', 'söyleşi', '1995'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1995/herkes-baskasinin-teroristini-hosgorme-egiliminde/cover.png',
+        alt: 'Milliyet, 5 Nisan 1995, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'hizli-kalkinma-ozgurlukle-olur',
+    title: "'Hızlı kalkınma özgürlükle olur'",
+    date: '21 Nisan 1995',
+    subtitle: "Milliyet, Entellektüel Bakış, 21 Nisan 1995, s. 20 — Cem Kozlu ile söyleşi",
+    excerpt:
+      "ANAP İstanbul milletvekili Cem Kozlu ile Asya kalkınma modelleri, ANAP'ın kimliği ve Kürt sorununa yaklaşımı üzerine söyleşi; Kozlu, Asya kaplanlarının başarısını girişim özgürlüğüne, TBMM'yi ise 'Türkiye'nin en verimsiz KİT'i' haline geldiğine bağlıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Cem Kozlu', 'ANAP', 'kalkınma', 'söyleşi', '1995'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1995/hizli-kalkinma-ozgurlukle-olur/cover.png',
+        alt: 'Milliyet, 21 Nisan 1995, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'cesitlilik-icinde-mumkun-birlik',
+    title: "'Çeşitlilik içinde mümkün birlik'",
+    date: '10 Temmuz 1995',
+    subtitle: "Milliyet, Entellektüel Bakış, 10 Temmuz 1995, s. 16 — Dankwart A. Rustow ile söyleşi",
+    excerpt:
+      "Siyaset bilimci ve Ortadoğu uzmanı Dankwart A. Rustow ile Türk-Amerikan ilişkileri ve Avrupa bütünleşmesi üzerine söyleşi; Rustow, dünyayı birleştirenin Avrupalılar olduğunu, Avrupa kültürünün gücünün farklı kültürler arasındaki alışverişi kabul etmesinde yattığını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Dankwart Rustow', 'Türk-Amerikan ilişkileri', 'söyleşi', '1995'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1995/cesitlilik-icinde-mumkun-birlik/cover.png',
+        alt: 'Milliyet, 10 Temmuz 1995, s. 16',
+        pageLabel: 's. 16',
+      },
+    ],
+  },
+  {
+    slug: 'haklar-inanctan-once-gelir',
+    title: "'Haklar, inançtan önce gelir'",
+    date: '14 Ağustos 1995',
+    subtitle: "Milliyet, Entellektüel Bakış, 14 Ağustos 1995, s. 20 — Abdülkerim Soruş ile söyleşi",
+    excerpt:
+      "'İslam'ın Martin Luther'i' diye anılan İranlı ilahiyatçı Abdülkerim Soruş ile İslam ve demokrasinin bağdaşabilirliği üzerine söyleşi; Soruş, insan haklarının dinsel metinlerden çıkarılamayacağını, bir mümin olabilmek için önce inanma hakkına sahip olunması gerektiğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Abdülkerim Soruş', 'İslam', 'demokrasi', 'söyleşi', '1995'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1995/haklar-inanctan-once-gelir/cover.png',
+        alt: 'Milliyet, 14 Ağustos 1995, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'etnik-ayristirma-tehlikeli-bir-oyun',
+    title: "'Etnik ayrıştırma tehlikeli bir oyun'",
+    date: '27 Kasım 1995',
+    subtitle: "Milliyet, Entellektüel Bakış, 27 Kasım 1995, s. 22 — Göran Therborn ile söyleşi",
+    excerpt:
+      "Avrupa'nın önde gelen sosyal bilimcilerinden Göran Therborn ile modernizmin krizi, Yugoslavya'nın dağılması ve etnik siyaset üzerine söyleşi; Therborn, Yugoslavya ve SSCB'nin dağılmasından çıkarılacak dersin, azınlık haklarının barışçı müzakereyle tanınması, etnik ayrıştırmanın ise herkesin kaybettiği tehlikeli bir oyun olduğunu anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Göran Therborn', 'etnik siyaset', 'Avrupa', 'söyleşi', '1995'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1995/etnik-ayristirma-tehlikeli-bir-oyun/cover.png',
+        alt: 'Milliyet, 27 Kasım 1995, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'duzeltmelerin-zamani-geldi',
+    title: "'Düzeltmelerin zamanı geldi'",
+    date: '22 Nisan 1996',
+    subtitle: "Milliyet, Entellektüel Bakış, 22 Nisan 1996, s. 20 — Ahmet Arslan ile söyleşi",
+    excerpt:
+      "'Cumhuriyet, demokrasi ve kimlik' sempozyumu vesilesiyle Prof. Dr. Ahmet Arslan ile söyleşi; Arslan, Cumhuriyet'in temel değerlerinin yıkıcı bir eleştiriyle değil, ne ölçüde gerçekleştirilebildiği sorusuyla karşılaştığını, İslami kimlik, Kürt kimliği ve Alevi kimliği sorunlarının kaynağının Cumhuriyet dönemi uygulamalarında aranabileceğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Ahmet Arslan', 'kimlik siyaseti', 'söyleşi', '1996'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/duzeltmelerin-zamani-geldi/cover.png',
+        alt: 'Milliyet, 22 Nisan 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'turkiye-islamin-lideri-olmali',
+    title: "'Türkiye İslam'ın lideri olmalı'",
+    date: '9 Eylül 1996',
+    subtitle: "Milliyet, Entellektüel Bakış, 9 Eylül 1996, s. 20 — Samuel P. Huntington ile söyleşi",
+    excerpt:
+      "'Uygarlıklar çatışması' kuramcısı Samuel P. Huntington ile söyleşi; Huntington, İslam uygarlığının hâlâ 'savaşan devletler' aşamasında olduğunu, bir lider ülkeden yoksun kaldığını, Türkiye'nin ekonomik gelişmişliği ve stratejik konumuyla bu lideri olabileceğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Samuel Huntington', 'uygarlıklar çatışması', 'söyleşi', '1996'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/turkiye-islamin-lideri-olmali/cover.png',
+        alt: 'Milliyet, 9 Eylül 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'islam-laiklesebilir-mi',
+    title: "'İslam laikleşebilir mi?'",
+    date: '2 Aralık 1996',
+    subtitle: "Milliyet, Entellektüel Bakış, 2 Aralık 1996, s. 20 — Sadık Celal El Azm ile söyleşi",
+    excerpt:
+      "Suriyeli filozof Sadık Celal El Azm ile söyleşi; El Azm, 'İslam laikleşebilir mi?' sorusunun 1798'de Napolyon'un Mısır'ı işgalinden bu yana Arap ve İslam düşüncesinin gündeminde olduğunu, dogma açısından cevabın 'hayır', tarih açısından ise 'evet' olduğunu anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Sadık Celal El Azm', 'İslam', 'laiklik', 'söyleşi', '1996'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/islam-laiklesebilir-mi/cover.png',
+        alt: 'Milliyet, 2 Aralık 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'mgk-anayasadan-cikmali',
+    title: "'MGK anayasadan çıkmalı'",
+    date: '30 Aralık 1996',
+    subtitle: "Milliyet, Entellektüel Bakış, 30 Aralık 1996, s. 20 — Bülent Tanör ile söyleşi",
+    excerpt:
+      "Anayasa profesörü Bülent Tanör ile insan hakları üzerine söyleşi; Tanör, idam cezasını kaldıran Avrupa protokolünün onaylanması, yargısız infazların önlenmesi ve CMUK'un DGM suçlarına da uygulanması gerektiğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Bülent Tanör', 'insan hakları', 'söyleşi', '1996'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/mgk-anayasadan-cikmali/cover.png',
+        alt: 'Milliyet, 30 Aralık 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
 ]
