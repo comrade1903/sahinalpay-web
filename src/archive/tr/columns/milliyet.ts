@@ -910,4 +910,220 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'islamin-yildizi-ne-alemde',
+    title: "'İslam'ın Yıldızı' ne alemde?",
+    date: '8 Şubat 1997',
+    subtitle: 'Milliyet, 3. Göz, 8 Şubat 1997, s. 18',
+    excerpt:
+      "The Economist'in eski dış haberler editörü Brian Beedham'la Londra'da yaptığı görüşmeyi aktarır; Beedham'ın 1991'de yazdığı 'İslam'ın Yıldızı' makalesini beş yıl sonra nasıl değerlendirdiğini sorar; Refahyol hükümetine rağmen Türkiye'nin demokrasi açısından hâlâ 'İslam'ın Yıldızı' olmayı sürdürdüğü cevabını aktarır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Brian Beedham', 'The Economist', 'Refahyol', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/islamin-yildizi-ne-alemde/cover.png',
+        alt: 'Milliyet, 8 Şubat 1997, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'seriat-ne-demek',
+    title: "'Şeriat' ne demek?",
+    date: '18 Şubat 1997',
+    subtitle: 'Milliyet, 3. Göz, 18 Şubat 1997, s. 20',
+    excerpt:
+      "'Şeriata karşı kadın yürüyüşü'ne verilen tepkiler vesilesiyle, şeriatın geniş anlamda inanç ve ibadet kurallarını, dar anlamda İslam hukukunu ifade ettiğini; Türkiye'nin bu iki anlamı ayıran ilk İslam ülkesi olduğunu, RP seçmenlerinin çoğunluğunun İslam hukuku istediği için oy vermediğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['şeriat', 'laiklik', 'Refah Partisi', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/seriat-ne-demek/cover.png',
+        alt: 'Milliyet, 18 Şubat 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'muhtesem-revizyonist',
+    title: 'Muhteşem revizyonist',
+    date: '22 Şubat 1997',
+    subtitle: 'Milliyet, 3. Göz, 22 Şubat 1997, s. 20',
+    excerpt:
+      "Deng Siyaoping'in ölümü vesilesiyle, öğrencilik yıllarında Kültür Devrimi'nin coşkusuyla nefret ettiği Deng'i, ekonomik reformla Çin'de kapitalizmi ihya eden ve otoriter partiyi ayakta tutarak bunu başaran 'muhteşem bir revizyonist' olarak yeniden değerlendirir.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Deng Siyaoping', 'Çin', 'Kültür Devrimi', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/muhtesem-revizyonist/cover.png',
+        alt: 'Milliyet, 22 Şubat 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'kibrisin-kimligi',
+    title: "Kıbrıs'ın kimliği",
+    date: '1 Nisan 1997',
+    subtitle: 'Milliyet, 3. Göz, 1 Nisan 1997, s. 22',
+    excerpt:
+      "KKTC ziyaretinden izlenimlerini aktarır; iktidar ve muhalefetin Kıbrıs Türklerinin ayrı bir kimliği olup olmadığı ve Türkiye'nin garantörlüğü ile AB üyeliği konularında nasıl ayrıştığını; KKTC ekonomisinin Türkiye'ye bağımlılığının çözümü zorlaştırdığını anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['KKTC', 'Kıbrıs sorunu', 'kimlik', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/kibrisin-kimligi/cover.png',
+        alt: 'Milliyet, 1 Nisan 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'imam-hatip-meselesi',
+    title: 'İmam-Hatip meselesi',
+    date: '5 Nisan 1997',
+    subtitle: 'Milliyet, 3. Göz, 5 Nisan 1997, s. 22',
+    excerpt:
+      "Bülent Tanör'ün İmam-Hatip liselerini dogmatik zihniyetle ilişkilendiren TÜSİAD raporunu tartışır; laik okulların da otoriter zihniyet yetiştirebildiğini, İslamcı liderlerin çoğunun laik okullardan mezun olduğunu hatırlatarak sorumluluğun tek başına İmam-Hatip'lere yüklenemeyeceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İmam-Hatip', 'din eğitimi', 'Bülent Tanör', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/imam-hatip-meselesi/cover.png',
+        alt: 'Milliyet, 5 Nisan 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'bilim-ve-yanilgi-1997',
+    title: "'Bilim ve yanılgı'",
+    date: '26 Nisan 1997',
+    subtitle: 'Milliyet, 3. Göz, 26 Nisan 1997, s. 20',
+    excerpt:
+      "Işığın hızının sabit olmayabileceğine dair yeni bulgulardan yola çıkarak, bilimin ebedi doğrular değil, aksi ispatlanana kadar geçerli teoriler bütünü olduğunu; din ile bilimin birbirinin yerini tutamayacak ayrı alanlar olduğunu, Taha Akyol'un Bilim ve Yanılgı kitabını referans göstererek anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['bilim felsefesi', 'Taha Akyol', 'pozitivizm', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/bilim-ve-yanilgi-1997/cover.png',
+        alt: 'Milliyet, 26 Nisan 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'millet-ve-kimlik',
+    title: 'Millet ve kimlik',
+    date: '13 Mayıs 1997',
+    subtitle: 'Milliyet, 3. Göz, 13 Mayıs 1997, s. 22',
+    excerpt:
+      "Bonn yakınlarındaki bir Türk-Alman sempozyumundan yola çıkarak, hem Almanya'nın hem Türkiye'nin milleti etnik kökenle değil vatandaşlıkla tanımlamaya geçme sancısı çektiğini; Demirel'in Lizbon konuşmasındaki 'yurttaşlar topluluğu' tanımını bu dönüşümün en iyi ifadesi sayar.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['millet tanımı', 'Almanya', 'vatandaşlık', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/millet-ve-kimlik/cover.png',
+        alt: 'Milliyet, 13 Mayıs 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'rp-pragmatizm-ya-da-ideoloji',
+    title: 'RP: Pragmatizm ya da İdeoloji',
+    date: '5 Haziran 1997',
+    subtitle: 'Milliyet, 3. Göz, 5 Haziran 1997, s. 22',
+    excerpt:
+      "Amerikalı antropolog Jenny B. White'ın 'siyasi sisteme dahil edilmek radikal İslamcıları ılımlılaştırır mı?' sorusundan yola çıkarak, Refahyol tecrübesinin RP yönetimini söylem ve pratikte eskiye göre daha gerçekçi ve ılımlı hale getirdiğini, ama bunun hükümeti krizden kurtarmadığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Refah Partisi', 'Refahyol', 'Jenny B. White', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/rp-pragmatizm-ya-da-ideoloji/cover.png',
+        alt: 'Milliyet, 5 Haziran 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'islamin-protestanlasmasi',
+    title: "'İslam'ın Protestanlaşması'",
+    date: '14 Haziran 1997',
+    subtitle: 'Milliyet, 3. Göz, 14 Haziran 1997, s. 22',
+    excerpt:
+      "Nakşibendiliğin dönüşümü üzerine İstanbul'daki bir akademik konferansı aktarır; Şerif Mardin'in tarikat ve cemaatlerin ibadetle zenginleşmeyi birleştiren evrimini 'İslam'ın Protestanlaşması' olarak yorumladığını; RP'yi tümüyle 'irtica partisi' ilan etmenin nüansları gözardı ettiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Nakşibendilik', 'Şerif Mardin', 'irtica', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/islamin-protestanlasmasi/cover.png',
+        alt: 'Milliyet, 14 Haziran 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'refahin-uyarisi',
+    title: "Refah'ın uyarısı",
+    date: '26 Haziran 1997',
+    subtitle: 'Milliyet, 3. Göz, 26 Haziran 1997, s. 20',
+    excerpt:
+      "RP'nin demokratik ve otoriter iki yüzü olduğunu yinelerken, partinin 'Batı taklitçiliği' eleştirisinin ve dini bastırma çabalarına yönelttiği eleştirilerin bazı gerçek payı olabileceğini; RP'nin büyümesinin, laik partilerin temel sorunları çözmedeki başarısızlığına da bir uyarı olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Refah Partisi', 'laiklik', 'siyasi partiler', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/refahin-uyarisi/cover.png',
+        alt: 'Milliyet, 26 Haziran 1997, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'sol-din-ve-devlet',
+    title: 'Sol, din ve devlet',
+    date: '28 Ağustos 1997',
+    subtitle: 'Milliyet, 3. Göz, 28 Ağustos 1997, s. 22',
+    excerpt:
+      "Hilmi Yavuz'un Türk aydınlarının İslam konusundaki cehaletine dair eleştirisinden yola çıkarak, İttihatçı-Kemalist ve Marksist gelenekten gelen solun 19. yüzyıl pozitivizminin etkisiyle dini genel olarak gericilikle özdeşleştirdiğini; asıl meselenin devlet-toplum dengesini kurabilmek olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['sol', 'laiklik', 'Hilmi Yavuz', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/sol-din-ve-devlet/cover.png',
+        alt: 'Milliyet, 28 Ağustos 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'ataturk-kultu',
+    title: "'Atatürk kültü'",
+    date: '18 Ekim 1997',
+    subtitle: 'Milliyet, 3. Göz, 18 Ekim 1997, s. 22',
+    excerpt:
+      "The New York Times'ta Stephen Kinzer'in Atatürk kültü üzerine haberini ve Andrew Mango'nun hazırladığı biyografiyi aktarır; Türkiye'nin 50 yıllık demokrasi tecrübesinden sonra Atatürk'ü yasak ve tabulardan kurtarıp serbestçe tartışabilmesi gerektiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Atatürk', 'Andrew Mango', 'demokratikleşme', '3. Göz', '1997'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1997/ataturk-kultu/cover.png',
+        alt: 'Milliyet, 18 Ekim 1997, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
 ]
