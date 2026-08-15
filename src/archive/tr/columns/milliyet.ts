@@ -2041,4 +2041,166 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'ronesans-bize-de-gerekli',
+    title: 'Rönesans bize de gerekli',
+    date: '9 Ekim 1998',
+    subtitle: "Milliyet, Entellektüel Bakış, 9 Ekim 1998, s. 22 — Ümit Cizre Sakallıoğlu ile söyleşi",
+    excerpt:
+      "Sivil-asker ilişkileri araştırmacısı Ümit Cizre Sakallıoğlu ile söyleşi; Sakallıoğlu, Soğuk Savaş'ın ardından dünyada orduların misyonunun yeniden tartışmaya açıldığı bir 'mini rönesans' yaşandığını, bu rönesansın Türkiye'ye de gerekli olduğunu anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Ümit Cizre Sakallıoğlu', 'asker-sivil ilişkileri', 'söyleşi', '1998'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1998/ronesans-bize-de-gerekli/cover.png',
+        alt: 'Milliyet, 9 Ekim 1998, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'uzlasma-esitliktedir',
+    title: 'Uzlaşma eşitliktedir',
+    date: '25 Ocak 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 25 Ocak 1999, s. 18 — Rauf Denktaş ile söyleşi",
+    excerpt:
+      "KKTC Cumhurbaşkanı Rauf Denktaş ile Lefkoşa'daki Cumhurbaşkanlığı konutunda yapılan söyleşi; Denktaş, Kıbrıs sorununun çözümünün ancak iki toplum arasında eşitlik temelinde bir uzlaşmayla mümkün olduğunu, konfederasyon koşuluyla AB üyeliğine hazır olduklarını anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Rauf Denktaş', 'Kıbrıs sorunu', 'KKTC', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/uzlasma-esitliktedir/cover.png',
+        alt: 'Milliyet, 25 Ocak 1999, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'bizim-icin-turkiye-adaydir',
+    title: "'Bizim için Türkiye adaydır'",
+    date: '3 Şubat 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 3 Şubat 1999, s. 20 — Joschka Fischer ile söyleşi",
+    excerpt:
+      "AB dönem başkanı Almanya Dışişleri Bakanı Joschka Fischer'in Milliyet'e verdiği özel mülakat; Fischer, Türkiye'yi bölgesindeki en önemli ortaklarından biri olarak gördüklerini, Lüksemburg zirvesinde Türkiye'nin adaylar dışında bırakılmasının büyük bir hata olduğunu söylüyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Joschka Fischer', 'Avrupa Birliği', 'Almanya', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/bizim-icin-turkiye-adaydir/cover.png',
+        alt: 'Milliyet, 3 Şubat 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'turkler-alman-olmasin',
+    title: "'Türkler Alman olmasın'",
+    date: '10 Şubat 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 10 Şubat 1999, s. 22 — Theo Sommer ile söyleşi",
+    excerpt:
+      "Die Zeit'ın başyazarı Theo Sommer ile Almanya'daki Türkler üzerine söyleşi; Sommer, Hıristiyan Demokratların çifte vatandaşlığa değil Türklerin Alman olmasına karşı olduğunu, Türklerin kendi kültürleriyle Almanya'yı zenginleştirdiğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Theo Sommer', 'Almanya', 'göç', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/turkler-alman-olmasin/cover.png',
+        alt: 'Milliyet, 10 Şubat 1999, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'isi-strasbourga-birakmayin',
+    title: "'İşi Strasbourg'a bırakmayın'",
+    date: '9 Mart 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 9 Mart 1999, s. 20 — Luzius Wildhaber ile söyleşi",
+    excerpt:
+      "Avrupa İnsan Hakları Mahkemesi'nin yeni başkanı Yargıç Luzius Wildhaber ile söyleşi; Wildhaber, Loizidou kararının siyasi değil hukuki olduğunu savunuyor, Türkiye'nin insan hakları sorunlarını Strasbourg'a bırakmadan kendi içinde çözmesi gerektiğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Luzius Wildhaber', 'AİHM', 'Loizidou davası', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/isi-strasbourga-birakmayin/cover.png',
+        alt: 'Milliyet, 9 Mart 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'ayni-bakis-farkli-tavir',
+    title: 'Aynı bakış, farklı tavır',
+    date: '31 Mart 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 31 Mart 1999, s. 18 — Eric Rouleau ile söyleşi",
+    excerpt:
+      "Fransız gazeteci ve eski Ankara büyükelçisi Eric Rouleau ile ABD ve AB'nin Türkiye'ye yaklaşımı üzerine söyleşi; Rouleau, Amerikalılarla Avrupalıların Türkiye'nin demokratikleşmesi gerektiği konusunda hemfikir olduğunu, ama bunu farklı tavırlarla ifade ettiklerini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Eric Rouleau', 'ABD', 'Avrupa Birliği', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/ayni-bakis-farkli-tavir/cover.png',
+        alt: 'Milliyet, 31 Mart 1999, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'ataturk-demokrasinin-kurumlarini-getirdi',
+    title: 'Atatürk demokrasinin kurumlarını getirdi',
+    date: '20 Ekim 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 20 Ekim 1999, s. 20 — Andrew Mango ile söyleşi",
+    excerpt:
+      "Yeni yayımlanan 'Atatürk' biyografisinin yazarı Andrew Mango ile söyleşi; Mango, Atatürk'ün muhaliflerinin aslında demokrasiden çok oligarşi peşinde olduğunu, reformların o dönemde seçimle yapılamayacağını, Atatürk'ün buna rağmen demokrasinin kurumlarını getirdiğini savunuyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Andrew Mango', 'Atatürk', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/ataturk-demokrasinin-kurumlarini-getirdi/cover.png',
+        alt: 'Milliyet, 20 Ekim 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'ders-kitaplari-ayiklanmali',
+    title: 'Ders kitapları ayıklanmalı',
+    date: '27 Ekim 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 27 Ekim 1999, s. 22 — Richard Clogg ile söyleşi",
+    excerpt:
+      "Oxford Üniversitesi'nden tarihçi Richard Clogg ile Türk-Yunan ilişkileri üzerine söyleşi; Clogg, kalıcı dostluğun yolunun her iki ülkede de milliyetçi önyargılar taşıyan ders kitaplarının ayıklanmasından geçtiğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Richard Clogg', 'Türk-Yunan ilişkileri', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/ders-kitaplari-ayiklanmali/cover.png',
+        alt: 'Milliyet, 27 Ekim 1999, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'ataturkun-dusu-bati-uyeligiydi',
+    title: "Atatürk'ün düşü, Batı üyeliğiydi...",
+    date: '10 Kasım 1999',
+    subtitle: "Milliyet, Entellektüel Bakış, 10 Kasım 1999, s. 20 — Orhan Pamuk ile söyleşi",
+    excerpt:
+      "Yazar Orhan Pamuk'la Atatürk, siyaset ve Avrupa üzerine söyleşi; Pamuk, Türk modernleşmesinin son 200 yılını olumlu değerlendirdiğini, Atatürk'ün büyük düşünün Türkiye'nin Batı uygarlığının bir parçası olması olduğunu, bugünkü AB üyeliği çabasının da bu düşün devamı sayılabileceğini anlatıyor.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, Entellektüel Bakış sayfasından kupür.",
+    tags: ['Orhan Pamuk', 'Atatürk', 'Avrupa Birliği', 'söyleşi', '1999'],
+    pieceKind: 'interview',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/ataturkun-dusu-bati-uyeligiydi/cover.png',
+        alt: 'Milliyet, 10 Kasım 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
 ]
