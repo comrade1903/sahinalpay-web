@@ -1288,4 +1288,184 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'talihsiz-bir-karar',
+    title: 'Talihsiz bir karar',
+    date: '2 Mart 1999',
+    subtitle: 'Milliyet, 3. Göz, 2 Mart 1999, s. 20',
+    excerpt:
+      "Anayasa Mahkemesi'nin, Şerafettin Elçi'nin genel başkanlığını yaptığı Demokratik Kitle Partisi'ni kapatma kararını, Öcalan'ın yakalanmasının ardından açılan tarihi fırsatı değerlendirmeme iradesinin en açık ifadesi olarak eleştirir; kararın kıl payı (11 üyeden 5 muhalefetle) alındığını hatırlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Demokratik Kitle Partisi', 'Şerafettin Elçi', 'Anayasa Mahkemesi', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/talihsiz-bir-karar/cover.png',
+        alt: 'Milliyet, 2 Mart 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'kktcyi-taniyin',
+    title: "KKTC'yi tanıyın",
+    date: '3 Nisan 1999',
+    subtitle: 'Milliyet, 3. Göz, 3 Nisan 1999, s. 20',
+    excerpt:
+      "İsveçli akademisyen Bertil Duner'in 'Kuzey Kıbrıs neden tanınmıyor?' başlıklı makalesini aktarır; enosis peşindeki Rum tarafının 1974 öncesi krizin sorumlusu olduğunu, KKTC'nin tanınmasının adanın AB çatısı altında birleşmesini kolaylaştırabileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['KKTC', 'Kıbrıs sorunu', 'Bertil Duner', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/kktcyi-taniyin/cover.png',
+        alt: 'Milliyet, 3 Nisan 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'tarafsiz-gazeteci',
+    title: 'Tarafsız gazeteci',
+    date: '15 Nisan 1999',
+    subtitle: 'Milliyet, 3. Göz, 15 Nisan 1999, s. 24',
+    excerpt:
+      "Oy vereceği partiyi açıklamasının eleştirilmesi üzerine, habercilikle yorumculuğun farklı sorumlulukları olduğunu savunur: habercinin tarafsız olması gerekirken, yorumcunun objektif olması yeterlidir; bir görüşü olmayan 'tarafsız yorumcu' diye bir şeyin mümkün olmadığını yazar.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['gazetecilik etiği', 'yorum yazarlığı', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/tarafsiz-gazeteci/cover.png',
+        alt: 'Milliyet, 15 Nisan 1999, s. 24',
+        pageLabel: 's. 24',
+      },
+    ],
+  },
+  {
+    slug: 'milliyetcilik-ve-yurtseverlik',
+    title: 'Milliyetçilik ve yurtseverlik',
+    date: '6 Mayıs 1999',
+    subtitle: 'Milliyet, 3. Göz, 6 Mayıs 1999, s. 22',
+    excerpt:
+      "18 Nisan seçimleri sonrası yükselen milliyetçilik tartışmalarını, Umut Özkırımlı'nın kitabına dayanarak çözümler; ırkçı-saldırgan faşist milliyetçilik ile herkesi millete dahil sayan liberal milliyetçiliği ayırır, 'yurtseverliğin' bu ikinciye yakın, kapsayıcı bir tavır olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['milliyetçilik', 'yurtseverlik', 'Umut Özkırımlı', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/milliyetcilik-ve-yurtseverlik/cover.png',
+        alt: 'Milliyet, 6 Mayıs 1999, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'mao-ve-dengin-kenti',
+    title: "Mao ve Deng'in kenti",
+    date: '8 Haziran 1999',
+    subtitle: 'Milliyet, 3. Göz, 8 Haziran 1999, s. 18',
+    excerpt:
+      "Pekin'den yazdığı ilk yazısında, otuz yıl önce Mao'nun sosyalizminin Türkiye'nin derdine deva olabileceğine kısaca inandığı gençlik yıllarını hatırlar; Deng Siyaoping'in 1978'den beri başlattığı reformlarla Çin ekonomisinin geçirdiği çarpıcı dönüşümü çarpıcı büyüme rakamlarıyla anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Çin', 'Deng Siyaoping', 'Mao Zedung', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/mao-ve-dengin-kenti/cover.png',
+        alt: 'Milliyet, 8 Haziran 1999, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'islam-ve-iran',
+    title: 'İslam ve İran',
+    date: '22 Temmuz 1999',
+    subtitle: 'Milliyet, 3. Göz, 22 Temmuz 1999, s. 20',
+    excerpt:
+      "İslam'ın laikliğe elverişsiz olduğu görüşünü, Sünni İslam tarihinde dinin hep devlete tabi olduğunu, 'İslam devleti' fikrinin ancak 20. yüzyıl sonu İslamcı akımlarının icadı olduğunu hatırlatarak çürütmeye çalışır; İran'da bile din-devlet ayrılığı yanlısı mollaların güçlü bir muhalefet oluşturduğunu anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İslam', 'İran', 'laiklik', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/islam-ve-iran/cover.png',
+        alt: 'Milliyet, 22 Temmuz 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'aponun-cagrisi',
+    title: "Apo'nun çağrısı",
+    date: '10 Ağustos 1999',
+    subtitle: 'Milliyet, 3. Göz, 10 Ağustos 1999, s. 20',
+    excerpt:
+      "Abdullah Öcalan'ın militanlarını silahlı mücadeleyi bırakıp ülke dışına çıkmaya çağırmasını, PKK'nın askeri ve ideolojik iflasının itirafı olarak yorumlar; Ankara'nın bunu görmezden gelemeyeceğini, af yasaları, Güneydoğu'da kalkınma hamlesi ve demokratikleşmeyle bu fırsatı değerlendirmesi gerektiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Abdullah Öcalan', 'PKK', 'Kürt sorunu', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/aponun-cagrisi/cover.png',
+        alt: 'Milliyet, 10 Ağustos 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'kibrisi-cozelim',
+    title: "Kıbrıs'ı çözelim",
+    date: '9 Eylül 1999',
+    subtitle: 'Milliyet, 3. Göz, 9 Eylül 1999, s. 20',
+    excerpt:
+      "17 Ağustos depreminin ardından Türk-Yunan toplumları arasında doğan dayanışma dalgasını, Kıbrıs sorununu çözmek için değerlendirilmesi gereken bir fırsat olarak yorumlar; Ankara'nın uzlaşmaz tutumunu terk edip Kıbrıs'ın AB çatısı altında iki kesimli bir federasyon olarak çözülmesine adım atması gerektiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Kıbrıs sorunu', 'Türk-Yunan ilişkileri', '1999 depremi', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/kibrisi-cozelim/cover.png',
+        alt: 'Milliyet, 9 Eylül 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'islamin-yildizi',
+    title: "İslam'ın yıldızı",
+    date: '30 Kasım 1999',
+    subtitle: 'Milliyet, 3. Göz, 30 Kasım 1999, s. 20',
+    excerpt:
+      "İngiltere'deki bir Wilton Park konferansından, '21. Yüzyılda İslam ve Batı' tartışmalarını aktarır; Türkiye'nin, mükemmel olmaktan uzak demokrasisi ve laikliği sayesinde İslam dünyasının tartışılmaz yıldızı olmaya devam ettiğini, Kopenhag kriterlerinin bu konumu daha da pekiştireceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İslam dünyası', 'Wilton Park', 'demokratikleşme', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/islamin-yildizi/cover.png',
+        alt: 'Milliyet, 30 Kasım 1999, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'helsinki',
+    title: 'Helsinki',
+    date: '11 Aralık 1999',
+    subtitle: 'Milliyet, 3. Göz, 11 Aralık 1999, s. 24',
+    excerpt:
+      "Türkiye'nin AB'ye aday ilan edileceği Helsinki zirvesi öncesinde, üyeliğin ekonomik, stratejik ve kültürel çıkarlar açısından neden istendiğini satırbaşlarıyla özetler; İsmail Cem'in 'girmesek de yolumuza devam ederiz' sözünü aktararak Lüksemburg'daki hatanın tekrarlanmamasını umar.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Avrupa Birliği', 'Helsinki zirvesi', 'İsmail Cem', '3. Göz', '1999'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1999/helsinki/cover.png',
+        alt: 'Milliyet, 11 Aralık 1999, s. 24',
+        pageLabel: 's. 24',
+      },
+    ],
+  },
 ]
