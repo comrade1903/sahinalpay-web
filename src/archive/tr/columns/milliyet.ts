@@ -604,4 +604,310 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
       },
     ],
   },
+  {
+    slug: 'isciler-neden-solcu-degil',
+    title: 'İşçiler neden solcu değil?',
+    date: '4 Ocak 1996',
+    subtitle: 'Milliyet, 3. Göz, 4 Ocak 1996, s. 16',
+    excerpt:
+      "İşçilerin ve yoksulların oylarını sol partilerde toplamadıklarına duyulan şaşkınlığı sorgular; sınıf esasına göre oy verme eğiliminin Batı demokrasilerinde bile hiçbir zaman çok güçlü olmadığını, Türkiye'de dinsel inanç ve etnik kökenin parti tercihinde sınıftan daha etkili olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['sınıf siyaseti', 'seçmen davranışı', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/isciler-neden-solcu-degil/cover.png',
+        alt: 'Milliyet, 4 Ocak 1996, s. 16',
+        pageLabel: 's. 16',
+      },
+    ],
+  },
+  {
+    slug: 'siddetin-kaynagi',
+    title: 'Şiddetin kaynağı',
+    date: '16 Ocak 1996',
+    subtitle: 'Milliyet, 3. Göz, 16 Ocak 1996, s. 18',
+    excerpt:
+      "Türkiye'de şiddet ve terörün yayılmasında, sorunları yasaklarla ve baskıyla 'çözme' politikalarının devlete ait birincil sorumluluğunu vurgular; ama toplumdaki şiddet kültürünün de -Metin Göktepe'nin adının anılmaması gibi örneklerle- bu sorumluluğu paylaştığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['şiddet', 'hukuk devleti', 'Metin Göktepe', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/siddetin-kaynagi/cover.png',
+        alt: 'Milliyet, 16 Ocak 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'demokrasiler-savasmaz',
+    title: 'Demokrasiler savaşmaz',
+    date: '1 Şubat 1996',
+    subtitle: 'Milliyet, 3. Göz, 1 Şubat 1996, s. 18',
+    excerpt:
+      "Siyaset biliminin 'demokratik barış' bulgusunu -1816-1980 arası 416 savaştan yalnızca yüzde 2.8'inin demokrasiler arasında çıktığını- aktarır; Kardak krizini örnek göstererek Türkiye ile Yunanistan'ın demokrasi oldukları ölçüde savaşmayacağını, ama bunun bir garanti olmadığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['demokratik barış', 'Kardak krizi', 'Türk-Yunan ilişkileri', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/demokrasiler-savasmaz/cover.png',
+        alt: 'Milliyet, 1 Şubat 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'asker-sivil-iliskileri',
+    title: 'Asker - sivil ilişkileri',
+    date: '8 Şubat 1996',
+    subtitle: 'Milliyet, 3. Göz, 8 Şubat 1996, s. 18',
+    excerpt:
+      "Samuel Huntington'un asker-sivil ilişkileri reformu üzerine makalesini aktarır; yeni demokrasilerde 'nesnel sivil denetim'e geçişin hem askerin hem sivillerin yararına görülmesiyle başarıldığını, sorunların çoğunlukla sivil yöneticilerin ekonomik başarısızlığından ve zayıf siyasi kurumlardan kaynaklandığını anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Samuel Huntington', 'asker-sivil ilişkileri', 'demokratikleşme', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/asker-sivil-iliskileri/cover.png',
+        alt: 'Milliyet, 8 Şubat 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'pkk-ve-demokrasi',
+    title: 'PKK ve demokrasi',
+    date: '9 Mart 1996',
+    subtitle: 'Milliyet, 3. Göz, 9 Mart 1996, s. 18',
+    excerpt:
+      "Erdal İnönü'nün PKK terörünü demokratikleşmenin en büyük engeli sayan görüşünü tartışır; PKK'nın hem demokratikleşme davasını kundakladığını hem de Kürt sorununun 'askere havale' edilmesi gibi resmi politikaların PKK'yı büyüttüğünü, çözümün çok kültürlülüğü kabullenmekten geçtiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['PKK', 'Erdal İnönü', 'Kürt sorunu', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/pkk-ve-demokrasi/cover.png',
+        alt: 'Milliyet, 9 Mart 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'kurt-politikasi-degismeli',
+    title: 'Kürt politikası değişmeli',
+    date: '18 Nisan 1996',
+    subtitle: 'Milliyet, 3. Göz, 18 Nisan 1996, s. 22',
+    excerpt:
+      "Hasan Cemal'in eski Genelkurmay Başkanı Doğan Güreş'le söyleşisini aktarır; Güreş'in PKK ile 1993 ateşkesindeki gizli sevincini anlattığını, Türkiye'nin şiddeti dışlayan her akıma ifade ve örgütlenme özgürlüğü tanıyarak hem terörü bitirebileceğini hem demokrasisini pekiştirebileceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Doğan Güreş', 'PKK', 'Kürt politikası', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/kurt-politikasi-degismeli/cover.png',
+        alt: 'Milliyet, 18 Nisan 1996, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'niye-sinif-degil-de-kimlik',
+    title: 'Niye sınıf değil de kimlik?',
+    date: '27 Nisan 1996',
+    subtitle: 'Milliyet, 3. Göz, 27 Nisan 1996, s. 18',
+    excerpt:
+      "1960-70'lerin sınıf mücadelesi merkezli düşüncesinin yerini 1990'larda etnik köken ve dinsel inanç temelli kimlik tartışmalarının aldığını; bu değişimin arkasında globalleşme ve yerelleşme gibi küresel eğilimlerin yattığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['kimlik siyaseti', 'globalleşme', 'sınıf siyaseti', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/niye-sinif-degil-de-kimlik/cover.png',
+        alt: 'Milliyet, 27 Nisan 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'sevr-sendromu',
+    title: "'Sevr sendromu'",
+    date: '9 Mayıs 1996',
+    subtitle: 'Milliyet, 3. Göz, 9 Mayıs 1996, s. 20',
+    excerpt:
+      "Genelkurmay Başkanlığı'nca yayımlanan bir kitaptan, Batılıların Türkiye'yi bölmek istediğine dair 'Sevr sendromu' söylemini aktarır; bu inanışın en 'Batıcı' kurumlardan siyasetçilere kadar yaygınlaştığını, Kürt sorunu tartışmalarında sık sık karşılarına çıktığını anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Sevr sendromu', 'Genelkurmay', 'dış politika', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/sevr-sendromu/cover.png',
+        alt: 'Milliyet, 9 Mayıs 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'erbakan-irkciliktan-yargilanmali',
+    title: 'Erbakan ırkçılıktan yargılanmalı',
+    date: '25 Mayıs 1996',
+    subtitle: 'Milliyet, 3. Göz, 25 Mayıs 1996, s. 20',
+    excerpt:
+      "Necmettin Erbakan'ın seçim mitinglerinde sarf ettiği Yahudi düşmanı sözleri aktarır; Türkiye gerçek bir hukuk devleti olsaydı bu ırkçı beyanlardan dolayı yargılanması gerektiğini, ama fiilen ırkçılığın serbest kaldığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Necmettin Erbakan', 'antisemitizm', 'Refah Partisi', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/erbakan-irkciliktan-yargilanmali/cover.png',
+        alt: 'Milliyet, 25 Mayıs 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'islamcilari-taniyalim',
+    title: 'İslamcıları tanıyalım',
+    date: '22 Haziran 1996',
+    subtitle: 'Milliyet, 3. Göz, 22 Haziran 1996, s. 18',
+    excerpt:
+      "İslamcılığın Türkiye'nin yükselen siyasi akımı olduğunu kabullenip, İslamcılığı fundamentalizmden ayıran temel özellikleri sıralar: modern eğitimli liderler, modern örgütlenme, globalleşme ve demokratikleşmeye karşı bir tepki hareketi olması, ve Refah Partisi'nin bu akımı yasal ve ılımlı bir çizgiye taşıması.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İslamcılık', 'fundamentalizm', 'Refah Partisi', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/islamcilari-taniyalim/cover.png',
+        alt: 'Milliyet, 22 Haziran 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'turkun-dostu-yoktur',
+    title: "'Türkün dostu yoktur'",
+    date: '6 Temmuz 1996',
+    subtitle: 'Milliyet, 3. Göz, 6 Temmuz 1996, s. 18',
+    excerpt:
+      "TÜSES'in 'Türkiye'nin Politik Kültürü' araştırmasının dış politika bulgularını aktarır: halkın yarısının Avrupa bütünleşmesini istediğini, ama yüzde 29'unun 'Türkiye'nin dostu yoktur' dediğini; bu kutuplaşmanın Batı ve İslam alemine eğilimliler arasında olduğunu anlatır.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['TÜSES', 'kamuoyu araştırması', 'dış politika', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/turkun-dostu-yoktur/cover.png',
+        alt: 'Milliyet, 6 Temmuz 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'sehitlerimiz',
+    title: 'Şehitlerimiz',
+    date: '31 Ağustos 1996',
+    subtitle: 'Milliyet, 3. Göz, 31 Ağustos 1996, s. 18',
+    excerpt:
+      "PKK'yla mücadelede verilen 2762 şehidi ve PKK'nın dağlara sürüklediği binlerce genci birlikte anar; ölenlerin kökeninin önemi olmadığını, Kürt kimliği taleplerine parlamenter düzen içinde temsil kanalları açılmadıkça bu kaybın süreceğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['PKK', 'şehitler', 'Kürt sorunu', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/sehitlerimiz/cover.png',
+        alt: 'Milliyet, 31 Ağustos 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'laiklik-ve-demokrasi',
+    title: 'Laiklik ve demokrasi',
+    date: '3 Eylül 1996',
+    subtitle: 'Milliyet, 3. Göz, 3 Eylül 1996, s. 18',
+    excerpt:
+      "Cumhuriyet, laiklik ve demokrasi arasında bir öncelik ilişkisi bulunduğu görüşünü sorgular; birçok gelişmiş demokrasinin cumhuriyet olmadığını, birçok cumhuriyetin ise demokratik olmadığını örnekleyerek, demokrasiyi savunmanın laikliği savunmak anlamına geldiğini ama tersinin geçerli olmadığını savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['laiklik', 'cumhuriyet', 'demokrasi', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/laiklik-ve-demokrasi/cover.png',
+        alt: 'Milliyet, 3 Eylül 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
+  {
+    slug: 'apoletli-medya',
+    title: "'Apoletli medya'",
+    date: '9 Kasım 1996',
+    subtitle: 'Milliyet, 3. Göz, 9 Kasım 1996, s. 22',
+    excerpt:
+      "Ragıp Duran'ın medyanın devletten bağımsızlığını kazanamayışını eleştiren kitapçığından yola çıkar; medyaya yönelik eleştirilerin çoğunun haklı olabileceğini kabul ederken, medyanın yine de Türkiye demokrasisinin en önemli kurumlarından biri olduğunu savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['medya', 'Ragıp Duran', 'basın özgürlüğü', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/apoletli-medya/cover.png',
+        alt: 'Milliyet, 9 Kasım 1996, s. 22',
+        pageLabel: 's. 22',
+      },
+    ],
+  },
+  {
+    slug: 'islamcilar-ve-laikciler',
+    title: 'İslamcılar ve laikçiler',
+    date: '14 Kasım 1996',
+    subtitle: 'Milliyet, 3. Göz, 14 Kasım 1996, s. 20',
+    excerpt:
+      "Radikal İslamcılarla radikal laikçileri simetrik iki bağnazlık olarak tarif eder: biri dini bir siyasi ideolojiye, öteki toplumu dinden tümüyle arındırmaya çalışıyor; düşünce ve ifade özgürlüğüne inanan demokratların her ikisine karşı da tavır alması gerektiğini savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['İslamcılık', 'laiklik', 'radikalizm', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/islamcilar-ve-laikciler/cover.png',
+        alt: 'Milliyet, 14 Kasım 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'diyarbakirdan-bakinca-susurluk',
+    title: "Diyarbakır'dan bakınca Susurluk",
+    date: '28 Kasım 1996',
+    subtitle: 'Milliyet, 3. Göz, 28 Kasım 1996, s. 20',
+    excerpt:
+      "Aynı hafta katıldığı İstanbul ve Diyarbakır'daki iki akşam yemeğindeki karşıt görüşleri aktarır; Susurluk kazasının açtığı tartışmanın devlet içindeki suç şebekelerinin Güneydoğu'daki savaştaki payını aydınlatabileceğine dair küçük bir umut uyandırdığını yazar.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Susurluk', 'Diyarbakır', 'Güneydoğu', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/diyarbakirdan-bakinca-susurluk/cover.png',
+        alt: 'Milliyet, 28 Kasım 1996, s. 20',
+        pageLabel: 's. 20',
+      },
+    ],
+  },
+  {
+    slug: 'ab-kandiriyor-mu',
+    title: "AB 'kandırıyor' mu?",
+    date: '10 Aralık 1996',
+    subtitle: 'Milliyet, 3. Göz, 10 Aralık 1996, s. 18',
+    excerpt:
+      "Türkiye'nin AB'ye tam üyeliğinin önündeki engelleri sıralar: yüksek enflasyon ve işsizlik, Diyarbakır Cezaevi'ndeki işkence iddiaları gibi insan hakları sorunları, Güneydoğu'daki düşük yoğunluklu savaş ve Yunanistan'la ilişkiler; Erbakan'ın 'Avrupa bizi kandırıyor' sözünün ne kadar anlamlı olduğunu sorgular.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['Avrupa Birliği', 'insan hakları', 'AB üyeliği', '3. Göz', '1996'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/1996/ab-kandiriyor-mu/cover.png',
+        alt: 'Milliyet, 10 Aralık 1996, s. 18',
+        pageLabel: 's. 18',
+      },
+    ],
+  },
 ]
