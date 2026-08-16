@@ -524,13 +524,12 @@ export const content: Record<Lang, Content> = {
       kicker: 'Köşe Yazıları',
       title: 'Köşe Yazıları',
       intro:
-        'Beş on yılı aşkın köşe yazısı arşivi: gazetelerde basılmış köşe yazıları (Cumhuriyet, Sabah, Milliyet, Zaman) ile e-yayınlarda çıkan yazılar (P24) bir arada.',
+        'Beş on yılı aşkın köşe yazısı arşivi: gazetelerde basılmış köşe yazıları (Cumhuriyet, Sabah, Milliyet) ile e-yayınlarda çıkan yazılar (P24) bir arada.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       outlets: [
         { outlet: 'Cumhuriyet', items: [] },
         { outlet: 'Sabah', items: [] },
         { outlet: 'Milliyet', items: [] },
-        { outlet: 'Zaman', items: [] },
         { outlet: 'P24', items: [] },
       ],
     },

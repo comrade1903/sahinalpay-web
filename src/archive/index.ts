@@ -12,9 +12,7 @@ import { normalizeArchiveItems } from './utils'
 import { cumhuriyetColumnSeeds } from './tr/columns/cumhuriyet'
 import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
-import { zamanColumnSeeds } from './tr/columns/zaman'
 import { p24ColumnSeeds } from './tr/columns/p24'
-import { todaysZamanColumnSeeds } from './en/columns/todays-zaman'
 import { forumAnalysisSeeds } from './tr/analyses/forum'
 import { aydinlikAnalysisSeeds } from './tr/analyses/aydinlik'
 import { isciKoyluAnalysisSeeds } from './tr/analyses/isci-koylu'
@@ -45,19 +43,9 @@ export const archiveData = {
       outlet('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'tr', 'print'),
       outlet('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'tr', 'print'),
       outlet('Milliyet', 'milliyet', 'columns', milliyetColumnSeeds, 'tr', 'print'),
-      outlet('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'tr', 'print'),
       outlet('P24', 'p24', 'columns', p24ColumnSeeds, 'tr', 'online'),
     ],
-    en: [
-      outlet(
-        "Today's Zaman",
-        'todays-zaman',
-        'columns',
-        todaysZamanColumnSeeds,
-        'en',
-        'print',
-      ),
-    ],
+    en: [] as OutletGroup[],
   } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: [
     outlet('Forum', 'forum', 'analyses', forumAnalysisSeeds, 'tr'),
