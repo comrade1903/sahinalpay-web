@@ -1593,6 +1593,24 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     ],
   },
   {
+    slug: 'medyada-kalite',
+    title: 'Medyada kalite',
+    date: '31 Ekim 2000',
+    subtitle: 'Milliyet, 3. Göz, 31 Ekim 2000, s. 26',
+    excerpt:
+      "Medya sahiplerinin kamu ihaleleri ve çıkar çatışmasından kaçınma, gazetecilerin ise mesleğini kişisel çıkarına alet etmeme ile mesleki bağdaşmayan işler üstlenmeme yükümlülüklerini tartışır; haber-yorum ayrımının siyaset-din/devlet ayrımı kadar önemli olduğunu, kaliteli gazeteciliğin en iyi araç-gereçle değil meslek ilkelerine sıkı sıkıya bağlılıkla ölçüldüğünü savunur.",
+    sourceNote: "Şahin Alpay'ın kişisel arşivinden, 3. Göz köşesinden kupür.",
+    tags: ['medya etiği', 'gazetecilik', 'çıkar çatışması', '3. Göz', '2000'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/milliyet/2000/medyada-kalite/cover.png',
+        alt: 'Milliyet, 31 Ekim 2000, s. 26',
+        pageLabel: 's. 26',
+      },
+    ],
+  },
+  {
     slug: 'seytana-uymak',
     title: "'Şeytan'a uymak'",
     date: '30 Kasım 2000',
