@@ -8,31 +8,7 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 **Stack**: React 19 + TypeScript ~6.0 (strict unused-checks, `verbatimModuleSyntax`, `erasableSyntaxOnly`), Vite 8, react-router-dom **v7**, `motion` for animation (with `useReducedMotion` respected). Linting is **oxlint** (not ESLint). Deployed as a fully static SPA on Vercel.
 
-**Domain**: code currently references `sahinalpay.net`, which was never registered. Production will be **sahinalpay.com** (registered; the owner hands over DNS access once the site is approved). Do NOT change domain references until the owner confirms the switch.
-
-When he does, all of these change **in one commit** — an earlier version of this list named only three of them, which would have shipped a half-migrated site:
-
-| Location | What |
-|---|---|
-| `index.html` | 13 refs: `canonical`, `og:url`, `og:image`, `twitter:image`, and every JSON-LD `@id`/`url` |
-| `src/App.tsx` `pageUrl()` | The hardcoded origin. Feeds the copy-attribution citation, canonical, and JSON-LD — a researcher pastes this into a published article, so a stale value here is the costliest one |
-| `src/App.tsx` JSON-LD | 4 further `@id`/`url` literals |
-| `src/App.tsx` footer | `mailto:contact@sahinalpay.net` |
-| `src/content.ts` | The KVKK data-controller address, **in both languages** — legal copy, must not be missed |
-| `public/robots.txt` | The `Sitemap:` line |
-| `public/llms.txt` | Homepage URL |
-| `scripts/generate-sitemap.mjs` | The `SITE` constant |
-| `public/sitemap.xml` | Generated — re-run `npm run generate:sitemap` and commit |
-| `PRODUCT.md` | The "Undecided / pending" entry and the contact line under Brand Commitments |
-
-Verify with:
-
-```bash
-grep -rn "sahinalpay\.net" --include="*.ts" --include="*.tsx" --include="*.mjs" \
-  --include="*.html" --include="*.txt" --include="*.xml" src/ public/ scripts/ index.html
-```
-
-It must return nothing. Before the switch it returns a four-figure count across the seven files above — the overwhelming majority being the per-article URLs inside `public/sitemap.xml`, so the number drops in one step when the sitemap is regenerated and grows whenever archive entries are added. Don't treat the count as a target; the only passing result is zero. Matches under `docs/superpowers/` and `.impeccable/critique/` are archived records of past work and stay as they are.
+**Domain**: code currently references `sahinalpay.net`, which was never registered. Production will be **sahinalpay.com** (registered; the owner hands over DNS access once the site is approved). Do NOT change domain references until the owner confirms the switch — when he does, see the `domain-migration` skill for the full checklist (it touches 10 files in one commit, not just the obvious ones).
 
 **Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
 
@@ -80,8 +56,7 @@ There is no test suite/framework configured in this repo (no test script, no `*.
 
 - **Never fabricate archive content**: no invented articles, dates, quotes, excerpts, or links. `Book.purchaseUrl` must be a real retailer product page. Every archive entry must trace to a verifiable source.
 - Entries recovered from scanned periodicals (TUSTAV etc.) require **authorship confirmation** before being added (e.g. the issue's own table of contents naming Şahin Alpay) — a name match in OCR text alone is not enough (falcon metaphors, other Şahins, masthead lists, and citations of his work are all false positives). Cite the exact issue/page in `subtitle`, credit the source archive in `sourceNote` with an OCR-quality caveat, and put page scans under `public/archive/clippings/<outlet>/<year>/<slug>/page-N.jpg`.
-- **Read new scans through `npm run ocr:scans`, not by opening the page images.** It takes a directory of scan PDFs/images (default `tmp/scan-inbox/`, or pass one: `npm run ocr:scans -- path/to/scans`) and writes per-scan `tmp/ocr/<slug>/` holding `text.txt`, a `report.json` of headline candidates ranked by type size, date candidates and byline hits, and `crops/` — small JPEGs of the headline and byline regions cut straight from the PDF. Confirming authorship off an 8 KB byline crop instead of a 550 KB full page is the difference between a batch of scans costing a few thousand tokens and costing a session. Re-runs skip finished scans unless `--force`; flags are `--lang=` (default `tur`) and `--psm=`. Requires `tesseract` + `tesseract-lang` and poppler (`brew install tesseract tesseract-lang poppler`). Raster inputs get text and a report but no crops — cutting them would need ImageMagick, which this machine does not have and the repo does not depend on.
-  - **Everything in `report.json` is a lead, not a fact.** OCR on newsprint mangles names and dates, and on a full page the largest type is regularly an advert or a neighbouring article — on the 1982 Cumhuriyet test pages the true headline came third and second, never first. The authorship rule above is unchanged by any of it: the report tells you where to look, the page tells you what is true.
+- **Read new scans through `npm run ocr:scans`, not by opening the page images.** See the `ocr-scans-workflow` skill for the script's flags, output layout, and dependencies.
 - `public/llms.txt` duplicates the bio for AI crawlers — keep it consistent when biography facts change.
 - `tmp/` is a gitignored scratch area for research artifacts (OCR output, scan reports); nothing in it is part of the app.
 
