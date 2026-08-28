@@ -1732,23 +1732,51 @@ function NewspaperCover({
   )
 }
 
+interface NewsstandOutlet {
+  outlet: OutletGroup
+  matchingItems: ArchiveItem[]
+}
+
+function deriveNewsstandOutlets(
+  outlets: OutletGroup[],
+  activeOutlet: string,
+  search: string,
+  fromYear: string,
+  toYear: string,
+  bodyIndex: ReadonlyMap<string, string[]>,
+): NewsstandOutlet[] {
+  return outlets
+    .filter((o) => activeOutlet === 'all' || o.outlet === activeOutlet)
+    .map((o) => ({
+      outlet: o,
+      matchingItems: sortByDate(
+        o.items.filter((item) =>
+          matchesFilters(item, search, fromYear, toYear, 'all', bodyIndex),
+        ),
+        (item) => item.date,
+        'newest',
+      ),
+    }))
+    .filter((entry) => entry.matchingItems.length > 0)
+}
+
 function NewsstandShelf({
-  outlets,
+  entries,
   lang,
   onOpen,
 }: {
-  outlets: OutletGroup[]
+  entries: NewsstandOutlet[]
   lang: Lang
   onOpen: (outletName: string) => void
 }) {
   return (
     <div className="newsstand-shelf">
       <div className="newsstand-cards">
-        {outlets.map((outlet) => (
+        {entries.map(({ outlet, matchingItems }) => (
           <NewspaperCover
             key={outlet.outlet}
             outlet={outlet}
-            count={outlet.items.length}
+            count={matchingItems.length}
             lang={lang}
             onOpen={() => onOpen(outlet.outlet)}
           />
@@ -1760,17 +1788,24 @@ function NewsstandShelf({
 
 function OpenedNewspaper({
   outlet,
+  items,
   lang,
   onClose,
+  currentPage,
+  totalPages,
+  onPageChange,
 }: {
   outlet: OutletGroup
+  items: ArchiveItem[]
   lang: Lang
   onClose: () => void
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
 }) {
   const dateRange = outletDateRangeLabel(outlet.items)
-  const items = sortItems(outlet.items, 'newest')
   return (
-    <div className="newsstand-opened">
+    <div className="newsstand-opened archive-main">
       <div className="newsstand-opened-header">
         <button type="button" className="newsstand-back" onClick={onClose}>
           <span className="material-symbols-outlined" aria-hidden="true">
@@ -1783,7 +1818,7 @@ function OpenedNewspaper({
       </div>
       {items.length === 0 ? (
         <p className="archive-empty">
-          {lang === 'tr' ? 'Bu gazetede henüz yazı yok.' : 'No pieces for this newspaper yet.'}
+          {lang === 'tr' ? 'Filtreyle eşleşen yazı yok.' : 'No pieces match these filters.'}
         </p>
       ) : (
         <ul className="archive-list">
@@ -1792,6 +1827,81 @@ function OpenedNewspaper({
           ))}
         </ul>
       )}
+      <Pagination
+        lang={lang}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={onPageChange}
+      />
+    </div>
+  )
+}
+
+function NewsstandControlBar({
+  lang,
+  search,
+  setSearch,
+  searchingBody,
+  outlets,
+  activeOutlet,
+  setActiveOutlet,
+  fromYear,
+  toYear,
+  setFromYear,
+  setToYear,
+}: {
+  lang: Lang
+  search: string
+  setSearch: (value: string) => void
+  searchingBody: boolean
+  outlets: OutletGroup[]
+  activeOutlet: string
+  setActiveOutlet: (value: string | null) => void
+  fromYear: string
+  toYear: string
+  setFromYear: (value: string) => void
+  setToYear: (value: string) => void
+}) {
+  return (
+    <div className="newsstand-controlbar">
+      <ArchiveSearchRow
+        lang={lang}
+        search={search}
+        setSearch={setSearch}
+        searchingBody={searchingBody}
+      />
+      <div className="newsstand-controlbar-filters">
+        <div className="chip-row">
+          <button
+            type="button"
+            className="chip"
+            data-active={activeOutlet === 'all'}
+            aria-pressed={activeOutlet === 'all'}
+            onClick={() => setActiveOutlet(null)}
+          >
+            {lang === 'tr' ? 'Tümü' : 'All'}
+          </button>
+          {outlets.map((o) => (
+            <button
+              type="button"
+              key={o.outlet}
+              className="chip"
+              data-active={activeOutlet === o.outlet}
+              aria-pressed={activeOutlet === o.outlet}
+              onClick={() => setActiveOutlet(o.outlet)}
+            >
+              {o.outlet}
+            </button>
+          ))}
+        </div>
+        <YearRangeFilter
+          lang={lang}
+          fromYear={fromYear}
+          toYear={toYear}
+          setFromYear={setFromYear}
+          setToYear={setToYear}
+        />
+      </div>
     </div>
   )
 }
@@ -1823,8 +1933,69 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
     ),
   })
 
-  const [openOutletName, setOpenOutletName] = useState<string | null>(null)
-  const openedOutlet = data.outlets.find((o) => o.outlet === openOutletName) ?? null
+  const [searchParams, setSearchParams] = useSearchParams()
+  const search = searchParams.get('q') ?? ''
+  const activeOutlet = searchParams.get('outlet') ?? 'all'
+  const fromYear = searchParams.get('from') ?? ''
+  const toYear = searchParams.get('to') ?? ''
+  const openOutletName = searchParams.get('open')
+  const requestedPage = positivePage(searchParams.get('page'))
+
+  const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
+  const { bodyIndex, searchingBody } = useBodySearchIndex(sectionItems, search)
+
+  const newsstandOutlets = useMemo(
+    () => deriveNewsstandOutlets(data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex),
+    [data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex],
+  )
+
+  const openedEntry = openOutletName
+    ? newsstandOutlets.find((entry) => entry.outlet.outlet === openOutletName) ?? null
+    : null
+
+  const totalPages = openedEntry
+    ? Math.max(1, Math.ceil(openedEntry.matchingItems.length / ARCHIVE_PAGE_SIZE))
+    : 1
+  const currentPage = Math.min(requestedPage, totalPages)
+  const paginatedItems = openedEntry
+    ? openedEntry.matchingItems.slice(
+        (currentPage - 1) * ARCHIVE_PAGE_SIZE,
+        currentPage * ARCHIVE_PAGE_SIZE,
+      )
+    : []
+
+  const setParam = (
+    key: string,
+    value: string | null,
+    options?: { replace?: boolean; keepPage?: boolean },
+  ) => updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
+
+  const activeFilters: ActiveFilter[] = [
+    search && {
+      key: 'q',
+      label: lang === 'tr' ? 'Arama' : 'Search',
+      value: search,
+      onClear: () => setParam('q', null),
+    },
+    activeOutlet !== 'all' && {
+      key: 'outlet',
+      label: lang === 'tr' ? 'Yayın' : 'Outlet',
+      value: activeOutlet,
+      onClear: () => setParam('outlet', null),
+    },
+    fromYear && {
+      key: 'from',
+      label: lang === 'tr' ? 'Başlangıç' : 'From',
+      value: fromYear,
+      onClear: () => setParam('from', null),
+    },
+    toYear && {
+      key: 'to',
+      label: lang === 'tr' ? 'Bitiş' : 'To',
+      value: toYear,
+      onClear: () => setParam('to', null),
+    },
+  ].filter(Boolean) as ActiveFilter[]
 
   return (
     <section className="section section-solo">
@@ -1835,19 +2006,55 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
-        {openedOutlet ? (
+        <NewsstandControlBar
+          lang={lang}
+          search={search}
+          setSearch={(value) => setParam('q', value)}
+          searchingBody={searchingBody}
+          outlets={data.outlets}
+          activeOutlet={activeOutlet}
+          setActiveOutlet={(value) => setParam('outlet', value)}
+          fromYear={fromYear}
+          toYear={toYear}
+          setFromYear={(value) => setParam('from', value)}
+          setToYear={(value) => setParam('to', value)}
+        />
+
+        <ActiveFilterSummary
+          lang={lang}
+          filters={activeFilters}
+          count={newsstandOutlets.reduce((sum, entry) => sum + entry.matchingItems.length, 0)}
+          onClearAll={() => setSearchParams(new URLSearchParams(), { replace: true })}
+        />
+
+        {openedEntry ? (
           <OpenedNewspaper
-            outlet={openedOutlet}
+            outlet={openedEntry.outlet}
+            items={paginatedItems}
             lang={lang}
-            onClose={() => setOpenOutletName(null)}
+            onClose={() => setParam('open', null)}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) =>
+              updateSearchParams(
+                searchParams,
+                setSearchParams,
+                { page: String(page) },
+                { replace: false, keepPage: true },
+              )
+            }
           />
         ) : !data.outlets.some((o) => o.items.length > 0) ? (
           <p className="archive-empty">{data.emptyLabel}</p>
+        ) : newsstandOutlets.length === 0 ? (
+          <p className="archive-empty">
+            {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
+          </p>
         ) : (
           <NewsstandShelf
-            outlets={data.outlets.filter((o) => o.items.length > 0)}
+            entries={newsstandOutlets}
             lang={lang}
-            onOpen={setOpenOutletName}
+            onOpen={(outletName) => setParam('open', outletName)}
           />
         )}
       </div>

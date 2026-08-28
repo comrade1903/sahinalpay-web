@@ -2381,6 +2381,26 @@ a.archive-row:hover .archive-row-title {
     flex: initial;
   }
 }
+.newsstand-controlbar {
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: saturate(1.2) blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.newsstand-controlbar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: flex-start;
+  margin-top: var(--space-2);
+}
+.newsstand-controlbar-filters .filter-card {
+  margin: 0;
+}
 .article-subtitle {
   font-family: var(--headline);
   font-size: var(--text-lead);
