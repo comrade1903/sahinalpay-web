@@ -39,6 +39,7 @@ import type {
   ArchiveItem,
   FlatArchiveSection,
   OutletArchiveSection,
+  OutletGroup,
 } from './archive/types'
 import {
   paths,
@@ -1670,6 +1671,180 @@ function Pagination({
   )
 }
 
+function outletDateRangeLabel(items: ArchiveItem[]): string | null {
+  const years = items
+    .map((item) => (item.date ? parseTurkishDate(item.date) : null))
+    .filter((ts): ts is number => ts !== null)
+    .map((ts) => new Date(ts).getUTCFullYear())
+  if (years.length === 0) return null
+  const min = Math.min(...years)
+  const max = Math.max(...years)
+  return min === max ? String(min) : `${min}–${max}`
+}
+
+/** First real clipping scan found among an outlet's items, used as the
+    newsstand cover photo. Scans the outlet's full item list (not a
+    filtered subset) so the cover doesn't flicker between photo and
+    typographic as filters change. */
+function outletCoverClipping(outlet: OutletGroup): ArchiveClipping | null {
+  for (const item of outlet.items) {
+    const [first] = itemScanClippings(item)
+    if (first) return first
+  }
+  return null
+}
+
+function NewspaperCover({
+  outlet,
+  count,
+  lang,
+  onOpen,
+}: {
+  outlet: OutletGroup
+  count: number
+  lang: Lang
+  onOpen: () => void
+}) {
+  const cover = outletCoverClipping(outlet)
+  const dateRange = outletDateRangeLabel(outlet.items)
+  return (
+    <button type="button" className="newsstand-cover" onClick={onOpen}>
+      {cover ? (
+        <span
+          className="newsstand-cover-photo"
+          style={{ backgroundImage: `url(${cover.src})` }}
+          role="img"
+          aria-label={cover.alt ?? outlet.outlet}
+        />
+      ) : (
+        <span className="newsstand-cover-typographic">
+          <span className="newsstand-cover-name">{outlet.outlet}</span>
+        </span>
+      )}
+      <span className="newsstand-cover-meta">
+        <span className="newsstand-cover-outlet">{outlet.outlet}</span>
+        {dateRange && <span className="newsstand-cover-dates">{dateRange}</span>}
+        <span className="newsstand-cover-count">
+          {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+        </span>
+      </span>
+    </button>
+  )
+}
+
+function NewsstandShelf({
+  outlets,
+  lang,
+  onOpen,
+}: {
+  outlets: OutletGroup[]
+  lang: Lang
+  onOpen: (outletName: string) => void
+}) {
+  return (
+    <div className="newsstand-shelf">
+      <div className="newsstand-cards">
+        {outlets.map((outlet) => (
+          <NewspaperCover
+            key={outlet.outlet}
+            outlet={outlet}
+            count={outlet.items.length}
+            lang={lang}
+            onOpen={() => onOpen(outlet.outlet)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function OpenedNewspaper({
+  outlet,
+  lang,
+  onClose,
+}: {
+  outlet: OutletGroup
+  lang: Lang
+  onClose: () => void
+}) {
+  const dateRange = outletDateRangeLabel(outlet.items)
+  const items = sortItems(outlet.items, 'newest')
+  return (
+    <div className="newsstand-opened">
+      <div className="newsstand-opened-header">
+        <button type="button" className="newsstand-back" onClick={onClose}>
+          <span className="material-symbols-outlined" aria-hidden="true">
+            arrow_back
+          </span>
+          {lang === 'tr' ? 'Tüm Gazetelere Dön' : 'Back to All Newspapers'}
+        </button>
+        <h2 className="newsstand-opened-title">{outlet.outlet}</h2>
+        {dateRange && <p className="newsstand-opened-dates">{dateRange}</p>}
+      </div>
+      <ul className="archive-list">
+        {items.map((item) => (
+          <ArchiveRow item={item} lang={lang} key={item.id} />
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang: Lang }) {
+  const location = useLocation()
+  usePageMeta({
+    title: `${data.title} — Şahin Alpay`,
+    description: data.intro,
+    alternates: pageAlternates(location.pathname),
+  })
+  useJsonLd('collection', {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: data.title,
+    description: data.intro,
+    inLanguage: lang,
+    url: pageUrl(location.pathname),
+    about: { '@id': 'https://sahinalpay.net/#person' },
+    mainEntity: data.outlets.flatMap((group) =>
+      group.items.slice(0, 25).map((item) => ({
+        '@type': 'Article',
+        headline: item.title,
+        ...(isoDateFromArchiveDate(item.date)
+          ? { datePublished: isoDateFromArchiveDate(item.date) }
+          : {}),
+        url: `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
+      })),
+    ),
+  })
+
+  const [openOutletName, setOpenOutletName] = useState<string | null>(null)
+  const openedOutlet = data.outlets.find((o) => o.outlet === openOutletName) ?? null
+
+  return (
+    <section className="section section-solo">
+      <div className="container">
+        <Reveal>
+          <p className="kicker">{data.kicker}</p>
+          <h1 className="section-title">{data.title}</h1>
+          <p className="archive-intro">{data.intro}</p>
+        </Reveal>
+
+        {openedOutlet ? (
+          <OpenedNewspaper
+            outlet={openedOutlet}
+            lang={lang}
+            onClose={() => setOpenOutletName(null)}
+          />
+        ) : data.outlets.length === 0 ? (
+          <p className="archive-empty">{data.emptyLabel}</p>
+        ) : (
+          <NewsstandShelf outlets={data.outlets} lang={lang} onOpen={setOpenOutletName} />
+        )}
+      </div>
+    </section>
+  )
+}
+
 function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: Lang }) {
   const location = useLocation()
   usePageMeta({
@@ -3035,7 +3210,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
   switch (pageKey) {
     case 'columns':
       return (
-        <OutletArchivePage
+        <NewsstandArchivePage
           data={{ ...t.columns, outlets: archiveData.columns[lang] }}
           lang={lang}
         />
