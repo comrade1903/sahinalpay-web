@@ -7,7 +7,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react'
-import { motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import {
   Routes,
   Route,
@@ -1934,6 +1934,7 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
   })
 
   const [searchParams, setSearchParams] = useSearchParams()
+  const reduce = useReducedMotion()
   const search = searchParams.get('q') ?? ''
   const activeOutlet = searchParams.get('outlet') ?? 'all'
   const fromYear = searchParams.get('from') ?? ''
@@ -2027,36 +2028,56 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           onClearAll={() => setSearchParams(new URLSearchParams(), { replace: true })}
         />
 
-        {openedEntry ? (
-          <OpenedNewspaper
-            outlet={openedEntry.outlet}
-            items={paginatedItems}
-            lang={lang}
-            onClose={() => setParam('open', null)}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={(page) =>
-              updateSearchParams(
-                searchParams,
-                setSearchParams,
-                { page: String(page) },
-                { replace: false, keepPage: true },
-              )
-            }
-          />
-        ) : !data.outlets.some((o) => o.items.length > 0) ? (
-          <p className="archive-empty">{data.emptyLabel}</p>
-        ) : newsstandOutlets.length === 0 ? (
-          <p className="archive-empty">
-            {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
-          </p>
-        ) : (
-          <NewsstandShelf
-            entries={newsstandOutlets}
-            lang={lang}
-            onOpen={(outletName) => setParam('open', outletName)}
-          />
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          {openedEntry ? (
+            <motion.div
+              key={`opened-${openedEntry.outlet.outlet}`}
+              initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
+              transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <OpenedNewspaper
+                outlet={openedEntry.outlet}
+                items={paginatedItems}
+                lang={lang}
+                onClose={() => setParam('open', null)}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={(page) =>
+                  updateSearchParams(
+                    searchParams,
+                    setSearchParams,
+                    { page: String(page) },
+                    { replace: false, keepPage: true },
+                  )
+                }
+              />
+            </motion.div>
+          ) : !data.outlets.some((o) => o.items.length > 0) ? (
+            <p className="archive-empty" key="empty">
+              {data.emptyLabel}
+            </p>
+          ) : newsstandOutlets.length === 0 ? (
+            <p className="archive-empty" key="empty-filtered">
+              {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
+            </p>
+          ) : (
+            <motion.div
+              key="stage"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={reduce ? undefined : { opacity: 0 }}
+              transition={{ duration: reduce ? 0 : 0.25 }}
+            >
+              <NewsstandShelf
+                entries={newsstandOutlets}
+                lang={lang}
+                onOpen={(outletName) => setParam('open', outletName)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )
