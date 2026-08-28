@@ -1837,6 +1837,67 @@ function OpenedNewspaper({
   )
 }
 
+type NewsstandView = 'shelf' | 'carousel'
+
+function NewsstandCarousel({
+  entries,
+  lang,
+  onOpen,
+}: {
+  entries: NewsstandOutlet[]
+  lang: Lang
+  onOpen: (outletName: string) => void
+}) {
+  const reduce = useReducedMotion()
+  const [centerIndex, setCenterIndex] = useState(0)
+  const clampedCenter = Math.min(centerIndex, Math.max(0, entries.length - 1))
+
+  return (
+    <div className="newsstand-carousel" data-reduced={reduce}>
+      <button
+        type="button"
+        className="newsstand-carousel-nav newsstand-carousel-prev"
+        onClick={() => setCenterIndex((i) => Math.max(0, i - 1))}
+        disabled={clampedCenter === 0}
+        aria-label={lang === 'tr' ? 'Önceki gazete' : 'Previous newspaper'}
+      >
+        <span className="material-symbols-outlined" aria-hidden="true">
+          chevron_left
+        </span>
+      </button>
+      <div className="newsstand-cards">
+        {entries.map(({ outlet, matchingItems }, index) => (
+          <div
+            className="newsstand-cover-wrap"
+            data-offset={index - clampedCenter}
+            key={outlet.outlet}
+          >
+            <NewspaperCover
+              outlet={outlet}
+              count={matchingItems.length}
+              lang={lang}
+              onOpen={() =>
+                index === clampedCenter ? onOpen(outlet.outlet) : setCenterIndex(index)
+              }
+            />
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        className="newsstand-carousel-nav newsstand-carousel-next"
+        onClick={() => setCenterIndex((i) => Math.min(entries.length - 1, i + 1))}
+        disabled={clampedCenter === entries.length - 1}
+        aria-label={lang === 'tr' ? 'Sonraki gazete' : 'Next newspaper'}
+      >
+        <span className="material-symbols-outlined" aria-hidden="true">
+          chevron_right
+        </span>
+      </button>
+    </div>
+  )
+}
+
 function NewsstandControlBar({
   lang,
   search,
@@ -1849,6 +1910,9 @@ function NewsstandControlBar({
   toYear,
   setFromYear,
   setToYear,
+  view,
+  setView,
+  carouselDisabled,
 }: {
   lang: Lang
   search: string
@@ -1861,15 +1925,52 @@ function NewsstandControlBar({
   toYear: string
   setFromYear: (value: string) => void
   setToYear: (value: string) => void
+  view: NewsstandView
+  setView: (value: NewsstandView) => void
+  carouselDisabled: boolean
 }) {
   return (
     <div className="newsstand-controlbar">
-      <ArchiveSearchRow
-        lang={lang}
-        search={search}
-        setSearch={setSearch}
-        searchingBody={searchingBody}
-      />
+      <div className="newsstand-controlbar-top">
+        <ArchiveSearchRow
+          lang={lang}
+          search={search}
+          setSearch={setSearch}
+          searchingBody={searchingBody}
+        />
+        <div
+          className="newsstand-view-toggle chip-row"
+          role="group"
+          aria-label={lang === 'tr' ? 'Görünüm' : 'View'}
+        >
+          <button
+            type="button"
+            className="chip"
+            data-active={view === 'shelf'}
+            aria-pressed={view === 'shelf'}
+            onClick={() => setView('shelf')}
+          >
+            {lang === 'tr' ? 'Raf' : 'Shelf'}
+          </button>
+          <button
+            type="button"
+            className="chip"
+            data-active={view === 'carousel'}
+            aria-pressed={view === 'carousel'}
+            onClick={() => setView('carousel')}
+            disabled={carouselDisabled}
+            title={
+              carouselDisabled
+                ? lang === 'tr'
+                  ? 'Azaltılmış hareket ayarında kullanılamaz'
+                  : 'Unavailable with reduced motion enabled'
+                : undefined
+            }
+          >
+            {lang === 'tr' ? '3D Vitrin' : '3D Carousel'}
+          </button>
+        </div>
+      </div>
       <div className="newsstand-controlbar-filters">
         <div className="chip-row">
           <button
@@ -1935,6 +2036,8 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
 
   const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
+  const requestedView: NewsstandView = searchParams.get('view') === 'carousel' ? 'carousel' : 'shelf'
+  const view: NewsstandView = reduce ? 'shelf' : requestedView
   const search = searchParams.get('q') ?? ''
   const activeOutlet = searchParams.get('outlet') ?? 'all'
   const fromYear = searchParams.get('from') ?? ''
@@ -2019,6 +2122,9 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           toYear={toYear}
           setFromYear={(value) => setParam('from', value)}
           setToYear={(value) => setParam('to', value)}
+          view={view}
+          setView={(value) => setParam('view', value === 'shelf' ? null : value)}
+          carouselDisabled={Boolean(reduce)}
         />
 
         <ActiveFilterSummary
@@ -2070,11 +2176,19 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
               exit={reduce ? undefined : { opacity: 0 }}
               transition={{ duration: reduce ? 0 : 0.25 }}
             >
-              <NewsstandShelf
-                entries={newsstandOutlets}
-                lang={lang}
-                onOpen={(outletName) => setParam('open', outletName)}
-              />
+              {view === 'carousel' ? (
+                <NewsstandCarousel
+                  entries={newsstandOutlets}
+                  lang={lang}
+                  onOpen={(outletName) => setParam('open', outletName)}
+                />
+              ) : (
+                <NewsstandShelf
+                  entries={newsstandOutlets}
+                  lang={lang}
+                  onOpen={(outletName) => setParam('open', outletName)}
+                />
+              )}
             </motion.div>
           )}
         </AnimatePresence>
