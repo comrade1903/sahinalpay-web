@@ -1781,11 +1781,17 @@ function OpenedNewspaper({
         <h2 className="newsstand-opened-title">{outlet.outlet}</h2>
         {dateRange && <p className="newsstand-opened-dates">{dateRange}</p>}
       </div>
-      <ul className="archive-list">
-        {items.map((item) => (
-          <ArchiveRow item={item} lang={lang} key={item.id} />
-        ))}
-      </ul>
+      {items.length === 0 ? (
+        <p className="archive-empty">
+          {lang === 'tr' ? 'Bu gazetede henüz yazı yok.' : 'No pieces for this newspaper yet.'}
+        </p>
+      ) : (
+        <ul className="archive-list">
+          {items.map((item) => (
+            <ArchiveRow item={item} lang={lang} key={item.id} />
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
@@ -1835,10 +1841,14 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
             lang={lang}
             onClose={() => setOpenOutletName(null)}
           />
-        ) : data.outlets.length === 0 ? (
+        ) : !data.outlets.some((o) => o.items.length > 0) ? (
           <p className="archive-empty">{data.emptyLabel}</p>
         ) : (
-          <NewsstandShelf outlets={data.outlets} lang={lang} onOpen={setOpenOutletName} />
+          <NewsstandShelf
+            outlets={data.outlets.filter((o) => o.items.length > 0)}
+            lang={lang}
+            onOpen={setOpenOutletName}
+          />
         )}
       </div>
     </section>
