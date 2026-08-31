@@ -49,6 +49,12 @@ import {
   type PageKey,
 } from './routes'
 import portrait from './assets/portrait.jpg'
+import logoCumhuriyet from './assets/logos/cumhuriyet.webp'
+import logoMilliyet from './assets/logos/milliyet.svg'
+import logoZaman from './assets/logos/zaman.webp'
+import logoTodaysZaman from './assets/logos/todays-zaman.webp'
+import logoP24 from './assets/logos/p24.webp'
+import logoSabah from './assets/logos/sabah.webp'
 import { parseTurkishDate } from './dateUtils'
 import { foldSearchText } from './textUtils'
 import { chronicleEvents } from './chronicle'
@@ -1682,52 +1688,119 @@ function outletDateRangeLabel(items: ArchiveItem[]): string | null {
   return min === max ? String(min) : `${min}–${max}`
 }
 
-/** First real clipping scan found among an outlet's items, used as the
-    newsstand cover photo. Scans the outlet's full item list (not a
-    filtered subset) so the cover doesn't flicker between photo and
-    typographic as filters change. */
-function outletCoverClipping(outlet: OutletGroup): ArchiveClipping | null {
-  for (const item of outlet.items) {
-    const [first] = itemScanClippings(item)
-    if (first) return first
-  }
-  return null
+/** Real mastheads the owner supplied for the outlets that currently have
+    one on disk. Outlets with no entry here fall back to a typographic
+    wordmark — on the shelf's upright spines (NewsstandStackPaper) as
+    rotated text, in the İçindekiler header (NewsstandTOC) as plain text —
+    rather than a fabricated logo. Shown upright (never rotated) on the
+    spine face: these are wide wordmark scans that go illegible sideways. */
+const outletLogos: Partial<Record<string, string>> = {
+  Cumhuriyet: logoCumhuriyet,
+  Milliyet: logoMilliyet,
+  Zaman: logoZaman,
+  "Today's Zaman": logoTodaysZaman,
+  P24: logoP24,
+  Sabah: logoSabah,
 }
 
-function NewspaperCover({
+/** Most recent year an outlet was written for, used to order the rack
+    top-to-bottom (most recent era first, matching this file's newest-first
+    convention elsewhere). 0 for an outlet with no parseable dates, so it
+    sorts last rather than throwing off real ones. */
+function outletSortYear(items: ArchiveItem[]): number {
+  const years = items
+    .map((item) => (item.date ? parseTurkishDate(item.date) : null))
+    .filter((ts): ts is number => ts !== null)
+    .map((ts) => new Date(ts).getUTCFullYear())
+  return years.length ? Math.max(...years) : 0
+}
+
+/** Shared ordering for the shelf: newest era first, both for the stack of
+    spines and for which one is selected by default — kept as one function
+    so the two never drift apart. */
+function orderNewsstandOutlets(entries: NewsstandOutlet[]): NewsstandOutlet[] {
+  return [...entries].sort(
+    (a, b) => outletSortYear(b.outlet.items) - outletSortYear(a.outlet.items),
+  )
+}
+
+/** Brand colors for the outlets we actually have (matched to their real
+    mastheads where known); an unbranded outlet falls back to the site's
+    wood-edge tone rather than a guessed color. */
+const outletAccent: Partial<Record<string, string>> = {
+  Milliyet: '#b3241c',
+  Cumhuriyet: '#e30512',
+  Sabah: '#da251c',
+  Zaman: '#8a6a1f',
+  "Today's Zaman": '#6d5518',
+  P24: '#231f21',
+}
+const defaultOutletAccent = '#5c3f27'
+
+function outletAccentFor(outletName: string): string {
+  return outletAccent[outletName] ?? defaultOutletAccent
+}
+
+/** One upright spine standing on the shelf rail — clicking it lifts it
+    forward (see NewsstandStack). Text-only (accent strip + rotated outlet
+    name/count), matching the reference design's book-spine treatment. */
+function NewsstandStackPaper({
   outlet,
   count,
+  dateRange,
   lang,
-  onOpen,
+  active,
+  reduce,
+  onSelect,
 }: {
   outlet: OutletGroup
   count: number
+  dateRange: string | null
   lang: Lang
-  onOpen: () => void
+  active: boolean
+  reduce: boolean
+  onSelect: () => void
 }) {
-  const cover = outletCoverClipping(outlet)
-  const dateRange = outletDateRangeLabel(outlet.items)
+  const accent = outletAccentFor(outlet.outlet)
+  const logo = outletLogos[outlet.outlet]
+  const style: CSSProperties = {
+    zIndex: active ? 2 : 1,
+    ...(reduce
+      ? {}
+      : {
+          transform: active ? 'translate3d(0, -22px, 0) scale(1.05)' : 'translate3d(0, 0, 0) scale(1)',
+          filter: active ? 'brightness(1.05)' : 'brightness(.86)',
+        }),
+  }
   return (
-    <button type="button" className="newsstand-cover" onClick={onOpen}>
-      {cover ? (
-        <span
-          className="newsstand-cover-photo"
-          style={{ backgroundImage: `url(${cover.src})` }}
-          role="img"
-          aria-label={cover.alt ?? outlet.outlet}
-        />
-      ) : (
-        <span className="newsstand-cover-typographic">
-          <span className="newsstand-cover-name">{outlet.outlet}</span>
+    <button
+      type="button"
+      className="newsstand-stack-paper"
+      data-active={active}
+      style={style}
+      onClick={onSelect}
+      aria-pressed={active}
+    >
+      <span className="newsstand-stack-paper-inner">
+        <span className="newsstand-stack-paper-strip" style={{ background: accent }}>
+          <span className="newsstand-stack-paper-strip-text">
+            {dateRange ?? (lang === 'tr' ? 'Arşiv' : 'Archive')}
+          </span>
         </span>
-      )}
-      <span className="newsstand-cover-meta">
-        <span className="newsstand-cover-outlet">{outlet.outlet}</span>
-        {dateRange && <span className="newsstand-cover-dates">{dateRange}</span>}
-        <span className="newsstand-cover-count">
-          {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+        <span className="newsstand-stack-paper-face" data-has-logo={Boolean(logo)}>
+          {logo ? (
+            <span className="newsstand-stack-paper-logo-wrap">
+              <img src={logo} alt={outlet.outlet} className="newsstand-stack-paper-logo" />
+            </span>
+          ) : (
+            <span className="newsstand-stack-paper-name">{outlet.outlet}</span>
+          )}
+          <span className={logo ? 'newsstand-stack-paper-count-h' : 'newsstand-stack-paper-count'}>
+            {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+          </span>
         </span>
       </span>
+      <span className="newsstand-stack-paper-clip" aria-hidden="true" />
     </button>
   )
 }
@@ -1760,70 +1833,114 @@ function deriveNewsstandOutlets(
     .filter((entry) => entry.matchingItems.length > 0)
 }
 
-function NewsstandShelf({
-  entries,
-  lang,
-  onOpen,
-}: {
-  entries: NewsstandOutlet[]
-  lang: Lang
-  onOpen: (outletName: string) => void
-}) {
+/** A single row inside the open paper's "İçindekiler" (table of contents)
+    panel — reuses ArchiveRow's link-resolution rules (internal reader page
+    when we have body/clippings, external source otherwise) but in the
+    design's three-column masthead-index layout instead of ArchiveRow's
+    card shape. */
+function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
+  const link = archiveLink(item, lang)
+  const section = item.pieceKind
+    ? pieceKindLabel(item.pieceKind, lang)
+    : item.medium
+      ? mediumLabel(item.medium, lang)
+      : lang === 'tr'
+        ? 'Yazı'
+        : 'Piece'
+  const preview = item.excerpt ?? item.subtitle
+  const inner = (
+    <>
+      <span className="newsstand-toc-row-section">{section}</span>
+      <span className="newsstand-toc-row-body">
+        <span className="newsstand-toc-row-title">{item.title}</span>
+        {preview && <span className="newsstand-toc-row-dek">{preview}</span>}
+      </span>
+      {item.date && <span className="newsstand-toc-row-date">{item.date}</span>}
+    </>
+  )
+  if (link?.internal) {
+    return (
+      <li>
+        <Link to={link.href} className="newsstand-toc-row">
+          {inner}
+        </Link>
+      </li>
+    )
+  }
+  if (link) {
+    return (
+      <li>
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="newsstand-toc-row"
+          aria-label={`${item.title} ${
+            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+          }`}
+        >
+          {inner}
+        </a>
+      </li>
+    )
+  }
   return (
-    <div className="newsstand-shelf">
-      <div className="newsstand-cards">
-        {entries.map(({ outlet, matchingItems }) => (
-          <NewspaperCover
-            key={outlet.outlet}
-            outlet={outlet}
-            count={matchingItems.length}
-            lang={lang}
-            onOpen={() => onOpen(outlet.outlet)}
-          />
-        ))}
-      </div>
-    </div>
+    <li>
+      <div className="newsstand-toc-row newsstand-toc-row-static">{inner}</div>
+    </li>
   )
 }
 
-function OpenedNewspaper({
+function NewsstandTOC({
   outlet,
+  matchingCount,
   items,
   lang,
-  onClose,
   currentPage,
   totalPages,
   onPageChange,
 }: {
   outlet: OutletGroup
+  matchingCount: number
   items: ArchiveItem[]
   lang: Lang
-  onClose: () => void
   currentPage: number
   totalPages: number
   onPageChange: (page: number) => void
 }) {
   const dateRange = outletDateRangeLabel(outlet.items)
+  const logo = outletLogos[outlet.outlet]
   return (
-    <div className="newsstand-opened archive-main">
-      <div className="newsstand-opened-header">
-        <button type="button" className="newsstand-back" onClick={onClose}>
-          <span className="material-symbols-outlined" aria-hidden="true">
-            arrow_back
+    <div className="newsstand-toc archive-main">
+      {/* Focus target for pagination, so a page change is announced and not
+          just scrolled to (see Pagination's goToPage). */}
+      <h2 className="sr-only" id="archive-results" tabIndex={-1}>
+        {lang === 'tr' ? 'Sonuçlar' : 'Results'}
+      </h2>
+      <div className="newsstand-toc-header">
+        <div className="newsstand-toc-heading">
+          <span className="newsstand-toc-kicker">
+            {lang === 'tr' ? 'İçindekiler' : 'Contents'}
           </span>
-          {lang === 'tr' ? 'Tüm Gazetelere Dön' : 'Back to All Newspapers'}
-        </button>
-        <h2 className="newsstand-opened-title">{outlet.outlet}</h2>
-        {dateRange && <p className="newsstand-opened-dates">{dateRange}</p>}
+          {logo ? (
+            <img src={logo} alt={outlet.outlet} className="newsstand-toc-logo" />
+          ) : (
+            <span className="newsstand-toc-name">{outlet.outlet}</span>
+          )}
+        </div>
+        <div className="newsstand-toc-meta">
+          {dateRange && <span>{dateRange}</span>}
+          <span>{lang === 'tr' ? `${matchingCount} yazı` : `${matchingCount} pieces`}</span>
+        </div>
       </div>
       {items.length === 0 ? (
         <p className="archive-empty">
           {lang === 'tr' ? 'Filtreyle eşleşen yazı yok.' : 'No pieces match these filters.'}
         </p>
       ) : (
-        <ul className="archive-list">
+        <ul className="newsstand-toc-list">
           {items.map((item) => (
-            <ArchiveRow item={item} lang={lang} key={item.id} />
+            <NewsstandTOCRow item={item} lang={lang} key={item.id} />
           ))}
         </ul>
       )}
@@ -1837,63 +1954,69 @@ function OpenedNewspaper({
   )
 }
 
-type NewsstandView = 'shelf' | 'carousel'
-
-function NewsstandCarousel({
+/** The newsstand shelf: upright paper spines standing on a rail (click one
+    to lift it forward) with a table-of-contents panel below for whichever
+    paper is selected — always one, defaulting to the newest, rather than
+    an empty rack waiting for a click. */
+function NewsstandStack({
   entries,
   lang,
-  onOpen,
+  selectedName,
+  onSelect,
+  currentPage,
+  totalPages,
+  onPageChange,
+  reduce,
 }: {
   entries: NewsstandOutlet[]
   lang: Lang
-  onOpen: (outletName: string) => void
+  selectedName: string
+  onSelect: (outletName: string) => void
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+  reduce: boolean
 }) {
-  const reduce = useReducedMotion()
-  const [centerIndex, setCenterIndex] = useState(0)
-  const clampedCenter = Math.min(centerIndex, Math.max(0, entries.length - 1))
+  const ordered = orderNewsstandOutlets(entries)
+  const selected = ordered.find((entry) => entry.outlet.outlet === selectedName) ?? ordered[0]
+  const activeItems = selected
+    ? selected.matchingItems.slice(
+        (currentPage - 1) * ARCHIVE_PAGE_SIZE,
+        currentPage * ARCHIVE_PAGE_SIZE,
+      )
+    : []
 
   return (
-    <div className="newsstand-carousel" data-reduced={reduce}>
-      <button
-        type="button"
-        className="newsstand-carousel-nav newsstand-carousel-prev"
-        onClick={() => setCenterIndex((i) => Math.max(0, i - 1))}
-        disabled={clampedCenter === 0}
-        aria-label={lang === 'tr' ? 'Önceki gazete' : 'Previous newspaper'}
+    <div className="newsstand-stack">
+      <div
+        className="newsstand-stack-shelf"
+        role="group"
+        aria-label={lang === 'tr' ? 'Gazete seç' : 'Choose a newspaper'}
       >
-        <span className="material-symbols-outlined" aria-hidden="true">
-          chevron_left
-        </span>
-      </button>
-      <div className="newsstand-cards">
-        {entries.map(({ outlet, matchingItems }, index) => (
-          <div
-            className="newsstand-cover-wrap"
-            data-offset={index - clampedCenter}
-            key={outlet.outlet}
-          >
-            <NewspaperCover
-              outlet={outlet}
-              count={matchingItems.length}
-              lang={lang}
-              onOpen={() =>
-                index === clampedCenter ? onOpen(outlet.outlet) : setCenterIndex(index)
-              }
-            />
-          </div>
+        {ordered.map((entry) => (
+          <NewsstandStackPaper
+            key={entry.outlet.outlet}
+            outlet={entry.outlet}
+            count={entry.matchingItems.length}
+            dateRange={outletDateRangeLabel(entry.outlet.items)}
+            lang={lang}
+            active={selected?.outlet.outlet === entry.outlet.outlet}
+            reduce={reduce}
+            onSelect={() => onSelect(entry.outlet.outlet)}
+          />
         ))}
       </div>
-      <button
-        type="button"
-        className="newsstand-carousel-nav newsstand-carousel-next"
-        onClick={() => setCenterIndex((i) => Math.min(entries.length - 1, i + 1))}
-        disabled={clampedCenter === entries.length - 1}
-        aria-label={lang === 'tr' ? 'Sonraki gazete' : 'Next newspaper'}
-      >
-        <span className="material-symbols-outlined" aria-hidden="true">
-          chevron_right
-        </span>
-      </button>
+      {selected && (
+        <NewsstandTOC
+          outlet={selected.outlet}
+          matchingCount={selected.matchingItems.length}
+          items={activeItems}
+          lang={lang}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      )}
     </div>
   )
 }
@@ -1910,9 +2033,6 @@ function NewsstandControlBar({
   toYear,
   setFromYear,
   setToYear,
-  view,
-  setView,
-  carouselDisabled,
 }: {
   lang: Lang
   search: string
@@ -1925,9 +2045,6 @@ function NewsstandControlBar({
   toYear: string
   setFromYear: (value: string) => void
   setToYear: (value: string) => void
-  view: NewsstandView
-  setView: (value: NewsstandView) => void
-  carouselDisabled: boolean
 }) {
   return (
     <div className="newsstand-controlbar">
@@ -1938,38 +2055,6 @@ function NewsstandControlBar({
           setSearch={setSearch}
           searchingBody={searchingBody}
         />
-        <div
-          className="newsstand-view-toggle chip-row"
-          role="group"
-          aria-label={lang === 'tr' ? 'Görünüm' : 'View'}
-        >
-          <button
-            type="button"
-            className="chip"
-            data-active={view === 'shelf'}
-            aria-pressed={view === 'shelf'}
-            onClick={() => setView('shelf')}
-          >
-            {lang === 'tr' ? 'Raf' : 'Shelf'}
-          </button>
-          <button
-            type="button"
-            className="chip"
-            data-active={view === 'carousel'}
-            aria-pressed={view === 'carousel'}
-            onClick={() => setView('carousel')}
-            disabled={carouselDisabled}
-            title={
-              carouselDisabled
-                ? lang === 'tr'
-                  ? 'Azaltılmış hareket ayarında kullanılamaz'
-                  : 'Unavailable with reduced motion enabled'
-                : undefined
-            }
-          >
-            {lang === 'tr' ? '3D Vitrin' : '3D Carousel'}
-          </button>
-        </div>
       </div>
       <div className="newsstand-controlbar-filters">
         <div className="chip-row">
@@ -2036,8 +2121,6 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
 
   const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
-  const requestedView: NewsstandView = searchParams.get('view') === 'carousel' ? 'carousel' : 'shelf'
-  const view: NewsstandView = reduce ? 'shelf' : requestedView
   const search = searchParams.get('q') ?? ''
   const activeOutlet = searchParams.get('outlet') ?? 'all'
   const fromYear = searchParams.get('from') ?? ''
@@ -2053,20 +2136,23 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
     [data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex],
   )
 
-  const openedEntry = openOutletName
-    ? newsstandOutlets.find((entry) => entry.outlet.outlet === openOutletName) ?? null
+  /* The shelf always shows a table of contents — defaulting to the newest
+     paper — rather than an empty rack waiting for a click, so it needs a
+     selection even with no `open` param, and one that's still valid if a
+     filter just dropped the outlet it pointed at. */
+  const effectiveOpenName =
+    openOutletName && newsstandOutlets.some((entry) => entry.outlet.outlet === openOutletName)
+      ? openOutletName
+      : (orderNewsstandOutlets(newsstandOutlets)[0]?.outlet.outlet ?? null)
+
+  const openedEntry = effectiveOpenName
+    ? newsstandOutlets.find((entry) => entry.outlet.outlet === effectiveOpenName) ?? null
     : null
 
   const totalPages = openedEntry
     ? Math.max(1, Math.ceil(openedEntry.matchingItems.length / ARCHIVE_PAGE_SIZE))
     : 1
   const currentPage = Math.min(requestedPage, totalPages)
-  const paginatedItems = openedEntry
-    ? openedEntry.matchingItems.slice(
-        (currentPage - 1) * ARCHIVE_PAGE_SIZE,
-        currentPage * ARCHIVE_PAGE_SIZE,
-      )
-    : []
 
   const setParam = (
     key: string,
@@ -2122,9 +2208,6 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           toYear={toYear}
           setFromYear={(value) => setParam('from', value)}
           setToYear={(value) => setParam('to', value)}
-          view={view}
-          setView={(value) => setParam('view', value === 'shelf' ? null : value)}
-          carouselDisabled={Boolean(reduce)}
         />
 
         <ActiveFilterSummary
@@ -2135,19 +2218,29 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
         />
 
         <AnimatePresence mode="wait" initial={false}>
-          {openedEntry ? (
+          {!data.outlets.some((o) => o.items.length > 0) ? (
+            <p className="archive-empty" key="empty">
+              {data.emptyLabel}
+            </p>
+          ) : newsstandOutlets.length === 0 ? (
+            <p className="archive-empty" key="empty-filtered">
+              {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
+            </p>
+          ) : (
             <motion.div
-              key={`opened-${openedEntry.outlet.outlet}`}
-              initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
-              transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+              key="stage-stack"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={reduce ? undefined : { opacity: 0 }}
+              transition={{ duration: reduce ? 0 : 0.25 }}
             >
-              <OpenedNewspaper
-                outlet={openedEntry.outlet}
-                items={paginatedItems}
+              <NewsstandStack
+                entries={newsstandOutlets}
                 lang={lang}
-                onClose={() => setParam('open', null)}
+                selectedName={
+                  effectiveOpenName ?? orderNewsstandOutlets(newsstandOutlets)[0].outlet.outlet
+                }
+                onSelect={(outletName) => setParam('open', outletName, { replace: false })}
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={(page) =>
@@ -2158,37 +2251,8 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
                     { replace: false, keepPage: true },
                   )
                 }
+                reduce={Boolean(reduce)}
               />
-            </motion.div>
-          ) : !data.outlets.some((o) => o.items.length > 0) ? (
-            <p className="archive-empty" key="empty">
-              {data.emptyLabel}
-            </p>
-          ) : newsstandOutlets.length === 0 ? (
-            <p className="archive-empty" key="empty-filtered">
-              {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
-            </p>
-          ) : (
-            <motion.div
-              key="stage"
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={reduce ? undefined : { opacity: 0 }}
-              transition={{ duration: reduce ? 0 : 0.25 }}
-            >
-              {view === 'carousel' ? (
-                <NewsstandCarousel
-                  entries={newsstandOutlets}
-                  lang={lang}
-                  onOpen={(outletName) => setParam('open', outletName)}
-                />
-              ) : (
-                <NewsstandShelf
-                  entries={newsstandOutlets}
-                  lang={lang}
-                  onOpen={(outletName) => setParam('open', outletName)}
-                />
-              )}
             </motion.div>
           )}
         </AnimatePresence>

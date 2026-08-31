@@ -423,7 +423,8 @@ legibility floor the rest of this document is built on.
 
 ## Layout
 
-A single centred column, `1200px` maximum, with `1.5rem` inline padding that opens to
+A single centred column, `1320px` maximum (widened from `1200px` on 2026-08-31 — the
+narrower column read as excessive side gutter on wide monitors), with `1.5rem` inline padding that opens to
 `2.5rem` from 768px up. Sections are separated by a 1px hairline and `6rem` of vertical
 breathing room (`4rem` below 768px); a page whose content starts at the top drops the
 rule and uses `clamp(2.5rem, 5vw, 4rem)` instead, so no page opens with an orphan

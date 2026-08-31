@@ -83,10 +83,6 @@
   --ink-500: #57505d;
   --mark-600: #a32b22;
   --mark-700: #7d1f18;
-  --wood-surface: #c9a877;
-  --wood-grain: #9c7248;
-  --wood-edge: #5c3f27;
-
   /* Semantic light theme (default) */
   --bg: var(--paper-50);
   --surface: var(--paper-50);
@@ -166,7 +162,7 @@
   --space-6: 6rem;
   --space-7: 9rem;
 
-  --container: 1200px;
+  --container: 1320px;
   --measure: 68ch;
 
   color-scheme: light dark;
@@ -204,10 +200,6 @@
     --ink-500: #9a91a2;
     --mark-600: #e2796c;
     --mark-700: #f0968c;
-    --wood-surface: #4d3a26;
-    --wood-grain: #3a2c1e;
-    --wood-edge: #26190f;
-
     --bg: var(--paper-50);
     --surface: #1b1421;
     --surface-lowest: var(--paper-0);
@@ -257,10 +249,6 @@
   --ink-500: #9a91a2;
   --mark-600: #e2796c;
   --mark-700: #f0968c;
-  --wood-surface: #4d3a26;
-  --wood-grain: #3a2c1e;
-  --wood-edge: #26190f;
-
   --bg: var(--paper-50);
   --surface: #1b1421;
   --surface-lowest: var(--paper-0);
@@ -435,10 +423,13 @@ main:focus {
   }
 }
 
-/* Standalone page content (no stacked section above it, so no divider) */
+/* Standalone page content (no stacked section above it, so no divider) —
+   kept close to the sticky header rather than the full section rhythm,
+   which read as a dead zone under the nav on every page that opens with
+   this class. */
 .section-solo {
   border-top: none;
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(var(--space-3), 3vw, var(--space-4));
 }
 
 /* Section heading with kicker */
@@ -2247,146 +2238,349 @@ a.archive-row:hover .archive-row-title {
 }
 
 /* ---------- Newsstand (columns page) ---------- */
-.newsstand-shelf {
-  margin-top: var(--space-4);
-  padding: var(--space-3);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--wood-edge);
-  background: repeating-linear-gradient(
-    180deg,
-    var(--wood-surface) 0px,
-    var(--wood-surface) 22px,
-    var(--wood-grain) 22px,
-    var(--wood-grain) 24px
-  );
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.25);
-}
 
-.newsstand-cards {
-  display: flex;
-  gap: var(--space-3);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-block: var(--space-2);
-  -webkit-overflow-scrolling: touch;
-}
-
-.newsstand-cover {
-  scroll-snap-align: start;
-  flex: 0 0 160px;
+/* The shelf: upright paper spines standing side by side on a rail, ordered
+   by era (newest first). Click one to lift it forward — see NewsstandStack
+   in App.tsx. Below it, a full-width table-of-contents panel for whichever
+   paper is selected. Fixed-width spines (rather than a breakpoint) are what
+   make this responsive: they simply wrap onto more rows on narrow screens.
+   Reduced motion drops the lift transform (App.tsx omits it in that case). */
+.newsstand-stack {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft);
-  cursor: pointer;
-  padding: 0;
-  overflow: hidden;
-  text-align: left;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
 }
-.newsstand-cover:hover,
-.newsstand-cover:focus-visible {
-  transform: translateY(-4px) rotate(-1deg);
+
+.newsstand-stack-shelf {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4) var(--space-3);
+  padding: var(--space-4) var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  /* A recessed step on the site's own paper ladder, not a literal wood
+     prop — the newsstand's real-world colors stop at the spines/panel
+     (see the newsprint and hardware notes below); the backdrop they sit
+     against stays on the site's one hue axis. --surface-mid, not the
+     bolder --surface-high: DESIGN.md validates --line-strong at 3:1+
+     against the page/low/mid surfaces, not high, and this is the only
+     place in the file pairing that border with --surface-high — it
+     measured 2.72:1 light / 2.91:1 dark, under the WCAG 1.4.11 floor. */
+  border: 1px solid var(--line-strong);
+  background: var(--surface-mid);
+}
+/* The shelf rail the spines appear to stand on. */
+.newsstand-stack-shelf::before {
+  content: '';
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+  height: 7px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #d6d7db, #83838a 60%, #4d4d52);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Below the point where three fixed-width spines stop fitting one row,
+   flex-wrap would stack them into an ever-taller, overlapping block —
+   the shelf becomes a horizontal scroller instead. The rail is a
+   decorative flourish that can't track scroll position as a plain
+   ::before, so it steps aside here rather than visually detaching from
+   the spines as the row scrolls. */
+@media (max-width: 767px) {
+  .newsstand-stack-shelf {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-3);
+  }
+  .newsstand-stack-shelf::before {
+    display: none;
+  }
+  .newsstand-stack-paper {
+    scroll-snap-align: start;
+  }
+}
+
+.newsstand-stack-paper {
+  position: relative;
+  flex: 0 0 auto;
+  width: 132px;
+  height: 300px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  background: none;
+  transform-origin: 50% 92%;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.85, 0.24, 1),
+    filter 0.3s ease;
+}
+.newsstand-stack-paper:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+
+.newsstand-stack-paper-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid #ded5c1;
+  /* Real masthead scans/print stock read as opaque cream paper regardless
+     of site theme — a fixed swatch here (matching the panel below) keeps
+     dark mode from framing each spine in a jarring rectangle. */
+  background: #fbf7ee;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s ease;
+}
+.newsstand-stack-paper[data-active='true'] .newsstand-stack-paper-inner {
   box-shadow: var(--shadow-lift);
 }
 
-.newsstand-cover-photo {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background-size: cover;
-  background-position: top center;
-}
-.newsstand-cover-typographic {
+.newsstand-stack-paper-strip {
+  flex: 0 0 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background: var(--surface-low);
-  padding: var(--space-2);
+  overflow: hidden;
 }
-.newsstand-cover-name {
-  font-family: var(--display);
-  font-size: 1.1rem;
+.newsstand-stack-paper-strip-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
   font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: var(--ink);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
 }
-.newsstand-cover-meta {
+
+.newsstand-stack-paper-face {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding: var(--space-2) 0 var(--space-2) 0.4rem;
+  color: #14110c;
+}
+.newsstand-stack-paper-name {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.newsstand-stack-paper-count {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
+  letter-spacing: 0.06em;
+  color: #6d6455;
+}
+
+/* A real masthead reads as a rotated wordmark, matching the outlet name's
+   own vertical treatment — sized to fill as much of the narrow spine face
+   as it can (object-fit: contain inside a box pre-rotated 90°, so the
+   logo's own aspect ratio decides which axis it maxes out on), with the
+   count below it in ordinary (non-rotated) text. */
+.newsstand-stack-paper-face[data-has-logo='true'] {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: var(--space-2) 0.2rem 0;
+}
+.newsstand-stack-paper-logo-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  width: 98px;
+  height: 250px;
+}
+.newsstand-stack-paper-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 98px;
+  object-fit: contain;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+}
+.newsstand-stack-paper-count-h {
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
+  letter-spacing: 0.04em;
+  color: #6d6455;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* The curved "clip" that appears to hold the spine on the rail — wraps
+   around the card's lower half, extending past its edges. */
+.newsstand-stack-paper-clip {
+  position: absolute;
+  left: -9px;
+  right: -9px;
+  top: 40px;
+  bottom: -14px;
+  pointer-events: none;
+  border: 4px solid #b9bac0;
+  border-top: none;
+  border-radius: 0 0 36px 36px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .newsstand-stack-paper {
+    transition: none !important;
+  }
+}
+
+/* The İçindekiler (table of contents) panel — fixed newsprint tones like
+   the paper spines above, so the selected paper's index reads as an
+   actual printed page rather than shifting with site theme. */
+.newsstand-toc {
+  background: #fbf7ee;
+  color: #14110c;
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  box-shadow: var(--shadow-lift);
+}
+.newsstand-toc .archive-empty {
+  color: #6d6455;
+}
+.newsstand-toc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  border-bottom: 3px solid #14110c;
+  padding-bottom: var(--space-2);
+}
+.newsstand-toc-heading {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  padding: var(--space-1) var(--space-2) var(--space-2);
-  border-top: 1px solid var(--line);
+  gap: 0.3rem;
 }
-.newsstand-cover-outlet {
+.newsstand-toc-kicker {
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #79705c;
+}
+.newsstand-toc-name {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1;
+}
+.newsstand-toc-logo {
+  max-width: 220px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.newsstand-toc-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  font-family: var(--body);
+  font-size: 0.75rem;
+  color: #6d6455;
+  text-align: right;
+}
+
+.newsstand-toc-list {
+  display: flex;
+  flex-direction: column;
+}
+.newsstand-toc-row {
+  display: grid;
+  grid-template-columns: minmax(72px, auto) minmax(0, 1fr) auto;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid #e2dac8;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.newsstand-toc-row:hover,
+.newsstand-toc-row:focus-visible {
+  background: #f4eee1;
+}
+.newsstand-toc-row-static {
+  cursor: default;
+}
+.newsstand-toc-row-section {
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #79705c;
+}
+.newsstand-toc-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.newsstand-toc-row-title {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-wrap: pretty;
 }
-.newsstand-cover-dates,
-.newsstand-cover-count {
+.newsstand-toc-row-dek {
   font-family: var(--body);
-  font-size: 0.78rem;
-  color: var(--muted);
+  font-size: 0.82rem;
+  color: #6d6455;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.newsstand-toc-row-date {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  color: #79705c;
+  white-space: nowrap;
 }
 
-.newsstand-opened {
-  margin-top: var(--space-4);
-}
-.newsstand-opened-header {
-  margin-bottom: var(--space-3);
-}
-.newsstand-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: none;
-  background: none;
-  color: var(--accent-ink);
-  font-family: var(--body);
-  font-weight: 600;
-  cursor: pointer;
-  padding: var(--space-1) 0;
-  margin-bottom: var(--space-2);
-}
-.newsstand-back:hover,
-.newsstand-back:focus-visible {
-  text-decoration: underline;
-}
-.newsstand-opened-title {
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--ink);
-  margin: 0;
-}
-.newsstand-opened-dates {
-  color: var(--muted);
-  margin: 0.2rem 0 0;
+.newsstand-toc .pagination {
+  margin-top: var(--space-2);
 }
 
-@media (min-width: 768px) {
-  .newsstand-cards {
-    overflow: visible;
-    scroll-snap-type: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  }
-  .newsstand-cover {
-    flex: initial;
+@media (prefers-reduced-motion: reduce) {
+  .newsstand-stack-paper {
+    transition: none !important;
   }
 }
+
 .newsstand-controlbar {
-  position: sticky;
-  top: 72px;
-  z-index: 90;
   background: color-mix(in srgb, var(--surface) 92%, transparent);
-  backdrop-filter: saturate(1.2) blur(8px);
   border-bottom: 1px solid var(--line);
   padding-block: var(--space-2);
   margin-bottom: var(--space-3);
@@ -2395,11 +2589,42 @@ a.archive-row:hover .archive-row-title {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  align-items: flex-start;
+  align-items: center;
   margin-top: var(--space-2);
 }
+/* The year-range card reads as boxed, block-shaped filter chrome in its
+   original (sidebar) context; sitting next to the compact pill-shaped
+   outlet chips here, that chrome made it a much taller floating block
+   with visible empty space around it. Flattened to an inline group at
+   the same ~44px control height so it reads as part of the same toolbar
+   row instead of a separate nested card. */
 .newsstand-controlbar-filters .filter-card {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.newsstand-controlbar-filters .filter-card h3 {
+  margin: 0;
+  white-space: nowrap;
+}
+.newsstand-controlbar-filters .date-range {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.newsstand-controlbar-filters .date-range label {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.newsstand-controlbar-filters .date-range input {
+  width: 5.5rem;
 }
 
 .newsstand-controlbar-top {
@@ -2408,121 +2633,6 @@ a.archive-row:hover .archive-row-title {
   gap: var(--space-2);
   align-items: center;
   justify-content: space-between;
-}
-
-.newsstand-carousel {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-}
-.newsstand-carousel .newsstand-cards {
-  position: relative;
-  flex: 1;
-  min-height: 280px;
-  overflow: visible;
-}
-.newsstand-carousel-nav {
-  flex: 0 0 auto;
-  border: 1px solid var(--line);
-  background: var(--surface-raised);
-  border-radius: var(--radius-full);
-  width: var(--control-hit-size);
-  height: var(--control-hit-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.newsstand-carousel-nav:disabled {
-  opacity: var(--control-disabled-opacity);
-  cursor: not-allowed;
-}
-
-@media (min-width: 768px) {
-  .newsstand-cover-wrap {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    transform: translateX(-50%) scale(0.4);
-    opacity: 0;
-    pointer-events: none;
-  }
-  .newsstand-cover-wrap[data-offset='0'] {
-    transform: translateX(-50%) rotateY(0deg) scale(1);
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 5;
-  }
-  .newsstand-cover-wrap[data-offset='1'] {
-    transform: translateX(calc(-50% + 150px)) rotateY(-28deg) scale(0.85);
-    opacity: 0.85;
-    pointer-events: auto;
-    z-index: 4;
-  }
-  .newsstand-cover-wrap[data-offset='-1'] {
-    transform: translateX(calc(-50% - 150px)) rotateY(28deg) scale(0.85);
-    opacity: 0.85;
-    pointer-events: auto;
-    z-index: 4;
-  }
-  .newsstand-cover-wrap[data-offset='2'] {
-    transform: translateX(calc(-50% + 260px)) rotateY(-42deg) scale(0.68);
-    opacity: 0.5;
-    pointer-events: auto;
-    z-index: 3;
-  }
-  .newsstand-cover-wrap[data-offset='-2'] {
-    transform: translateX(calc(-50% - 260px)) rotateY(42deg) scale(0.68);
-    opacity: 0.5;
-    pointer-events: auto;
-    z-index: 3;
-  }
-}
-
-@media (max-width: 767px) {
-  .newsstand-carousel {
-    flex-direction: column;
-  }
-  .newsstand-carousel .newsstand-cards {
-    display: flex;
-    position: static;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    min-height: 0;
-    width: 100%;
-  }
-  .newsstand-cover-wrap {
-    scroll-snap-align: start;
-    flex: 0 0 160px;
-  }
-  .newsstand-carousel-nav {
-    display: none;
-  }
-}
-
-.newsstand-carousel[data-reduced='true'] .newsstand-cards {
-  position: static;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  min-height: 0;
-  overflow: visible;
-}
-.newsstand-carousel[data-reduced='true'] .newsstand-cover-wrap {
-  position: static;
-  transform: none !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-.newsstand-carousel[data-reduced='true'] .newsstand-carousel-nav {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .newsstand-cover-wrap {
-    transition: none !important;
-  }
 }
 
 .article-subtitle {
