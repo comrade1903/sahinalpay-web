@@ -49,6 +49,7 @@ import {
   type PageKey,
 } from './routes'
 import portrait from './assets/portrait.jpg'
+import logoAydinlik from './assets/logos/aydinlik.webp'
 import logoCumhuriyet from './assets/logos/cumhuriyet.webp'
 import logoMilliyet from './assets/logos/milliyet.svg'
 import logoZaman from './assets/logos/zaman.webp'
@@ -1695,6 +1696,7 @@ function outletDateRangeLabel(items: ArchiveItem[]): string | null {
     rather than a fabricated logo. Shown upright (never rotated) on the
     spine face: these are wide wordmark scans that go illegible sideways. */
 const outletLogos: Partial<Record<string, string>> = {
+  'Aydınlık (Sosyalist Dergi/Proleter Devrimci)': logoAydinlik,
   Cumhuriyet: logoCumhuriyet,
   Milliyet: logoMilliyet,
   Zaman: logoZaman,
@@ -1728,6 +1730,7 @@ function orderNewsstandOutlets(entries: NewsstandOutlet[]): NewsstandOutlet[] {
     mastheads where known); an unbranded outlet falls back to the site's
     wood-edge tone rather than a guessed color. */
 const outletAccent: Partial<Record<string, string>> = {
+  'Aydınlık (Sosyalist Dergi/Proleter Devrimci)': '#a44e8c',
   Milliyet: '#b3241c',
   Cumhuriyet: '#e30512',
   Sabah: '#da251c',

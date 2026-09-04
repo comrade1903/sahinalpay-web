@@ -2464,7 +2464,12 @@ a.archive-row:hover .archive-row-title {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  height: 100%;
+  /* The image inside is absolutely positioned, so this plate has no
+     content to be sized by: it takes its height from the card row
+     (align-self, since the row is centre-aligned and won't stretch it)
+     with a floor, rather than collapsing to a stamp-sized wordmark. */
+  align-self: stretch;
+  min-height: 44px;
   padding: 0.25rem 0.35rem;
   border-radius: var(--radius);
   background: var(--masthead-plate);
