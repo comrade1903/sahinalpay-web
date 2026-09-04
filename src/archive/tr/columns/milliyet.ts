@@ -22,7 +22,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/abd-ve-refah/cover.png',
+        src: '/archive/clippings/milliyet/1994/abd-ve-refah/cover.webp',
         alt: 'Milliyet, 29 Kasım 1994, s. 20',
         pageLabel: 's. 20',
       },
@@ -40,7 +40,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/medya-egemenligi-surmeyecek/cover.png',
+        src: '/archive/clippings/milliyet/1994/medya-egemenligi-surmeyecek/cover.webp',
         alt: 'Milliyet, 1 Aralık 1994, s. 18',
         pageLabel: 's. 18',
       },
@@ -58,7 +58,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/egitimde-somuru/cover.png',
+        src: '/archive/clippings/milliyet/1994/egitimde-somuru/cover.webp',
         alt: 'Milliyet, 3 Aralık 1994, s. 19',
         pageLabel: 's. 19',
       },
@@ -76,7 +76,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/sansasyon-promosyon/cover.png',
+        src: '/archive/clippings/milliyet/1994/sansasyon-promosyon/cover.webp',
         alt: 'Milliyet, 6 Aralık 1994, s. 20',
         pageLabel: 's. 20',
       },
@@ -94,7 +94,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/bir-numarali-sorunumuz/cover.png',
+        src: '/archive/clippings/milliyet/1994/bir-numarali-sorunumuz/cover.webp',
         alt: 'Milliyet, 8 Aralık 1994, s. 18',
         pageLabel: 's. 18',
       },
@@ -112,7 +112,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/ic-islerimiz/cover.png',
+        src: '/archive/clippings/milliyet/1994/ic-islerimiz/cover.webp',
         alt: 'Milliyet, 13 Aralık 1994, s. 18',
         pageLabel: 's. 18',
       },
@@ -130,7 +130,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/entellektuel/cover.png',
+        src: '/archive/clippings/milliyet/1994/entellektuel/cover.webp',
         alt: 'Milliyet, 27 Aralık 1994, s. 20',
         pageLabel: 's. 20',
       },
@@ -148,7 +148,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1994/uygarligin-dili/cover.png',
+        src: '/archive/clippings/milliyet/1994/uygarligin-dili/cover.webp',
         alt: 'Milliyet, 31 Aralık 1994, s. 20',
         pageLabel: 's. 20',
       },
@@ -166,7 +166,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/sag-ve-solun-anlami/cover.png',
+        src: '/archive/clippings/milliyet/1995/sag-ve-solun-anlami/cover.webp',
         alt: 'Milliyet, 3 Ocak 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -184,7 +184,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/entel/cover.png',
+        src: '/archive/clippings/milliyet/1995/entel/cover.webp',
         alt: 'Milliyet, 5 Ocak 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -202,7 +202,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/pkk-meselesi/cover.png',
+        src: '/archive/clippings/milliyet/1995/pkk-meselesi/cover.webp',
         alt: 'Milliyet, 26 Ocak 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -220,7 +220,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/sosyal-demokrasi-ve-kemalizm/cover.png',
+        src: '/archive/clippings/milliyet/1995/sosyal-demokrasi-ve-kemalizm/cover.webp',
         alt: 'Milliyet, 11 Şubat 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -238,7 +238,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/dusunce-ozgurlugu/cover.png',
+        src: '/archive/clippings/milliyet/1995/dusunce-ozgurlugu/cover.webp',
         alt: 'Milliyet, 28 Şubat 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -256,7 +256,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/kulturel-relativizm/cover.png',
+        src: '/archive/clippings/milliyet/1995/kulturel-relativizm/cover.webp',
         alt: 'Milliyet, 9 Mart 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -274,7 +274,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/turkiyenin-realiteleri/cover.png',
+        src: '/archive/clippings/milliyet/1995/turkiyenin-realiteleri/cover.webp',
         alt: 'Milliyet, 16 Mart 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -292,7 +292,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/guvenligimiz/cover.png',
+        src: '/archive/clippings/milliyet/1995/guvenligimiz/cover.webp',
         alt: 'Milliyet, 25 Mart 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -310,7 +310,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/yeni-demokrasi/cover.png',
+        src: '/archive/clippings/milliyet/1995/yeni-demokrasi/cover.webp',
         alt: 'Milliyet, 4 Nisan 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -328,7 +328,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/kurtler-kardeslerimizdir/cover.png',
+        src: '/archive/clippings/milliyet/1995/kurtler-kardeslerimizdir/cover.webp',
         alt: 'Milliyet, 13 Nisan 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -346,7 +346,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/fundamentalistler-ve-islamcilar/cover.png',
+        src: '/archive/clippings/milliyet/1995/fundamentalistler-ve-islamcilar/cover.webp',
         alt: 'Milliyet, 20 Nisan 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -364,7 +364,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/tartisma-adabi/cover.png',
+        src: '/archive/clippings/milliyet/1995/tartisma-adabi/cover.webp',
         alt: 'Milliyet, 22 Nisan 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -382,7 +382,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/ahmet-altan-olayi/cover.png',
+        src: '/archive/clippings/milliyet/1995/ahmet-altan-olayi/cover.webp',
         alt: 'Milliyet, 29 Nisan 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -400,7 +400,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/muhtesem-donek/cover.png',
+        src: '/archive/clippings/milliyet/1995/muhtesem-donek/cover.webp',
         alt: 'Milliyet, 2 Mayıs 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -418,7 +418,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/uc-tarz-i-siyaset/cover.png',
+        src: '/archive/clippings/milliyet/1995/uc-tarz-i-siyaset/cover.webp',
         alt: 'Milliyet, 4 Mayıs 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -436,7 +436,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/rp-ve-osmanli-mirasi/cover.png',
+        src: '/archive/clippings/milliyet/1995/rp-ve-osmanli-mirasi/cover.webp',
         alt: 'Milliyet, 1 Haziran 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -454,7 +454,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/aleviligin-ayaga-kalkisi/cover.png',
+        src: '/archive/clippings/milliyet/1995/aleviligin-ayaga-kalkisi/cover.webp',
         alt: 'Milliyet, 29 Haziran 1995, s. 16',
         pageLabel: 's. 16',
       },
@@ -472,7 +472,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/guleryuzlu-sosyalist/cover.png',
+        src: '/archive/clippings/milliyet/1995/guleryuzlu-sosyalist/cover.webp',
         alt: 'Milliyet, 13 Temmuz 1995, s. 16',
         pageLabel: 's. 16',
       },
@@ -490,7 +490,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/islamin-martin-lutheri/cover.png',
+        src: '/archive/clippings/milliyet/1995/islamin-martin-lutheri/cover.webp',
         alt: 'Milliyet, 12 Ağustos 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -508,7 +508,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/firtinalar/cover.png',
+        src: '/archive/clippings/milliyet/1995/firtinalar/cover.webp',
         alt: 'Milliyet, 2 Eylül 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -526,7 +526,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/yarim-demokrasimiz/cover.png',
+        src: '/archive/clippings/milliyet/1995/yarim-demokrasimiz/cover.webp',
         alt: 'Milliyet, 31 Ekim 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -544,7 +544,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/kurt-kimligini-taniyoruz/cover.png',
+        src: '/archive/clippings/milliyet/1995/kurt-kimligini-taniyoruz/cover.webp',
         alt: 'Milliyet, 2 Kasım 1995, s. 22',
         pageLabel: 's. 22',
       },
@@ -562,7 +562,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/refahin-iki-yuzu/cover.png',
+        src: '/archive/clippings/milliyet/1995/refahin-iki-yuzu/cover.webp',
         alt: 'Milliyet, 25 Kasım 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -580,7 +580,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/kaos-teorisi-ve-siyasetimiz/cover.png',
+        src: '/archive/clippings/milliyet/1995/kaos-teorisi-ve-siyasetimiz/cover.webp',
         alt: 'Milliyet, 5 Aralık 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -598,7 +598,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/feodalizmmis/cover.png',
+        src: '/archive/clippings/milliyet/1995/feodalizmmis/cover.webp',
         alt: 'Milliyet, 12 Aralık 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -616,7 +616,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/isciler-neden-solcu-degil/cover.png',
+        src: '/archive/clippings/milliyet/1996/isciler-neden-solcu-degil/cover.webp',
         alt: 'Milliyet, 4 Ocak 1996, s. 16',
         pageLabel: 's. 16',
       },
@@ -634,7 +634,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/siddetin-kaynagi/cover.png',
+        src: '/archive/clippings/milliyet/1996/siddetin-kaynagi/cover.webp',
         alt: 'Milliyet, 16 Ocak 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -652,7 +652,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/demokrasiler-savasmaz/cover.png',
+        src: '/archive/clippings/milliyet/1996/demokrasiler-savasmaz/cover.webp',
         alt: 'Milliyet, 1 Şubat 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -670,7 +670,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/asker-sivil-iliskileri/cover.png',
+        src: '/archive/clippings/milliyet/1996/asker-sivil-iliskileri/cover.webp',
         alt: 'Milliyet, 8 Şubat 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -688,7 +688,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/pkk-ve-demokrasi/cover.png',
+        src: '/archive/clippings/milliyet/1996/pkk-ve-demokrasi/cover.webp',
         alt: 'Milliyet, 9 Mart 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -706,7 +706,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/kurt-politikasi-degismeli/cover.png',
+        src: '/archive/clippings/milliyet/1996/kurt-politikasi-degismeli/cover.webp',
         alt: 'Milliyet, 18 Nisan 1996, s. 22',
         pageLabel: 's. 22',
       },
@@ -724,7 +724,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/niye-sinif-degil-de-kimlik/cover.png',
+        src: '/archive/clippings/milliyet/1996/niye-sinif-degil-de-kimlik/cover.webp',
         alt: 'Milliyet, 27 Nisan 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -742,7 +742,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/sevr-sendromu/cover.png',
+        src: '/archive/clippings/milliyet/1996/sevr-sendromu/cover.webp',
         alt: 'Milliyet, 9 Mayıs 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -760,7 +760,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/erbakan-irkciliktan-yargilanmali/cover.png',
+        src: '/archive/clippings/milliyet/1996/erbakan-irkciliktan-yargilanmali/cover.webp',
         alt: 'Milliyet, 25 Mayıs 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -778,7 +778,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/islamcilari-taniyalim/cover.png',
+        src: '/archive/clippings/milliyet/1996/islamcilari-taniyalim/cover.webp',
         alt: 'Milliyet, 22 Haziran 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -796,7 +796,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/turkun-dostu-yoktur/cover.png',
+        src: '/archive/clippings/milliyet/1996/turkun-dostu-yoktur/cover.webp',
         alt: 'Milliyet, 6 Temmuz 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -814,7 +814,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/sehitlerimiz/cover.png',
+        src: '/archive/clippings/milliyet/1996/sehitlerimiz/cover.webp',
         alt: 'Milliyet, 31 Ağustos 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -832,7 +832,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/laiklik-ve-demokrasi/cover.png',
+        src: '/archive/clippings/milliyet/1996/laiklik-ve-demokrasi/cover.webp',
         alt: 'Milliyet, 3 Eylül 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -850,7 +850,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/apoletli-medya/cover.png',
+        src: '/archive/clippings/milliyet/1996/apoletli-medya/cover.webp',
         alt: 'Milliyet, 9 Kasım 1996, s. 22',
         pageLabel: 's. 22',
       },
@@ -868,7 +868,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/islamcilar-ve-laikciler/cover.png',
+        src: '/archive/clippings/milliyet/1996/islamcilar-ve-laikciler/cover.webp',
         alt: 'Milliyet, 14 Kasım 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -886,7 +886,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/diyarbakirdan-bakinca-susurluk/cover.png',
+        src: '/archive/clippings/milliyet/1996/diyarbakirdan-bakinca-susurluk/cover.webp',
         alt: 'Milliyet, 28 Kasım 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -904,7 +904,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/ab-kandiriyor-mu/cover.png',
+        src: '/archive/clippings/milliyet/1996/ab-kandiriyor-mu/cover.webp',
         alt: 'Milliyet, 10 Aralık 1996, s. 18',
         pageLabel: 's. 18',
       },
@@ -922,7 +922,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/islamin-yildizi-ne-alemde/cover.png',
+        src: '/archive/clippings/milliyet/1997/islamin-yildizi-ne-alemde/cover.webp',
         alt: 'Milliyet, 8 Şubat 1997, s. 18',
         pageLabel: 's. 18',
       },
@@ -940,7 +940,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/seriat-ne-demek/cover.png',
+        src: '/archive/clippings/milliyet/1997/seriat-ne-demek/cover.webp',
         alt: 'Milliyet, 18 Şubat 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -958,7 +958,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/muhtesem-revizyonist/cover.png',
+        src: '/archive/clippings/milliyet/1997/muhtesem-revizyonist/cover.webp',
         alt: 'Milliyet, 22 Şubat 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -976,7 +976,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/kibrisin-kimligi/cover.png',
+        src: '/archive/clippings/milliyet/1997/kibrisin-kimligi/cover.webp',
         alt: 'Milliyet, 1 Nisan 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -994,7 +994,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/imam-hatip-meselesi/cover.png',
+        src: '/archive/clippings/milliyet/1997/imam-hatip-meselesi/cover.webp',
         alt: 'Milliyet, 5 Nisan 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1012,7 +1012,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/bilim-ve-yanilgi-1997/cover.png',
+        src: '/archive/clippings/milliyet/1997/bilim-ve-yanilgi-1997/cover.webp',
         alt: 'Milliyet, 26 Nisan 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1030,7 +1030,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/millet-ve-kimlik/cover.png',
+        src: '/archive/clippings/milliyet/1997/millet-ve-kimlik/cover.webp',
         alt: 'Milliyet, 13 Mayıs 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1048,7 +1048,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/rp-pragmatizm-ya-da-ideoloji/cover.png',
+        src: '/archive/clippings/milliyet/1997/rp-pragmatizm-ya-da-ideoloji/cover.webp',
         alt: 'Milliyet, 5 Haziran 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1066,7 +1066,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/islamin-protestanlasmasi/cover.png',
+        src: '/archive/clippings/milliyet/1997/islamin-protestanlasmasi/cover.webp',
         alt: 'Milliyet, 14 Haziran 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1084,7 +1084,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/refahin-uyarisi/cover.png',
+        src: '/archive/clippings/milliyet/1997/refahin-uyarisi/cover.webp',
         alt: 'Milliyet, 26 Haziran 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1102,7 +1102,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/sol-din-ve-devlet/cover.png',
+        src: '/archive/clippings/milliyet/1997/sol-din-ve-devlet/cover.webp',
         alt: 'Milliyet, 28 Ağustos 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1120,7 +1120,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/ataturk-kultu/cover.png',
+        src: '/archive/clippings/milliyet/1997/ataturk-kultu/cover.webp',
         alt: 'Milliyet, 18 Ekim 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1138,7 +1138,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/kurtleri-turk-yapmak/cover.png',
+        src: '/archive/clippings/milliyet/1998/kurtleri-turk-yapmak/cover.webp',
         alt: 'Milliyet, 8 Ocak 1998, s. 18',
         pageLabel: 's. 18',
       },
@@ -1156,7 +1156,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/refah-karari/cover.png',
+        src: '/archive/clippings/milliyet/1998/refah-karari/cover.webp',
         alt: 'Milliyet, 20 Ocak 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -1174,7 +1174,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/tsknin-siyasi-ozerkligi/cover.png',
+        src: '/archive/clippings/milliyet/1998/tsknin-siyasi-ozerkligi/cover.webp',
         alt: 'Milliyet, 10 Mart 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -1192,7 +1192,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/din-ve-bilim/cover.png',
+        src: '/archive/clippings/milliyet/1998/din-ve-bilim/cover.webp',
         alt: 'Milliyet, 8 Ağustos 1998, s. 20',
         pageLabel: 's. 20',
       },
@@ -1210,7 +1210,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/devletin-ceteleri/cover.png',
+        src: '/archive/clippings/milliyet/1998/devletin-ceteleri/cover.webp',
         alt: 'Milliyet, 27 Ağustos 1998, s. 20',
         pageLabel: 's. 20',
       },
@@ -1228,7 +1228,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/milliyet-onemlidir/cover.png',
+        src: '/archive/clippings/milliyet/1998/milliyet-onemlidir/cover.webp',
         alt: 'Milliyet, 15 Ekim 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -1246,7 +1246,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/muasir-medeniyet/cover.png',
+        src: '/archive/clippings/milliyet/1998/muasir-medeniyet/cover.webp',
         alt: 'Milliyet, 29 Ekim 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -1264,7 +1264,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/gazeteci/cover.png',
+        src: '/archive/clippings/milliyet/1998/gazeteci/cover.webp',
         alt: 'Milliyet, 3 Kasım 1998, s. 20',
         pageLabel: 's. 20',
       },
@@ -1282,7 +1282,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/kurt-sorunu-ve-pkk/cover.png',
+        src: '/archive/clippings/milliyet/1998/kurt-sorunu-ve-pkk/cover.webp',
         alt: 'Milliyet, 3 Aralık 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -1300,7 +1300,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/talihsiz-bir-karar/cover.png',
+        src: '/archive/clippings/milliyet/1999/talihsiz-bir-karar/cover.webp',
         alt: 'Milliyet, 2 Mart 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1318,7 +1318,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/kktcyi-taniyin/cover.png',
+        src: '/archive/clippings/milliyet/1999/kktcyi-taniyin/cover.webp',
         alt: 'Milliyet, 3 Nisan 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1336,7 +1336,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/tarafsiz-gazeteci/cover.png',
+        src: '/archive/clippings/milliyet/1999/tarafsiz-gazeteci/cover.webp',
         alt: 'Milliyet, 15 Nisan 1999, s. 24',
         pageLabel: 's. 24',
       },
@@ -1354,7 +1354,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/milliyetcilik-ve-yurtseverlik/cover.png',
+        src: '/archive/clippings/milliyet/1999/milliyetcilik-ve-yurtseverlik/cover.webp',
         alt: 'Milliyet, 6 Mayıs 1999, s. 22',
         pageLabel: 's. 22',
       },
@@ -1372,7 +1372,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/mao-ve-dengin-kenti/cover.png',
+        src: '/archive/clippings/milliyet/1999/mao-ve-dengin-kenti/cover.webp',
         alt: 'Milliyet, 8 Haziran 1999, s. 18',
         pageLabel: 's. 18',
       },
@@ -1390,7 +1390,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/islam-ve-iran/cover.png',
+        src: '/archive/clippings/milliyet/1999/islam-ve-iran/cover.webp',
         alt: 'Milliyet, 22 Temmuz 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1408,7 +1408,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/aponun-cagrisi/cover.png',
+        src: '/archive/clippings/milliyet/1999/aponun-cagrisi/cover.webp',
         alt: 'Milliyet, 10 Ağustos 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1426,7 +1426,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/kibrisi-cozelim/cover.png',
+        src: '/archive/clippings/milliyet/1999/kibrisi-cozelim/cover.webp',
         alt: 'Milliyet, 9 Eylül 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1444,7 +1444,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/islamin-yildizi/cover.png',
+        src: '/archive/clippings/milliyet/1999/islamin-yildizi/cover.webp',
         alt: 'Milliyet, 30 Kasım 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -1462,7 +1462,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/helsinki/cover.png',
+        src: '/archive/clippings/milliyet/1999/helsinki/cover.webp',
         alt: 'Milliyet, 11 Aralık 1999, s. 24',
         pageLabel: 's. 24',
       },
@@ -1480,7 +1480,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/temkinli-iyimser/cover.png',
+        src: '/archive/clippings/milliyet/2000/temkinli-iyimser/cover.webp',
         alt: 'Milliyet, 4 Ocak 2000, s. 22',
         pageLabel: 's. 22',
       },
@@ -1498,7 +1498,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/islam-ve-siddet/cover.png',
+        src: '/archive/clippings/milliyet/2000/islam-ve-siddet/cover.webp',
         alt: 'Milliyet, 3 Şubat 2000, s. 22',
         pageLabel: 's. 22',
       },
@@ -1516,7 +1516,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/fazilet-paradoksu/cover.png',
+        src: '/archive/clippings/milliyet/2000/fazilet-paradoksu/cover.webp',
         alt: 'Milliyet, 18 Mart 2000, s. 20',
         pageLabel: 's. 20',
       },
@@ -1534,7 +1534,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/fpnin-iki-yuzu/cover.jpg',
+        src: '/archive/clippings/milliyet/2000/fpnin-iki-yuzu/cover.webp',
         alt: 'Milliyet, 11 Mayıs 2000',
       },
     ],
@@ -1551,7 +1551,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/inkar-kulturu/cover.png',
+        src: '/archive/clippings/milliyet/2000/inkar-kulturu/cover.webp',
         alt: 'Milliyet, 3 Ağustos 2000, s. 24',
         pageLabel: 's. 24',
       },
@@ -1569,7 +1569,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/soykirim-somurusu/cover.png',
+        src: '/archive/clippings/milliyet/2000/soykirim-somurusu/cover.webp',
         alt: 'Milliyet, 8 Ağustos 2000, s. 24',
         pageLabel: 's. 24',
       },
@@ -1587,7 +1587,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/1915-tabusu/cover.jpg',
+        src: '/archive/clippings/milliyet/2000/1915-tabusu/cover.webp',
         alt: 'Milliyet, 30 Eylül 2000',
       },
     ],
@@ -1604,7 +1604,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/medyada-kalite/cover.png',
+        src: '/archive/clippings/milliyet/2000/medyada-kalite/cover.webp',
         alt: 'Milliyet, 31 Ekim 2000, s. 26',
         pageLabel: 's. 26',
       },
@@ -1622,7 +1622,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/seytana-uymak/cover.jpg',
+        src: '/archive/clippings/milliyet/2000/seytana-uymak/cover.webp',
         alt: 'Milliyet, 30 Kasım 2000',
       },
     ],
@@ -1639,7 +1639,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/din-ile-bilim/cover.png',
+        src: '/archive/clippings/milliyet/2000/din-ile-bilim/cover.webp',
         alt: 'Milliyet, 28 Aralık 2000, s. 18',
         pageLabel: 's. 18',
       },
@@ -1657,7 +1657,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2001/batidaki-catlak/cover.png',
+        src: '/archive/clippings/milliyet/2001/batidaki-catlak/cover.webp',
         alt: 'Milliyet, 18 Ocak 2001, s. 18',
         pageLabel: 's. 18',
       },
@@ -1675,7 +1675,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/herkes-baskasinin-teroristini-hosgorme-egiliminde/cover.png',
+        src: '/archive/clippings/milliyet/1995/herkes-baskasinin-teroristini-hosgorme-egiliminde/cover.webp',
         alt: 'Milliyet, 5 Nisan 1995, s. 18',
         pageLabel: 's. 18',
       },
@@ -1693,7 +1693,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/hizli-kalkinma-ozgurlukle-olur/cover.png',
+        src: '/archive/clippings/milliyet/1995/hizli-kalkinma-ozgurlukle-olur/cover.webp',
         alt: 'Milliyet, 21 Nisan 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -1711,7 +1711,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/cesitlilik-icinde-mumkun-birlik/cover.png',
+        src: '/archive/clippings/milliyet/1995/cesitlilik-icinde-mumkun-birlik/cover.webp',
         alt: 'Milliyet, 10 Temmuz 1995, s. 16',
         pageLabel: 's. 16',
       },
@@ -1729,7 +1729,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/haklar-inanctan-once-gelir/cover.png',
+        src: '/archive/clippings/milliyet/1995/haklar-inanctan-once-gelir/cover.webp',
         alt: 'Milliyet, 14 Ağustos 1995, s. 20',
         pageLabel: 's. 20',
       },
@@ -1747,7 +1747,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1995/etnik-ayristirma-tehlikeli-bir-oyun/cover.png',
+        src: '/archive/clippings/milliyet/1995/etnik-ayristirma-tehlikeli-bir-oyun/cover.webp',
         alt: 'Milliyet, 27 Kasım 1995, s. 22',
         pageLabel: 's. 22',
       },
@@ -1765,7 +1765,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/duzeltmelerin-zamani-geldi/cover.png',
+        src: '/archive/clippings/milliyet/1996/duzeltmelerin-zamani-geldi/cover.webp',
         alt: 'Milliyet, 22 Nisan 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -1783,7 +1783,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/turkiye-islamin-lideri-olmali/cover.png',
+        src: '/archive/clippings/milliyet/1996/turkiye-islamin-lideri-olmali/cover.webp',
         alt: 'Milliyet, 9 Eylül 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -1801,7 +1801,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/islam-laiklesebilir-mi/cover.png',
+        src: '/archive/clippings/milliyet/1996/islam-laiklesebilir-mi/cover.webp',
         alt: 'Milliyet, 2 Aralık 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -1819,7 +1819,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1996/mgk-anayasadan-cikmali/cover.png',
+        src: '/archive/clippings/milliyet/1996/mgk-anayasadan-cikmali/cover.webp',
         alt: 'Milliyet, 30 Aralık 1996, s. 20',
         pageLabel: 's. 20',
       },
@@ -1837,7 +1837,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/avrupa-turkiyenin-kadrini-bilmiyor/cover.png',
+        src: '/archive/clippings/milliyet/1997/avrupa-turkiyenin-kadrini-bilmiyor/cover.webp',
         alt: 'Milliyet, 20 Ocak 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1855,7 +1855,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/gelecege-umutla-bakiyorum/cover.png',
+        src: '/archive/clippings/milliyet/1997/gelecege-umutla-bakiyorum/cover.webp',
         alt: 'Milliyet, 10 Şubat 1997, s. 18',
         pageLabel: 's. 18',
       },
@@ -1873,7 +1873,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/federasyon-disinda-cozum-olamaz/cover.png',
+        src: '/archive/clippings/milliyet/1997/federasyon-disinda-cozum-olamaz/cover.webp',
         alt: 'Milliyet, 10 Mart 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1891,7 +1891,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/turkiye-habercinin-cenneti/cover.png',
+        src: '/archive/clippings/milliyet/1997/turkiye-habercinin-cenneti/cover.webp',
         alt: 'Milliyet, 11 Nisan 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1909,7 +1909,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/demokrasi-batili-degildir/cover.png',
+        src: '/archive/clippings/milliyet/1997/demokrasi-batili-degildir/cover.webp',
         alt: 'Milliyet, 29 Mayıs 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1927,7 +1927,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/cogulcu-islama-donmeliyiz/cover.png',
+        src: '/archive/clippings/milliyet/1997/cogulcu-islama-donmeliyiz/cover.webp',
         alt: 'Milliyet, 6 Haziran 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1945,7 +1945,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/ekonomik-dev-siyasi-cuce/cover.png',
+        src: '/archive/clippings/milliyet/1997/ekonomik-dev-siyasi-cuce/cover.webp',
         alt: 'Milliyet, 16 Haziran 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -1963,7 +1963,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/avrupa-kaplani-olurduk/cover.png',
+        src: '/archive/clippings/milliyet/1997/avrupa-kaplani-olurduk/cover.webp',
         alt: 'Milliyet, 23 Haziran 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -1981,7 +1981,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/kalkinmanin-sarti-hukuk-devleti/cover.png',
+        src: '/archive/clippings/milliyet/1997/kalkinmanin-sarti-hukuk-devleti/cover.webp',
         alt: 'Milliyet, 7 Temmuz 1997, s. 16',
         pageLabel: 's. 16',
       },
@@ -1999,7 +1999,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/refah-kapatilmamali/cover.png',
+        src: '/archive/clippings/milliyet/1997/refah-kapatilmamali/cover.webp',
         alt: 'Milliyet, 14 Temmuz 1997, s. 20',
         pageLabel: 's. 20',
       },
@@ -2017,7 +2017,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/sol-islamla-barismali/cover.png',
+        src: '/archive/clippings/milliyet/1997/sol-islamla-barismali/cover.webp',
         alt: 'Milliyet, 4 Ağustos 1997, s. 18',
         pageLabel: 's. 18',
       },
@@ -2035,7 +2035,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/biyografik-politika/cover.png',
+        src: '/archive/clippings/milliyet/1997/biyografik-politika/cover.webp',
         alt: 'Milliyet, 7 Kasım 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -2053,7 +2053,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1997/nufus-tespiti-kaynak-israfi/cover.png',
+        src: '/archive/clippings/milliyet/1997/nufus-tespiti-kaynak-israfi/cover.webp',
         alt: 'Milliyet, 8 Aralık 1997, s. 22',
         pageLabel: 's. 22',
       },
@@ -2071,7 +2071,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1998/ronesans-bize-de-gerekli/cover.png',
+        src: '/archive/clippings/milliyet/1998/ronesans-bize-de-gerekli/cover.webp',
         alt: 'Milliyet, 9 Ekim 1998, s. 22',
         pageLabel: 's. 22',
       },
@@ -2089,7 +2089,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/uzlasma-esitliktedir/cover.png',
+        src: '/archive/clippings/milliyet/1999/uzlasma-esitliktedir/cover.webp',
         alt: 'Milliyet, 25 Ocak 1999, s. 18',
         pageLabel: 's. 18',
       },
@@ -2107,7 +2107,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/bizim-icin-turkiye-adaydir/cover.png',
+        src: '/archive/clippings/milliyet/1999/bizim-icin-turkiye-adaydir/cover.webp',
         alt: 'Milliyet, 3 Şubat 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -2125,7 +2125,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/turkler-alman-olmasin/cover.png',
+        src: '/archive/clippings/milliyet/1999/turkler-alman-olmasin/cover.webp',
         alt: 'Milliyet, 10 Şubat 1999, s. 22',
         pageLabel: 's. 22',
       },
@@ -2143,7 +2143,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/isi-strasbourga-birakmayin/cover.png',
+        src: '/archive/clippings/milliyet/1999/isi-strasbourga-birakmayin/cover.webp',
         alt: 'Milliyet, 9 Mart 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -2161,7 +2161,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/ayni-bakis-farkli-tavir/cover.png',
+        src: '/archive/clippings/milliyet/1999/ayni-bakis-farkli-tavir/cover.webp',
         alt: 'Milliyet, 31 Mart 1999, s. 18',
         pageLabel: 's. 18',
       },
@@ -2179,7 +2179,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/ataturk-demokrasinin-kurumlarini-getirdi/cover.png',
+        src: '/archive/clippings/milliyet/1999/ataturk-demokrasinin-kurumlarini-getirdi/cover.webp',
         alt: 'Milliyet, 20 Ekim 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -2197,7 +2197,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/ders-kitaplari-ayiklanmali/cover.png',
+        src: '/archive/clippings/milliyet/1999/ders-kitaplari-ayiklanmali/cover.webp',
         alt: 'Milliyet, 27 Ekim 1999, s. 22',
         pageLabel: 's. 22',
       },
@@ -2215,7 +2215,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/1999/ataturkun-dusu-bati-uyeligiydi/cover.png',
+        src: '/archive/clippings/milliyet/1999/ataturkun-dusu-bati-uyeligiydi/cover.webp',
         alt: 'Milliyet, 10 Kasım 1999, s. 20',
         pageLabel: 's. 20',
       },
@@ -2233,7 +2233,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/ekonomide-devlet-gerekli/cover.png',
+        src: '/archive/clippings/milliyet/2000/ekonomide-devlet-gerekli/cover.webp',
         alt: 'Milliyet, 11 Şubat 2000, s. 22',
         pageLabel: 's. 22',
       },
@@ -2251,7 +2251,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/ab-yuruyecegine-kosuyor/cover.png',
+        src: '/archive/clippings/milliyet/2000/ab-yuruyecegine-kosuyor/cover.webp',
         alt: 'Milliyet, 22 Mart 2000, s. 22',
         pageLabel: 's. 22',
       },
@@ -2269,7 +2269,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/siddet-tesvik-edilemez/cover.png',
+        src: '/archive/clippings/milliyet/2000/siddet-tesvik-edilemez/cover.webp',
         alt: 'Milliyet, 31 Mart 2000, s. 24',
         pageLabel: 's. 24',
       },
@@ -2287,7 +2287,7 @@ export const milliyetColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'interview',
     clippings: [
       {
-        src: '/archive/clippings/milliyet/2000/denktas-cozum-istemiyor/cover.png',
+        src: '/archive/clippings/milliyet/2000/denktas-cozum-istemiyor/cover.webp',
         alt: 'Milliyet, 29 Kasım 2000, s. 27',
         pageLabel: 's. 27',
       },

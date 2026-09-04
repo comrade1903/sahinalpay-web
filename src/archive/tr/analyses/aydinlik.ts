@@ -14,7 +14,7 @@ export const aydinlikAnalysisSeeds: ArchiveItemSeed[] = [
     pdfPageCount: 18,
     clippings: [
       {
-        src: "/archive/clippings/aydinlik/1968/devrimci-teorik-egitim/cover.jpg",
+        src: "/archive/clippings/aydinlik/1968/devrimci-teorik-egitim/cover.webp",
         alt: "Aydınlık, sayı 2, s. 144",
         pageLabel: "s. 144",
       },
@@ -33,7 +33,7 @@ export const aydinlikAnalysisSeeds: ArchiveItemSeed[] = [
     pdfPageCount: 28,
     clippings: [
       {
-        src: "/archive/clippings/aydinlik/1969/osmanli-ticaret-sozlesmeleri/cover.jpg",
+        src: "/archive/clippings/aydinlik/1969/osmanli-ticaret-sozlesmeleri/cover.webp",
         alt: "Aydınlık, sayı 6, s. 438",
         pageLabel: "s. 438",
       },
@@ -52,7 +52,7 @@ export const aydinlikAnalysisSeeds: ArchiveItemSeed[] = [
     pdfPageCount: 30,
     clippings: [
       {
-        src: "/archive/clippings/aydinlik/1969/turkiyenin-duzeni-uzerine/cover.jpg",
+        src: "/archive/clippings/aydinlik/1969/turkiyenin-duzeni-uzerine/cover.webp",
         alt: "Aydınlık, sayı 12, s. 448",
         pageLabel: "s. 448",
       },
@@ -71,7 +71,7 @@ export const aydinlikAnalysisSeeds: ArchiveItemSeed[] = [
     pdfPageCount: 24,
     clippings: [
       {
-        src: "/archive/clippings/aydinlik/1970/isci-sinifi-milli-demokratik-devrim/cover.jpg",
+        src: "/archive/clippings/aydinlik/1970/isci-sinifi-milli-demokratik-devrim/cover.webp",
         alt: "Proleter Devrimci Aydınlık, sayı 3-17, s. 353",
         pageLabel: "s. 353",
       },

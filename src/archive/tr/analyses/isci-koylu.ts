@@ -14,7 +14,7 @@ export const isciKoyluAnalysisSeeds: ArchiveItemSeed[] = [
     pdfPageCount: 2,
     clippings: [
       {
-        src: "/archive/clippings/isci-koylu/1970/1-mayis/cover.jpg",
+        src: "/archive/clippings/isci-koylu/1970/1-mayis/cover.webp",
         alt: "İşçi Köylü, sayı 16, 3 Mayıs 1970, sayfa 2",
         pageLabel: "Sayfa 2",
       },

@@ -137,7 +137,14 @@ function extract(entry) {
         sourcePath,
         path.join(coverDir, 'cover'),
       ])
-      fs.copyFileSync(soleFile(coverDir, '.jpg'), coverOut)
+      // The rendered page goes out as webp like every other clipping asset,
+      // roughly a third of the JPEG's bytes at the same reading quality.
+      run('cwebp', [
+        '-quiet',
+        '-q', String(entry.coverQuality ?? COVER_QUALITY),
+        soleFile(coverDir, '.jpg'),
+        '-o', coverOut,
+      ])
     } finally {
       fs.rmSync(coverDir, { recursive: true, force: true })
     }

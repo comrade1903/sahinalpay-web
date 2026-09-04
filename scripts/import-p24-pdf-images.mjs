@@ -69,7 +69,7 @@ function renderFirstPage(sourcePdf, outputPrefix) {
   }
 }
 
-function cropHeroImage(inputPng, outputPng) {
+function cropHeroImage(inputPng, outputPath) {
   const cropper = `
 from PIL import Image
 import sys
@@ -128,7 +128,7 @@ y2 = min(height, y2 + 8)
 image.crop((x1, y1, x2, y2)).save(sys.argv[2])
 `
 
-  const result = spawnSync(python, ['-c', cropper, inputPng, outputPng], {
+  const result = spawnSync(python, ['-c', cropper, inputPng, outputPath], {
     encoding: 'utf8',
     stdio: 'pipe',
   })
@@ -159,7 +159,9 @@ for (const file of pdfFiles) {
   const outDir = path.join('public', 'archive', 'clippings', 'p24', year, entry.slug)
   const renderPrefix = path.join(tempDir, entry.slug)
   const rendered = `${renderPrefix}.png`
-  const outputDiskPath = path.join(outDir, 'image-1.jpg')
+  // webp, like every other clipping asset in public/archive/clippings: PIL
+  // picks the encoder from the extension, so the crop above needs no change.
+  const outputDiskPath = path.join(outDir, 'image-1.webp')
 
   fs.mkdirSync(outDir, { recursive: true })
   renderFirstPage(sourcePdf, renderPrefix)

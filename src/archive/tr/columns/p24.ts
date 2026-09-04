@@ -9,7 +9,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2024/hocam-ve-dostum-tomas-hammara-veda/image-1.jpg",
+        src: "/archive/clippings/p24/2024/hocam-ve-dostum-tomas-hammara-veda/image-1.webp",
         alt: "Hocam ve dostum Tomas Hammar’a veda",
         kind: "photo",
       },
@@ -23,7 +23,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/ergun-abiye-veda/image-1.jpg",
+        src: "/archive/clippings/p24/2023/ergun-abiye-veda/image-1.webp",
         alt: "“Ergun Abi”ye veda",
         kind: "photo",
       },
@@ -38,7 +38,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Fotoğraf: Metin Münir (depo photos)",
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/ne-zaman-geleceksin/image-1.jpg",
+        src: "/archive/clippings/p24/2023/ne-zaman-geleceksin/image-1.webp",
         alt: "“Ne zaman geleceksin?”",
         kind: "photo",
       },
@@ -52,7 +52,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/bir-dostluk-hik-yesi/image-1.jpg",
+        src: "/archive/clippings/p24/2023/bir-dostluk-hik-yesi/image-1.webp",
         alt: "Bir dostluk hikâyesi",
         kind: "photo",
       },
@@ -67,7 +67,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Kapak Görseli: Kaan Ulu/Aankara, (DHA)",
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/fark-karizma-olabilir-mi/image-1.jpg",
+        src: "/archive/clippings/p24/2023/fark-karizma-olabilir-mi/image-1.webp",
         alt: "Fark, karizma olabilir mi?",
         kind: "photo",
       },
@@ -82,7 +82,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Zafer Toprak ve Şahin Alpay “manga” arkadaşıyken, Şahin Alpay Özel Arşivi.",
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/manga-komutanima-veda/image-1.jpg",
+        src: "/archive/clippings/p24/2023/manga-komutanima-veda/image-1.webp",
         alt: "Manga komutanıma veda",
         kind: "photo",
       },
@@ -96,7 +96,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/ali-kemalin-fikirleri-degerini-koruyor/image-1.jpg",
+        src: "/archive/clippings/p24/2023/ali-kemalin-fikirleri-degerini-koruyor/image-1.webp",
         alt: "Ali Kemal’in fikirleri değerini koruyor",
         kind: "photo",
       },
@@ -111,7 +111,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Kapak Görseli: Mehmet Malkoç (Depo Photos)",
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/artik-bilelim-deprem-degil-bina-oldurur/image-1.jpg",
+        src: "/archive/clippings/p24/2023/artik-bilelim-deprem-degil-bina-oldurur/image-1.webp",
         alt: "Artık bilelim: Deprem değil, bina öldürür",
         kind: "photo",
       },
@@ -125,7 +125,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/buyukelcilikten-insan-haklari-savunuculuguna/image-1.jpg",
+        src: "/archive/clippings/p24/2023/buyukelcilikten-insan-haklari-savunuculuguna/image-1.webp",
         alt: "Büyükelçilikten insan hakları savunuculuğuna",
         kind: "photo",
       },
@@ -140,7 +140,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Kapak Görseli: Afishera (Pixabay)",
     clippings: [
       {
-        src: "/archive/clippings/p24/2023/stockholm-e-donus/image-1.jpg",
+        src: "/archive/clippings/p24/2023/stockholm-e-donus/image-1.webp",
         alt: "Stockholm’e Dönüş",
         kind: "photo",
       },
@@ -154,7 +154,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2022/gun-zileli-nin-anilari-uzerine/image-1.jpg",
+        src: "/archive/clippings/p24/2022/gun-zileli-nin-anilari-uzerine/image-1.webp",
         alt: "Gün Zileli’nin anıları üzerine",
         kind: "photo",
       },
@@ -168,7 +168,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2022/sevgili-dost-oblomov-erdala-veda/image-1.jpg",
+        src: "/archive/clippings/p24/2022/sevgili-dost-oblomov-erdala-veda/image-1.webp",
         alt: "Sevgili dost Oblomov Erdal’a veda",
         kind: "photo",
       },
@@ -182,7 +182,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2022/bana-ne-lan-diyememek/image-1.jpg",
+        src: "/archive/clippings/p24/2022/bana-ne-lan-diyememek/image-1.webp",
         alt: "“Bana ne, lan!” diyememek",
         kind: "photo",
       },
@@ -196,7 +196,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2022/aydin-engin-anisina-saygi-ve-sukranlarimla/image-1.jpg",
+        src: "/archive/clippings/p24/2022/aydin-engin-anisina-saygi-ve-sukranlarimla/image-1.webp",
         alt: "Aydın Engin anısına saygı ve şükranlarımla",
         kind: "photo",
       },
@@ -210,7 +210,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2022/hayat-hanimin-iki-yuzu/image-1.jpg",
+        src: "/archive/clippings/p24/2022/hayat-hanimin-iki-yuzu/image-1.webp",
         alt: "Hayat Hanım’ın iki yüzü",
         kind: "photo",
       },
@@ -224,7 +224,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/harikalar-diyarinda/image-1.jpg",
+        src: "/archive/clippings/p24/2020/harikalar-diyarinda/image-1.webp",
         alt: "Harikalar diyarında",
         kind: "photo",
       },
@@ -238,7 +238,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/kacik-radyoya-uzun-omurler/image-1.jpg",
+        src: "/archive/clippings/p24/2020/kacik-radyoya-uzun-omurler/image-1.webp",
         alt: "Kaçık Radyo’ya uzun ömürler",
         kind: "photo",
       },
@@ -252,7 +252,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/kemalizmin-amaclanmayan-sonuclari/image-1.jpg",
+        src: "/archive/clippings/p24/2020/kemalizmin-amaclanmayan-sonuclari/image-1.webp",
         alt: "Kemalizmin amaçlanmayan sonuçları",
         kind: "photo",
       },
@@ -266,7 +266,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/kurucu-felsefenin-esin-kaynaklari/image-1.jpg",
+        src: "/archive/clippings/p24/2020/kurucu-felsefenin-esin-kaynaklari/image-1.webp",
         alt: "“Kurucu felsefe”nin esin kaynakları",
         kind: "photo",
       },
@@ -280,7 +280,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/darbecilikle-bogusurken-populizme-yakalanmak/image-1.jpg",
+        src: "/archive/clippings/p24/2020/darbecilikle-bogusurken-populizme-yakalanmak/image-1.webp",
         alt: "Darbecilikle boğuşurken popülizme yakalanmak",
         kind: "photo",
       },
@@ -294,7 +294,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/assar-lindbeck-ve-liberal-sosyal-demokrasi/image-1.jpg",
+        src: "/archive/clippings/p24/2020/assar-lindbeck-ve-liberal-sosyal-demokrasi/image-1.webp",
         alt: "Assar Lindbeck ve liberal sosyal demokrasi",
         kind: "photo",
       },
@@ -308,7 +308,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/yeni-dunya-gorusum/image-1.jpg",
+        src: "/archive/clippings/p24/2020/yeni-dunya-gorusum/image-1.webp",
         alt: "Yeni dünya görüşüm",
         kind: "photo",
       },
@@ -322,7 +322,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/kadri-bilinmemis-bir-sah-eser/image-1.jpg",
+        src: "/archive/clippings/p24/2020/kadri-bilinmemis-bir-sah-eser/image-1.webp",
         alt: "Kadri bilinmemiş bir şah-eser",
         kind: "photo",
       },
@@ -336,7 +336,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/trumpin-dunyaya-verdigi-dersler/image-1.jpg",
+        src: "/archive/clippings/p24/2020/trumpin-dunyaya-verdigi-dersler/image-1.webp",
         alt: "Trump’ın dünyaya verdiği dersler",
         kind: "photo",
       },
@@ -350,7 +350,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/ne-umduk-ne-bulduk/image-1.jpg",
+        src: "/archive/clippings/p24/2020/ne-umduk-ne-bulduk/image-1.webp",
         alt: "Ne umduk, ne bulduk",
         kind: "photo",
       },
@@ -364,7 +364,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/koronanin-da-isvec-modeli-var/image-1.jpg",
+        src: "/archive/clippings/p24/2020/koronanin-da-isvec-modeli-var/image-1.webp",
         alt: "Korona’nın da İsveç modeli var",
         kind: "photo",
       },
@@ -379,7 +379,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     imageCredit: "Resimaltı: Fatma'nın vefatından az sonra Oğuz bana bu anıyı göndermişti: En arkada Oğuz, önünde Fatma, en sağda ben. Altına da şu mesaj vardı: \"1984 Uçaksavar, Etiler civarında piknikteyiz. Demek biz de gençmişiz bir zamanlar.\"",
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/bu-dunyadan-oguz-da-gecti/image-1.jpg",
+        src: "/archive/clippings/p24/2020/bu-dunyadan-oguz-da-gecti/image-1.webp",
         alt: "Bu dünyadan Oğuz da geçti",
         kind: "photo",
       },
@@ -393,7 +393,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/haluk-bekerin-ardindan/image-1.jpg",
+        src: "/archive/clippings/p24/2020/haluk-bekerin-ardindan/image-1.webp",
         alt: "Haluk Beker’in ardından",
         kind: "photo",
       },
@@ -407,7 +407,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/gercekle-aramiz-hic-iyi-degil/image-1.jpg",
+        src: "/archive/clippings/p24/2020/gercekle-aramiz-hic-iyi-degil/image-1.webp",
         alt: "Gerçekle aramız hiç iyi değil",
         kind: "photo",
       },
@@ -421,7 +421,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2020/2020-yilinda-turkiye/image-1.jpg",
+        src: "/archive/clippings/p24/2020/2020-yilinda-turkiye/image-1.webp",
         alt: "“2020 Yılında Türkiye”",
         kind: "photo",
       },
@@ -435,7 +435,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/vargas-llosanin-kesfi/image-1.jpg",
+        src: "/archive/clippings/p24/2019/vargas-llosanin-kesfi/image-1.webp",
         alt: "Vargas Llosa’nın keşfi",
         kind: "photo",
       },
@@ -449,7 +449,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/hayat-bir-mucize/image-1.jpg",
+        src: "/archive/clippings/p24/2019/hayat-bir-mucize/image-1.webp",
         alt: "Hayat bir mucize",
         kind: "photo",
       },
@@ -463,7 +463,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi/image-1.jpg",
+        src: "/archive/clippings/p24/2019/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi/image-1.webp",
         alt: "Cumhuriyet, demokrasi ve özgürlük ilişkisi",
         kind: "photo",
       },
@@ -477,7 +477,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine/image-1.jpg",
+        src: "/archive/clippings/p24/2019/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine/image-1.webp",
         alt: "Mirası siyasi özgürlük ve sosyal adalet için mücadele",
         kind: "photo",
       },
@@ -491,7 +491,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/fikirdaslik-ve-arkadaslik-uzerine/image-1.jpg",
+        src: "/archive/clippings/p24/2019/fikirdaslik-ve-arkadaslik-uzerine/image-1.webp",
         alt: "Fikirdaşlık ve arkadaşlık üzerine",
         kind: "photo",
       },
@@ -505,7 +505,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2019/komplo-teorisi-nedir-ne-degildir/image-1.jpg",
+        src: "/archive/clippings/p24/2019/komplo-teorisi-nedir-ne-degildir/image-1.webp",
         alt: "Komplo teorisi nedir, ne değildir",
         kind: "photo",
       },
@@ -519,7 +519,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2018/fatma-ya-veda/image-1.jpg",
+        src: "/archive/clippings/p24/2018/fatma-ya-veda/image-1.webp",
         alt: "Fatma’ya veda",
         kind: "photo",
       },
@@ -540,7 +540,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2018/dunyayi-guzellik-kurtaracak/image-1.jpg",
+        src: "/archive/clippings/p24/2018/dunyayi-guzellik-kurtaracak/image-1.webp",
         alt: "Dünyayı güzellik kurtaracak",
         kind: "photo",
       },
@@ -554,7 +554,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2018/yalanda-yasamayi-reddetmek/image-1.jpg",
+        src: "/archive/clippings/p24/2018/yalanda-yasamayi-reddetmek/image-1.webp",
         alt: "Yalanda yaşamayı reddetmek",
         kind: "photo",
       },
@@ -568,7 +568,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2018/silivri-mektubu-ugradigim-haksizlik-son-bulmali/image-1.jpg",
+        src: "/archive/clippings/p24/2018/silivri-mektubu-ugradigim-haksizlik-son-bulmali/image-1.webp",
         alt: "Silivri Mektubu: Uğradığım haksızlık son bulmalı",
         kind: "photo",
       },
@@ -582,7 +582,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2018/anjiyo-oldum/image-1.jpg",
+        src: "/archive/clippings/p24/2018/anjiyo-oldum/image-1.webp",
         alt: "Anjiyo oldum",
         kind: "photo",
       },
@@ -596,7 +596,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2017/hayatin-ironisi/image-1.jpg",
+        src: "/archive/clippings/p24/2017/hayatin-ironisi/image-1.webp",
         alt: "Hayatın ironisi",
         kind: "photo",
       },
@@ -610,7 +610,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2017/silivri-mektubu-sagligim-gittikce-kotuluyor/image-1.jpg",
+        src: "/archive/clippings/p24/2017/silivri-mektubu-sagligim-gittikce-kotuluyor/image-1.webp",
         alt: "Silivri Mektubu: Sağlığım gittikçe kötülüyor",
         kind: "photo",
       },
@@ -624,7 +624,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2017/silivri-de-masumiyet-muzesi/image-1.jpg",
+        src: "/archive/clippings/p24/2017/silivri-de-masumiyet-muzesi/image-1.webp",
         alt: "Silivri’de “Masumiyet Müzesi”",
         kind: "photo",
       },
@@ -638,7 +638,7 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     hasBody: true,
     clippings: [
       {
-        src: "/archive/clippings/p24/2017/silivri-mektubu-sagmalcilar-dan-silivri-ye/image-1.jpg",
+        src: "/archive/clippings/p24/2017/silivri-mektubu-sagmalcilar-dan-silivri-ye/image-1.webp",
         alt: "Silivri Mektubu: Sağmalcılar’dan Silivri’ye",
         kind: "photo",
       },

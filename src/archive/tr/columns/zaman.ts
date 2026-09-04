@@ -16,7 +16,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2002/demokrasinin-zaferi/cover.png',
+        src: '/archive/clippings/zaman/2002/demokrasinin-zaferi/cover.webp',
         alt: 'Zaman, 5 Kasım 2002, s. 13',
         pageLabel: 's. 13',
       },
@@ -33,7 +33,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2002/akp-sozunu-tut-ve-kibrisi-coz/cover.png',
+        src: '/archive/clippings/zaman/2002/akp-sozunu-tut-ve-kibrisi-coz/cover.webp',
         alt: 'Zaman, 16 Kasım 2002, s. 13',
         pageLabel: 's. 13',
       },
@@ -50,7 +50,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2002/basbakan-erdogan/cover.png',
+        src: '/archive/clippings/zaman/2002/basbakan-erdogan/cover.webp',
         alt: 'Zaman, 19 Kasım 2002, s. 13',
         pageLabel: 's. 13',
       },
@@ -67,7 +67,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2002/firsat-kacti-ama-tukenmedi/cover.png',
+        src: '/archive/clippings/zaman/2002/firsat-kacti-ama-tukenmedi/cover.webp',
         alt: 'Zaman, 17 Aralık 2002, s. 13',
         pageLabel: 's. 13',
       },
@@ -84,7 +84,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/denktas-turkiyenin-gelecegini-karartiyor/cover.png',
+        src: '/archive/clippings/zaman/2003/denktas-turkiyenin-gelecegini-karartiyor/cover.webp',
         alt: 'Zaman, 19 Nisan 2003, s. 13',
         pageLabel: 's. 13',
       },
@@ -101,7 +101,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/otoriter-zihniyet-nasil-asilacak/cover.png',
+        src: '/archive/clippings/zaman/2003/otoriter-zihniyet-nasil-asilacak/cover.webp',
         alt: 'Zaman, 26 Nisan 2003, s. 13',
         pageLabel: 's. 13',
       },
@@ -118,7 +118,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/gecikmemis-bir-kitap-kurtler/cover.png',
+        src: '/archive/clippings/zaman/2003/gecikmemis-bir-kitap-kurtler/cover.webp',
         alt: 'Zaman, 10 Mayıs 2003, s. 13',
         pageLabel: 's. 13',
       },
@@ -135,7 +135,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/guclu-olmak-ne-demektir/cover.png',
+        src: '/archive/clippings/zaman/2003/guclu-olmak-ne-demektir/cover.webp',
         alt: 'Zaman, 10 Temmuz 2003, s. 13',
         pageLabel: 's. 13',
       },
@@ -152,7 +152,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/turkiyenin-gucu-demokrasisinde/cover.png',
+        src: '/archive/clippings/zaman/2003/turkiyenin-gucu-demokrasisinde/cover.webp',
         alt: 'Zaman, 16 Ekim 2003, s. 13',
         pageLabel: 's. 13',
       },
@@ -169,7 +169,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/basortusu-sorununda-sonun-baslangici/cover.png',
+        src: '/archive/clippings/zaman/2003/basortusu-sorununda-sonun-baslangici/cover.webp',
         alt: 'Zaman, 6 Kasım 2003, s. 17',
         pageLabel: 's. 17',
       },
@@ -186,7 +186,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2003/batinin-batiyla-hesaplasmasi/cover.png',
+        src: '/archive/clippings/zaman/2003/batinin-batiyla-hesaplasmasi/cover.webp',
         alt: 'Zaman, 6 Aralık 2003, s. 17',
         pageLabel: 's. 17',
       },
@@ -203,7 +203,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/deprem-din-ve-bilim/cover.png',
+        src: '/archive/clippings/zaman/2004/deprem-din-ve-bilim/cover.webp',
         alt: 'Zaman, 3 Ocak 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -220,7 +220,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/laiklige-evet-islamofobiye-hayir/cover.png',
+        src: '/archive/clippings/zaman/2004/laiklige-evet-islamofobiye-hayir/cover.webp',
         alt: 'Zaman, 3 Şubat 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -237,7 +237,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/siyasette-din-istismari/cover.png',
+        src: '/archive/clippings/zaman/2004/siyasette-din-istismari/cover.webp',
         alt: 'Zaman, 9 Mart 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -254,7 +254,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/ankara-erbil-mihveri/cover.png',
+        src: '/archive/clippings/zaman/2004/ankara-erbil-mihveri/cover.webp',
         alt: 'Zaman, 20 Mart 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -271,7 +271,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/birlesik-kibris-cumhuriyetine-evet/cover.png',
+        src: '/archive/clippings/zaman/2004/birlesik-kibris-cumhuriyetine-evet/cover.webp',
         alt: 'Zaman, 8 Nisan 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -288,7 +288,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/turkiye-kimlik-politikasini-yeniliyor/cover.png',
+        src: '/archive/clippings/zaman/2004/turkiye-kimlik-politikasini-yeniliyor/cover.webp',
         alt: 'Zaman, 12 Haziran 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -305,7 +305,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/kurt-kartini-turkiye-oynamali/cover.png',
+        src: '/archive/clippings/zaman/2004/kurt-kartini-turkiye-oynamali/cover.webp',
         alt: 'Zaman, 26 Haziran 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -322,7 +322,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/gule-gule-ecevit/cover.png',
+        src: '/archive/clippings/zaman/2004/gule-gule-ecevit/cover.webp',
         alt: 'Zaman, 29 Temmuz 2004, s. 17',
         pageLabel: 's. 17',
       },
@@ -339,7 +339,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2004/marxi-anlamak-mumkun-mu/cover.png',
+        src: '/archive/clippings/zaman/2004/marxi-anlamak-mumkun-mu/cover.webp',
         alt: 'Zaman, 17 Kasım 2004, s. 16',
         pageLabel: 's. 16',
       },
@@ -356,7 +356,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/liberal-olmak-ne-demek-2005/cover.png',
+        src: '/archive/clippings/zaman/2005/liberal-olmak-ne-demek-2005/cover.webp',
         alt: 'Zaman, 20 Ocak 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -373,7 +373,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/baykala-yol-gorundu/cover.png',
+        src: '/archive/clippings/zaman/2005/baykala-yol-gorundu/cover.webp',
         alt: 'Zaman, 1 Şubat 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -390,7 +390,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/nasil-bir-ordu-istiyoruz/cover.png',
+        src: '/archive/clippings/zaman/2005/nasil-bir-ordu-istiyoruz/cover.webp',
         alt: 'Zaman, 12 Şubat 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -407,7 +407,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/diyanet-nasil-ozerklesebilir/cover.png',
+        src: '/archive/clippings/zaman/2005/diyanet-nasil-ozerklesebilir/cover.webp',
         alt: 'Zaman, 3 Mart 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -424,7 +424,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/1915te-ne-oldu/cover.png',
+        src: '/archive/clippings/zaman/2005/1915te-ne-oldu/cover.webp',
         alt: 'Zaman, 5 Nisan 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -441,7 +441,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/soykirim-ne-demek/cover.png',
+        src: '/archive/clippings/zaman/2005/soykirim-ne-demek/cover.webp',
         alt: 'Zaman, 7 Nisan 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -458,7 +458,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/gazeteciler-ve-medya-patronlari/cover.png',
+        src: '/archive/clippings/zaman/2005/gazeteciler-ve-medya-patronlari/cover.webp',
         alt: 'Zaman, 12 Nisan 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -475,7 +475,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/ermenistan-kapilari-acilsin/cover.png',
+        src: '/archive/clippings/zaman/2005/ermenistan-kapilari-acilsin/cover.webp',
         alt: 'Zaman, 16 Nisan 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -492,7 +492,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/asker-sivil-iliskilerinde-ab-nato-ve-agit-normlari/cover.png',
+        src: '/archive/clippings/zaman/2005/asker-sivil-iliskilerinde-ab-nato-ve-agit-normlari/cover.webp',
         alt: 'Zaman, 26 Nisan 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -509,7 +509,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/ucuncu-ses/cover.png',
+        src: '/archive/clippings/zaman/2005/ucuncu-ses/cover.webp',
         alt: 'Zaman, 5 Mayıs 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -526,7 +526,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/demokrasinin-degerini-bilelim/cover.png',
+        src: '/archive/clippings/zaman/2005/demokrasinin-degerini-bilelim/cover.webp',
         alt: 'Zaman, 19 Mayıs 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -543,7 +543,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/kaybeden-turkiye-oldu/cover.png',
+        src: '/archive/clippings/zaman/2005/kaybeden-turkiye-oldu/cover.webp',
         alt: 'Zaman, 26 Mayıs 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -560,7 +560,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/hatalarimiz-ve-gunahlarimizla-yuzlesmek/cover.png',
+        src: '/archive/clippings/zaman/2005/hatalarimiz-ve-gunahlarimizla-yuzlesmek/cover.webp',
         alt: 'Zaman, 16 Ağustos 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -577,7 +577,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/aponun-ayetleri/cover.png',
+        src: '/archive/clippings/zaman/2005/aponun-ayetleri/cover.webp',
         alt: 'Zaman, 18 Ağustos 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -594,7 +594,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/turklerle-kurtlerin-ortak-kaderi/cover.png',
+        src: '/archive/clippings/zaman/2005/turklerle-kurtlerin-ortak-kaderi/cover.webp',
         alt: 'Zaman, 1 Eylül 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -611,7 +611,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/soykirim-tezinin-zaaflari/cover.png',
+        src: '/archive/clippings/zaman/2005/soykirim-tezinin-zaaflari/cover.webp',
         alt: 'Zaman, 3 Eylül 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -628,7 +628,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/turk-ermeni-dostlugunun-yeniden-tesisi/cover.png',
+        src: '/archive/clippings/zaman/2005/turk-ermeni-dostlugunun-yeniden-tesisi/cover.webp',
         alt: 'Zaman, 29 Eylül 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -645,7 +645,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/islami-kalvinistler/cover.png',
+        src: '/archive/clippings/zaman/2005/islami-kalvinistler/cover.webp',
         alt: 'Zaman, 8 Ekim 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -662,7 +662,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/turkiyede-laiklik-geriliyor-mu/cover.png',
+        src: '/archive/clippings/zaman/2005/turkiyede-laiklik-geriliyor-mu/cover.webp',
         alt: 'Zaman, 15 Ekim 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -679,7 +679,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/medyadaki-derin-kargasa/cover.png',
+        src: '/archive/clippings/zaman/2005/medyadaki-derin-kargasa/cover.webp',
         alt: 'Zaman, 22 Ekim 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -696,7 +696,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/medyada-mulkiyet-temerkuzu-onlenmeli/cover.png',
+        src: '/archive/clippings/zaman/2005/medyada-mulkiyet-temerkuzu-onlenmeli/cover.webp',
         alt: 'Zaman, 29 Ekim 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -713,7 +713,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/ab-turkiyeye-ayna-tutuyor/cover.png',
+        src: '/archive/clippings/zaman/2005/ab-turkiyeye-ayna-tutuyor/cover.webp',
         alt: 'Zaman, 12 Kasım 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -730,7 +730,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/erdoganin-dogrulari-ve-yanlislari/cover.png',
+        src: '/archive/clippings/zaman/2005/erdoganin-dogrulari-ve-yanlislari/cover.webp',
         alt: 'Zaman, 19 Kasım 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -747,7 +747,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/hata-ve-gunahlarimizin-en-buyugu/cover.png',
+        src: '/archive/clippings/zaman/2005/hata-ve-gunahlarimizin-en-buyugu/cover.webp',
         alt: 'Zaman, 24 Kasım 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -764,7 +764,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/hasan-cemalin-vazosu/cover.png',
+        src: '/archive/clippings/zaman/2005/hasan-cemalin-vazosu/cover.webp',
         alt: 'Zaman, 13 Aralık 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -781,7 +781,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2005/cagdas-uygarlik-ne-demektir/cover.png',
+        src: '/archive/clippings/zaman/2005/cagdas-uygarlik-ne-demektir/cover.webp',
         alt: 'Zaman, 20 Aralık 2005, s. 17',
         pageLabel: 's. 17',
       },
@@ -798,7 +798,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/hamas-ziyareti-ankaradan-iyi-diplomasi/cover.png',
+        src: '/archive/clippings/zaman/2006/hamas-ziyareti-ankaradan-iyi-diplomasi/cover.webp',
         alt: 'Zaman, 21 Şubat 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -815,7 +815,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/militarizm-geri-teper/cover.png',
+        src: '/archive/clippings/zaman/2006/militarizm-geri-teper/cover.webp',
         alt: 'Zaman, 28 Şubat 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -832,7 +832,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/ak-parti-ya-da-akp/cover.png',
+        src: '/archive/clippings/zaman/2006/ak-parti-ya-da-akp/cover.webp',
         alt: 'Zaman, 4 Mart 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -849,7 +849,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/demokradura/cover.png',
+        src: '/archive/clippings/zaman/2006/demokradura/cover.webp',
         alt: 'Zaman, 9 Mart 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -866,7 +866,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/kurt-sorunu-ve-akp/cover.png',
+        src: '/archive/clippings/zaman/2006/kurt-sorunu-ve-akp/cover.webp',
         alt: 'Zaman, 18 Mart 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -883,7 +883,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/ifade-ozgurlugu-uygarligin-ozu/cover.png',
+        src: '/archive/clippings/zaman/2006/ifade-ozgurlugu-uygarligin-ozu/cover.webp',
         alt: 'Zaman, 8 Haziran 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -900,7 +900,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/demokrasi-kulturunun-ozu/cover.png',
+        src: '/archive/clippings/zaman/2006/demokrasi-kulturunun-ozu/cover.webp',
         alt: 'Zaman, 11 Temmuz 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -917,7 +917,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/adaletsiz-guvenlik-olmaz/cover.png',
+        src: '/archive/clippings/zaman/2006/adaletsiz-guvenlik-olmaz/cover.webp',
         alt: 'Zaman, 18 Temmuz 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -934,7 +934,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/batinin-utanc-verici-cifte-standardi/cover.png',
+        src: '/archive/clippings/zaman/2006/batinin-utanc-verici-cifte-standardi/cover.webp',
         alt: 'Zaman, 29 Temmuz 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -951,7 +951,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/turk-kurt-kardesligini-pekistirelim/cover.png',
+        src: '/archive/clippings/zaman/2006/turk-kurt-kardesligini-pekistirelim/cover.webp',
         alt: 'Zaman, 3 Ağustos 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -968,7 +968,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/johan-galtung/cover.png',
+        src: '/archive/clippings/zaman/2006/johan-galtung/cover.webp',
         alt: 'Zaman, 23 Ağustos 2006, s. 18',
         pageLabel: 's. 18',
       },
@@ -985,7 +985,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/akp-nedir-ne-degildir/cover.png',
+        src: '/archive/clippings/zaman/2006/akp-nedir-ne-degildir/cover.webp',
         alt: 'Zaman, 26 Ağustos 2006, s. 17',
         pageLabel: 's. 17',
       },
@@ -1002,7 +1002,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/turklerin-ilk-nobel-odulu/cover.png',
+        src: '/archive/clippings/zaman/2006/turklerin-ilk-nobel-odulu/cover.webp',
         alt: 'Zaman, 14 Ekim 2006, s. 21',
         pageLabel: 's. 21',
       },
@@ -1019,7 +1019,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/dunya-nicin-daha-dindar/cover.png',
+        src: '/archive/clippings/zaman/2006/dunya-nicin-daha-dindar/cover.webp',
         alt: 'Zaman, 24 Ekim 2006, s. 19',
         pageLabel: 's. 19',
       },
@@ -1036,7 +1036,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/bulent-ecevit-anilarim/cover.png',
+        src: '/archive/clippings/zaman/2006/bulent-ecevit-anilarim/cover.webp',
         alt: 'Zaman, 7 Kasım 2006, s. 23',
         pageLabel: 's. 23',
       },
@@ -1053,7 +1053,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/bilim-acisindan-tarikatlar/cover.png',
+        src: '/archive/clippings/zaman/2006/bilim-acisindan-tarikatlar/cover.webp',
         alt: 'Zaman, 21 Kasım 2006, s. 23',
         pageLabel: 's. 23',
       },
@@ -1070,7 +1070,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/turkiyenin-yumusak-gucu/cover.png',
+        src: '/archive/clippings/zaman/2006/turkiyenin-yumusak-gucu/cover.webp',
         alt: 'Zaman, 2 Aralık 2006, s. 23',
         pageLabel: 's. 23',
       },
@@ -1087,7 +1087,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/aleviler-islam-ve-akp/cover.png',
+        src: '/archive/clippings/zaman/2006/aleviler-islam-ve-akp/cover.webp',
         alt: 'Zaman, 7 Aralık 2006, s. 21',
         pageLabel: 's. 21',
       },
@@ -1104,7 +1104,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/ordu-ne-zaman-siyasete-karismaya-basladi/cover.png',
+        src: '/archive/clippings/zaman/2006/ordu-ne-zaman-siyasete-karismaya-basladi/cover.webp',
         alt: 'Zaman, 9 Aralık 2006, s. 20',
         pageLabel: 's. 20',
       },
@@ -1121,7 +1121,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/abdulkerim-sorus-ve-islami-liberalizm/cover.png',
+        src: '/archive/clippings/zaman/2006/abdulkerim-sorus-ve-islami-liberalizm/cover.webp',
         alt: 'Zaman, 26 Aralık 2006, s. 21',
         pageLabel: 's. 21',
       },
@@ -1138,7 +1138,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2006/gazeteciligin-meslek-ilkeleri-de-vardir/cover.png',
+        src: '/archive/clippings/zaman/2006/gazeteciligin-meslek-ilkeleri-de-vardir/cover.webp',
         alt: 'Zaman, 28 Aralık 2006, s. 21',
         pageLabel: 's. 21',
       },
@@ -1155,7 +1155,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/derin-devlet-nedir/cover.png',
+        src: '/archive/clippings/zaman/2007/derin-devlet-nedir/cover.webp',
         alt: 'Zaman, 8 Şubat 2007, s. 19',
         pageLabel: 's. 19',
       },
@@ -1172,7 +1172,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/abd-kongresi-ermeni-soykirimini-tanirsa-ne-olur/cover.png',
+        src: '/archive/clippings/zaman/2007/abd-kongresi-ermeni-soykirimini-tanirsa-ne-olur/cover.webp',
         alt: 'Zaman, 10 Şubat 2007, s. 19',
         pageLabel: 's. 19',
       },
@@ -1189,7 +1189,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/nukleer-enerji-meselesi/cover.png',
+        src: '/archive/clippings/zaman/2007/nukleer-enerji-meselesi/cover.webp',
         alt: 'Zaman, 10 Mart 2007, s. 19',
         pageLabel: 's. 19',
       },
@@ -1206,7 +1206,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/irakli-kurtlerle-konusun-anlasin/cover.png',
+        src: '/archive/clippings/zaman/2007/irakli-kurtlerle-konusun-anlasin/cover.webp',
         alt: 'Zaman, 15 Mart 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1223,7 +1223,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/parlamenter-sistemi-yikmayin-guclendirin/cover.png',
+        src: '/archive/clippings/zaman/2007/parlamenter-sistemi-yikmayin-guclendirin/cover.webp',
         alt: 'Zaman, 8 Mayıs 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1240,7 +1240,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/militarizm-fasizme-goturur/cover.png',
+        src: '/archive/clippings/zaman/2007/militarizm-fasizme-goturur/cover.webp',
         alt: 'Zaman, 22 Mayıs 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1257,7 +1257,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/ufuk-guldemir-anisina/cover.png',
+        src: '/archive/clippings/zaman/2007/ufuk-guldemir-anisina/cover.webp',
         alt: 'Zaman, 14 Haziran 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1274,7 +1274,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/ataturk-somurusu-chpnin-son-caresi/cover.png',
+        src: '/archive/clippings/zaman/2007/ataturk-somurusu-chpnin-son-caresi/cover.webp',
         alt: 'Zaman, 23 Haziran 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1291,7 +1291,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/profesor-mardine-saygi-ve-sukranla/cover.png',
+        src: '/archive/clippings/zaman/2007/profesor-mardine-saygi-ve-sukranla/cover.webp',
         alt: 'Zaman, 7 Temmuz 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1308,7 +1308,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/hatalardan-donmek-erdemdir/cover.png',
+        src: '/archive/clippings/zaman/2007/hatalardan-donmek-erdemdir/cover.webp',
         alt: 'Zaman, 12 Temmuz 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1325,7 +1325,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/turk-islami-neden-kendine-ozgu/cover.png',
+        src: '/archive/clippings/zaman/2007/turk-islami-neden-kendine-ozgu/cover.webp',
         alt: 'Zaman, 17 Temmuz 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1342,7 +1342,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/turk-demokrasisinin-yeni-zaferi/cover.png',
+        src: '/archive/clippings/zaman/2007/turk-demokrasisinin-yeni-zaferi/cover.webp',
         alt: 'Zaman, 24 Temmuz 2007, s. 25',
         pageLabel: 's. 25',
       },
@@ -1359,7 +1359,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/sezerin-cumhurbaskani-secilmesini-desteklemistim/cover.png',
+        src: '/archive/clippings/zaman/2007/sezerin-cumhurbaskani-secilmesini-desteklemistim/cover.webp',
         alt: 'Zaman, 28 Ağustos 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1376,7 +1376,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/akp-ve-kadinlar/cover.png',
+        src: '/archive/clippings/zaman/2007/akp-ve-kadinlar/cover.webp',
         alt: 'Zaman, 25 Eylül 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1393,7 +1393,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/postmodernizm-degil-modernizm/cover.png',
+        src: '/archive/clippings/zaman/2007/postmodernizm-degil-modernizm/cover.webp',
         alt: 'Zaman, 4 Ekim 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1410,7 +1410,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/gazetecilik-ahlaki-diye-bir-sey-yok-mu/cover.png',
+        src: '/archive/clippings/zaman/2007/gazetecilik-ahlaki-diye-bir-sey-yok-mu/cover.webp',
         alt: 'Zaman, 9 Ekim 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1427,7 +1427,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/bayraminiz-kutlu-oyunuz-hayir-olsun/cover.png',
+        src: '/archive/clippings/zaman/2007/bayraminiz-kutlu-oyunuz-hayir-olsun/cover.webp',
         alt: 'Zaman, 13 Ekim 2007, s. 19',
         pageLabel: 's. 19',
       },
@@ -1444,7 +1444,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/fikirler-ozgur-degilse-sorunlar-cozulemez/cover.png',
+        src: '/archive/clippings/zaman/2007/fikirler-ozgur-degilse-sorunlar-cozulemez/cover.webp',
         alt: 'Zaman, 18 Ekim 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1461,7 +1461,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/krizi-firsata-cevirmek-icin/cover.png',
+        src: '/archive/clippings/zaman/2007/krizi-firsata-cevirmek-icin/cover.webp',
         alt: 'Zaman, 23 Ekim 2007, s. 25',
         pageLabel: 's. 25',
       },
@@ -1478,7 +1478,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/asker-neden-siyasete-karismamali/cover.png',
+        src: '/archive/clippings/zaman/2007/asker-neden-siyasete-karismamali/cover.webp',
         alt: 'Zaman, 17 Kasım 2007, s. 21',
         pageLabel: 's. 21',
       },
@@ -1495,7 +1495,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/pkk-nasil-silahsizlandirilabilir/cover.png',
+        src: '/archive/clippings/zaman/2007/pkk-nasil-silahsizlandirilabilir/cover.webp',
         alt: 'Zaman, 22 Kasım 2007, s. 23',
         pageLabel: 's. 23',
       },
@@ -1512,7 +1512,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/medya-adam-olmadan/cover.png',
+        src: '/archive/clippings/zaman/2007/medya-adam-olmadan/cover.webp',
         alt: 'Zaman, 13 Aralık 2007, s. 25',
         pageLabel: 's. 25',
       },
@@ -1529,7 +1529,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/ulke-butunlugu-nasil-korunur/cover.png',
+        src: '/archive/clippings/zaman/2007/ulke-butunlugu-nasil-korunur/cover.webp',
         alt: 'Zaman, 15 Aralık 2007, s. 25',
         pageLabel: 's. 25',
       },
@@ -1546,7 +1546,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2007/uygarliktan-uzaklastigimiz-bir-yil/cover.png',
+        src: '/archive/clippings/zaman/2007/uygarliktan-uzaklastigimiz-bir-yil/cover.webp',
         alt: 'Zaman, 27 Aralık 2007, s. 25',
         pageLabel: 's. 25',
       },
@@ -1563,7 +1563,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/kurt-sorununda-yapilmasi-gerekenler-belli/cover.png',
+        src: '/archive/clippings/zaman/2008/kurt-sorununda-yapilmasi-gerekenler-belli/cover.webp',
         alt: 'Zaman, 12 Ocak 2008, s. 19',
         pageLabel: 's. 19',
       },
@@ -1580,7 +1580,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/akp-abyi-gozden-cikariyor-mu/cover.png',
+        src: '/archive/clippings/zaman/2008/akp-abyi-gozden-cikariyor-mu/cover.webp',
         alt: 'Zaman, 26 Ocak 2008, s. 25',
         pageLabel: 's. 25',
       },
@@ -1597,7 +1597,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/nicin-sadece-demokrat-degilim/cover.png',
+        src: '/archive/clippings/zaman/2008/nicin-sadece-demokrat-degilim/cover.webp',
         alt: 'Zaman, 7 Şubat 2008, s. 23',
         pageLabel: 's. 23',
       },
@@ -1614,7 +1614,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/basortusu-yasagi-insan-haklari-sorunu/cover.png',
+        src: '/archive/clippings/zaman/2008/basortusu-yasagi-insan-haklari-sorunu/cover.webp',
         alt: 'Zaman, 16 Şubat 2008, s. 21',
         pageLabel: 's. 21',
       },
@@ -1631,7 +1631,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/bana-gore-liberaller-ve-akp/cover.png',
+        src: '/archive/clippings/zaman/2008/bana-gore-liberaller-ve-akp/cover.webp',
         alt: 'Zaman, 23 Şubat 2008, s. 19',
         pageLabel: 's. 19',
       },
@@ -1648,7 +1648,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/islamcilik-ve-akp/cover.png',
+        src: '/archive/clippings/zaman/2008/islamcilik-ve-akp/cover.webp',
         alt: 'Zaman, 5 Nisan 2008, s. 23',
         pageLabel: 's. 23',
       },
@@ -1665,7 +1665,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/kirk-yil-sonra-68-kusagi/cover.png',
+        src: '/archive/clippings/zaman/2008/kirk-yil-sonra-68-kusagi/cover.webp',
         alt: 'Zaman, 12 Nisan 2008, s. 23',
         pageLabel: 's. 23',
       },
@@ -1682,7 +1682,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/akpye-yapilanlar-ne-hukuka-sigar-ne-ahlaka/cover.png',
+        src: '/archive/clippings/zaman/2008/akpye-yapilanlar-ne-hukuka-sigar-ne-ahlaka/cover.webp',
         alt: 'Zaman, 15 Nisan 2008, s. 21',
         pageLabel: 's. 21',
       },
@@ -1699,7 +1699,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/kemalizm-yeniden-yorumlanmali/cover.png',
+        src: '/archive/clippings/zaman/2008/kemalizm-yeniden-yorumlanmali/cover.webp',
         alt: 'Zaman, 17 Haziran 2008, s. 23',
         pageLabel: 's. 23',
       },
@@ -1716,7 +1716,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2008/asker-nicin-siyasete-karismasin/cover.png',
+        src: '/archive/clippings/zaman/2008/asker-nicin-siyasete-karismasin/cover.webp',
         alt: 'Zaman, 3 Temmuz 2008, s. 25',
         pageLabel: 's. 25',
       },
@@ -1733,7 +1733,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/silahlari-terk-etme-zamani/cover.png',
+        src: '/archive/clippings/zaman/2009/silahlari-terk-etme-zamani/cover.webp',
         alt: 'Zaman, 14 Mayıs 2009',
       },
     ],
@@ -1749,7 +1749,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/darbeler-ve-askerin-siyasi-rolu/cover.png',
+        src: '/archive/clippings/zaman/2009/darbeler-ve-askerin-siyasi-rolu/cover.webp',
         alt: 'Zaman, 14 Temmuz 2009',
       },
     ],
@@ -1765,7 +1765,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/sekizinci-yilinda-akp-nedir-ne-degildir/cover.png',
+        src: '/archive/clippings/zaman/2009/sekizinci-yilinda-akp-nedir-ne-degildir/cover.webp',
         alt: 'Zaman, 25 Ağustos 2009',
       },
     ],
@@ -1781,7 +1781,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/komplo-teorileri-zihinleri-zehirliyor/cover.png',
+        src: '/archive/clippings/zaman/2009/komplo-teorileri-zihinleri-zehirliyor/cover.webp',
         alt: 'Zaman, 5 Eylül 2009',
       },
     ],
@@ -1797,7 +1797,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/ic-baris-ve-huzura-dogru-buyuk-adim/cover.png',
+        src: '/archive/clippings/zaman/2009/ic-baris-ve-huzura-dogru-buyuk-adim/cover.webp',
         alt: 'Zaman, 22 Ekim 2009',
       },
     ],
@@ -1813,7 +1813,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/neden-ikinci-cumhuriyet/cover.png',
+        src: '/archive/clippings/zaman/2009/neden-ikinci-cumhuriyet/cover.webp',
         alt: 'Zaman, 29 Ekim 2009',
       },
     ],
@@ -1829,7 +1829,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/militarizm-cokuyor-mu/cover.png',
+        src: '/archive/clippings/zaman/2009/militarizm-cokuyor-mu/cover.webp',
         alt: 'Zaman, 31 Ekim 2009',
       },
     ],
@@ -1845,7 +1845,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/ataturke-adil-davranma-zamani/cover.png',
+        src: '/archive/clippings/zaman/2009/ataturke-adil-davranma-zamani/cover.webp',
         alt: 'Zaman, 19 Kasım 2009',
       },
     ],
@@ -1861,7 +1861,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/kan-kanla-siddet-siddetle-temizlenemez/cover.png',
+        src: '/archive/clippings/zaman/2009/kan-kanla-siddet-siddetle-temizlenemez/cover.webp',
         alt: 'Zaman, 15 Aralık 2009',
       },
     ],
@@ -1877,7 +1877,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/inadina-kardeslik-demokrasi-birlik-ve-beraberlik/cover.png',
+        src: '/archive/clippings/zaman/2009/inadina-kardeslik-demokrasi-birlik-ve-beraberlik/cover.webp',
         alt: 'Zaman, 17 Aralık 2009',
       },
     ],
@@ -1893,7 +1893,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2009/gelecek-kusaklara-karsi-sorumluyuz/cover.png',
+        src: '/archive/clippings/zaman/2009/gelecek-kusaklara-karsi-sorumluyuz/cover.webp',
         alt: 'Zaman, 26 Aralık 2009',
       },
     ],
@@ -1909,7 +1909,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/balyoz-zihniyeti-yenilmeye-mahkum/cover.png',
+        src: '/archive/clippings/zaman/2010/balyoz-zihniyeti-yenilmeye-mahkum/cover.webp',
         alt: 'Zaman, 23 Ocak 2010',
       },
     ],
@@ -1925,7 +1925,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/gazete-dukkan-degildir/cover.png',
+        src: '/archive/clippings/zaman/2010/gazete-dukkan-degildir/cover.webp',
         alt: 'Zaman, 4 Mart 2010',
       },
     ],
@@ -1941,7 +1941,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/soykirim-tasarisi-nereden-baksan-komedi/cover.png',
+        src: '/archive/clippings/zaman/2010/soykirim-tasarisi-nereden-baksan-komedi/cover.webp',
         alt: 'Zaman, 9 Mart 2010',
       },
     ],
@@ -1957,7 +1957,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/pkk-silah-biraksin-siyaset-yapsin-1/cover.png',
+        src: '/archive/clippings/zaman/2010/pkk-silah-biraksin-siyaset-yapsin-1/cover.webp',
         alt: 'Zaman, 11 Mart 2010',
       },
     ],
@@ -1973,7 +1973,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/medyada-reform-yargidaki-kadar-onemli/cover.png',
+        src: '/archive/clippings/zaman/2010/medyada-reform-yargidaki-kadar-onemli/cover.webp',
         alt: 'Zaman, 23 Mart 2010',
       },
     ],
@@ -1989,7 +1989,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/anayasa-degisikliklerine-nicin-evet/cover.png',
+        src: '/archive/clippings/zaman/2010/anayasa-degisikliklerine-nicin-evet/cover.webp',
         alt: 'Zaman, 25 Mart 2010',
       },
     ],
@@ -2005,7 +2005,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/nasil-bir-anayasa-istiyoruz/cover.png',
+        src: '/archive/clippings/zaman/2010/nasil-bir-anayasa-istiyoruz/cover.webp',
         alt: 'Zaman, 15 Nisan 2010',
       },
     ],
@@ -2021,7 +2021,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/baykalin-istifasi-boyle-olmamaliydi/cover.png',
+        src: '/archive/clippings/zaman/2010/baykalin-istifasi-boyle-olmamaliydi/cover.webp',
         alt: 'Zaman, 11 Mayıs 2010',
       },
     ],
@@ -2037,7 +2037,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/kilicdaroglunun-uyandirdigi-umut/cover.png',
+        src: '/archive/clippings/zaman/2010/kilicdaroglunun-uyandirdigi-umut/cover.webp',
         alt: 'Zaman, 20 Mayıs 2010',
       },
     ],
@@ -2053,7 +2053,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/israil-yalniz-kalmaya-dogru-gidiyor/cover.png',
+        src: '/archive/clippings/zaman/2010/israil-yalniz-kalmaya-dogru-gidiyor/cover.webp',
         alt: 'Zaman, 3 Haziran 2010',
       },
     ],
@@ -2069,7 +2069,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/kurt-acilimi-bitti-mi/cover.png',
+        src: '/archive/clippings/zaman/2010/kurt-acilimi-bitti-mi/cover.webp',
         alt: 'Zaman, 22 Haziran 2010',
       },
     ],
@@ -2085,7 +2085,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/hukumetten-beklenen-baris-ve-demokrasi-taarruzu/cover.png',
+        src: '/archive/clippings/zaman/2010/hukumetten-beklenen-baris-ve-demokrasi-taarruzu/cover.webp',
         alt: 'Zaman, 24 Haziran 2010',
       },
     ],
@@ -2101,7 +2101,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/sorunlar-siyasallasmadan-cozulemez/cover.png',
+        src: '/archive/clippings/zaman/2010/sorunlar-siyasallasmadan-cozulemez/cover.webp',
         alt: 'Zaman, 15 Temmuz 2010',
       },
     ],
@@ -2117,7 +2117,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/savasarak-degil-konusarak-cozeriz/cover.png',
+        src: '/archive/clippings/zaman/2010/savasarak-degil-konusarak-cozeriz/cover.webp',
         alt: 'Zaman, 17 Temmuz 2010',
       },
     ],
@@ -2133,7 +2133,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/bahcesehir-universitesinde-on-yil/cover.png',
+        src: '/archive/clippings/zaman/2010/bahcesehir-universitesinde-on-yil/cover.webp',
         alt: 'Zaman, 22 Temmuz 2010',
       },
     ],
@@ -2149,7 +2149,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/orduda-reform-ihtiyaci-kapiya-dayandi/cover.png',
+        src: '/archive/clippings/zaman/2010/orduda-reform-ihtiyaci-kapiya-dayandi/cover.webp',
         alt: 'Zaman, 5 Ağustos 2010',
       },
     ],
@@ -2165,7 +2165,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/askeri-okullarda-endoktrinasyona-son/cover.png',
+        src: '/archive/clippings/zaman/2010/askeri-okullarda-endoktrinasyona-son/cover.webp',
         alt: 'Zaman, 7 Ağustos 2010',
       },
     ],
@@ -2181,7 +2181,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/demokratik-acilim-nereden-nereye/cover.png',
+        src: '/archive/clippings/zaman/2010/demokratik-acilim-nereden-nereye/cover.webp',
         alt: 'Zaman, 2 Ekim 2010',
       },
     ],
@@ -2197,7 +2197,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/baskanlik-kotu-parlamenter-sistem-iyidir/cover.png',
+        src: '/archive/clippings/zaman/2010/baskanlik-kotu-parlamenter-sistem-iyidir/cover.webp',
         alt: 'Zaman, 7 Ekim 2010',
       },
     ],
@@ -2213,7 +2213,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/kurtleri-inkar-bitti-simdi-sira-tanimada/cover.png',
+        src: '/archive/clippings/zaman/2010/kurtleri-inkar-bitti-simdi-sira-tanimada/cover.webp',
         alt: 'Zaman, 21 Ekim 2010',
       },
     ],
@@ -2229,7 +2229,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/aydinlanmanin-iki-yuzu/cover.png',
+        src: '/archive/clippings/zaman/2010/aydinlanmanin-iki-yuzu/cover.webp',
         alt: 'Zaman, 30 Ekim 2010',
       },
     ],
@@ -2245,7 +2245,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2010/ifade-ozgurlugunun-nimetleri/cover.png',
+        src: '/archive/clippings/zaman/2010/ifade-ozgurlugunun-nimetleri/cover.webp',
         alt: 'Zaman, 30 Aralık 2010',
       },
     ],
@@ -2261,7 +2261,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/gelismisligin-temel-olcutu-kadinlarin-katilimi/cover.png',
+        src: '/archive/clippings/zaman/2011/gelismisligin-temel-olcutu-kadinlarin-katilimi/cover.webp',
         alt: 'Zaman, 1 Ocak 2011',
       },
     ],
@@ -2277,7 +2277,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/ortadogu-niye-geri-kaldi/cover.png',
+        src: '/archive/clippings/zaman/2011/ortadogu-niye-geri-kaldi/cover.webp',
         alt: 'Zaman, 4 Ocak 2011',
       },
     ],
@@ -2293,7 +2293,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/evet-tek-devlet-tek-millet-ama-nasil/cover.png',
+        src: '/archive/clippings/zaman/2011/evet-tek-devlet-tek-millet-ama-nasil/cover.webp',
         alt: 'Zaman, 8 Ocak 2011',
       },
     ],
@@ -2309,7 +2309,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/yarin-saat-3te-vuruldugu-yerde/cover.png',
+        src: '/archive/clippings/zaman/2011/yarin-saat-3te-vuruldugu-yerde/cover.webp',
         alt: 'Zaman, 18 Ocak 2011',
       },
     ],
@@ -2325,7 +2325,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/demokrasilerde-siyasilere-ve-aydinlara-dair/cover.png',
+        src: '/archive/clippings/zaman/2011/demokrasilerde-siyasilere-ve-aydinlara-dair/cover.webp',
         alt: 'Zaman, 20 Ocak 2011',
       },
     ],
@@ -2341,7 +2341,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/erdogan-putin-olmak-mi-istiyor/cover.png',
+        src: '/archive/clippings/zaman/2011/erdogan-putin-olmak-mi-istiyor/cover.webp',
         alt: 'Zaman, 8 Şubat 2011',
       },
     ],
@@ -2357,7 +2357,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/israil-icin-aklini-basina-toplama-zamani/cover.png',
+        src: '/archive/clippings/zaman/2011/israil-icin-aklini-basina-toplama-zamani/cover.webp',
         alt: 'Zaman, 15 Şubat 2011',
       },
     ],
@@ -2373,7 +2373,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/necmettin-erbakani-ebediyete-ugurlarken/cover.png',
+        src: '/archive/clippings/zaman/2011/necmettin-erbakani-ebediyete-ugurlarken/cover.webp',
         alt: 'Zaman, 1 Mart 2011',
       },
     ],
@@ -2389,7 +2389,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/carsi-grubu-fenomeninin-oykusu-yazildi/cover.png',
+        src: '/archive/clippings/zaman/2011/carsi-grubu-fenomeninin-oykusu-yazildi/cover.webp',
         alt: 'Zaman, 10 Mart 2011',
       },
     ],
@@ -2405,7 +2405,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/nukleer-belayi-basimiza-sarmayin/cover.png',
+        src: '/archive/clippings/zaman/2011/nukleer-belayi-basimiza-sarmayin/cover.webp',
         alt: 'Zaman, 15 Mart 2011',
       },
     ],
@@ -2421,7 +2421,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/osmanli-ermenileri-konferansi-cok-sey-basardi/cover.png',
+        src: '/archive/clippings/zaman/2011/osmanli-ermenileri-konferansi-cok-sey-basardi/cover.webp',
         alt: 'Zaman, 23 Nisan 2011',
       },
     ],
@@ -2437,7 +2437,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/gazete-buzdolabi-degildir/cover.png',
+        src: '/archive/clippings/zaman/2011/gazete-buzdolabi-degildir/cover.webp',
         alt: 'Zaman, 30 Nisan 2011',
       },
     ],
@@ -2453,7 +2453,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/editoryal-bagimsizlik-olmadan-olmaz/cover.png',
+        src: '/archive/clippings/zaman/2011/editoryal-bagimsizlik-olmadan-olmaz/cover.webp',
         alt: 'Zaman, 7 Mayıs 2011',
       },
     ],
@@ -2469,7 +2469,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/kurt-sorunu-cozulmeden-demokrasi-olmaz/cover.png',
+        src: '/archive/clippings/zaman/2011/kurt-sorunu-cozulmeden-demokrasi-olmaz/cover.webp',
         alt: 'Zaman, 12 Mayıs 2011',
       },
     ],
@@ -2485,7 +2485,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/kulturel-cesitliligimize-saygiyi-yeniden-tesis-etmeliyiz/cover.png',
+        src: '/archive/clippings/zaman/2011/kulturel-cesitliligimize-saygiyi-yeniden-tesis-etmeliyiz/cover.webp',
         alt: 'Zaman, 17 Mayıs 2011',
       },
     ],
@@ -2501,7 +2501,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/cozum-mumkun-firsat-kacmamali/cover.png',
+        src: '/archive/clippings/zaman/2011/cozum-mumkun-firsat-kacmamali/cover.webp',
         alt: 'Zaman, 4 Haziran 2011',
       },
     ],
@@ -2517,7 +2517,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/basbakan-erdogan-barisi-saglayip-tarihe-gecebilir/cover.png',
+        src: '/archive/clippings/zaman/2011/basbakan-erdogan-barisi-saglayip-tarihe-gecebilir/cover.webp',
         alt: 'Zaman, 16 Haziran 2011',
       },
     ],
@@ -2533,7 +2533,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/ab-turkiye-uzerindeki-etkisini-yitirdi/cover.png',
+        src: '/archive/clippings/zaman/2011/ab-turkiye-uzerindeki-etkisini-yitirdi/cover.webp',
         alt: 'Zaman, 21 Haziran 2011',
       },
     ],
@@ -2549,7 +2549,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/ataturku-efsanelerden-arindirma/cover.png',
+        src: '/archive/clippings/zaman/2011/ataturku-efsanelerden-arindirma/cover.webp',
         alt: 'Zaman, 9 Temmuz 2011',
       },
     ],
@@ -2565,7 +2565,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/militarizmden-nasil-kurtuluruz/cover.png',
+        src: '/archive/clippings/zaman/2011/militarizmden-nasil-kurtuluruz/cover.webp',
         alt: 'Zaman, 2 Ağustos 2011',
       },
     ],
@@ -2581,7 +2581,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/savasma-konus/cover.png',
+        src: '/archive/clippings/zaman/2011/savasma-konus/cover.webp',
         alt: 'Zaman, 13 Ağustos 2011',
       },
     ],
@@ -2597,7 +2597,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/tsk-da-degisir/cover.png',
+        src: '/archive/clippings/zaman/2011/tsk-da-degisir/cover.webp',
         alt: 'Zaman, 1 Eylül 2011',
       },
     ],
@@ -2613,7 +2613,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/bdp-ic-barisa-hizmet-edebilir-ve-etmelidir/cover.png',
+        src: '/archive/clippings/zaman/2011/bdp-ic-barisa-hizmet-edebilir-ve-etmelidir/cover.webp',
         alt: 'Zaman, 8 Eylül 2011',
       },
     ],
@@ -2629,7 +2629,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/yasasin-bagimsiz-filistin-devleti/cover.png',
+        src: '/archive/clippings/zaman/2011/yasasin-bagimsiz-filistin-devleti/cover.webp',
         alt: 'Zaman, 24 Eylül 2011',
       },
     ],
@@ -2645,7 +2645,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/evet-turkiye-milleti/cover.png',
+        src: '/archive/clippings/zaman/2011/evet-turkiye-milleti/cover.webp',
         alt: 'Zaman, 4 Ekim 2011',
       },
     ],
@@ -2661,7 +2661,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/murat-karayilanin-mantigindaki-yanlis/cover.png',
+        src: '/archive/clippings/zaman/2011/murat-karayilanin-mantigindaki-yanlis/cover.webp',
         alt: 'Zaman, 11 Ekim 2011',
       },
     ],
@@ -2677,7 +2677,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/yeter-oldurme-konus-ve-bitir/cover.png',
+        src: '/archive/clippings/zaman/2011/yeter-oldurme-konus-ve-bitir/cover.webp',
         alt: 'Zaman, 20 Ekim 2011',
       },
     ],
@@ -2693,7 +2693,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/serif-mardine-itirazlarim/cover.png',
+        src: '/archive/clippings/zaman/2011/serif-mardine-itirazlarim/cover.webp',
         alt: 'Zaman, 25 Ekim 2011',
       },
     ],
@@ -2709,7 +2709,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/baskici-ve-ozgurlukcu-islam/cover.png',
+        src: '/archive/clippings/zaman/2011/baskici-ve-ozgurlukcu-islam/cover.webp',
         alt: 'Zaman, 27 Ekim 2011',
       },
     ],
@@ -2725,7 +2725,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/pkkyi-ancak-kurtler-bitirebilir/cover.png',
+        src: '/archive/clippings/zaman/2011/pkkyi-ancak-kurtler-bitirebilir/cover.webp',
         alt: 'Zaman, 19 Kasım 2011',
       },
     ],
@@ -2741,7 +2741,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/turkiyenin-abye-katilim-sureci-sona-mi-erdi/cover.png',
+        src: '/archive/clippings/zaman/2011/turkiyenin-abye-katilim-sureci-sona-mi-erdi/cover.webp',
         alt: 'Zaman, 10 Aralık 2011',
       },
     ],
@@ -2757,7 +2757,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/turkiyenin-vakarinin-ve-onurunun-geregi/cover.png',
+        src: '/archive/clippings/zaman/2011/turkiyenin-vakarinin-ve-onurunun-geregi/cover.webp',
         alt: 'Zaman, 27 Aralık 2011',
       },
     ],
@@ -2773,7 +2773,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2011/oldurmeye-silahlara-son/cover.png',
+        src: '/archive/clippings/zaman/2011/oldurmeye-silahlara-son/cover.webp',
         alt: 'Zaman, 31 Aralık 2011',
       },
     ],
@@ -2789,7 +2789,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/nicin-silahlari-gommek-zamani/cover.png',
+        src: '/archive/clippings/zaman/2012/nicin-silahlari-gommek-zamani/cover.webp',
         alt: 'Zaman, 14 Ocak 2012',
       },
     ],
@@ -2805,7 +2805,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/darbelerden-yalniz-askerler-mi-sorumlu/cover.png',
+        src: '/archive/clippings/zaman/2012/darbelerden-yalniz-askerler-mi-sorumlu/cover.webp',
         alt: 'Zaman, 21 Ocak 2012',
       },
     ],
@@ -2821,7 +2821,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/akp-islami-kemalist-midir/cover.png',
+        src: '/archive/clippings/zaman/2012/akp-islami-kemalist-midir/cover.webp',
         alt: 'Zaman, 26 Ocak 2012',
       },
     ],
@@ -2837,7 +2837,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/fikri-hur-vicdani-hur-irfani-hur-toplum/cover.png',
+        src: '/archive/clippings/zaman/2012/fikri-hur-vicdani-hur-irfani-hur-toplum/cover.webp',
         alt: 'Zaman, 7 Şubat 2012',
       },
     ],
@@ -2853,7 +2853,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/muhalefetin-sefaleti/cover.png',
+        src: '/archive/clippings/zaman/2012/muhalefetin-sefaleti/cover.webp',
         alt: 'Zaman, 3 Mart 2012',
       },
     ],
@@ -2869,7 +2869,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/nasil-bir-anayasa/cover.png',
+        src: '/archive/clippings/zaman/2012/nasil-bir-anayasa/cover.webp',
         alt: 'Zaman, 15 Mart 2012',
       },
     ],
@@ -2885,7 +2885,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/nasil-bir-anayasa-2/cover.png',
+        src: '/archive/clippings/zaman/2012/nasil-bir-anayasa-2/cover.webp',
         alt: 'Zaman, 17 Mart 2012',
       },
     ],
@@ -2901,7 +2901,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/demokrasi-yalnizca-milli-irade-degildir/cover.png',
+        src: '/archive/clippings/zaman/2012/demokrasi-yalnizca-milli-irade-degildir/cover.webp',
         alt: 'Zaman, 22 Mart 2012',
       },
     ],
@@ -2917,7 +2917,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/din-ozgurlugu-ve-seffaflik-meselesi/cover.png',
+        src: '/archive/clippings/zaman/2012/din-ozgurlugu-ve-seffaflik-meselesi/cover.webp',
         alt: 'Zaman, 29 Mart 2012',
       },
     ],
@@ -2933,7 +2933,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/evliyalar-diyari-tilloda-bir-sabah/cover.png',
+        src: '/archive/clippings/zaman/2012/evliyalar-diyari-tilloda-bir-sabah/cover.webp',
         alt: 'Zaman, 12 Mayıs 2012',
       },
     ],
@@ -2949,7 +2949,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/uludere-ankaranin-karanlik-dehlizlerinde/cover.png',
+        src: '/archive/clippings/zaman/2012/uludere-ankaranin-karanlik-dehlizlerinde/cover.webp',
         alt: 'Zaman, 19 Mayıs 2012',
       },
     ],
@@ -2965,7 +2965,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/baskanlik-nicin-bize-yaramaz/cover.png',
+        src: '/archive/clippings/zaman/2012/baskanlik-nicin-bize-yaramaz/cover.webp',
         alt: 'Zaman, 29 Mayıs 2012',
       },
     ],
@@ -2981,7 +2981,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/akp-iktidari-nereye-gidiyor/cover.png',
+        src: '/archive/clippings/zaman/2012/akp-iktidari-nereye-gidiyor/cover.webp',
         alt: 'Zaman, 5 Haziran 2012',
       },
     ],
@@ -2997,7 +2997,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/gazetecinin-gorevi-hukumete-degil-gercege-sadakattir/cover.png',
+        src: '/archive/clippings/zaman/2012/gazetecinin-gorevi-hukumete-degil-gercege-sadakattir/cover.webp',
         alt: 'Zaman, 28 Haziran 2012',
       },
     ],
@@ -3013,7 +3013,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/akpnin-neden-iki-yuzu-var/cover.png',
+        src: '/archive/clippings/zaman/2012/akpnin-neden-iki-yuzu-var/cover.webp',
         alt: 'Zaman, 17 Temmuz 2012',
       },
     ],
@@ -3029,7 +3029,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/evet-kadin-cumhurbaskani/cover.png',
+        src: '/archive/clippings/zaman/2012/evet-kadin-cumhurbaskani/cover.webp',
         alt: 'Zaman, 19 Temmuz 2012',
       },
     ],
@@ -3045,7 +3045,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/gonulleri-kazanmadan-siddet-bitmez/cover.png',
+        src: '/archive/clippings/zaman/2012/gonulleri-kazanmadan-siddet-bitmez/cover.webp',
         alt: 'Zaman, 7 Ağustos 2012',
       },
     ],
@@ -3061,7 +3061,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/solcu-bir-filozof-tanriyi-kesfettiginde-ne-olur/cover.png',
+        src: '/archive/clippings/zaman/2012/solcu-bir-filozof-tanriyi-kesfettiginde-ne-olur/cover.webp',
         alt: 'Zaman, 23 Ağustos 2012',
       },
     ],
@@ -3077,7 +3077,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/ateistler-icin-din/cover.png',
+        src: '/archive/clippings/zaman/2012/ateistler-icin-din/cover.webp',
         alt: 'Zaman, 28 Ağustos 2012',
       },
     ],
@@ -3093,7 +3093,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/din-mezhep-ve-siyaset-iliskisi/cover.png',
+        src: '/archive/clippings/zaman/2012/din-mezhep-ve-siyaset-iliskisi/cover.webp',
         alt: 'Zaman, 1 Eylül 2012',
       },
     ],
@@ -3109,7 +3109,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/orduda-reform-ihtiyacinin-boyutlari/cover.png',
+        src: '/archive/clippings/zaman/2012/orduda-reform-ihtiyacinin-boyutlari/cover.webp',
         alt: 'Zaman, 11 Eylül 2012',
       },
     ],
@@ -3125,7 +3125,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/kemalizmin-zincirlerinden-kurtulmadan-olmaz/cover.png',
+        src: '/archive/clippings/zaman/2012/kemalizmin-zincirlerinden-kurtulmadan-olmaz/cover.webp',
         alt: 'Zaman, 20 Eylül 2012',
       },
     ],
@@ -3141,7 +3141,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/nefret-yayma-ozgurlugu-olamaz/cover.png',
+        src: '/archive/clippings/zaman/2012/nefret-yayma-ozgurlugu-olamaz/cover.webp',
         alt: 'Zaman, 27 Eylül 2012',
       },
     ],
@@ -3157,7 +3157,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/kimse-kizmasin-muhafazakarlasmiyoruz/cover.png',
+        src: '/archive/clippings/zaman/2012/kimse-kizmasin-muhafazakarlasmiyoruz/cover.webp',
         alt: 'Zaman, 9 Ekim 2012',
       },
     ],
@@ -3173,7 +3173,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/islamda-en-yuce-deger-olarak-ozgurluk/cover.png',
+        src: '/archive/clippings/zaman/2012/islamda-en-yuce-deger-olarak-ozgurluk/cover.webp',
         alt: 'Zaman, 23 Ekim 2012',
       },
     ],
@@ -3189,7 +3189,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/cumhuriyet-mi-demokrasi-mi/cover.png',
+        src: '/archive/clippings/zaman/2012/cumhuriyet-mi-demokrasi-mi/cover.webp',
         alt: 'Zaman, 1 Kasım 2012',
       },
     ],
@@ -3205,7 +3205,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/kurt-sorunu-dunu-bugunu-ve-yarini/cover.png',
+        src: '/archive/clippings/zaman/2012/kurt-sorunu-dunu-bugunu-ve-yarini/cover.webp',
         alt: 'Zaman, 20 Kasım 2012',
       },
     ],
@@ -3221,7 +3221,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/kurt-sorunu-dunu-bugunu-ve-yarini-2/cover.png',
+        src: '/archive/clippings/zaman/2012/kurt-sorunu-dunu-bugunu-ve-yarini-2/cover.webp',
         alt: 'Zaman, 22 Kasım 2012',
       },
     ],
@@ -3237,7 +3237,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/erbil-bagdattan-uzaklasiyor-istanbula-yakinlasiyor/cover.png',
+        src: '/archive/clippings/zaman/2012/erbil-bagdattan-uzaklasiyor-istanbula-yakinlasiyor/cover.webp',
         alt: 'Zaman, 11 Aralık 2012',
       },
     ],
@@ -3253,7 +3253,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2012/turkiyede-kurtler-de-var/cover.png',
+        src: '/archive/clippings/zaman/2012/turkiyede-kurtler-de-var/cover.webp',
         alt: 'Zaman, 29 Aralık 2012',
       },
     ],
@@ -3269,7 +3269,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/dogruya-destek-yanlisa-tenkit/cover.png',
+        src: '/archive/clippings/zaman/2013/dogruya-destek-yanlisa-tenkit/cover.webp',
         alt: 'Zaman, 3 Ocak 2013',
       },
     ],
@@ -3285,7 +3285,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/turklerle-kurtlerin-cikarlari-ortak/cover.png',
+        src: '/archive/clippings/zaman/2013/turklerle-kurtlerin-cikarlari-ortak/cover.webp',
         alt: 'Zaman, 8 Ocak 2013',
       },
     ],
@@ -3301,7 +3301,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/dis-politika-milli-cikarlara-endeksli/cover.png',
+        src: '/archive/clippings/zaman/2013/dis-politika-milli-cikarlara-endeksli/cover.webp',
         alt: 'Zaman, 12 Ocak 2013',
       },
     ],
@@ -3317,7 +3317,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/ruh-ikizleri-chp-ve-mhp-niye-farkli/cover.png',
+        src: '/archive/clippings/zaman/2013/ruh-ikizleri-chp-ve-mhp-niye-farkli/cover.webp',
         alt: 'Zaman, 17 Ocak 2013',
       },
     ],
@@ -3333,7 +3333,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/batiyla-ask-ve-nefret-niye/cover.png',
+        src: '/archive/clippings/zaman/2013/batiyla-ask-ve-nefret-niye/cover.webp',
         alt: 'Zaman, 29 Ocak 2013',
       },
     ],
@@ -3349,7 +3349,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/milletin-turkiye-seruveni/cover.png',
+        src: '/archive/clippings/zaman/2013/milletin-turkiye-seruveni/cover.webp',
         alt: 'Zaman, 31 Ocak 2013',
       },
     ],
@@ -3365,7 +3365,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/islam-ve-demokrasi-tartismasi-bitti/cover.png',
+        src: '/archive/clippings/zaman/2013/islam-ve-demokrasi-tartismasi-bitti/cover.webp',
         alt: 'Zaman, 2 Şubat 2013',
       },
     ],
@@ -3381,7 +3381,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/akpnin-baskanlik-onerisine-hayir/cover.png',
+        src: '/archive/clippings/zaman/2013/akpnin-baskanlik-onerisine-hayir/cover.webp',
         alt: 'Zaman, 9 Şubat 2013',
       },
     ],
@@ -3397,7 +3397,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/ab-ile-ne-yapmali/cover.png',
+        src: '/archive/clippings/zaman/2013/ab-ile-ne-yapmali/cover.webp',
         alt: 'Zaman, 12 Şubat 2013',
       },
     ],
@@ -3413,7 +3413,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/buyuk-turk-kurt-barisi/cover.png',
+        src: '/archive/clippings/zaman/2013/buyuk-turk-kurt-barisi/cover.webp',
         alt: 'Zaman, 21 Şubat 2013',
       },
     ],
@@ -3429,7 +3429,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/kurdistani-kapsayan-turkiye/cover.png',
+        src: '/archive/clippings/zaman/2013/kurdistani-kapsayan-turkiye/cover.webp',
         alt: 'Zaman, 23 Şubat 2013',
       },
     ],
@@ -3445,7 +3445,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/baris-ancak-demokrasiyle-kazanilir/cover.png',
+        src: '/archive/clippings/zaman/2013/baris-ancak-demokrasiyle-kazanilir/cover.webp',
         alt: 'Zaman, 7 Mart 2013',
       },
     ],
@@ -3461,7 +3461,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/siyonizm-insanlik-sucu-mudur/cover.png',
+        src: '/archive/clippings/zaman/2013/siyonizm-insanlik-sucu-mudur/cover.webp',
         alt: 'Zaman, 16 Mart 2013',
       },
     ],
@@ -3477,7 +3477,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/turk-usulu-baskanliktan-vazgecin/cover.png',
+        src: '/archive/clippings/zaman/2013/turk-usulu-baskanliktan-vazgecin/cover.webp',
         alt: 'Zaman, 21 Mart 2013',
       },
     ],
@@ -3493,7 +3493,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/silahlar-sussun-fi-kirler-konussun/cover.png',
+        src: '/archive/clippings/zaman/2013/silahlar-sussun-fi-kirler-konussun/cover.webp',
         alt: 'Zaman, 23 Mart 2013',
       },
     ],
@@ -3509,7 +3509,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/baris-nicin-savastan-zor/cover.png',
+        src: '/archive/clippings/zaman/2013/baris-nicin-savastan-zor/cover.webp',
         alt: 'Zaman, 28 Mart 2013',
       },
     ],
@@ -3525,7 +3525,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/liberal-olmak-ne-demek-2013/cover.png',
+        src: '/archive/clippings/zaman/2013/liberal-olmak-ne-demek-2013/cover.webp',
         alt: 'Zaman, 4 Nisan 2013',
       },
     ],
@@ -3541,7 +3541,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/turkiyede-liberal-olmanin-anlami/cover.png',
+        src: '/archive/clippings/zaman/2013/turkiyede-liberal-olmanin-anlami/cover.webp',
         alt: 'Zaman, 6 Nisan 2013',
       },
     ],
@@ -3557,7 +3557,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/akil-insanlardan-beklenen-fayda/cover.png',
+        src: '/archive/clippings/zaman/2013/akil-insanlardan-beklenen-fayda/cover.webp',
         alt: 'Zaman, 9 Nisan 2013',
       },
     ],
@@ -3573,7 +3573,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/askeri-vesayet-niye-geriledi/cover.png',
+        src: '/archive/clippings/zaman/2013/askeri-vesayet-niye-geriledi/cover.webp',
         alt: 'Zaman, 11 Nisan 2013',
       },
     ],
@@ -3589,7 +3589,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/farkliliga-saygi-uygarligin-temel-tasi/cover.png',
+        src: '/archive/clippings/zaman/2013/farkliliga-saygi-uygarligin-temel-tasi/cover.webp',
         alt: 'Zaman, 20 Nisan 2013',
       },
     ],
@@ -3605,7 +3605,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/1915-oncesinde-osmanli-ermenileri/cover.png',
+        src: '/archive/clippings/zaman/2013/1915-oncesinde-osmanli-ermenileri/cover.webp',
         alt: 'Zaman, 25 Nisan 2013',
       },
     ],
@@ -3621,7 +3621,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/editoryal-bagimsizlik-ne-demek/cover.png',
+        src: '/archive/clippings/zaman/2013/editoryal-bagimsizlik-ne-demek/cover.webp',
         alt: 'Zaman, 30 Nisan 2013',
       },
     ],
@@ -3637,7 +3637,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/pkk-ne-zaman-terorist-olmaktan-cikar/cover.png',
+        src: '/archive/clippings/zaman/2013/pkk-ne-zaman-terorist-olmaktan-cikar/cover.webp',
         alt: 'Zaman, 9 Mayıs 2013',
       },
     ],
@@ -3653,7 +3653,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/hayat-tarzi-kaygisi-niye/cover.png',
+        src: '/archive/clippings/zaman/2013/hayat-tarzi-kaygisi-niye/cover.webp',
         alt: 'Zaman, 30 Mayıs 2013',
       },
     ],
@@ -3669,7 +3669,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/milli-irade-yuzde-50den-ibaret-degildir/cover.png',
+        src: '/archive/clippings/zaman/2013/milli-irade-yuzde-50den-ibaret-degildir/cover.webp',
         alt: 'Zaman, 18 Haziran 2013',
       },
     ],
@@ -3685,7 +3685,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/gezi-parki-dersleri/cover.png',
+        src: '/archive/clippings/zaman/2013/gezi-parki-dersleri/cover.webp',
         alt: 'Zaman, 20 Haziran 2013',
       },
     ],
@@ -3701,7 +3701,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/basbakan-erdogana-icten-bir-cagri/cover.png',
+        src: '/archive/clippings/zaman/2013/basbakan-erdogana-icten-bir-cagri/cover.webp',
         alt: 'Zaman, 22 Haziran 2013',
       },
     ],
@@ -3717,7 +3717,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/abnin-turkiyeye-degil-turkiyenin-abye-ihtiyaci-var/cover.png',
+        src: '/archive/clippings/zaman/2013/abnin-turkiyeye-degil-turkiyenin-abye-ihtiyaci-var/cover.webp',
         alt: 'Zaman, 25 Haziran 2013',
       },
     ],
@@ -3733,7 +3733,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/nukleeri-unut-gunese-saril/cover.png',
+        src: '/archive/clippings/zaman/2013/nukleeri-unut-gunese-saril/cover.webp',
         alt: 'Zaman, 18 Temmuz 2013',
       },
     ],
@@ -3749,7 +3749,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/turkiye-basbakanina-mektup-skandali/cover.png',
+        src: '/archive/clippings/zaman/2013/turkiye-basbakanina-mektup-skandali/cover.webp',
         alt: 'Zaman, 1 Ağustos 2013',
       },
     ],
@@ -3765,7 +3765,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/uluderenin-dersleri/cover.png',
+        src: '/archive/clippings/zaman/2013/uluderenin-dersleri/cover.webp',
         alt: 'Zaman, 3 Ağustos 2013',
       },
     ],
@@ -3781,7 +3781,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/askeri-vesayetin-sonu-mu/cover.png',
+        src: '/archive/clippings/zaman/2013/askeri-vesayetin-sonu-mu/cover.webp',
         alt: 'Zaman, 8 Ağustos 2013',
       },
     ],
@@ -3797,7 +3797,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/kutuplasmadan-kimseye-hayir-gelmez/cover.png',
+        src: '/archive/clippings/zaman/2013/kutuplasmadan-kimseye-hayir-gelmez/cover.webp',
         alt: 'Zaman, 10 Ağustos 2013',
       },
     ],
@@ -3813,7 +3813,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/aleviler-ve-sunniler-esittir/cover.png',
+        src: '/archive/clippings/zaman/2013/aleviler-ve-sunniler-esittir/cover.webp',
         alt: 'Zaman, 12 Eylül 2013',
       },
     ],
@@ -3829,7 +3829,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/liberaller-ne-demek/cover.png',
+        src: '/archive/clippings/zaman/2013/liberaller-ne-demek/cover.webp',
         alt: 'Zaman, 17 Eylül 2013',
       },
     ],
@@ -3845,7 +3845,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/demokrasinin-namusu-ozgurluklerdir/cover.png',
+        src: '/archive/clippings/zaman/2013/demokrasinin-namusu-ozgurluklerdir/cover.webp',
         alt: 'Zaman, 19 Eylül 2013',
       },
     ],
@@ -3861,7 +3861,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/cogulculugu-kabulden-kacinilamaz/cover.png',
+        src: '/archive/clippings/zaman/2013/cogulculugu-kabulden-kacinilamaz/cover.webp',
         alt: 'Zaman, 28 Eylül 2013',
       },
     ],
@@ -3877,7 +3877,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/evet-ama-niye-yetmez/cover.png',
+        src: '/archive/clippings/zaman/2013/evet-ama-niye-yetmez/cover.webp',
         alt: 'Zaman, 3 Ekim 2013',
       },
     ],
@@ -3893,7 +3893,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/ulus-devletin-sonu-mu/cover.png',
+        src: '/archive/clippings/zaman/2013/ulus-devletin-sonu-mu/cover.webp',
         alt: 'Zaman, 5 Ekim 2013',
       },
     ],
@@ -3909,7 +3909,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/pozitivizm-kilisesi-nicin-cokuyor/cover.png',
+        src: '/archive/clippings/zaman/2013/pozitivizm-kilisesi-nicin-cokuyor/cover.webp',
         alt: 'Zaman, 26 Ekim 2013',
       },
     ],
@@ -3925,7 +3925,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/oryantalist-gozle-liberalizm/cover.png',
+        src: '/archive/clippings/zaman/2013/oryantalist-gozle-liberalizm/cover.webp',
         alt: 'Zaman, 29 Ekim 2013',
       },
     ],
@@ -3941,7 +3941,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/turkiye-natodan-cikar-mi/cover.png',
+        src: '/archive/clippings/zaman/2013/turkiye-natodan-cikar-mi/cover.webp',
         alt: 'Zaman, 2 Kasım 2013',
       },
     ],
@@ -3957,7 +3957,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/normallesmeye-bir-adim-daha/cover.png',
+        src: '/archive/clippings/zaman/2013/normallesmeye-bir-adim-daha/cover.webp',
         alt: 'Zaman, 5 Kasım 2013',
       },
     ],
@@ -3973,7 +3973,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/ozel-hayata-karisilamaz/cover.png',
+        src: '/archive/clippings/zaman/2013/ozel-hayata-karisilamaz/cover.webp',
         alt: 'Zaman, 7 Kasım 2013',
       },
     ],
@@ -3989,7 +3989,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/hos-geldiniz-sayin-barzani/cover.png',
+        src: '/archive/clippings/zaman/2013/hos-geldiniz-sayin-barzani/cover.webp',
         alt: 'Zaman, 16 Kasım 2013',
       },
     ],
@@ -4005,7 +4005,7 @@ export const zamanColumnSeeds: ArchiveItemSeed[] = [
     pieceKind: 'column',
     clippings: [
       {
-        src: '/archive/clippings/zaman/2013/barzaninin-ziyareti-neden-tarihi/cover.png',
+        src: '/archive/clippings/zaman/2013/barzaninin-ziyareti-neden-tarihi/cover.webp',
         alt: 'Zaman, 19 Kasım 2013',
       },
     ],

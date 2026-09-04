@@ -37,7 +37,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['düşünce inceleme araştırma', 'sosyal bilimler', 'yayın hayatı', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/baslarken/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/baslarken/cover.webp',
         alt: 'Cumhuriyet, 28 Ocak 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -54,7 +54,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Sabri Ülgener', 'iktisat ahlakı', 'Max Weber', 'zihniyet', 'söyleşi', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/sabri-ulgenerle-sohbet/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/sabri-ulgenerle-sohbet/cover.webp',
         alt: 'Cumhuriyet, 25 Mart 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -71,7 +71,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Şerif Mardin', 'ideoloji', 'siyaset sosyolojisi', 'söyleşi', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/ideoloji-uzerine-serif-mardinle-sohbet/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/ideoloji-uzerine-serif-mardinle-sohbet/cover.webp',
         alt: 'Cumhuriyet, 29 Nisan 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -88,7 +88,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Zafer Toprak', 'milli iktisat', 'II. Meşrutiyet', 'İttihat ve Terakki', 'iktisat tarihi', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/turkiyede-milli-iktisat/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/turkiyede-milli-iktisat/cover.webp',
         alt: 'Cumhuriyet, 6 Mayıs 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -105,7 +105,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Mete Tunçay', 'tek parti dönemi', 'sol akımlar', 'siyaset bilimi', 'söyleşi', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/mete-tuncayla-sohbet/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/mete-tuncayla-sohbet/cover.webp',
         alt: 'Cumhuriyet, 1 Temmuz 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -122,7 +122,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Thomas Kuhn', 'bilim felsefesi', 'paradigma', 'Karl Popper', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/bilimsel-devrimlerin-yapisi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/bilimsel-devrimlerin-yapisi/cover.webp',
         alt: 'Cumhuriyet, 4 Kasım 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -139,7 +139,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Karl Popper', 'Bryan Magee', 'bilim felsefesi', 'açık toplum', 'totalitarizm', '1982'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1982/karl-popperin-bilim-felsefesi-ve-siyaset-kurami/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1982/karl-popperin-bilim-felsefesi-ve-siyaset-kurami/cover.webp',
         alt: 'Cumhuriyet, 11 Kasım 1982, s. 5',
         pageLabel: 's. 5',
       },
@@ -156,7 +156,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Sabri Ülgener', 'zihniyet', 'aydınlar', 'ideoloji', 'iktisat', '1983'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1983/saglikli-bir-bilim-anlayisi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1983/saglikli-bir-bilim-anlayisi/cover.webp',
         alt: 'Cumhuriyet, 7 Nisan 1983, s. 5',
         pageLabel: 's. 5',
       },
@@ -173,7 +173,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Karl Popper', 'bilim felsefesi', 'demokrasi', 'Felsefe Yazıları', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/bilim-demokrasi-iliskisi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/bilim-demokrasi-iliskisi/cover.webp',
         alt: 'Cumhuriyet, 2 Şubat 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -190,7 +190,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['İsmet Özel', 'düşünce özgürlüğü', 'bilim eleştirisi', 'Yeni Devir', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/zor-zamanda-konusmak/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/zor-zamanda-konusmak/cover.webp',
         alt: 'Cumhuriyet, 1 Mart 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -207,7 +207,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Haluk Özdalga', 'sosyal demokrasi', 'Marksizm', 'İsveç', 'Sosyalist Enternasyonal', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/sosyal-demokrasi-ve-marksizm-iliskisi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/sosyal-demokrasi-ve-marksizm-iliskisi/cover.webp',
         alt: 'Cumhuriyet, 5 Temmuz 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -224,7 +224,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Cengiz Çandar', 'FKÖ', 'Filistin', 'Ortadoğu', 'gazetecilik', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/fkonun-seruveni/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/fkonun-seruveni/cover.webp',
         alt: 'Cumhuriyet, 19 Temmuz 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -241,7 +241,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Machiavelli', 'Hükümdar', 'siyaset felsefesi', 'devlet', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/siyasetin-kendine-ozgu-yasalari-var-midir/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/siyasetin-kendine-ozgu-yasalari-var-midir/cover.webp',
         alt: 'Cumhuriyet, 13 Eylül 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -258,7 +258,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['İlkay Sunar', 'pozitivizm', 'sosyal bilimler', 'ideoloji', '1984'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1984/toplumu-bicimlendiren-doga-midir/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1984/toplumu-bicimlendiren-doga-midir/cover.webp',
         alt: 'Cumhuriyet, 8 Kasım 1984, s. 5',
         pageLabel: 's. 5',
       },
@@ -275,7 +275,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Max Weber', 'Protestan Ahlakı', 'sosyoloji', 'Sabri Ülgener', 'kapitalizm', '1985'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1985/weber-ilk-kez-dilimize-cevrildi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1985/weber-ilk-kez-dilimize-cevrildi/cover.webp',
         alt: 'Cumhuriyet, 14 Şubat 1985, s. 5',
         pageLabel: 's. 5',
       },
@@ -292,7 +292,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Ali Yaşar Sarıbay', 'Milli Selamet Partisi', 'modernleşme', 'din ve siyaset', '1985'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1985/mspnin-gelisimi-ve-ideolojisi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1985/mspnin-gelisimi-ve-ideolojisi/cover.webp',
         alt: 'Cumhuriyet, 11 Nisan 1985, s. 5',
         pageLabel: 's. 5',
       },
@@ -309,7 +309,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['nükleer enerji', 'enerji politikası', 'çevre', 'teknoloji', '1985'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1985/enerji-teknik-bir-sorun-mudur/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1985/enerji-teknik-bir-sorun-mudur/cover.webp',
         alt: 'Cumhuriyet, 18 Temmuz 1985, s. 5',
         pageLabel: 's. 5',
       },
@@ -326,7 +326,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['ABD', 'New Orleans', 'ırk sorunu', 'göçmenlik', 'izlenim', '1985'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1985/ceyrek-asir-sonra-abd/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1985/ceyrek-asir-sonra-abd/cover.webp',
         alt: 'Cumhuriyet, 29 Eylül 1985, s. 12',
         pageLabel: 's. 12',
       },
@@ -343,7 +343,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Hikmet Özdemir', 'YÖN hareketi', 'Doğan Avcıoğlu', 'kalkınma', 'Türk solu', '1987'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1987/kalkinmada-bir-strateji-arayisi-mi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1987/kalkinmada-bir-strateji-arayisi-mi/cover.webp',
         alt: 'Cumhuriyet, 9 Ocak 1987, s. 5',
         pageLabel: 's. 5',
       },
@@ -360,7 +360,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Şerif Mardin', 'İslami canlanış', 'modernleşme', 'din ve toplum', 'söyleşi', '1987'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1987/islami-hayat-tarzi-amaclaniyor/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1987/islami-hayat-tarzi-amaclaniyor/cover.webp',
         alt: 'Cumhuriyet, 4 Temmuz 1987, s. 8',
         pageLabel: 's. 8',
       },
@@ -377,7 +377,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Çekoslovakya', 'Prag', 'glasnost', 'ekonomik reform', 'sosyalizm', '1987'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1987/pragda-bahar/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1987/pragda-bahar/cover.webp',
         alt: 'Cumhuriyet, 27 Eylül 1987, s. 7',
         pageLabel: 's. 7',
       },
@@ -394,7 +394,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Japonya', 'Tokyo', 'çalışma hayatı', 'eğitim', 'izlenim', '1987'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1987/japonlarin-calisma-hastaligi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1987/japonlarin-calisma-hastaligi/cover.webp',
         alt: 'Cumhuriyet, 15 Kasım 1987, s. 13',
         pageLabel: 's. 13',
       },
@@ -411,7 +411,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Sencer Divitçioğlu', 'Kök Türkler', 'Orhun yazıtları', 'tarih', 'söyleşi', '1987'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1987/turk-tarihinin-sifir-noktasi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1987/turk-tarihinin-sifir-noktasi/cover.webp',
         alt: 'Cumhuriyet, 3 Aralık 1987, s. 5',
         pageLabel: 's. 5',
       },
@@ -428,7 +428,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Mehmet Ali Aybar', 'Türkiye İşçi Partisi', '1960\'lar', 'sosyalizm', 'anı', '1988'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1988/mehmet-ali-aybarin-anilari/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1988/mehmet-ali-aybarin-anilari/cover.webp',
         alt: 'Cumhuriyet, 14 Nisan 1988, s. 5',
         pageLabel: 's. 5',
       },
@@ -445,7 +445,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['İsmet Özel', 'şiir', 'İslamcılık', 'aydın', 'düşünce', '1988'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1988/sair-ismet-ozelin-masali/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1988/sair-ismet-ozelin-masali/cover.webp',
         alt: 'Cumhuriyet, 11 Ağustos 1988, s. 5',
         pageLabel: 's. 5',
       },
@@ -462,7 +462,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Merdan Yanardağ', 'Kadro dergisi', 'devletçilik', 'tek parti dönemi', '1988'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1988/kadro-ve-kadrocular/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1988/kadro-ve-kadrocular/cover.webp',
         alt: 'Cumhuriyet, 25 Ağustos 1988, s. 5',
         pageLabel: 's. 5',
       },
@@ -479,7 +479,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Norberto Bobbio', 'demokrasi', 'sosyalizm', 'liberalizm', '1988'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1988/demokrasinin-gelecegi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1988/demokrasinin-gelecegi/cover.webp',
         alt: 'Cumhuriyet, 3 Kasım 1988, s. 5',
         pageLabel: 's. 5',
       },
@@ -496,7 +496,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Ayşe Buğra', 'iktisat', 'bilim felsefesi', 'piyasa', 'insan hakları', '1989'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1989/bilim-iktisat-ve-piyasa/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1989/bilim-iktisat-ve-piyasa/cover.webp',
         alt: 'Cumhuriyet, 6 Nisan 1989, s. 5',
         pageLabel: 's. 5',
       },
@@ -513,7 +513,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Murat Belge', 'sosyalizm', 'çoğulculuk', 'korporatizm', 'Türk solu', '1989'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1989/sosyalizmin-gelecegi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1989/sosyalizmin-gelecegi/cover.webp',
         alt: 'Cumhuriyet, 15 Haziran 1989, s. 5',
         pageLabel: 's. 5',
       },
@@ -530,7 +530,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Sosyalist Enternasyonal', 'Willy Brandt', 'Stockholm', 'sosyal demokrasi', '1989'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1989/demokrasi-olmadan-sosyalizm-olamaz/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1989/demokrasi-olmadan-sosyalizm-olamaz/cover.webp',
         alt: 'Cumhuriyet, 22 Haziran 1989, s. 16',
         pageLabel: 's. 16',
       },
@@ -547,7 +547,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['futbol', 'İnönü Stadı', 'Beşiktaş', 'Timur Kuran', 'gündelik hayat', '1989'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1989/inonu-stadinda-pazar-keyfi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1989/inonu-stadinda-pazar-keyfi/cover.webp',
         alt: 'Cumhuriyet, 24 Kasım 1989, s. 18',
         pageLabel: 's. 18',
       },
@@ -564,7 +564,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Almanya', 'Bonn', 'Alman birleşmesi', 'göç', 'gurbetçiler', '1990'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1990/turkler-icin-ne-getirecek-ne-goturecek/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1990/turkler-icin-ne-getirecek-ne-goturecek/cover.webp',
         alt: 'Cumhuriyet, 26 Şubat 1990, s. 16',
         pageLabel: 's. 16',
       },
@@ -582,7 +582,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Ruşen Çakır', 'İslamcılık', 'laiklik', 'şeriat', 'Cumhuriyet Kitap', '1990'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1990/ayet-mi-slogan-mi/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1990/ayet-mi-slogan-mi/cover.webp',
         alt: 'Cumhuriyet Kitap, sayı 44, 20 Aralık 1990, s. 17',
         pageLabel: 's. 17',
       },
@@ -599,7 +599,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Celal Talabani', 'PKK', 'Kürt sorunu', 'Irak', 'söyleşi', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/pkk-yuzyilin-ilk-yillarini-yasiyor/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/pkk-yuzyilin-ilk-yillarini-yasiyor/cover.webp',
         alt: 'Cumhuriyet, 13 Haziran 1991, s. 3',
         pageLabel: 's. 3',
       },
@@ -616,7 +616,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Leyla Zana', 'TBMM', 'Kürt sorunu', 'etnik kimlik', 'demokrasi', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/parlamentoda-deprem/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/parlamentoda-deprem/cover.webp',
         alt: 'Cumhuriyet, 9 Kasım 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -633,7 +633,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['komplo teorisi', 'emperyalizm', 'dış politika', 'milliyetçilik', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/dis-dusmanlar-ic-dusmanlar/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/dis-dusmanlar-ic-dusmanlar/cover.webp',
         alt: 'Cumhuriyet, 27 Kasım 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -650,7 +650,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['sosyalizm', 'Marksizm', 'Sovyetler Birliği', 'sosyal demokrasi', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/sosyalizm-oldu-mu/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/sosyalizm-oldu-mu/cover.webp',
         alt: 'Cumhuriyet, 4 Aralık 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -667,7 +667,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['İspanya', 'Bask', 'Katalonya', 'özerklik', 'terör', 'Kürt sorunu', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/ayrilikci-teror-ve-ispanya/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/ayrilikci-teror-ve-ispanya/cover.webp',
         alt: 'Cumhuriyet, 11 Aralık 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -684,7 +684,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Özbekistan', 'İslam Kerimov', 'Türki cumhuriyetler', 'dış politika', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/turki-halklar-ve-biz/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/turki-halklar-ve-biz/cover.webp',
         alt: 'Cumhuriyet, 20 Aralık 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -701,7 +701,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Kürt sorunu', 'aydınlar', 'DYP-SHP koalisyonu', 'demokratikleşme', '1991'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1991/kurt-aydinlara-dusen-gorev/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1991/kurt-aydinlara-dusen-gorev/cover.webp',
         alt: 'Cumhuriyet, 27 Aralık 1991, s. 4',
         pageLabel: 's. 4',
       },
@@ -718,7 +718,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Batı', 'Kürt sorunu', 'PKK', 'dış politika', 'demokratikleşme', '1992'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1992/batiyi-nasil-yargilamali/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1992/batiyi-nasil-yargilamali/cover.webp',
         alt: 'Cumhuriyet, 8 Ocak 1992, s. 4',
         pageLabel: 's. 4',
       },
@@ -735,7 +735,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['emperyalizm', 'Alparslan Türkeş', 'Karl Popper', 'komplo teorisi', 'kapitalizm', '1992'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1992/ah-su-emperyalizm/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1992/ah-su-emperyalizm/cover.webp',
         alt: 'Cumhuriyet, 15 Şubat 1992, s. 14',
         pageLabel: 's. 14',
       },
@@ -752,7 +752,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     tags: ['Karl Marx', 'Marksizm', 'Karl Popper', 'Jon Elster', 'sosyalizm', '1992'],
     clippings: [
       {
-        src: '/archive/clippings/cumhuriyet/1992/marxi-kesfediyoruz/cover.jpg',
+        src: '/archive/clippings/cumhuriyet/1992/marxi-kesfediyoruz/cover.webp',
         alt: 'Cumhuriyet, 19 Şubat 1992, s. 14',
         pageLabel: 's. 14',
       },

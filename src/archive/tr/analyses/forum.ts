@@ -43,7 +43,7 @@ export const forumAnalysisSeeds: ArchiveItemSeed[] = [
     ],
     clippings: [
       {
-        src: '/archive/clippings/forum/1968/turk-is/cover.jpg',
+        src: '/archive/clippings/forum/1968/turk-is/cover.webp',
         alt: 'Forum, sayı 338, 1 Mayıs 1968 — kapak',
         pageLabel: 'Kapak · yazı s. 2 ve 4',
       },
@@ -73,7 +73,7 @@ export const forumAnalysisSeeds: ArchiveItemSeed[] = [
     ],
     clippings: [
       {
-        src: '/archive/clippings/forum/1968/gucbirligine-dogru-ilk-adim/cover.jpg',
+        src: '/archive/clippings/forum/1968/gucbirligine-dogru-ilk-adim/cover.webp',
         alt: 'Forum, sayı 339, 15 Mayıs 1968 — kapak',
         pageLabel: 'Kapak · yazı s. 2 ve 3',
       },
