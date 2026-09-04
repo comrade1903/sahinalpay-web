@@ -51,6 +51,8 @@ import {
 import portrait from './assets/portrait.jpg'
 import logoAydinlik from './assets/logos/aydinlik.webp'
 import logoCumhuriyet from './assets/logos/cumhuriyet.webp'
+import logoForum from './assets/logos/forum.webp'
+import logoIsciKoylu from './assets/logos/isci-koylu.webp'
 import logoMilliyet from './assets/logos/milliyet.svg'
 import logoZaman from './assets/logos/zaman.webp'
 import logoTodaysZaman from './assets/logos/todays-zaman.webp'
@@ -1698,6 +1700,8 @@ function outletDateRangeLabel(items: ArchiveItem[]): string | null {
 const outletLogos: Partial<Record<string, string>> = {
   'Aydınlık (Sosyalist Dergi/Proleter Devrimci)': logoAydinlik,
   Cumhuriyet: logoCumhuriyet,
+  Forum: logoForum,
+  'İşçi Köylü': logoIsciKoylu,
   Milliyet: logoMilliyet,
   Zaman: logoZaman,
   "Today's Zaman": logoTodaysZaman,
@@ -1733,6 +1737,10 @@ const outletAccent: Partial<Record<string, string>> = {
   'Aydınlık (Sosyalist Dergi/Proleter Devrimci)': '#a44e8c',
   Milliyet: '#b3241c',
   Cumhuriyet: '#e30512',
+  Forum: '#9c1c22',
+  /* The masthead red as it survives on the newsprint scan, darkened just
+     enough for the white band label to clear contrast. */
+  'İşçi Köylü': '#b34435',
   Sabah: '#da251c',
   Zaman: '#8a6a1f',
   "Today's Zaman": '#6d5518',
