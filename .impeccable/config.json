@@ -10,40 +10,10 @@
         "reason": "Agent: literal shelf-rail thickness for the newsstand spine prop, same exception class as the pre-existing --wood-surface/--wood-edge tokens for this feature"
       },
       {
-        "rule": "design-system-color",
-        "value": "#d6d7db",
-        "createdAt": "2026-08-29T05:58:41.166Z",
-        "reason": "Agent: literal shelf-rail metal gradient for the newsstand spine prop, same exception class as --wood-surface/--wood-edge"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#4d4d52",
-        "createdAt": "2026-08-29T05:58:41.245Z",
-        "reason": "Agent: literal shelf-rail metal gradient for the newsstand spine prop, same exception class as --wood-surface/--wood-edge"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "rgba(0, 0, 0, 0.5)",
-        "createdAt": "2026-08-29T05:58:41.324Z",
-        "reason": "Agent: shelf-rail cast shadow, literal hardware shading not part of the ink/paper/mark chrome"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#b9bac0",
-        "createdAt": "2026-08-29T05:58:41.402Z",
-        "reason": "Agent: literal wire-clip metal color holding the spine on the shelf rail"
-      },
-      {
         "rule": "design-system-radius",
         "value": "36px",
         "createdAt": "2026-08-29T05:58:41.482Z",
         "reason": "Agent: wire-clip curve shape, a specific hardware silhouette not on the rounded-rectangle/pill scale"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "rgba(0, 0, 0, 0.45)",
-        "createdAt": "2026-08-29T05:58:41.561Z",
-        "reason": "Agent: wire-clip cast shadow, literal hardware shading"
       },
       {
         "rule": "design-system-radius",
@@ -53,75 +23,9 @@
       },
       {
         "rule": "design-system-color",
-        "value": "#ded5c1",
-        "createdAt": "2026-08-29T05:58:54.262Z",
-        "reason": "Agent: newsprint page border, deliberately theme-independent print stock color for the newsstand spine/panel prop"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#fbf7ee",
-        "createdAt": "2026-08-29T05:58:54.342Z",
-        "reason": "Agent: newsprint page background, deliberately theme-independent (mirrors the pre-existing #fdfbf7 masthead-swatch precedent) so it reads as real print stock in both themes"
-      },
-      {
-        "rule": "design-system-color",
         "value": "rgba(255, 255, 255, 0.92)",
         "createdAt": "2026-08-29T05:58:54.423Z",
         "reason": "Agent: white label text on the paper's own colored accent band (a real per-outlet brand color), not site chrome"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#14110c",
-        "createdAt": "2026-08-29T05:58:54.520Z",
-        "reason": "Agent: print-ink text color on the newsprint paper prop, deliberately theme-independent"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#6d6455",
-        "createdAt": "2026-08-29T05:58:54.602Z",
-        "reason": "Agent: muted print-ink caption color on the newsprint paper prop"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#8b8069",
-        "createdAt": "2026-08-29T05:58:54.689Z",
-        "reason": "Agent: muted print-ink kicker/label color on the newsprint paper prop"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#e2dac8",
-        "createdAt": "2026-08-29T05:58:54.768Z",
-        "reason": "Agent: newsprint row hairline, theme-independent print stock color"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#f4eee1",
-        "createdAt": "2026-08-29T05:58:54.851Z",
-        "reason": "Agent: newsprint row hover shade, theme-independent print stock color"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#a2977f",
-        "createdAt": "2026-08-29T05:58:54.932Z",
-        "reason": "Agent: muted print-ink date label color on the newsprint paper prop"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "clamp(1.5rem, 2.6vw, 1.9rem)",
-        "createdAt": "2026-08-29T05:59:03.680Z",
-        "reason": "Agent: masthead nameplate size on the narrow spine face, a representational one-off sized to its 132px prop (same pattern as DESIGN.md's documented wordmark/pull-quote/fact-number one-offs)"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "clamp(1.5rem, 3vw, 1.9rem)",
-        "createdAt": "2026-08-29T05:59:03.761Z",
-        "reason": "Agent: masthead nameplate size in the İçindekiler panel header, a representational one-off sized to that panel (same pattern as DESIGN.md's documented wordmark/pull-quote/fact-number one-offs)"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "1.9rem",
-        "createdAt": "2026-08-29T05:59:44.485Z",
-        "reason": "Agent: masthead nameplate clamp max-endpoint on the newsstand spine/panel, representational one-off matching DESIGN.md's wordmark/pull-quote/fact-number precedent"
       },
       {
         "rule": "design-system-font-size",
@@ -148,10 +52,16 @@
         "reason": "DESIGN.md One-Offs: the pull quote's clamp max-endpoint (clamp(1.5rem, 3vw, 2.1rem)) — documented pre-existing exception"
       },
       {
-        "rule": "design-system-color",
-        "value": "#79705c",
-        "createdAt": "2026-08-31T12:59:25.411Z",
-        "reason": "Agent: muted print-ink label/date color on the newsprint TOC panel (replaces #8b8069/#a2977f, darkened 2026-08-31 to clear WCAG AA 4.5:1 contrast on #fbf7ee)"
+        "rule": "design-system-font-size",
+        "value": "1.25rem",
+        "createdAt": "2026-09-02T00:00:00.000Z",
+        "reason": "Agent: masthead nameplate clamp min-endpoint, narrowed 2026-09-02 with the spine itself (132px→104px) for the left-rail layout; same representational one-off class as the pre-existing 1.5rem/1.9rem masthead entries above"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "18px",
+        "createdAt": "2026-09-02T12:57:51.114Z",
+        "reason": "Agent: wire-clip curve on the newsstand card, halved from the already-sanctioned 36px when the card turned landscape (96px tall) — same physical-hardware silhouette exception as that entry"
       }
     ]
   }

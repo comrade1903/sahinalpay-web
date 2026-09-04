@@ -1763,12 +1763,18 @@ function NewsstandStackPaper({
 }) {
   const accent = outletAccentFor(outlet.outlet)
   const logo = outletLogos[outlet.outlet]
+  /* A real outlet the owner is going to write into (Sabah, Zaman, Today's
+     Zaman today) but that has no pieces yet — still stood on the shelf
+     with its real branding, rather than hidden, so the rack doesn't read
+     as sparsely stocked; "Yakında" instead of a "0 yazı" that would read
+     as broken. */
+  const isEmpty = outlet.items.length === 0
   const style: CSSProperties = {
     zIndex: active ? 2 : 1,
     ...(reduce
       ? {}
       : {
-          transform: active ? 'translate3d(0, -22px, 0) scale(1.05)' : 'translate3d(0, 0, 0) scale(1)',
+          transform: active ? 'translate3d(8px, 0, 0) scale(1.03)' : 'translate3d(0, 0, 0) scale(1)',
           filter: active ? 'brightness(1.05)' : 'brightness(.86)',
         }),
   }
@@ -1777,6 +1783,7 @@ function NewsstandStackPaper({
       type="button"
       className="newsstand-stack-paper"
       data-active={active}
+      data-empty={isEmpty}
       style={style}
       onClick={onSelect}
       aria-pressed={active}
@@ -1796,7 +1803,7 @@ function NewsstandStackPaper({
             <span className="newsstand-stack-paper-name">{outlet.outlet}</span>
           )}
           <span className={logo ? 'newsstand-stack-paper-count-h' : 'newsstand-stack-paper-count'}>
-            {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+            {isEmpty ? (lang === 'tr' ? 'Yakında' : 'Coming soon') : lang === 'tr' ? `${count} yazı` : `${count} pieces`}
           </span>
         </span>
       </span>
@@ -1830,7 +1837,7 @@ function deriveNewsstandOutlets(
         'newest',
       ),
     }))
-    .filter((entry) => entry.matchingItems.length > 0)
+    .filter((entry) => entry.outlet.items.length === 0 || entry.matchingItems.length > 0)
 }
 
 /** A single row inside the open paper's "İçindekiler" (table of contents)
@@ -1848,9 +1855,21 @@ function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
         ? 'Yazı'
         : 'Piece'
   const preview = item.excerpt ?? item.subtitle
+  const isScan = itemScanClippings(item).length > 0
   const inner = (
     <>
-      <span className="newsstand-toc-row-section">{section}</span>
+      <span className="newsstand-toc-row-section">
+        {section}
+        {/* Provenance, not decoration: on a first-party archive the reader
+            has to be able to tell a full-text piece from one that survives
+            only as a page scan — the same badge the other archive lists
+            carry (see ArchiveRow). */}
+        {isScan && (
+          <span className="archive-row-badge archive-row-badge-scan">
+            {lang === 'tr' ? 'Kupür' : 'Clipping'}
+          </span>
+        )}
+      </span>
       <span className="newsstand-toc-row-body">
         <span className="newsstand-toc-row-title">{item.title}</span>
         {preview && <span className="newsstand-toc-row-dek">{preview}</span>}
@@ -1935,7 +1954,13 @@ function NewsstandTOC({
       </div>
       {items.length === 0 ? (
         <p className="archive-empty">
-          {lang === 'tr' ? 'Filtreyle eşleşen yazı yok.' : 'No pieces match these filters.'}
+          {outlet.items.length === 0
+            ? lang === 'tr'
+              ? 'Bu yayının yazıları yakında eklenecek.'
+              : "This outlet's pieces are coming soon."
+            : lang === 'tr'
+              ? 'Filtreyle eşleşen yazı yok.'
+              : 'No pieces match these filters.'}
         </p>
       ) : (
         <ul className="newsstand-toc-list">
@@ -2026,9 +2051,6 @@ function NewsstandControlBar({
   search,
   setSearch,
   searchingBody,
-  outlets,
-  activeOutlet,
-  setActiveOutlet,
   fromYear,
   toYear,
   setFromYear,
@@ -2038,9 +2060,6 @@ function NewsstandControlBar({
   search: string
   setSearch: (value: string) => void
   searchingBody: boolean
-  outlets: OutletGroup[]
-  activeOutlet: string
-  setActiveOutlet: (value: string | null) => void
   fromYear: string
   toYear: string
   setFromYear: (value: string) => void
@@ -2057,29 +2076,11 @@ function NewsstandControlBar({
         />
       </div>
       <div className="newsstand-controlbar-filters">
-        <div className="chip-row">
-          <button
-            type="button"
-            className="chip"
-            data-active={activeOutlet === 'all'}
-            aria-pressed={activeOutlet === 'all'}
-            onClick={() => setActiveOutlet(null)}
-          >
-            {lang === 'tr' ? 'Tümü' : 'All'}
-          </button>
-          {outlets.map((o) => (
-            <button
-              type="button"
-              key={o.outlet}
-              className="chip"
-              data-active={activeOutlet === o.outlet}
-              aria-pressed={activeOutlet === o.outlet}
-              onClick={() => setActiveOutlet(o.outlet)}
-            >
-              {o.outlet}
-            </button>
-          ))}
-        </div>
+        {/* No outlet chips here: the shelf's own spines are the outlet
+            selector, and they carry the masthead, count and date range a
+            chip cannot. Two controls with the same labels and different
+            meanings (chips filtered the rack away, spines opened it) was
+            the page's worst consistency defect. */}
         <YearRangeFilter
           lang={lang}
           fromYear={fromYear}
@@ -2201,9 +2202,6 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           search={search}
           setSearch={(value) => setParam('q', value)}
           searchingBody={searchingBody}
-          outlets={data.outlets}
-          activeOutlet={activeOutlet}
-          setActiveOutlet={(value) => setParam('outlet', value)}
           fromYear={fromYear}
           toYear={toYear}
           setFromYear={(value) => setParam('from', value)}
@@ -2216,284 +2214,33 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           count={newsstandOutlets.reduce((sum, entry) => sum + entry.matchingItems.length, 0)}
           onClearAll={() => setSearchParams(new URLSearchParams(), { replace: true })}
         />
-
-        <AnimatePresence mode="wait" initial={false}>
-          {!data.outlets.some((o) => o.items.length > 0) ? (
-            <p className="archive-empty" key="empty">
-              {data.emptyLabel}
-            </p>
-          ) : newsstandOutlets.length === 0 ? (
-            <p className="archive-empty" key="empty-filtered">
-              {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
-            </p>
-          ) : (
-            <motion.div
-              key="stage-stack"
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={reduce ? undefined : { opacity: 0 }}
-              transition={{ duration: reduce ? 0 : 0.25 }}
-            >
-              <NewsstandStack
-                entries={newsstandOutlets}
-                lang={lang}
-                selectedName={
-                  effectiveOpenName ?? orderNewsstandOutlets(newsstandOutlets)[0].outlet.outlet
-                }
-                onSelect={(outletName) => setParam('open', outletName, { replace: false })}
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={(page) =>
-                  updateSearchParams(
-                    searchParams,
-                    setSearchParams,
-                    { page: String(page) },
-                    { replace: false, keepPage: true },
-                  )
-                }
-                reduce={Boolean(reduce)}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
-  )
-}
-
-function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: Lang }) {
-  const location = useLocation()
-  usePageMeta({
-    title: `${data.title} — Şahin Alpay`,
-    description: data.intro,
-    alternates: pageAlternates(location.pathname),
-  })
-  useJsonLd('collection', {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: data.title,
-    description: data.intro,
-    inLanguage: lang,
-    url: pageUrl(location.pathname),
-    about: { '@id': 'https://sahinalpay.net/#person' },
-    mainEntity: data.outlets.flatMap((group) =>
-      group.items.slice(0, 25).map((item) => ({
-        '@type': 'Article',
-        headline: item.title,
-        ...(isoDateFromArchiveDate(item.date)
-          ? { datePublished: isoDateFromArchiveDate(item.date) }
-          : {}),
-        url: `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
-      })),
-    ),
-  })
-  const [searchParams, setSearchParams] = useSearchParams()
-  /* Arriving on a filtered URL opens the panel, so the controls that produced the
-     result are visible rather than hidden behind a button. Search is excluded —
-     it has its own always-visible row and shouldn't force the panel open. */
-  const [filtersOpen, setFiltersOpen] = useState(() =>
-    ['outlet', 'from', 'to', 'source'].some((key) => searchParams.get(key)),
-  )
-  const search = searchParams.get('q') ?? ''
-  const activeOutlet = searchParams.get('outlet') ?? 'all'
-  const fromYear = searchParams.get('from') ?? ''
-  const toYear = searchParams.get('to') ?? ''
-  const sort = validSort(searchParams.get('sort'))
-  const sourceKind = validSourceKind(searchParams.get('source'))
-  const requestedPage = positivePage(searchParams.get('page'))
-
-  const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
-  const { bodyIndex, searchingBody } = useBodySearchIndex(sectionItems, search)
-  const visibleOutlets = data.outlets.filter(
-    (o) => activeOutlet === 'all' || o.outlet === activeOutlet,
-  )
-  const hasAnyItems = visibleOutlets.some((o) => o.items.length > 0)
-  const flatEntries = useMemo(
-    () =>
-      sortByDate(
-        visibleOutlets.flatMap((o) =>
-          o.items
-            .filter((item) =>
-              matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
-            )
-            .map((item) => ({ item, outlet: o.outlet })),
-        ),
-        (entry) => entry.item.date,
-        sort,
-      ),
-    [visibleOutlets, search, fromYear, toYear, sourceKind, sort, bodyIndex],
-  )
-  const totalPages = Math.max(1, Math.ceil(flatEntries.length / ARCHIVE_PAGE_SIZE))
-  const currentPage = Math.min(requestedPage, totalPages)
-  const paginatedEntries = flatEntries.slice(
-    (currentPage - 1) * ARCHIVE_PAGE_SIZE,
-    currentPage * ARCHIVE_PAGE_SIZE,
-  )
-
-  const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
-    updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
-
-  const resetFilters = () => {
-    setSearchParams(new URLSearchParams(), { replace: true })
-  }
-
-  const activeFilters: ActiveFilter[] = [
-    search && {
-      key: 'q',
-      label: lang === 'tr' ? 'Arama' : 'Search',
-      value: search,
-      onClear: () => setParam('q', null),
-    },
-    activeOutlet !== 'all' && {
-      key: 'outlet',
-      label: lang === 'tr' ? 'Yayın' : 'Outlet',
-      value: activeOutlet,
-      onClear: () => setParam('outlet', null),
-    },
-    fromYear && {
-      key: 'from',
-      label: lang === 'tr' ? 'Başlangıç' : 'From',
-      value: fromYear,
-      onClear: () => setParam('from', null),
-    },
-    toYear && {
-      key: 'to',
-      label: lang === 'tr' ? 'Bitiş' : 'To',
-      value: toYear,
-      onClear: () => setParam('to', null),
-    },
-    sourceKind !== 'all' && {
-      key: 'source',
-      label: lang === 'tr' ? 'Kaynak' : 'Source',
-      value: sourceKindLabel(sourceKind, lang),
-      onClear: () => setParam('source', null),
-    },
-    sort !== 'newest' && {
-      key: 'sort',
-      label: lang === 'tr' ? 'Sıralama' : 'Sort',
-      value: lang === 'tr' ? 'En eski' : 'Oldest',
-      onClear: () => setParam('sort', null),
-    },
-  ].filter(Boolean) as ActiveFilter[]
-
-  return (
-    <section className="section section-solo">
-      <div className="container">
-        <Reveal>
-          <p className="kicker">{data.kicker}</p>
-          <h1 className="section-title">{data.title}</h1>
-          <p className="archive-intro">{data.intro}</p>
-        </Reveal>
-
-        <ArchiveSearchRow
-          lang={lang}
-          search={search}
-          setSearch={(value) => setParam('q', value)}
-          searchingBody={searchingBody}
-        />
-
-        <div className="archive-layout">
-          <aside className="archive-sidebar">
-            {/* Named landmarks so the filter and outlet headings below sit at h3
-                under a real h2, instead of skipping a level from the page h1. */}
-            <h2 className="sr-only">{lang === 'tr' ? 'Filtreler' : 'Filters'}</h2>
-            <button
-              type="button"
-              className="archive-filter-toggle"
-              aria-expanded={filtersOpen}
-              aria-controls="archive-filters-outlet"
-              onClick={() => setFiltersOpen((open) => !open)}
-            >
-              <span>{lang === 'tr' ? 'Filtreler' : 'Filters'}</span>
-              <span className="material-symbols-outlined" aria-hidden="true">
-                tune
-              </span>
-            </button>
-            <div
-              id="archive-filters-outlet"
-              className="archive-filter-panel"
-              data-open={filtersOpen}
-            >
-              <div className="filter-card">
-                <h3>{lang === 'tr' ? 'Yayın Kuruluşu' : 'Outlet'}</h3>
-                <div className="chip-row">
-                  <button
-                    type="button"
-                    className="chip"
-                    data-active={activeOutlet === 'all'}
-                    aria-pressed={activeOutlet === 'all'}
-                    onClick={() => setParam('outlet', null)}
-                  >
-                    {lang === 'tr' ? 'Tümü' : 'All'}
-                  </button>
-                  {data.outlets.map((o) => (
-                    <button
-                      type="button"
-                      key={o.outlet}
-                      className="chip"
-                      data-active={activeOutlet === o.outlet}
-                      aria-pressed={activeOutlet === o.outlet}
-                      onClick={() => setParam('outlet', o.outlet)}
-                    >
-                      {o.outlet}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <YearRangeFilter
-                lang={lang}
-                fromYear={fromYear}
-                toYear={toYear}
-                setFromYear={(value) => setParam('from', value)}
-                setToYear={(value) => setParam('to', value)}
-              />
-              <SourceKindFilter
-                lang={lang}
-                sourceKind={sourceKind}
-                setSourceKind={(value) => setParam('source', value)}
-              />
-            </div>
-          </aside>
-
-          <div className="archive-main" aria-busy={searchingBody}>
-            {/* Focus target for pagination, so a page change is announced and not
-                just scrolled to. */}
-            <h2 className="sr-only" id="archive-results" tabIndex={-1}>
-              {lang === 'tr' ? 'Sonuçlar' : 'Results'}
-            </h2>
-            {/* The count and the active-filter chips sit above the list at every
-                breakpoint. They used to live inside the collapsed panel, so on a
-                phone the archive silently showed a filtered subset with nothing
-                on screen saying so. */}
-            <div className="archive-toolbar">
-              <ActiveFilterSummary
-                lang={lang}
-                filters={activeFilters}
-                count={flatEntries.length}
-                onClearAll={resetFilters}
-              />
-              <SortSelect lang={lang} sort={sort} setSort={(value) => setParam('sort', value)} />
-            </div>
-
-            <Reveal delay={0.1}>
-              {!hasAnyItems ? (
-                <p className="archive-empty">{data.emptyLabel}</p>
-              ) : flatEntries.length === 0 ? (
-                <p className="archive-empty">
-                  {lang === 'tr'
-                    ? 'Filtreyle eşleşen yazı yok.'
-                    : 'No pieces match these filters.'}
-                </p>
-              ) : (
-                <ul className="archive-list">
-                  {paginatedEntries.map(({ item, outlet }) => (
-                    <ArchiveRow item={item} outlet={outlet} lang={lang} key={item.id} />
-                  ))}
-                </ul>
-              )}
-            </Reveal>
-            <Pagination
+      {/* The shelf stays inside .container like every other page's content:
+          its identity comes from the real mastheads, not from touching the
+          viewport edge. */}
+      <AnimatePresence mode="wait" initial={false}>
+        {!data.outlets.some((o) => o.items.length > 0) ? (
+          <p className="archive-empty" key="empty">
+            {data.emptyLabel}
+          </p>
+        ) : newsstandOutlets.length === 0 ? (
+          <p className="archive-empty" key="empty-filtered">
+            {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
+          </p>
+        ) : (
+          <motion.div
+            key="stage-stack"
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.25 }}
+          >
+            <NewsstandStack
+              entries={newsstandOutlets}
               lang={lang}
+              selectedName={
+                effectiveOpenName ?? orderNewsstandOutlets(newsstandOutlets)[0].outlet.outlet
+              }
+              onSelect={(outletName) => setParam('open', outletName, { replace: false })}
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={(page) =>
@@ -2504,9 +2251,11 @@ function OutletArchivePage({ data, lang }: { data: OutletArchiveSection; lang: L
                   { replace: false, keepPage: true },
                 )
               }
+              reduce={Boolean(reduce)}
             />
-          </div>
-        </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       </div>
     </section>
   )
@@ -2667,7 +2416,8 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
             <h2 className="sr-only" id="archive-results" tabIndex={-1}>
               {lang === 'tr' ? 'Sonuçlar' : 'Results'}
             </h2>
-            {/* See OutletArchivePage: count and active filters are always visible. */}
+            {/* Count and active filters stay above the list at every breakpoint, so a
+                phone never shows a filtered subset with nothing on screen saying so. */}
             <div className="archive-toolbar">
               <ActiveFilterSummary
                 lang={lang}
@@ -3633,7 +3383,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
       )
     case 'analyses':
       return t.analyses ? (
-        <OutletArchivePage
+        <NewsstandArchivePage
           data={{ ...t.analyses, outlets: archiveData.analyses }}
           lang={lang}
         />

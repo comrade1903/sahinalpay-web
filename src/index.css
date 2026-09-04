@@ -162,6 +162,12 @@
   --space-6: 6rem;
   --space-7: 9rem;
 
+  /* Real mastheads are black-or-brand ink printed on paper; they carry no
+     dark-theme variant, so the wordmark itself sits on one fixed light
+     plate in both themes. Deliberately NOT redefined in the dark blocks —
+     it is the paper the logo was printed on, not a site surface. */
+  --masthead-plate: #f5f3f7;
+
   --container: 1320px;
   --measure: 68ch;
 
@@ -2239,12 +2245,18 @@ a.archive-row:hover .archive-row-title {
 
 /* ---------- Newsstand (columns page) ---------- */
 
-/* The shelf: upright paper spines standing side by side on a rail, ordered
-   by era (newest first). Click one to lift it forward — see NewsstandStack
-   in App.tsx. Below it, a full-width table-of-contents panel for whichever
-   paper is selected. Fixed-width spines (rather than a breakpoint) are what
-   make this responsive: they simply wrap onto more rows on narrow screens.
-   Reduced motion drops the lift transform (App.tsx omits it in that case). */
+/* The shelf: upright paper spines standing on a rail, ordered by era
+   (newest first). Click one to lift it forward — see NewsstandStack in
+   App.tsx. Below ~900px it's a horizontal rack (spines side by side,
+   rail along the bottom) with a full-width İçindekiler panel underneath.
+   From ~900px up it becomes a vertical rail hugging the left edge (spines
+   stacked top to bottom, rail along the right side of the rack) with the
+   İçindekiler panel beside it — so picking a paper always surfaces its
+   contents in the same fixed-position panel rather than pushing it down
+   the page. Both the outer stack and the shelf itself run edge to edge
+   (no .container gutter, no fit-to-content stretch) — see the JSX comment
+   in NewsstandArchivePage. Reduced motion drops the lift transform
+   (App.tsx omits it in that case). */
 .newsstand-stack {
   display: flex;
   flex-direction: column;
@@ -2252,11 +2264,24 @@ a.archive-row:hover .archive-row-title {
   margin-top: var(--space-3);
 }
 
+@media (min-width: 900px) {
+  .newsstand-stack {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
 .newsstand-stack-shelf {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
+  /* Hugs its spines instead of stretching to the full rack width, so a
+     shelf with only a few papers doesn't leave a dead strip of empty
+     shelf material beside them. */
+  width: fit-content;
+  max-width: 100%;
   gap: var(--space-4) var(--space-3);
   padding: var(--space-4) var(--space-3) var(--space-4);
   border-radius: var(--radius-lg);
@@ -2271,17 +2296,47 @@ a.archive-row:hover .archive-row-title {
   border: 1px solid var(--line-strong);
   background: var(--surface-mid);
 }
-/* The shelf rail the spines appear to stand on. */
+/* The shelf rail the cards appear to stand on — drawn in the site's own
+   line color rather than a chrome-metal gradient, so the fixture belongs
+   to this page's palette instead of importing a second one. */
 .newsstand-stack-shelf::before {
   content: '';
   position: absolute;
   left: var(--space-2);
   right: var(--space-2);
   bottom: var(--space-2);
-  height: 7px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, #d6d7db, #83838a 60%, #4d4d52);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+}
+
+/* From ~900px the rack turns 90°: a vertical rail down the left edge,
+   spines stacked top to bottom, with the İçindekiler panel filling the
+   rest of the row beside it (see NewsstandTOC below). */
+@media (min-width: 900px) {
+  .newsstand-stack-shelf {
+    flex: 0 0 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 276px;
+    max-width: 276px;
+    gap: var(--space-3);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    border-right: none;
+  }
+  .newsstand-stack-shelf .newsstand-stack-paper {
+    width: auto;
+  }
+  .newsstand-stack-shelf::before {
+    left: auto;
+    top: var(--space-2);
+    bottom: var(--space-2);
+    right: var(--space-2);
+    width: 4px;
+    height: auto;
+    background: var(--line-strong);
+  }
 }
 
 /* Below the point where three fixed-width spines stop fitting one row,
@@ -2309,8 +2364,12 @@ a.archive-row:hover .archive-row-title {
 .newsstand-stack-paper {
   position: relative;
   flex: 0 0 auto;
-  width: 132px;
-  height: 300px;
+  width: 232px;
+  /* min-height, not height: outlet names are real and some are long
+     ("Aydınlık (Sosyalist Dergi/Proleter Devrimci)"), and a masthead is
+     the one thing on this card that must never be truncated — the card
+     grows to hold the name instead of clipping it. */
+  min-height: 96px;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -2321,44 +2380,49 @@ a.archive-row:hover .archive-row-title {
     transform 0.35s cubic-bezier(0.22, 0.85, 0.24, 1),
     filter 0.3s ease;
 }
-.newsstand-stack-paper:focus-visible {
-  outline: 2px solid var(--accent-ink);
-  outline-offset: 2px;
+/* An outlet with real branding but no pieces yet (Sabah, Zaman, Today's
+   Zaman) — still a real, clickable spine, just visibly quieter than a
+   stocked one so the "Yakında" label reads as pending, not broken. */
+.newsstand-stack-paper[data-empty='true'] .newsstand-stack-paper-inner {
+  opacity: 0.62;
 }
 
 .newsstand-stack-paper-inner {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  min-height: 96px;
   display: flex;
-  border-radius: 2px;
+  flex-direction: column;
+  border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid #ded5c1;
-  /* Real masthead scans/print stock read as opaque cream paper regardless
-     of site theme — a fixed swatch here (matching the panel below) keeps
-     dark mode from framing each spine in a jarring rectangle. */
-  background: #fbf7ee;
-  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
+  /* On the site's own paper ladder, not a fixed newsprint swatch: the
+     outlet's identity is carried by its real masthead, so the card itself
+     stays themed and legible in both light and dark. Flat at rest — the
+     lift shadow appears only on the selected card. */
+  background: var(--surface-raised);
   transition: box-shadow 0.3s ease;
 }
 .newsstand-stack-paper[data-active='true'] .newsstand-stack-paper-inner {
   box-shadow: var(--shadow-lift);
 }
 
+/* A horizontal band across the top of the card (not a side strip anymore)
+   — every label on the spine, this one included, reads at its normal 0°
+   orientation rather than rotated to fit a narrow edge. */
 .newsstand-stack-paper-strip {
-  flex: 0 0 18px;
+  flex: 0 0 22px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 .newsstand-stack-paper-strip-text {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
   white-space: nowrap;
   font-family: var(--body);
   font-size: var(--text-label-sm);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.92);
 }
@@ -2367,82 +2431,74 @@ a.archive-row:hover .archive-row-title {
   flex: 1;
   min-width: 0;
   display: flex;
-  align-items: flex-end;
-  gap: 0.4rem;
-  padding: var(--space-2) 0 var(--space-2) 0.4rem;
-  color: #14110c;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  color: var(--ink);
 }
 .newsstand-stack-paper-name {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-  font-family: var(--display);
+  min-width: 0;
+  white-space: normal;
+  text-wrap: balance;
+  font-family: var(--headline);
   font-style: italic;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  font-size: var(--text-title-sm);
   letter-spacing: -0.01em;
-  line-height: 1;
+  line-height: 1.05;
 }
 .newsstand-stack-paper-count {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-  font-family: var(--body);
-  font-size: var(--text-label-sm);
-  letter-spacing: 0.06em;
-  color: #6d6455;
-}
-
-/* A real masthead reads as a rotated wordmark, matching the outlet name's
-   own vertical treatment — sized to fill as much of the narrow spine face
-   as it can (object-fit: contain inside a box pre-rotated 90°, so the
-   logo's own aspect ratio decides which axis it maxes out on), with the
-   count below it in ordinary (non-rotated) text. */
-.newsstand-stack-paper-face[data-has-logo='true'] {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  padding: var(--space-2) 0.2rem 0;
-}
-.newsstand-stack-paper-logo-wrap {
-  position: relative;
   flex: 0 0 auto;
-  width: 98px;
-  height: 250px;
-}
-.newsstand-stack-paper-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 250px;
-  height: 98px;
-  object-fit: contain;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  transform-origin: center center;
-}
-.newsstand-stack-paper-count-h {
+  white-space: nowrap;
   font-family: var(--body);
   font-size: var(--text-label-sm);
   letter-spacing: 0.04em;
-  color: #6d6455;
-  text-align: center;
+  color: var(--muted);
+}
+
+/* A real masthead reads upright at its normal 0° orientation, sitting to
+   the left of the piece count on the card's one content row — these are
+   wide wordmark scans that go illegible sideways. */
+.newsstand-stack-paper-logo-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0.25rem 0.35rem;
+  border-radius: var(--radius);
+  background: var(--masthead-plate);
+}
+.newsstand-stack-paper-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+.newsstand-stack-paper-count-h {
+  flex: 0 0 auto;
+  font-family: var(--body);
+  font-size: var(--text-label-sm);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
   white-space: nowrap;
 }
 
-/* The curved "clip" that appears to hold the spine on the rail — wraps
-   around the card's lower half, extending past its edges. */
+/* The curved "clip" that appears to hold the card on the rail — wraps
+   around its lower half, extending past its edges. */
 .newsstand-stack-paper-clip {
   position: absolute;
-  left: -9px;
-  right: -9px;
-  top: 40px;
-  bottom: -14px;
+  left: -7px;
+  right: -7px;
+  top: 22px;
+  bottom: -8px;
   pointer-events: none;
-  border: 4px solid #b9bac0;
+  border: 1px solid var(--line-strong);
   border-top: none;
-  border-radius: 0 0 36px 36px;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.45);
+  border-radius: 0 0 var(--radius) var(--radius);
   z-index: 3;
 }
 
@@ -2452,18 +2508,27 @@ a.archive-row:hover .archive-row-title {
   }
 }
 
-/* The İçindekiler (table of contents) panel — fixed newsprint tones like
-   the paper spines above, so the selected paper's index reads as an
-   actual printed page rather than shifting with site theme. */
+/* The İçindekiler (table of contents) panel — a lifted sheet on the site's
+   own paper ladder, themed in both light and dark. Flat at rest: no
+   resting shadow, since this is a panel in the page, not an overlay. */
 .newsstand-toc {
-  background: #fbf7ee;
-  color: #14110c;
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--space-3) var(--space-3) var(--space-2);
-  box-shadow: var(--shadow-lift);
+}
+/* Beside the vertical rail rather than below it — flush against the
+   shelf's right edge, so the two read as one fixture. */
+@media (min-width: 900px) {
+  .newsstand-toc {
+    flex: 1 1 auto;
+    min-width: 0;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
 }
 .newsstand-toc .archive-empty {
-  color: #6d6455;
+  color: var(--muted);
 }
 .newsstand-toc-header {
   display: flex;
@@ -2471,7 +2536,7 @@ a.archive-row:hover .archive-row-title {
   justify-content: space-between;
   gap: var(--space-2);
   flex-wrap: wrap;
-  border-bottom: 3px solid #14110c;
+  border-bottom: 2px solid var(--ink);
   padding-bottom: var(--space-2);
 }
 .newsstand-toc-heading {
@@ -2485,14 +2550,14 @@ a.archive-row:hover .archive-row-title {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #79705c;
+  color: var(--muted);
 }
 .newsstand-toc-name {
-  font-family: var(--display);
+  font-family: var(--headline);
   font-style: italic;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 3vw, 1.9rem);
-  line-height: 1;
+  font-weight: 700;
+  font-size: var(--text-title);
+  line-height: 1.1;
 }
 .newsstand-toc-logo {
   max-width: 220px;
@@ -2500,6 +2565,9 @@ a.archive-row:hover .archive-row-title {
   width: auto;
   height: auto;
   object-fit: contain;
+  padding: 0.2rem 0.35rem;
+  border-radius: var(--radius);
+  background: var(--masthead-plate);
 }
 .newsstand-toc-meta {
   display: flex;
@@ -2507,12 +2575,15 @@ a.archive-row:hover .archive-row-title {
   align-items: flex-end;
   gap: 0.15rem;
   font-family: var(--body);
-  font-size: 0.75rem;
-  color: #6d6455;
+  font-size: var(--text-label-sm);
+  color: var(--muted);
   text-align: right;
 }
 
 .newsstand-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -2522,25 +2593,29 @@ a.archive-row:hover .archive-row-title {
   gap: var(--space-2);
   align-items: baseline;
   padding: var(--space-2) 0;
-  border-bottom: 1px solid #e2dac8;
+  border-bottom: 1px solid var(--line);
   color: inherit;
   text-decoration: none;
   transition: background 0.15s ease;
 }
 .newsstand-toc-row:hover,
 .newsstand-toc-row:focus-visible {
-  background: #f4eee1;
+  background: var(--surface-low);
 }
 .newsstand-toc-row-static {
   cursor: default;
 }
 .newsstand-toc-row-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
   font-family: var(--body);
   font-size: var(--text-label-sm);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #79705c;
+  color: var(--muted);
 }
 .newsstand-toc-row-body {
   display: flex;
@@ -2549,24 +2624,41 @@ a.archive-row:hover .archive-row-title {
   min-width: 0;
 }
 .newsstand-toc-row-title {
-  font-family: var(--display);
+  font-family: var(--headline);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: var(--text-title-sm);
   line-height: 1.25;
   text-wrap: pretty;
 }
 .newsstand-toc-row-dek {
   font-family: var(--body);
-  font-size: 0.82rem;
-  color: #6d6455;
+  font-size: var(--text-body-xs);
+  color: var(--muted);
   line-height: 1.4;
   text-wrap: pretty;
 }
 .newsstand-toc-row-date {
   font-family: var(--body);
-  font-size: 0.72rem;
-  color: #79705c;
+  font-size: var(--text-label-sm);
+  color: var(--muted);
   white-space: nowrap;
+}
+
+/* Below the archive rows' own breakpoint the three-column index would
+   leave the title ~140px of a phone screen, so the row stacks: section +
+   date read as one meta line above the headline, mirroring .archive-row. */
+@media (max-width: 640px) {
+  .newsstand-toc-row {
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem var(--space-2);
+    align-items: center;
+  }
+  .newsstand-toc-row-body {
+    grid-column: 1 / -1;
+  }
+  .newsstand-toc-row-date {
+    justify-self: end;
+  }
 }
 
 .newsstand-toc .pagination {
