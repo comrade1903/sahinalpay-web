@@ -113,18 +113,20 @@ Undecided / pending:
 
 Real, in the repository:
 
-- ~1,080 archive entries: Zaman (617), Today's Zaman (411), P24 (47), Aydınlık (4),
-  İşçi Köylü (1).
+- 576 archive entries: Zaman (244), Milliyet (127), Today's Zaman (97), P24 (47),
+  Cumhuriyet (43), analyses (7 — Aydınlık 4, Forum 2, İşçi Köylü 1), academic
+  articles (6), interviews (5). Sabah has a section but no entries yet.
+  `npm run inventory:archive` prints the current figures; this list is a snapshot.
 - Six books: Hikâyemin Sonu (2025), Bir Hikâyem Var (2024), Gülen'in Katkısı (2004),
   Türkiye'nin Tanıkları: İçeriden Bakanlar (2003), Türkiye'nin Tanıkları: Dışarıdan
   Bakanlar (2002), Sosyal Demokrasi Açısından Kürt Sorunu (1992).
-- Page scans under `public/archive/clippings/<outlet>/<year>/<slug>/`, currently for
-  Aydınlık, İşçi Köylü and P24.
+- 563 page scans under `public/archive/clippings/<outlet>/<year>/<slug>/`, and 48
+  PDFs under `public/archive/pdf/`. 43 of those PDFs — one per Cumhuriyet column —
+  are not referenced by any record; see docs/OPERATIONS.md.
 - Biography facts, duplicated for crawlers in `public/llms.txt` and as JSON-LD in
   `index.html`; these three must stay consistent with each other.
 
-Empty and to be filled: Cumhuriyet, Sabah, Milliyet, Forum, interviews, academic
-articles.
+Empty and to be filled: Sabah.
 
 Absent — must never be invented: testimonials, visitor numbers, awards, press quotes,
 retailer links that were not verified, or any article, date, quote, excerpt or link

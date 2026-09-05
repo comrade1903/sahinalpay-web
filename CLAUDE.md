@@ -8,7 +8,7 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 **Stack**: React 19 + TypeScript ~6.0 (strict unused-checks, `verbatimModuleSyntax`, `erasableSyntaxOnly`), Vite 8, react-router-dom **v7**, `motion` for animation (with `useReducedMotion` respected). Linting is **oxlint** (not ESLint). Deployed as a fully static SPA on Vercel.
 
-**Domain**: code currently references `sahinalpay.net`, which was never registered. Production will be **sahinalpay.com** (registered; the owner hands over DNS access once the site is approved). Do NOT change domain references until the owner confirms the switch — when he does, see the `domain-migration` skill for the full checklist (it touches 10 files in one commit, not just the obvious ones).
+**Domain**: code currently references `sahinalpay.net`, which was never registered. Production will be **sahinalpay.com** (registered; the owner hands over DNS access once the site is approved). Do NOT change domain references until the owner confirms the switch. The origin now lives in **one place** — `SITE_ORIGIN` in `src/siteConfig.ts` — from which `index.html`, the app, the sitemap and robots.txt all derive it, so the switch is one edit rather than fourteen string literals. Re-check the `domain-migration` skill's file list against that before using it; it predates the change.
 
 **Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
 
@@ -18,25 +18,43 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 ```bash
 npm run dev                # Vite dev server with HMR
-npm run build              # tsc -b (project references) then vite build
+npm run build              # tsc -b, vite build, then scripts/prerender.mjs
 npm run lint               # oxlint (see .oxlintrc.json — react/typescript/oxc plugins)
-npm run preview            # serve the production build locally
-npm run validate:content   # archive integrity: unique id/slug, date sanity, clipping assets exist on disk
-npm run generate:sitemap   # regenerate public/sitemap.xml (committed to the repo)
+npm test                   # vitest (happy-dom); npm run test:watch to iterate
+npm run serve:dist         # serve dist/ the way Vercel does — real 404s, real headers
+npm run preview            # Vite's own preview; SPA-fallbacks everything to 200
+npm run validate:content   # archive integrity — see below for the full check list
+npm run check:secrets      # coarse credential-pattern scan of tracked files
+npm run generate:sitemap   # regenerate public/sitemap.xml + robots.txt (committed)
+npm run generate:summary   # regenerate src/archive/summary.generated.ts (committed)
+npm run inventory:archive  # diffable dump of every record, for before/after proofs
+npm run inventory:media    # which files under public/archive the site actually links
 npm run split:archive      # re-split large outlets into metadata + .body.ts modules
 npm run ocr:scans          # OCR a directory of incoming clipping scans into tmp/ocr/
 ```
 
-There is no test suite/framework configured in this repo (no test script, no `*.test.*`/`*.spec.*` files). Verification is `build` + `lint` + `validate:content` + checking the running app in a browser.
+Tests are **vitest** with happy-dom, under `tests/`. They cover the behaviour a
+refactor can silently break: Turkish search folding, year and source filters, date
+precision, route/language mapping, pagination bounds, permalink derivation, blocked
+browser storage, missing article bodies, archive-chunk load failure and retry, and
+the generated summary's agreement with the archive. Verification is
+`build` + `lint` + `test` + `validate:content` + the running app in a browser.
+
+**Use `npm run serve:dist`, not `npm run preview`, when checking status codes**:
+Vite's preview rewrites every unmatched path to index.html and answers 200, which
+hides exactly the soft-404 class of bug the prerendering was added to fix.
 
 ## Architecture
 
-- **Everything renders from one file**: `src/App.tsx` (~2,650 lines) contains every page component (Home, About, the outlet/flat archive list pages, the single-article reader, Books) plus shared chrome (Header, Footer, theme toggle, language toggle, scroll-reveal wrapper). There is no `components/` or `pages/` directory — new UI goes into this file unless it grows enough to justify splitting.
+- **Everything renders from one file**: `src/App.tsx` (~3,690 lines) contains every page component (Home, About, the outlet/flat archive list pages, the single-article reader, Books) plus shared chrome (Header, Footer, theme toggle, language toggle, scroll-reveal wrapper). There is no `components/` or `pages/` directory — new UI goes into this file unless it grows enough to justify splitting.
 - **Content is data, not JSX**: `src/content.ts` exports `content: Record<Lang, Content>` (page copy, bio, books — one full copy per language), and archive articles live as `ArchiveItemSeed[]` files under `src/archive/{tr,en}/` (one file per outlet), assembled in `src/archive/index.ts`. Editing an article/book/bio fact means editing these files, not `App.tsx`. Any change to UI copy must be made in **both** languages at once — never ship a string in one language only.
   - **Columns are per-language** (`archiveData.columns.tr` / `.en`); analyses, interviews and academic articles are Turkish-only **content**, but English still has hub pages for them (`ArchiveRoutePage` renders `TurkishArchiveHub`, an English explainer linking to the Turkish archive). Only the English *item* routes (`/analyses/:slug` etc.) redirect home. Outlet groups carry a `medium` (`'print'` newspaper vs `'online'` e-publication like P24) that renders as list badges and byline labels.
   - `src/archive/tr/columns/zaman.ts` and `src/archive/en/columns/todays-zaman.ts` are **generated** by `scripts/import-zaman-md.mjs` from markdown exports outside the repo — regenerate, don't hand-edit. P24 photos come from `scripts/import-p24-pdf-images.mjs` (PDF dir outside the repo; needs `pdftoppm` from poppler).
   - An `ArchiveItem` opens **internally** (own `/…/:slug` reader page) when it has a non-empty `body` (or a `clippings` array — see `archiveLink()` in `App.tsx`), otherwise it links **externally** to `url` (or `imageSrc` for scanned clippings). Slug comes from the seed's explicit `slug`, else the last path segment of `url`, else slugified title (`normalizeArchiveItems` in `src/archive/utils.ts`).
   - Article dates are free-text Turkish or English strings (e.g. `"7 Kasım 2017"`, `"11 January 2003"`); `src/dateUtils.ts#parseTurkishDate` is the only place that parses them into sortable timestamps — reuse it rather than re-parsing dates elsewhere.
+- **The build prerenders every route**: `scripts/prerender.mjs` runs after `vite build` and writes one static HTML file per URL (583 today) plus `404.html`. Each carries that route's own title, description, canonical, hreflang, Open Graph/Twitter values and JSON-LD, and a `<noscript>` block with the piece's real text or links to its page scans. The SPA is unaffected — it still mounts into an empty `#root`. `vercel.json` therefore has **no catch-all rewrite**: an unknown path falls through to `404.html` with a real 404, and a missing image 404s instead of returning HTML. When you add a page, it must appear in `prerender.mjs` too (it iterates `routes.ts`, so a new `PageKey` is picked up automatically, but a new *kind* of page may need its own head/noscript branch).
+- **The home page does not load the archive**: it imports `src/archive/summary.generated.ts` (~9 kB) for its counts, coverage bands and weekly picks, instead of the full index (~468 kB). Regenerate with `npm run generate:summary` after changing archive data; `validate:content`, the test suite and CI all fail if it is stale.
+- **Fonts and icons are self-hosted** from `public/fonts/`, generated by `scripts/generate-fonts.py`. Google's Material Symbols variable font is ~4 MB; the subset here is 18 kB. A new icon must be added to `ICONS` in that script and the woff2 regenerated — `validate:content` fails otherwise, because an unsubsetted icon renders as the literal word.
 - **Archive data loads lazily, article bodies lazier still**: `App.tsx#useArchiveData()` dynamically `import()`s `src/archive/index.ts` on mount and returns `null` until it resolves — every consumer (home page, hub/list pages, the article reader) must handle that `null`/loading state rather than fabricating a zero-count. Full body text for the largest outlets (P24, Zaman, Today's Zaman) is split further: `scripts/split-archive-body.mjs` generates metadata-only `<outlet>.ts` (imported eagerly) plus body-only `<outlet>.body.ts` (imported on demand via `src/archive/bodyRegistry.ts#loadOutletBodies()`, cached by `${lang}:${id}`). Split items have `hasBody: true` with an empty `body` on the seed — check `hasBody`, never `body.length`, to decide whether an item has full text. `src/archive/itemUtils.ts` holds the lightweight helpers (`archiveItemText`, `itemScanClippings`, `itemHasSourceKind`) that work off eagerly-loaded metadata plus an optional already-loaded body, so search/filtering doesn't force-load every body. `vite.config.ts`'s `manualChunks` keys off the `.body.ts` filename suffix to give each split outlet its own real download chunk; when splitting a new outlet, also register its loader in `bodyRegistry.ts` and add a `manualChunks` entry.
 - **Routing is two parallel trees, not locale-prefixed generic routes**: `src/routes.ts` defines `paths: Record<Lang, Partial<Record<PageKey, string>>>` mapping each `PageKey` to a real, differently-worded URL per language (e.g. `about` → `/about` in English, `/tr/kimdir` in Turkish). `App.tsx`'s `<Routes>` lists every language/page combination explicitly rather than generating them, because the English and Turkish path sets aren't structurally identical. When adding a page, add it to `PageKey`, both language path maps in `routes.ts`, the route list in `App.tsx`, and the static-routes list in `scripts/generate-sitemap.mjs`.
 - Language is derived purely from the URL (`langForPath`: `/tr` prefix → Turkish, everything else → English), not from React context/state; the language switcher just navigates to `equivalentPath(pathname, targetLang)` and persists the choice to `localStorage`.
@@ -48,7 +66,7 @@ There is no test suite/framework configured in this repo (no test script, no `*.
 
 - All styling is a **hand-written design system in `src/index.css`** (~2,200 lines): CSS custom properties (`--display`, `--ink`, …) plus semantic class names (`.section`, `.container`, `.kicker`, `.btn btn-primary`, `.filter-card`, …). Extend this system; reuse existing classes and variables before inventing new ones.
 - **There is no CSS framework** — Tailwind was removed after sitting unused; don't (re)introduce one or start writing utility classes. Keep the semantic-class approach.
-- Fonts are Literata (display/headline) + Nunito Sans (body/label) from Google Fonts; icons are **Material Symbols Outlined** ligatures (`<span className="material-symbols-outlined">`), not an icon component library.
+- Fonts are Literata (display/headline) + Nunito Sans (body/label), **served from `public/fonts/`, not Google Fonts** (see `src/fonts.css`); icons are **Material Symbols Outlined** ligatures (`<span className="material-symbols-outlined">`), not an icon component library — from the same self-hosted subset.
 - Dark/light theme sets `data-theme` on `<html>` (`null` = follow system preference). Visual changes must be checked in both themes.
 - Animations go through `motion` and must respect `useReducedMotion` — the site's audience skews older; never add motion that can't be turned off.
 
@@ -70,9 +88,9 @@ There is no test suite/framework configured in this repo (no test script, no `*.
 
 A change is complete only when all of the following hold:
 
-1. `npm run build` passes (this includes the `tsc -b` typecheck).
-2. `npm run lint` is clean.
-3. If archive/content data was touched: `npm run validate:content` passes, and `npm run generate:sitemap` was re-run when items or routes were added/removed (the sitemap is committed).
+1. `npm run build` passes (this includes the `tsc -b` typecheck and the prerender step).
+2. `npm run lint` is clean and `npm test` passes.
+3. If archive/content data was touched: `npm run validate:content` passes, and both `npm run generate:sitemap` and `npm run generate:summary` were re-run and their output committed. Prove the archive itself is unchanged by diffing `npm run inventory:archive` before and after — equal totals are not enough.
 4. UI-visible changes were verified in a running browser (not just a successful build) in both languages.
 5. The change is committed with a descriptive message — and pushed only if it is production-ready, since `main` deploys automatically.
 
