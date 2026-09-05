@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "Where each source volume in tustav-pdf-extracts.json came from.",
+    "The volumes themselves live under tmp/tustav-pdfs/, which is gitignored:",
+    "they are large, they are TÜSTAV's scans rather than this archive's, and",
+    "what this repository publishes is the article-scoped extract cut from",
+    "them. Recording the addresses means the extraction stays reproducible",
+    "from a clean checkout — run `npm run recover:tustav`.",
+    "Every host here is on the allowlist in scripts/find-tustav-alpay.mjs."
+  ],
+  "sources": {
+    "aydinlik/asd_02.pdf": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_02.pdf",
+    "aydinlik/asd_06.pdf": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_06.pdf",
+    "aydinlik/asd_12.pdf": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_12.pdf",
+    "aydinlik/pda_3_17.pdf": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/pda/pda_3_17.pdf",
+    "isci-koylu/isci-koylu-16_1970.pdf": "https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/isci-koylu/isci-koylu-16_1970.pdf"
+  }
+}

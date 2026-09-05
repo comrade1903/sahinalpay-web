@@ -21,6 +21,15 @@ const CLIPPING_OUT_ROOT = path.join(ROOT, 'public/archive/clippings')
 const COVER_WIDTH = 1600
 const COVER_QUALITY = 82
 
+const args = new Set(process.argv.slice(2))
+const force = args.has('--force')
+for (const arg of args) {
+  if (arg !== '--force') {
+    console.error(`Unknown flag ${arg}. Usage: extract-tustav-pdf.mjs [--force]`)
+    process.exit(1)
+  }
+}
+
 function run(command, args) {
   const result = spawnSync(command, args, { encoding: 'utf8' })
   if (result.error) {
@@ -33,6 +42,43 @@ function run(command, args) {
     throw new Error(`${command} exited ${result.status}: ${result.stderr.trim()}`)
   }
   return result.stdout
+}
+
+/** Reads a webp's pixel dimensions from its VP8/VP8L/VP8X header. */
+function webpSize(file) {
+  const buffer = fs.readFileSync(file)
+  if (buffer.length < 30 || buffer.toString('ascii', 0, 4) !== 'RIFF') return null
+  const format = buffer.toString('ascii', 12, 16)
+  if (format === 'VP8X') {
+    return {
+      width: (buffer.readUIntLE(24, 3) & 0xffffff) + 1,
+      height: (buffer.readUIntLE(27, 3) & 0xffffff) + 1,
+    }
+  }
+  if (format === 'VP8 ') {
+    return { width: buffer.readUInt16LE(26) & 0x3fff, height: buffer.readUInt16LE(28) & 0x3fff }
+  }
+  if (format === 'VP8L') {
+    const bits = buffer.readUInt32LE(21)
+    return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 }
+  }
+  return null
+}
+
+function assertCoverReplaceable(existingPath, pendingPath, slug) {
+  if (force || !fs.existsSync(existingPath)) return
+  const existing = webpSize(existingPath)
+  const pending = webpSize(pendingPath)
+  if (!existing || !pending) return
+  if (existing.width === pending.width && existing.height === pending.height) return
+  fs.rmSync(pendingPath, { force: true })
+  throw new Error(
+    `"${slug}": the published cover is ${existing.width}x${existing.height}, but this run ` +
+      `renders ${pending.width}x${pending.height}. That cover was not produced by this tool — ` +
+      'overwriting it would replace a prepared image with a different one. Set "coverOut": null ' +
+      'on the manifest entry if the cover is maintained separately, or pass --force if you ' +
+      'really mean to replace it.',
+  )
 }
 
 function pdfInfo(pdfPath) {
@@ -71,7 +117,7 @@ function soleFile(dir, extension) {
   return path.join(dir, files[0])
 }
 
-const REQUIRED_STRING_FIELDS = ['slug', 'source', 'pdfOut', 'coverOut']
+const REQUIRED_STRING_FIELDS = ['slug', 'source', 'pdfOut']
 const REQUIRED_PAGE_FIELDS = ['firstPage', 'lastPage']
 
 /** The manifest is hand-written, so a missing or misspelt field should stop
@@ -80,6 +126,17 @@ const REQUIRED_PAGE_FIELDS = ['firstPage', 'lastPage']
 function validateEntry(entry, index) {
   const where = `tustav-pdf-extracts.json[${index}]`
   if (!entry || typeof entry !== 'object') throw new Error(`${where}: not an object`)
+  /* coverOut is required to be either a path or an explicit null — null means
+     the published cover is maintained outside this tool, and omitting the
+     field entirely would look like an oversight rather than a decision. */
+  if (!('coverOut' in entry)) {
+    throw new Error(
+      `${where}: "coverOut" is required — a path, or null if the cover is maintained separately`,
+    )
+  }
+  if (entry.coverOut !== null && (typeof entry.coverOut !== 'string' || entry.coverOut.trim() === '')) {
+    throw new Error(`${where}: "coverOut" must be a non-empty string or null`)
+  }
   for (const field of REQUIRED_STRING_FIELDS) {
     if (typeof entry[field] !== 'string' || entry[field].trim() === '') {
       throw new Error(`${where}: "${field}" must be a non-empty string`)
@@ -144,6 +201,17 @@ function extract(entry, index) {
       run('pdfunite', [...orderedPagePdfs(workDir), pdfOut])
     }
 
+    if (entry.coverOut === null) {
+      /* An explicit null means the published cover did not come from this
+         volume — see the note on that manifest entry. */
+      return {
+        slug: entry.slug,
+        pdfPages: pageCount(pdfOut),
+        pdfBytes: fs.statSync(pdfOut).size,
+        coverBytes: null,
+      }
+    }
+
     const coverOut = ensureInside(CLIPPING_OUT_ROOT, entry.coverOut, `"${entry.slug}" coverOut`)
     fs.mkdirSync(path.dirname(coverOut), { recursive: true })
     const coverDir = fs.mkdtempSync(path.join(os.tmpdir(), 'tustav-cover-'))
@@ -173,12 +241,20 @@ function extract(entry, index) {
       ])
       // The rendered page goes out as webp like every other clipping asset,
       // roughly a third of the JPEG's bytes at the same reading quality.
+      const pending = `${coverOut}.pending`
       run('cwebp', [
         '-quiet',
         '-q', String(entry.coverQuality ?? COVER_QUALITY),
         soleFile(coverDir, '.jpg'),
-        '-o', coverOut,
+        '-o', pending,
       ])
+      /* A published cover may have been prepared by hand after extraction —
+         recropped, rescanned, recompressed — in which case re-running this
+         tool would quietly replace it with a different image. Re-encoding the
+         same render is fine (encoder versions differ); different dimensions
+         are not, and stop the run. */
+      assertCoverReplaceable(coverOut, pending, entry.slug)
+      fs.renameSync(pending, coverOut)
     } finally {
       fs.rmSync(coverDir, { recursive: true, force: true })
     }

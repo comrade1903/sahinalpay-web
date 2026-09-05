@@ -17,12 +17,15 @@
     "preview": "vite preview",
     "validate:content": "node scripts/validate-content.mjs",
     "check:secrets": "node scripts/check-secrets.mjs",
+    "verify:prerender": "node scripts/verify-prerender.mjs",
     "inventory:media": "node scripts/media-inventory.mjs",
     "inventory:archive": "node scripts/archive-inventory.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:summary": "node scripts/generate-archive-summary.mjs",
+    "generate:redirects": "node scripts/generate-redirects.mjs",
     "split:archive": "node scripts/split-archive-body.mjs",
     "extract:tustav-pdf": "node scripts/extract-tustav-pdf.mjs",
+    "recover:tustav": "node scripts/recover-tustav-pdfs.mjs",
     "ocr:scans": "node scripts/ocr-scan-inbox.mjs"
   },
   "dependencies": {

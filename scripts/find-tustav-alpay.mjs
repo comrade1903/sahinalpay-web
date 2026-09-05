@@ -28,7 +28,27 @@ const SOURCES = {
   'isci-koylu': 'https://www.tustav.org/sureli-yayinlar-arsivi/isci-koylu/',
 }
 
-const ALLOWED_HOSTS = hostAllowlist(Object.values(SOURCES))
+/* The index pages live on www.tustav.org, but the PDFs they link do not all
+   sit on that exact host: TÜSTAV serves the periodical scans from the
+   apex `tustav.org`, and the İşçi Köylü issues from a filedn.eu bucket the
+   archive uses as a mirror. Deriving the allowlist from SOURCES alone
+   therefore rejected the very files the tool exists to fetch — including all
+   five volumes the article extractor needs.
+
+   These are additions to the allowlist, not a widening of the rule: a link
+   discovered on an index page still cannot introduce a host of its own, and
+   every redirect hop is checked against this same set. */
+const EXTRA_DOWNLOAD_HOSTS = [
+  'tustav.org',
+  // TÜSTAV's own file mirror, cited in src/archive/tr/analyses/*.ts as the
+  // published source of the İşçi Köylü and Forum scans.
+  'filedn.eu',
+]
+
+const ALLOWED_HOSTS = new Set([
+  ...hostAllowlist(Object.values(SOURCES)),
+  ...EXTRA_DOWNLOAD_HOSTS,
+])
 const INDEX_MAX_BYTES = 8 * 1024 * 1024
 const INDEX_TIMEOUT_MS = 60_000
 
