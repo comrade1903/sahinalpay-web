@@ -398,6 +398,59 @@ for (const key of trShape) {
   if (!enShape.has(key)) fail(`content.ts: "${key}" exists in Turkish but not in English`)
 }
 
+/* ---- every icon the app renders must be in the subsetted icon font ---- */
+
+/* The icon font is subset to the ligatures listed in
+   scripts/generate-fonts.py. A new icon that is not in that list renders as
+   the literal word ("arrow_forward"), which is the kind of defect nobody
+   notices until a reader reports it. */
+const iconsPath = path.join(publicDir, 'fonts', 'icons.json')
+if (!fs.existsSync(iconsPath)) {
+  fail('public/fonts/icons.json is missing — run scripts/generate-fonts.py')
+} else {
+  const subsetIcons = new Set(JSON.parse(fs.readFileSync(iconsPath, 'utf8')))
+  const used = new Set()
+  const sources = ['src/App.tsx', 'src/content.ts', 'src/chronicle.ts']
+  for (const relative of sources) {
+    const absolute = path.join(projectRoot, relative)
+    if (!fs.existsSync(absolute)) continue
+    const source = fs.readFileSync(absolute, 'utf8')
+    for (const match of source.matchAll(
+      /material-symbols-outlined[^>]*>\s*([a-z_0-9]+)\s*</g,
+    )) {
+      used.add(match[1])
+    }
+    /* Icons chosen by an expression, e.g. {menuOpen ? 'close' : 'menu'}.
+       Only the branches count — the condition of a ternary is often a string
+       comparison whose literal is not an icon name at all. */
+    for (const match of source.matchAll(/material-symbols-outlined[^>]*>\s*\{([^}]*)\}/g)) {
+      const expression = match[1]
+      const ternary = /\?\s*'([a-z_0-9]+)'\s*:\s*'([a-z_0-9]+)'/.exec(expression)
+      if (ternary) {
+        used.add(ternary[1])
+        used.add(ternary[2])
+        continue
+      }
+      const single = /^\s*'([a-z_0-9]+)'\s*$/.exec(expression)
+      if (single) used.add(single[1])
+    }
+    for (const match of source.matchAll(/^const HUB_ICONS[\s\S]*?^\}/gm)) {
+      for (const literal of match[0].matchAll(/:\s*'([a-z_0-9]+)'/g)) used.add(literal[1])
+    }
+  }
+  const missing = [...used].filter((name) => !subsetIcons.has(name))
+  if (missing.length) {
+    fail(
+      `Icons used in the app but missing from the subsetted font: ${missing.join(', ')}. ` +
+        'Add them to ICONS in scripts/generate-fonts.py, regenerate, and commit the woff2.',
+    )
+  }
+  const unused = [...subsetIcons].filter((name) => !used.has(name))
+  if (unused.length) {
+    warn(`Icons in the font subset that the app no longer renders: ${unused.join(', ')}`)
+  }
+}
+
 /* ---- site-wide assets referenced by index.html and robots.txt ---- */
 
 const indexHtml = fs.readFileSync(path.join(projectRoot, 'index.html'), 'utf8')
