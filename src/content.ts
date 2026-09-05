@@ -315,7 +315,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Columns',
       title: 'Columns',
       intro:
-        "English-language newspaper columns written for Today's Zaman between 2003 and 2016. For the Turkish-press columns, switch to the Turkish site.",
+        "English-language newspaper columns written for Today's Zaman between 2007 and 2012. For the Turkish-press columns, switch to the Turkish site.",
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       outlets: [{ outlet: "Today's Zaman", items: [] }],
     },
