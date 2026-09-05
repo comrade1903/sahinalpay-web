@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   archiveDatePrecision,
+  isRealCalendarDate,
   isoDateAtKnownPrecision,
   parseTurkishDate,
 } from '../src/dateUtils'
@@ -67,5 +68,29 @@ describe('isoDateAtKnownPrecision', () => {
 
   it('returns undefined when the date cannot be parsed at all', () => {
     expect(isoDateAtKnownPrecision('tarihsiz')).toBeUndefined()
+  })
+})
+
+describe('isRealCalendarDate', () => {
+  it('accepts a real day', () => {
+    expect(isRealCalendarDate('7 Kasım 2017')).toBe(true)
+    expect(isRealCalendarDate('29 Şubat 2024')).toBe(true)
+  })
+
+  /* Date.UTC rolls an impossible day into the next month instead of failing,
+     so 31 February used to sort and validate as 2 or 3 March. */
+  it('rejects a day the month does not have', () => {
+    expect(isRealCalendarDate('31 Şubat 2024')).toBe(false)
+    expect(isRealCalendarDate('31 Nisan 2010')).toBe(false)
+    expect(isRealCalendarDate('29 Şubat 2023')).toBe(false)
+  })
+
+  it('has nothing to check on month- or year-only dates', () => {
+    expect(isRealCalendarDate('Ekim 1969')).toBe(true)
+    expect(isRealCalendarDate('1969')).toBe(true)
+  })
+
+  it('rejects a string that is not a date', () => {
+    expect(isRealCalendarDate('tarihsiz')).toBe(false)
   })
 })

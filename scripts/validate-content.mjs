@@ -160,14 +160,10 @@ function checkDate(item, dateUtils) {
     fail(`${where(item)}: date "${item.date}" has a precision but no timestamp`)
     return
   }
-  const parsed = new Date(ts)
-  if (precision === 'day') {
-    const day = Number.parseInt(item.date.trim().split(/\s+/)[0], 10)
-    if (parsed.getUTCDate() !== day) {
-      fail(`${where(item)}: "${item.date}" is not a real calendar date`)
-    }
+  if (!dateUtils.isRealCalendarDate(item.date)) {
+    fail(`${where(item)}: "${item.date}" is not a real calendar date`)
   }
-  const year = parsed.getUTCFullYear()
+  const year = new Date(ts).getUTCFullYear()
   if (year < 1940 || year > new Date().getUTCFullYear() + 1) {
     fail(`${where(item)}: date "${item.date}" falls outside a plausible range (${year})`)
   }

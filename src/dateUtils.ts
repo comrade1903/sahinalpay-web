@@ -44,26 +44,66 @@ const MONTHS: Record<string, number> = {
  *  "Ekim 1969" goes out to search engines as 1 October 1969. */
 export type DatePrecision = 'day' | 'month' | 'year'
 
-export function archiveDatePrecision(dateStr: string): DatePrecision | null {
+interface ParsedArchiveDate {
+  precision: DatePrecision
+  /** UTC timestamp, with unknown parts anchored to the 1st — sortable only. */
+  timestamp: number
+  /** The day as written, so a caller can tell 31 February from 3 March. */
+  day?: number
+}
+
+/* One parser behind both parseTurkishDate() and archiveDatePrecision(): they
+   used to repeat the same three shapes, which is how they could disagree. */
+function parseArchiveDate(dateStr: string): ParsedArchiveDate | null {
   const parts = dateStr.trim().toLowerCase().split(/\s+/)
+
   if (parts.length === 3) {
-    const day = parseInt(parts[0], 10)
-    const month = MONTHS[parts[1]]
-    const year = parseInt(parts[2], 10)
-    if (!Number.isNaN(day) && month !== undefined && !Number.isNaN(year)) return 'day'
-    return null
+    const [dayText, monthText, yearText] = parts
+    if (dayText === undefined || monthText === undefined || yearText === undefined) return null
+    const day = parseInt(dayText, 10)
+    const month = MONTHS[monthText]
+    const year = parseInt(yearText, 10)
+    if (Number.isNaN(day) || month === undefined || Number.isNaN(year)) return null
+    return { precision: 'day', timestamp: Date.UTC(year, month, day), day }
   }
+
   if (parts.length === 2) {
-    const month = MONTHS[parts[0]]
-    const year = parseInt(parts[1], 10)
-    if (month !== undefined && !Number.isNaN(year)) return 'month'
-    return null
+    const [monthText, yearText] = parts
+    if (monthText === undefined || yearText === undefined) return null
+    const month = MONTHS[monthText]
+    const year = parseInt(yearText, 10)
+    if (month === undefined || Number.isNaN(year)) return null
+    return { precision: 'month', timestamp: Date.UTC(year, month, 1) }
   }
+
   if (parts.length === 1) {
-    const year = parseInt(parts[0], 10)
-    if (!Number.isNaN(year) && /^\d{4}$/.test(parts[0])) return 'year'
+    const [yearText] = parts
+    if (yearText === undefined) return null
+    const year = parseInt(yearText, 10)
+    if (Number.isNaN(year)) return null
+    return { precision: 'year', timestamp: Date.UTC(year, 0, 1) }
   }
+
   return null
+}
+
+/** How much of a free-text archive date is actually known. Returns null for a
+ *  string that is not a date at all — including a bare token that merely
+ *  contains digits, which is why a year has to be exactly four of them. */
+export function archiveDatePrecision(dateStr: string): DatePrecision | null {
+  const parsed = parseArchiveDate(dateStr)
+  if (!parsed) return null
+  if (parsed.precision === 'year' && !/^\d{4}$/.test(dateStr.trim())) return null
+  return parsed.precision
+}
+
+/** True when a day-precision date names a day that month really has —
+ *  Date.UTC rolls 31 February over into March rather than rejecting it. */
+export function isRealCalendarDate(dateStr: string): boolean {
+  const parsed = parseArchiveDate(dateStr)
+  if (!parsed) return false
+  if (parsed.precision !== 'day') return true
+  return new Date(parsed.timestamp).getUTCDate() === parsed.day
 }
 
 /** ISO 8601 truncated to the precision actually known: `1969-10` for a date
@@ -85,27 +125,8 @@ export function isoDateAtKnownPrecision(dateStr: string): string | undefined {
  *  Also accepts a bare "Ay Yıl" / "Month Year" (e.g. "Aralık 1968", the
  *  granularity TÜSTAV periodicals are dated at) and a bare year, both
  *  anchored to the 1st of the month so they still sort correctly against
- *  full dates in the same year. */
+ *  full dates in the same year. That anchor is for ordering only — see
+ *  isoDateAtKnownPrecision() before publishing a date anywhere. */
 export function parseTurkishDate(dateStr: string): number | null {
-  const parts = dateStr.trim().toLowerCase().split(/\s+/)
-  if (parts.length === 3) {
-    const day = parseInt(parts[0], 10)
-    const month = MONTHS[parts[1]]
-    const year = parseInt(parts[2], 10)
-    if (!Number.isNaN(day) && month !== undefined && !Number.isNaN(year)) {
-      return Date.UTC(year, month, day)
-    }
-  }
-  if (parts.length === 2) {
-    const month = MONTHS[parts[0]]
-    const year = parseInt(parts[1], 10)
-    if (month !== undefined && !Number.isNaN(year)) {
-      return Date.UTC(year, month, 1)
-    }
-  }
-  if (parts.length === 1) {
-    const year = parseInt(parts[0], 10)
-    if (!Number.isNaN(year)) return Date.UTC(year, 0, 1)
-  }
-  return null
+  return parseArchiveDate(dateStr)?.timestamp ?? null
 }

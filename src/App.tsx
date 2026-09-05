@@ -7,7 +7,12 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  type MotionStyle,
+} from 'motion/react'
 import {
   Routes,
   Route,
@@ -275,21 +280,29 @@ function Reveal({
   style,
 }: {
   children: ReactNode
-  delay?: number
-  as?: 'div' | 'section' | 'li' | 'article' | 'aside'
-  className?: string
-  id?: string
-  style?: CSSProperties
+  delay?: number | undefined
+  as?: 'div' | 'section' | 'li' | 'article' | 'aside' | undefined
+  className?: string | undefined
+  id?: string | undefined
+  /* MotionStyle, not React's CSSProperties: the value is forwarded straight
+     to a motion element, and under exactOptionalPropertyTypes the two are
+     genuinely different types (CSSProperties allows `x: undefined`, which
+     motion's transform shorthands do not). */
+  style?: MotionStyle | undefined
 }) {
   const reduce = useReducedMotion()
   const MotionTag = motion[as]
   return (
+    /* Optional props are spread in only when set rather than passed as
+       `undefined`: motion's prop types do not accept an explicit undefined
+       under exactOptionalPropertyTypes, and "no className" is an absent
+       prop, not a prop whose value is undefined. */
     <MotionTag
-      className={className}
-      id={id}
-      style={style}
+      {...(className ? { className } : {})}
+      {...(id ? { id } : {})}
+      {...(style ? { style } : {})}
       initial={reduce ? false : { opacity: 0, y: 24 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      {...(reduce ? {} : { whileInView: { opacity: 1, y: 0 } })}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
     >
@@ -742,6 +755,21 @@ function mulberry32(seed: number): () => number {
   }
 }
 
+/** Fisher–Yates, seeded. Written with an explicit swap through locals rather
+ *  than a destructuring swap so it type-checks under noUncheckedIndexedAccess:
+ *  both indices are provably in range, but the compiler cannot know that. */
+function shuffleWith<T>(items: readonly T[], random: () => number): T[] {
+  const out = [...items]
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1))
+    const a = out[i]!
+    const b = out[j]!
+    out[i] = b
+    out[j] = a
+  }
+  return out
+}
+
 /** ISO-8601 week number combined with its year (e.g. 2026 week 3 -> 202603),
  *  so the seed — and therefore the picks below — changes once a week. */
 function isoWeekKey(date: Date): number {
@@ -764,14 +792,7 @@ function weeklyPicks(archiveData: ArchiveData, lang: Lang, count: number): Archi
     ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
   ].filter((item) => item.hasBody)
 
-  const random = mulberry32(isoWeekKey(new Date()))
-  const shuffled = [...pool]
-  for (let i = shuffled.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-
-  return shuffled.slice(0, count)
+  return shuffleWith(pool, mulberry32(isoWeekKey(new Date()))).slice(0, count)
 }
 
 function WeeklyPicks({
@@ -2171,14 +2192,16 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
             key="stage-stack"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={reduce ? undefined : { opacity: 0 }}
+            {...(reduce ? {} : { exit: { opacity: 0 } })}
             transition={{ duration: reduce ? 0 : 0.25 }}
           >
             <NewsstandStack
               entries={newsstandOutlets}
               lang={lang}
               selectedName={
-                effectiveOpenName ?? orderNewsstandOutlets(newsstandOutlets)[0].outlet.outlet
+                effectiveOpenName ??
+                orderNewsstandOutlets(newsstandOutlets)[0]?.outlet.outlet ??
+                ''
               }
               onSelect={(outletName) => setParam('open', outletName, { replace: false })}
               currentPage={currentPage}
@@ -2682,7 +2705,7 @@ function LoadedArticlePage({
         lang={lang}
         title={t.notFound.missingTitle}
         body={t.notFound.missingBody}
-        searchTerm={slug ? slug.replace(/-/g, ' ') : undefined}
+        {...(slug ? { searchTerm: slug.replace(/-/g, ' ') } : {})}
       />
     )
   }
@@ -3055,19 +3078,13 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
  *  every visitor in a given year, as it did before academic pieces existed. */
 function yearPicks(items: ArchiveItem[], year: number, n: number): ArchiveItem[] {
   const random = mulberry32(year)
-  const shuffle = <T,>(arr: T[]): T[] => {
-    const out = [...arr]
-    for (let i = out.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(random() * (i + 1))
-      ;[out[i], out[j]] = [out[j], out[i]]
-    }
-    return out
-  }
+  const shuffle = <T,>(arr: T[]): T[] => shuffleWith(arr, random)
 
   const academic = items.filter((i) => i.outletKey === 'academic')
   const rest = items.filter((i) => i.outletKey !== 'academic')
 
-  const picks: ArchiveItem[] = academic.length ? [shuffle(academic)[0]] : []
+  const firstAcademic = shuffle(academic)[0]
+  const picks: ArchiveItem[] = firstAcademic ? [firstAcademic] : []
 
   const pool = rest.filter((i) => i.hasBody)
   const src = pool.length ? pool : rest

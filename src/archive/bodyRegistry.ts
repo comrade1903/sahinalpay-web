@@ -73,7 +73,8 @@ export async function loadOutletBodies(items: ArchiveItem[]): Promise<void> {
   }
   await Promise.all(
     [...groups.values()].map(async (groupItems) => {
-      const [first] = groupItems
+      const first = groupItems[0]
+      if (!first) return
       const bodyMap = await loadBodyMap(first.category, first.outletKey)
       for (const item of groupItems) {
         const body = bodyMap[item.slug]
