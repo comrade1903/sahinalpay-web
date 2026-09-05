@@ -4,7 +4,11 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
     "types": ["vite/client", "node"],
     "composite": true,
-    "noEmit": true
+    "noEmit": true,
+    /* The guard tests import the content tools' own .mjs modules, so TypeScript
+       has to read them. Inference only — the scripts are not type-checked. */
+    "allowJs": true,
+    "checkJs": false
   },
-  "include": ["tests", "src", "vitest.config.ts"]
+  "include": ["tests", "src", "scripts/lib", "vitest.config.ts"]
 }

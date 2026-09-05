@@ -39,8 +39,13 @@ export function hostAllowlist(sourceUrls) {
   return hosts
 }
 
-/** https only. http is accepted solely for an explicit localhost target, and
- *  only when the caller asked for it. */
+/** https only, host on the allowlist.
+ *
+ *  Localhost is a target the caller has to ask for with `allowLocalhost`, and
+ *  it is the only case where http is accepted. An earlier version let any
+ *  loopback hostname skip the allowlist check whether or not the caller had
+ *  asked — so `https://localhost/...` and `https://127.0.0.1/...` passed a
+ *  guard configured for tustav.org, and a redirect could land there. */
 export function assertAllowedUrl(rawUrl, { allowedHosts, allowLocalhost = false, label = 'url' }) {
   let parsed
   try {
@@ -50,15 +55,13 @@ export function assertAllowedUrl(rawUrl, { allowedHosts, allowLocalhost = false,
   }
 
   const hostname = parsed.hostname.toLowerCase()
-  const isLocal = LOCAL_HOSTNAMES.has(hostname)
+  const isLocal = allowLocalhost && LOCAL_HOSTNAMES.has(hostname)
 
-  if (parsed.protocol !== 'https:') {
-    if (!(parsed.protocol === 'http:' && allowLocalhost && isLocal)) {
-      throw new NetGuardError(
-        `${label} must use https (http is allowed only for localhost): ${rawUrl}`,
-        { permanent: true },
-      )
-    }
+  if (parsed.protocol !== 'https:' && !(parsed.protocol === 'http:' && isLocal)) {
+    throw new NetGuardError(
+      `${label} must use https (http is allowed only for an explicitly permitted localhost): ${rawUrl}`,
+      { permanent: true },
+    )
   }
 
   if (!isLocal && !allowedHosts.has(hostname)) {
@@ -106,8 +109,10 @@ export async function fetchGuarded(rawUrl, options = {}) {
     })
 
     if (response.status >= 300 && response.status < 400 && response.headers.has('location')) {
-      // Drain the redirect body so the socket is not left hanging.
-      await response.arrayBuffer().catch(() => {})
+      // Release the redirect body without reading it. arrayBuffer() here used
+      // to pull the whole thing into memory under no cap at all, on a response
+      // whose size the remote end chooses.
+      await discardBody(response)
       if (hop === maxRedirects) {
         throw new NetGuardError(`${label} exceeded ${maxRedirects} redirects: ${rawUrl}`, {
           permanent: true,
@@ -120,7 +125,8 @@ export async function fetchGuarded(rawUrl, options = {}) {
     }
 
     if (!response.ok) {
-      await response.arrayBuffer().catch(() => {})
+      // Same as above: an error page is still a body the remote end sizes.
+      await discardBody(response)
       throw new NetGuardError(`${response.status} ${response.statusText}: ${current}`)
     }
 
@@ -131,6 +137,16 @@ export async function fetchGuarded(rawUrl, options = {}) {
   throw new NetGuardError(`${label} exceeded ${maxRedirects} redirects: ${rawUrl}`, {
     permanent: true,
   })
+}
+
+/** Cancels a body we are not going to read, so nothing is buffered and the
+ *  socket is not left hanging. */
+async function discardBody(response) {
+  try {
+    await response.body?.cancel()
+  } catch {
+    /* Already closed or errored — nothing to release. */
+  }
 }
 
 function assertUnderDeclaredSize(response, maxBytes, url) {
