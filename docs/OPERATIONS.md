@@ -30,12 +30,14 @@ npm run lint
 npm test
 npm run validate:content
 npm run check:secrets
+npm run verify:prerender   # after the build
 ```
 
 CI (`.github/workflows/ci.yml`) runs the same sequence on pushes to `main` and
 on pull requests, plus an audit of production dependencies and a check that
-the committed generated files (`public/sitemap.xml`, `public/robots.txt`,
-`src/archive/summary.generated.ts`) match what the generators produce.
+the committed generated files match what the generators produce:
+`public/sitemap.xml`, `public/robots.txt`, `scripts/sitemap-lastmod.json`,
+`src/archive/summary.generated.ts` and `vercel.json`.
 
 ### Proving the archive is intact
 
@@ -77,8 +79,36 @@ project at it, and the next build reproduces the site. Nothing lives outside
 the repository except the domain registration and the Vercel project settings.
 
 **What is not backed up:** the source PDF volumes some records were cut from
-live outside the repository (see below), and the OCR working files under
-`tmp/` are scratch.
+live outside the repository, and the OCR working files under `tmp/` are
+scratch. The volumes are recoverable rather than backed up — see below.
+
+### The TÜSTAV source volumes
+
+`scripts/tustav-pdf-extracts.json` cuts the published Aydınlık and İşçi Köylü
+extracts out of five scanned volumes that live under `tmp/tustav-pdfs/`,
+which is gitignored: they are TÜSTAV's scans, not this archive's, and what
+this repository publishes is the article-scoped extract.
+
+A clean checkout therefore has none of them:
+
+```bash
+npm run recover:tustav            # fetch what is missing, then verify
+npm run recover:tustav -- --verify  # verify what is already on disk
+```
+
+Verification is not a checksum of the download against itself. It re-runs the
+extraction and compares against the published extracts — page count, the full
+extracted text, and cover dimensions. Byte equality is the wrong test here:
+`pdfunite` stamps each output with a creation time and a document id, so two
+runs from the same volume produce different bytes. The published files are
+copied aside and restored whatever the outcome, so a wrong volume cannot
+leave the archive holding a rebuild.
+
+The İşçi Köylü cover is deliberately not compared: the published image is a
+3400x2172 hand-prepared scan of the spread, not the 900x1267 strip the tool
+renders, so that manifest entry carries `"coverOut": null`. The extractor
+refuses to overwrite any cover whose dimensions differ from what it renders,
+which is what surfaced this.
 
 ## Local verification
 
@@ -142,6 +172,9 @@ These run on a maintainer's machine, never in production.
 | `npm run split:archive -- --dry-run <file>` | Reports what a metadata/body split would change |
 | `npm run generate:sitemap` | Rewrites `public/sitemap.xml` and `public/robots.txt` |
 | `npm run generate:summary` | Rewrites `src/archive/summary.generated.ts` |
+| `npm run generate:redirects` | Rewrites `vercel.json`'s redirects from the alias table |
+| `npm run recover:tustav` | Re-fetches and verifies the TÜSTAV source volumes |
+| `npm run verify:prerender` | Checks `dist/` against what the app builds |
 | `python3 scripts/generate-fonts.py --src <dir>` | Rebuilds the subsetted web fonts |
 | `python3 scripts/generate-og-image.py` | Rebuilds the social-preview card |
 
@@ -212,8 +245,8 @@ memorial record, not a funnel.
 That is separate from knowing whether the site is up and correct. What exists
 today, all privacy-preserving:
 
-- CI catches build, type, lint, test, content and sitemap regressions before
-  a release.
+- CI catches build, type, lint, test, content, sitemap and structured-data
+  regressions before a release.
 - `npm run serve:dist` plus `curl` reproduces status codes and headers.
 - Vercel's own deployment logs show build failures.
 

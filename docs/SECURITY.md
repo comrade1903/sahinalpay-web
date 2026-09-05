@@ -73,9 +73,12 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
   advisory cannot block a content correction.
 - Dependabot proposes weekly updates for npm and GitHub Actions.
 - Every GitHub Action is pinned to a commit SHA, with the tag in a comment.
-- `npm run check:secrets` scans tracked files for credential-shaped strings.
-  It is a coarse net and explicitly not a replacement for GitHub's Secret
-  Scanning and Push Protection, which are repository settings.
+- `npm run check:secrets` scans tracked **text** files for credential-shaped
+  strings — 142 of the 776 files Git tracks; the rest are images, fonts and
+  PDFs, skipped by extension or size, and the script reports both numbers. It
+  matches a fixed pattern list and is explicitly not a replacement for
+  GitHub's Secret Scanning and Push Protection, which are repository
+  settings.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,
@@ -100,6 +103,21 @@ timeout. Those that write files go through `scripts/lib/fs-guard.mjs`, which
 keeps every output path inside its intended directory and sanitises filenames
 taken from remote sources.
 
+Both are covered by `tests/net-guard.test.ts` and `tests/fs-guard.test.ts`,
+which exercise the refusals against a real loopback server rather than a
+mock. Two defects the first version of these guards shipped with, both now
+fixed and pinned by tests that fail if reintroduced:
+
+- any loopback hostname skipped the allowlist whether or not the caller had
+  opted in, so a redirect could aim a download at a local service;
+- redirect and error bodies were read whole with `arrayBuffer()`, under no
+  cap, on a response the remote end sizes.
+
+The lesson worth keeping: a guard that has never been tested against a real
+response is a claim, not a control. The first redirect test written for the
+second bug passed either way — the read is caught and retried, so the only
+observable difference is elapsed time.
+
 ## Privacy
 
 No analytics, no advertising, no tracking pixels, no third-party embeds. Since
@@ -118,8 +136,17 @@ project's; no retention period or compliance guarantee is asserted here.
 Stated plainly, because the absence of a check is not the absence of a
 problem:
 
-- Production response headers and status codes on a live deployment.
+- Production response headers and status codes on a live deployment. They are
+  declared in `vercel.json` and reproduced locally by `npm run serve:dist`,
+  which is not Vercel.
+- The CI workflow has never run: it is committed but nothing has been pushed.
+  Its YAML parses; its behaviour is unverified.
 - GitHub branch protection, Secret Scanning, and Vercel deployment protection
   — all repository/project settings outside this codebase.
 - Any dynamic security testing against a running deployment.
 - The security of the hosting account itself.
+- The content-production scripts other than the two guard modules: the
+  importers and the archive splitter are covered by manual runs and by the
+  refusals they now raise, not by automated tests. `npm run split:archive
+  --dry-run` on the real data and `npm run recover:tustav -- --verify` are the
+  closest things to a regression check for them.

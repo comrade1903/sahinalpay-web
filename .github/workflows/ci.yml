@@ -60,8 +60,14 @@ jobs:
         run: |
           npm run generate:sitemap
           npm run generate:summary
-          git diff --exit-code -- public/sitemap.xml public/robots.txt src/archive/summary.generated.ts \
-            || { echo "::error::A generated file is stale — run 'npm run generate:sitemap' and 'npm run generate:summary' and commit the result."; exit 1; }
+          npm run generate:redirects
+          git diff --exit-code -- \
+            public/sitemap.xml \
+            public/robots.txt \
+            scripts/sitemap-lastmod.json \
+            src/archive/summary.generated.ts \
+            vercel.json \
+            || { echo "::error::A generated file is stale — run 'npm run generate:sitemap', 'npm run generate:summary' and 'npm run generate:redirects', and commit the result."; exit 1; }
 
       - name: Build
         run: npm run build
@@ -72,3 +78,9 @@ jobs:
           count=$(find dist -name index.html | wc -l)
           echo "Prerendered $count HTML pages"
           test "$count" -gt 500
+
+      - name: Verify each page's static metadata matches what the app builds
+        # The static and client JSON-LD are built from one module, but each
+        # side still chooses its own arguments. This derives them independently
+        # and compares, so the two cannot describe a page differently again.
+        run: npm run verify:prerender

@@ -13,9 +13,11 @@ single-page application.
 - oxlint for linting
 - vitest + happy-dom for tests
 - Deployed as a fully static site on Vercel (pushing to `main` deploys production).
-  Every route is prerendered to its own HTML file at build time, so titles,
-  canonicals, structured data and a no-JavaScript fallback are correct before any
-  script runs, and an unknown address returns a real HTTP 404.
+  Every route gets its own HTML file at build time carrying that page's title,
+  canonical, language alternates and structured data, plus a `<noscript>` fallback
+  with the piece's real text — so a scraper or a reader without JavaScript gets the
+  right page, and an unknown address returns a real HTTP 404. The visible page is
+  still rendered on the client: `#root` is empty in the generated files.
 - Fonts and icons are self-hosted; the site makes no third-party requests.
 
 ## Development
