@@ -50,6 +50,11 @@ import {
   loadOutletBodies,
 } from './archive/bodyRegistry'
 import { useArchiveData, type ArchiveData } from './archive/useArchiveData'
+import {
+  useArchiveSummary,
+  type ArchiveSummary,
+  type PickSeed,
+} from './archive/useArchiveSummary'
 import { CONTACT_EMAIL, PERSON_ID, SITE_ORIGIN, siteUrl } from './siteConfig'
 import { readStoredValue, writeStoredValue, removeStoredValue } from './lib/storage'
 import type {
@@ -258,7 +263,7 @@ function pageAlternates(pathname: string): Partial<Record<Lang, string>> {
   return alternates
 }
 
-function archiveBasePath(lang: Lang, item: ArchiveItem): string {
+function archiveBasePath(lang: Lang, item: { category: ArchiveItem['category'] }): string {
   switch (item.category) {
     case 'analyses':
       return paths[lang].analyses ?? paths[lang].columns!
@@ -651,21 +656,17 @@ function hubCount(
   key: PageKey,
   t: Content,
   lang: Lang,
-  archiveData: ArchiveData | null,
+  summary: ArchiveSummary | null,
 ): number | null {
   switch (key) {
     case 'columns':
-      return archiveData
-        ? archiveData.columns[lang].reduce((sum, o) => sum + o.items.length, 0)
-        : null
+      return summary?.counts.columns[lang] ?? null
     case 'analyses':
-      return archiveData
-        ? archiveData.analyses.reduce((sum, o) => sum + o.items.length, 0)
-        : null
+      return summary?.counts.analyses ?? null
     case 'interviews':
-      return archiveData?.interviews.length ?? null
+      return summary?.counts.interviews ?? null
     case 'academic':
-      return archiveData?.academicArticles.length ?? null
+      return summary?.counts.academic ?? null
     case 'books':
       return t.books.books.length
     default:
@@ -676,11 +677,11 @@ function hubCount(
 function HubGrid({
   t,
   lang,
-  archiveData,
+  summary,
 }: {
   t: Content
   lang: Lang
-  archiveData: ArchiveData | null
+  summary: ArchiveSummary | null
 }) {
   return (
     <section className="section">
@@ -691,7 +692,7 @@ function HubGrid({
         </Reveal>
         <div className="hub-grid">
           {t.hub.map((h, i) => {
-            const count = hubCount(h.key, t, lang, archiveData)
+            const count = hubCount(h.key, t, lang, summary)
             const wide = h.key === 'columns' || h.key === 'books'
             return (
               <Reveal
@@ -786,24 +787,22 @@ function isoWeekKey(date: Date): number {
 /** A random-but-stable set of full articles, reshuffled once a week (not a
  *  fabricated "featured" pick — every item is real, just chosen by a seed
  *  that only changes on ISO week boundaries). */
-function weeklyPicks(archiveData: ArchiveData, lang: Lang, count: number): ArchiveItem[] {
-  const pool: ArchiveItem[] = [
-    ...archiveData.columns[lang].flatMap((o) => o.items),
-    ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
-  ].filter((item) => item.hasBody)
-
-  return shuffleWith(pool, mulberry32(isoWeekKey(new Date()))).slice(0, count)
+function weeklyPicks(summary: ArchiveSummary, lang: Lang, count: number): PickSeed[] {
+  return shuffleWith(summary.pickPool[lang], mulberry32(isoWeekKey(new Date()))).slice(
+    0,
+    count,
+  )
 }
 
 function WeeklyPicks({
   lang,
-  archiveData,
+  summary,
 }: {
   lang: Lang
-  archiveData: ArchiveData | null
+  summary: ArchiveSummary | null
 }) {
-  if (!archiveData) return null
-  const items = weeklyPicks(archiveData, lang, 3)
+  if (!summary) return null
+  const items = weeklyPicks(summary, lang, 3)
   if (items.length === 0) return null
 
   return (
@@ -852,10 +851,10 @@ function WeeklyPicks({
    outlet we have not recovered yet, so the empty stretches are honest gaps rather
    than a claim about when he did or didn't write. */
 function CoverageStrip({
-  archiveData,
+  summary,
   lang,
 }: {
-  archiveData: ArchiveData
+  summary: ArchiveSummary
   lang: Lang
 }) {
   /* Every outlet, in both languages. The strip answers "what does this archive
@@ -865,31 +864,12 @@ function CoverageStrip({
      Articles is the one row that isn't a named outlet — it groups a doctoral
      dissertation, book chapters and books rather than one publication, so its
      label is translated like any other UI string instead of staying fixed. */
-  const groups = [
-    ...archiveData.columns.tr,
-    ...archiveData.columns.en,
-    ...archiveData.analyses,
-    {
-      outlet: lang === 'tr' ? 'Akademik Makaleler' : 'Academic Articles',
-      items: archiveData.academicArticles,
-    },
-  ]
-
-  const bands = groups
-    .map((group) => {
-      const years = group.items
-        .map((it) => (it.date ? parseTurkishDate(it.date) : null))
-        .filter((ts): ts is number => ts != null)
-        .map((ts) => new Date(ts).getUTCFullYear())
-      if (!years.length) return null
-      return {
-        outlet: group.outlet,
-        from: Math.min(...years),
-        to: Math.max(...years),
-        count: group.items.length,
-      }
-    })
-    .filter((b): b is NonNullable<typeof b> => b != null)
+  const bands = summary.coverage
+    .map((band) => ({
+      ...band,
+      outlet:
+        band.outlet ?? (lang === 'tr' ? 'Akademik Makaleler' : 'Academic Articles'),
+    }))
     .sort((a, b) => a.from - b.from)
 
   if (!bands.length) return null
@@ -946,10 +926,10 @@ function CoverageStrip({
 
 function AcademicHeritage({
   lang,
-  archiveData,
+  summary,
 }: {
   lang: Lang
-  archiveData: ArchiveData | null
+  summary: ArchiveSummary | null
 }) {
   return (
     <section className="section">
@@ -1001,7 +981,7 @@ function AcademicHeritage({
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          {archiveData && <CoverageStrip archiveData={archiveData} lang={lang} />}
+          {summary && <CoverageStrip summary={summary} lang={lang} />}
         </Reveal>
       </div>
     </section>
@@ -1010,8 +990,11 @@ function AcademicHeritage({
 
 function HomePage({ lang }: { lang: Lang }) {
   const t = content[lang]
-  const { status: archiveStatus, data: archiveData, reload: reloadArchive } =
-    useArchiveData()
+  /* Only the summary: the four hub counts, the coverage bands and the pick
+     pool. The full archive index stays behind the archive pages that need
+     it. */
+  const { status: archiveStatus, data: summary, reload: reloadArchive } =
+    useArchiveSummary()
   const navigate = useNavigate()
   const location = useLocation()
   usePageMeta({
@@ -1040,9 +1023,9 @@ function HomePage({ lang }: { lang: Lang }) {
       {archiveStatus === 'error' && (
         <ArchiveInlineFailure lang={lang} onRetry={reloadArchive} />
       )}
-      <HubGrid t={t} lang={lang} archiveData={archiveData} />
-      <WeeklyPicks lang={lang} archiveData={archiveData} />
-      <AcademicHeritage lang={lang} archiveData={archiveData} />
+      <HubGrid t={t} lang={lang} summary={summary} />
+      <WeeklyPicks lang={lang} summary={summary} />
+      <AcademicHeritage lang={lang} summary={summary} />
     </>
   )
 }

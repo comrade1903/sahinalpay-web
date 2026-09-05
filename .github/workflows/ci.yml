@@ -56,11 +56,12 @@ jobs:
       - name: Validate archive content
         run: npm run validate:content
 
-      - name: Check the committed sitemap is current
+      - name: Check the committed generated files are current
         run: |
           npm run generate:sitemap
-          git diff --exit-code -- public/sitemap.xml public/robots.txt \
-            || { echo "::error::public/sitemap.xml is stale — run 'npm run generate:sitemap' and commit the result."; exit 1; }
+          npm run generate:summary
+          git diff --exit-code -- public/sitemap.xml public/robots.txt src/archive/summary.generated.ts \
+            || { echo "::error::A generated file is stale — run 'npm run generate:sitemap' and 'npm run generate:summary' and commit the result."; exit 1; }
 
       - name: Build
         run: npm run build

@@ -18,6 +18,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "check:secrets": "node scripts/check-secrets.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:summary": "node scripts/generate-archive-summary.mjs",
     "split:archive": "node scripts/split-archive-body.mjs",
     "extract:tustav-pdf": "node scripts/extract-tustav-pdf.mjs",
     "ocr:scans": "node scripts/ocr-scan-inbox.mjs"

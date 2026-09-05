@@ -320,6 +320,44 @@ if (!fs.existsSync(sitemapPath)) {
   }
 }
 
+/* ---- the home page's generated summary must match the archive ---- */
+
+const summaryModule = await loadModule('src/archive/summary.generated.ts', 'summary.mjs')
+const summary = summaryModule.archiveSummary
+const expectedCounts = {
+  columns: {
+    tr: items.filter((item) => item.lang === 'tr' && item.category === 'columns').length,
+    en: items.filter((item) => item.lang === 'en' && item.category === 'columns').length,
+  },
+  analyses: items.filter((item) => item.category === 'analyses').length,
+  interviews: items.filter((item) => item.category === 'interviews').length,
+  academic: items.filter((item) => item.category === 'academic').length,
+}
+if (JSON.stringify(summary.counts) !== JSON.stringify(expectedCounts)) {
+  fail(
+    'src/archive/summary.generated.ts is stale — its counts no longer match the archive. ' +
+      `Run \`npm run generate:summary\`. Expected ${JSON.stringify(expectedCounts)}, ` +
+      `got ${JSON.stringify(summary.counts)}.`,
+  )
+}
+const expectedPoolSize = items.filter(
+  (item) =>
+    item.hasBody &&
+    (item.category === 'columns' || (item.category === 'analyses' && item.lang === 'tr')),
+).length
+const poolSize = summary.pickPool.tr.length + summary.pickPool.en.length
+if (poolSize !== expectedPoolSize) {
+  fail(
+    `src/archive/summary.generated.ts is stale — the weekly-pick pool holds ${poolSize} ` +
+      `items, the archive has ${expectedPoolSize}. Run \`npm run generate:summary\`.`,
+  )
+}
+for (const seed of [...summary.pickPool.tr, ...summary.pickPool.en]) {
+  if (!items.some((item) => item.id === seed.id && item.slug === seed.slug)) {
+    fail(`src/archive/summary.generated.ts: pick "${seed.slug}" is not in the archive`)
+  }
+}
+
 /* ---- copy: both languages must carry the same UI keys ---- */
 
 function shapeOf(value, prefix = '') {
