@@ -4,6 +4,7 @@ import type { Lang } from '../content'
 import { paths, pageKeyForPath, langForPath } from '../routes'
 import { siteUrl } from '../siteConfig'
 import { isoDateAtKnownPrecision } from '../dateUtils'
+import { ROUTE_JSONLD_ATTR, type JsonLd } from './structuredData'
 
 /**
  * Per-page document metadata and structured data.
@@ -47,6 +48,7 @@ export function usePageMeta(titleOrMeta: string | PageMeta, description?: string
   const alternatesKey = JSON.stringify(meta.alternates ?? {})
 
   useEffect(() => {
+    dropStalePrerenderedJsonLd(location.pathname)
     const canonical = pageUrl(canonicalPath ?? location.pathname)
     const pageLang = langForPath(canonicalPath ?? location.pathname)
     document.title = title
@@ -136,28 +138,80 @@ export function usePageMeta(titleOrMeta: string | PageMeta, description?: string
   }, [alternatesKey, canonicalPath, location.pathname, metaDescription, robots, title, type])
 }
 
-export function useJsonLd(id: string, data: Record<string, unknown> | null) {
+/**
+ * Writes the route's JSON-LD, adopting whatever scripts/prerender.mjs already
+ * put in the document for this URL.
+ *
+ * Two problems this closes. The prerendered block was a different element
+ * from the one the client created, so a freshly loaded article carried two
+ * Article descriptions at once; and nothing removed it on a client
+ * navigation, so after moving from article A to article B the head still
+ * described A. Both producers now mark their blocks with ROUTE_JSONLD_ATTR
+ * and build them from lib/structuredData, so there is one block, and it says
+ * the same thing whichever producer wrote it.
+ */
+export function useJsonLd(id: string, data: JsonLd | null) {
   useEffect(() => {
     const scriptId = `jsonld-${id}`
-    let tag = document.getElementById(scriptId) as HTMLScriptElement | null
+    const routeBlocks = [
+      ...document.querySelectorAll<HTMLScriptElement>(`script[${ROUTE_JSONLD_ATTR}]`),
+    ]
 
     if (!data) {
-      tag?.remove()
+      for (const block of routeBlocks) {
+        if (block.id === scriptId || block.id === '') block.remove()
+      }
       return
     }
 
+    /* Reuse this hook's own element if it exists, else adopt the prerendered
+       one (which has no id yet) rather than adding a second block beside it. */
+    let tag =
+      routeBlocks.find((block) => block.id === scriptId) ??
+      routeBlocks.find((block) => block.id === '')
+
     if (!tag) {
       tag = document.createElement('script')
-      tag.id = scriptId
       tag.type = 'application/ld+json'
       document.head.appendChild(tag)
     }
+    tag.id = scriptId
+    tag.setAttribute(ROUTE_JSONLD_ATTR, 'true')
     tag.textContent = JSON.stringify(data)
 
+    const written = tag
     return () => {
-      tag?.remove()
+      written.remove()
     }
   }, [id, data])
+}
+
+/**
+ * Drops a prerendered JSON-LD block once the SPA has navigated away from the
+ * URL the document was served for.
+ *
+ * The static block describes that URL and stays correct until the reader
+ * moves; from then on it is stale, and a page with no JSON-LD of its own has
+ * nothing that would otherwise replace it. Called from usePageMeta, which
+ * every page uses.
+ */
+let servedPath = typeof window === 'undefined' ? null : window.location.pathname
+let staleRouteJsonLdDropped = false
+
+function dropStalePrerenderedJsonLd(pathname: string) {
+  if (staleRouteJsonLdDropped || pathname === servedPath) return
+  staleRouteJsonLdDropped = true
+  for (const block of document.querySelectorAll(`script[${ROUTE_JSONLD_ATTR}]`)) {
+    if (block.id === '') block.remove()
+  }
+}
+
+/** Test seam: the served path and the drop latch are module state, since in a
+ *  real session the document is served once and the static block is dropped
+ *  at most once. */
+export function resetRouteJsonLdState(pathname = '/'): void {
+  servedPath = pathname
+  staleRouteJsonLdDropped = false
 }
 
 export function pageUrl(pathname: string) {

@@ -2,24 +2,38 @@
 /**
  * Writes one static HTML file per route into dist/.
  *
- * The site is a single-page app: every URL used to return the same
- * index.html, so the title, canonical, language alternates and structured
- * data were only correct after JavaScript ran. Social-card scrapers and
- * readers without JavaScript got the home page's metadata for every article,
- * and an address that does not exist answered 200 instead of 404.
+ * What this is, precisely: **prerendered head plus a no-JavaScript
+ * fallback** — not server-side rendering of the visible page. `#root` is
+ * empty in every file, and a browser that runs JavaScript still builds the
+ * visible page on the client, exactly as before. The consequences are worth
+ * stating rather than glossing:
+ *
+ *   - A reader with JavaScript sees the same first paint as before; nothing
+ *     is faster to render.
+ *   - If the app's scripts fail to load while JavaScript is enabled, the
+ *     <noscript> block does NOT appear — the reader gets a blank page. The
+ *     root error boundary covers render errors, not a failed chunk fetch.
+ *   - Rendering the visible body server-side is a separate, larger change:
+ *     it needs the archive available synchronously during render, which is
+ *     what the lazy per-language chunks deliberately avoid.
+ *
+ * What it does fix: every URL used to return the same index.html, so the
+ * title, canonical, language alternates and structured data were only right
+ * after JavaScript ran. Social-card scrapers and readers without JavaScript
+ * got the home page's metadata for every one of 565 articles, and an address
+ * that does not exist answered 200 instead of 404.
  *
  * Each generated file carries:
  *   - the route's own <title>, description, robots, canonical and hreflang
  *   - Open Graph / Twitter values for that page
- *   - the route's JSON-LD (Article, CollectionPage, ProfilePage …)
+ *   - the route's JSON-LD, built by src/lib/structuredData.ts — the same
+ *     module the client uses, and marked so the client adopts this block
+ *     rather than adding a second one beside it
  *   - a <noscript> fallback with the page's real text and links, so a reader
  *     without JavaScript can still read a column or reach its page scans
  *
- * The SPA itself is untouched: browsers that run JavaScript mount into the
- * same empty #root and never render the fallback, so client-side routing,
- * search, filters and deep links behave exactly as before.
- *
- * Run after `vite build` (npm run build does both).
+ * Run after `vite build` (npm run build does both), and checked afterwards by
+ * `npm run verify:prerender`.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -39,7 +53,9 @@ const template = fs.readFileSync(templatePath, 'utf8')
 const site = await loadModule('src/siteConfig.ts', 'site-config.mjs')
 const routes = await loadModule('src/routes.ts', 'routes-prerender.mjs')
 const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs')
-const dateUtils = await loadModule('src/dateUtils.ts', 'date-utils-prerender.mjs')
+/* The very builders lib/seo.ts feeds to useJsonLd. Static and client output
+   cannot describe a page differently if there is one implementation. */
+const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
 const { content } = contentModule
 const { paths } = routes
 
@@ -168,7 +184,7 @@ function writePage(routePath, { head, jsonLd, noscript, lang }) {
     .replace(
       /<!--route-jsonld-->[\s\S]*?<!--\/route-jsonld-->/,
       jsonLd
-        ? `<!--route-jsonld--><script type="application/ld+json">${escapeJsonLd(jsonLd)}</script><!--/route-jsonld-->`
+        ? `<!--route-jsonld--><script type="application/ld+json" ${schema.ROUTE_JSONLD_ATTR}="true">${escapeJsonLd(jsonLd)}</script><!--/route-jsonld-->`
         : '<!--route-jsonld--><!--/route-jsonld-->',
     )
     .replace(
@@ -195,8 +211,6 @@ function writePage(routePath, { head, jsonLd, noscript, lang }) {
 const items = await readArchiveItems()
 const byLang = { tr: [], en: [] }
 for (const item of items) byLang[item.lang].push(item)
-
-const personRef = { '@id': site.PERSON_ID }
 
 /* -------------------------------------------------------- static pages --- */
 
@@ -238,33 +252,24 @@ for (const lang of ['tr', 'en']) {
     if (pageKey === 'home') {
       ogType = 'profile'
       inner = `<h1>${escapeHtml(t.htmlTitle)}</h1><p>${escapeHtml(t.hero.intro)}</p>`
-      jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ProfilePage',
-        '@id': `${url(routePath)}#page`,
-        url: url(routePath),
+      jsonLd = schema.profileJsonLd({
         name: t.htmlTitle,
         description: t.htmlDescription,
-        inLanguage: lang,
-        isPartOf: { '@id': site.WEBSITE_ID },
-        about: personRef,
-        mainEntity: personRef,
-      }
+        lang,
+        url: url(routePath),
+      })
     } else if (pageKey === 'about') {
       title = `${t.about.title} — Şahin Alpay`
       description = t.about.lead
       inner = `<h1>${escapeHtml(t.about.title)}</h1><p>${escapeHtml(t.about.lead)}</p>${t.about.paragraphs
         .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
         .join('')}`
-      jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'AboutPage',
-        url: url(routePath),
-        name: title,
+      jsonLd = schema.aboutJsonLd({
+        name: t.about.title,
         description,
-        inLanguage: lang,
-        about: personRef,
-      }
+        lang,
+        url: url(routePath),
+      })
     } else if (pageKey === 'books') {
       title = `${t.books.title} — Şahin Alpay`
       description = t.books.intro
@@ -274,22 +279,13 @@ for (const lang of ['tr', 'en']) {
             `<li><strong>${escapeHtml(book.title)}</strong> (${escapeHtml(book.year)}) — ${escapeHtml(book.desc)}</li>`,
         )
         .join('')}</ul>`
-      jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'CollectionPage',
-        url: url(routePath),
-        name: title,
+      jsonLd = schema.booksJsonLd({
+        name: t.books.title,
         description,
-        inLanguage: lang,
-        about: personRef,
-        mainEntity: t.books.books.map((book) => ({
-          '@type': 'Book',
-          name: book.title,
-          datePublished: book.year,
-          inLanguage: 'tr',
-          author: personRef,
-        })),
-      }
+        lang,
+        url: url(routePath),
+        books: t.books.books,
+      })
     } else if (pageKey === 'cookies') {
       title = `${t.cookiePolicy.title} — Şahin Alpay`
       description = t.cookiePolicy.intro
@@ -312,24 +308,14 @@ for (const lang of ['tr', 'en']) {
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
       inner = `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>${itemListHtml(sectionItems, lang)}`
-      jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'CollectionPage',
-        url: url(routePath),
-        name: title,
+      jsonLd = schema.collectionJsonLd({
+        name: heading,
         description,
-        inLanguage: lang,
-        about: personRef,
-        mainEntity: sectionItems.slice(0, 25).map((item) => ({
-          '@type': 'Article',
-          headline: item.title,
-          ...(item.date && dateUtils.isoDateAtKnownPrecision(item.date)
-            ? { datePublished: dateUtils.isoDateAtKnownPrecision(item.date) }
-            : {}),
-          url: url(item.route),
-          author: personRef,
-        })),
-      }
+        lang,
+        url: url(routePath),
+        items: sectionItems,
+        itemUrl: (item) => url(item.route),
+      })
     }
 
     writePage(routePath, {
@@ -356,7 +342,6 @@ for (const item of items) {
   const t = content[lang]
   const title = `${item.title} — Şahin Alpay`
   const description = item.subtitle ?? item.excerpt ?? item.title
-  const iso = item.date ? dateUtils.isoDateAtKnownPrecision(item.date) : undefined
 
   let body
   try {
@@ -418,20 +403,13 @@ for (const item of items) {
       ogType: 'article',
       lang,
     }),
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: item.title,
-      ...(item.subtitle ? { alternativeHeadline: item.subtitle } : {}),
-      ...(iso ? { datePublished: iso } : {}),
-      ...(item.excerpt ? { description: item.excerpt } : {}),
-      inLanguage: lang,
-      url: url(item.route),
-      mainEntityOfPage: url(item.route),
-      author: personRef,
-      ...(item.outlet ? { publisher: { '@type': 'Organization', name: item.outlet } } : {}),
-      isPartOf: { '@id': site.WEBSITE_ID },
-    },
+    jsonLd: schema.articleJsonLd({
+      item,
+      lang,
+      articleUrl: url(item.route),
+      sectionUrl: url(await sectionPath(item.category, lang)),
+      sectionName: schema.sectionNameFor(lang, item.category),
+    }),
     noscript: noscriptBlock(lang, parts.join('')),
   })
 }

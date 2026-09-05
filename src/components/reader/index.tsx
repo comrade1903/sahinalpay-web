@@ -14,7 +14,11 @@ import {
   usePageMeta,
   useJsonLd,
 } from '../../lib/seo'
-import { PERSON_ID, SITE_ORIGIN } from '../../siteConfig'
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  sectionNameFor,
+} from '../../lib/structuredData'
 import { paths } from '../../routes'
 import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
@@ -248,54 +252,28 @@ export function LoadedArticlePage({
     type: 'article',
   })
   const articleUrl = item ? `${pageUrl(archiveBasePath(lang, item))}/${item.slug}` : ''
-  useJsonLd('article', item ? {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: item.title,
-    description: item.subtitle ?? item.excerpt ?? item.title,
-    ...(articleDateIso ? { datePublished: articleDateIso } : {}),
-    inLanguage: lang,
-    url: articleUrl,
-    author: {
-      '@type': 'Person',
-      '@id': PERSON_ID,
-      name: 'Şahin Alpay',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Şahin Alpay',
-      url: `${SITE_ORIGIN}/`,
-    },
-    isPartOf: {
-      '@type': 'CollectionPage',
-      name: t.columns.title,
-      url: item ? pageUrl(archiveBasePath(lang, item)) : pageUrl(paths[lang].columns!),
-    },
-  } : null)
-  useJsonLd('breadcrumb', item ? {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: lang === 'tr' ? 'Ana sayfa' : 'Home',
-        item: pageUrl(paths[lang].home!),
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: item.category === 'columns' ? t.columns.title : item.outlet,
-        item: pageUrl(archiveBasePath(lang, item)),
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: item.title,
-        item: articleUrl,
-      },
-    ],
-  } : null)
+  const sectionName = item ? sectionNameFor(lang, item.category) : t.columns.title
+  const sectionUrl = item
+    ? pageUrl(archiveBasePath(lang, item))
+    : pageUrl(paths[lang].columns!)
+
+  useJsonLd(
+    'article',
+    item ? articleJsonLd({ item, lang, articleUrl, sectionUrl, sectionName }) : null,
+  )
+  useJsonLd(
+    'breadcrumb',
+    item
+      ? breadcrumbJsonLd({
+          lang,
+          homeUrl: pageUrl(paths[lang].home!),
+          sectionUrl,
+          sectionName: item.category === 'columns' ? sectionName : item.outlet,
+          articleUrl,
+          articleName: item.title,
+        })
+      : null,
+  )
 
   useEffect(() => {
     const el = document.getElementById('article-body')

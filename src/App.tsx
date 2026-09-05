@@ -17,7 +17,8 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
 import { paths, langForPath, type PageKey } from './routes'
-import { pageAlternates, usePageMeta } from './lib/seo'
+import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
+import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
 import { LANG_KEY } from './lib/preferences'
 import { readStoredValue } from './lib/storage'
 import { weeklyPicks, yearPicks } from './lib/picks'
@@ -436,6 +437,18 @@ function HomePage({ lang }: { lang: Lang }) {
     description: t.htmlDescription,
     alternates: pageAlternates(location.pathname),
   })
+  /* Every page that ships static JSON-LD builds the same object here, so the
+     block survives a client navigation back to it instead of the prerendered
+     one being dropped and nothing taking its place. */
+  useJsonLd(
+    'profile',
+    profileJsonLd({
+      name: t.htmlTitle,
+      description: t.htmlDescription,
+      lang,
+      url: pageUrl(paths[lang].home!),
+    }),
+  )
 
   /* On a bare "/" visit (not a deep link), honour a previously chosen
      language so returning Turkish readers land on /tr automatically. */
@@ -472,6 +485,15 @@ function AboutPage({ lang }: { lang: Lang }) {
     description: t.about.lead,
     alternates: pageAlternates(location.pathname),
   })
+  useJsonLd(
+    'about',
+    aboutJsonLd({
+      name: t.about.title,
+      description: t.about.lead,
+      lang,
+      url: pageUrl(paths[lang].about!),
+    }),
+  )
   const previewBooks = t.books.books.slice(0, 3)
   return (
     <>
@@ -569,6 +591,16 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
     description: data.intro,
     alternates: pageAlternates(location.pathname),
   })
+  useJsonLd(
+    'books',
+    booksJsonLd({
+      name: data.title,
+      description: data.intro,
+      lang,
+      url: pageUrl(paths[lang].books!),
+      books: data.books,
+    }),
+  )
   return (
     <section className="section section-solo">
       <div className="container">

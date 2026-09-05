@@ -26,14 +26,8 @@ import {
   type SourceKind,
 } from '../../archive/query'
 import { parseTurkishDate } from '../../dateUtils'
-import {
-  isoDateFromArchiveDate,
-  pageAlternates,
-  pageUrl,
-  usePageMeta,
-  useJsonLd,
-} from '../../lib/seo'
-import { PERSON_ID } from '../../siteConfig'
+import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from '../../lib/seo'
+import { collectionJsonLd } from '../../lib/structuredData'
 import { Reveal } from '../Reveal'
 import logoAydinlik from '../../assets/logos/aydinlik.webp'
 import logoCumhuriyet from '../../assets/logos/cumhuriyet.webp'
@@ -945,25 +939,17 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
     description: data.intro,
     alternates: pageAlternates(location.pathname),
   })
-  useJsonLd('collection', {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: data.title,
-    description: data.intro,
-    inLanguage: lang,
-    url: pageUrl(location.pathname),
-    about: { '@id': PERSON_ID },
-    mainEntity: data.outlets.flatMap((group) =>
-      group.items.slice(0, 25).map((item) => ({
-        '@type': 'Article',
-        headline: item.title,
-        ...(isoDateFromArchiveDate(item.date)
-          ? { datePublished: isoDateFromArchiveDate(item.date) }
-          : {}),
-        url: `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
-      })),
-    ),
-  })
+  useJsonLd(
+    'collection',
+    collectionJsonLd({
+      name: data.title,
+      description: data.intro,
+      lang,
+      url: pageUrl(location.pathname),
+      items: data.outlets.flatMap((group) => group.items),
+      itemUrl: (item) => `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
+    }),
+  )
 
   const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
@@ -1116,23 +1102,17 @@ export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang
     description: data.intro,
     alternates: pageAlternates(location.pathname),
   })
-  useJsonLd('collection', {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: data.title,
-    description: data.intro,
-    inLanguage: lang,
-    url: pageUrl(location.pathname),
-    about: { '@id': PERSON_ID },
-    mainEntity: data.items.slice(0, 25).map((item) => ({
-      '@type': 'Article',
-      headline: item.title,
-      ...(isoDateFromArchiveDate(item.date)
-        ? { datePublished: isoDateFromArchiveDate(item.date) }
-        : {}),
-      url: `${pageUrl(location.pathname)}/${item.slug}`,
-    })),
-  })
+  useJsonLd(
+    'collection',
+    collectionJsonLd({
+      name: data.title,
+      description: data.intro,
+      lang,
+      url: pageUrl(location.pathname),
+      items: data.items,
+      itemUrl: (item) => `${pageUrl(location.pathname)}/${item.slug}`,
+    }),
+  )
   const [searchParams, setSearchParams] = useSearchParams()
   /* Arriving on a filtered URL opens the panel, so the controls that produced the
      result are visible rather than hidden behind a button. Search is excluded —
