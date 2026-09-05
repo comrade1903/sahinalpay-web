@@ -63,7 +63,7 @@ async function bundle(entry, outFile) {
 
 /** The assembled archive (same object the app's dynamic import yields). */
 export async function loadArchive() {
-  if (!cached) cached = await bundle('src/archive/index.ts', 'archive.mjs')
+  cached ??= bundle('src/archive/index.ts', 'archive.mjs')
   return cached
 }
 
@@ -73,7 +73,19 @@ export async function loadArchiveItems() {
   return mod.allArchiveItems()
 }
 
-/** Loads an arbitrary project module (e.g. src/routes.ts) for scripts. */
+const moduleCache = new Map()
+
+/** Loads an arbitrary project module (e.g. src/routes.ts) for scripts.
+ *  Memoised per entry: each call is a full Vite build, and the validator
+ *  alone wants half a dozen of them. */
 export async function loadModule(entry, outFile = 'module.mjs') {
-  return bundle(entry, outFile)
+  let pending = moduleCache.get(entry)
+  if (!pending) {
+    pending = bundle(entry, outFile).catch((error) => {
+      moduleCache.delete(entry)
+      throw error
+    })
+    moduleCache.set(entry, pending)
+  }
+  return pending
 }

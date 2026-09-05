@@ -17,10 +17,14 @@ export const SITE_ORIGIN = 'https://sahinalpay.net'
 
 export const CONTACT_EMAIL = 'contact@sahinalpay.net'
 
-/** Social-preview card, generated into public/ by scripts/generate-og-image.mjs. */
-export const OG_IMAGE_PATH = '/og-image.svg'
+/** Social-preview card. Typographic, drawn from this site's own palette and
+ *  display face by scripts/generate-og-image.py; the committed PNG is what
+ *  ships. PNG rather than SVG because the major card scrapers do not render
+ *  SVG. index.html used to point at an /og-image.png that was never in
+ *  public/, so every shared link fell back to no image at all. */
+export const OG_IMAGE_PATH = '/og-image.png'
 
-export const OG_IMAGE_TYPE = 'image/svg+xml'
+export const OG_IMAGE_TYPE = 'image/png'
 
 export const OG_IMAGE_WIDTH = 1200
 
