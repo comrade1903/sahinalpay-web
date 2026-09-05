@@ -31,6 +31,21 @@ describe('parseTurkishDate', () => {
     expect(parseTurkishDate('bilinmiyor')).toBeNull()
     expect(parseTurkishDate('7 Smarch 2017')).toBeNull()
   })
+
+  /* parseInt reads a leading number and ignores the rest, so these used to
+     parse: "7x Kasım 2017junk" as 7 November 2017, and "1969junk" as a
+     timestamp that archiveDatePrecision simultaneously called not a date. */
+  it('rejects a token with anything trailing after the number', () => {
+    for (const value of ['7x Kasım 2017junk', 'Ekim 1969junk', '1969junk', '12abc Ocak 1990']) {
+      expect(parseTurkishDate(value), value).toBeNull()
+    }
+  })
+
+  it('rejects an out-of-range or wrong-width number', () => {
+    for (const value of ['0 Ocak 1990', '32 Ocak 1990', '7 Kasım 17', '7 Kasım 20177']) {
+      expect(parseTurkishDate(value), value).toBeNull()
+    }
+  })
 })
 
 describe('archiveDatePrecision', () => {
@@ -48,6 +63,29 @@ describe('archiveDatePrecision', () => {
 
   it('rejects a four-digit token that is not a year-shaped date', () => {
     expect(archiveDatePrecision('sayı 12')).toBeNull()
+  })
+
+  /* The two functions share one parser precisely so they cannot disagree
+     about whether a string is a date. */
+  it('agrees with parseTurkishDate on every input', () => {
+    const values = [
+      '7 Kasım 2017',
+      'Ekim 1969',
+      '1969',
+      '7x Kasım 2017junk',
+      'Ekim 1969junk',
+      '1969junk',
+      'bilinmiyor',
+      'sayı 12',
+      '31 Şubat 2024',
+      '',
+    ]
+    for (const value of values) {
+      expect(
+        archiveDatePrecision(value) === null,
+        `${JSON.stringify(value)}: precision and timestamp disagree`,
+      ).toBe(parseTurkishDate(value) === null)
+    }
   })
 })
 

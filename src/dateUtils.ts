@@ -52,6 +52,25 @@ interface ParsedArchiveDate {
   day?: number
 }
 
+/* Every token has to match in full.
+   `parseInt` reads a leading number and ignores whatever follows, so
+   "7x Kasım 2017junk" parsed as 7 November 2017 and "1969junk" produced a
+   timestamp from parseTurkishDate while archiveDatePrecision called it not a
+   date at all — the two disagreeing on the same string, which is exactly what
+   sharing one parser was meant to prevent. */
+const DAY_PATTERN = /^\d{1,2}$/
+const YEAR_PATTERN = /^\d{4}$/
+
+function parseDay(value: string): number | null {
+  if (!DAY_PATTERN.test(value)) return null
+  const day = Number(value)
+  return day >= 1 && day <= 31 ? day : null
+}
+
+function parseYear(value: string): number | null {
+  return YEAR_PATTERN.test(value) ? Number(value) : null
+}
+
 /* One parser behind both parseTurkishDate() and archiveDatePrecision(): they
    used to repeat the same three shapes, which is how they could disagree. */
 function parseArchiveDate(dateStr: string): ParsedArchiveDate | null {
@@ -60,10 +79,10 @@ function parseArchiveDate(dateStr: string): ParsedArchiveDate | null {
   if (parts.length === 3) {
     const [dayText, monthText, yearText] = parts
     if (dayText === undefined || monthText === undefined || yearText === undefined) return null
-    const day = parseInt(dayText, 10)
+    const day = parseDay(dayText)
     const month = MONTHS[monthText]
-    const year = parseInt(yearText, 10)
-    if (Number.isNaN(day) || month === undefined || Number.isNaN(year)) return null
+    const year = parseYear(yearText)
+    if (day === null || month === undefined || year === null) return null
     return { precision: 'day', timestamp: Date.UTC(year, month, day), day }
   }
 
@@ -71,16 +90,16 @@ function parseArchiveDate(dateStr: string): ParsedArchiveDate | null {
     const [monthText, yearText] = parts
     if (monthText === undefined || yearText === undefined) return null
     const month = MONTHS[monthText]
-    const year = parseInt(yearText, 10)
-    if (month === undefined || Number.isNaN(year)) return null
+    const year = parseYear(yearText)
+    if (month === undefined || year === null) return null
     return { precision: 'month', timestamp: Date.UTC(year, month, 1) }
   }
 
   if (parts.length === 1) {
     const [yearText] = parts
     if (yearText === undefined) return null
-    const year = parseInt(yearText, 10)
-    if (Number.isNaN(year)) return null
+    const year = parseYear(yearText)
+    if (year === null) return null
     return { precision: 'year', timestamp: Date.UTC(year, 0, 1) }
   }
 
@@ -91,10 +110,7 @@ function parseArchiveDate(dateStr: string): ParsedArchiveDate | null {
  *  string that is not a date at all — including a bare token that merely
  *  contains digits, which is why a year has to be exactly four of them. */
 export function archiveDatePrecision(dateStr: string): DatePrecision | null {
-  const parsed = parseArchiveDate(dateStr)
-  if (!parsed) return null
-  if (parsed.precision === 'year' && !/^\d{4}$/.test(dateStr.trim())) return null
-  return parsed.precision
+  return parseArchiveDate(dateStr)?.precision ?? null
 }
 
 /** True when a day-precision date names a day that month really has —
