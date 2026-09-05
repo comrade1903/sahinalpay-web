@@ -3,6 +3,16 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 
+import { ensureInside, PathGuardError } from './lib/fs-guard.mjs'
+
+/* Slices one article out of a TÜSTAV volume: an article-scoped PDF under
+   public/archive/pdf plus a webp cover under public/archive/clippings, both
+   named by scripts/tustav-pdf-extracts.json.
+
+   Every path in that manifest is checked against the root it belongs to
+   before anything is written — the manifest is hand-edited, and a stray "../"
+   in pdfOut/coverOut would otherwise write straight into the source tree. */
+
 const ROOT = process.cwd()
 const SOURCE_DIR = path.join(ROOT, 'tmp/tustav-pdfs')
 const MANIFEST_PATH = path.join(ROOT, 'scripts/tustav-pdf-extracts.json')
@@ -61,8 +71,32 @@ function soleFile(dir, extension) {
   return path.join(dir, files[0])
 }
 
-function extract(entry) {
-  const sourcePath = path.join(SOURCE_DIR, entry.source)
+const REQUIRED_STRING_FIELDS = ['slug', 'source', 'pdfOut', 'coverOut']
+const REQUIRED_PAGE_FIELDS = ['firstPage', 'lastPage']
+
+/** The manifest is hand-written, so a missing or misspelt field should stop
+ *  the run with the entry named rather than surface later as an undefined
+ *  path or a NaN page number. */
+function validateEntry(entry, index) {
+  const where = `tustav-pdf-extracts.json[${index}]`
+  if (!entry || typeof entry !== 'object') throw new Error(`${where}: not an object`)
+  for (const field of REQUIRED_STRING_FIELDS) {
+    if (typeof entry[field] !== 'string' || entry[field].trim() === '') {
+      throw new Error(`${where}: "${field}" must be a non-empty string`)
+    }
+  }
+  for (const field of [...REQUIRED_PAGE_FIELDS, 'coverPage']) {
+    const value = entry[field]
+    if (value === undefined && field === 'coverPage') continue
+    if (!Number.isInteger(value) || value < 1) {
+      throw new Error(`${where} ("${entry.slug}"): "${field}" must be a positive integer`)
+    }
+  }
+}
+
+function extract(entry, index) {
+  validateEntry(entry, index)
+  const sourcePath = ensureInside(SOURCE_DIR, entry.source, `"${entry.slug}" source`)
   if (!fs.existsSync(sourcePath)) {
     throw new Error(
       `Missing source volume for "${entry.slug}": ${sourcePath}\n` +
@@ -94,7 +128,7 @@ function extract(entry) {
 
   const workDir = fs.mkdtempSync(path.join(os.tmpdir(), 'tustav-'))
   try {
-    const pdfOut = path.join(PDF_OUT_ROOT, entry.pdfOut)
+    const pdfOut = ensureInside(PDF_OUT_ROOT, entry.pdfOut, `"${entry.slug}" pdfOut`)
     fs.mkdirSync(path.dirname(pdfOut), { recursive: true })
     if (wholeFile) {
       // The article spans the entire source (İşçi-Köylü issues are 2-page
@@ -110,7 +144,7 @@ function extract(entry) {
       run('pdfunite', [...orderedPagePdfs(workDir), pdfOut])
     }
 
-    const coverOut = path.join(CLIPPING_OUT_ROOT, entry.coverOut)
+    const coverOut = ensureInside(CLIPPING_OUT_ROOT, entry.coverOut, `"${entry.slug}" coverOut`)
     fs.mkdirSync(path.dirname(coverOut), { recursive: true })
     const coverDir = fs.mkdtempSync(path.join(os.tmpdir(), 'tustav-cover-'))
     try {
@@ -160,14 +194,24 @@ function extract(entry) {
   }
 }
 
-const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'))
-const results = manifest.map(extract)
+try {
+  const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'))
+  if (!Array.isArray(manifest)) {
+    throw new Error(`${path.relative(ROOT, MANIFEST_PATH)} must contain an array of entries`)
+  }
+  const results = manifest.map(extract)
 
-for (const result of results) {
-  console.log(
-    `${result.slug}: pdfPageCount=${result.pdfPages} ` +
-      `pdf=${(result.pdfBytes / 1024 / 1024).toFixed(1)}MB ` +
-      `cover=${Math.round(result.coverBytes / 1024)}KB`,
+  for (const result of results) {
+    console.log(
+      `${result.slug}: pdfPageCount=${result.pdfPages} ` +
+        `pdf=${(result.pdfBytes / 1024 / 1024).toFixed(1)}MB ` +
+        `cover=${Math.round(result.coverBytes / 1024)}KB`,
+    )
+  }
+  console.log(`Extracted ${results.length} TÜSTAV articles.`)
+} catch (error) {
+  console.error(
+    error instanceof PathGuardError || error instanceof Error ? error.message : String(error),
   )
+  process.exit(1)
 }
-console.log(`Extracted ${results.length} TÜSTAV articles.`)
