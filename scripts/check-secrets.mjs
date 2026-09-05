@@ -37,26 +37,54 @@ const files = execFileSync('git', ['ls-files', '-z'], { cwd: projectRoot, encodi
   .split('\0')
   .filter(Boolean)
 
+/* A placeholder is only a placeholder when the *match itself* is one. Testing
+   the whole line meant a real key next to the word "example" — a comment, a
+   neighbouring URL — exempted the key too. */
+const PLACEHOLDER_MATCH = /EXAMPLE|PLACEHOLDER|REDACTED|CHANGEME|YOUR[_-]?(KEY|TOKEN|SECRET)|X{6,}|\.{3,}/i
+
+/** A value interpolated at run time is a reference, not a secret: the whole
+ *  match has to sit inside the substitution for this to apply. */
+const INTERPOLATION = /^\$\{[^}]*\}$|^<[^>]*>$/
+
 const findings = []
+const skipped = []
+let scanned = 0
 
 for (const relative of files) {
-  if (SKIP_EXTENSIONS.has(path.extname(relative).toLowerCase())) continue
+  if (SKIP_EXTENSIONS.has(path.extname(relative).toLowerCase())) {
+    skipped.push(relative)
+    continue
+  }
   const absolute = path.join(projectRoot, relative)
   let contents
   try {
     const stat = fs.statSync(absolute)
-    if (!stat.isFile() || stat.size > 4_000_000) continue
+    if (!stat.isFile() || stat.size > 4_000_000) {
+      skipped.push(relative)
+      continue
+    }
     contents = fs.readFileSync(absolute, 'utf8')
   } catch {
+    skipped.push(relative)
     continue
   }
+  /* A file with a NUL byte in the first block is binary whatever its
+     extension says; reading it as text produces noise, not findings. */
+  if (contents.slice(0, 8192).includes('\u0000')) {
+    skipped.push(relative)
+    continue
+  }
+  scanned += 1
+  /* This file's own patterns are patterns, not secrets. */
+  if (relative === 'scripts/check-secrets.mjs') continue
+
   const lines = contents.split('\n')
   for (const [pattern, label] of PATTERNS) {
     for (const [index, line] of lines.entries()) {
-      if (!pattern.test(line)) continue
-      /* Placeholders and the patterns in this file itself are not secrets. */
-      if (/EXAMPLE|PLACEHOLDER|REDACTED|\$\{|<your|xxxx/i.test(line)) continue
-      if (relative === 'scripts/check-secrets.mjs') continue
+      const match = pattern.exec(line)
+      if (!match) continue
+      const matched = match[0]
+      if (PLACEHOLDER_MATCH.test(matched) || INTERPOLATION.test(matched)) continue
       findings.push(`${relative}:${index + 1}: possible ${label}`)
     }
   }
@@ -68,4 +96,11 @@ if (findings.length) {
   process.exit(1)
 }
 
-console.log(`No credential-shaped strings in ${files.length} tracked files.`)
+console.log(
+  `No credential-shaped strings in ${scanned} text file(s) ` +
+    `(${skipped.length} of ${files.length} tracked files skipped as binary or oversized).`,
+)
+console.log(
+  'This is a coarse net over a fixed pattern list, not a substitute for ' +
+    "GitHub's Secret Scanning and Push Protection — see docs/SECURITY.md.",
+)
