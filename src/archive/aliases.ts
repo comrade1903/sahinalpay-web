@@ -15,8 +15,15 @@ import type { ArchiveLang } from './types'
  * table is empty — it exists so the next rename has somewhere to go instead
  * of breaking a citation.
  *
+ * An alias is served two ways, and both matter. `scripts/prerender.mjs` reads
+ * this table and emits a `redirects` entry into dist/vercel-redirects.json, so
+ * a direct hit on the old address gets a real 308 from the CDN rather than the
+ * 404 an unprerendered path would otherwise produce. `resolveArchiveSlug`
+ * below then covers navigation inside the running app.
+ *
  * `npm run validate:content` checks that every alias points at a real record
- * and that no alias collides with a live slug.
+ * and that no alias collides with a live slug, and `npm run verify:prerender`
+ * checks that each one really produced a redirect.
  */
 export const archiveSlugAliases: Record<ArchiveLang, Record<string, string>> = {
   tr: {},
