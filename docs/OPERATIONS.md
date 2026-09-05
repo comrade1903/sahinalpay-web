@@ -169,6 +169,30 @@ tools exist to add to it, not to regenerate it. The generated files that
 **can** be reproduced from a clean checkout are the sitemap, robots.txt, the
 archive summary, the fonts and the OG image, and CI proves the first three.
 
+## Performance, and where it stops
+
+Measured on the Turkish home page in the browser, first visit, uncompressed
+transfer: **5.29 MB before, 0.93 MB after** — 4.3 MB of it was the Google
+Fonts payload, and 468 kB the archive metadata the home page loaded to show
+four counts.
+
+What is still true, and what a next step would be:
+
+- **Search loads every body of an outlet.** Searching the Turkish columns
+  fetches `archive-tr-p24` — 410 kB raw, 153 kB gzip — because the search
+  matches substrings across full text and there is no index to match against
+  instead. It is lazy (only on search) and cached for the session. A
+  build-time search index would avoid it, but a token index cannot answer the
+  partial-word matches the current search supports, so it would change what
+  the archive finds. That is a content decision, not just a performance one.
+- **Opening one P24 article loads all 47 bodies**, for the same reason: they
+  share one module. Splitting to one module per article would make the reader
+  fetch ~8 kB instead of 410 kB, at the cost of 47 requests when someone
+  searches. Worth doing if more full-text outlets are added.
+- **Archive metadata is per language, not per outlet.** A Turkish list page
+  fetches all 461 Turkish records (90 kB gzip) even to show one outlet. Going
+  finer would mean per-outlet chunks and a loader per outlet.
+
 ## Fonts
 
 `public/fonts/` holds subsets built by `scripts/generate-fonts.py` from the
