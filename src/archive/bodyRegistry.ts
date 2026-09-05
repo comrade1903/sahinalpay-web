@@ -13,6 +13,19 @@ const bodyLoaders: Record<string, BodyLoader> = {
   'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
 }
 
+/** A `hasBody` item whose outlet has no registered loader, or whose slug is
+ *  missing from the loaded body map. Both mean the archive data and the
+ *  registry drifted apart — a build-time bug, not a network condition — so
+ *  they surface as real errors instead of resolving to `undefined` and
+ *  leaving the reader stuck on "loading". `npm run validate:content` fails
+ *  on either condition, so this should never reach production. */
+export class MissingArticleBodyError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'MissingArticleBodyError'
+  }
+}
+
 const bodyMapPromises = new Map<string, Promise<BodyMap>>()
 const resolvedBodyCache = new Map<string, string[]>()
 
@@ -24,10 +37,14 @@ function loaderKey(category: ArchiveCategory, outletKey: string): string {
   return `${category}:${outletKey}`
 }
 
-function loadBodyMap(category: ArchiveCategory, outletKey: string): Promise<BodyMap> | undefined {
+function loadBodyMap(category: ArchiveCategory, outletKey: string): Promise<BodyMap> {
   const key = loaderKey(category, outletKey)
   const loader = bodyLoaders[key]
-  if (!loader) return undefined
+  if (!loader) {
+    return Promise.reject(
+      new MissingArticleBodyError(`No body loader registered for "${key}"`),
+    )
+  }
   let pending = bodyMapPromises.get(key)
   if (!pending) {
     pending = loader().catch((error) => {
@@ -58,7 +75,6 @@ export async function loadOutletBodies(items: ArchiveItem[]): Promise<void> {
     [...groups.values()].map(async (groupItems) => {
       const [first] = groupItems
       const bodyMap = await loadBodyMap(first.category, first.outletKey)
-      if (!bodyMap) return
       for (const item of groupItems) {
         const body = bodyMap[item.slug]
         if (body) resolvedBodyCache.set(bodyCacheKey(item), body)
@@ -67,9 +83,19 @@ export async function loadOutletBodies(items: ArchiveItem[]): Promise<void> {
   )
 }
 
-export async function loadArticleBody(item: ArchiveItem): Promise<string[] | undefined> {
+/** Resolves the item's full body text, or rejects. Never resolves to
+ *  `undefined` for a `hasBody` item: a silent miss is indistinguishable from
+ *  a slow network to the reader, which is what used to hang the page. */
+export async function loadArticleBody(item: ArchiveItem): Promise<string[]> {
+  if (item.body?.length) return item.body
   await loadOutletBodies([item])
-  return resolvedBodyCache.get(bodyCacheKey(item))
+  const body = resolvedBodyCache.get(bodyCacheKey(item))
+  if (!body) {
+    throw new MissingArticleBodyError(
+      `No body text for "${item.slug}" in ${item.category}:${item.outletKey}`,
+    )
+  }
+  return body
 }
 
 export function getCachedBody(item: ArchiveItem): string[] | undefined {

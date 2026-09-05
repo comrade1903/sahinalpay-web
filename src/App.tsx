@@ -24,16 +24,29 @@ import {
   type Lang,
   type BooksSection,
 } from './content'
+import { itemScanClippings } from './archive/itemUtils'
 import {
-  archiveItemText,
-  itemHasSourceKind,
-  itemScanClippings,
-} from './archive/itemUtils'
+  archiveItemKey,
+  clampPage,
+  matchesFilters,
+  pageSlice,
+  positivePage,
+  sortByDate,
+  sortItems,
+  totalPagesFor,
+  validSort,
+  validSourceKind,
+  type SortOrder,
+  type SourceKind,
+} from './archive/query'
 import {
   getCachedBody,
   loadArticleBody,
   loadOutletBodies,
 } from './archive/bodyRegistry'
+import { useArchiveData, type ArchiveData } from './archive/useArchiveData'
+import { CONTACT_EMAIL, PERSON_ID, SITE_ORIGIN, siteUrl } from './siteConfig'
+import { readStoredValue, writeStoredValue, removeStoredValue } from './lib/storage'
 import type {
   ArchiveClipping,
   ArchiveItem,
@@ -58,8 +71,7 @@ import logoZaman from './assets/logos/zaman.webp'
 import logoTodaysZaman from './assets/logos/todays-zaman.webp'
 import logoP24 from './assets/logos/p24.webp'
 import logoSabah from './assets/logos/sabah.webp'
-import { parseTurkishDate } from './dateUtils'
-import { foldSearchText } from './textUtils'
+import { isoDateAtKnownPrecision, parseTurkishDate } from './dateUtils'
 import { chronicleEvents } from './chronicle'
 
 /* ------------------------------------------------------------------
@@ -75,26 +87,6 @@ import { chronicleEvents } from './chronicle'
    when one is available; nothing else needs to change. */
 const PORTRAIT: string | null = portrait
 
-type ArchiveData = (typeof import('./archive'))['archiveData']
-
-let archiveDataPromise: Promise<ArchiveData> | null = null
-
-function useArchiveData(): ArchiveData | null {
-  const [data, setData] = useState<ArchiveData | null>(null)
-
-  useEffect(() => {
-    let active = true
-    archiveDataPromise ??= import('./archive').then((module) => module.archiveData)
-    archiveDataPromise.then((loaded) => {
-      if (active) setData(loaded)
-    })
-    return () => {
-      active = false
-    }
-  }, [])
-
-  return data
-}
 
 type PageMeta = {
   title: string
@@ -242,14 +234,15 @@ function useJsonLd(id: string, data: Record<string, unknown> | null) {
 }
 
 function pageUrl(pathname: string) {
-  return `https://sahinalpay.net${pathname}`
+  return siteUrl(pathname)
 }
 
+/* Truncated to the precision the source actually carries: a piece dated only
+   "Ekim 1969" publishes as `1969-10`, never as `1969-10-01` — the 1st is a
+   sorting anchor, not something the archive knows. */
 function isoDateFromArchiveDate(date?: string): string | undefined {
   if (!date) return undefined
-  const ts = parseTurkishDate(date)
-  if (ts === null) return undefined
-  return new Date(ts).toISOString().slice(0, 10)
+  return isoDateAtKnownPrecision(date)
 }
 
 function pageAlternates(pathname: string): Partial<Record<Lang, string>> {
@@ -306,15 +299,12 @@ function Reveal({
 }
 
 const THEME_KEY = 'theme'
+const LANG_KEY = 'lang'
 
 /** null = follow the system, which is the documented default. */
 function readStoredTheme(): 'light' | 'dark' | null {
-  try {
-    const stored = localStorage.getItem(THEME_KEY)
-    return stored === 'light' || stored === 'dark' ? stored : null
-  } catch {
-    return null
-  }
+  const stored = readStoredValue(THEME_KEY)
+  return stored === 'light' || stored === 'dark' ? stored : null
 }
 
 function useTheme() {
@@ -330,12 +320,8 @@ function useTheme() {
   useEffect(() => {
     if (theme === null) delete document.documentElement.dataset.theme
     else document.documentElement.dataset.theme = theme
-    try {
-      if (theme === null) localStorage.removeItem(THEME_KEY)
-      else localStorage.setItem(THEME_KEY, theme)
-    } catch {
-      /* Private mode or storage disabled — the theme still applies for this visit. */
-    }
+    if (theme === null) removeStoredValue(THEME_KEY)
+    else writeStoredValue(THEME_KEY, theme)
   }, [theme])
 
   useEffect(() => {
@@ -442,7 +428,7 @@ function Header() {
 
   const onToggleLang = () => {
     const target: Lang = lang === 'tr' ? 'en' : 'tr'
-    localStorage.setItem('lang', target)
+    writeStoredValue(LANG_KEY, target)
     navigate(equivalentPath(location.pathname, target))
   }
 
@@ -1003,7 +989,8 @@ function AcademicHeritage({
 
 function HomePage({ lang }: { lang: Lang }) {
   const t = content[lang]
-  const archiveData = useArchiveData()
+  const { status: archiveStatus, data: archiveData, reload: reloadArchive } =
+    useArchiveData()
   const navigate = useNavigate()
   const location = useLocation()
   usePageMeta({
@@ -1016,7 +1003,7 @@ function HomePage({ lang }: { lang: Lang }) {
      language so returning Turkish readers land on /tr automatically. */
   useEffect(() => {
     if (lang !== 'en' || location.pathname !== '/') return
-    const saved = localStorage.getItem('lang')
+    const saved = readStoredValue(LANG_KEY)
     const preferred: Lang =
       saved === 'tr' || saved === 'en'
         ? saved
@@ -1029,6 +1016,9 @@ function HomePage({ lang }: { lang: Lang }) {
   return (
     <>
       <Hero t={t} lang={lang} />
+      {archiveStatus === 'error' && (
+        <ArchiveInlineFailure lang={lang} onRetry={reloadArchive} />
+      )}
       <HubGrid t={t} lang={lang} archiveData={archiveData} />
       <WeeklyPicks lang={lang} archiveData={archiveData} />
       <AcademicHeritage lang={lang} archiveData={archiveData} />
@@ -1241,33 +1231,39 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
   return debounced
 }
 
-function archiveItemKey(item: ArchiveItem): string {
-  return `${item.lang}:${item.id}`
-}
-
 /** Lazily loads full body text once the user searches. The returned map is
  *  both the search input and the state change that triggers re-filtering. */
-function useBodySearchIndex(
-  items: ArchiveItem[],
-  search: string,
-): { bodyIndex: ReadonlyMap<string, string[]>; searchingBody: boolean } {
+interface BodySearchState {
+  bodyIndex: ReadonlyMap<string, string[]>
+  /** Bodies are being fetched; results so far cover metadata only. */
+  searching: boolean
+  /** The fetch failed, so results are metadata-only and possibly incomplete. */
+  failed: boolean
+  retry: () => void
+}
+
+function useBodySearchIndex(items: ArchiveItem[], search: string): BodySearchState {
   const debouncedSearch = useDebouncedValue(search, 400)
   const [bodyIndex, setBodyIndex] = useState<ReadonlyMap<string, string[]>>(
     () => new Map(),
   )
-  const [searchingBody, setSearchingBody] = useState(false)
+  const [searching, setSearching] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const [attempt, setAttempt] = useState(0)
 
   useEffect(() => {
     if (!debouncedSearch) {
-      setSearchingBody(false)
+      setSearching(false)
+      setFailed(false)
       return
     }
     let cancelled = false
-    setSearchingBody(true)
+    setSearching(true)
+    setFailed(false)
     loadOutletBodies(items)
       .then(() => {
         if (cancelled) return
-        setSearchingBody(false)
+        setSearching(false)
         setBodyIndex(
           new Map(
             items.flatMap((item) => {
@@ -1277,99 +1273,25 @@ function useBodySearchIndex(
           ),
         )
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         if (cancelled) return
-        setSearchingBody(false)
+        setSearching(false)
+        /* Results still render, but only from titles, excerpts and tags.
+           Saying so beats returning a confidently short list. */
+        setFailed(true)
         console.error('Failed to load body text for search', error)
       })
     return () => {
       cancelled = true
     }
-  }, [debouncedSearch, items])
+  }, [debouncedSearch, items, attempt])
 
-  return { bodyIndex, searchingBody }
-}
-
-/* Folding costs ~5x a plain toLowerCase, and this runs over every item on every
-   keystroke — with the bodies loaded that is several megabytes of text. The folded
-   form is cached per item and recomputed only when its body arrives, so correct
-   Turkish matching doesn't buy itself a typing lag on the archive's slowest page. */
-const foldedItemText = new Map<string, string>()
-
-function foldedTextFor(item: ArchiveItem, body: string[] | undefined): string {
-  const cacheKey = `${archiveItemKey(item)}:${body ? 'body' : 'meta'}`
-  const cached = foldedItemText.get(cacheKey)
-  if (cached !== undefined) return cached
-  const folded = foldSearchText(archiveItemText(item, body))
-  foldedItemText.set(cacheKey, folded)
-  return folded
-}
-
-function matchesFilters(
-  item: ArchiveItem,
-  search: string,
-  fromYear: string,
-  toYear: string,
-  sourceKind: 'all' | 'digital' | 'clipping',
-  bodyIndex: ReadonlyMap<string, string[]>,
-): boolean {
-  if (!itemHasSourceKind(item, sourceKind)) return false
-
-  if (
-    search &&
-    !foldedTextFor(item, bodyIndex.get(archiveItemKey(item))).includes(
-      foldSearchText(search),
-    )
-  ) {
-    return false
+  return {
+    bodyIndex,
+    searching,
+    failed,
+    retry: () => setAttempt((value) => value + 1),
   }
-  if (fromYear || toYear) {
-    const ts = item.date ? parseTurkishDate(item.date) : null
-    if (ts === null) return false
-    const year = new Date(ts).getUTCFullYear()
-    if (fromYear && year < parseInt(fromYear, 10)) return false
-    if (toYear && year > parseInt(toYear, 10)) return false
-  }
-  return true
-}
-
-function sortByDate<T>(
-  entries: T[],
-  dateOf: (entry: T) => string | undefined,
-  sort: 'newest' | 'oldest',
-): T[] {
-  return [...entries]
-    .map((entry) => {
-      const date = dateOf(entry)
-      return { entry, ts: date ? parseTurkishDate(date) : null }
-    })
-    .sort((a, b) => {
-      if (a.ts === null && b.ts === null) return 0
-      if (a.ts === null) return 1
-      if (b.ts === null) return -1
-      return sort === 'newest' ? b.ts - a.ts : a.ts - b.ts
-    })
-    .map((w) => w.entry)
-}
-
-function sortItems(items: ArchiveItem[], sort: 'newest' | 'oldest'): ArchiveItem[] {
-  return sortByDate(items, (item) => item.date, sort)
-}
-
-type SourceKind = 'all' | 'digital' | 'clipping'
-type SortOrder = 'newest' | 'oldest'
-
-function validSourceKind(value: string | null): SourceKind {
-  return value === 'digital' || value === 'clipping' ? value : 'all'
-}
-
-function validSort(value: string | null): SortOrder {
-  return value === 'oldest' ? 'oldest' : 'newest'
-}
-
-function positivePage(value: string | null): number {
-  const parsed = Number.parseInt(value ?? '', 10)
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1
 }
 
 function sourceKindLabel(kind: SourceKind, lang: Lang) {
@@ -1410,12 +1332,12 @@ function ArchiveSearchRow({
   lang,
   search,
   setSearch,
-  searchingBody,
+  bodySearch,
 }: {
   lang: Lang
   search: string
   setSearch: (value: string) => void
-  searchingBody: boolean
+  bodySearch: BodySearchState
 }) {
   return (
     <div className="archive-search-row">
@@ -1431,9 +1353,22 @@ function ArchiveSearchRow({
           aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
         />
       </div>
-      {searchingBody && (
+      {bodySearch.searching && (
         <p className="search-status" role="status" aria-live="polite" aria-atomic="true">
           {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
+        </p>
+      )}
+      {bodySearch.failed && (
+        <p className="search-status search-status-warning" role="alert">
+          <span className="material-symbols-outlined" aria-hidden="true">
+            warning
+          </span>
+          {lang === 'tr'
+            ? 'Tam metin yüklenemedi; sonuçlar yalnızca başlık, özet ve etiketlere göre.'
+            : 'Full text could not be loaded; results cover titles, summaries and tags only.'}{' '}
+          <button type="button" className="link-button" onClick={bodySearch.retry}>
+            {lang === 'tr' ? 'Yeniden dene' : 'Try again'}
+          </button>
         </p>
       )}
     </div>
@@ -1586,8 +1521,6 @@ function SourceKindFilter({
     </div>
   )
 }
-
-const ARCHIVE_PAGE_SIZE = 20
 
 function Pagination({
   lang,
@@ -2015,12 +1948,7 @@ function NewsstandStack({
 }) {
   const ordered = orderNewsstandOutlets(entries)
   const selected = ordered.find((entry) => entry.outlet.outlet === selectedName) ?? ordered[0]
-  const activeItems = selected
-    ? selected.matchingItems.slice(
-        (currentPage - 1) * ARCHIVE_PAGE_SIZE,
-        currentPage * ARCHIVE_PAGE_SIZE,
-      )
-    : []
+  const activeItems = selected ? pageSlice(selected.matchingItems, currentPage) : []
 
   return (
     <div className="newsstand-stack">
@@ -2061,7 +1989,7 @@ function NewsstandControlBar({
   lang,
   search,
   setSearch,
-  searchingBody,
+  bodySearch,
   fromYear,
   toYear,
   setFromYear,
@@ -2070,7 +1998,7 @@ function NewsstandControlBar({
   lang: Lang
   search: string
   setSearch: (value: string) => void
-  searchingBody: boolean
+  bodySearch: BodySearchState
   fromYear: string
   toYear: string
   setFromYear: (value: string) => void
@@ -2083,7 +2011,7 @@ function NewsstandControlBar({
           lang={lang}
           search={search}
           setSearch={setSearch}
-          searchingBody={searchingBody}
+          bodySearch={bodySearch}
         />
       </div>
       <div className="newsstand-controlbar-filters">
@@ -2118,7 +2046,7 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
     description: data.intro,
     inLanguage: lang,
     url: pageUrl(location.pathname),
-    about: { '@id': 'https://sahinalpay.net/#person' },
+    about: { '@id': PERSON_ID },
     mainEntity: data.outlets.flatMap((group) =>
       group.items.slice(0, 25).map((item) => ({
         '@type': 'Article',
@@ -2141,7 +2069,8 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
   const requestedPage = positivePage(searchParams.get('page'))
 
   const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
-  const { bodyIndex, searchingBody } = useBodySearchIndex(sectionItems, search)
+  const bodySearch = useBodySearchIndex(sectionItems, search)
+  const { bodyIndex } = bodySearch
 
   const newsstandOutlets = useMemo(
     () => deriveNewsstandOutlets(data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex),
@@ -2162,9 +2091,9 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
     : null
 
   const totalPages = openedEntry
-    ? Math.max(1, Math.ceil(openedEntry.matchingItems.length / ARCHIVE_PAGE_SIZE))
+    ? totalPagesFor(openedEntry.matchingItems.length)
     : 1
-  const currentPage = Math.min(requestedPage, totalPages)
+  const currentPage = clampPage(requestedPage, openedEntry?.matchingItems.length ?? 0)
 
   const setParam = (
     key: string,
@@ -2212,7 +2141,7 @@ function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang
           lang={lang}
           search={search}
           setSearch={(value) => setParam('q', value)}
-          searchingBody={searchingBody}
+          bodySearch={bodySearch}
           fromYear={fromYear}
           toYear={toYear}
           setFromYear={(value) => setParam('from', value)}
@@ -2286,7 +2215,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
     description: data.intro,
     inLanguage: lang,
     url: pageUrl(location.pathname),
-    about: { '@id': 'https://sahinalpay.net/#person' },
+    about: { '@id': PERSON_ID },
     mainEntity: data.items.slice(0, 25).map((item) => ({
       '@type': 'Article',
       headline: item.title,
@@ -2310,7 +2239,8 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
-  const { bodyIndex, searchingBody } = useBodySearchIndex(data.items, search)
+  const bodySearch = useBodySearchIndex(data.items, search)
+  const { bodyIndex } = bodySearch
   const filtered = useMemo(
     () =>
       sortItems(
@@ -2321,12 +2251,9 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
       ),
     [data.items, search, fromYear, toYear, sourceKind, sort, bodyIndex],
   )
-  const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PAGE_SIZE))
-  const currentPage = Math.min(requestedPage, totalPages)
-  const paginated = filtered.slice(
-    (currentPage - 1) * ARCHIVE_PAGE_SIZE,
-    currentPage * ARCHIVE_PAGE_SIZE,
-  )
+  const totalPages = totalPagesFor(filtered.length)
+  const currentPage = clampPage(requestedPage, filtered.length)
+  const paginated = pageSlice(filtered, currentPage)
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -2381,7 +2308,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
           lang={lang}
           search={search}
           setSearch={(value) => setParam('q', value)}
-          searchingBody={searchingBody}
+          bodySearch={bodySearch}
         />
 
         <div className="archive-layout">
@@ -2421,7 +2348,7 @@ function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang 
             </div>
           </aside>
 
-          <div className="archive-main" aria-busy={searchingBody}>
+          <div className="archive-main" aria-busy={bodySearch.searching}>
             {/* Focus target for pagination, so a page change is announced and not
                 just scrolled to. */}
             <h2 className="sr-only" id="archive-results" tabIndex={-1}>
@@ -2586,9 +2513,9 @@ function useArticleBody(item: ArchiveItem | undefined): {
 }
 
 function ArticlePage({ lang }: { lang: Lang }) {
-  const archiveData = useArchiveData()
-  if (!archiveData) return <ArchiveLoading lang={lang} />
-  return <LoadedArticlePage lang={lang} archiveData={archiveData} />
+  const { data, fallback } = useArchiveGate(lang)
+  if (!data) return fallback
+  return <LoadedArticlePage lang={lang} archiveData={data} />
 }
 
 function buildCitation(item: ArchiveItem, articleUrl: string, lang: Lang): string {
@@ -2696,13 +2623,13 @@ function LoadedArticlePage({
     url: articleUrl,
     author: {
       '@type': 'Person',
-      '@id': 'https://sahinalpay.net/#person',
+      '@id': PERSON_ID,
       name: 'Şahin Alpay',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Şahin Alpay',
-      url: 'https://sahinalpay.net/',
+      url: `${SITE_ORIGIN}/`,
     },
     isPartOf: {
       '@type': 'CollectionPage',
@@ -2845,7 +2772,12 @@ function LoadedArticlePage({
               <span className="article-byline-name">Şahin Alpay</span>
               {item.date && (
                 <>
-                  <time className="article-byline-date">{item.date}</time>
+                  <time
+                    className="article-byline-date"
+                    {...(articleDateIso ? { dateTime: articleDateIso } : {})}
+                  >
+                    {item.date}
+                  </time>
                   {item.outlet ? ' · ' : ''}
                 </>
               )}
@@ -3156,9 +3088,9 @@ function ChroniclePage({ lang }: { lang: Lang }) {
         : "Şahin Alpay's published voice, year by year, against Turkey's events.",
     alternates: pageAlternates(location.pathname),
   })
-  const archiveData = useArchiveData()
-  if (!archiveData) return <ArchiveLoading lang={lang} />
-  return <LoadedChronicle lang={lang} archiveData={archiveData} />
+  const { data, fallback } = useArchiveGate(lang)
+  if (!data) return fallback
+  return <LoadedChronicle lang={lang} archiveData={data} />
 }
 
 function LoadedChronicle({
@@ -3303,7 +3235,7 @@ function Footer() {
             <p className="footer-name">Şahin Alpay</p>
           </div>
           <nav className="footer-links" aria-label={t.footer.navLabel}>
-            <a href="mailto:contact@sahinalpay.net">{t.footer.email}</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{t.footer.email}</a>
             <Link to={paths[lang].columns!}>{t.footer.columnsLabel}</Link>
             <Link to={paths[lang].books!}>{t.footer.booksLabel}</Link>
             <Link to={paths[lang].home!}>{t.footer.backToTop}</Link>
@@ -3329,6 +3261,69 @@ function ArchiveLoading({ lang }: { lang: Lang }) {
       </div>
     </section>
   )
+}
+
+/* The archive index is a lazily fetched chunk, so a dropped connection or a
+   stale cache after a deploy can fail it. Without this the page sat on
+   "Arşiv yükleniyor…" indefinitely, with nothing to retry. */
+function ArchiveLoadFailure({ lang, onRetry }: { lang: Lang; onRetry: () => void }) {
+  return (
+    <section className="section section-solo">
+      <div className="container error-screen" role="alert">
+        <p className="kicker">{lang === 'tr' ? 'Bağlantı hatası' : 'Loading failed'}</p>
+        <h1 className="section-title">
+          {lang === 'tr' ? 'Arşiv yüklenemedi' : 'The archive could not load'}
+        </h1>
+        <p className="lead">
+          {lang === 'tr'
+            ? 'Arşiv verisi alınamadı. Bağlantınızı kontrol edip yeniden deneyebilirsiniz.'
+            : 'The archive data could not be fetched. Check your connection and try again.'}
+        </p>
+        <div className="error-screen-actions">
+          <button type="button" className="btn btn-primary" onClick={onRetry}>
+            {lang === 'tr' ? 'Yeniden dene' : 'Try again'}
+          </button>
+          <Link className="btn btn-ghost" to={paths[lang].home!}>
+            {lang === 'tr' ? 'Ana sayfa' : 'Home'}
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* The home page still has a hero, a bio and book covers without the archive,
+   so a failed load is a band inside the page rather than a full takeover —
+   but it must be visible, not a silently missing "Benden Seçkiler". */
+function ArchiveInlineFailure({ lang, onRetry }: { lang: Lang; onRetry: () => void }) {
+  return (
+    <section className="section section-solo">
+      <div className="container error-screen" role="alert">
+        <p className="lead">
+          {lang === 'tr'
+            ? 'Arşiv listesi şu anda yüklenemedi, bu yüzden sayaçlar ve seçkiler eksik görünüyor.'
+            : 'The archive index could not be loaded, so the counts and picks below are missing.'}
+        </p>
+        <div className="error-screen-actions">
+          <button type="button" className="btn btn-primary" onClick={onRetry}>
+            {lang === 'tr' ? 'Yeniden dene' : 'Try again'}
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/** Renders loading / failure screens for the three pages that cannot show
+ *  anything at all without the archive, and hands `data` to the caller once
+ *  it is there. */
+function useArchiveGate(lang: Lang): { data: ArchiveData | null; fallback: ReactNode } {
+  const { status, data, reload } = useArchiveData()
+  if (status === 'error') {
+    return { data: null, fallback: <ArchiveLoadFailure lang={lang} onRetry={reload} /> }
+  }
+  if (!data) return { data: null, fallback: <ArchiveLoading lang={lang} /> }
+  return { data, fallback: null }
 }
 
 type TurkishOnlyArchiveKey = 'analyses' | 'interviews' | 'academic'
@@ -3379,10 +3374,10 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
 }
 
 function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
-  const archiveData = useArchiveData()
+  const { data: archiveData, fallback } = useArchiveGate(lang)
   const t = content[lang]
 
-  if (!archiveData) return <ArchiveLoading lang={lang} />
+  if (!archiveData) return fallback
 
   switch (pageKey) {
     case 'columns':
@@ -3554,11 +3549,7 @@ const CONSENT_KEY = 'cookie-consent'
 const CONSENT_VALUE = 'ok'
 
 function readConsent(): boolean {
-  try {
-    return localStorage.getItem(CONSENT_KEY) === CONSENT_VALUE
-  } catch {
-    return false
-  }
+  return readStoredValue(CONSENT_KEY) === CONSENT_VALUE
 }
 
 function CookieConsent() {
@@ -3571,11 +3562,9 @@ function CookieConsent() {
   if (acknowledged) return null
 
   const accept = () => {
-    try {
-      localStorage.setItem(CONSENT_KEY, CONSENT_VALUE)
-    } catch {
-      // Storage unavailable (private mode); dismiss for this session only.
-    }
+    // Storage may be unavailable (private mode); the notice still dismisses
+    // for this session, it just reappears on the next visit.
+    writeStoredValue(CONSENT_KEY, CONSENT_VALUE)
     setAcknowledged(true)
   }
 

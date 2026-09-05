@@ -1755,6 +1755,37 @@ main:focus {
   font-style: italic;
 }
 
+/* Degraded full-text search. Red alone never carries the meaning here:
+   the icon and the sentence do, per the --error token's own note. */
+.search-status-warning {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  color: var(--error);
+  font-style: normal;
+}
+
+.search-status-warning .material-symbols-outlined {
+  font-size: 1.1em;
+  transform: translateY(0.15em);
+}
+
+.link-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration-thickness: 2px;
+}
+
 .chip-row {
   display: flex;
   flex-wrap: wrap;
@@ -2241,6 +2272,37 @@ a.archive-row:hover .archive-row-title {
 .archive-loading {
   color: var(--muted);
   font-style: italic;
+}
+
+/* Recovery screens: the root error boundary and the archive-load failure
+   both reuse the section/container rhythm, so they only need their own
+   action row and a de-emphasised technical-detail block. */
+.error-screen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.error-screen-details {
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.error-screen-details summary {
+  cursor: pointer;
+}
+
+.error-screen-details pre {
+  margin-top: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-lowest);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* ---------- Newsstand (columns page) ---------- */
