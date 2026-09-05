@@ -5,7 +5,7 @@ import { act } from 'react'
 /** Stand-in for the real archive chunk, so the test controls whether the
  *  dynamic import succeeds. */
 const fakeArchive = {
-  columns: { tr: [], en: [] },
+  columns: [],
   analyses: [],
   interviews: [],
   academicArticles: [],
@@ -25,22 +25,26 @@ afterEach(() => {
 })
 
 /* The hook's own module is re-imported per test so its module-level promise
-   cache starts empty, and `import('./index')` is intercepted so we can make
-   the chunk fetch fail the way a dropped connection would. */
+   cache starts empty, and the Turkish archive chunk's import is intercepted so
+   we can make it fail the way a dropped connection would. */
 async function loadHook() {
-  vi.doMock('../src/archive/index', () => {
+  vi.doMock('../src/archive/tr', () => {
     importAttempts += 1
     if (failNextImports > 0) {
       failNextImports -= 1
       return Promise.reject(new Error('Failed to fetch dynamically imported module'))
     }
-    return Promise.resolve({ archiveData: fakeArchive })
+    return Promise.resolve({ trArchive: fakeArchive })
   })
   return import('../src/archive/useArchiveData')
 }
 
-function Probe({ useArchiveData }: { useArchiveData: () => { status: string; data: unknown; reload: () => void } }) {
-  const { status, reload } = useArchiveData()
+function Probe({
+  useArchiveData,
+}: {
+  useArchiveData: (lang: 'tr' | 'en') => { status: string; data: unknown; reload: () => void }
+}) {
+  const { status, reload } = useArchiveData('tr')
   return (
     <div>
       <span data-testid="status">{status}</span>
@@ -82,7 +86,7 @@ describe('useArchiveData', () => {
     expect(importAttempts).toBeGreaterThan(1)
   })
 
-  it('fetches the chunk once for many simultaneous consumers', async () => {
+  it('fetches a language chunk once for many simultaneous consumers', async () => {
     const { useArchiveData } = await loadHook()
     render(
       <>

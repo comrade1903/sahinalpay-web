@@ -677,9 +677,9 @@ function LoadedChronicle({
   archiveData: ArchiveData
 }) {
   const items: ArchiveItem[] = [
-    ...archiveData.columns[lang].flatMap((o) => o.items),
-    ...(lang === 'tr' ? archiveData.analyses.flatMap((o) => o.items) : []),
-    ...(lang === 'tr' ? archiveData.academicArticles : []),
+    ...archiveData.columns.flatMap((o) => o.items),
+    ...archiveData.analyses.flatMap((o) => o.items),
+    ...archiveData.academicArticles,
   ]
 
   const byYear = new Map<number, ArchiveItem[]>()
@@ -855,7 +855,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
     case 'columns':
       return (
         <NewsstandArchivePage
-          data={{ ...t.columns, outlets: archiveData.columns[lang] }}
+          data={{ ...t.columns, outlets: archiveData.columns }}
           lang={lang}
         />
       )

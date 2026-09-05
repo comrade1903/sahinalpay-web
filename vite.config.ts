@@ -37,15 +37,30 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('/node_modules/motion/')) return 'motion'
-          if (id.includes('/node_modules/')) return 'vendor'
-          if (id.includes('/src/archive/tr/columns/p24.body')) return 'archive-tr-p24'
-          if (id.includes('/src/archive/tr/') || id.includes('/src/archive/en/')) {
-            return 'archive-data'
-          }
+        /* One chunk per language, so a Turkish reader never downloads the
+           English records and vice versa; split article bodies get their own
+           chunk, since they are fetched only when someone opens or searches
+           an article. Registering a new split outlet means adding its loader
+           to archive/bodyRegistry.ts and a group here.
+
+           `archive-shared` has to be declared explicitly: left to the
+           bundler, the normalisers both language modules use get folded into
+           whichever language chunk is emitted first, and loading the other
+           language then drags that whole chunk in with it. */
+        advancedChunks: {
+          groups: [
+            { name: 'motion', test: /[\\/]node_modules[\\/]motion[\\/]/ },
+            { name: 'vendor', test: /[\\/]node_modules[\\/]/ },
+            { name: 'archive-tr-p24', test: /[\\/]src[\\/]archive[\\/]tr[\\/]columns[\\/]p24\.body/ },
+            {
+              name: 'archive-shared',
+              test: /[\\/]src[\\/]archive[\\/](utils|types)\.ts$/,
+            },
+            { name: 'archive-tr', test: /[\\/]src[\\/]archive[\\/](tr[\\/]|tr\.ts$)/ },
+            { name: 'archive-en', test: /[\\/]src[\\/]archive[\\/](en[\\/]|en\.ts$)/ },
+          ],
         },
       },
     },
-  },
+  }
 })

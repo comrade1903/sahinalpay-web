@@ -32,7 +32,7 @@ import { ArchiveRow } from '../archive'
 
 function archivePool(archiveData: ArchiveData, lang: Lang): ArchiveItem[] {
   return [
-    ...archiveData.columns[lang].flatMap((o) => o.items),
+    ...archiveData.columns.flatMap((o) => o.items),
     ...(lang === 'tr'
       ? [
           ...archiveData.analyses.flatMap((o) => o.items),

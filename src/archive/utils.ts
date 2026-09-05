@@ -4,6 +4,7 @@ import type {
   ArchiveItemSeed,
   ArchiveLang,
   ArchiveMedium,
+  OutletGroup,
 } from './types'
 
 const TURKISH_CHAR_MAP: Record<string, string> = {
@@ -57,4 +58,21 @@ export function normalizeArchiveItems(
       medium,
     }
   })
+}
+
+/** Builds one outlet's group. Kept here rather than in the per-language
+ *  modules so both build their groups the same way. */
+export function outletGroup(
+  outlet: string,
+  outletKey: string,
+  category: ArchiveCategory,
+  seeds: ArchiveItemSeed[],
+  lang: ArchiveLang,
+  medium?: ArchiveMedium,
+): OutletGroup {
+  return {
+    outlet,
+    medium,
+    items: normalizeArchiveItems(outlet, outletKey, category, seeds, lang, medium),
+  }
 }

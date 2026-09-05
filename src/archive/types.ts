@@ -91,3 +91,12 @@ export interface FlatArchiveSection {
   emptyLabel: string
   items: ArchiveItem[]
 }
+
+/** One language's whole archive. Loaded on its own — see archive/tr.ts and
+    archive/en.ts, and the note there about why nothing needs both at once. */
+export interface LanguageArchive {
+  columns: OutletGroup[]
+  analyses: OutletGroup[]
+  interviews: ArchiveItem[]
+  academicArticles: ArchiveItem[]
+}

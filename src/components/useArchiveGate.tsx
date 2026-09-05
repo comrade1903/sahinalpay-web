@@ -7,7 +7,7 @@ import { ArchiveLoadFailure, ArchiveLoading } from './ArchiveGate'
  *  anything at all without the archive, and hands `data` to the caller once
  *  it is there. */
 export function useArchiveGate(lang: Lang): { data: ArchiveData | null; fallback: ReactNode } {
-  const { status, data, reload } = useArchiveData()
+  const { status, data, reload } = useArchiveData(lang)
   if (status === 'error') {
     return { data: null, fallback: <ArchiveLoadFailure lang={lang} onRetry={reload} /> }
   }
