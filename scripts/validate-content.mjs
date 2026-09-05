@@ -410,10 +410,15 @@ if (!fs.existsSync(iconsPath)) {
 } else {
   const subsetIcons = new Set(JSON.parse(fs.readFileSync(iconsPath, 'utf8')))
   const used = new Set()
-  const sources = ['src/App.tsx', 'src/content.ts', 'src/chronicle.ts']
-  for (const relative of sources) {
-    const absolute = path.join(projectRoot, relative)
-    if (!fs.existsSync(absolute)) continue
+  /* Every source file, not a hand-kept list: icons live wherever a component
+     does, and a list would quietly stop covering a file that moved. */
+  const walk = (dir) =>
+    fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name)
+      if (entry.isDirectory()) return walk(full)
+      return /\.tsx?$/.test(entry.name) ? [full] : []
+    })
+  for (const absolute of walk(path.join(projectRoot, 'src'))) {
     const source = fs.readFileSync(absolute, 'utf8')
     for (const match of source.matchAll(
       /material-symbols-outlined[^>]*>\s*([a-z_0-9]+)\s*</g,
