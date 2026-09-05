@@ -320,6 +320,24 @@ if (!fs.existsSync(sitemapPath)) {
   }
 }
 
+/* ---- retired slugs must resolve, and must not shadow a live one ---- */
+
+const aliasModule = await loadModule('src/archive/aliases.ts', 'aliases.mjs')
+for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
+  for (const [oldSlug, currentSlug] of Object.entries(table)) {
+    const target = items.find((item) => item.lang === lang && item.slug === currentSlug)
+    if (!target) {
+      fail(`aliases.ts: ${lang} alias "${oldSlug}" points at "${currentSlug}", which no record has`)
+    }
+    if (items.some((item) => item.lang === lang && item.slug === oldSlug)) {
+      fail(`aliases.ts: ${lang} alias "${oldSlug}" shadows a live record with the same slug`)
+    }
+    if (oldSlug === currentSlug) {
+      fail(`aliases.ts: ${lang} alias "${oldSlug}" points at itself`)
+    }
+  }
+}
+
 /* ---- the home page's generated summary must match the archive ---- */
 
 const summaryModule = await loadModule('src/archive/summary.generated.ts', 'summary.mjs')

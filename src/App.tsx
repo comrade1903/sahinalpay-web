@@ -50,6 +50,7 @@ import {
   loadOutletBodies,
 } from './archive/bodyRegistry'
 import { useArchiveData, type ArchiveData } from './archive/useArchiveData'
+import { isRetiredSlug, resolveArchiveSlug } from './archive/aliases'
 import {
   useArchiveSummary,
   type ArchiveSummary,
@@ -2421,12 +2422,16 @@ function archivePool(archiveData: ArchiveData, lang: Lang): ArchiveItem[] {
   ]
 }
 
+/* Retired slugs resolve to the piece they were renamed from, so an old
+   citation keeps working. The reader redirects to the current permalink
+   rather than serving the piece at two addresses. */
 function findArchiveItemBySlug(
   archiveData: ArchiveData,
   lang: Lang,
   slug: string,
 ): ArchiveItem | undefined {
-  return archivePool(archiveData, lang).find((item) => item.slug === slug)
+  const current = resolveArchiveSlug(lang, slug)
+  return archivePool(archiveData, lang).find((item) => item.slug === current)
 }
 
 /** Other full articles (real body text, not the current one) — used for
@@ -2604,6 +2609,9 @@ function LoadedArticlePage({
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
   const item = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
+  /* An old citation lands on the current permalink rather than rendering the
+     piece at a second address, so canonical stays single. */
+  const retired = Boolean(slug && item && isRetiredSlug(lang, slug))
   const { body, failed: bodyFailed, retry: retryBody } = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
@@ -2681,6 +2689,10 @@ function LoadedArticlePage({
     el.addEventListener('copy', onCopy)
     return () => el.removeEventListener('copy', onCopy)
   }, [item, lang, articleUrl])
+
+  if (retired && item) {
+    return <Navigate to={`${archiveBasePath(lang, item)}/${item.slug}`} replace />
+  }
 
   if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
     return (

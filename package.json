@@ -17,6 +17,8 @@
     "preview": "vite preview",
     "validate:content": "node scripts/validate-content.mjs",
     "check:secrets": "node scripts/check-secrets.mjs",
+    "inventory:media": "node scripts/media-inventory.mjs",
+    "inventory:archive": "node scripts/archive-inventory.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:summary": "node scripts/generate-archive-summary.mjs",
     "split:archive": "node scripts/split-archive-body.mjs",

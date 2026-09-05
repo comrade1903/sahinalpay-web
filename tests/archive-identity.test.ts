@@ -5,6 +5,11 @@ import {
   slugify,
 } from '../src/archive/utils'
 import type { ArchiveItemSeed } from '../src/archive/types'
+import {
+  archiveSlugAliases,
+  isRetiredSlug,
+  resolveArchiveSlug,
+} from '../src/archive/aliases'
 
 describe('slugify', () => {
   it('folds Turkish letters to ASCII', () => {
@@ -93,5 +98,30 @@ describe('normalizeArchiveItems — permalink derivation', () => {
       outletKey: 'zaman',
       category: 'columns',
     })
+  })
+})
+
+describe('retired slug aliases', () => {
+  it('resolves a live slug to itself', () => {
+    expect(resolveArchiveSlug('tr', 'baslarken')).toBe('baslarken')
+  })
+
+  it('reports a live slug as not retired', () => {
+    expect(isRetiredSlug('tr', 'baslarken')).toBe(false)
+  })
+
+  /* The table is empty today; these pin the contract so the first real
+     rename cannot silently break a citation. */
+  it('follows an alias to the current permalink', () => {
+    const table = { ...archiveSlugAliases.tr }
+    try {
+      archiveSlugAliases.tr['eski-slug'] = 'baslarken'
+      expect(resolveArchiveSlug('tr', 'eski-slug')).toBe('baslarken')
+      expect(isRetiredSlug('tr', 'eski-slug')).toBe(true)
+      expect(isRetiredSlug('en', 'eski-slug')).toBe(false)
+    } finally {
+      for (const key of Object.keys(archiveSlugAliases.tr)) delete archiveSlugAliases.tr[key]
+      Object.assign(archiveSlugAliases.tr, table)
+    }
   })
 })
