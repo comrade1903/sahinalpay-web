@@ -16,19 +16,33 @@ import { ensureInside, PathGuardError } from './lib/fs-guard.mjs'
 const ROOT = process.cwd()
 const SOURCE_DIR = path.join(ROOT, 'tmp/tustav-pdfs')
 const MANIFEST_PATH = path.join(ROOT, 'scripts/tustav-pdf-extracts.json')
-const PDF_OUT_ROOT = path.join(ROOT, 'public/archive/pdf')
-const CLIPPING_OUT_ROOT = path.join(ROOT, 'public/archive/clippings')
 const COVER_WIDTH = 1600
 const COVER_QUALITY = 82
 
-const args = new Set(process.argv.slice(2))
-const force = args.has('--force')
+const args = process.argv.slice(2)
+const force = args.includes('--force')
+
+/* --out-root sends the output somewhere other than public/, which is how
+   scripts/recover-tustav-pdfs.mjs verifies a recovered volume without ever
+   writing into the published archive. */
+let outRoot = path.join(ROOT, 'public/archive')
 for (const arg of args) {
-  if (arg !== '--force') {
-    console.error(`Unknown flag ${arg}. Usage: extract-tustav-pdf.mjs [--force]`)
-    process.exit(1)
+  if (arg === '--force') continue
+  if (arg.startsWith('--out-root=')) {
+    const value = arg.slice('--out-root='.length)
+    if (!value) {
+      console.error('--out-root needs a directory')
+      process.exit(1)
+    }
+    outRoot = path.resolve(ROOT, value)
+    continue
   }
+  console.error(`Unknown flag ${arg}. Usage: extract-tustav-pdf.mjs [--force] [--out-root=DIR]`)
+  process.exit(1)
 }
+
+const PDF_OUT_ROOT = path.join(outRoot, 'pdf')
+const CLIPPING_OUT_ROOT = path.join(outRoot, 'clippings')
 
 function run(command, args) {
   const result = spawnSync(command, args, { encoding: 'utf8' })
