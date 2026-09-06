@@ -94,9 +94,19 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
     the pre-commit run was green because the offending file — the scanner's
     own test fixtures — was still untracked.
 
-  Because the test file is scanned like any other, its fixtures are assembled
-  from pieces rather than written as whole credential shapes. Exempting the
-  file would hide a real mistake in it.
+  Because the test files are scanned like any other, their fixtures are
+  assembled from pieces rather than written as whole credential shapes.
+  Exempting them would hide a real mistake made in them.
+
+  `tests/secret-scan-scope.test.ts` covers the file set itself against a
+  throwaway Git repository, so the tracked, staged, untracked and ignored
+  cases are each arranged deliberately rather than inferred.
+
+  **Scope.** The scan reads the *working tree*. It does not read the index, so
+  a secret staged and then edited out of the working copy is invisible to it,
+  and it does not read history, so a secret in an earlier commit stays there.
+  Both are jobs for GitHub's Secret Scanning, which is why enabling that
+  remains on the list below.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,

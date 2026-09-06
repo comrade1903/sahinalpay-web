@@ -1,75 +1,27 @@
 #!/usr/bin/env node
 /**
- * Coarse pre-flight scan of tracked files for credential-shaped strings.
+ * Coarse pre-flight scan for credential-shaped strings.
  *
  * NOT a replacement for GitHub's Secret Scanning and Push Protection, which
- * cover far more providers and run on every push — those are repository
- * settings and have to be enabled in the GitHub UI (see docs/SECURITY.md).
- * This exists so an obvious mistake fails CI even before that, and so the
- * check runs on a clone with no GitHub features at all.
+ * cover far more providers, read the index and history rather than only the
+ * working tree, and run on every push — those are repository settings and
+ * have to be enabled in the GitHub UI (see docs/SECURITY.md). This exists so
+ * an obvious mistake fails CI even before that, and so the check runs on a
+ * clone with no GitHub features at all.
+ *
+ * The matching and the file enumeration both live in
+ * scripts/lib/secret-patterns.mjs so they can be tested against a throwaway
+ * repository; this file is the command-line wrapper.
  *
  *   npm run check:secrets
  */
-import { execFileSync } from 'node:child_process'
-import fs from 'node:fs'
-import path from 'node:path'
 import { projectRoot } from './lib/load-archive.mjs'
-import { findSecrets, looksBinary } from './lib/secret-patterns.mjs'
+import { scanRepository } from './lib/secret-patterns.mjs'
 
-const SKIP_EXTENSIONS = new Set([
-  '.png', '.jpg', '.jpeg', '.webp', '.gif', '.pdf', '.ico', '.woff', '.woff2', '.ttf', '.otf',
-])
-
-/* Tracked files *and* untracked ones Git would add — everything a `git add
-   -A` would stage, minus what .gitignore excludes. Scanning only tracked
-   files meant a run before `git add` passed and the same run after it failed,
-   which is exactly how a credential shape reached a commit in this
-   repository: the check ran green while the offending file was still
-   untracked. */
-const files = execFileSync(
-  'git',
-  ['ls-files', '-z', '--cached', '--others', '--exclude-standard'],
-  { cwd: projectRoot, encoding: 'utf8', maxBuffer: 64e6 },
-)
-  .split('\0')
-  .filter(Boolean)
-
-const findings = []
-const skipped = []
-let scanned = 0
-
-for (const relative of files) {
-  if (SKIP_EXTENSIONS.has(path.extname(relative).toLowerCase())) {
-    skipped.push(relative)
-    continue
-  }
-  const absolute = path.join(projectRoot, relative)
-  let contents
-  try {
-    const stat = fs.statSync(absolute)
-    if (!stat.isFile() || stat.size > 4_000_000) {
-      skipped.push(relative)
-      continue
-    }
-    contents = fs.readFileSync(absolute, 'utf8')
-  } catch {
-    skipped.push(relative)
-    continue
-  }
-  /* A file with a NUL byte in the first block is binary whatever its
-     extension says; reading it as text produces noise, not findings. */
-  if (looksBinary(contents)) {
-    skipped.push(relative)
-    continue
-  }
-  scanned += 1
+const { findings, scanned, skipped } = scanRepository(projectRoot, {
   /* The pattern module's own patterns are patterns, not secrets. */
-  if (relative === 'scripts/lib/secret-patterns.mjs') continue
-
-  for (const finding of findSecrets(contents)) {
-    findings.push(`${relative}:${finding.line}:${finding.column}: possible ${finding.label}`)
-  }
-}
+  exclude: ['scripts/lib/secret-patterns.mjs'],
+})
 
 if (findings.length) {
   console.error(
@@ -84,8 +36,8 @@ if (findings.length) {
 
 console.log(
   `No credential-shaped strings in ${scanned} text file(s) ` +
-    `(${skipped.length} of ${files.length} tracked and stageable files skipped as ` +
-      'binary or oversized).',
+    `(${skipped.length} of ${scanned + skipped.length} tracked and stageable files skipped as ` +
+    'binary or oversized).',
 )
 console.log(
   'This is a coarse net over a fixed pattern list, not a substitute for ' +
