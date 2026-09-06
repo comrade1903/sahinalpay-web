@@ -166,15 +166,15 @@ problem:
 
 - Production response headers and status codes on a live deployment. They are
   declared in `vercel.json` and reproduced locally by `npm run serve:dist`,
-  which is not Vercel.
-- The CI workflow has never run: it is committed but nothing has been pushed.
-  Its YAML parses; its behaviour is unverified.
-- GitHub branch protection, Secret Scanning, and Vercel deployment protection
-  — all repository/project settings outside this codebase.
+  which is not Vercel. The preview deployment is protected, so reading them
+  needs an authenticated `vercel curl` — see docs/OPERATIONS.md.
+- GitHub branch protection and Secret Scanning are **not available** on this
+  repository's plan, not merely unconfigured: it is private on a free plan,
+  and both return "Upgrade to GitHub Pro or make this repository public".
+  docs/OPERATIONS.md sets out the three ways forward. Vercel's deployment
+  protection, by contrast, is confirmed on.
 - Any dynamic security testing against a running deployment.
 - The security of the hosting account itself.
-- The content-production scripts other than the guard modules and the secret
-  patterns: the importers and the archive splitter are covered by manual runs
-  and by the refusals they now raise, not by automated tests. `npm run
-  split:archive -- --dry-run` on the real data and `npm run recover:tustav --
-  --verify` are the closest things to a regression check for them.
+- The importers' happy paths. `tests/content-tools.test.ts` covers the
+  splitter end to end and both importers' refusals, but neither importer can
+  be run for real here: they read source directories outside the repository.

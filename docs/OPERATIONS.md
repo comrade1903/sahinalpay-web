@@ -286,17 +286,80 @@ adds an external service:
 
 ## Deployment settings that live outside this repository
 
-These cannot be set from the codebase and must be confirmed in the GitHub and
-Vercel dashboards:
+These cannot be set from the codebase. Checked against the live account on
+2026-09-06; each entry says what was found, not what is assumed.
 
-- **Branch protection on `main`** — required status checks (the CI workflow),
-  and no force pushes. Not verifiable from here.
-- **GitHub Secret Scanning and Push Protection.**
-  `npm run check:secrets` is a coarse local net, not a replacement.
-- **Vercel deployment protection** for preview deployments.
-- **The production domain and its DNS.**
-- Whether the Vercel Toolbar is enabled on previews. The Content-Security-
-  Policy in `vercel.json` is strict (`script-src 'self'`) and will block it.
-  If the toolbar is wanted, `https://vercel.live` has to be allowed in
+### Vercel deployment protection — already on
+
+A preview deployment answers `302` with `content-type: text/plain` to an
+unauthenticated request, which is Vercel's protection page. Previews are not
+publicly readable. Nothing to change.
+
+The consequence for verification: `curl` alone cannot read a preview's real
+headers. Use the Vercel CLI, which sends the caller's own credentials:
+
+```bash
+npx vercel login          # once, interactively — a person has to do this
+npx vercel curl https://<preview-url>/tr/kose-yazilari/<slug> -I
+```
+
+### Branch protection on `main` — not available on this plan
+
+`main` is unprotected, and it cannot be protected as things stand: the
+repository is **private on a free GitHub plan**, and both branch protection
+and rulesets return
+
+```
+403  Upgrade to GitHub Pro or make this repository public to enable this feature.
+```
+
+Since every push to `main` is a production release, this matters. Three ways
+out, all decisions for the owner:
+
+1. **GitHub Pro** (a few dollars a month) — enables branch protection and
+   rulesets on private repositories. Then require the `Typecheck, lint, test,
+   validate, build` check and disallow force pushes.
+2. **Make the repository public.** The archive is a public record and the code
+   contains no secrets, so this is defensible on its own terms — but it is a
+   publishing decision about the owner's working notes, not a technical one.
+   Protection and secret scanning both become free.
+3. **Accept the risk and rely on the discipline instead**: work on a branch,
+   open a pull request, let CI run, merge only when green. That is what this
+   change did. It is a convention, not an enforced rule.
+
+### GitHub Secret Scanning and Push Protection — not available on this plan
+
+The API reports no secret-scanning configuration for this repository. On a
+private repository these are part of GitHub Secret Protection, a paid add-on;
+they are free on public repositories.
+
+Until one of those applies, `npm run check:secrets` in CI is the only net, and
+it is a coarse one that reads the working tree rather than history — see
+docs/SECURITY.md for exactly what it does not cover.
+
+### If the repository is made public
+
+Do these together, in this order:
+
+1. Confirm nothing sensitive is in the history: `npm run check:secrets`, then
+   a manual pass over `.env*`, `.vercel/` and `tmp/` — all gitignored today,
+   so they should not appear in `git log --all --name-only`.
+2. Flip visibility in **Settings → General → Danger Zone**.
+3. Enable **Settings → Code security → Secret scanning** and **Push
+   protection**.
+4. Add a ruleset in **Settings → Rules** targeting `main`: require a pull
+   request, require the status check named `Typecheck, lint, test, validate,
+   build`, and block force pushes.
+5. Re-check that the Vercel project is still linked and that previews stay
+   protected — public repository does not imply public previews.
+
+### Still outside all of the above
+
+- **The production domain and its DNS.** `sahinalpay.net` is a placeholder;
+  the registered domain is `sahinalpay.com`, and the switch is one edit to
+  `SITE_ORIGIN` in `src/siteConfig.ts` once the owner confirms.
+- **Whether the Vercel Toolbar is enabled on previews.** The
+  Content-Security-Policy here is strict (`script-src 'self'`) and will block
+  it. If the toolbar is wanted, `https://vercel.live` has to be allowed in
   `script-src`, `connect-src` and `frame-src` — which weakens the policy for
   production too, so it is a trade-off to make deliberately.
