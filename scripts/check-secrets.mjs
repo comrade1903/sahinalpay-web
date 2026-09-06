@@ -16,12 +16,33 @@
  *   npm run check:secrets
  */
 import { projectRoot } from './lib/load-archive.mjs'
-import { scanRepository } from './lib/secret-patterns.mjs'
+import { scanHistory, scanRepository } from './lib/secret-patterns.mjs'
 
-const { findings, scanned, skipped } = scanRepository(projectRoot, {
-  /* The pattern module's own patterns are patterns, not secrets. */
-  exclude: ['scripts/lib/secret-patterns.mjs'],
-})
+/* The pattern module's own patterns are patterns, not secrets. Nothing else
+   is exempt from the working-tree scan: the test fixtures assemble their
+   credential shapes from pieces precisely so the file can be scanned like any
+   other, and exempting it would hide a real mistake made in it. */
+const NOT_SECRETS = ['scripts/lib/secret-patterns.mjs']
+
+/* History carries one more. Three commits on this branch hold an earlier
+   version of the scanner's test file that wrote two fixtures whole, before
+   they were split. Neither is a credential — one is an OpenSSH private-key
+   *marker line* with no key material after it, the other a connection string
+   for a host that does not resolve — and history cannot be rewritten to
+   remove them without discarding pushed commits. */
+const NOT_SECRETS_IN_HISTORY = [...NOT_SECRETS, 'tests/check-secrets.test.ts']
+
+const history = process.argv.includes('--history')
+for (const arg of process.argv.slice(2)) {
+  if (arg !== '--history') {
+    console.error(`Unknown flag ${arg}. Usage: check-secrets.mjs [--history]`)
+    process.exit(1)
+  }
+}
+
+const { findings, scanned, skipped } = history
+  ? { ...scanHistory(projectRoot, { exclude: NOT_SECRETS_IN_HISTORY }), skipped: [] }
+  : scanRepository(projectRoot, { exclude: NOT_SECRETS })
 
 if (findings.length) {
   console.error(
@@ -35,9 +56,12 @@ if (findings.length) {
 }
 
 console.log(
-  `No credential-shaped strings in ${scanned} text file(s) ` +
-    `(${skipped.length} of ${scanned + skipped.length} tracked and stageable files skipped as ` +
-    'binary or oversized).',
+  history
+    ? `No credential-shaped strings in ${scanned} unique text blob(s) across every ref — ` +
+      'the whole history, not just the tip.'
+    : `No credential-shaped strings in ${scanned} text file(s) ` +
+      `(${skipped.length} of ${scanned + skipped.length} tracked and stageable files skipped ` +
+      'as binary or oversized).',
 )
 console.log(
   'This is a coarse net over a fixed pattern list, not a substitute for ' +

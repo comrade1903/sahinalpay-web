@@ -6,7 +6,7 @@
  * A coarse net over a fixed pattern list. Not a replacement for GitHub's
  * Secret Scanning and Push Protection — see docs/SECURITY.md.
  */
-import { execFileSync } from 'node:child_process'
+import { execFileSync, execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -174,4 +174,64 @@ export function scanRepository(root, { exclude = [] } = {}) {
   }
 
   return { findings, scanned, skipped }
+}
+
+/**
+ * Every credential-shaped string in any blob that has ever been reachable
+ * from any ref.
+ *
+ * The working-tree scan cannot see this: a secret committed once and removed
+ * in the next commit stays in the history, and on a public repository the
+ * history is as readable as the tip. Deliberately not part of `npm run
+ * check:secrets` or CI — CI checks out at depth 1, and fetching this
+ * repository's full history to scan it would cost far more than the check is
+ * worth on every push. Run it when visibility changes, or after a scare.
+ *
+ * @param {string} root
+ * @param {{ exclude?: string[] }} [options]
+ * @returns {{ findings: string[], scanned: number }}
+ */
+export function scanHistory(root, { exclude = [] } = {}) {
+  const excluded = new Set(exclude)
+  const listing = execSync(
+    "git rev-list --objects --all | " +
+      "git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)'",
+    { cwd: root, encoding: 'utf8', maxBuffer: 512e6 },
+  )
+
+  const findings = []
+  const seen = new Set()
+  let scanned = 0
+
+  for (const line of listing.split('\n')) {
+    const [sha, type, size, ...rest] = line.split(' ')
+    if (type !== 'blob') continue
+    const filePath = rest.join(' ')
+    if (!filePath) continue
+    if (SKIP_EXTENSIONS.has(path.extname(filePath).toLowerCase())) continue
+    if (Number(size) > MAX_FILE_BYTES) continue
+    if (seen.has(sha)) continue
+    seen.add(sha)
+
+    let contents
+    try {
+      contents = execFileSync('git', ['cat-file', 'blob', sha], {
+        cwd: root,
+        maxBuffer: MAX_FILE_BYTES * 2,
+      }).toString('utf8')
+    } catch {
+      continue
+    }
+    if (looksBinary(contents)) continue
+    scanned += 1
+    if (excluded.has(filePath)) continue
+
+    for (const finding of findSecrets(contents)) {
+      findings.push(
+        `${filePath}@${sha.slice(0, 8)}:${finding.line}: possible ${finding.label}`,
+      )
+    }
+  }
+
+  return { findings, scanned }
 }

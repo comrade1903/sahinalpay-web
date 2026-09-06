@@ -15,7 +15,11 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { listScannableFiles, scanRepository } from '../scripts/lib/secret-patterns.mjs'
+import {
+  listScannableFiles,
+  scanHistory,
+  scanRepository,
+} from '../scripts/lib/secret-patterns.mjs'
 
 const KEY = 'ghp_' + 'A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8'
 
@@ -117,6 +121,56 @@ describe('scanRepository', () => {
     const result = scanRepository(repo)
     expect(result.findings).toEqual([])
     expect(result.scanned).toBe(1)
+  })
+})
+
+describe('scanHistory', () => {
+  /* The gap the working-tree scan cannot close, and the reason this exists:
+     a secret committed once and removed in the next commit is gone from the
+     tip but still readable in the history — which on a public repository is
+     as readable as the tip. */
+  it('finds a key that was committed and then removed', () => {
+    write('leak.md', `token: ${KEY}\n`)
+    git('add', '-A')
+    git('commit', '-qm', 'oops')
+    fs.rmSync(path.join(repo, 'leak.md'))
+    git('add', '-A')
+    git('commit', '-qm', 'remove it')
+
+    expect(scanRepository(repo).findings, 'the tip is clean').toEqual([])
+    const history = scanHistory(repo)
+    expect(history.findings).toHaveLength(1)
+    expect(history.findings[0]).toContain('leak.md')
+  })
+
+  it('finds a key on a branch that was never merged', () => {
+    write('main.md', 'nothing here\n')
+    git('add', '-A')
+    git('commit', '-qm', 'init')
+    git('checkout', '-qb', 'side')
+    write('side.md', `token: ${KEY}\n`)
+    git('add', '-A')
+    git('commit', '-qm', 'side')
+    git('checkout', '-q', '-')
+
+    expect(scanRepository(repo).findings).toEqual([])
+    expect(scanHistory(repo).findings[0]).toContain('side.md')
+  })
+
+  it('honours the exclude list', () => {
+    write('fixtures.md', `token: ${KEY}\n`)
+    git('add', '-A')
+    git('commit', '-qm', 'fixtures')
+    expect(scanHistory(repo, { exclude: ['fixtures.md'] }).findings).toEqual([])
+  })
+
+  it('finds nothing in a clean history', () => {
+    write('readme.md', 'Şahin Alpay — 576 kayıt\n')
+    git('add', '-A')
+    git('commit', '-qm', 'clean')
+    const result = scanHistory(repo)
+    expect(result.findings).toEqual([])
+    expect(result.scanned).toBeGreaterThan(0)
   })
 })
 

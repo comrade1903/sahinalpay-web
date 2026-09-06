@@ -303,55 +303,84 @@ npx vercel login          # once, interactively — a person has to do this
 npx vercel curl https://<preview-url>/tr/kose-yazilari/<slug> -I
 ```
 
-### Branch protection on `main` — not available on this plan
+### Branch protection on `main` — available, and not yet on
 
-`main` is unprotected, and it cannot be protected as things stand: the
-repository is **private on a free GitHub plan**, and both branch protection
-and rulesets return
+The repository was made public on 2026-09-06, which unlocked branch
+protection, rulesets and secret scanning; on the previous private-and-free
+plan all three answered *"Upgrade to GitHub Pro or make this repository
+public"*. None is enabled yet.
 
+Since every push to `main` is a production release, a ruleset is the thing
+worth having. Either the UI —
+
+**Settings → Rules → Rulesets → New branch ruleset**, target `main`, enable
+*Require a pull request before merging*, *Require status checks to pass* with
+the check named `Typecheck, lint, test, validate, build`, and *Block force
+pushes* —
+
+or, equivalently, one command:
+
+```bash
+GH_CONFIG_DIR="$HOME/.config/gh-comrade1903" gh api \
+  --method POST repos/comrade1903/sahinalpay-web/rulesets \
+  -f name='Protect main' -f target=branch -f enforcement=active \
+  -f 'conditions[ref_name][include][]=~DEFAULT_BRANCH' \
+  -f 'rules[][type]=deletion' \
+  -f 'rules[][type]=non_fast_forward' \
+  -f 'rules[][type]=pull_request' \
+  -f 'rules[][type]=required_status_checks' \
+  -f 'rules[][parameters][required_status_checks][][context]=Typecheck, lint, test, validate, build' \
+  -f 'rules[][parameters][strict_required_status_checks_policy]=false'
 ```
-403  Upgrade to GitHub Pro or make this repository public to enable this feature.
+
+Check it took, and that the check name matches exactly what CI reports:
+
+```bash
+gh api repos/comrade1903/sahinalpay-web/rulesets --jq '.[].name'
+gh pr checks 7 --json name --jq '.[].name'
 ```
 
-Since every push to `main` is a production release, this matters. Three ways
-out, all decisions for the owner:
+A ruleset requiring a pull request means you can no longer push straight to
+`main` — which is the point, but it changes the routine described under
+"Release" above.
 
-1. **GitHub Pro** (a few dollars a month) — enables branch protection and
-   rulesets on private repositories. Then require the `Typecheck, lint, test,
-   validate, build` check and disallow force pushes.
-2. **Make the repository public.** The archive is a public record and the code
-   contains no secrets, so this is defensible on its own terms — but it is a
-   publishing decision about the owner's working notes, not a technical one.
-   Protection and secret scanning both become free.
-3. **Accept the risk and rely on the discipline instead**: work on a branch,
-   open a pull request, let CI run, merge only when green. That is what this
-   change did. It is a convention, not an enforced rule.
+### GitHub Secret Scanning and Push Protection — available, and not yet on
 
-### GitHub Secret Scanning and Push Protection — not available on this plan
+Both report `disabled`. On a public repository they are free.
 
-The API reports no secret-scanning configuration for this repository. On a
-private repository these are part of GitHub Secret Protection, a paid add-on;
-they are free on public repositories.
+**Settings → Code security → Secret scanning: Enable**, then **Push
+protection: Enable**. Or:
 
-Until one of those applies, `npm run check:secrets` in CI is the only net, and
-it is a coarse one that reads the working tree rather than history — see
-docs/SECURITY.md for exactly what it does not cover.
+```bash
+GH_CONFIG_DIR="$HOME/.config/gh-comrade1903" gh api \
+  --method PATCH repos/comrade1903/sahinalpay-web \
+  -F 'security_and_analysis[secret_scanning][status]=enabled' \
+  -F 'security_and_analysis[secret_scanning_push_protection][status]=enabled'
+```
 
-### If the repository is made public
+Expect an initial backfill scan over the history. It will surface two matches
+in `tests/check-secrets.test.ts` at commits `ccb7ff9`, `3f86c1c` and
+`100bcdc`: an OpenSSH private-key *marker line* with no key material after it,
+and a connection string for a host that does not resolve. Both are synthetic
+fixtures for this repository's own scanner, written whole before they were
+split. Dismiss them as false positives rather than rewriting pushed history.
 
-Do these together, in this order:
+`npm run check:secrets -- --history` reaches the same conclusion locally: 694
+unique text blobs across every ref, nothing else.
 
-1. Confirm nothing sensitive is in the history: `npm run check:secrets`, then
-   a manual pass over `.env*`, `.vercel/` and `tmp/` — all gitignored today,
-   so they should not appear in `git log --all --name-only`.
-2. Flip visibility in **Settings → General → Danger Zone**.
-3. Enable **Settings → Code security → Secret scanning** and **Push
-   protection**.
-4. Add a ruleset in **Settings → Rules** targeting `main`: require a pull
-   request, require the status check named `Typecheck, lint, test, validate,
-   build`, and block force pushes.
-5. Re-check that the Vercel project is still linked and that previews stay
-   protected — public repository does not imply public previews.
+### What the move to public exposed — checked
+
+Making a repository public exposes its whole history, not just its tip. Done
+on 2026-09-06:
+
+- `npm run check:secrets -- --history` over every blob reachable from any ref:
+  694 unique text blobs, no credential-shaped string other than the two
+  synthetic fixtures described above.
+- No `.env*`, `.envrc`, `.vercel/` or key file has ever been added on any ref
+  (`git log --all --diff-filter=A --name-only`). All three exist locally and
+  are gitignored.
+- Previews stayed protected: an unauthenticated request still gets Vercel's
+  protection page. Public repository does not imply public previews.
 
 ### Still outside all of the above
 

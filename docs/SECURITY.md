@@ -102,11 +102,16 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
   throwaway Git repository, so the tracked, staged, untracked and ignored
   cases are each arranged deliberately rather than inferred.
 
-  **Scope.** The scan reads the *working tree*. It does not read the index, so
-  a secret staged and then edited out of the working copy is invisible to it,
-  and it does not read history, so a secret in an earlier commit stays there.
-  Both are jobs for GitHub's Secret Scanning, which is why enabling that
-  remains on the list below.
+  **Scope.** The default scan reads the *working tree*. It does not read the
+  index, so a secret staged and then edited out of the working copy is
+  invisible to it. `npm run check:secrets -- --history` does read every blob
+  reachable from any ref — run it when visibility changes or after a scare; it
+  is deliberately not in CI, which checks out at depth 1 and would have to
+  fetch this repository's full history to do it.
+
+  Run over the whole history on 2026-09-06, when the repository was made
+  public: 694 unique text blobs, no credential-shaped string other than two
+  synthetic fixtures of this scanner's own, described in docs/OPERATIONS.md.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,
@@ -164,15 +169,19 @@ project's; no retention period or compliance guarantee is asserted here.
 Stated plainly, because the absence of a check is not the absence of a
 problem:
 
-- Production response headers and status codes on a live deployment. They are
-  declared in `vercel.json` and reproduced locally by `npm run serve:dist`,
-  which is not Vercel. The preview deployment is protected, so reading them
-  needs an authenticated `vercel curl` — see docs/OPERATIONS.md.
-- GitHub branch protection and Secret Scanning are **not available** on this
-  repository's plan, not merely unconfigured: it is private on a free plan,
-  and both return "Upgrade to GitHub Pro or make this repository public".
-  docs/OPERATIONS.md sets out the three ways forward. Vercel's deployment
-  protection, by contrast, is confirmed on.
+- ~~Production response headers and status codes on a live deployment.~~
+  Verified on the preview deployment on 2026-09-06 through an authenticated
+  `vercel curl`: every declared header arrives intact — CSP with `font-src
+  'self'` and no external origin, nosniff, `X-Frame-Options: DENY`,
+  Referrer-Policy, Permissions-Policy, COOP, CORP and HSTS — and the status
+  codes match (200 for real routes, real 404 for unknown addresses and missing
+  images, 308 for the English archive item routes). What remains unverified is
+  the *production* domain, which is a different deployment.
+- GitHub branch protection and Secret Scanning are available since the
+  repository was made public on 2026-09-06, and are **not yet enabled**.
+  docs/OPERATIONS.md gives the exact commands. Until they are, `main` accepts
+  a direct push and nothing but this repository's own coarse scan looks for
+  credentials.
 - Any dynamic security testing against a running deployment.
 - The security of the hosting account itself.
 - The importers' happy paths. `tests/content-tools.test.ts` covers the
