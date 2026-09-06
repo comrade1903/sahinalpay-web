@@ -74,11 +74,18 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
 - Dependabot proposes weekly updates for npm and GitHub Actions.
 - Every GitHub Action is pinned to a commit SHA, with the tag in a comment.
 - `npm run check:secrets` scans tracked **text** files for credential-shaped
-  strings — 142 of the 776 files Git tracks; the rest are images, fonts and
-  PDFs, skipped by extension or size, and the script reports both numbers. It
-  matches a fixed pattern list and is explicitly not a replacement for
-  GitHub's Secret Scanning and Push Protection, which are repository
-  settings.
+  strings — 150 of the 784 files Git tracks; the rest are images, fonts and
+  PDFs, skipped by extension, size or a NUL byte, and the script reports both
+  numbers. It matches a fixed pattern list and is explicitly not a
+  replacement for GitHub's Secret Scanning and Push Protection, which are
+  repository settings.
+
+  The matching half lives in `scripts/lib/secret-patterns.mjs` and is covered
+  by `tests/check-secrets.test.ts`. Two defects it shipped with, both fixed
+  and pinned by tests: the placeholder exemption was applied to the whole
+  line, so a comment saying "example" excused a real key beside it; and only
+  the first match per pattern per line was examined, so a placeholder at the
+  start of a line hid a real key further along it.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,
@@ -145,8 +152,8 @@ problem:
   — all repository/project settings outside this codebase.
 - Any dynamic security testing against a running deployment.
 - The security of the hosting account itself.
-- The content-production scripts other than the two guard modules: the
-  importers and the archive splitter are covered by manual runs and by the
-  refusals they now raise, not by automated tests. `npm run split:archive
-  --dry-run` on the real data and `npm run recover:tustav -- --verify` are the
-  closest things to a regression check for them.
+- The content-production scripts other than the guard modules and the secret
+  patterns: the importers and the archive splitter are covered by manual runs
+  and by the refusals they now raise, not by automated tests. `npm run
+  split:archive -- --dry-run` on the real data and `npm run recover:tustav --
+  --verify` are the closest things to a regression check for them.

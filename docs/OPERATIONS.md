@@ -96,13 +96,36 @@ npm run recover:tustav            # fetch what is missing, then verify
 npm run recover:tustav -- --verify  # verify what is already on disk
 ```
 
-Verification is not a checksum of the download against itself. It re-runs the
-extraction and compares against the published extracts — page count, the full
-extracted text, and cover dimensions. Byte equality is the wrong test here:
-`pdfunite` stamps each output with a creation time and a document id, so two
-runs from the same volume produce different bytes. The published files are
-copied aside and restored whatever the outcome, so a wrong volume cannot
-leave the archive holding a rebuild.
+Two independent proofs, because either alone has a gap:
+
+- **Digest.** `scripts/tustav-pdf-sources.json` records the SHA-256 of each
+  volume as verified. A match settles it outright.
+- **Content.** The extraction is re-run and compared with the published
+  extracts. This covers a volume whose digest is not yet recorded, and proves
+  the recorded digest still corresponds to what the archive publishes.
+
+The content comparison looks at **page images**. Two things it deliberately
+does not compare, and why:
+
+- *Bytes.* `pdfunite` stamps every output with a creation time and a document
+  id, so two runs from one volume produce different files.
+- *Extracted text.* These are image-only scans: `pdftotext` returns one form
+  feed per page and **zero** readable characters. An earlier version of this
+  script compared exactly that, which amounted to comparing the page count
+  twice — a different scan with the same number of pages would have passed.
+
+So each article PDF is compared by the SHA-256 of its embedded image streams
+(`pdfimages -all`), which `pdfunite` copies through verbatim, and each cover
+by its decoded pixels with a tolerance, since webp is lossy and encoder
+versions differ. The tolerance sits in a measured gap: the same image through
+a different encoder gives a mean per-sample difference of 0.43–0.54 with
+nothing above 32, while two different covers of the same periodical at the
+same dimensions give 6.96 with 5.7% of samples above 32.
+
+**`public/` is never written to.** The rebuild goes to a temporary directory
+via the extractor's `--out-root`, so nothing this script does — including a
+crash in the comparison itself — can leave the published archive holding a
+rebuild.
 
 The İşçi Köylü cover is deliberately not compared: the published image is a
 3400x2172 hand-prepared scan of the spread, not the 900x1267 strip the tool

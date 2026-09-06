@@ -29,7 +29,7 @@ npm run generate:sitemap   # regenerate public/sitemap.xml + robots.txt (committ
 npm run generate:summary   # regenerate src/archive/summary.generated.ts (committed)
 npm run generate:redirects # regenerate vercel.json's redirects from the alias table
 npm run verify:prerender   # check dist/ against what the app builds (run after build)
-npm run recover:tustav     # re-fetch and verify the TÜSTAV source volumes
+npm run recover:tustav     # re-fetch the TÜSTAV source volumes and prove they match
 npm run inventory:archive  # diffable dump of every record, for before/after proofs
 npm run inventory:media    # which files under public/archive the site actually links
 npm run split:archive      # re-split large outlets into metadata + .body.ts modules
