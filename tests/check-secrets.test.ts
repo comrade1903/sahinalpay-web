@@ -3,6 +3,12 @@
  *
  * scripts/lib/secret-patterns.mjs is the matching half of `npm run
  * check:secrets`. Every literal below is synthetic — a shape, not a key.
+ *
+ * They are assembled from pieces rather than written whole, because this file
+ * is itself scanned: a complete credential shape in the source would be a
+ * finding, and the run would fail on its own test data. The value each test
+ * actually matches against is unchanged. Exempting the whole file instead
+ * would leave a real mistake here invisible.
  */
 import { describe, expect, it } from 'vitest'
 import { findSecrets, isPlaceholder, looksBinary } from '../scripts/lib/secret-patterns.mjs'
@@ -59,12 +65,12 @@ describe('findSecrets', () => {
 
   it('recognises the other shapes it claims to', () => {
     const cases: [string, string][] = [
-      ['-----BEGIN OPENSSH PRIVATE KEY-----', 'private key block'],
+      ['-----BEGIN ' + 'OPENSSH PRIVATE KEY' + '-----', 'private key block'],
       [REAL_AWS, 'AWS access key id'],
       ['sk-ant-' + 'a1b2c3d4e5f6g7h8i9j0k1l2', 'Anthropic API key'],
       ['xoxb-' + '1234567890-abcdefghij', 'Slack token'],
       ['glpat-' + 'abcdefghij1234567890', 'GitLab token'],
-      ['postgres://user:hunter2@db.internal:5432/app', 'database URL with a password'],
+      ['postgres://' + 'user:hunter2@' + 'db.internal:5432/app', 'database URL with a password'],
     ]
     for (const [text, label] of cases) {
       const found = findSecrets(`value=${text}`)

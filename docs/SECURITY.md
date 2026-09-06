@@ -73,19 +73,30 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
   advisory cannot block a content correction.
 - Dependabot proposes weekly updates for npm and GitHub Actions.
 - Every GitHub Action is pinned to a commit SHA, with the tag in a comment.
-- `npm run check:secrets` scans tracked **text** files for credential-shaped
-  strings — 150 of the 784 files Git tracks; the rest are images, fonts and
-  PDFs, skipped by extension, size or a NUL byte, and the script reports both
-  numbers. It matches a fixed pattern list and is explicitly not a
-  replacement for GitHub's Secret Scanning and Push Protection, which are
-  repository settings.
+- `npm run check:secrets` scans **text** files for credential-shaped strings —
+  everything `git add -A` would stage, tracked or not, minus what .gitignore
+  excludes. 152 of 786 today; the rest are images, fonts and PDFs, skipped by
+  extension, size or a NUL byte, and the script reports both numbers. It
+  matches a fixed pattern list and is explicitly not a replacement for
+  GitHub's Secret Scanning and Push Protection, which are repository
+  settings.
 
   The matching half lives in `scripts/lib/secret-patterns.mjs` and is covered
-  by `tests/check-secrets.test.ts`. Two defects it shipped with, both fixed
-  and pinned by tests: the placeholder exemption was applied to the whole
-  line, so a comment saying "example" excused a real key beside it; and only
-  the first match per pattern per line was examined, so a placeholder at the
-  start of a line hid a real key further along it.
+  by `tests/check-secrets.test.ts`. Three defects it has shipped with, all
+  fixed and pinned:
+
+  - the placeholder exemption was applied to the whole line, so a comment
+    saying "example" excused a real key beside it;
+  - only the first match per pattern per line was examined, so a placeholder
+    at the start of a line hid a real key further along it;
+  - only tracked files were scanned, so a clean run before `git add` became a
+    failing one after. That is how a credential shape reached a commit here:
+    the pre-commit run was green because the offending file — the scanner's
+    own test fixtures — was still untracked.
+
+  Because the test file is scanned like any other, its fixtures are assembled
+  from pieces rather than written as whole credential shapes. Exempting the
+  file would hide a real mistake in it.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,

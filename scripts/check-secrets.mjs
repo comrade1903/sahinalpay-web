@@ -20,7 +20,17 @@ const SKIP_EXTENSIONS = new Set([
   '.png', '.jpg', '.jpeg', '.webp', '.gif', '.pdf', '.ico', '.woff', '.woff2', '.ttf', '.otf',
 ])
 
-const files = execFileSync('git', ['ls-files', '-z'], { cwd: projectRoot, encoding: 'utf8' })
+/* Tracked files *and* untracked ones Git would add — everything a `git add
+   -A` would stage, minus what .gitignore excludes. Scanning only tracked
+   files meant a run before `git add` passed and the same run after it failed,
+   which is exactly how a credential shape reached a commit in this
+   repository: the check ran green while the offending file was still
+   untracked. */
+const files = execFileSync(
+  'git',
+  ['ls-files', '-z', '--cached', '--others', '--exclude-standard'],
+  { cwd: projectRoot, encoding: 'utf8', maxBuffer: 64e6 },
+)
   .split('\0')
   .filter(Boolean)
 
@@ -62,7 +72,10 @@ for (const relative of files) {
 }
 
 if (findings.length) {
-  console.error(`${findings.length} possible secret(s) in tracked files:\n${findings.join('\n')}`)
+  console.error(
+    `${findings.length} possible secret(s) in tracked or stageable files:\n` +
+      findings.join('\n'),
+  )
   console.error(
     '\nIf a match is a false positive, narrow the pattern in scripts/lib/secret-patterns.mjs.',
   )
@@ -71,7 +84,8 @@ if (findings.length) {
 
 console.log(
   `No credential-shaped strings in ${scanned} text file(s) ` +
-    `(${skipped.length} of ${files.length} tracked files skipped as binary or oversized).`,
+    `(${skipped.length} of ${files.length} tracked and stageable files skipped as ` +
+      'binary or oversized).',
 )
 console.log(
   'This is a coarse net over a fixed pattern list, not a substitute for ' +
