@@ -17,7 +17,13 @@
 
 export const SITE_ORIGIN = 'https://sahinalpay.com'
 
-export const CONTACT_EMAIL = 'contact@sahinalpay.com'
+/** The owner's real, monitored mailbox. Deliberately not contact@ on the
+ *  site's own domain: that address does not exist, and a published contact
+ *  address that silently bounces is worse than an unbranded one — this is the
+ *  KVKK data-controller address and the security contact, so mail sent to it
+ *  has to arrive. If a domain mailbox or a forwarder is set up later, change
+ *  this one line. */
+export const CONTACT_EMAIL = 'sahinalpay44@gmail.com'
 
 /** Social-preview card. Typographic, drawn from this site's own palette and
  *  display face by scripts/generate-og-image.py; the committed PNG is what

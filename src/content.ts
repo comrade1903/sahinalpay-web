@@ -478,7 +478,7 @@ export const content: Record<Lang, Content> = {
         {
           heading: 'Your rights and contact',
           body: [
-            'Because the only personal data involved is the browser storage described above, there is very little to access, correct, or delete beyond clearing your own browser data. For any question about this notice or your rights under KVKK, you can reach the data controller at contact@sahinalpay.com.',
+            'Because the only personal data involved is the browser storage described above, there is very little to access, correct, or delete beyond clearing your own browser data. For any question about this notice or your rights under KVKK, you can reach the data controller at sahinalpay44@gmail.com.',
           ],
         },
       ],
@@ -769,7 +769,7 @@ export const content: Record<Lang, Content> = {
         {
           heading: 'Haklarınız ve iletişim',
           body: [
-            'İşlenen tek kişisel veri yukarıda açıklanan tarayıcı depolaması olduğundan, kendi tarayıcı verinizi temizlemenin ötesinde erişilecek, düzeltilecek veya silinecek çok az şey vardır. Bu metin veya KVKK kapsamındaki haklarınızla ilgili her türlü soru için veri sorumlusuna contact@sahinalpay.com adresinden ulaşabilirsiniz.',
+            'İşlenen tek kişisel veri yukarıda açıklanan tarayıcı depolaması olduğundan, kendi tarayıcı verinizi temizlemenin ötesinde erişilecek, düzeltilecek veya silinecek çok az şey vardır. Bu metin veya KVKK kapsamındaki haklarınızla ilgili her türlü soru için veri sorumlusuna sahinalpay44@gmail.com adresinden ulaşabilirsiniz.',
           ],
         },
       ],

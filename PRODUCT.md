@@ -101,7 +101,8 @@ Undecided / pending:
 
 - The name is written `Şahin Alpay`, with Turkish diacritics, in both languages.
 - Book titles stay in their original Turkish in both languages.
-- Contact is `contact@sahinalpay.com`.
+- Contact is `sahinalpay44@gmail.com` — the owner's real mailbox, not an
+  address on the site's domain, which has none.
 - Voice: measured, plain, unsentimental. The material is serious and recent enough to
   be painful; the site states facts and lets them carry their own weight. No
   promotional register, no dramatization of the imprisonment.

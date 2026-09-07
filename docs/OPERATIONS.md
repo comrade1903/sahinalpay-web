@@ -389,13 +389,17 @@ on 2026-09-06:
 
 ### Still outside all of the above
 
-- **The production domain's DNS and its mailbox.** The code moved to
-  `sahinalpay.com` on 2026-09-08, but code is only half of it: the domain has
-  to be added to the Vercel project and its DNS pointed there, and
-  `contact@sahinalpay.com` has to be a mailbox that someone reads. Until the
-  domain is attached, every canonical and sitemap URL names a host the site is
-  not served from; until the mailbox exists, the KVKK notice and the security
-  contact name an address that bounces.
+- **The production domain's DNS.** The code moved to `sahinalpay.com` on
+  2026-09-08, but the domain still has to be added to the Vercel project with
+  its DNS pointed there. Until it is, every canonical and sitemap URL names a
+  host the site is not served from.
+
+  The contact address is settled separately and does not wait on this: it is
+  `sahinalpay44@gmail.com`, the owner's real mailbox. No `contact@` address
+  exists on the domain, and publishing one that bounces would be worse than
+  publishing an unbranded address — this is the KVKK data-controller contact
+  and the security contact. If a domain mailbox or forwarder is added later,
+  it is one line in `src/siteConfig.ts`.
 - **Whether the Vercel Toolbar is enabled on previews.** The
   Content-Security-Policy here is strict (`script-src 'self'`) and will block
   it. If the toolbar is wanted, `https://vercel.live` has to be allowed in
