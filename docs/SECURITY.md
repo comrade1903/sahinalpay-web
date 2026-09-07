@@ -109,9 +109,24 @@ Four runtime dependencies: react, react-dom, react-router-dom, motion.
   is deliberately not in CI, which checks out at depth 1 and would have to
   fetch this repository's full history to do it.
 
-  Run over the whole history on 2026-09-06, when the repository was made
-  public: 694 unique text blobs, no credential-shaped string other than two
-  synthetic fixtures of this scanner's own, described in docs/OPERATIONS.md.
+  **Known false positives are pinned to a blob, never to a path.** Two live in
+  one superseded version of the scanner's own test file. Exempting the *path*
+  would have exempted every version of it in both directions — so a real key
+  committed there later and removed again would have been permanently
+  invisible to the one scan written to find exactly that. A pin therefore
+  names a full object name plus a digest of the matched string, so any edit
+  produces a different blob that is scanned normally, and a second match
+  inside a pinned blob is still reported. Pins that stop matching anything are
+  printed as stale rather than left in place, and every suppression is listed
+  in the run's own output.
+
+  Run over the whole history on 2026-09-07, after the repository was made
+  public: 699 unique text blobs, two pinned synthetic fixtures, and no further
+  match. Stated precisely, because the distinction matters: **no further match
+  was found within the scanned scope.** That scope is a fixed pattern list
+  over text blobs reachable from local refs — it is not a guarantee that no
+  secret of any kind is present. The blob count rises with every commit; it
+  describes the run, not the repository.
 
 **Audit status as of 2026-09-05:** `npm audit` reports no advisories, after
 upgrading react-router-dom to 7.18.3 (GHSA-qwww-vcr4-c8h2) and Vite to 8.2.2,

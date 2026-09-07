@@ -365,17 +365,22 @@ and a connection string for a host that does not resolve. Both are synthetic
 fixtures for this repository's own scanner, written whole before they were
 split. Dismiss them as false positives rather than rewriting pushed history.
 
-`npm run check:secrets -- --history` reaches the same conclusion locally: 694
-unique text blobs across every ref, nothing else.
+`npm run check:secrets -- --history` reaches the same conclusion locally, and
+prints both suppressions rather than hiding them. They are pinned to blob
+`d4fdeb26` plus a digest of each matched string — not to the path, which would
+have exempted every past and future version of that file.
 
 ### What the move to public exposed — checked
 
 Making a repository public exposes its whole history, not just its tip. Done
 on 2026-09-06:
 
-- `npm run check:secrets -- --history` over every blob reachable from any ref:
-  694 unique text blobs, no credential-shaped string other than the two
-  synthetic fixtures described above.
+- `npm run check:secrets -- --history` over every blob reachable from any
+  local ref, re-run on 2026-09-07 with the exemptions narrowed from a path to
+  two exact blob+match pins: 699 unique text blobs, the two pinned synthetic
+  fixtures, and no further match. That is a statement about the scanned scope
+  — a fixed pattern list over reachable text blobs — not a guarantee that no
+  secret of any kind is present. The count grows with every commit.
 - No `.env*`, `.envrc`, `.vercel/` or key file has ever been added on any ref
   (`git log --all --diff-filter=A --name-only`). All three exist locally and
   are gitignored.

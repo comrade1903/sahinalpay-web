@@ -16,12 +16,15 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import {
+  fingerprintMatch,
+  findSecrets,
   listScannableFiles,
   scanHistory,
   scanRepository,
 } from '../scripts/lib/secret-patterns.mjs'
 
 const KEY = 'ghp_' + 'A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8'
+const OTHER_KEY = 'ghp_' + 'Z9y8X7w6V5u4T3s2R1q0P9o8N7m6L5k4J3i2'
 
 let repo: string
 
@@ -157,11 +160,67 @@ describe('scanHistory', () => {
     expect(scanHistory(repo).findings[0]).toContain('side.md')
   })
 
-  it('honours the exclude list', () => {
-    write('fixtures.md', `token: ${KEY}\n`)
+  /* The allowlist is pinned to a blob and a match, never to a path. These
+     four tests are the difference between the two: a path pin exempts every
+     version of a file, in both directions, so a real key committed to an
+     already exempt path and then removed would be permanently invisible to
+     the one scan written to find exactly that. */
+  function pin(relative: string, contents: string) {
+    write(relative, contents)
     git('add', '-A')
-    git('commit', '-qm', 'fixtures')
-    expect(scanHistory(repo, { exclude: ['fixtures.md'] }).findings).toEqual([])
+    git('commit', '-qm', `add ${relative}`)
+    const blob = execFileSync('git', ['rev-parse', `HEAD:${relative}`], {
+      cwd: repo,
+      encoding: 'utf8',
+    }).trim()
+    return findSecrets(contents).map((finding) => ({
+      blob,
+      match: fingerprintMatch(finding),
+    }))
+  }
+
+  it('suppresses exactly the pinned match in the pinned blob', () => {
+    const allow = pin('fixtures.md', `token: ${KEY}\n`)
+    const result = scanHistory(repo, { allow })
+    expect(result.findings).toEqual([])
+    expect(result.suppressed).toHaveLength(1)
+    expect(result.suppressed[0]).toContain('fixtures.md')
+    expect(result.staleAllows).toEqual([])
+  })
+
+  it('still finds a later key added to an already pinned path', () => {
+    const allow = pin('fixtures.md', `token: ${KEY}\n`)
+    /* The same path, a new commit, a different secret — the case a path-based
+       exemption would have hidden. */
+    write('fixtures.md', `token: ${KEY}\nreal: ${OTHER_KEY}\n`)
+    git('add', '-A')
+    git('commit', '-qm', 'a real key slips in')
+    fs.rmSync(path.join(repo, 'fixtures.md'))
+    git('add', '-A')
+    git('commit', '-qm', 'and is removed again')
+
+    expect(scanRepository(repo).findings, 'the tip is clean').toEqual([])
+    const result = scanHistory(repo, { allow })
+    expect(result.findings).toHaveLength(2)
+    for (const finding of result.findings) expect(finding).toContain('fixtures.md')
+  })
+
+  it('still finds a different match inside a pinned blob', () => {
+    const allow = pin('fixtures.md', `token: ${KEY}\nother: ${OTHER_KEY}\n`)
+    const result = scanHistory(repo, { allow: allow.slice(0, 1) })
+    expect(result.findings).toHaveLength(1)
+    expect(result.suppressed).toHaveLength(1)
+  })
+
+  it('reports a pin that matches nothing rather than keeping it silently', () => {
+    write('clean.md', 'nothing here\n')
+    git('add', '-A')
+    git('commit', '-qm', 'clean')
+    const result = scanHistory(repo, {
+      allow: [{ blob: '0'.repeat(40), match: 'deadbeefdeadbeef' }],
+    })
+    expect(result.findings).toEqual([])
+    expect(result.staleAllows).toHaveLength(1)
   })
 
   it('finds nothing in a clean history', () => {

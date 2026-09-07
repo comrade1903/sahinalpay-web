@@ -7,6 +7,7 @@
  * Secret Scanning and Push Protection — see docs/SECURITY.md.
  */
 import { execFileSync, execSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -71,6 +72,22 @@ export function findSecrets(contents) {
   }
   findings.sort((a, b) => a.line - b.line || a.column - b.column)
   return findings
+}
+
+/**
+ * A stable identity for one finding, independent of where it was found.
+ *
+ * The digest — rather than the matched text — is what an allowlist stores, so
+ * pinning a known false positive never writes the credential shape back into
+ * a scanned file. Deliberately covers the label too: were a pattern ever
+ * renamed, its pins would stop matching and be reported as stale instead of
+ * silently continuing to suppress something else.
+ *
+ * @param {{ label: string, matched: string }} finding
+ * @returns {string}
+ */
+export function fingerprintMatch({ label, matched }) {
+  return createHash('sha256').update(`${label}\u0000${matched}`).digest('hex').slice(0, 16)
 }
 
 const NUL = String.fromCharCode(0)
@@ -187,12 +204,26 @@ export function scanRepository(root, { exclude = [] } = {}) {
  * repository's full history to scan it would cost far more than the check is
  * worth on every push. Run it when visibility changes, or after a scare.
  *
+ * `allow` pins known false positives to an exact blob and an exact match, as
+ * `{ blob, match }` where `blob` is the full object name and `match` is a
+ * `fingerprintMatch` digest. Pinning by path instead would exempt every
+ * version of that path, past and future — so a real key added to an already
+ * exempt file, and later removed, would stay hidden in the history the
+ * exemption was written to search. A blob name is its content, so a changed
+ * file is a different blob and is scanned; a second, different match inside
+ * an already pinned blob has a different fingerprint and is likewise
+ * reported.
+ *
+ * Returns `suppressed` (the pins that fired) and `staleAllows` (the pins that
+ * matched nothing) so an allowlist cannot quietly rot into a blanket.
+ *
  * @param {string} root
- * @param {{ exclude?: string[] }} [options]
- * @returns {{ findings: string[], scanned: number }}
+ * @param {{ allow?: { blob: string, match: string }[] }} [options]
+ * @returns {{ findings: string[], scanned: number, suppressed: string[], staleAllows: string[] }}
  */
-export function scanHistory(root, { exclude = [] } = {}) {
-  const excluded = new Set(exclude)
+export function scanHistory(root, { allow = [] } = {}) {
+  const allowed = new Map(allow.map((pin) => [`${pin.blob}:${pin.match}`, pin]))
+  const used = new Set()
   const listing = execSync(
     "git rev-list --objects --all | " +
       "git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)'",
@@ -200,6 +231,7 @@ export function scanHistory(root, { exclude = [] } = {}) {
   )
 
   const findings = []
+  const suppressed = []
   const seen = new Set()
   let scanned = 0
 
@@ -224,14 +256,22 @@ export function scanHistory(root, { exclude = [] } = {}) {
     }
     if (looksBinary(contents)) continue
     scanned += 1
-    if (excluded.has(filePath)) continue
 
     for (const finding of findSecrets(contents)) {
-      findings.push(
-        `${filePath}@${sha.slice(0, 8)}:${finding.line}: possible ${finding.label}`,
-      )
+      const key = `${sha}:${fingerprintMatch(finding)}`
+      const where = `${filePath}@${sha.slice(0, 8)}:${finding.line}: possible ${finding.label}`
+      if (allowed.has(key)) {
+        used.add(key)
+        suppressed.push(where)
+        continue
+      }
+      findings.push(where)
     }
   }
 
-  return { findings, scanned }
+  const staleAllows = [...allowed.keys()]
+    .filter((key) => !used.has(key))
+    .map((key) => `${key.slice(0, 8)}\u2026:${key.slice(41)}`)
+
+  return { findings, scanned, suppressed, staleAllows }
 }
