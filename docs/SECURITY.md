@@ -137,10 +137,24 @@ exists.
 ## Automation
 
 `.github/workflows/claude.yml` runs an AI agent when a comment mentions
-`@claude`. It is gated on `author_association` so only accounts that can
-already push can trigger it. `claude-code-review.yml` loads a plugin from an
-external repository at run time — Anthropic's own, but still a moving
-dependency inside a job with read access here.
+`@claude`. It is gated on `author_association`, **paired to the event** so the
+account checked is always the author of the text that becomes the prompt: the
+commenter for `issue_comment` and `pull_request_review_comment`, the reviewer
+for `pull_request_review`, the issue author for `issues`.
+
+The first version ORed those associations across all four events, so
+`github.event.issue.author_association` — the person who *opened* the issue —
+also satisfied the gate during a comment event. An outside account commenting
+`@claude` on an issue the owner had opened therefore passed it. It was not
+exploitable: `claude-code-action` re-checks the actor's write permission
+against the API before acting, and rejects an outside account there. The outer
+gate is defence in depth, and it now measures the right person. The three
+scenarios that flipped are evaluated against GitHub's own expression library
+in the commit that fixed it.
+
+`claude-code-review.yml` loads a plugin from an external repository at run
+time — Anthropic's own, but still a moving dependency inside a job with read
+access here.
 
 ## Content-production tooling
 
