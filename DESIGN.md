@@ -390,12 +390,14 @@ base because they are set in the reading face.
 
 ### One-Offs
 
-Six values are deliberately outside every scale, each with a reason recorded at its
+Four values are deliberately outside every scale, each with a reason recorded at its
 declaration: the root size (18px / 17px), the **wordmark** (1.4rem — a brand lockup sized
-to the 72px header), the **pull quote** (`clamp(1.5rem, 3vw, 2.1rem)` — sized against the
-measure it interrupts), the **fact number** (`clamp(2.1rem, 5vw, 2.8rem)` — a figure, not
-a heading), the **article body paragraph** (`1em`, inheriting the reader's scaled base),
-and the **drop cap** (`3.4em`, relative to the paragraph it opens).
+to the 72px header), the **article body paragraph** (`1em`, inheriting the reader's scaled
+base), and the **drop cap** (`3.4em`, relative to the paragraph it opens).
+
+Two more stood here until the About page was rewritten as a first-person narrative: the
+pull quote and the fact number. Both were the only users of their rules, so the rules went
+with the markup rather than waiting to be reused.
 
 ### Named Rules
 
