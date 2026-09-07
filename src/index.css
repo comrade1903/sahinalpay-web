@@ -1347,6 +1347,63 @@ main:focus {
   object-fit: cover;
 }
 
+.bio-subtitle {
+  font-family: var(--headline);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 32ch;
+  margin-top: var(--space-3);
+}
+.prose .bio-editorial-note {
+  font-family: var(--label);
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+.bio-contents ol {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: grid;
+  gap: 0;
+}
+.bio-contents a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0.5rem;
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+}
+.bio-contents a:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+.bio-story {
+  padding-top: 0;
+}
+.bio-story .container {
+  max-width: 72ch;
+}
+.bio-chapter {
+  scroll-margin-top: 100px;
+}
+.bio-chapter + .bio-chapter {
+  margin-top: var(--space-5);
+}
+.bio-chapter h2 {
+  font-family: var(--headline);
+  font-size: var(--text-title-sm);
+  line-height: 1.35;
+  margin-bottom: var(--space-3);
+  text-wrap: balance;
+}
+
 /* One-off: a pull quote is the author's own words lifted out of the
    column, so it is sized against the reading measure it interrupts —
    above --text-lead, below --text-headline — not against a UI role. */
@@ -1492,9 +1549,6 @@ main:focus {
   font-size: var(--text-body-sm);
   line-height: 1.7;
   color: var(--ink-soft);
-}
-.books-preview-cta {
-  margin-top: var(--space-4);
 }
 
 /* ---------- Works (books) ---------- */
@@ -2000,6 +2054,7 @@ a.archive-row:hover {
 .archive-row-meta {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.5rem;
   flex-shrink: 0;
   font-family: var(--label);
@@ -2304,7 +2359,7 @@ a.archive-row:hover .archive-row-title {
 .error-screen-details {
   margin-top: 2rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--text-body-sm);
 }
 
 .error-screen-details summary {

@@ -494,87 +494,42 @@ function AboutPage({ lang }: { lang: Lang }) {
       url: pageUrl(paths[lang].about!),
     }),
   )
-  const previewBooks = t.books.books.slice(0, 3)
   return (
     <>
       <section className="section section-solo">
         <div className="container bio-grid">
           <Reveal className="bio-aside">
             <AuthorAvatar className="about-avatar" />
-            <p className="kicker">{t.about.kicker}</p>
             <h1 className="section-title">{t.about.title}</h1>
-            <blockquote className="pullquote">
-              {t.about.quote}
-              <cite>Şahin Alpay</cite>
-            </blockquote>
+            <p className="bio-subtitle">{t.about.subtitle}</p>
           </Reveal>
 
           <Reveal className="prose" delay={0.1}>
             <p className="lead">{t.about.lead}</p>
-            <div className="facts" role="list">
-              {t.about.facts.map((f) => (
-                <div role="listitem" key={f.label}>
-                  <div className="fact-num">{f.num}</div>
-                  <div className="fact-label">{f.label}</div>
-                </div>
-              ))}
-            </div>
+            <p className="bio-editorial-note">{t.about.editorialNote}</p>
+            <nav className="bio-contents" aria-label={t.about.contentsLabel}>
+              <ol>
+                {t.about.sections.map((section) => (
+                  <li key={section.id}>
+                    <a href={`#${section.id}`}>{section.title}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
           </Reveal>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <Reveal>
-            <p className="kicker">{lang === 'tr' ? 'Kişisel Tarih' : 'Personal History'}</p>
-            <h2 className="section-title">
-              {lang === 'tr' ? 'Bir Hayatın İzinde' : 'A Life in Stages'}
-            </h2>
-          </Reveal>
-          <div className="timeline">
-            {t.about.paragraphs.map((p, i) => (
-              <Reveal as="div" key={t.about.eras[i]} className="timeline-item" delay={i * 0.08}>
-                <span className="timeline-marker" aria-hidden="true" />
-                <div className="timeline-card">
-                  <span className="timeline-era">{t.about.eras[i]}</span>
-                  <p>{p}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      <article className="section bio-story" aria-label={t.about.kicker}>
+        <div className="container container-narrow prose">
+          {t.about.sections.map((section) => (
+            <section className="bio-chapter" id={section.id} key={section.id}>
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </section>
+          ))}
         </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <Reveal>
-            <p className="kicker">{t.books.kicker}</p>
-            <h2 className="section-title">
-              {lang === 'tr' ? 'Seçili Bibliyografya' : 'Selected Bibliography'}
-            </h2>
-          </Reveal>
-          <ul className="works-grid" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {previewBooks.map((b, i) => (
-              <Reveal as="li" key={`${b.year}-${b.title}`} className="book" delay={i * 0.06}>
-                <span className="book-spine" aria-hidden="true" />
-                <span className="book-year">{b.year}</span>
-                <h3 className="book-title">
-                  <em lang="tr">{b.title}</em>
-                </h3>
-                <p className="book-desc">{b.desc}</p>
-              </Reveal>
-            ))}
-          </ul>
-          <div className="books-preview-cta">
-            <Link to={paths[lang].books!} className="btn btn-primary">
-              {lang === 'tr' ? 'Tüm Eserleri Görüntüle' : 'View all works'}
-              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
-                arrow_forward
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      </article>
     </>
   )
 }
@@ -610,8 +565,8 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
           <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
-        <Reveal delay={0.05} className="books-cta">
-          {data.externalUrl ? (
+        {data.externalUrl && (
+          <Reveal delay={0.05} className="books-cta">
             <a
               className="btn btn-primary"
               href={data.externalUrl}
@@ -623,15 +578,8 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
             >
               {data.externalLabel}
             </a>
-          ) : (
-            <>
-              <span className="btn btn-ghost btn-disabled" aria-disabled="true">
-                {data.externalLabel}
-              </span>
-              <span className="archive-empty">{data.externalPendingNote}</span>
-            </>
-          )}
-        </Reveal>
+          </Reveal>
+        )}
 
         <ul className="books-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {data.books.map((b, i) => (
@@ -690,10 +638,7 @@ function ChroniclePage({ lang }: { lang: Lang }) {
   const location = useLocation()
   usePageMeta({
     title: `${lang === 'tr' ? 'Kronik' : 'Chronicle'} — Şahin Alpay`,
-    description:
-      lang === 'tr'
-        ? 'Şahin Alpay’ın yayımlanmış sesi, yıl yıl, Türkiye’nin olaylarının karşısında.'
-        : "Şahin Alpay's published voice, year by year, against Turkey's events.",
+    description: content[lang].chronicleIntro,
     alternates: pageAlternates(location.pathname),
   })
   const { data, fallback } = useArchiveGate(lang)
@@ -743,8 +688,8 @@ function LoadedChronicle({
           <h1 className="section-title">{lang === 'tr' ? 'Kronik' : 'Chronicle'}</h1>
           <p className="lead">
             {lang === 'tr'
-              ? `${firstYear}–${lastYear} arasında ${total.toLocaleString('tr')} yazı. 2016’da bir kalem susturuldu; grafik bunu gösteriyor.`
-              : `${total.toLocaleString('en')} pieces between ${firstYear} and ${lastYear}. In 2016 a pen was silenced — the chart shows it.`}
+              ? `${firstYear}–${lastYear} arasında ${total.toLocaleString('tr')} yazı. ${content[lang].chronicleIntro}`
+              : `${total.toLocaleString('en')} pieces between ${firstYear} and ${lastYear}. ${content[lang].chronicleIntro}`}
           </p>
         </Reveal>
 

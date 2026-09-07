@@ -26,7 +26,7 @@ displacing the primary one:
 ## Product Purpose
 
 A single-page bilingual (Turkish/English) personal and political archive for Şahin
-Alpay (b. 1944, Ayvalık) — political scientist, author and journalist. It gathers
+Alpay (b. 1944, Istanbul, to an Ayvalık family) — political scientist, author and journalist. It gathers
 work that is otherwise scattered across defunct newspaper sites, paywalls, and
 scanned periodicals into one durable, readable place.
 

@@ -570,11 +570,19 @@ The system's signature surface, and the one place it lets print show through:
 - Body paragraphs in Literata at `1.72` with old-style figures, capped at the reading
   measure
 
+### The Autobiographical Introduction
+
+The About page uses a portrait and title beside an introduction and chapter links,
+followed by a single reading column capped at 72ch. Chapters use Literata and the
+existing prose spacing, with a 100px anchor offset to clear the sticky header.
+The first-person text is labelled as a new editorial introduction based on the
+memoirs and essays. It carries no attributed pull quote or promotional statistics.
+The narrative leads directly to the footer. Book cards remain on the dedicated Books page.
+
 ### The Chronicle Spine
 
 A year-by-year timeline: a 2px left rail with a `4rem` year gutter (`3rem` below 560px)
-at every width — the alternating centre spine belongs to `.timeline` on the About page,
-not here. Each year carries a proportional bar of published output and a count.
+at every width. Each year carries a proportional bar of published output and a count.
 
 **Known gap — the axis is not continuous.** Only years that carry an item or an event
 are rendered; a year with neither is omitted, so the spine jumps. A continuous axis
@@ -583,9 +591,9 @@ behaviour for a while as though it had shipped — it had not.
 
 The design problem the withdrawn work was aimed at is still open and still real: an
 omitted year reads as "he did not write", which is the one thing this page must never
-imply about material that simply has not been recovered. Whatever replaces the current
-axis has to keep that distinction visible. Until it does, this section documents what
-the code does, not what it should do.
+imply about material that simply has not been recovered. The page introduction now
+explicitly distinguishes archival gaps from years without writing. The axis itself
+still omits empty years.
 
 ### The Coverage Strip
 

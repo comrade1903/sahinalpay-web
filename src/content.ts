@@ -65,17 +65,16 @@ export interface Content {
   }
   hubKicker: string
   hubTitle: string
+  chronicleIntro: string
   hub: { key: PageKey; title: string; description: string }[]
   about: {
     kicker: string
     title: string
-    quote: string
+    subtitle: string
     lead: string
-    paragraphs: string[]
-    /** One short headline per paragraph, same length/order — used as the
-     *  personal-history timeline's era labels. */
-    eras: string[]
-    facts: { num: string; label: string }[]
+    editorialNote: string
+    contentsLabel: string
+    sections: { id: string; title: string; paragraphs: string[] }[]
   }
   columns: OutletArchiveSection
   analyses?: OutletArchiveSection
@@ -144,14 +143,14 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '2025',
       title: 'Hikâyemin Sonu',
-      desc: 'The closing volume of his memoirs — reflections on exile, conviction, and the price of dissent.',
+      desc: 'The second memoir follows my years at Zaman, the hopes and disappointments of the 2000s, my imprisonment in Silivri and my last months with Fatma. It returns to the decisions whose consequences reached into our family life.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
     },
     {
       year: '2024',
       title: 'Bir Hikâyem Var',
-      desc: 'A life recounted: from a boyhood in Ayvalık to the newsrooms, lecture halls, and cells that shaped a public voice.',
+      desc: 'From my childhood in Istanbul and Ayvalık through revolutionary politics and refuge in Sweden to life in the newsroom. The first memoir traces how my ideas changed, with Fatma, family and friends at the heart of the account.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
     },
@@ -186,14 +185,14 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '2025',
       title: 'Hikâyemin Sonu',
-      desc: 'Anılarının son cildi — sürgün, inanç ve muhalefetin bedeli üzerine düşünceler.',
+      desc: 'Zaman’da geçen yıllar, 2000’lerin umutları ve hayal kırıklıkları, Silivri, Fatma’yla son aylarımız. İkinci kitapta, sonuçları aile hayatımıza kadar uzanan tercihlerime ve yaşadıklarıma yeniden bakıyorum.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
     },
     {
       year: '2024',
       title: 'Bir Hikâyem Var',
-      desc: 'Anlatılan bir hayat: Ayvalık’taki çocukluktan, kamusal bir sesi biçimlendiren yazı işlerine, dersliklere ve hücrelere.',
+      desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınışımdan gazete yıllarına. İlk kitapta, fikirlerimin nasıl değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerini de arıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
     },
@@ -230,7 +229,7 @@ export const content: Record<Lang, Content> = {
   en: {
     htmlTitle: 'Şahin Alpay — Political Scientist & Author',
     htmlDescription:
-      'Şahin Alpay — political scientist, author and journalist. Columns, books, and the story of a life spent defending a free press.',
+      'Şahin Alpay’s writing archive, memoirs and life story: from Istanbul and Ayvalık to Sweden, journalism and teaching.',
     nav: [
       { key: 'about', label: 'About' },
       { key: 'columns', label: 'Columns' },
@@ -246,19 +245,20 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Political Scientist · Author · Journalist',
       intro:
-        'A life spent in ideas and letters — and in the unyielding defence of a free press.',
+        'Trying to understand Turkey led me to question my own ideas. These pages bring together my writing and the life behind it.',
       ctaStory: 'Who is Şahin Alpay?',
-      ctaWorks: 'Read his columns',
+      ctaWorks: 'Read my columns',
       portraitAlt: 'Portrait of Şahin Alpay',
-      portraitCaption: 'Şahin Alpay · b. 1944, Ayvalık',
+      portraitCaption: 'Şahin Alpay · b. 1944, Istanbul',
     },
     hubKicker: 'Explore',
     hubTitle: 'All sections',
+    chronicleIntro: 'My writing alongside the events of its time. Gaps in this archive do not necessarily mean that I stopped writing.',
     hub: [
       {
         key: 'about',
         title: 'Who is Şahin Alpay?',
-        description: 'His life, education and public career.',
+        description: 'The people, experiences and changing ideas behind my writing.',
       },
       {
         key: 'columns',
@@ -283,39 +283,114 @@ export const content: Record<Lang, Content> = {
       {
         key: 'books',
         title: 'Books',
-        description: 'Published books and memoirs.',
+        description: 'Two volumes of memoirs, interviews and studies of politics.',
       },
       {
         key: 'chronicle',
         title: 'Chronicle',
-        description: 'His published voice, year by year, against the events he wrote through.',
+        description: 'My writing alongside the events of its time, year by year.',
       },
     ],
     about: {
-      kicker: 'The Life',
-      title: 'Who is Şahin Alpay?',
-      quote:
-        'To write honestly is not a privilege of good times. It is a duty in bad ones.',
-      lead:
-        'For more than half a century, Şahin Alpay has read Turkey to itself and to the world — as scholar, columnist, and stubborn democrat.',
-      paragraphs: [
-        'Born in Ayvalık in 1944, he studied at the Ankara University Faculty of Political Sciences before completing a doctorate in political science at Stockholm University. His years abroad, part study and part exile, shaped a conviction he never surrendered: that open debate is the oxygen of a healthy republic.',
-        'He carried that conviction into the newsrooms of Cumhuriyet, Sabah, Milliyet and Zaman, and into lecture halls at Bahçeşehir, Boğaziçi and Princeton. His columns became a fixed point for readers seeking clarity amid noise — measured, comparative, and unafraid of inconvenient conclusions.',
-        'After the July 15, 2016 coup attempt, he was detained and held for roughly twenty months. Turkey’s Constitutional Court and the European Court of Human Rights later ruled that his detention had violated his fundamental rights, and he was released in 2018 — a case that became emblematic of press freedom in Turkey.',
-      ],
-      eras: ['Education & Exile', 'Journalism & Academia', 'Detention & Vindication'],
-      facts: [
-        { num: '50+', label: 'Years in public life' },
-        { num: '5', label: 'Newspapers & outlets' },
-        { num: '3', label: 'Universities taught' },
-        { num: '∞', label: 'Columns written' },
+      "kicker": "Life story",
+      "title": "Who is Şahin Alpay?",
+      "subtitle": "Looking back, I wanted to write about the people I shared my life with as well as the ideas I held.",
+      "lead": "Şahin Alpay’s life from Istanbul and Ayvalık to Sweden, journalism and teaching; his changing ideas, imprisonment in Silivri and life with Fatma.",
+      "editorialNote": "Written for this website in the first person, drawing on Şahin Alpay’s memoirs and essays. It contains no quotations from his books.",
+      "contentsLabel": "On this page",
+      "sections": [
+        {
+          "id": "a-life-in-writing",
+          "title": "The life behind my writing",
+          "paragraphs": [
+            "Some readers know me through my newspaper columns. Others met me in a university classroom; some first heard my name when I was arrested. All of these belong to my life. But if I introduce myself only by listing the newspapers I worked for and the ideas I defended, much of the story will be missing. I also need to speak of Fatma, my family and friends, and what my decisions meant for them.",
+            "For many years I concerned myself with Turkey’s problems. I wanted it to become a freer, fairer country, where people could live without the constant struggle to make ends meet. My views on how to achieve that changed. I moved away from ideas I had once considered beyond doubt. Looking back, I can understand my youthful enthusiasm without approving of every decision it led me to make. I tried to keep that distance while writing my memoirs. The things I find uncomfortable to say about myself belong in the story too."
+          ]
+        },
+        {
+          "id": "istanbul-ayvalik",
+          "title": "Born in Istanbul, rooted in Ayvalık",
+          "paragraphs": [
+            "I was born in Istanbul on 18 April 1944, to Sabiha and Ahmet Alpay. My family’s history reaches through Ayvalık to the other side of the Aegean, to Lesbos and Serres. Ayvalık became my hometown. My ties to it lasted while I was at school in Istanbul and, later, living abroad. Migration, displacement and the effort to establish a new life were part of the family history I inherited.",
+            "Our childhood was not free of difficulties. My father’s illness deeply affected our family life. My mother worked hard to keep us together and took great care over our education. My sisters and brother helped bring me up too. My love of reading and my confidence owe much to them. The help my brother would later give me at a difficult moment taught me still more about family loyalty. I cannot describe the course of my life without acknowledging what these people made possible."
+          ]
+        },
+        {
+          "id": "education",
+          "title": "School and a wider world",
+          "paragraphs": [
+            "I attended Nilüfer Hatun Primary School in Nişantaşı, the English High School for Boys and then Robert College. An AFS scholarship took me to the Webb School in California for the 1961–1962 school year. I was seventeen. Joining the everyday life of people outside my familiar surroundings widened my understanding of the world. When I returned, Turkey’s poverty and lack of freedom occupied my thoughts more than before.",
+            "I gave up the opportunity to study at Columbia University on a scholarship and went to Ankara’s Faculty of Political Sciences, known as Mülkiye. Fatma had much to do with that choice. I began in 1963 and graduated in 1967. Those years were about more than lectures. I acted in plays, served in the student association and became involved in politics. I met many friends whose lives would later take different directions from mine. We had our adult lives ahead of us, and considerable confidence in our ability to change our country."
+          ]
+        },
+        {
+          "id": "youth",
+          "title": "The certainties of youth",
+          "paragraphs": [
+            "My search for an explanation of Turkey’s underdevelopment drew me towards the left. I was first influenced by the Workers’ Party of Turkey. In time I adopted more rigid interpretations of Marxism and came to believe that revolution would solve society’s problems. I joined the Aydınlık circle and worked with Doğu Perinçek. How much of our argument reflected the realities of the country, and how much the theories we had read? I would often ask myself that later.",
+            "In 1971 I joined the Palestinian resistance movement and spent time in camps in Syria and Lebanon. I had left my wife and our young daughter behind. Facing the pain that decision caused my family was difficult. I had doubts about the movement I belonged to, yet struggled to leave it. Eventually I returned to Turkey. Deciding to withdraw from revolutionary politics also meant questioning the role I had assigned myself. When I remember those years, I consider both my own responsibility and the political circumstances. Leaving either out would make the account incomplete."
+          ]
+        },
+        {
+          "id": "sweden",
+          "title": "Starting again in Sweden",
+          "paragraphs": [
+            "I was wanted during the military rule that followed the March 1971 intervention. With my brother’s help, I left Turkey in 1972 and sought refuge in Sweden, a country where I had never imagined living. I needed to learn a language, find work and discover whether I could continue my studies. Above all, I wanted to be reunited with Fatma and Elvan. We had been apart for a long time. Their arrival in Stockholm in 1974 remains one of the great joys of my life.",
+            "I joined political science research at Stockholm University. The opportunity my teacher Tomas Hammar gave me changed my future. I studied the social and political lives of migrants from Turkey and completed my doctorate in 1981. While doing research, I was also getting to know the country around me. I saw how social protections, democratic institutions and personal freedoms could work together. That experience contributed greatly to my reconsideration of the ideas I had adopted when I was young.",
+            "During those years my thinking moved towards social liberalism. Reducing inequality still mattered to me; I was looking for a political order that would do so while protecting individual freedom. Returning to Turkey was a new beginning in that sense too. I brought home a doctorate and a changed outlook. Not all my old friends would welcome the change."
+          ]
+        },
+        {
+          "id": "journalism",
+          "title": "Finding my place in journalism",
+          "paragraphs": [
+            "When I returned in 1981, I hoped to work at a university. That did not happen immediately. I first worked on encyclopedias, then joined Cumhuriyet at Hasan Cemal’s invitation towards the end of 1982. Working with books, research and intellectual debates from abroad, and bringing them to newspaper readers, suited me. But finding a place in a newsroom does not mean agreeing with everyone in it. My years at Cumhuriyet taught me that as well.",
+            "I left the newspaper in 1992. I worked at TÜSES and briefly advised the Republican People’s Party. Sabah and Milliyet followed. On the Entellektüel Bakış page I gave space to scholars, writers and thinkers from different countries. Interviews offered a chance to learn how someone else thought. I was interested in what observers of Turkey could see, and what they missed, depending on whether they looked from within the country or from outside. Some of these conversations later appeared in the Türkiye’nin Tanıkları books.",
+            "There were times in my journalism career when I lost my job and had to find another. Setting the names of my employers beside one another may suggest an orderly professional path. It did not look that way while I was living it. Help from a friend, an unexpected offer, a disagreement or the need to earn a living could determine what came next."
+          ]
+        },
+        {
+          "id": "teaching",
+          "title": "In the classroom and on the page",
+          "paragraphs": [
+            "I never entirely lost touch with academic work. I taught at Boğaziçi and was a visiting professor at Princeton in 1998. In 2001 I joined Bahçeşehir University, where I taught politics until 2015. Comparing Turkey’s political life with other countries’ experiences was a way of thinking I used in both my teaching and my writing. Discovering how an apparently distinctively Turkish problem had been addressed elsewhere could open up a discussion.",
+            "I began writing columns for Zaman in 2002. I worked at the university and contributed from outside the newspaper. My English columns later appeared in Today’s Zaman. Television programmes also allowed me to reach different audiences. In my memoirs I discuss my reasons for writing for Zaman. I thought I could engage a religious readership in a conversation about liberal democracy and wanted to share my views. I needed to explain both the expectations behind that choice and the problems I came to see."
+          ]
+        },
+        {
+          "id": "ideas",
+          "title": "Accounting for hopes and mistakes",
+          "paragraphs": [
+            "I placed great importance on Turkey’s aim of joining the European Union. I believed it would strengthen the rule of law and extend rights and freedoms. That was why I supported the AKP’s early reforms. My support rested on the prospect of a more democratic Turkey. As the government moved away from that course, my criticism grew. I argued that winning an election did not exempt those in power from legal restraint or public scrutiny.",
+            "My view of the Gülen movement was also influenced by a search for an interpretation of religion compatible with pluralist democracy. But my opportunities to know the movement were limited. Beyond the impressions I gained from the people I encountered, I did not know its internal workings. That limit needs to be stated in any account of my earlier judgments. I try to distinguish what I knew at the time, what I did not know, and how much my hopes shaped my assessment.",
+            "Looking back over my public life, I cannot say that the Turkey I wished for has come into being. Some of my expectations were disappointed. Pretending that I had never held them would not be honest either. My columns record what I thought at different times. My memoirs gave me room to explain the circumstances in which those views developed and how experience changed them. Examining oneself does not prevent every mistake; I still believe it is necessary for an honest account of the past."
+          ]
+        },
+        {
+          "id": "silivri",
+          "title": "Silivri and the return home",
+          "paragraphs": [
+            "I was taken into custody on 27 July 2016 and remanded in prison on 31 July. I was seventy-two. I spent roughly twenty months in Silivri. Freedom, a subject I had written about for so long, now meant a personal deprivation that shaped every hour. I was separated from my family. My health, my loved ones outside and the uncertainty of the proceedings occupied my thoughts.",
+            "I read, kept notes and wrote letters when I was allowed to do so. The support of my family and friends mattered enormously in sustaining me. I have not forgotten the kindness of people whose views differed from mine. Those experiences informed my later writing about friendship. More than once in my life I have seen that standing by someone in difficulty and agreeing with their politics are separate things.",
+            "Turkey’s Constitutional Court and the European Court of Human Rights found violations of my rights in connection with my detention. I left prison in March 2018 and spent a further period under house arrest. Being with my family again brought great happiness. But coming home did not remove all the consequences of what had happened. The proceedings continued, while we tried to resume everyday life together after the long separation."
+          ]
+        },
+        {
+          "id": "fatma-memoirs",
+          "title": "Fatma and what I wanted to remember",
+          "paragraphs": [
+            "I met Fatma as a child. We married in 1965. Our daughter Elvan and son Acar were born; years later our granddaughters Defne and Leyla joined the family. While my political views changed and my working life moved between institutions, Fatma had her own judgments and convictions. She did not agree with everything I thought. That is one reason she has such a large place in my memoirs: I wanted to make room for her distinct personality, the times she challenged me, and what she did for our family.",
+            "Our marriage contained difficulties as well as happiness. My decisions affected others; Fatma and the children bore some of the costs. Thinking about this is one of the hardest parts of recounting the past. After my release from Silivri, Fatma and I had only about six more months together. She died on 6 October 2018. My wish to complete my memoirs grew stronger. I wanted to write for our family, so that our children and grandchildren could know us more closely.",
+            "In Bir Hikâyem Var I describe the world I grew up in, my youth, Sweden and my earlier years in journalism. Hikâyemin Sonu returns to the 2000s, Zaman, Silivri and my last months with Fatma. Behind the people and decisions mentioned briefly here are long relationships, conversations and doubts. Much of my life is in those details. I would like readers to know the person behind the columns, including the people he loved, the mistakes he made and what he learned."
+          ]
+        }
       ],
     },
     columns: {
       kicker: 'Columns',
       title: 'Columns',
       intro:
-        "English-language newspaper columns written for Today's Zaman between 2007 and 2012. For the Turkish-press columns, switch to the Turkish site.",
+        "My English columns for Today's Zaman, on Turkey and the wider world. These articles record the questions I asked and the judgments I reached between 2007 and 2012; my Turkish columns are in the Turkish archive.",
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       outlets: [{ outlet: "Today's Zaman", items: [] }],
     },
@@ -323,7 +398,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Analyses',
       title: 'Analyses',
       intro:
-        'Magazine and newspaper analyses, grouped by source as the archive is expanded.',
+        'These early essays show the ideas I argued for at the time. Read together, they also offer a way into how my political thinking changed.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       outlets: [
         { outlet: 'Forum', items: [] },
@@ -334,7 +409,7 @@ export const content: Record<Lang, Content> = {
     interviews: {
       kicker: 'Interviews',
       title: 'Interviews',
-      intro: 'Published interviews and conversations with Şahin Alpay.',
+      intro: 'In these interviews, questions about my writing open into conversations about my life, political choices and what experience taught me.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       items: [],
     },
@@ -342,7 +417,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Academic Articles',
       title: 'Academic Articles',
       intro:
-        'The doctoral dissertation, journal articles, book chapters and books.',
+        'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
       items: [],
     },
@@ -350,7 +425,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Selected Works',
       title: 'Books',
       intro:
-        'His published books, in the original Turkish. Full texts and summaries are hosted externally.',
+        'In my memoirs I return to the life behind the columns. Alongside them are interviews and studies of the political questions that occupied me over the years. All books are in Turkish.',
       externalLabel: 'View book summaries ↗',
       externalUrl: '',
       externalPendingNote: 'External link to be added.',
@@ -364,7 +439,7 @@ export const content: Record<Lang, Content> = {
       booksLabel: 'Books',
       backToTop: 'Back to top ↑',
       rights: 'All rights reserved.',
-      tagline: 'A personal & political legacy.',
+      tagline: 'A life remembered, a body of writing shared.',
       cookieLabel: 'Cookie Policy',
     },
     cookieNotice: {
@@ -441,7 +516,7 @@ export const content: Record<Lang, Content> = {
   tr: {
     htmlTitle: 'Şahin Alpay — Siyaset Bilimci ve Yazar',
     htmlDescription:
-      'Şahin Alpay — siyaset bilimci, yazar ve gazeteci. Köşe yazıları, analizler, söyleşiler, akademik makaleler ve kitapları.',
+      'Şahin Alpay’ın yazı arşivi, anı kitapları ve yaşam öyküsü: İstanbul ve Ayvalık’tan İsveç’e, gazeteciliğe ve üniversiteye.',
     nav: [
       { key: 'about', label: 'Kimdir?' },
       { key: 'columns', label: 'Köşe Yazıları' },
@@ -457,19 +532,20 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Siyaset Bilimci · Yazar · Gazeteci',
       intro:
-        'Fikirlere ve yazıya adanmış — ve özgür basının ödünsüz savunusuna vakfedilmiş bir ömür.',
+        'Türkiye’yi anlamaya çalışırken kendi fikirlerimi de sorguladım. Bu sayfalarda o yılların yazıları ve hayatımdan izler var.',
       ctaStory: 'Şahin Alpay Kimdir?',
-      ctaWorks: 'Köşe yazılarını okuyun',
+      ctaWorks: 'Yazılarımı okuyun',
       portraitAlt: 'Şahin Alpay’ın portresi',
-      portraitCaption: 'Şahin Alpay · d. 1944, Ayvalık',
+      portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
     },
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
+    chronicleIntro: 'Yazılarım, yazıldıkları yılların olaylarıyla yan yana. Arşivdeki boşluklar, o yıllarda yazmadığım anlamına gelmiyor.',
     hub: [
       {
         key: 'about',
         title: 'Şahin Alpay Kimdir?',
-        description: 'Hayatı, eğitimi ve kamusal kariyeri.',
+        description: 'Yazılarımın gerisindeki insanlar, yaşadıklarım ve değişen düşüncelerim.',
       },
       {
         key: 'columns',
@@ -484,7 +560,7 @@ export const content: Record<Lang, Content> = {
       {
         key: 'interviews',
         title: 'Söyleşiler',
-        description: 'Kendisiyle yapılan söyleşi ve röportajlar.',
+        description: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       },
       {
         key: 'academic',
@@ -494,39 +570,114 @@ export const content: Record<Lang, Content> = {
       {
         key: 'books',
         title: 'Kitaplar',
-        description: 'Yayımlanmış kitapları ve kitap özetleri.',
+        description: 'İki cilt anı, söyleşiler ve siyaset üzerine çalışmalar.',
       },
       {
         key: 'chronicle',
         title: 'Kronik',
-        description: 'Yayımlanmış sesi, yıl yıl, içinde yazdığı olayların karşısında.',
+        description: 'Yazılarım ve yazıldıkları dönemin olayları, yıl yıl.',
       },
     ],
     about: {
-      kicker: 'Hayatı',
-      title: 'Şahin Alpay Kimdir?',
-      quote:
-        'Dürüstçe yazmak iyi zamanların ayrıcalığı değil, kötü zamanların görevidir.',
-      lead:
-        'Şahin Alpay, yarım yüzyılı aşkın süredir Türkiye’yi hem kendisine hem dünyaya okuyor — bir bilim insanı, bir köşe yazarı ve inatçı bir demokrat olarak.',
-      paragraphs: [
-        '1944’te Ayvalık’ta doğdu. Ankara Üniversitesi Siyasal Bilgiler Fakültesi’ni bitirdikten sonra Stockholm Üniversitesi’nde siyaset bilimi doktorasını tamamladı. Yarısı öğrenim, yarısı sürgün geçen yurtdışı yılları, hiç vazgeçmediği bir inancı biçimlendirdi: Açık tartışma, sağlıklı bir cumhuriyetin oksijenidir.',
-        'Bu inancı Cumhuriyet, Sabah, Milliyet ve Zaman’ın yazı işlerine; Bahçeşehir, Boğaziçi ve Princeton’ın dersliklerine taşıdı. Köşe yazıları, gürültünün ortasında berraklık arayan okurlar için sabit bir nokta oldu — ölçülü, karşılaştırmalı ve rahatsız edici sonuçlardan korkmayan.',
-        '15 Temmuz 2016 darbe girişiminin ardından gözaltına alındı ve yaklaşık yirmi ay tutuklu kaldı. Türkiye Anayasa Mahkemesi ve Avrupa İnsan Hakları Mahkemesi, tutukluluğunun temel haklarını ihlal ettiğine hükmetti; 2018’de serbest bırakıldı. Dava, Türkiye’de basın özgürlüğünün önemli bir simgesi hâline geldi.',
-      ],
-      eras: ['Eğitim ve Sürgün Yılları', 'Gazetecilik ve Akademi', 'Gözaltı ve Adalet Mücadelesi'],
-      facts: [
-        { num: '50+', label: 'Kamusal hayatta yıl' },
-        { num: '8', label: 'Gazete ve dergi' },
-        { num: '3', label: 'Ders verdiği üniversite' },
-        { num: '∞', label: 'Köşe yazısı' },
+      "kicker": "Yaşam öyküsü",
+      "title": "Şahin Alpay Kimdir?",
+      "subtitle": "Geçmişime bakarken fikirlerim kadar, hayatımı paylaştığım insanları da anlatmak istedim.",
+      "lead": "Şahin Alpay’ın İstanbul ve Ayvalık’tan İsveç’e, gazetecilikten üniversiteye uzanan hayatı; değişen düşünceleri, Silivri yılları ve Fatma’yla beraberliği.",
+      "editorialNote": "Bu sayfa için Şahin Alpay’ın anı kitapları ve yazıları temel alınarak birinci tekil şahısla hazırlanmıştır. Kitaplarından alıntı içermez.",
+      "contentsLabel": "Bu sayfada",
+      "sections": [
+        {
+          "id": "a-life-in-writing",
+          "title": "Yazılarımın gerisindeki hayat",
+          "paragraphs": [
+            "Beni gazete yazılarımdan tanıyanlar var. Bazılarıyla bir üniversite dersliğinde karşılaştık; bazıları adımı ilk kez tutuklandığımda duydu. Bunların hepsi benim hayatıma ait. Fakat kendimi anlatmaya yalnızca çalıştığım gazeteleri ve savunduğum fikirleri sıralayarak başlarsam, hikâyenin önemli bir kısmı eksik kalır. Fatma’yı, ailemi, dostlarımı, kararlarımın onlara neler yaşattığını da anlatmam gerekir.",
+            "Uzun yıllar ülkenin meseleleriyle uğraştım. Türkiye’nin daha özgür, daha adil, insanların geçim sıkıntısından kurtulduğu bir yer olmasını istedim. Bunun nasıl gerçekleşeceğine dair kanaatlerim ise aynı kalmadı. Bir zamanlar bütün açıklığıyla doğru sandığım düşüncelerden uzaklaştım. Bugün geçmişime bakarken gençliğimin heyecanını anlayabiliyorum; o heyecanla verdiğim her kararı haklı bulamıyorum. Anılarımı yazarken bu mesafeyi korumaya çalıştım. Kendim hakkında söylemekten hoşlanmadığım şeylerin de hikâyede yeri var."
+          ]
+        },
+        {
+          "id": "istanbul-ayvalik",
+          "title": "İstanbul’da doğdum, Ayvalık’ta kök saldım",
+          "paragraphs": [
+            "18 Nisan 1944’te İstanbul’da dünyaya geldim. Annem Sabiha, babam Ahmet’ti. Ailemizin geçmişi Ayvalık’a, oradan da Ege’nin öte yakasına, Midilli’ye ve Serez’e uzanıyordu. Ayvalık benim memleketim oldu. İstanbul’da okula giderken de, yıllar sonra başka ülkelerde yaşarken de orayla bağım sürdü. Ailemin hikâyesinde göçün, yer değiştirmek zorunda kalmanın ve yeniden bir hayat kurmanın geniş bir yeri vardı.",
+            "Çocukluğumuz sorunsuz geçmedi. Babamın rahatsızlığı aile düzenimizi derinden etkiledi. Annem bizi bir arada tutmak için büyük çaba gösterdi; eğitimimiz üzerinde titizlikle durdu. Ablalarım ve ağabeyim de yetişmemde pay sahibiydi. Okumaya merakımda, kendime duyduğum güvende onların izleri var. Daha sonra hayatımın zor bir döneminde ağabeyimden göreceğim yardım, aile bağının ne demek olduğunu bana bir kez daha gösterecekti. Bugün nerelerden geçtiğimi anlatırken bu insanların katkısını bir kenara koyamam."
+          ]
+        },
+        {
+          "id": "education",
+          "title": "Okullar ve açılan dünya",
+          "paragraphs": [
+            "İlkokulu Nişantaşı’ndaki Nilüfer Hatun’da, ortaokulu İngiliz Erkek Lisesi’nde okudum. Ardından Robert Kolej geldi. 1961–1962 öğretim yılında AFS bursuyla Kaliforniya’daki Webb School’a gittim. Henüz on yedi yaşındaydım. O güne kadar bildiğim çevrenin dışında, başka insanların gündelik hayatına katılmak, dünyaya bakışımı genişletti. Amerika’dan dönerken Türkiye’nin yoksulluğu ve özgürlük sorunları zihnimi eskisinden daha fazla meşgul ediyordu.",
+            "Columbia Üniversitesi’nde burslu öğrenim görme imkânından vazgeçip Ankara’ya, Mülkiye’ye gittim. Bu tercihimde Fatma’nın yeri büyüktü. 1963’te başladığım Siyasal Bilgiler Fakültesi’nden 1967’de mezun oldum. Mülkiye yıllarım derslerle sınırlı kalmadı. Tiyatro yaptım, öğrenci derneğinde görev aldım, siyasetin içine girdim. Sonraki yıllarda birbirimizden farklı yollara sapacağımız pek çok dostumu orada tanıdım. O yaşlarda önümüzde uzun bir hayat vardı; memleketi değiştirebileceğimize duyduğumuz güven de hayli büyüktü."
+          ]
+        },
+        {
+          "id": "youth",
+          "title": "Gençliğin kesin cevapları",
+          "paragraphs": [
+            "Sol düşünceye yaklaşmamda, Türkiye’nin neden geri kaldığına bir açıklama aramamın payı vardı. Önce Türkiye İşçi Partisi’nin görüşlerinden etkilendim. Zamanla Marksizmin daha katı yorumlarını benimsedim; devrimin toplumun sorunlarını çözeceğine inandım. Aydınlık çevresinde yer aldım, Doğu Perinçek’le birlikte çalıştım. O yıllardaki tartışmalarımızın ne kadarını ülkenin gerçekleri, ne kadarını okuduğumuz teoriler belirliyordu? Sonradan kendime bu soruyu çok sordum.",
+            "1971’de Filistin direniş hareketine katıldım; Suriye ve Lübnan’daki kamplarda bulundum. Geride eşimi ve küçük kızımızı bırakmıştım. Bu kararın aileme verdiği acıyla yüzleşmek kolay olmadı. İçinde yer aldığım hareketten kuşkulanıyor, buna rağmen ondan kopmakta zorlanıyordum. Bir süre sonra Türkiye’ye döndüm. Devrimci mücadeleden ayrılmaya karar vermem, o güne kadar kendime biçtiğim rolü de sorgulamamı gerektirdi. Bu yılları hatırlarken hem kendi sorumluluğumu hem de içinde bulunduğumuz siyasi ortamı düşünürüm. Birini anlatıp ötekini görmezden gelmek, olanları anlamaya yetmez."
+          ]
+        },
+        {
+          "id": "sweden",
+          "title": "İsveç’te yeniden başlamak",
+          "paragraphs": [
+            "12 Mart döneminde aranıyordum. 1972’de ağabeyimin yardımıyla Türkiye’den ayrıldım ve İsveç’e sığındım. Daha önce orada yaşayacağımı düşünmemiştim. Yeni bir dil öğrenmem, iş bulmam, eğitimime nasıl devam edebileceğimi araştırmam gerekiyordu. En çok da Fatma’yla Elvan’a kavuşmak istiyordum. Ayrılık uzamıştı. Onların 1974’te Stockholm’e gelişi, hayatımda büyük sevinçle hatırladığım olaylardan biridir.",
+            "Stockholm Üniversitesi’nde siyaset bilimi çalışmalarına katıldım. Hocam Tomas Hammar’ın bana açtığı imkân, hayatımın yönünü değiştirdi. Türkiye’den İsveç’e göç eden insanların toplumsal ve siyasi hayatını araştırdım; doktoramı 1981’de tamamladım. Bir yandan araştırma yapıyor, bir yandan içinde yaşadığım ülkeyi tanıyordum. Sosyal güvencelerin, demokratik kurumların ve kişisel özgürlüklerin bir arada nasıl işleyebildiğini yakından gördüm. Gençliğimde benimsediğim fikirleri yeniden tartmamda bu tecrübenin büyük payı oldu.",
+            "İsveç yıllarında düşüncelerim giderek sosyal liberal bir anlayışa yaklaştı. Eşitsizliklerin giderilmesini önemsemeye devam ediyordum; bunu yaparken bireyin özgürlüğünü koruyacak bir düzen arıyordum. Türkiye’ye dönüşüm bu bakımdan da bir başlangıçtı. Yanımda bir doktora diplomasıyla birlikte değişmiş kanaatler getiriyordum. Eski arkadaşlarımın hepsi bu değişimi hoş karşılamayacaktı."
+          ]
+        },
+        {
+          "id": "journalism",
+          "title": "Gazetecilikte yerimi ararken",
+          "paragraphs": [
+            "1981’de yurda döndüğümde üniversitede çalışmak istiyordum. Bu isteğim hemen gerçekleşmedi. Önce ansiklopedicilik yaptım; 1982’nin sonlarında, Hasan Cemal’in çağrısı üzerine Cumhuriyet kadrosuna katıldım. Kitaplarla, araştırmalarla, dış dünyadaki düşünce tartışmalarıyla uğraşmak ve bunları gazete okuruna ulaştırmak bana uygundu. Fakat bir gazetede kendinize yer bulmak, oradaki herkesle aynı fikirde olduğunuz anlamına gelmiyor. Cumhuriyet’te geçen yıllarımda bunu da öğrendim.",
+            "1992’de gazeteden ayrıldım. TÜSES’te çalıştım, bir süre CHP’de danışmanlık yaptım. Ardından Sabah ve Milliyet geldi. Entellektüel Bakış sayfasında bilim insanlarının, yazarların, farklı ülkelerden düşünürlerin söylediklerine yer verdim. Söyleşiler benim için başkasının düşüncesini öğrenme imkânıydı. Türkiye üzerine konuşan birinin ülkeye içeriden mi dışarıdan mı baktığı, neleri görebildiği, neleri gözden kaçırdığı ilgimi çekiyordu. Bu görüşmeler daha sonra Türkiye’nin Tanıkları kitaplarında da bir araya geldi.",
+            "Gazetecilik hayatımda işimi kaybettiğim, yeniden iş aradığım zamanlar oldu. Çalıştığım kurumların adlarını yan yana yazınca düzgün bir meslek çizgisi görünebilir. O yılları yaşarken önümde böyle hazır bir çizgi yoktu. Dostların yardımı, beklenmedik bir teklif, bir anlaşmazlık, geçinme zorunluluğu sonraki adımda etkili olabiliyordu."
+          ]
+        },
+        {
+          "id": "teaching",
+          "title": "Derslikte ve gazete sayfasında",
+          "paragraphs": [
+            "Akademik çalışmayla bağım hiçbir zaman bütünüyle kopmadı. Boğaziçi’nde ders verdim; 1998’de Princeton Üniversitesi’nde konuk öğretim üyesi olarak bulundum. 2001’de Bahçeşehir Üniversitesi’nde çalışmaya başladım ve 2015’e kadar orada siyaset dersleri verdim. Türkiye’nin siyasi hayatını başka ülkelerin tecrübeleriyle karşılaştırarak düşünmek, hem derslerimde hem yazılarımda başvurduğum bir yoldu. Türkiye’ye özgü görünen bir meselenin başka bir yerde nasıl ele alındığını bilmek, tartışmayı genişletebiliyordu.",
+            "2002’de Zaman’da köşe yazmaya başladım. Üniversitede çalışıyor, yazılarımı dışarıdan gönderiyordum. Daha sonra İngilizce yazılarım Today’s Zaman’da da yayımlandı. Televizyonda yaptığım programlarla birlikte, farklı okur ve dinleyicilere ulaşma imkânım oldu. Zaman’da yazmamın gerekçelerini anılarımda ayrıca ele aldım. Dindar bir okur çevresiyle özgürlükçü demokrasi üzerine konuşabileceğimi düşünüyor, görüşlerimi paylaşmak istiyordum. Bu tercihin bende uyandırdığı beklentileri de, sonradan gördüğüm sorunları da anlatmam gerekiyordu."
+          ]
+        },
+        {
+          "id": "ideas",
+          "title": "Umutlarımı da yanılgılarımı da yazmak",
+          "paragraphs": [
+            "Türkiye’nin Avrupa Birliği’ne katılma hedefini önemsedim. Bu hedefin hukuk devletini güçlendireceğini, hak ve özgürlükleri genişleteceğini düşünüyordum. AKP’nin ilk yıllarındaki reformlarını bu nedenle destekledim. Desteğimin gerekçesi, Türkiye’nin daha demokratik bir ülke olabileceğine dair beklentimdi. İktidar bu yönden uzaklaştıkça eleştirilerim arttı. Seçim kazanmanın, iktidarı denetimden ve hukuktan bağımsız kılmayacağını yazdım.",
+            "Gülen hareketine bakışımda da, dinle çoğulcu demokrasinin bağdaşabileceği bir yorum arayışım etkiliydi. Ancak hareketi tanıma imkânım sınırlıydı. Temas ettiğim çevrelerden edindiğim izlenimlerin ötesinde, iç işleyişini bilmiyordum. Geçmişteki değerlendirmelerimi anlatırken bu sınırı belirtmek gerekiyor. O gün neyi bildiğimi, neyi bilmediğimi, hangi umuda ne kadar pay verdiğimi birbirinden ayırmaya çalışıyorum.",
+            "Siyasi hayatıma dönüp baktığımda, istediğim Türkiye’ye ulaşılmış olduğunu söyleyemem. Bazı beklentilerim boşa çıktı. Bunları sonradan hiç taşımamışım gibi davranmak da bana doğru gelmiyor. Yazılarım farklı yıllarda ne düşündüğümü gösteriyor. Anılarımda ise bu düşüncelerin hangi şartlarda oluştuğunu, yaşadıklarımın onları nasıl etkilediğini anlatma fırsatı buldum. Kendini sorgulamak insanı her yanlıştan korumuyor; yine de geçmişe dürüstçe bakabilmenin buna bağlı olduğunu düşünüyorum."
+          ]
+        },
+        {
+          "id": "silivri",
+          "title": "Silivri ve eve dönüş",
+          "paragraphs": [
+            "Gözaltına alındığım tarih 27 Temmuz 2016’ydı. Dört gün sonra, 31 Temmuz’da tutuklanarak cezaevine gönderildim. Yetmiş iki yaşındaydım. Yaklaşık yirmi ay Silivri’de kaldım. Uzun süre üzerine yazdığım özgürlük meselesi, şimdi günün her saatini belirleyen kişisel bir yoksunluktu. Ailemden ayrıydım. Sağlığım, dışarıdaki yakınlarım, yargılamanın ne zaman ve nasıl sonuçlanacağı zihnimi meşgul ediyordu.",
+            "Cezaevinde okudum, notlar tuttum, mektup yazma imkânı doğunca yazdım. Ailemin ve dostlarımın desteği, içerideki hayatı sürdürebilmemde çok önemliydi. Aynı düşünceleri paylaşmadığımız insanların gösterdiği yakınlığı da unutmadım. Dostluk üzerine daha sonra yazdıklarımda bu tecrübelerin yeri var. Bir insanın zor zamanında yanında bulunmakla onun siyasi görüşlerine katılmanın ayrı şeyler olduğunu hayatım boyunca birkaç kez gördüm.",
+            "Anayasa Mahkemesi ve Avrupa İnsan Hakları Mahkemesi, tutukluluğumla ilgili hak ihlali kararları verdi. Mart 2018’de cezaevinden çıktım; bir süre ev hapsinde kaldım. Aileme kavuşmak büyük bir sevinçti. Fakat eve dönmek, yaşananların bütün sonuçlarının ortadan kalkması demek değildi. Yargılama sürüyordu; biz de uzun ayrılıktan sonra gündelik hayatımızı yeniden birlikte yaşamaya çalışıyorduk."
+          ]
+        },
+        {
+          "id": "fatma-memoirs",
+          "title": "Fatma ve hatırlamak istediklerim",
+          "paragraphs": [
+            "Fatma’yı çocukken tanıdım. 1965’te evlendik. Kızımız Elvan ve oğlumuz Acar doğdu; yıllar sonra torunlarımız Defne ve Leyla hayatımıza katıldı. Benim siyasi tercihlerim değişirken, iş hayatım bir kurumdan ötekine taşınırken Fatma’nın kendi yargıları, kendi duruşu vardı. Her düşünceme katılmıyordu. Anılarımda ona bu kadar yer vermemin bir nedeni de bu: Hayatımı anlatırken onun ayrı kişiliğini, bana karşı çıktığı zamanları, ailemiz için yaptıklarını da görünür kılmak istedim.",
+            "Evliliğimizin içinde mutluluk kadar sıkıntı da vardı. Kararlarımdan yalnız ben etkilenmedim; bazı bedelleri Fatma ve çocuklarım da ödedi. Bunu düşünmek, geçmişi anlatmanın en zor taraflarından biri. Silivri’den döndükten sonra Fatma’yla ancak altı ay kadar birlikte olabildik. Onu 6 Ekim 2018’de kaybettim. Ardından anılarımı tamamlama isteğim daha da güçlendi. Ailemiz için, çocuklarımızın ve torunlarımızın bizi daha yakından tanıyabilmesi için yazmak istiyordum.",
+            "Bir Hikâyem Var’da yetiştiğim çevreyi, gençliğimi, İsveç yıllarını ve gazeteciliğimin ilk dönemlerini anlattım. Hikâyemin Sonu’nda 2000’li yıllara, Zaman’a, Silivri’ye ve Fatma’yla son aylarımıza döndüm. Burada birkaç cümleyle geçtiğim insanların ve kararların arkasında uzun beraberlikler, konuşmalar, tereddütler var. Benim hayatım biraz da o ayrıntılarda. Okurlarımın yazılarımın gerisindeki insanı tanımasını isterim; sevdikleriyle, yanılgılarıyla, öğrendikleriyle."
+          ]
+        }
       ],
     },
     columns: {
       kicker: 'Köşe Yazıları',
       title: 'Köşe Yazıları',
       intro:
-        'Beş on yılı aşkın köşe yazısı arşivi: gazetelerde basılmış köşe yazıları (Cumhuriyet, Sabah, Milliyet, Zaman) ile e-yayınlarda çıkan yazılar (P24) bir arada.',
+        'Türkiye’de ve dünyada olup bitenleri anlamak için yazdım. Cumhuriyet’ten P24’e uzanan bu arşivde, farklı yıllarda sorduğum sorular ve vardığım sonuçlar bir arada.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       outlets: [
         { outlet: 'Cumhuriyet', items: [] },
@@ -540,7 +691,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Analizler',
       title: 'Analizler',
       intro:
-        'Dergi ve gazetelerde yayımlanmış analiz yazıları. İçerikler kaynak yayın bazında eklenmektedir.',
+        'Bu yazılarda, kaleme alındıkları dönemde savunduğum fikirler var. Bugün geriye baktığımda, düşüncemin nerelerden geçtiğini de burada görüyorum.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       outlets: [
         { outlet: 'Forum', items: [] },
@@ -551,21 +702,21 @@ export const content: Record<Lang, Content> = {
     interviews: {
       kicker: 'Söyleşiler',
       title: 'Söyleşiler',
-      intro: 'Kendisiyle yapılan söyleşi ve röportajlar.',
+      intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       items: [],
     },
     academicArticles: {
       kicker: 'Akademik Makaleler',
       title: 'Akademik Makaleler',
-      intro: 'Doktora tezi, akademik makaleler, kitap bölümleri ve kitaplar.',
+      intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
       items: [],
     },
     books: {
       kicker: 'Seçme Eserler',
       title: 'Kitaplar',
-      intro: 'Yayımlanmış kitapları. Tam metinler ve kitap özetleri dış bağlantı olarak sunulmaktadır.',
+      intro: 'Anılarımda, gazete yazılarıma sığmayan hayatıma dönüyorum. Söyleşiler ve diğer çalışmalarımda ise yıllar boyunca üzerinde durduğum sorular var.',
       externalLabel: 'Kitap özetlerini görüntüle ↗',
       externalUrl: '',
       externalPendingNote: 'Dış bağlantı eklenecek.',
@@ -579,7 +730,7 @@ export const content: Record<Lang, Content> = {
       booksLabel: 'Kitaplar',
       backToTop: 'Başa dön ↑',
       rights: 'Tüm hakları saklıdır.',
-      tagline: 'Kişisel ve siyasi bir miras.',
+      tagline: 'Hatırladıklarım ve yazdıklarım.',
       cookieLabel: 'Çerez Politikası',
     },
     cookieNotice: {

@@ -261,8 +261,8 @@ for (const lang of ['tr', 'en']) {
     } else if (pageKey === 'about') {
       title = `${t.about.title} — Şahin Alpay`
       description = t.about.lead
-      inner = `<h1>${escapeHtml(t.about.title)}</h1><p>${escapeHtml(t.about.lead)}</p>${t.about.paragraphs
-        .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      inner = `<h1>${escapeHtml(t.about.title)}</h1><p>${escapeHtml(t.about.subtitle)}</p><p>${escapeHtml(t.about.lead)}</p><p>${escapeHtml(t.about.editorialNote)}</p>${t.about.sections
+        .map((section) => `<section id="${escapeHtml(section.id)}"><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>`)
         .join('')}`
       jsonLd = schema.aboutJsonLd({
         name: t.about.title,
@@ -298,7 +298,7 @@ for (const lang of ['tr', 'en']) {
     } else if (pageKey === 'chronicle') {
       const heading = lang === 'tr' ? 'Kronik' : 'Chronicle'
       title = `${heading} — Şahin Alpay`
-      description = t.htmlDescription
+      description = t.chronicleIntro
       const chronicleItems = byLang[lang].filter((item) => item.internal)
       inner = `<h1>${escapeHtml(heading)}</h1>${itemListHtml(chronicleItems, lang, 60)}`
     } else {
