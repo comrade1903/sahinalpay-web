@@ -3,30 +3,47 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prerender.mjs",
+    "serve:dist": "node scripts/serve-dist.mjs",
     "lint": "oxlint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "preview": "vite preview",
     "validate:content": "node scripts/validate-content.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "verify:prerender": "node scripts/verify-prerender.mjs",
+    "inventory:media": "node scripts/media-inventory.mjs",
+    "inventory:archive": "node scripts/archive-inventory.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:summary": "node scripts/generate-archive-summary.mjs",
+    "generate:redirects": "node scripts/generate-redirects.mjs",
     "split:archive": "node scripts/split-archive-body.mjs",
     "extract:tustav-pdf": "node scripts/extract-tustav-pdf.mjs",
+    "recover:tustav": "node scripts/recover-tustav-pdfs.mjs",
     "ocr:scans": "node scripts/ocr-scan-inbox.mjs"
   },
   "dependencies": {
     "motion": "^12.42.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.3",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "happy-dom": "^20.14.0",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
   }
 }

@@ -3,6 +3,8 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 
+import { ensureInside, writeFileAtomic } from './lib/fs-guard.mjs'
+
 /** Batch-OCRs incoming clipping scans so an archive entry can be written from
  *  text instead of from the image. Reading a full-page scan visually is by far
  *  the most expensive way to learn what is on it; this produces, per scan:
@@ -48,6 +50,18 @@ const force = args.includes('--force')
 const lang = args.find((arg) => arg.startsWith('--lang='))?.split('=')[1] ?? 'tur'
 const psm = args.find((arg) => arg.startsWith('--psm='))?.split('=')[1] ?? '3'
 const sourceDir = path.resolve(ROOT, positional[0] ?? DEFAULT_SOURCE_DIR)
+
+/* Both go to tesseract as argv, never through a shell, but they arrive from
+   the command line and are worth pinning to their real shapes anyway: a
+   traineddata code (optionally +-joined) and a page-segmentation number. */
+if (!/^[a-z]{3}(\+[a-z]{3})*$/.test(lang)) {
+  console.error(`--lang must be one or more 3-letter tesseract codes (e.g. tur, tur+eng), got "${lang}"`)
+  process.exit(1)
+}
+if (!/^(1[0-3]|[0-9])$/.test(psm)) {
+  console.error(`--psm must be a tesseract page-segmentation mode 0-13, got "${psm}"`)
+  process.exit(1)
+}
 
 function run(command, commandArgs) {
   const result = spawnSync(command, commandArgs, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
@@ -282,11 +296,14 @@ function cropRegion(pdfPath, page, box, outPath) {
   }
 }
 
+/** Only real files and real subdirectories are followed: a symlink reports
+ *  neither isFile() nor isDirectory() here, so a link planted in the inbox
+ *  cannot walk the OCR out of the directory it was pointed at. */
 function collectSources(dir) {
   return fs
     .readdirSync(dir, { withFileTypes: true })
     .flatMap((entry) => {
-      const fullPath = path.join(dir, entry.name)
+      const fullPath = ensureInside(sourceDir, path.join(dir, entry.name), 'scan path')
       if (entry.isDirectory()) return collectSources(fullPath)
       if (!entry.isFile()) return []
       const extension = path.extname(entry.name).toLowerCase()
@@ -320,7 +337,9 @@ function processScan(sourcePath) {
     .replace(/\.[^.]+$/, '')
     .split(path.sep)
     .join('/')
-  const outDir = path.join(OUT_ROOT, slug)
+  // `slug` is built from the scan's path under sourceDir; keep the derived
+  // output inside tmp/ocr whatever that path turns out to look like.
+  const outDir = ensureInside(OUT_ROOT, slug, `output directory for ${relative}`)
   const reportPath = path.join(outDir, 'report.json')
 
   if (!force && fs.existsSync(reportPath)) {
@@ -343,7 +362,7 @@ function processScan(sourcePath) {
     transcript.push(...lines.filter((line) => line.page === page).map((line) => line.text))
     transcript.push('')
   }
-  fs.writeFileSync(path.join(outDir, 'text.txt'), transcript.join('\n'), 'utf8')
+  writeFileAtomic(path.join(outDir, 'text.txt'), transcript.join('\n'))
 
   const crops = {}
   if (isPdf) {
@@ -371,7 +390,7 @@ function processScan(sourcePath) {
     lineCount: lines.length,
     generatedAt: new Date().toISOString(),
   }
-  fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8')
+  writeFileAtomic(reportPath, `${JSON.stringify(report, null, 2)}\n`)
   return report
 }
 
@@ -398,11 +417,9 @@ if (!fs.existsSync(sourceDir)) {
       }
     }
 
-    fs.mkdirSync(OUT_ROOT, { recursive: true })
-    fs.writeFileSync(
+    writeFileAtomic(
       path.join(OUT_ROOT, 'index.json'),
       `${JSON.stringify(reports.map(({ skipped: _skipped, ...report }) => report), null, 2)}\n`,
-      'utf8',
     )
 
     for (const report of reports) {

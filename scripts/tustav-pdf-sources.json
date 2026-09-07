@@ -1,0 +1,43 @@
+{
+  "_comment": [
+    "Where each source volume in tustav-pdf-extracts.json came from, and what it",
+    "hashes to.",
+    "The volumes themselves live under tmp/tustav-pdfs/, which is gitignored:",
+    "they are large, they are TUSTAV's scans rather than this archive's, and what",
+    "this repository publishes is the article-scoped extract cut from them.",
+    "Recording the addresses and digests means a clean checkout can fetch them",
+    "back and prove they are the same files -- run `npm run recover:tustav`.",
+    "The digests were recorded on 2026-09-06 after the volumes were verified to",
+    "reproduce every published extract's page images. Regenerate them only with",
+    "`npm run recover:tustav -- --record`, and only when you mean to accept a",
+    "new upstream file as the source of record.",
+    "Every host here is on the allowlist in scripts/find-tustav-alpay.mjs."
+  ],
+  "sources": {
+    "aydinlik/asd_02.pdf": {
+      "url": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_02.pdf",
+      "sha256": "f790d650eaab9c9118f08bc352a94f59265043fe9cba7d90b3fbfef167b9a26e",
+      "bytes": 12592159
+    },
+    "aydinlik/asd_06.pdf": {
+      "url": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_06.pdf",
+      "sha256": "61b3e29b69838a399b02e154a3d34bd9d6670517c86433f90f61540b3383f9ab",
+      "bytes": 11164393
+    },
+    "aydinlik/asd_12.pdf": {
+      "url": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/asd/asd_12.pdf",
+      "sha256": "36117bb8b4f06b992bd40ed48a9e59b9b0600b2e0533803acd54e5a7ed6510e9",
+      "bytes": 11316622
+    },
+    "aydinlik/pda_3_17.pdf": {
+      "url": "https://tustav.org/yayinlar/sureli_yayinlar/aydinlik/pda/pda_3_17.pdf",
+      "sha256": "1dc2a6e766c45abf0d02cbf05052ce269c0a7bf0b4219052ba3b4f3abf84b60a",
+      "bytes": 11511875
+    },
+    "isci-koylu/isci-koylu-16_1970.pdf": {
+      "url": "https://filedn.eu/lpwTKmJuSKCLNjzDCWvh2dm/isci-koylu/isci-koylu-16_1970.pdf",
+      "sha256": "de74162713e4f342976ebd944452b0615a358ce51719a81f04e430d043f997f9",
+      "bytes": 8231774
+    }
+  }
+}

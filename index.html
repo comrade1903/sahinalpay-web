@@ -5,26 +5,31 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Şahin Alpay — Political Scientist &amp; Author</title>
-    <meta
-      name="description"
-      content="Şahin Alpay (b. 1944) — Turkish political scientist, author and journalist. Columnist for Cumhuriyet, Milliyet and Zaman; scholar at Bahçeşehir, Boğaziçi and Princeton; a defining voice for press freedom in Turkey."
-    />
     <meta name="author" content="Şahin Alpay" />
     <meta
       name="keywords"
       content="Şahin Alpay, Sahin Alpay, political scientist, Turkish journalist, author, press freedom, Turkey, Zaman columnist, Bir Hikâyem Var, Hikâyemin Sonu"
     />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://sahinalpay.net/" />
-
     <!-- Language / geo -->
-    <!-- Route-specific language alternates are managed by the SPA. -->
     <meta name="geo.region" content="TR-34" />
     <meta name="geo.placename" content="Istanbul, Türkiye" />
 
-    <!-- Open Graph -->
+    <!-- Per-route head. scripts/prerender.mjs rewrites everything between
+         these markers for each of the site's URLs, so a reader or a social
+         card scraper that never runs JavaScript still gets the right title,
+         description, canonical and language alternates. The values below are
+         the home page's, which is also what the dev server serves. -->
+    <!--route-head-->
+    <title>Şahin Alpay — Political Scientist &amp; Author</title>
+    <meta
+      name="description"
+      content="Şahin Alpay (b. 1944) — Turkish political scientist, author and journalist. Columnist for Cumhuriyet, Milliyet and Zaman; scholar at Bahçeşehir, Boğaziçi and Princeton; a defining voice for press freedom in Turkey."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="%SITE_ORIGIN%/" />
+    <link rel="alternate" hreflang="en" href="%SITE_ORIGIN%/" />
+    <link rel="alternate" hreflang="tr" href="%SITE_ORIGIN%/tr" />
+    <link rel="alternate" hreflang="x-default" href="%SITE_ORIGIN%/" />
     <meta property="og:site_name" content="Şahin Alpay" />
     <meta property="og:title" content="Şahin Alpay — Political Scientist &amp; Author" />
     <meta
@@ -32,35 +37,41 @@
       content="A life in ideas and letters, and in the defence of a free press. The personal and political legacy of Şahin Alpay."
     />
     <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://sahinalpay.net/" />
-    <meta property="og:image" content="https://sahinalpay.net/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="%SITE_ORIGIN%/" />
+    <meta property="og:image" content="%SITE_ORIGIN%%OG_IMAGE_PATH%" />
+    <meta property="og:image:type" content="%OG_IMAGE_TYPE%" />
+    <meta property="og:image:width" content="%OG_IMAGE_WIDTH%" />
+    <meta property="og:image:height" content="%OG_IMAGE_HEIGHT%" />
     <meta property="og:image:alt" content="Şahin Alpay — political scientist, author and journalist" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="tr_TR" />
     <meta property="profile:first_name" content="Şahin" />
     <meta property="profile:last_name" content="Alpay" />
-
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Şahin Alpay — Political Scientist &amp; Author" />
     <meta
       name="twitter:description"
       content="A life in ideas and letters, and in the defence of a free press. The personal and political legacy of Şahin Alpay."
     />
-    <meta name="twitter:image" content="https://sahinalpay.net/og-image.png" />
+    <meta name="twitter:image" content="%SITE_ORIGIN%%OG_IMAGE_PATH%" />
+    <!--/route-head-->
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts are self-hosted (see src/fonts.css). Preload the two faces
+         every page paints with; the italic and latin-ext slices load only
+         where they are used. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;0,7..72,800;1,7..72,400;1,7..72,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/literata-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@100..700,0..1,-50..200,20..48&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/nunito-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <!-- Structured data: Person (GEO — machine-readable identity for search & AI engines) -->
@@ -68,10 +79,10 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "https://sahinalpay.net/#person",
+      "@id": "%SITE_ORIGIN%/#person",
       "name": "Şahin Alpay",
       "alternateName": "Sahin Alpay",
-      "url": "https://sahinalpay.net/",
+      "url": "%SITE_ORIGIN%/",
       "jobTitle": ["Political Scientist", "Author", "Journalist"],
       "description": "Turkish political scientist, author and journalist; longtime columnist and scholar, and a defining voice for press freedom in Turkey.",
       "birthDate": "1944",
@@ -100,12 +111,12 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "@id": "https://sahinalpay.net/#website",
-      "url": "https://sahinalpay.net/",
+      "@id": "%SITE_ORIGIN%/#website",
+      "url": "%SITE_ORIGIN%/",
       "name": "Şahin Alpay",
       "description": "The personal and political legacy of Şahin Alpay — political scientist, author and journalist.",
       "inLanguage": ["en", "tr"],
-      "about": { "@id": "https://sahinalpay.net/#person" }
+      "about": { "@id": "%SITE_ORIGIN%/#person" }
     }
     </script>
 
@@ -119,42 +130,50 @@
           "name": "Bir Hikâyem Var",
           "datePublished": "2024",
           "inLanguage": "tr",
-          "author": { "@id": "https://sahinalpay.net/#person" }
+          "author": { "@id": "%SITE_ORIGIN%/#person" }
         },
         {
           "@type": "Book",
           "name": "Hikâyemin Sonu",
           "datePublished": "2025",
           "inLanguage": "tr",
-          "author": { "@id": "https://sahinalpay.net/#person" }
+          "author": { "@id": "%SITE_ORIGIN%/#person" }
         },
         {
           "@type": "Book",
           "name": "Türkiye'nin Tanıkları: Dışarıdan Bakanlar",
           "datePublished": "2002",
           "inLanguage": "tr",
-          "author": { "@id": "https://sahinalpay.net/#person" }
+          "author": { "@id": "%SITE_ORIGIN%/#person" }
         },
         {
           "@type": "Book",
           "name": "Türkiye'nin Tanıkları: İçeriden Bakanlar",
           "datePublished": "2003",
           "inLanguage": "tr",
-          "author": { "@id": "https://sahinalpay.net/#person" }
+          "author": { "@id": "%SITE_ORIGIN%/#person" }
         },
         {
           "@type": "Book",
           "name": "Sosyal Demokrasi Açısından Kürt Sorunu",
           "datePublished": "1992",
           "inLanguage": "tr",
-          "author": { "@id": "https://sahinalpay.net/#person" }
+          "author": { "@id": "%SITE_ORIGIN%/#person" }
         }
       ]
     }
     </script>
+
+    <!-- Per-route structured data (Article / CollectionPage), written by
+         scripts/prerender.mjs. Empty in the dev server, where the SPA adds it
+         after mount. -->
+    <!--route-jsonld--><!--/route-jsonld-->
   </head>
   <body>
     <div id="root"></div>
+    <!-- Per-route no-JavaScript fallback, written by scripts/prerender.mjs.
+         Browsers that run the SPA never render it. -->
+    <!--route-noscript--><!--/route-noscript-->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

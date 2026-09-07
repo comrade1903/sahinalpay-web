@@ -63,12 +63,16 @@ export interface ArchiveItem extends ArchiveItemSeed {
       which is the display name. */
   outletKey: string
   category: ArchiveCategory
-  medium?: ArchiveMedium
+  /** See the note on OutletGroup.medium. */
+  medium?: ArchiveMedium | undefined
 }
 
 export interface OutletGroup {
   outlet: string
-  medium?: ArchiveMedium
+  /** `| undefined` is deliberate under exactOptionalPropertyTypes: outlets
+      with no recorded medium are built by passing the field through as
+      undefined, and "absent" and "undefined" mean the same thing here. */
+  medium?: ArchiveMedium | undefined
   items: ArchiveItem[]
 }
 
@@ -86,4 +90,13 @@ export interface FlatArchiveSection {
   intro: string
   emptyLabel: string
   items: ArchiveItem[]
+}
+
+/** One language's whole archive. Loaded on its own — see archive/tr.ts and
+    archive/en.ts, and the note there about why nothing needs both at once. */
+export interface LanguageArchive {
+  columns: OutletGroup[]
+  analyses: OutletGroup[]
+  interviews: ArchiveItem[]
+  academicArticles: ArchiveItem[]
 }

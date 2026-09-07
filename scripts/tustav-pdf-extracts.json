@@ -36,11 +36,8 @@
     "source": "isci-koylu/isci-koylu-16_1970.pdf",
     "firstPage": 1,
     "lastPage": 2,
-    "coverPage": 2,
-    "coverRenderWidth": 1800,
-    "coverCrop": { "x": 0, "y": 0, "width": 900, "height": 3000 },
-    "coverQuality": 80,
     "pdfOut": "isci-koylu/1970/1-mayis.pdf",
-    "coverOut": "isci-koylu/1970/1-mayis/cover.webp"
+    "coverOut": null,
+    "coverNote": "The published cover is a 3400x2172 landscape scan of the spread, prepared and recompressed by hand (see the commit 'Recompress the Isci Koylu 1 Mayis scan for the web'). This tool renders a 900x1267 portrait strip from the volume, which is a different image. null means: extract the article PDF, leave the cover alone."
   }
 ]

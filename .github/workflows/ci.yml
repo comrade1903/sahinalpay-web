@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Least privilege by default; no job here needs more.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, lint, test, validate, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # actions/checkout v5 — v4 runs on Node 20, which GitHub is retiring
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+
+      # actions/setup-node v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit production dependencies
+        # Advisory only: a new advisory in a build-time package must not block
+        # a content fix. Production dependencies are the gate.
+        run: |
+          npm audit --omit=dev --audit-level=high
+          npm audit || echo "::warning::npm audit reported findings in dev dependencies"
+
+      - name: Typecheck
+        run: npx tsc -b
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Scan tracked files for credential-shaped strings
+        run: npm run check:secrets
+
+      - name: Validate archive content
+        run: npm run validate:content
+
+      - name: Check the committed generated files are current
+        run: |
+          npm run generate:sitemap
+          npm run generate:summary
+          npm run generate:redirects
+          git diff --exit-code -- \
+            public/sitemap.xml \
+            public/robots.txt \
+            scripts/sitemap-lastmod.json \
+            src/archive/summary.generated.ts \
+            vercel.json \
+            || { echo "::error::A generated file is stale — run 'npm run generate:sitemap', 'npm run generate:summary' and 'npm run generate:redirects', and commit the result."; exit 1; }
+
+      - name: Build
+        run: npm run build
+
+      - name: Check the build produced the prerendered pages
+        run: |
+          test -f dist/404.html
+          count=$(find dist -name index.html | wc -l)
+          echo "Prerendered $count HTML pages"
+          test "$count" -gt 500
+
+      - name: Verify each page's static metadata matches what the app builds
+        # The static and client JSON-LD are built from one module, but each
+        # side still chooses its own arguments. This derives them independently
+        # and compares, so the two cannot describe a page differently again.
+        run: npm run verify:prerender

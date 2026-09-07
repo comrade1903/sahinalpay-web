@@ -393,9 +393,11 @@ export const content: Record<Lang, Content> = {
           ],
         },
         {
-          heading: 'Fonts loaded from Google',
+          heading: 'No third-party requests',
           body: [
-            "The site's typefaces are loaded from Google Fonts. When your browser requests them, your IP address may be transmitted to Google's servers. This is the only third-party request the site makes; no other data about you is sent.",
+            'Every file this site loads — pages, images, page scans and typefaces — comes from this site\u2019s own address. The typefaces used to be requested from Google Fonts, which sent your IP address to Google on every page view; they are now served from here, so that no longer happens.',
+            'The site has no analytics, no advertising, no tracking pixels and no embedded third-party content. Your reading is not measured.',
+            'The site is hosted by Vercel, which like any web host receives the requests your browser makes in order to answer them. That is outside this site\u2019s control and is not something it can describe on Vercel\u2019s behalf.',
           ],
         },
         {
@@ -606,9 +608,11 @@ export const content: Record<Lang, Content> = {
           ],
         },
         {
-          heading: "Google'dan yüklenen yazı tipleri",
+          heading: 'Üçüncü taraf isteği yok',
           body: [
-            "Sitenin yazı tipleri Google Fonts üzerinden yüklenir. Tarayıcınız bunları talep ederken IP adresiniz Google'ın sunucularına iletilebilir. Bu, sitenin yaptığı tek üçüncü taraf isteğidir; hakkınızda başka hiçbir veri gönderilmez.",
+            'Bu sitenin yüklediği her dosya — sayfalar, görseller, gazete kupürleri ve yazı tipleri — sitenin kendi adresinden gelir. Yazı tipleri önceden Google Fonts üzerinden isteniyordu ve bu, her sayfa görüntülemesinde IP adresinizin Google\u2019a iletilmesi anlamına geliyordu; artık buradan sunuluyorlar, dolayısıyla böyle bir istek yapılmıyor.',
+            'Sitede analitik, reklam, takip pikseli ve gömülü üçüncü taraf içerik bulunmuyor. Ne okuduğunuz ölçülmüyor.',
+            'Site Vercel üzerinde barındırılıyor; her web barındırıcısı gibi Vercel de tarayıcınızın yaptığı istekleri yanıtlayabilmek için alır. Bu, sitenin denetiminde değildir ve site Vercel adına bunu tarif edemez.',
           ],
         },
         {
