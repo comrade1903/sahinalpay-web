@@ -3,7 +3,7 @@
 ## Reporting a problem
 
 Please report anything you believe is a security problem privately, not as a
-public GitHub issue: **contact@sahinalpay.net** (the address in the site
+public GitHub issue: **contact@sahinalpay.com** (the address in the site
 footer). Include the URL, what you did, and what happened. You will get an
 acknowledgement; this is a small personal archive maintained by one person, so
 please allow time for a considered reply rather than an immediate one.

@@ -389,9 +389,13 @@ on 2026-09-06:
 
 ### Still outside all of the above
 
-- **The production domain and its DNS.** `sahinalpay.net` is a placeholder;
-  the registered domain is `sahinalpay.com`, and the switch is one edit to
-  `SITE_ORIGIN` in `src/siteConfig.ts` once the owner confirms.
+- **The production domain's DNS and its mailbox.** The code moved to
+  `sahinalpay.com` on 2026-09-08, but code is only half of it: the domain has
+  to be added to the Vercel project and its DNS pointed there, and
+  `contact@sahinalpay.com` has to be a mailbox that someone reads. Until the
+  domain is attached, every canonical and sitemap URL names a host the site is
+  not served from; until the mailbox exists, the KVKK notice and the security
+  contact name an address that bounces.
 - **Whether the Vercel Toolbar is enabled on previews.** The
   Content-Security-Policy here is strict (`script-src 'self'`) and will block
   it. If the toolbar is wanted, `https://vercel.live` has to be allowed in

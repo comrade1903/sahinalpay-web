@@ -10,8 +10,7 @@ import {
 
 /** index.html carries %SITE_ORIGIN% and %OG_IMAGE_*% placeholders instead of
  *  literals, so the production domain and the social-card dimensions live in
- *  src/siteConfig.ts only — see the note there about the pending switch from
- *  sahinalpay.net to sahinalpay.com. */
+ *  src/siteConfig.ts only. */
 function siteIdentityHtml(): Plugin {
   const replacements: Record<string, string> = {
     '%SITE_ORIGIN%': SITE_ORIGIN,

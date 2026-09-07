@@ -36,8 +36,8 @@ function Article({ slug, title }: { slug: string; title: string }) {
     articleJsonLd({
       item,
       lang: 'tr',
-      articleUrl: `https://sahinalpay.net/tr/kose-yazilari/${slug}`,
-      sectionUrl: 'https://sahinalpay.net/tr/kose-yazilari',
+      articleUrl: `https://sahinalpay.com/tr/kose-yazilari/${slug}`,
+      sectionUrl: 'https://sahinalpay.com/tr/kose-yazilari',
       sectionName: sectionNameFor('tr', 'columns'),
     }),
   )

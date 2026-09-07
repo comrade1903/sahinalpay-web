@@ -7,15 +7,17 @@
  * the app imports it, `vite.config.ts` substitutes it into index.html at build
  * time, and the content scripts read it through scripts/lib/site-config.mjs.
  *
- * NOTE: the production domain is still the placeholder `sahinalpay.net`.
- * Switching to the registered `sahinalpay.com` is the owner's call — see the
- * `domain-migration` skill. Changing SITE_ORIGIN below now rewrites every
- * canonical, JSON-LD @id, sitemap URL and robots entry in one edit.
+ * The origin is `sahinalpay.com`, registered and confirmed by the owner on
+ * 2026-09-08. It replaced the placeholder `sahinalpay.net`, which was never
+ * registered, so every canonical, JSON-LD @id, sitemap URL and robots entry
+ * pointed at a domain that did not resolve. Changing SITE_ORIGIN below
+ * rewrites all of them in one edit; regenerate the sitemap and robots.txt
+ * after any such change.
  */
 
-export const SITE_ORIGIN = 'https://sahinalpay.net'
+export const SITE_ORIGIN = 'https://sahinalpay.com'
 
-export const CONTACT_EMAIL = 'contact@sahinalpay.net'
+export const CONTACT_EMAIL = 'contact@sahinalpay.com'
 
 /** Social-preview card. Typographic, drawn from this site's own palette and
  *  display face by scripts/generate-og-image.py; the committed PNG is what

@@ -95,16 +95,13 @@ Constraints:
 
 Undecided / pending:
 
-- The site is published on `sahinalpay.com` (registered) but the code still references
-  `sahinalpay.net`, which was never registered. The switch happens only on the
-  owner's confirmation, and then in every location at once.
 - The books section has no external summaries link yet.
 
 ## Brand Commitments
 
 - The name is written `Şahin Alpay`, with Turkish diacritics, in both languages.
 - Book titles stay in their original Turkish in both languages.
-- Contact is `contact@sahinalpay.net` (moves with the domain decision above).
+- Contact is `contact@sahinalpay.com`.
 - Voice: measured, plain, unsentimental. The material is serious and recent enough to
   be painful; the site states facts and lets them carry their own weight. No
   promotional register, no dramatization of the imprisonment.
