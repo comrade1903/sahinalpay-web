@@ -42,9 +42,10 @@ export interface BooksSection {
   kicker: string
   title: string
   intro: string
+  /** Rendered only when `externalUrl` is set; empty today, so the Books page
+   *  shows no call to action rather than a disabled one. */
   externalLabel: string
   externalUrl: string
-  externalPendingNote: string
   books: Book[]
 }
 
@@ -428,7 +429,6 @@ export const content: Record<Lang, Content> = {
         'In my memoirs I return to the life behind the columns. Alongside them are interviews and studies of the political questions that occupied me over the years. All books are in Turkish.',
       externalLabel: 'View book summaries ↗',
       externalUrl: '',
-      externalPendingNote: 'External link to be added.',
       books: BOOKS.en,
     },
     footer: {
@@ -719,7 +719,6 @@ export const content: Record<Lang, Content> = {
       intro: 'Anılarımda, gazete yazılarıma sığmayan hayatıma dönüyorum. Söyleşiler ve diğer çalışmalarımda ise yıllar boyunca üzerinde durduğum sorular var.',
       externalLabel: 'Kitap özetlerini görüntüle ↗',
       externalUrl: '',
-      externalPendingNote: 'Dış bağlantı eklenecek.',
       books: BOOKS.tr,
     },
     footer: {
