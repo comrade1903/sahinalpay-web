@@ -303,15 +303,21 @@ npx vercel login          # once, interactively — a person has to do this
 npx vercel curl https://<preview-url>/tr/kose-yazilari/<slug> -I
 ```
 
-### Branch protection on `main` — available, and not yet on
+### Branch protection on `main` — on since 2026-09-08
 
 The repository was made public on 2026-09-06, which unlocked branch
 protection, rulesets and secret scanning; on the previous private-and-free
 plan all three answered *"Upgrade to GitHub Pro or make this repository
-public"*. None is enabled yet.
+public"*.
 
-Since every push to `main` is a production release, a ruleset is the thing
-worth having. Either the UI —
+The `Protect main` ruleset (id 22537314) is active: it blocks deletion and
+force pushes, requires a pull request, and requires the
+`Typecheck, lint, test, validate, build` check to pass before a merge. The
+repository-admin role is on the bypass list, so the owner can still push
+straight to `main` when a fix cannot wait — the ruleset is a guard rail, not
+a wall. Everyone else goes through a pull request.
+
+To recreate it, either the UI —
 
 **Settings → Rules → Rulesets → New branch ruleset**, target `main`, enable
 *Require a pull request before merging*, *Require status checks to pass* with
@@ -344,12 +350,14 @@ A ruleset requiring a pull request means you can no longer push straight to
 `main` — which is the point, but it changes the routine described under
 "Release" above.
 
-### GitHub Secret Scanning and Push Protection — available, and not yet on
+### GitHub Secret Scanning and Push Protection — on since 2026-09-08
 
-Both report `disabled`. On a public repository they are free.
+Both are `enabled`. On a public repository they are free. Push protection
+rejects a push that introduces a recognised credential, rather than finding
+it afterwards.
 
-**Settings → Code security → Secret scanning: Enable**, then **Push
-protection: Enable**. Or:
+They were turned on with the command below; the same command with `disabled`
+turns them off.
 
 ```bash
 GH_CONFIG_DIR="$HOME/.config/gh-comrade1903" gh api \
