@@ -1,10 +1,11 @@
 /**
  * The English archive: the Today's Zaman columns.
  *
- * Analyses, interviews and academic articles exist only in Turkish. English
- * still has hub pages for them (TurkishArchiveHub), which link across to the
- * Turkish archive rather than duplicating it — so there is nothing to hold
- * here for those sections.
+ * Analyses, interviews and academic articles exist only in Turkish, so there
+ * is nothing to hold here for those sections. The English pages for them are
+ * not empty: every section lists the other language's records under their own
+ * heading, so those pages show the Turkish ones, each linking to its Turkish
+ * reader page.
  */
 import type { LanguageArchive } from './types'
 import { outletGroup } from './utils'

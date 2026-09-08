@@ -775,64 +775,24 @@ function CookiePolicyPage({ lang }: { lang: Lang }) {
   )
 }
 
-type TurkishOnlyArchiveKey = 'analyses' | 'interviews' | 'academic'
-
-function TurkishArchiveHub({ pageKey }: { pageKey: TurkishOnlyArchiveKey }) {
-  const location = useLocation()
-  const t = content.en
-  const section =
-    pageKey === 'analyses'
-      ? t.analyses!
-      : pageKey === 'interviews'
-        ? t.interviews!
-        : t.academicArticles!
-
-  usePageMeta({
-    title: `${section.title} — Şahin Alpay`,
-    description: section.intro,
-    alternates: pageAlternates(location.pathname),
-  })
-
-  return (
-    <section className="section section-solo">
-      <div className="container container-narrow">
-        <Reveal>
-          <p className="kicker">{section.kicker}</p>
-          <h1 className="section-title">{section.title}</h1>
-          <p className="archive-intro">{section.intro}</p>
-          <p className="archive-language-note">
-            Source material for this section is currently available in Turkish.
-          </p>
-          <Link className="btn btn-primary" to={paths.tr[pageKey]!} lang="tr">
-            Türkçe arşivi görüntüle
-          </Link>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
+/* Every section lists the other language's records under their own heading,
+   so a reader looking for a piece never has to switch language to find it.
+   This is also what replaced the English explainer pages for analyses,
+   interviews and academic articles: those sections exist only in Turkish, so
+   the English page used to be a title and a button pointing across. It now
+   shows the records themselves, each opening on its Turkish page. */
 function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
-  if (
-    lang === 'en' &&
-    (pageKey === 'analyses' || pageKey === 'interviews' || pageKey === 'academic')
-  ) {
-    return <TurkishArchiveHub pageKey={pageKey} />
-  }
-  return <LoadedArchiveRoutePage pageKey={pageKey} lang={lang} />
-}
-
-function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
-  const { data: archiveData, fallback } = useArchiveGate(lang)
+  const { data: archiveData, foreign, fallback } = useArchiveGate(lang)
   const t = content[lang]
 
-  if (!archiveData) return fallback
+  if (!archiveData || !foreign) return fallback
 
   switch (pageKey) {
     case 'columns':
       return (
         <NewsstandArchivePage
           data={{ ...t.columns, outlets: archiveData.columns }}
+          foreignOutlets={foreign.columns}
           lang={lang}
         />
       )
@@ -840,6 +800,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
       return t.analyses ? (
         <NewsstandArchivePage
           data={{ ...t.analyses, outlets: archiveData.analyses }}
+          foreignOutlets={foreign.analyses}
           lang={lang}
         />
       ) : (
@@ -849,6 +810,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
       return t.interviews ? (
         <FlatArchivePage
           data={{ ...t.interviews, items: archiveData.interviews }}
+          foreignItems={foreign.interviews}
           lang={lang}
         />
       ) : (
@@ -858,6 +820,7 @@ function LoadedArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lan
       return t.academicArticles ? (
         <FlatArchivePage
           data={{ ...t.academicArticles, items: archiveData.academicArticles }}
+          foreignItems={foreign.academicArticles}
           lang={lang}
         />
       ) : (

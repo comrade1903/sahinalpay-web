@@ -225,16 +225,23 @@ describe('split-archive-body', () => {
    which is the behaviour that matters, since both would otherwise overwrite
    live records. */
 describe('importers refuse to clobber the live archive', () => {
+  /* Before and after, not "clean": the claim is that the importer wrote
+     nothing, and comparing against an empty status instead asserted that
+     whoever runs the suite has no uncommitted archive edits of their own —
+     which fails for a reason that has nothing to do with the importer, and
+     passes in CI only because CI checks out clean. */
+  const archiveStatus = () =>
+    execFileSync('git', ['status', '--porcelain', 'src/archive'], {
+      cwd: projectRoot,
+      encoding: 'utf8',
+    })
+
   it('import-zaman-md refuses the clipping-based Zaman files', () => {
+    const before = archiveStatus()
     const result = run(path.join(projectRoot, 'scripts/import-zaman-md.mjs'), [])
     expect(result.status).not.toBe(0)
     expect(result.stderr + result.stdout).toMatch(/clipping-based|--force-overwrite/)
-    expect(
-      execFileSync('git', ['status', '--porcelain', 'src/archive'], {
-        cwd: projectRoot,
-        encoding: 'utf8',
-      }),
-    ).toBe('')
+    expect(archiveStatus()).toBe(before)
   })
 
   it('import-p24-pdf-images refuses to run without a source directory', () => {

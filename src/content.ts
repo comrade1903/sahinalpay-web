@@ -67,6 +67,12 @@ export interface Content {
   hubKicker: string
   hubTitle: string
   chronicleIntro: string
+  /** Heading for the other language's records, which every archive section
+   *  lists after its own so a reader never has to switch language to find a
+   *  piece. Named from the reader's side: a Turkish reader sees "foreign
+   *  language", an English reader sees "Turkish". */
+  foreignArchiveLabel: string
+  foreignArchiveNote: string
   hub: { key: PageKey; title: string; description: string }[]
   about: {
     kicker: string
@@ -255,6 +261,9 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Explore',
     hubTitle: 'All sections',
     chronicleIntro: 'My writing alongside the events of its time. Gaps in this archive do not necessarily mean that I stopped writing.',
+    foreignArchiveLabel: 'Turkish-Language Writing',
+    foreignArchiveNote:
+      'Most of my work was written in Turkish. It is listed here so you can find it without leaving this page; each piece opens on its Turkish page, where its full text is.',
     hub: [
       {
         key: 'about',
@@ -391,7 +400,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Columns',
       title: 'Columns',
       intro:
-        "My English columns for Today's Zaman, on Turkey and the wider world. These articles record the questions I asked and the judgments I reached between 2007 and 2012; my Turkish columns are in the Turkish archive.",
+        "My English columns for Today's Zaman, on Turkey and the wider world. These articles record the questions I asked and the judgments I reached between 2007 and 2012. My Turkish columns are listed below them.",
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       outlets: [{ outlet: "Today's Zaman", items: [] }],
     },
@@ -541,6 +550,9 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
     chronicleIntro: 'Yazılarım, yazıldıkları yılların olaylarıyla yan yana. Arşivdeki boşluklar, o yıllarda yazmadığım anlamına gelmiyor.',
+    foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
+    foreignArchiveNote:
+      'İngilizce yazdığım yazılar. Aramak için dil değiştirmeniz gerekmesin diye burada da listeleniyor; her yazı, tam metninin bulunduğu İngilizce sayfasında açılır.',
     hub: [
       {
         key: 'about',

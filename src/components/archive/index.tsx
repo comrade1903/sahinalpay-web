@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import type { Lang } from '../../content'
+import { content, type Lang } from '../../content'
 import type {
   ArchiveItem,
   FlatArchiveSection,
@@ -10,7 +10,7 @@ import type {
 } from '../../archive/types'
 import { getCachedBody, loadOutletBodies } from '../../archive/bodyRegistry'
 import { itemScanClippings } from '../../archive/itemUtils'
-import { archiveBasePath, archiveLink, mediumLabel, pieceKindLabel } from '../../archive/links'
+import { archiveItemBasePath, archiveLink, mediumLabel, pieceKindLabel } from '../../archive/links'
 import {
   archiveItemKey,
   clampPage,
@@ -59,7 +59,7 @@ export function ArchiveRow({
   outlet?: string
   lang: Lang
 }) {
-  const link = archiveLink(item, lang)
+  const link = archiveLink(item)
   const preview = item.excerpt ?? item.subtitle
   const inner = (
     <>
@@ -690,7 +690,7 @@ function deriveNewsstandOutlets(
     design's three-column masthead-index layout instead of ArchiveRow's
     card shape. */
 function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
-  const link = archiveLink(item, lang)
+  const link = archiveLink(item)
   const section = item.pieceKind
     ? pieceKindLabel(item.pieceKind, lang)
     : item.medium
@@ -830,6 +830,7 @@ function NewsstandTOC({
 function NewsstandStack({
   entries,
   lang,
+  foreignOutletNames,
   selectedName,
   onSelect,
   currentPage,
@@ -839,6 +840,7 @@ function NewsstandStack({
 }: {
   entries: NewsstandOutlet[]
   lang: Lang
+  foreignOutletNames: ReadonlySet<string>
   selectedName: string
   onSelect: (outletName: string) => void
   currentPage: number
@@ -849,26 +851,48 @@ function NewsstandStack({
   const ordered = orderNewsstandOutlets(entries)
   const selected = ordered.find((entry) => entry.outlet.outlet === selectedName) ?? ordered[0]
   const activeItems = selected ? pageSlice(selected.matchingItems, currentPage) : []
+  /* Two shelves, not one row with a rule through it: the reader is choosing a
+     newspaper, and which language it published in is part of that choice.
+
+     Which shelf a group belongs on comes from the list it arrived in, not
+     from reading its first item's language: an outlet whose archive is still
+     empty — it renders as an "coming soon" spine — has no item to read, so
+     inferring the language put every empty outlet on the foreign shelf. */
+  const own = ordered.filter((entry) => !foreignOutletNames.has(entry.outlet.outlet))
+  const foreign = ordered.filter((entry) => foreignOutletNames.has(entry.outlet.outlet))
+  const t = content[lang]
+
+  const shelf = (shelfEntries: NewsstandOutlet[], label: string) => (
+    <div className="newsstand-stack-shelf" role="group" aria-label={label}>
+      {shelfEntries.map((entry) => (
+        <NewsstandStackPaper
+          key={entry.outlet.outlet}
+          outlet={entry.outlet}
+          count={entry.matchingItems.length}
+          dateRange={outletDateRangeLabel(entry.outlet.items)}
+          lang={lang}
+          active={selected?.outlet.outlet === entry.outlet.outlet}
+          reduce={reduce}
+          onSelect={() => onSelect(entry.outlet.outlet)}
+        />
+      ))}
+    </div>
+  )
 
   return (
     <div className="newsstand-stack">
-      <div
-        className="newsstand-stack-shelf"
-        role="group"
-        aria-label={lang === 'tr' ? 'Gazete seç' : 'Choose a newspaper'}
-      >
-        {ordered.map((entry) => (
-          <NewsstandStackPaper
-            key={entry.outlet.outlet}
-            outlet={entry.outlet}
-            count={entry.matchingItems.length}
-            dateRange={outletDateRangeLabel(entry.outlet.items)}
-            lang={lang}
-            active={selected?.outlet.outlet === entry.outlet.outlet}
-            reduce={reduce}
-            onSelect={() => onSelect(entry.outlet.outlet)}
-          />
-        ))}
+      {/* One column holding both shelves, so .newsstand-stack keeps exactly
+          two children — from 900px it is a row, shelves left and the
+          contents panel filling the rest beside them. */}
+      <div className="newsstand-shelves">
+        {own.length > 0 && shelf(own, lang === 'tr' ? 'Gazete seç' : 'Choose a newspaper')}
+        {foreign.length > 0 && (
+          <div className="newsstand-foreign">
+            <h2 className="newsstand-foreign-title">{t.foreignArchiveLabel}</h2>
+            <p className="newsstand-foreign-note">{t.foreignArchiveNote}</p>
+            {shelf(foreign, t.foreignArchiveLabel)}
+          </div>
+        )}
       </div>
       {selected && (
         <NewsstandTOC
@@ -932,8 +956,27 @@ function NewsstandControlBar({
   )
 }
 
-export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSection; lang: Lang }) {
+export function NewsstandArchivePage({
+  data,
+  lang,
+  foreignOutlets = [],
+}: {
+  data: OutletArchiveSection
+  lang: Lang
+  /* The other language's outlets for this section. Folded into the same
+     working set so search, the year range and pagination cover them like any
+     other outlet; split apart again only at the shelf, which labels them. */
+  foreignOutlets?: OutletGroup[]
+}) {
   const location = useLocation()
+  const outlets = useMemo(
+    () => [...data.outlets, ...foreignOutlets],
+    [data.outlets, foreignOutlets],
+  )
+  const foreignOutletNames = useMemo(
+    () => new Set(foreignOutlets.map((group) => group.outlet)),
+    [foreignOutlets],
+  )
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -946,8 +989,8 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
       description: data.intro,
       lang,
       url: pageUrl(location.pathname),
-      items: data.outlets.flatMap((group) => group.items),
-      itemUrl: (item) => `${pageUrl(archiveBasePath(lang, item))}/${item.slug}`,
+      items: outlets.flatMap((group) => group.items),
+      itemUrl: (item) => `${pageUrl(archiveItemBasePath(item))}/${item.slug}`,
     }),
   )
 
@@ -960,13 +1003,13 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
   const openOutletName = searchParams.get('open')
   const requestedPage = positivePage(searchParams.get('page'))
 
-  const sectionItems = useMemo(() => data.outlets.flatMap((o) => o.items), [data.outlets])
+  const sectionItems = useMemo(() => outlets.flatMap((o) => o.items), [outlets])
   const bodySearch = useBodySearchIndex(sectionItems, search)
   const { bodyIndex } = bodySearch
 
   const newsstandOutlets = useMemo(
-    () => deriveNewsstandOutlets(data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex),
-    [data.outlets, activeOutlet, search, fromYear, toYear, bodyIndex],
+    () => deriveNewsstandOutlets(outlets, activeOutlet, search, fromYear, toYear, bodyIndex),
+    [outlets, activeOutlet, search, fromYear, toYear, bodyIndex],
   )
 
   /* The shelf always shows a table of contents — defaulting to the newest
@@ -1050,7 +1093,7 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
           its identity comes from the real mastheads, not from touching the
           viewport edge. */}
       <AnimatePresence mode="wait" initial={false}>
-        {!data.outlets.some((o) => o.items.length > 0) ? (
+        {!outlets.some((o) => o.items.length > 0) ? (
           <p className="archive-empty" key="empty">
             {data.emptyLabel}
           </p>
@@ -1069,6 +1112,7 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
             <NewsstandStack
               entries={newsstandOutlets}
               lang={lang}
+              foreignOutletNames={foreignOutletNames}
               selectedName={
                 effectiveOpenName ??
                 orderNewsstandOutlets(newsstandOutlets)[0]?.outlet.outlet ??
@@ -1095,8 +1139,23 @@ export function NewsstandArchivePage({ data, lang }: { data: OutletArchiveSectio
   )
 }
 
-export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang: Lang }) {
+export function FlatArchivePage({
+  data,
+  lang,
+  foreignItems = [],
+}: {
+  data: FlatArchiveSection
+  lang: Lang
+  /* The other language's records for this section. Merged into one dated list
+     rather than shown as a second block: interviews and academic articles
+     exist in Turkish only, so on the English pages `data.items` is empty and
+     these are the whole list. Should a section ever hold both, the merged
+     list stays honest — every row names its outlet, and the outlets do not
+     overlap between languages — and the note below says what is here. */
+  foreignItems?: ArchiveItem[]
+}) {
   const location = useLocation()
+  const items = useMemo(() => [...data.items, ...foreignItems], [data.items, foreignItems])
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -1109,8 +1168,8 @@ export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang
       description: data.intro,
       lang,
       url: pageUrl(location.pathname),
-      items: data.items,
-      itemUrl: (item) => `${pageUrl(location.pathname)}/${item.slug}`,
+      items,
+      itemUrl: (item) => `${pageUrl(archiveItemBasePath(item))}/${item.slug}`,
     }),
   )
   const [searchParams, setSearchParams] = useSearchParams()
@@ -1127,17 +1186,17 @@ export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang
   const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
-  const bodySearch = useBodySearchIndex(data.items, search)
+  const bodySearch = useBodySearchIndex(items, search)
   const { bodyIndex } = bodySearch
   const filtered = useMemo(
     () =>
       sortItems(
-        data.items.filter((item) =>
+        items.filter((item) =>
           matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
         ),
         sort,
       ),
-    [data.items, search, fromYear, toYear, sourceKind, sort, bodyIndex],
+    [items, search, fromYear, toYear, sourceKind, sort, bodyIndex],
   )
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
@@ -1190,6 +1249,12 @@ export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
           <p className="archive-intro">{data.intro}</p>
+          {foreignItems.length > 0 && (
+            <p className="archive-foreign-note">
+              <strong>{content[lang].foreignArchiveLabel}.</strong>{' '}
+              {content[lang].foreignArchiveNote}
+            </p>
+          )}
         </Reveal>
 
         <ArchiveSearchRow
@@ -1254,7 +1319,7 @@ export function FlatArchivePage({ data, lang }: { data: FlatArchiveSection; lang
               <SortSelect lang={lang} sort={sort} setSort={(value) => setParam('sort', value)} />
             </div>
             <Reveal delay={0.1}>
-              {data.items.length === 0 ? (
+              {items.length === 0 ? (
                 <p className="archive-empty">{data.emptyLabel}</p>
               ) : filtered.length === 0 ? (
                 <p className="archive-empty">

@@ -226,14 +226,25 @@ function sectionCopy(lang, pageKey) {
   return key ? content[lang][key] : undefined
 }
 
+/* Split the way the page itself splits: the reader's own language first,
+   then the other language's under its own heading. Analyses, interviews and
+   academic articles exist in Turkish only, so for English every record is
+   foreign — which is what the page shows too, now that the English explainer
+   pages were replaced by the records themselves. */
 function itemsForSection(lang, pageKey) {
+  const of = (source, category) => source.filter((item) => item.category === category)
+  const foreignLang = lang === 'tr' ? 'en' : 'tr'
   if (pageKey === 'columns') {
-    return byLang[lang].filter((item) => item.category === 'columns')
+    return { own: of(byLang[lang], 'columns'), foreign: of(byLang[foreignLang], 'columns') }
   }
-  if (pageKey === 'analyses') return byLang.tr.filter((item) => item.category === 'analyses')
-  if (pageKey === 'interviews') return byLang.tr.filter((item) => item.category === 'interviews')
-  if (pageKey === 'academic') return byLang.tr.filter((item) => item.category === 'academic')
-  return []
+  for (const category of ['analyses', 'interviews', 'academic']) {
+    if (pageKey === category) {
+      return lang === 'tr'
+        ? { own: of(byLang.tr, category), foreign: [] }
+        : { own: [], foreign: of(byLang.tr, category) }
+    }
+  }
+  return { own: [], foreign: [] }
 }
 
 for (const lang of ['tr', 'en']) {
@@ -303,11 +314,18 @@ for (const lang of ['tr', 'en']) {
       inner = `<h1>${escapeHtml(heading)}</h1>${itemListHtml(chronicleItems, lang, 60)}`
     } else {
       const section = sectionCopy(lang, pageKey)
-      const sectionItems = itemsForSection(lang, pageKey)
+      const { own, foreign } = itemsForSection(lang, pageKey)
+      const sectionItems = [...own, ...foreign]
       const heading = section?.title ?? pageKey
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
-      inner = `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>${itemListHtml(sectionItems, lang)}`
+      const foreignHtml = foreign.length
+        ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2><p>${escapeHtml(t.foreignArchiveNote)}</p>${itemListHtml(foreign, lang)}`
+        : ''
+      inner =
+        `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
+        (own.length ? itemListHtml(own, lang) : '') +
+        foreignHtml
       jsonLd = schema.collectionJsonLd({
         name: heading,
         description,

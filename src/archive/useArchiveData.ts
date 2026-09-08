@@ -7,15 +7,24 @@ export type ArchiveDataStatus = 'loading' | 'ready' | 'error'
 
 export interface ArchiveDataState {
   status: ArchiveDataStatus
-  /** Non-null exactly when `status === 'ready'`. */
+  /** The page language's records. Non-null exactly when `status === 'ready'`. */
   data: ArchiveData | null
-  /** Re-runs the dynamic import after a failure. */
+  /** The other language's records, listed on the same pages under their own
+   *  heading so a reader does not have to switch language to find a piece.
+   *  Non-null exactly when `status === 'ready'`. */
+  foreign: ArchiveData | null
+  /** Re-runs the dynamic imports after a failure. */
   reload: () => void
 }
 
-/* One chunk per language rather than one for the whole archive: a page only
-   ever renders one language's records, and the English metadata is a fifth of
-   the total. The home page loads neither — it reads the generated summary. */
+const other: Record<ArchiveLang, ArchiveLang> = { tr: 'en', en: 'tr' }
+
+/* Still one chunk per language rather than one for the whole archive. Every
+   section page now needs both, because each lists the other language's
+   records too, but keeping them apart means the two arrive in parallel and
+   the English chunk — a fifth of the total — is still all a reader pays for
+   when only it has changed. The home page loads neither: it reads the
+   generated summary. */
 const loaders: Record<ArchiveLang, () => Promise<LanguageArchive>> = {
   tr: () => import('./tr').then((module) => module.trArchive),
   en: () => import('./en').then((module) => module.enArchive),
@@ -36,22 +45,27 @@ function loadArchiveData(lang: ArchiveLang): Promise<LanguageArchive> {
 }
 
 export function useArchiveData(lang: ArchiveLang): ArchiveDataState {
-  const [state, setState] = useState<{ status: ArchiveDataStatus; data: ArchiveData | null }>(
-    { status: 'loading', data: null },
-  )
+  const [state, setState] = useState<{
+    status: ArchiveDataStatus
+    data: ArchiveData | null
+    foreign: ArchiveData | null
+  }>({ status: 'loading', data: null, foreign: null })
   const [attempt, setAttempt] = useState(0)
 
   useEffect(() => {
     let active = true
-    setState({ status: 'loading', data: null })
-    loadArchiveData(lang).then(
-      (data) => {
-        if (active) setState({ status: 'ready', data })
+    setState({ status: 'loading', data: null, foreign: null })
+    /* Both or neither. A page that rendered its own language and then popped
+       the other one in underneath would move the ground under a reader who
+       had already started down the list. */
+    Promise.all([loadArchiveData(lang), loadArchiveData(other[lang])]).then(
+      ([data, foreign]) => {
+        if (active) setState({ status: 'ready', data, foreign })
       },
       (error: unknown) => {
         if (!active) return
-        console.error(`Failed to load the ${lang} archive`, error)
-        setState({ status: 'error', data: null })
+        console.error(`Failed to load the archive for ${lang}`, error)
+        setState({ status: 'error', data: null, foreign: null })
       },
     )
     return () => {
@@ -61,5 +75,5 @@ export function useArchiveData(lang: ArchiveLang): ArchiveDataState {
 
   const reload = useCallback(() => setAttempt((value) => value + 1), [])
 
-  return { status: state.status, data: state.data, reload }
+  return { status: state.status, data: state.data, foreign: state.foreign, reload }
 }

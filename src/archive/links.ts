@@ -25,12 +25,28 @@ export function archiveBasePath(lang: Lang, item: { category: ArchiveItem['categ
   }
 }
 
-export function archiveLink(
-  item: ArchiveItem,
-  lang: Lang,
-): { href: string; internal: boolean } | null {
+/**
+ * Where a record's own reader page lives — always in the record's language,
+ * never the page's.
+ *
+ * These differ now that each section lists the other language's records too:
+ * a Turkish column shown on /columns still reads at /tr/kose-yazilari/<slug>,
+ * because that is the only place it was prerendered and the only language its
+ * body exists in. scripts/lib/archive-model.mjs#routeForItem has always
+ * derived the route this way for the sitemap and the prerenderer, so this is
+ * the client agreeing with the build rather than a new rule.
+ *
+ * `archiveBasePath` keeps taking an explicit language for the home page's
+ * weekly picks, which come from a per-language pool of seeds carrying no
+ * `lang` of their own.
+ */
+export function archiveItemBasePath(item: ArchiveItem): string {
+  return archiveBasePath(item.lang, item)
+}
+
+export function archiveLink(item: ArchiveItem): { href: string; internal: boolean } | null {
   if (item.hasBody || itemScanClippings(item).length > 0) {
-    return { href: `${archiveBasePath(lang, item)}/${item.slug}`, internal: true }
+    return { href: `${archiveItemBasePath(item)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
   if (item.imageSrc) return { href: item.imageSrc, internal: false }

@@ -1551,11 +1551,6 @@ main:focus {
   max-width: var(--measure);
   margin: var(--space-3) 0 0;
 }
-.archive-language-note {
-  max-width: var(--measure);
-  margin: var(--space-3) 0;
-  color: var(--ink-soft);
-}
 
 .archive-layout {
   display: flex;
@@ -2295,6 +2290,39 @@ a.archive-row:hover .archive-row-title {
   height: 4px;
   border-radius: var(--radius-full);
   background: var(--line-strong);
+}
+
+/* Both shelves in one column — the reader's own language first, then the
+   other language's under its own heading. Keeps .newsstand-stack to two
+   children so its 900px row layout is unaffected by the second shelf. */
+.newsstand-shelves {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.newsstand-foreign {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.newsstand-foreign-title {
+  font-family: var(--headline);
+  font-size: var(--text-title-sm);
+  line-height: 1.35;
+  margin: 0;
+}
+.newsstand-foreign-note,
+.archive-foreign-note {
+  max-width: var(--measure);
+  margin: 0;
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.archive-foreign-note {
+  margin-top: var(--space-3);
 }
 
 /* From ~900px the rack turns 90°: a vertical rail down the left edge,
