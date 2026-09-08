@@ -36,40 +36,40 @@
     "date": "2026-09-05"
   },
   "/tr": {
-    "fingerprint": "ca687f80e5a38ea6",
-    "date": "2026-09-05"
+    "fingerprint": "165573ebf9c4cb3d",
+    "date": "2026-09-08"
   },
   "/tr/kimdir": {
-    "fingerprint": "63535ba4b2949a82",
-    "date": "2026-09-07"
+    "fingerprint": "af3c155b2b6c06e6",
+    "date": "2026-09-08"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "e5ed4a8065c82489",
-    "date": "2026-09-07"
+    "fingerprint": "72d758061aed16f0",
+    "date": "2026-09-08"
   },
   "/tr/analizler": {
-    "fingerprint": "da653b252fef177e",
-    "date": "2026-09-07"
+    "fingerprint": "ad1369fcaf57791a",
+    "date": "2026-09-08"
   },
   "/tr/soylesiler": {
-    "fingerprint": "a2427faa470b4ad8",
-    "date": "2026-09-07"
+    "fingerprint": "d7d65ce96e3e30e9",
+    "date": "2026-09-08"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "98e79332c9e5580d",
-    "date": "2026-09-07"
+    "fingerprint": "a5dea30b11255edb",
+    "date": "2026-09-08"
   },
   "/tr/kitaplar": {
-    "fingerprint": "ebde00fd576bffc1",
-    "date": "2026-09-07"
+    "fingerprint": "4f49a8861595e25a",
+    "date": "2026-09-08"
   },
   "/tr/kronik": {
-    "fingerprint": "ca687f80e5a38ea6",
-    "date": "2026-09-05"
+    "fingerprint": "165573ebf9c4cb3d",
+    "date": "2026-09-08"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "ca687f80e5a38ea6",
-    "date": "2026-09-05"
+    "fingerprint": "165573ebf9c4cb3d",
+    "date": "2026-09-08"
   },
   "/tr/kose-yazilari/baslarken": {
     "fingerprint": "8decc08a5203ac15",
@@ -242,6 +242,58 @@
   "/tr/kose-yazilari/marxi-kesfediyoruz": {
     "fingerprint": "bb0185166ed9ca67",
     "date": "2026-09-05"
+  },
+  "/tr/kose-yazilari/solculuk-neden-tutuculuk-oldu": {
+    "fingerprint": "555c4c7a183acf99",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/ataturk-ve-zeitgeist": {
+    "fingerprint": "c22d695f5a8da34f",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/turkiyeye-ozgurlukcu-ve-reformcu-bir-sol-gerekiyor": {
+    "fingerprint": "a4ac4af2c4ac7c49",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/komplo-teorisi-ve-tarihten-cektigimiz": {
+    "fingerprint": "3df8bba6bee12350",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/din-ile-bilim-rakip-midir": {
+    "fingerprint": "4ee986c615245ae8",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/demokrasi-icin-iki-turlu-secim": {
+    "fingerprint": "4ef8f57b9c2f08db",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/1984-on-yil-geride-kaldi": {
+    "fingerprint": "14228f3fdca6e636",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/seriat-gelsin-diyen-tek-koyluye-rastlamadim": {
+    "fingerprint": "5ddb21e440d662aa",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/alevi-kulturu-cumhuriyetci-ideolojiyle-uyum-halinde": {
+    "fingerprint": "bf22c762059bf98f",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/bilimsiz-arastirmasiz-politika-coktan-tikandi": {
+    "fingerprint": "1b555b5294c06273",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/siyasal-katilim-arttikca-teror-azaldi": {
+    "fingerprint": "4777d97af3e2b808",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/turkiye-neden-islamin-yildizi": {
+    "fingerprint": "d3122e09ef342ef0",
+    "date": "2026-09-08"
+  },
+  "/tr/kose-yazilari/halk-degisme-ve-uzlasmaya-siyasilerden-daha-yatkin": {
+    "fingerprint": "c4db486adcd556a3",
+    "date": "2026-09-08"
   },
   "/tr/kose-yazilari/abd-ve-refah": {
     "fingerprint": "f066a3433bd92d98",
