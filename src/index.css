@@ -2299,13 +2299,11 @@ a.archive-row:hover .archive-row-title {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  min-width: 0;
 }
 .newsstand-foreign {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  min-width: 0;
 }
 .newsstand-foreign-title {
   font-family: var(--headline);
@@ -2313,22 +2311,20 @@ a.archive-row:hover .archive-row-title {
   line-height: 1.35;
   margin: 0;
 }
-.newsstand-foreign-note,
-.archive-foreign-note {
-  max-width: var(--measure);
-  margin: 0;
-  font-size: var(--text-body-sm);
-  line-height: 1.6;
-  color: var(--ink-soft);
-}
-.archive-foreign-note {
-  margin-top: var(--space-3);
+.archive-foreign-title {
+  font-family: var(--headline);
+  font-size: var(--text-title-sm);
+  line-height: 1.35;
+  margin: var(--space-3) 0 0;
 }
 
 /* From ~900px the rack turns 90°: a vertical rail down the left edge,
    spines stacked top to bottom, with the İçindekiler panel filling the
    rest of the row beside it (see NewsstandTOC below). */
 @media (min-width: 900px) {
+  .newsstand-shelves {
+    flex: 0 0 auto;
+  }
   .newsstand-stack-shelf {
     flex: 0 0 auto;
     flex-direction: column;

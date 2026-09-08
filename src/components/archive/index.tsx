@@ -889,7 +889,6 @@ function NewsstandStack({
         {foreign.length > 0 && (
           <div className="newsstand-foreign">
             <h2 className="newsstand-foreign-title">{t.foreignArchiveLabel}</h2>
-            <p className="newsstand-foreign-note">{t.foreignArchiveNote}</p>
             {shelf(foreign, t.foreignArchiveLabel)}
           </div>
         )}
@@ -1249,11 +1248,8 @@ export function FlatArchivePage({
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
           <p className="archive-intro">{data.intro}</p>
-          {foreignItems.length > 0 && (
-            <p className="archive-foreign-note">
-              <strong>{content[lang].foreignArchiveLabel}.</strong>{' '}
-              {content[lang].foreignArchiveNote}
-            </p>
+          {foreignItems.length > 0 && data.items.length === 0 && (
+            <h2 className="archive-foreign-title">{content[lang].foreignArchiveLabel}</h2>
           )}
         </Reveal>
 
