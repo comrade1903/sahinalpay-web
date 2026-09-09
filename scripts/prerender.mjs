@@ -373,12 +373,9 @@ for (const item of items) {
   const parts = [`<h1>${escapeHtml(item.title)}</h1>`]
   if (byline) parts.push(`<p><small>Şahin Alpay — ${byline}</small></p>`)
   if (item.subtitle) parts.push(`<p><em>${escapeHtml(item.subtitle)}</em></p>`)
+  if (item.excerpt) parts.push(`<p><em>${escapeHtml(item.excerpt)}</em></p>`)
   if (body?.length) {
     parts.push(body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join(''))
-  } else if (item.excerpt) {
-    parts.push(
-      `<p><strong>${escapeHtml(t.reader.summaryLabel)}</strong></p><p>${escapeHtml(item.excerpt)}</p>`,
-    )
   }
 
   /* Scans are the only form some pieces exist in, so the fallback links the

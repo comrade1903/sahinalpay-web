@@ -121,7 +121,6 @@ export interface Content {
     /* Heads the archive's own summary of a piece that exists only as a
        page scan. Without this label the summary could be mistaken for the
        author's text, which the record must never allow. */
-    summaryLabel: string
   }
   /* Shown instead of silently redirecting home. A citation that resolves to the
      wrong page with no warning is worse for the record than an honest dead end. */
@@ -497,7 +496,6 @@ export const content: Record<Lang, Content> = {
       accessed: 'Accessed',
       bodyError: 'The full text could not be loaded. Your connection may have dropped.',
       bodyRetry: 'Try again',
-      summaryLabel: 'About this piece',
     },
     notFound: {
       kicker: 'Not found',
@@ -788,7 +786,6 @@ export const content: Record<Lang, Content> = {
       accessed: 'Erişim:',
       bodyError: 'Yazının tam metni yüklenemedi. Bağlantınız kesilmiş olabilir.',
       bodyRetry: 'Yeniden dene',
-      summaryLabel: 'Bu yazı hakkında',
     },
     notFound: {
       kicker: 'Bulunamadı',

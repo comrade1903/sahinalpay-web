@@ -31,6 +31,12 @@ export interface ArchiveItemSeed {
   /** web.archive.org snapshot — shown next to the (often defunct) source link. */
   archiveUrl?: string
   imageSrc?: string
+  /** The piece's **own** standfirst, verbatim from the original — the spot
+   *  printed under its headline. Absent when the piece has none, which is
+   *  the usual case: a summary written *about* an article is not a spot, and
+   *  putting one here reads as the author's words in the place his own words
+   *  belong. 542 such summaries were removed on 2026-09-09 for that reason.
+   *  Never write one; transcribe one, or leave this out. */
   excerpt?: string
   subtitle?: string
   body?: string[]

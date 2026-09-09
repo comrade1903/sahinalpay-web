@@ -5,7 +5,6 @@ export const p24ColumnSeeds: ArchiveItemSeed[] = [
     title: "Hocam ve dostum Tomas Hammar’a veda",
     date: "1 Ağustos 2024",
     url: "https://platform24.org/arsiv/hocam-ve-dostum-tomas-hammara-veda/",
-    excerpt: "1972'nin Kasım ayıydı. Türkiye'de askeri yönetim tarafından aranıyordum. Rahmetli ağabeyimin yüklü bir para karşılığı sahibinden satın aldığı, yakın bir arkadaşımın da kimliğime uydurduğu pasaport…",
     hasBody: true,
     clippings: [
       {

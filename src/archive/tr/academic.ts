@@ -36,8 +36,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Doktora Tezi (başlık teyit edilemedi)',
     date: '1981',
     subtitle: 'Stockholm Üniversitesi, Siyaset Bilimi',
-    excerpt:
-      'Stockholm Üniversitesi Siyaset Bilimi Bölümü\'nde 1981\'de tamamlanan doktora tezi. Genel biyografik kaynaklar kurumu ve yılı doğruluyor; tezin resmî başlığı hiçbir kaynakta doğrulanamadı.',
     sourceNote:
       'Kurum ve yıl genel biyografik kaynaklarla (Biyografya, T.C. Kültür ve Turizm Bakanlığı) teyit edilmiştir. Resmî tez başlığı doğrulanamadığı için buraya yazılmamıştır; CV veya Stockholm Üniversitesi kayıtlarından kesinleşince güncellenecektir.',
     tags: ['doktora tezi', 'Stockholm Üniversitesi', 'siyaset bilimi', '1981'],
@@ -47,8 +45,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
     date: '1980',
     subtitle: 'Stockholm Studies in Politics, c. 16 — LiberFörlag, Stockholm, 1980',
-    excerpt:
-      'İsveççe: "Stockholm\'de Türkler: Göçmenler, Siyaset ve Toplum Üzerine Bir İnceleme". İsveç\'e göç eden Türklerin siyasete ve topluma bakışını inceleyen, doktora dönemine ait akademik çalışma.',
     sourceNote:
       'Google Books ve LIBRIS (İsveç Ulusal Kütüphane Kataloğu) kayıtlarıyla teyit edilmiştir. ISBN 978-91-38-05635-6.',
     url: 'https://books.google.com/books/about/Turkar_i_Stockholm.html?id=X9HPAAAAIAAJ',
@@ -59,8 +55,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
     date: '1986',
     subtitle: 'Şahin Alpay, Seyfettin Gürsel — Afa Yayınları, İstanbul, 1986, 172 s.',
-    excerpt:
-      'Demokratik Sol Parti (DSP) ile Sosyaldemokrat Halkçı Parti (SHP) arasındaki ideolojik yakınlaşma ve ayrılık noktalarını mülakatlarla inceleyen, Seyfettin Gürsel ile birlikte yazılmış kitap.',
     sourceNote:
       'Atatürk Kültür, Dil ve Tarih Yüksek Kurumu Kütüphanesi kataloğuyla teyit edilmiştir.',
     tags: ['DSP', 'SHP', 'sosyal demokrasi', 'Seyfettin Gürsel', '1986'],
@@ -80,8 +74,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     date: '1993',
     subtitle:
       'Turkey and the West: Changing Political and Cultural Identities içinde (ed. Metin Heper, Ayşe Öncü, Heinz Kramer) — I.B. Tauris, London, 1993, s. 69-91',
-    excerpt:
-      'Türk gazetecilerin demokratik ilkelere bağlılığını ve bu bağlılığın sağlamlığına yönelik kendi aralarındaki kuşkuyu inceleyen akademik makale.',
     sourceNote:
       'Bu kayıt "Politics in the Third Turkish Republic" (Heper & Evin, Westview, 1994) kaynak gösterilerek iletilmişti; o kitapta böyle bir bölüm yok. Gerçek kaynak, makaleye atıf yapan bir çalışma (Bilkent Üniversitesi Kurumsal Arşivi) ile bağımsız bir aramada teyit edilmiştir.',
     tags: ['gazetecilik', 'demokrasi', 'basın', '1993'],
@@ -93,8 +85,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     date: '2010',
     subtitle:
       "Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century içinde (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, s. 370-387",
-    excerpt:
-      "Türkiye'nin modernleşme ve demokratikleşme sürecinde medyanın oynadığı çelişkili rolü inceleyen kitap bölümü.",
     sourceNote: 'Crossref (DOI 10.1057/9780230277397_20) ile teyit edilmiştir.',
     url: 'https://link.springer.com/chapter/10.1057/9780230277397_20',
     tags: ['medya', 'basın özgürlüğü', 'modernleşme', 'demokrasi', '2010'],

@@ -308,6 +308,11 @@ export function LoadedArticlePage({
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
+  /* A piece that survives only as a scan has no running text on the page: its
+     words are inside the clipping. Rendering an empty body column for it left
+     a 72px gap under the byline, and the text-size controls resized nothing.
+     Both now appear only where there is text to show or to wait for. */
+  const hasRunningText = Boolean(item?.hasBody || (body && body.length > 0) || bodyFailed)
   const cover: ArchiveClipping | null =
     scans[0] ?? (item.imageSrc ? { src: item.imageSrc, alt: item.title } : null)
 
@@ -337,6 +342,7 @@ export function LoadedArticlePage({
               </span>
               {item.category === 'columns' ? t.columns.title : item.outlet}
             </Link>
+            {hasRunningText && (
             <div
               className="article-tools-group"
               role="group"
@@ -379,6 +385,7 @@ export function LoadedArticlePage({
                 {Math.round(fontScale * 100)}%
               </output>
             </div>
+            )}
             <CiteThis item={item} articleUrl={articleUrl} lang={lang} />
           </div>
           <h1 className="section-title">{item.title}</h1>
@@ -426,6 +433,7 @@ export function LoadedArticlePage({
             ))}
           </Reveal>
         )}
+        {hasRunningText && (
         <Reveal
           as="div"
           delay={0.08}
@@ -458,16 +466,9 @@ export function LoadedArticlePage({
             <p className="article-body-loading" role="status" aria-live="polite">
               {lang === 'tr' ? 'Yazı yükleniyor…' : 'Loading article…'}
             </p>
-          ) : item.excerpt ? (
-            /* Scan-only piece: the text lives in the PDF, so the archive's own
-               summary stands in its place — labelled, because it is not the
-               author's prose and must never be read as such. */
-            <div className="article-summary">
-              <p className="kicker">{content[lang].reader.summaryLabel}</p>
-              <p>{item.excerpt}</p>
-            </div>
           ) : null}
         </Reveal>
+        )}
         {cover && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>
             <h2>{content[lang].clippingViewer.heading}</h2>
