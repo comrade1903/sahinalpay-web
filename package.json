@@ -26,7 +26,8 @@
     "split:archive": "node scripts/split-archive-body.mjs",
     "extract:tustav-pdf": "node scripts/extract-tustav-pdf.mjs",
     "recover:tustav": "node scripts/recover-tustav-pdfs.mjs",
-    "ocr:scans": "node scripts/ocr-scan-inbox.mjs"
+    "ocr:scans": "node scripts/ocr-scan-inbox.mjs",
+    "find:spots": "node scripts/find-clipping-spots.mjs"
   },
   "dependencies": {
     "motion": "^12.42.2",

@@ -34,6 +34,7 @@ npm run inventory:archive  # diffable dump of every record, for before/after pro
 npm run inventory:media    # which files under public/archive the site actually links
 npm run split:archive      # re-split large outlets into metadata + .body.ts modules
 npm run ocr:scans          # OCR a directory of incoming clipping scans into tmp/ocr/
+npm run find:spots         # locate a clipping's pull-quote and crop it for reading
 ```
 
 Tests are **vitest** with happy-dom, under `tests/`. They cover the behaviour a
