@@ -301,6 +301,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: '"Kalkınmada bir strateji arayışı" mı?',
     date: '9 Ocak 1987',
     subtitle: 'Cumhuriyet, 9 Ocak 1987, s. 5',
+    excerpt: 'Bu kitapta yakın tarihimizin en önemli fikir hareketlerinden birinin mükemmel denebilecek bir anatomisinin çizildiğini söyleyebiliriz. YÖN fikriyatının eleştirilmesi açısından bakıldığında ise, Özdemir’in çalışmasının doyurucu olduğunu söylemek güç.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Hikmet Özdemir', 'YÖN hareketi', 'Doğan Avcıoğlu', 'kalkınma', 'Türk solu', '1987'],
     clippings: [
@@ -331,6 +332,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "Prag'da Bahar",
     date: '27 Eylül 1987',
     subtitle: 'Cumhuriyet, 27 Eylül 1987, s. 7',
+    excerpt: 'Bir Praglıya göre, Çekoslovak halkı, kentlisiyle köylüsüyle 8 saat çalışmaya alıştı. Oysa bir aile işletmesi kurup para kazanmak için çok çalışmak gerek. Bu zahmete kim katlanacak? Öte yandan daha iyi yaşamak için bazılarının iki ayrı işte, 8’erden 16 saat çalıştıkları biliniyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Çekoslovakya', 'Prag', 'glasnost', 'ekonomik reform', 'sosyalizm', '1987'],
     clippings: [
@@ -511,6 +513,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Ayet mi, Slogan mı?',
     date: '20 Aralık 1990',
     subtitle: 'Cumhuriyet Kitap, sayı 44, 20 Aralık 1990, s. 17',
+    excerpt: 'Ruşen Çakır yapıtında, İslamcı hareketlerin 1980’lerde gösterdiği çarpıcı gelişmenin nedenlerini, İslamcılığın bağımsız politik çizgi geliştirme olasılığını, Türkiye’ye şeriat düzeni getirip getiremeyeceğini, Türkiye’de laiklik, insan hakları ve demokrasi sorunlarıyla ilgilenenlerin zihinlerindeki daha birçok temel soruya yanıt getirmeye çalışıyor.',
     sourceNote:
       'Cumhuriyet Kitap ekinden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür. Sayfa künyesinde yalnızca sayı numarası var; tarih arşiv kaydından alındı. Cumhuriyet Gazetesi Arşivi.',
     tags: ['Ruşen Çakır', 'İslamcılık', 'laiklik', 'şeriat', 'Cumhuriyet Kitap', '1990'],
