@@ -241,6 +241,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Weber ilk kez dilimize çevrildi',
     date: '14 Şubat 1985',
     subtitle: 'Cumhuriyet, 14 Şubat 1985, s. 5',
+    excerpt: 'Karl Marx ve Emile Durkheim’ın yanı sıra sosyolojinin “üç büyükleri”nden biri sayılan Max Weber’in bugün de tartışılan ünlü eseri Türkçe yayımlandı.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Max Weber', 'Protestan Ahlakı', 'sosyoloji', 'Sabri Ülgener', 'kapitalizm', '1985'],
     clippings: [
@@ -256,6 +257,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "MSP'nin gelişimi ve ideolojisi",
     date: '11 Nisan 1985',
     subtitle: 'Cumhuriyet, 11 Nisan 1985, s. 5',
+    excerpt: 'Ali Yaşar Sarıbay’ın Türkiye’de modernleşme, din ve partileşme bağlamında Milli Selamet Partisi’ni konu alan incelemesi, çağdaş Türkiye’de politik hayatın araştırılmasına yararlı bir katkı oluşturuyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Ali Yaşar Sarıbay', 'Milli Selamet Partisi', 'modernleşme', 'din ve siyaset', '1985'],
     clippings: [
@@ -286,6 +288,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Çeyrek asır sonra ABD',
     date: '29 Eylül 1985',
     subtitle: 'Cumhuriyet, 29 Eylül 1985, s. 12',
+    excerpt: 'Zevk ve sefaya düşkünlüğü ile ünlü “günahkâr şehir” New Orleans. Tennessee Williams’ın, William Faulkner’ın ve Luis Armstrong’un şehri, Amerikan edebiyatı ve müziğinin candamarlarından biri olan New Orleans. Ama ne gerçek Fransız yemeklerinin o eski tadı kalmış, ne de cazın.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['ABD', 'New Orleans', 'ırk sorunu', 'göçmenlik', 'izlenim', '1985'],
     clippings: [
