@@ -351,6 +351,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Japonların çalışma hastalığı',
     date: '15 Kasım 1987',
     subtitle: 'Cumhuriyet, 15 Kasım 1987, s. 13',
+    excerpt: 'Japonları daha az çalışıp daha çok eğlenmeye ikna etmek için “çalışma hastalıkları”nın tedavi edilmesi gerekiyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Japonya', 'Tokyo', 'çalışma hayatı', 'eğitim', 'izlenim', '1987'],
     clippings: [
@@ -381,6 +382,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "Mehmet Ali Aybar'ın anıları",
     date: '14 Nisan 1988',
     subtitle: 'Cumhuriyet, 14 Nisan 1988, s. 5',
+    excerpt: 'Aybar’ın sekiz yıl başkanlığını yaptığı ve yakın siyasal tarihimizde, aldığı oyların oranı ile ölçülemeyecek ağırlıkta bir rol oynamış olan TİP’in tarihini kendine özgü bir yaklaşımla kaleme alması, bu tarihin anlaşılmasına çok değerli bir katkı.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Mehmet Ali Aybar', 'Türkiye İşçi Partisi', '1960\'lar', 'sosyalizm', 'anı', '1988'],
     clippings: [
@@ -411,6 +413,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "'Kadro' ve Kadrocular",
     date: '25 Ağustos 1988',
     subtitle: 'Cumhuriyet, 25 Ağustos 1988, s. 5',
+    excerpt: 'Merdan Yanardağ’ın çalışması, Kadro dergisine duyulan akademik ilginin yeni bir ürünü. Kadro akımı ve Kadrocular hakkında derli toplu bilgi vermesi açısından dikkate ve okunmaya değer bir kitap.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Merdan Yanardağ', 'Kadro dergisi', 'devletçilik', 'tek parti dönemi', '1988'],
     clippings: [
@@ -426,6 +429,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Demokrasinin geleceği',
     date: '3 Kasım 1988',
     subtitle: 'Cumhuriyet, 3 Kasım 1988, s. 5',
+    excerpt: 'Norberto Bobbio, Giovanni Sartori’nin yanında İtalya’nın siyaset bilimine yaptığı en büyük katkı. Bobbio’nun demokrasi ve demokrasiyle sosyalizm ilişkisini konu alan eserlerinin dilimize çevrilmesi çok önemli bir kazanç olacak.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Norberto Bobbio', 'demokrasi', 'sosyalizm', 'liberalizm', '1988'],
     clippings: [
@@ -456,6 +460,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Sosyalizmin geleceği',
     date: '15 Haziran 1989',
     subtitle: 'Cumhuriyet, 15 Haziran 1989, s. 5',
+    excerpt: 'Türkiye’de Marxizm açısından Mao’yu, Stalin’i ve Lenin’i eleştiren birçok yazar çıktı. Ama genelde Marxist olarak nitelenebilecek bir bakış açısından, Marx’ın ve Marxizm’in öğretilerinin eleştirilmesini de içeren bir çalışma ülkemizde ilk kez kaleme alınıyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Murat Belge', 'sosyalizm', 'çoğulculuk', 'korporatizm', 'Türk solu', '1989'],
     clippings: [
@@ -486,6 +491,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "İnönü Stadı'nda pazar keyfi",
     date: '24 Kasım 1989',
     subtitle: 'Cumhuriyet, 24 Kasım 1989, s. 18',
+    excerpt: 'Biletlerin numaralı olduğu konusunda uyarıldık. Yerimizi aradık bulduk. 17. sırada 124 ve 126 numaralı koltuklar. Keyfimiz kaçtı zira 124 ve 126 numaralı koltuklar bir direğin tam arkasına düşüyordu ve oraya oturulursa direkten başka bir şey görmeye imkân yoktu.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['futbol', 'İnönü Stadı', 'Beşiktaş', 'Timur Kuran', 'gündelik hayat', '1989'],
     clippings: [
@@ -501,6 +507,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Türkler için ne getirecek, ne götürecek?',
     date: '26 Şubat 1990',
     subtitle: 'Cumhuriyet, 26 Şubat 1990, s. 16',
+    excerpt: 'Federal Almanya’da yeşiller, doğudan gelen göçün özellikle Türkler açısından olumsuz sonuçlar doğurabileceğine inanıyorlar. Sosyal demokratlar ise o denli karamsar değiller. Sosyal demokratlara göre göçün Türkler üzerindeki etkisi en çok konut sorununda görülebilir.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Almanya', 'Bonn', 'Alman birleşmesi', 'göç', 'gurbetçiler', '1990'],
     clippings: [
@@ -548,6 +555,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Parlamentoda Deprem',
     date: '9 Kasım 1991',
     subtitle: 'Cumhuriyet, 9 Kasım 1991, s. 4',
+    excerpt: 'Sanıyorum parlamentoda yaşanan, ‘Ne Mutlu Türküm Diyene’ sloganıyla ifade edilen politikanın geçirdiği deprem. Türkiye Cumhuriyeti bugüne değin bu slogan ile çoğul etnik yapısını bir potada eritme politikası izledi.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Leyla Zana', 'TBMM', 'Kürt sorunu', 'etnik kimlik', 'demokrasi', '1991'],
     clippings: [
@@ -563,6 +571,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Dış Düşmanlar, İç Düşmanlar',
     date: '27 Kasım 1991',
     subtitle: 'Cumhuriyet, 27 Kasım 1991, s. 4',
+    excerpt: 'Türkiye, uluslararası politikanın hatırı sayılır güçte, sözüne güvenilir bir aktörüdür. Türkiye’nin kaderi dış güçlerin elinde değildir. Kendimize güvenebiliriz. Geleceğimizi seçmek büyük ölçüde kendi elimizde.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['komplo teorisi', 'emperyalizm', 'dış politika', 'milliyetçilik', '1991'],
     clippings: [
@@ -578,6 +587,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Sosyalizm Öldü mü?',
     date: '4 Aralık 1991',
     subtitle: 'Cumhuriyet, 4 Aralık 1991, s. 4',
+    excerpt: 'Sosyalizm fikri, ne sosyalizmin totaliter devletçi yorumuyla başladı ne de onunla sona erecek. Sosyalizm, Marx’tan önce de vardı; Marksizmden sonra da var olacak.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['sosyalizm', 'Marksizm', 'Sovyetler Birliği', 'sosyal demokrasi', '1991'],
     clippings: [
@@ -593,6 +603,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Ayrılıkçı Terör ve İspanya',
     date: '11 Aralık 1991',
     subtitle: 'Cumhuriyet, 11 Aralık 1991, s. 4',
+    excerpt: 'İspanya, Kürt sorununun çözümü konusunda Türkiye’ye örnek olabilir mi? Kuşkusuz Türkiye ile İspanya arasında önemli farklar var. Ama bu farklar İspanyol modelinden ders çıkarılmasına engel değil.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['İspanya', 'Bask', 'Katalonya', 'özerklik', 'terör', 'Kürt sorunu', '1991'],
     clippings: [
@@ -608,6 +619,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Türki Halklar ve Biz',
     date: '20 Aralık 1991',
     subtitle: 'Cumhuriyet, 20 Aralık 1991, s. 4',
+    excerpt: 'Uzak Orta Asya’daki “ana yurdumuzda” yaşayan insanlar, köken bakımından Türk olmayan yurttaşlarımızdan bize daha mı yakındırlar?',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Özbekistan', 'İslam Kerimov', 'Türki cumhuriyetler', 'dış politika', '1991'],
     clippings: [
@@ -623,6 +635,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Kürt Aydınlara Düşen Görev',
     date: '27 Aralık 1991',
     subtitle: 'Cumhuriyet, 27 Aralık 1991, s. 4',
+    excerpt: 'Bugün ana sorun, demokrasiyi genişleterek terör uygulayanları tecrit etmek. Bütün aklı başında insanların bu yolda DYP-SHP hükümetine destek olmaları gerekiyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Kürt sorunu', 'aydınlar', 'DYP-SHP koalisyonu', 'demokratikleşme', '1991'],
     clippings: [
@@ -653,6 +666,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Ah Şu Emperyalizm!...',
     date: '15 Şubat 1992',
     subtitle: 'Cumhuriyet, 15 Şubat 1992, s. 14',
+    excerpt: 'Emperyalizm kapitalizmin en yüksek aşaması değil. Kapitalizmden önce de vardı, kapitalizmden sonra sosyalizmle birlikte de görüldü.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['emperyalizm', 'Alparslan Türkeş', 'Karl Popper', 'komplo teorisi', 'kapitalizm', '1992'],
     clippings: [
@@ -668,6 +682,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: "Marx'ı Keşfediyoruz",
     date: '19 Şubat 1992',
     subtitle: 'Cumhuriyet, 19 Şubat 1992, s. 14',
+    excerpt: 'Marx, 19. ve 20. yüzyılların en önemli sosyal bilimcisi. Ama politikacıların bir anlamda en talihsizi.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Karl Marx', 'Marksizm', 'Karl Popper', 'Jon Elster', 'sosyalizm', '1992'],
     clippings: [
