@@ -445,6 +445,7 @@ export const cumhuriyetColumnSeeds: ArchiveItemSeed[] = [
     title: 'Bilim, iktisat ve piyasa',
     date: '6 Nisan 1989',
     subtitle: 'Cumhuriyet, 6 Nisan 1989, s. 5',
+    excerpt: 'Ayşe Buğra’nın iktisat biliminin öyküsünü temel alan bir bilim tarihi niteliğindeki çalışması, son derece bilgilendirici ve düşündürücü bir kitap. Buğra, konusunu iyi bilen bir yazarın sahip olduğu rahatlıkla, hayli karmaşık ve çetin konuları ustalıkla açıklıyor.',
     sourceNote: 'Cumhuriyet Gazetesi Arşivi\'nden alınan tam sayfa taramasından, dikkat dağıtmaması için kırpılmış kupür.',
     tags: ['Ayşe Buğra', 'iktisat', 'bilim felsefesi', 'piyasa', 'insan hakları', '1989'],
     clippings: [
