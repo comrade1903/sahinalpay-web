@@ -298,94 +298,23 @@ export const content: Record<Lang, Content> = {
     about: {
       "kicker": "Life story",
       "title": "Who is Şahin Alpay?",
-      "subtitle": "Looking back, I wanted to write about the people I shared my life with as well as the ideas I held.",
-      "lead": "Şahin Alpay’s life from Istanbul and Ayvalık to Sweden, journalism and teaching; his changing ideas, imprisonment in Silivri and life with Fatma.",
-      "editorialNote": "Written for this website in the first person, drawing on Şahin Alpay’s memoirs and essays. It contains no quotations from his books.",
+      "subtitle": "",
+      "lead": "",
+      "editorialNote": "",
       "contentsLabel": "On this page",
       "sections": [
         {
-          "id": "a-life-in-writing",
-          "title": "The life behind my writing",
+          "id": "my-life",
+          "title": "",
           "paragraphs": [
-            "Some readers know me through my newspaper columns. Others met me in a university classroom; some first heard my name when I was arrested. All of these belong to my life. But if I introduce myself only by listing the newspapers I worked for and the ideas I defended, much of the story will be missing. I also need to speak of Fatma, my family and friends, and what my decisions meant for them.",
-            "For many years I concerned myself with Turkey’s problems. I wanted it to become a freer, fairer country, where people could live without the constant struggle to make ends meet. My views on how to achieve that changed. I moved away from ideas I had once considered beyond doubt. Looking back, I can understand my youthful enthusiasm without approving of every decision it led me to make. I tried to keep that distance while writing my memoirs. The things I find uncomfortable to say about myself belong in the story too."
-          ]
-        },
-        {
-          "id": "istanbul-ayvalik",
-          "title": "Born in Istanbul, rooted in Ayvalık",
-          "paragraphs": [
-            "I was born in Istanbul on 18 April 1944, to Sabiha and Ahmet Alpay. My family’s history reaches through Ayvalık to the other side of the Aegean, to Lesbos and Serres. Ayvalık became my hometown. My ties to it lasted while I was at school in Istanbul and, later, living abroad. Migration, displacement and the effort to establish a new life were part of the family history I inherited.",
-            "Our childhood was not free of difficulties. My father’s illness deeply affected our family life. My mother worked hard to keep us together and took great care over our education. My sisters and brother helped bring me up too. My love of reading and my confidence owe much to them. The help my brother would later give me at a difficult moment taught me still more about family loyalty. I cannot describe the course of my life without acknowledging what these people made possible."
-          ]
-        },
-        {
-          "id": "education",
-          "title": "School and a wider world",
-          "paragraphs": [
-            "I attended Nilüfer Hatun Primary School in Nişantaşı, the English High School for Boys and then Robert College. An AFS scholarship took me to the Webb School in California for the 1961–1962 school year. I was seventeen. Joining the everyday life of people outside my familiar surroundings widened my understanding of the world. When I returned, Turkey’s poverty and lack of freedom occupied my thoughts more than before.",
-            "I gave up the opportunity to study at Columbia University on a scholarship and went to Ankara’s Faculty of Political Sciences, known as Mülkiye. Fatma had much to do with that choice. I began in 1963 and graduated in 1967. Those years were about more than lectures. I acted in plays, served in the student association and became involved in politics. I met many friends whose lives would later take different directions from mine. We had our adult lives ahead of us, and considerable confidence in our ability to change our country."
-          ]
-        },
-        {
-          "id": "youth",
-          "title": "The certainties of youth",
-          "paragraphs": [
-            "My search for an explanation of Turkey’s underdevelopment drew me towards the left. I was first influenced by the Workers’ Party of Turkey. In time I adopted more rigid interpretations of Marxism and came to believe that revolution would solve society’s problems. I joined the Aydınlık circle and worked with Doğu Perinçek. How much of our argument reflected the realities of the country, and how much the theories we had read? I would often ask myself that later.",
-            "In 1971 I joined the Palestinian resistance movement and spent time in camps in Syria and Lebanon. I had left my wife and our young daughter behind. Facing the pain that decision caused my family was difficult. I had doubts about the movement I belonged to, yet struggled to leave it. Eventually I returned to Turkey. Deciding to withdraw from revolutionary politics also meant questioning the role I had assigned myself. When I remember those years, I consider both my own responsibility and the political circumstances. Leaving either out would make the account incomplete."
-          ]
-        },
-        {
-          "id": "sweden",
-          "title": "Starting again in Sweden",
-          "paragraphs": [
-            "I was wanted during the military rule that followed the March 1971 intervention. With my brother’s help, I left Turkey in 1972 and sought refuge in Sweden, a country where I had never imagined living. I needed to learn a language, find work and discover whether I could continue my studies. Above all, I wanted to be reunited with Fatma and Elvan. We had been apart for a long time. Their arrival in Stockholm in 1974 remains one of the great joys of my life.",
-            "I joined political science research at Stockholm University. The opportunity my teacher Tomas Hammar gave me changed my future. I studied the social and political lives of migrants from Turkey and completed my doctorate in 1981. While doing research, I was also getting to know the country around me. I saw how social protections, democratic institutions and personal freedoms could work together. That experience contributed greatly to my reconsideration of the ideas I had adopted when I was young.",
-            "During those years my thinking moved towards social liberalism. Reducing inequality still mattered to me; I was looking for a political order that would do so while protecting individual freedom. Returning to Turkey was a new beginning in that sense too. I brought home a doctorate and a changed outlook. Not all my old friends would welcome the change."
-          ]
-        },
-        {
-          "id": "journalism",
-          "title": "Finding my place in journalism",
-          "paragraphs": [
-            "When I returned in 1981, I hoped to work at a university. That did not happen immediately. I first worked on encyclopedias, then joined Cumhuriyet at Hasan Cemal’s invitation towards the end of 1982. Working with books, research and intellectual debates from abroad, and bringing them to newspaper readers, suited me. But finding a place in a newsroom does not mean agreeing with everyone in it. My years at Cumhuriyet taught me that as well.",
-            "I left the newspaper in 1992. I worked at TÜSES and briefly advised the Republican People’s Party. Sabah and Milliyet followed. On the Entellektüel Bakış page I gave space to scholars, writers and thinkers from different countries. Interviews offered a chance to learn how someone else thought. I was interested in what observers of Turkey could see, and what they missed, depending on whether they looked from within the country or from outside. Some of these conversations later appeared in the Türkiye’nin Tanıkları books.",
-            "There were times in my journalism career when I lost my job and had to find another. Setting the names of my employers beside one another may suggest an orderly professional path. It did not look that way while I was living it. Help from a friend, an unexpected offer, a disagreement or the need to earn a living could determine what came next."
-          ]
-        },
-        {
-          "id": "teaching",
-          "title": "In the classroom and on the page",
-          "paragraphs": [
-            "I never entirely lost touch with academic work. I taught at Boğaziçi and was a visiting professor at Princeton in 1998. In 2001 I joined Bahçeşehir University, where I taught politics until 2015. Comparing Turkey’s political life with other countries’ experiences was a way of thinking I used in both my teaching and my writing. Discovering how an apparently distinctively Turkish problem had been addressed elsewhere could open up a discussion.",
-            "I began writing columns for Zaman in 2002. I worked at the university and contributed from outside the newspaper. My English columns later appeared in Today’s Zaman. Television programmes also allowed me to reach different audiences. In my memoirs I discuss my reasons for writing for Zaman. I thought I could engage a religious readership in a conversation about liberal democracy and wanted to share my views. I needed to explain both the expectations behind that choice and the problems I came to see."
-          ]
-        },
-        {
-          "id": "ideas",
-          "title": "Accounting for hopes and mistakes",
-          "paragraphs": [
-            "I placed great importance on Turkey’s aim of joining the European Union. I believed it would strengthen the rule of law and extend rights and freedoms. That was why I supported the AKP’s early reforms. My support rested on the prospect of a more democratic Turkey. As the government moved away from that course, my criticism grew. I argued that winning an election did not exempt those in power from legal restraint or public scrutiny.",
-            "My view of the Gülen movement was also influenced by a search for an interpretation of religion compatible with pluralist democracy. But my opportunities to know the movement were limited. Beyond the impressions I gained from the people I encountered, I did not know its internal workings. That limit needs to be stated in any account of my earlier judgments. I try to distinguish what I knew at the time, what I did not know, and how much my hopes shaped my assessment.",
-            "Looking back over my public life, I cannot say that the Turkey I wished for has come into being. Some of my expectations were disappointed. Pretending that I had never held them would not be honest either. My columns record what I thought at different times. My memoirs gave me room to explain the circumstances in which those views developed and how experience changed them. Examining oneself does not prevent every mistake; I still believe it is necessary for an honest account of the past."
-          ]
-        },
-        {
-          "id": "silivri",
-          "title": "Silivri and the return home",
-          "paragraphs": [
-            "I was taken into custody on 27 July 2016 and remanded in prison on 31 July. I was seventy-two. I spent roughly twenty months in Silivri. Freedom, a subject I had written about for so long, now meant a personal deprivation that shaped every hour. I was separated from my family. My health, my loved ones outside and the uncertainty of the proceedings occupied my thoughts.",
-            "I read, kept notes and wrote letters when I was allowed to do so. The support of my family and friends mattered enormously in sustaining me. I have not forgotten the kindness of people whose views differed from mine. Those experiences informed my later writing about friendship. More than once in my life I have seen that standing by someone in difficulty and agreeing with their politics are separate things.",
-            "Turkey’s Constitutional Court and the European Court of Human Rights found violations of my rights in connection with my detention. I left prison in March 2018 and spent a further period under house arrest. Being with my family again brought great happiness. But coming home did not remove all the consequences of what had happened. The proceedings continued, while we tried to resume everyday life together after the long separation."
-          ]
-        },
-        {
-          "id": "fatma-memoirs",
-          "title": "Fatma and what I wanted to remember",
-          "paragraphs": [
-            "I met Fatma as a child. We married in 1965. Our daughter Elvan and son Acar were born; years later our granddaughters Defne and Leyla joined the family. While my political views changed and my working life moved between institutions, Fatma had her own judgments and convictions. She did not agree with everything I thought. That is one reason she has such a large place in my memoirs: I wanted to make room for her distinct personality, the times she challenged me, and what she did for our family.",
-            "Our marriage contained difficulties as well as happiness. My decisions affected others; Fatma and the children bore some of the costs. Thinking about this is one of the hardest parts of recounting the past. After my release from Silivri, Fatma and I had only about six more months together. She died on 6 October 2018. My wish to complete my memoirs grew stronger. I wanted to write for our family, so that our children and grandchildren could know us more closely.",
-            "In Bir Hikâyem Var I describe the world I grew up in, my youth, Sweden and my earlier years in journalism. Hikâyemin Sonu returns to the 2000s, Zaman, Silivri and my last months with Fatma. Behind the people and decisions mentioned briefly here are long relationships, conversations and doubts. Much of my life is in those details. I would like readers to know the person behind the columns, including the people he loved, the mistakes he made and what he learned."
+            "I was born in Istanbul on 18 April 1944, the fourth child — after Sumru, Olcay and Acar — of Sabiha and Ahmet Alpay, a family from Ayvalık. Under the compulsory population exchange agreed between Turkey and Greece in 1923, my father’s family had settled in Ayvalık from Serres and my mother’s from Lesbos.",
+            "I attended primary school at Nilüfer Hatun Primary School in Nişantaşı, Istanbul (1950–55), middle school at the English High School for Boys in Nişantaşı (1955–60), and high school at Robert College in Bebek (1960–63). I spent third grade at Ayvalık Cumhuriyet Primary School (1952–53). In my second year of high school, on an American Field Service (AFS) scholarship, I went to the United States and completed my final year (1961–62) at the Webb School of California, a private school, earning an American high school diploma.",
+            "I won a four-year scholarship to study at Columbia University in New York, but chose not to use it. I completed my higher education between 1963 and 1967 at the Faculty of Political Sciences (SBF) of Ankara University. In 1965 I married my sweetheart, Fatma Nur (Kaptan), a neighbor’s daughter from Ayvalık; our daughter Elvan was born in 1968 and our son Acar in 1978. I have two grandchildren, Defne through Elvan and Leyla through Acar.",
+            "While a student at SBF I joined the revolutionary youth movement. My writing appeared in journals such as Dönüşüm, Forum, Aydınlık, İşçi-Köylü and Türk Solu. Between 1968 and 1971 I worked as a teaching assistant in constitutional law at the Faculty of Education of Ankara University. After the 12 March 1971 military intervention, when martial law authorities sought my arrest, I joined the Revolutionary Workers and Peasants’ Party of Turkey (TİİKP), led by Doğu Perinçek, and received guerrilla training in the camps of the Popular Democratic Front for the Liberation of Palestine, led by Nayef Hawatmeh, in Syria and Lebanon; it was during this period that I ended my ties with the TİİKP.",
+            "In 1972 I obtained political asylum in Sweden, and between 1974 and 1981 I completed a doctorate in the Department of Political Science at Stockholm University, with a thesis titled “Turks in Stockholm: A Social and Political Study of Immigrants.” On returning to Turkey, I worked as an editor and columnist at Cumhuriyet (1982–92), Sabah (1993–94) and Milliyet (1994–2001). Between 1992 and 1993 I served as Secretary-General of TÜSES, and in 1993 as a parliamentary group adviser to the Republican People’s Party. Following an invitation in the winter of 1998, I taught courses on Turkish political life as a visiting faculty member at Princeton University in the United States. Between 1999 and 2002 I hosted a weekly interview program called “An Intellectual’s View” on the CNN-Türk television channel.",
+            "Between 2001 and 2015 I taught courses on Turkish political life and comparative politics in the Department of Political Science at Bahçeşehir University. I wrote columns for Zaman between 2002 and 2016, and for Today’s Zaman between 2007 and 2016. Between 2006 and 2016 I was one of the commentators on the program “Notebook of the Mind” on Mehtap TV.",
+            "Although I had opposed military coups throughout my career as a writer, following the coup attempt of 15 July 2016 I was arrested on the charge of “membership in the FETÖ/PDY terrorist organization” and imprisoned in Silivri Prison until my release on 17 March 2018. At the conclusion of the trial, in 2022 I was sentenced to 2 years and 6 months in prison on the finding that, while not a member, I had “aided a terrorist organization.” My case is currently awaiting the outcome of my appeal before the Court of Cassation.",
+            "My beloved wife, Fatma Nur Alpay, passed away on 6 October 2018. I have written about our life together in the books Bir Hikayem Var (Lejand, 2024) and Hikayemin Sonu (Lejand, 2025)."
           ]
         }
       ],
@@ -608,7 +537,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Köşe Yazıları',
       title: 'Köşe Yazıları',
       intro:
-        'Türkiye’de ve dünyada olup bitenleri anlamak için yazdım. Cumhuriyet’ten P24’e uzanan bu arşivde, farklı yıllarda sorduğum sorular ve vardığım sonuçlar bir arada.',
+        'Lise yıllarından başlayarak Türkiye ve dünya siyasetinde olup bitenleri anlama çabası içinde oldum. Bu çabam 1960’lardan itibaren çeşitli dergilerde çıkan makalelere, 1980’lerden itibaren çeşitli gazetelerde çıkan köşe yazılarına yansıdı. Aşağıda köşe yazılarımdan seçmeler yer alıyor.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       outlets: [
         { outlet: 'Cumhuriyet', items: [] },
