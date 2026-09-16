@@ -33,7 +33,7 @@
 
 - Homepage: https://sahinalpay.com/ — biography, selected works, press-freedom
   chronology, and contact.
-- Archive: 576 catalogued pieces across Cumhuriyet, Sabah, Milliyet, Zaman,
+- Archive: 617 catalogued pieces across Cumhuriyet, Sabah, Milliyet, Zaman,
   Today's Zaman and P24, plus political analyses, interviews and academic
   articles. Turkish index at /tr/kose-yazilari, English at /columns.
 - Every entry traces to a verifiable source; the archive contains no

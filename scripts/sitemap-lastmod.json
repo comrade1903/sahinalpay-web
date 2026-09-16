@@ -4,8 +4,8 @@
     "date": "2026-09-05"
   },
   "/about": {
-    "fingerprint": "5f40a44f0f9f0f5c",
-    "date": "2026-09-07"
+    "fingerprint": "0628d150ab5c43db",
+    "date": "2026-09-16"
   },
   "/columns": {
     "fingerprint": "c438e6bb6a4771b8",
@@ -24,8 +24,8 @@
     "date": "2026-09-07"
   },
   "/books": {
-    "fingerprint": "53da0401b5c9b0d2",
-    "date": "2026-09-07"
+    "fingerprint": "18e2d26e7c49342a",
+    "date": "2026-09-16"
   },
   "/chronicle": {
     "fingerprint": "3d4e5c9c248d188d",
@@ -36,39 +36,39 @@
     "date": "2026-09-05"
   },
   "/tr": {
-    "fingerprint": "12b0223692dbc392",
+    "fingerprint": "a724936cceb37da5",
     "date": "2026-09-16"
   },
   "/tr/kimdir": {
-    "fingerprint": "9e67d66bc91aa44a",
+    "fingerprint": "0275b977d1276fa8",
     "date": "2026-09-16"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "289df84bb8b8b33a",
+    "fingerprint": "68352e6ff07c299c",
     "date": "2026-09-16"
   },
   "/tr/analizler": {
-    "fingerprint": "dabb8703b75e30f1",
+    "fingerprint": "dcf32de8d5aa7314",
     "date": "2026-09-16"
   },
   "/tr/soylesiler": {
-    "fingerprint": "1e02a5aa5e0e7126",
+    "fingerprint": "d32f53afdcab7d82",
     "date": "2026-09-16"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "0f95d1dde023e553",
+    "fingerprint": "bd98f20590437781",
     "date": "2026-09-16"
   },
   "/tr/kitaplar": {
-    "fingerprint": "391f80971d348996",
+    "fingerprint": "f94b3485b9c2c94a",
     "date": "2026-09-16"
   },
   "/tr/kronik": {
-    "fingerprint": "12b0223692dbc392",
+    "fingerprint": "a724936cceb37da5",
     "date": "2026-09-16"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "12b0223692dbc392",
+    "fingerprint": "a724936cceb37da5",
     "date": "2026-09-16"
   },
   "/tr/kose-yazilari/baslarken": {
