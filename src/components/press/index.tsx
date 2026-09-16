@@ -14,17 +14,27 @@ function pressItemPath(item: PressItem): string {
   return `${paths.tr.press!}/${item.slug}`
 }
 
+/** Author, publication and date, skipping whatever the manuscript does not
+ *  record rather than printing an empty separator. */
+function byline(item: PressItem): string {
+  return [item.author, item.outlet, item.date].filter(Boolean).join(' · ')
+}
+
 function PressRow({ item }: { item: PressItem }) {
   return (
     <li>
       <Link to={pressItemPath(item)} className="archive-row">
         <div className="archive-row-meta">
           {item.date && <span className="archive-row-date">{item.date}</span>}
-          <span className="archive-row-outlet press-row-outlet">{item.outlet}</span>
+          {item.outlet && (
+            <span className="archive-row-outlet press-row-outlet">{item.outlet}</span>
+          )}
         </div>
         <div className="archive-row-body">
           <h3 className="archive-row-title">{item.title ?? item.author}</h3>
-          <p className="archive-row-excerpt">{item.author}</p>
+          {item.title && item.author && (
+            <p className="archive-row-excerpt">{item.author}</p>
+          )}
         </div>
         <span className="archive-row-arrow material-symbols-outlined" aria-hidden="true">
           arrow_forward
@@ -107,9 +117,12 @@ export function PressArticlePage({ lang }: { lang: Lang }) {
   const heading = item?.title ?? item?.author ?? copy.title
 
   usePageMeta({
-    title: `${heading} — ${copy.title} — Şahin Alpay`,
-    description: item ? `${item.author} · ${item.outlet}${item.date ? ` · ${item.date}` : ''}` : copy.subtitle,
+    title: item
+      ? `${heading} — ${copy.title} — Şahin Alpay`
+      : `${t.notFound.title} — Şahin Alpay`,
+    description: item ? byline(item) : t.notFound.body,
     alternates: item ? { tr: pageUrl(pressItemPath(item)) } : pageAlternates(location.pathname),
+    ...(item ? {} : { robots: 'noindex, follow' }),
   })
 
   if (!item) {
@@ -147,10 +160,7 @@ export function PressArticlePage({ lang }: { lang: Lang }) {
             </Link>
           </div>
           <h1 className="section-title">{heading}</h1>
-          <p className="press-byline">
-            {item.author} · {item.outlet}
-            {item.date ? ` · ${item.date}` : ''}
-          </p>
+          <p className="press-byline">{byline(item)}</p>
         </Reveal>
 
         <Reveal className="prose article-body" delay={0.1}>

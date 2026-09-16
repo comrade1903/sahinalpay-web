@@ -14,11 +14,15 @@ export interface PressItemSeed {
    *  none; those render under their byline instead, and nothing is invented
    *  to fill the gap. */
   title?: string
-  /** Who wrote it. Required — an entry with no named author is not one of
-   *  these pieces but a news item, and belongs in the manuscript, not here. */
-  author: string
-  /** Where it ran, as the manuscript names it (T24, Hürriyet, Die Zeit…). */
-  outlet: string
+  /** Who wrote it, where the manuscript names someone. Several entries are
+   *  collective — an open letter, a learned society's appeal, an unsigned
+   *  news item — and carry no byline; those show the publication and date
+   *  alone rather than a guessed name. */
+  author?: string
+  /** Where it ran, as the manuscript names it (T24, Hürriyet, Die Zeit…).
+   *  A few entries name no publication; those show the author and date
+   *  alone rather than a guessed masthead. */
+  outlet?: string
   /** Free-text Turkish date, parsed by src/dateUtils.ts like archive dates. */
   date?: string
   /** The original article's address, where the manuscript records one. Most

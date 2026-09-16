@@ -14,11 +14,18 @@ describe('press about him', () => {
     }
   })
 
-  it('gives every piece a named author, an outlet and real text', () => {
+  it('gives every piece something to call it by, and real text', () => {
     expect(allPressItems.length).toBeGreaterThan(0)
     for (const entry of allPressItems) {
-      expect(entry.author.trim(), `${entry.slug} has no author`).not.toBe('')
-      expect(entry.outlet.trim(), `${entry.slug} has no outlet`).not.toBe('')
+      /* Unsigned pieces (open letters, a society's appeal) carry a title
+         instead of an author; one or the other has to be there. */
+      expect(
+        Boolean(entry.title?.trim() || entry.author?.trim()),
+        `${entry.slug} has neither a title nor an author`,
+      ).toBe(true)
+      /* `outlet` is optional: a couple of entries name no publication, and
+         an invented masthead would be worse than none. */
+      if (entry.outlet !== undefined) expect(entry.outlet.trim()).not.toBe('')
       expect(entry.body.length, `${entry.slug} has no body`).toBeGreaterThan(0)
       for (const paragraph of entry.body) expect(paragraph.trim()).not.toBe('')
     }

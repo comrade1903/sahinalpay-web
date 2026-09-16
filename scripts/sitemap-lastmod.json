@@ -24,7 +24,7 @@
     "date": "2026-09-07"
   },
   "/books": {
-    "fingerprint": "e517b43bd54b2c37",
+    "fingerprint": "e7acb6dc03ae0d27",
     "date": "2026-09-16"
   },
   "/trial-process": {
@@ -64,7 +64,7 @@
     "date": "2026-09-16"
   },
   "/tr/kitaplar": {
-    "fingerprint": "9a0e71e009731370",
+    "fingerprint": "062a4fde16036ffb",
     "date": "2026-09-16"
   },
   "/tr/yargilanma-surecim": {
@@ -83,8 +83,164 @@
     "fingerprint": "e81596619f3dbd2b",
     "date": "2026-09-16"
   },
+  "/tr/silivriden/hasan-cemal-tiranlik-uzerine": {
+    "fingerprint": "07c8a207bd90f41f",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/hasan-cemal-hukukun-evrensel-ilkelerinin-unutuldugu-bir-dava": {
+    "fingerprint": "21f3a487e6c8c545",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/hasan-cemal-ne-hazin-bunun-adi-fasizm": {
+    "fingerprint": "ea189c86a2a621dd",
+    "date": "2026-09-16"
+  },
   "/tr/silivriden/cengiz-candar-nazli-sahin": {
     "fingerprint": "8191011f569447a8",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ali-bayramoglu-28-temmuz-2016": {
+    "fingerprint": "053fe1320e171aea",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-28-temmuz-2016": {
+    "fingerprint": "79a97e64929bff84",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/okay-gonensin-28-temmuz-2016": {
+    "fingerprint": "a0fe212b4228ff36",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/okay-gonensin-30-temmuz-2016": {
+    "fingerprint": "8059c468e5d42867",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ertugrul-ozkok-acik-toplum-dusmanlarini-turkiyeye-tanitan-yazar": {
+    "fingerprint": "76ef465f3e4968aa",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/umur-talu-hilmi-yavuz-sahin-alpay-ali-bulac-ters-kelepce-ve": {
+    "fingerprint": "bf49c31ec3392889",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-4-eylul-2016": {
+    "fingerprint": "1dd90efb6b959a45",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-hukuk-krizi": {
+    "fingerprint": "c84b7895e344c430",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/mehmet-y-yilmaz-30-kasim-2016": {
+    "fingerprint": "886f02ffcdf52f5b",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/mehmet-y-yilmaz-9-kasim-2017": {
+    "fingerprint": "a0aa21cdacc50dbf",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/mehmet-y-yilmaz-etik-kodlari-merakla-bekliyorum": {
+    "fingerprint": "806207d1e3f9653a",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ataol-behramoglu-4-subat-2017": {
+    "fingerprint": "d6f0a60acd8fa21f",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/sedat-ergin-aihm-sahin-alpay-dosyasina-oncelik-veriyor": {
+    "fingerprint": "2cab333f6cb97164",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/oya-baydar-cocuk-istismarcisi-hirsiz-terorist-149-gazeteci": {
+    "fingerprint": "e79141161573c730",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/aydin-engin-3-muebbet-arti-15-yil": {
+    "fingerprint": "56a74592e9f2a9b1",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ali-sirmen-iceridekiler": {
+    "fingerprint": "4b36a9e9cf80db35",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/metin-munir-dusunulmuyorsunuz-sanmayin-unutulmadiniz-dusunuluyorsunuz": {
+    "fingerprint": "f8d0bff53672ae0a",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/aydin-engin-tutuklanan-hukuk-devletidir": {
+    "fingerprint": "edf20896ccb6cef5",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ahmet-hakan-net-konusuyorum-ilicak-bulac-alpay-ve-alkan-orgut-uyesi": {
+    "fingerprint": "c5a7f57ea91f22a5",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/mehves-evin-vurun-liboslara-bu-mudur": {
+    "fingerprint": "41ac0111d804fb26",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/sedat-ergin-sahin-alpaydan-darbeci-cikar-mi": {
+    "fingerprint": "bf360ae8cfeb3934",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/etyen-mahcupyan-sahin-alpay-ne-yapmisti": {
+    "fingerprint": "f95747c4a9746f10",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/erkan-aktug-elvan-alpay-iyilik-gecirmek-istiyorum": {
+    "fingerprint": "09ae26950bb7dc9b",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/fehmi-koru-ilker-basbug-kararini-hatirlatti": {
+    "fingerprint": "0761a8f5479ded84",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ozgur-mumcu-aym-kararindan-sonra": {
+    "fingerprint": "845c67d93dc285e5",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/riza-turmen-aihm-eski-yargici-hukuk-devleti-olmamak": {
+    "fingerprint": "d4a7e9ae84e6c5ad",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-yargiya-guven": {
+    "fingerprint": "5faf01a69566491f",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-darbe-sucu": {
+    "fingerprint": "93be38755698386a",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/ertugrul-ozkok-dista-dusmanla-savasirken-kendimizle-barisma-zamani": {
+    "fingerprint": "0149bef875ce8c87",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-meclisi-bombalamanin-cezasi-nedir": {
+    "fingerprint": "b1fe4d5c6356dd75",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-ey-adalet": {
+    "fingerprint": "fe57b181c86bce44",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/fehmi-koru-biraz-olsun-olaganlasiyoruz-sahin-alpay-ozgur": {
+    "fingerprint": "a71d8815e5a7ac01",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/taha-akyol-fevkalade-uzuldum": {
+    "fingerprint": "153b9899a746b3ce",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/kurdo-baksi-sahin-alpay-isvecin-destegini-asla-unutmayacagim": {
+    "fingerprint": "54d4f3269c7574eb",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/hasan-cemal-caglayanda-huzun-ve-sevinc": {
+    "fingerprint": "afeacb79e84ce7f7",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/hasan-cemal-huzun": {
+    "fingerprint": "39a43a1cb6d1d68f",
     "date": "2026-09-16"
   },
   "/tr/silivriden/michael-thumann-erdogan-hesaplasma-gununun-geldigini-dusunuyor": {
@@ -93,6 +249,62 @@
   },
   "/tr/silivriden/bitte-hammargren-gazeteci-sahin-alpay-ilmigin-sikildigini-gordu": {
     "fingerprint": "f82f2fdf885031ca",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/rainer-hermann-boyun-egmeyen-susturuluyor": {
+    "fingerprint": "13d8fdc944eebbae",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/alpay-avrupa-ile-turkiye-arasindaki-koprudur-30-temmuz-2016": {
+    "fingerprint": "ff112ee6718f7eac",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/filip-johansson-prof-michele-micheletti-turk-hukumetine-baski-yapilmali": {
+    "fingerprint": "94c9954e65319b66",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/michael-winiarski-babamin-goturuldugunu-duydugumda-kalbim-duracak-gibi": {
+    "fingerprint": "c4e34f622fc5f64b",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/sahin-alpayi-serbest-birakin": {
+    "fingerprint": "2d8c33e89ec29868",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/turkiyenin-stockholm-buyukelcisine-mektup-11-ekim-2016": {
+    "fingerprint": "7e2fd117322d5edd",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/michael-thumann-turkiyenin-liberal-ve-bagimsiz-sesleri-baski-altinda": {
+    "fingerprint": "832a58c251d5d0e9",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/isvecli-akademisyen-ve-gazetecilerden-sahin-alpay-cagrisi": {
+    "fingerprint": "e974bf3875abfc04",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/stephen-kinzer-turk-dostum-icin-uc-kez-omur-boyu-hapis-isteniyor": {
+    "fingerprint": "4b4fd8179e1aa348",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/nathan-shachar-turk-siyaset-bilimci-ve-gazeteci-sahin-alpay-bir-yildir": {
+    "fingerprint": "5852e11953cb69ab",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/sahin-alpay-aklanmali-ve-serbest-birakilmali-14-09-2017": {
+    "fingerprint": "875ae1abbcbdbe7d",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/31-temmuz-2016dan-beri-cezaevinde-bulunan-eski-zaman-gazetesi": {
+    "fingerprint": "002242f1f7188403",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/umar-farooq-abdde-yerel-mahkeme-yuksek-mahkemenin-kararina-uymazsa": {
+    "fingerprint": "5a8f54e5c6ef95b7",
+    "date": "2026-09-16"
+  },
+  "/tr/silivriden/hukumet-turkiyenin-en-yuksek-yargi-organini-dinlemiyor-08-subat-2018": {
+    "fingerprint": "b20faab891b8675c",
     "date": "2026-09-16"
   },
   "/tr/kose-yazilari/baslarken": {
