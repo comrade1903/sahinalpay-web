@@ -11,6 +11,8 @@ type BodyLoader = () => Promise<BodyMap>
     Turkish and English remain isolated. */
 const bodyLoaders: Record<string, BodyLoader> = {
   'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
+  'columns:medyascope': () =>
+    import('./tr/columns/medyascope.body').then((m) => m.medyascopeBodies),
 }
 
 /** A `hasBody` item whose outlet has no registered loader, or whose slug is

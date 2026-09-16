@@ -491,6 +491,30 @@ export const archiveSummary: ArchiveSummary = {
         "date": "3 Ekim 2017",
         "outlet": "P24",
         "category": "columns"
+      },
+      {
+        "id": "columns-20-yuzyilda-rusyada-ne-oldu-ve-bitti",
+        "slug": "20-yuzyilda-rusyada-ne-oldu-ve-bitti",
+        "title": "20. yüzyılda Rusya’da ne oldu ve bitti?",
+        "date": "16 Mart 2026",
+        "outlet": "Medyascope",
+        "category": "columns"
+      },
+      {
+        "id": "columns-bir-turk-ermeni-ask-hikayesi",
+        "slug": "bir-turk-ermeni-ask-hikayesi",
+        "title": "Bir Türk-Ermeni aşk hikâyesi",
+        "date": "5 Mart 2026",
+        "outlet": "Medyascope",
+        "category": "columns"
+      },
+      {
+        "id": "columns-cesur-yeni-dunya",
+        "slug": "cesur-yeni-dunya",
+        "title": "Cesur Yeni Dünya",
+        "date": "1 Haziran 2025",
+        "outlet": "Medyascope",
+        "category": "columns"
       }
     ],
     "en": []

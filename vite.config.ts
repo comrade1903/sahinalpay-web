@@ -52,6 +52,10 @@ export default defineConfig({
             { name: 'vendor', test: /[\\/]node_modules[\\/]/ },
             { name: 'archive-tr-p24', test: /[\\/]src[\\/]archive[\\/]tr[\\/]columns[\\/]p24\.body/ },
             {
+              name: 'archive-tr-medyascope',
+              test: /[\\/]src[\\/]archive[\\/]tr[\\/]columns[\\/]medyascope\.body/,
+            },
+            {
               name: 'archive-shared',
               test: /[\\/]src[\\/]archive[\\/](utils|types)\.ts$/,
             },
