@@ -250,7 +250,7 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Political Scientist · Author · Journalist',
       intro:
-        'Trying to understand Turkey led me to question my own ideas. These pages bring together my writing and the life behind it.',
+        'Starting with my student years in the early 1960s, I have sought to understand and interpret politics in Turkey and the world. From the 1980s on, I have done so as a political scientist and journalist, and I am gathering a selection of what I wrote and said here in the hope that it may help future generations understand the period I lived through.',
       ctaStory: 'Who is Şahin Alpay?',
       ctaWorks: 'Read my columns',
       portraitAlt: 'Portrait of Şahin Alpay',
@@ -536,7 +536,7 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Siyaset Bilimci · Yazar · Gazeteci',
       intro:
-        'Türkiye’yi anlamaya çalışırken kendi fikirlerimi de sorguladım. Bu sayfalarda o yılların yazıları ve hayatımdan izler var.',
+        '1960’ların başlarındaki öğrencilik yıllarımdan başlayarak Türkiye’de ve dünyada siyaseti anlama ve yorumlama çabasında oldum. Bu çabada 1980’lerden itibaren siyaset bilimci ve gazeteci olarak yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
       ctaStory: 'Şahin Alpay Kimdir?',
       ctaWorks: 'Yazılarımı okuyun',
       portraitAlt: 'Şahin Alpay’ın portresi',
