@@ -324,8 +324,8 @@ for (const lang of ['tr', 'en']) {
       const copy = t.press
       title = `${copy.title} — Şahin Alpay`
       description = copy.subtitle
-      const list = (label, entries) =>
-        `<h2>${escapeHtml(label)}</h2><ul>${entries
+      const list = (id, label, entries) =>
+        `<h2 id="${escapeHtml(id)}">${escapeHtml(label)}</h2><ul>${entries
           .map(
             (entry) =>
               `<li><a href="${escapeHtml(`${paths.tr.press}/${entry.slug}`)}">${escapeHtml(
@@ -339,8 +339,8 @@ for (const lang of ['tr', 'en']) {
           .map((row) => `<li>${escapeHtml(row.label)} — ${escapeHtml(row.value)}</li>`)
           .join('')}<li>${escapeHtml(copy.tallyTotalLabel)} — ${escapeHtml(copy.tallyTotalValue)}</li></ul>` +
         `<p>${escapeHtml(copy.outro)}</p>` +
-        list(copy.turkishLabel, press.turkishPress) +
-        list(copy.foreignLabel, press.foreignPress)
+        list('turkish-press', copy.turkishLabel, press.turkishPress) +
+        list('foreign-press', copy.foreignLabel, press.foreignPress)
       jsonLd = schema.collectionJsonLd({
         name: copy.title,
         description,

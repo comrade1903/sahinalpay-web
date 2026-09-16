@@ -1096,20 +1096,18 @@ main:focus {
   text-transform: none;
   letter-spacing: 0.02em;
 }
-/* The running text keeps a readable measure even though the page itself is
-   as wide as the archive's list pages, which the lists below need. */
-.press-intro {
-  max-width: var(--measure);
-  margin-top: var(--space-3);
-}
-.press-intro p {
-  margin: 0 0 var(--space-2);
+/* The lists follow the shared narrative header, which already carries the
+   page's band of top padding — the same reason .bio-story drops its own. */
+.press-lists {
+  padding-top: 0;
 }
 .press-list-title {
   font-family: var(--headline);
   font-size: var(--text-title);
   line-height: 1.2;
   margin: var(--space-4) 0 var(--space-2);
+  /* Clears the fixed header when the jump control lands on this list. */
+  scroll-margin-top: 100px;
 }
 .press-tally {
   margin: var(--space-3) 0;

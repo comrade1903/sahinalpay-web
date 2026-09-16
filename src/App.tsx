@@ -5,7 +5,8 @@ import { content, type Content, type Lang, type BooksSection } from './content'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
-import { AuthorAvatar, PORTRAIT } from './components/AuthorAvatar'
+import { PORTRAIT } from './components/AuthorAvatar'
+import { NarrativeHeader, BackToTop } from './components/NarrativeHeader'
 import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
 import { useArchiveGate } from './components/useArchiveGate'
@@ -430,55 +431,23 @@ interface NarrativeCopy {
   sections: { id: string; title: string; paragraphs: string[] }[]
 }
 
-/** The jump-to-section control and the section text that follows it. A
- *  plain link list stopped being usable once a page (Trial Process) grew to
- *  47 sections, so this is a "list of values" — a single select, styled
- *  like the archive's own sort control — that jumps on choice. A page this
- *  long also gets a back-to-top link fixed to the side, shown only once
- *  there are enough sections that scrolling back up by hand is a chore. */
+/** A narrative page: the shared header, then the sections themselves. The
+ *  jump control and the back-to-top link appear together, once the page has
+ *  enough titled sections to be worth navigating rather than scrolling. */
 function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
   const hasContents = copy.sections.length > 1 && copy.sections.every((section) => section.title)
   return (
     <>
-      <section className="section section-solo" id="top">
-        <div className="container bio-grid">
-          <Reveal className="bio-aside">
-            <AuthorAvatar className="about-avatar" />
-            <h1 className="section-title">{copy.title}</h1>
-            {copy.subtitle && <p className="bio-subtitle">{copy.subtitle}</p>}
-          </Reveal>
-
-          <Reveal className="prose" delay={0.1}>
-            {copy.lead && <p className="lead">{copy.lead}</p>}
-            {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
-            {hasContents && (
-              <nav className="bio-contents" aria-label={copy.contentsLabel}>
-                <label className="bio-contents-label" htmlFor="bio-contents-select">
-                  {copy.contentsLabel}
-                </label>
-                <select
-                  id="bio-contents-select"
-                  className="sort-select bio-contents-select"
-                  defaultValue=""
-                  onChange={(e) => {
-                    const id = e.target.value
-                    if (id) window.location.hash = id
-                  }}
-                >
-                  <option value="" disabled>
-                    {lang === 'tr' ? 'Bir bölüm seçin' : 'Choose a section'}
-                  </option>
-                  {copy.sections.map((section) => (
-                    <option key={section.id} value={section.id}>
-                      {section.title}
-                    </option>
-                  ))}
-                </select>
-              </nav>
-            )}
-          </Reveal>
-        </div>
-      </section>
+      <NarrativeHeader
+        lang={lang}
+        title={copy.title}
+        subtitle={copy.subtitle}
+        contentsLabel={copy.contentsLabel}
+        jumpTargets={hasContents ? copy.sections : []}
+      >
+        {copy.lead && <p className="lead">{copy.lead}</p>}
+        {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
+      </NarrativeHeader>
 
       <article className="section bio-story" aria-label={copy.kicker}>
         <div className="container container-narrow prose">
@@ -491,11 +460,7 @@ function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
         </div>
       </article>
 
-      {hasContents && (
-        <a href="#top" className="back-to-top">
-          {lang === 'tr' ? 'Başa dön ↑' : 'Back to top ↑'}
-        </a>
-      )}
+      {hasContents && <BackToTop lang={lang} />}
     </>
   )
 }

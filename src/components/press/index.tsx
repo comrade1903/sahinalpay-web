@@ -3,6 +3,7 @@ import { content, type Lang } from '../../content'
 import { paths } from '../../routes'
 import { pageAlternates, pageUrl, usePageMeta } from '../../lib/seo'
 import { Reveal } from '../Reveal'
+import { NarrativeHeader, BackToTop } from '../NarrativeHeader'
 import { DeadEnd } from '../DeadEnd'
 import { foreignPress, turkishPress, findPressItem } from '../../press'
 import type { PressItem } from '../../press/types'
@@ -46,13 +47,17 @@ function PressRow({ item }: { item: PressItem }) {
 
 /* Both lists sit inside the page's single <section>, the way the archive's
    own list pages do: a section per list gave each one a full band of
-   vertical padding and left the page mostly gaps. */
-function PressList({ label, items }: { label: string; items: PressItem[] }) {
+   vertical padding and left the page mostly gaps. Each carries the id its
+   heading is addressed by, so the header's jump control — and a plain
+   anchor without JavaScript — lands on the right list. */
+function PressList({ id, label, items }: { id: string; label: string; items: PressItem[] }) {
   if (items.length === 0) return null
   return (
     <>
       <Reveal>
-        <h2 className="press-list-title">{label}</h2>
+        <h2 className="press-list-title" id={id}>
+          {label}
+        </h2>
       </Reveal>
       <ul className="archive-list">
         {items.map((item) => (
@@ -62,6 +67,9 @@ function PressList({ label, items }: { label: string; items: PressItem[] }) {
     </>
   )
 }
+
+const TURKISH_LIST_ID = 'turkish-press'
+const FOREIGN_LIST_ID = 'foreign-press'
 
 export function PressPage({ lang }: { lang: Lang }) {
   const t = content[lang]
@@ -73,38 +81,51 @@ export function PressPage({ lang }: { lang: Lang }) {
     alternates: pageAlternates(location.pathname),
   })
 
-  return (
-    <section className="section section-solo">
-      <div className="container">
-          <Reveal>
-            <p className="kicker">{copy.kicker}</p>
-            <h1 className="section-title">{copy.title}</h1>
-            <p className="archive-intro">{copy.subtitle}</p>
-          </Reveal>
-          <Reveal className="press-intro" delay={0.1}>
-            <p>{copy.intro}</p>
-            {/* His friend's tally of the Swedish coverage, exactly as it
-                stands in the manuscript — including the total, which is the
-                figure he gives rather than the sum of the rows. */}
-            <dl className="press-tally">
-              {copy.tallyRows.map((row) => (
-                <div className="press-tally-row" key={row.label}>
-                  <dt>{row.label}</dt>
-                  <dd>{row.value}</dd>
-                </div>
-              ))}
-              <div className="press-tally-row press-tally-total">
-                <dt>{copy.tallyTotalLabel}</dt>
-                <dd>{copy.tallyTotalValue}</dd>
-              </div>
-            </dl>
-            <p>{copy.outro}</p>
-          </Reveal>
+  const jumpTargets = [
+    ...(turkishPress.length ? [{ id: TURKISH_LIST_ID, title: copy.turkishLabel }] : []),
+    ...(foreignPress.length ? [{ id: FOREIGN_LIST_ID, title: copy.foreignLabel }] : []),
+  ]
 
-          <PressList label={copy.turkishLabel} items={turkishPress} />
-          <PressList label={copy.foreignLabel} items={foreignPress} />
-      </div>
-    </section>
+  return (
+    <>
+      <NarrativeHeader
+        lang={lang}
+        title={copy.title}
+        subtitle={copy.subtitle}
+        contentsLabel={copy.contentsLabel}
+        jumpTargets={jumpTargets}
+      >
+        <p className="lead">{copy.intro}</p>
+        {/* His friend's tally of the Swedish coverage, exactly as it stands
+            in the manuscript — including the total, which is the figure he
+            gives rather than the sum of the rows. */}
+        <dl className="press-tally">
+          {copy.tallyRows.map((row) => (
+            <div className="press-tally-row" key={row.label}>
+              <dt>{row.label}</dt>
+              <dd>{row.value}</dd>
+            </div>
+          ))}
+          <div className="press-tally-row press-tally-total">
+            <dt>{copy.tallyTotalLabel}</dt>
+            <dd>{copy.tallyTotalValue}</dd>
+          </div>
+        </dl>
+        <p>{copy.outro}</p>
+      </NarrativeHeader>
+
+      {/* The lists keep the archive's full width — these are rows of
+          records, not running text, and the narrow measure the header's
+          prose column uses would wrap every byline. */}
+      <section className="section press-lists" aria-label={copy.kicker}>
+        <div className="container">
+          <PressList id={TURKISH_LIST_ID} label={copy.turkishLabel} items={turkishPress} />
+          <PressList id={FOREIGN_LIST_ID} label={copy.foreignLabel} items={foreignPress} />
+        </div>
+      </section>
+
+      <BackToTop lang={lang} />
+    </>
   )
 }
 

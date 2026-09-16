@@ -108,6 +108,7 @@ export interface Content {
     tallyTotalLabel: string
     tallyTotalValue: string
     outro: string
+    contentsLabel: string
     turkishLabel: string
     foreignLabel: string
     sourceLinkLabel: string
@@ -432,6 +433,7 @@ export const content: Record<Lang, Content> = {
       tallyTotalValue: '812',
       outro:
         'During my days in Silivri Prison I could mostly reach what was written about me in Hürriyet and Cumhuriyet, the papers I subscribed to. Some of the pieces gathered here I was therefore able to read only after my release. Below you will find a selection of the writing that bore witness to the injustices suffered not only by me but by my colleagues, and that defended freedom of expression. The pieces are in Turkish, as they stand in my memoirs; the foreign-press selection appears there in Turkish translation.',
+      contentsLabel: 'On this page',
       turkishLabel: 'In the Turkish Press',
       foreignLabel: 'In the Foreign Press',
       sourceLinkLabel: 'Original source',
@@ -685,6 +687,7 @@ export const content: Record<Lang, Content> = {
       tallyTotalValue: '812',
       outro:
         'Silivri cezaevinde yattığım günlerde esas olarak abone olduğum Hürriyet ve Cumhuriyet gazetelerinde hakkımda çıkan yazılara ulaşabiliyordum. Dolayısıyla buraya aktardığım yazıların bir kısmını ancak tahliyemden sonra okuyabildim. Sadece benim değil, meslektaşlarımın da maruz kaldığı haksızlıklara tanıklık eden ve ifade özgürlüğünü savunan yazılardan seçmeleri aşağıda bulacaksınız.',
+      contentsLabel: 'Bu sayfada',
       turkishLabel: 'Türkiye Basınında',
       foreignLabel: 'Yabancı Basında',
       sourceLinkLabel: 'Orijinal kaynak',
