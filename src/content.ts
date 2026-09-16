@@ -349,7 +349,7 @@ export const content: Record<Lang, Content> = {
       ],
     },
     columns: {
-      kicker: 'Columns',
+      kicker: 'Archive',
       title: 'Columns',
       intro:
         "My English columns for Today's Zaman, on Turkey and the wider world. These articles record the questions I asked and the judgments I reached between 2007 and 2012. My Turkish columns are listed below them.",
@@ -357,7 +357,7 @@ export const content: Record<Lang, Content> = {
       outlets: [{ outlet: "Today's Zaman", items: [] }],
     },
     analyses: {
-      kicker: 'Analyses',
+      kicker: 'Archive',
       title: 'Analyses',
       intro:
         'These early essays show the ideas I argued for at the time. Read together, they also offer a way into how my political thinking changed.',
@@ -369,14 +369,14 @@ export const content: Record<Lang, Content> = {
       ],
     },
     interviews: {
-      kicker: 'Interviews',
+      kicker: 'Archive',
       title: 'Interviews',
       intro: 'In these interviews, questions about my writing open into conversations about my life, political choices and what experience taught me.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       items: [],
     },
     academicArticles: {
-      kicker: 'Academic Articles',
+      kicker: 'Archive',
       title: 'Academic Articles',
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
@@ -610,7 +610,7 @@ export const content: Record<Lang, Content> = {
       ],
     },
     columns: {
-      kicker: 'Köşe Yazıları',
+      kicker: 'Arşiv',
       title: 'Köşe Yazıları',
       intro:
         'Lise yıllarından başlayarak Türkiye ve dünya siyasetinde olup bitenleri anlama çabası içinde oldum. Bu çabam 1960’lardan itibaren çeşitli dergilerde çıkan makalelere, 1980’lerden itibaren çeşitli gazetelerde çıkan köşe yazılarına yansıdı. Aşağıda köşe yazılarımdan seçmeler yer alıyor.',
@@ -625,7 +625,7 @@ export const content: Record<Lang, Content> = {
       ],
     },
     analyses: {
-      kicker: 'Analizler',
+      kicker: 'Arşiv',
       title: 'Analizler',
       intro:
         'Bu yazılarda, kaleme alındıkları dönemde savunduğum fikirler var. Bugün geriye baktığımda, düşüncemin nerelerden geçtiğini de burada görüyorum.',
@@ -637,14 +637,14 @@ export const content: Record<Lang, Content> = {
       ],
     },
     interviews: {
-      kicker: 'Söyleşiler',
+      kicker: 'Arşiv',
       title: 'Söyleşiler',
       intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       items: [],
     },
     academicArticles: {
-      kicker: 'Akademik Makaleler',
+      kicker: 'Arşiv',
       title: 'Akademik Makaleler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',

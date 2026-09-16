@@ -1466,7 +1466,11 @@ main:focus {
   font-family: var(--headline);
   font-size: var(--text-title);
   font-weight: 700;
+  /* The system's title leading, not the 1.12 display value the global
+     heading rule hands down: a book title runs to three lines here. */
+  line-height: 1.35;
   color: var(--ink);
+  text-wrap: balance;
 }
 .book-title em {
   font-style: italic;
@@ -2056,9 +2060,12 @@ a.archive-row:hover .archive-row-title {
   border-color: var(--accent);
   color: var(--accent-ink);
 }
+/* Disabled, not invisible: at 0.45 the label sat near 2:1 against the page,
+   which this readership cannot be asked to read. The absent hover response
+   and not-allowed cursor carry the state; the label stays legible. */
 .pagination-btn:disabled {
   cursor: not-allowed;
-  opacity: 0.45;
+  opacity: 0.7;
 }
 .pagination-gap {
   color: var(--muted);
@@ -2656,7 +2663,7 @@ a.archive-row:hover .archive-row-title {
   font-family: var(--headline);
   font-weight: 700;
   font-size: var(--text-title-sm);
-  line-height: 1.25;
+  line-height: 1.35;
   text-wrap: pretty;
 }
 .newsstand-toc-row-dek {
@@ -2700,10 +2707,15 @@ a.archive-row:hover .archive-row-title {
   }
 }
 
+/* The tint is a panel, so it gets the inset a panel needs — bled back out
+   with a negative margin, the way .archive-row does, so the controls stay
+   optically aligned with the text above them. */
 .newsstand-controlbar {
   background: color-mix(in srgb, var(--surface) 92%, transparent);
   border-bottom: 1px solid var(--line);
   padding-block: var(--space-2);
+  padding-inline: var(--space-2);
+  margin-inline: calc(var(--space-2) * -1);
   margin-bottom: var(--space-3);
 }
 .newsstand-controlbar-filters {
@@ -3113,6 +3125,10 @@ a.archive-row:hover .archive-row-title {
 
 .cookie-notice-text {
   flex: 1 1 22rem;
+  /* The notice is the full width of the viewport, so without a measure its
+     sentence ran past 120 characters on a desktop — the one piece of body
+     text on the site that escaped the reading measure. */
+  max-width: var(--measure);
   margin: 0;
   color: var(--ink-soft);
   font-size: var(--text-body-sm);

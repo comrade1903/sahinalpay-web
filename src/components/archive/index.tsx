@@ -933,6 +933,9 @@ function NewsstandControlBar({
 }) {
   return (
     <div className="newsstand-controlbar">
+      {/* The filter group's own headings are h3s, so without this the page
+          ran h1 → h3. The flat archive pages carry the same hidden heading. */}
+      <h2 className="sr-only">{lang === 'tr' ? 'Filtreler' : 'Filters'}</h2>
       <div className="newsstand-controlbar-top">
         <ArchiveSearchRow
           lang={lang}
