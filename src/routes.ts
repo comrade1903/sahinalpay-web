@@ -31,7 +31,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     /* Other people's writing about him. The pieces themselves are Turkish,
        so only /tr carries item routes; this English page lists the same
        selection and links into them. */
-    press: '/from-silivri',
+    press: '/about-me-in-the-press',
     cookies: '/cookie-policy',
   },
   tr: {
@@ -43,7 +43,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     academic: '/tr/akademik-makaleler',
     books: '/tr/kitaplar',
     trial: '/tr/yargilanma-surecim',
-    press: '/tr/silivriden',
+    press: '/tr/basinda-hakkimda',
     cookies: '/tr/cerez-politikasi',
   },
 }

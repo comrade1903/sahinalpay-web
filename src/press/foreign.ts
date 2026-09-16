@@ -35,7 +35,7 @@ export const foreignPressSeeds: PressItemSeed[] = [
   },
   {
     title: 'Boyun eğmeyen susturuluyor…',
-    author: 'Rainer Hermann',
+    author: 'Rainer HERMANN',
     outlet: 'Frankfurter Allgemeine Zeitung',
     date: '29 Temmuz 2016',
     body: [
@@ -210,7 +210,7 @@ export const foreignPressSeeds: PressItemSeed[] = [
   },
   {
     title: 'Türk siyaset bilimci ve gazeteci Şahin Alpay bir yıldır tutuklu. Ama hala mahkemeye çıkarılmadı.',
-    author: 'Nathan Shachar',
+    author: 'Nathan Shacharlent',
     outlet: 'Dagens Nyheter',
     date: '01 Ağustos 2017',
     body: [

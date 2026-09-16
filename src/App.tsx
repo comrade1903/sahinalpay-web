@@ -821,9 +821,9 @@ function MainShell() {
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
           <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
-          <Route path="/from-silivri" element={<PressPage lang="en" />} />
+          <Route path="/about-me-in-the-press" element={<PressPage lang="en" />} />
           <Route
-            path="/from-silivri/:slug"
+            path="/about-me-in-the-press/:slug"
             element={<TurkishItemRedirect pageKey="press" />}
           />
           <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
@@ -873,9 +873,9 @@ function MainShell() {
             path="/tr/yargilanma-surecim"
             element={<TrialProcessPage lang="tr" />}
           />
-          <Route path="/tr/silivriden" element={<PressPage lang="tr" />} />
+          <Route path="/tr/basinda-hakkimda" element={<PressPage lang="tr" />} />
           <Route
-            path="/tr/silivriden/:slug"
+            path="/tr/basinda-hakkimda/:slug"
             element={<PressArticlePage lang="tr" />}
           />
           <Route

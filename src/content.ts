@@ -270,7 +270,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', label: 'Academic Articles' },
       { key: 'books', label: 'Books' },
       { key: 'trial', label: 'The Case Against Me' },
-      { key: 'press', label: 'From Silivri' },
+      { key: 'press', label: 'About Me in the Press' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -413,8 +413,8 @@ export const content: Record<Lang, Content> = {
       ],
     },
     press: {
-      kicker: 'About Me in the Press',
-      title: 'From Silivri',
+      kicker: 'Selections from the Press',
+      title: 'About Me in the Press',
       subtitle: 'What the Turkish and foreign press wrote about me',
       intro:
         'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 812 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
@@ -435,7 +435,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'In the Turkish Press',
       foreignLabel: 'In the Foreign Press',
       sourceLinkLabel: 'Original source',
-      backLabel: 'From Silivri',
+      backLabel: 'About Me in the Press',
     },
     footer: {
       kicker: 'Keep in touch',
@@ -530,7 +530,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', label: 'Akademik Makaleler' },
       { key: 'books', label: 'Kitaplar' },
       { key: 'trial', label: 'Yargılanma Sürecim' },
-      { key: 'press', label: 'Silivri’den…' },
+      { key: 'press', label: 'Basında Hakkımda' },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -666,8 +666,8 @@ export const content: Record<Lang, Content> = {
       sections: trialProcessSections,
     },
     press: {
-      kicker: 'Basında Hakkımda',
-      title: 'Silivri’den…',
+      kicker: 'Basından Seçmeler',
+      title: 'Basında Hakkımda',
       subtitle: 'Yerli ve yabancı basında hakkımda yazılanlar',
       intro:
         'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
@@ -688,7 +688,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'Türkiye Basınında',
       foreignLabel: 'Yabancı Basında',
       sourceLinkLabel: 'Orijinal kaynak',
-      backLabel: 'Silivri’den…',
+      backLabel: 'Basında Hakkımda',
     },
     footer: {
       kicker: 'İletişim',

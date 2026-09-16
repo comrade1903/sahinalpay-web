@@ -50,7 +50,6 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    slug: 'hasan-cemal-ne-hazin-bunun-adi-fasizm',
     title: 'Ne hazin, hâlâ unutabiliyorum, bunun adının faşizm olduğunu...',
     author: 'Hasan Cemal',
     outlet: 'T24',
@@ -351,7 +350,6 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    slug: 'fehmi-koru-ilker-basbug-kararini-hatirlatti',
     title: 'Fehmi Koru, İlker Başbuğ kararını hatırlattı: Dün tutuklanmış insanlar değil Şahin Alpay ve Mehmet Altan!',
     author: 'Fehmi Koru',
     outlet: 'T24',
@@ -582,6 +580,7 @@ export const turkishPressSeeds: PressItemSeed[] = [
   {
     title: 'Biraz olsun olağanlaşıyoruz; Şahin Alpay özgür…',
     author: 'Fehmi Koru',
+    outlet: 'fehmikoru.com',
     date: '17 Mart 2018',
     body: [
       'Kendimden biliyorum: Söyleyeceği bir şeyler olduğuna inanan ve yazmaya alışmış biri için yazı hayatından kopmak ve yazmadan durmak dıştan bakanların sandığından çok daha zordur.',
