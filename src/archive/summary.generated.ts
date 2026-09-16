@@ -43,7 +43,7 @@ export const archiveSummary: ArchiveSummary = {
       "en": 97
     },
     "analyses": 7,
-    "interviews": 5,
+    "interviews": 8,
     "academic": 6
   },
   "coverage": [

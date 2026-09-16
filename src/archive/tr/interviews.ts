@@ -1,17 +1,38 @@
 import type { ArchiveItemSeed } from '../types'
 
-/** Söyleşiler. Broadcast conversations rather than print interviews, so each
- *  entry links out to the publisher's own page — the recording is theirs and
- *  is not mirrored here.
+/** Söyleşiler. Conversations published by someone else — radio and video
+ *  programmes plus web interviews — so each entry links out to the
+ *  publisher's own page: the recording (or the interviewer's text) is theirs
+ *  and is not mirrored here.
  *
- *  The first three below all follow the two volumes of his memoirs (Bir
- *  Hikâyem Var, Hikâyemin Sonu); the interviewer is named in `subtitle`
- *  because the archive has no separate field for one. Where a video isn't
- *  credited to a named interviewer (or, for the KHK TV piece below, isn't an
- *  interview at all but a tribute essay presented on video), `subtitle`
- *  names only the venue rather than inventing one.
+ *  The interviewer is named in `subtitle` because the archive has no separate
+ *  field for one. Where a piece isn't credited to a named interviewer (or,
+ *  for the KHK TV piece below, isn't an interview at all but a tribute essay
+ *  presented on video), `subtitle` names only the venue rather than inventing
+ *  one. No `excerpt` here: the list row shows `excerpt` in place of `subtitle`
+ *  (see components/archive), and since these rows link out rather than open a
+ *  reader page, a standfirst would only hide the venue credit.
  */
 export const interviewSeeds: ArchiveItemSeed[] = [
+  {
+    slug: 'kamusalin-siyasal-topografisi-bianet-2003',
+    title: 'Alpay: Kamusalın Siyasal Topografisi',
+    date: '8 Kasım 2003',
+    subtitle:
+      'bianet — Açık Radyo “Açık Gazete / Üçüncü Göz”, 4 Kasım 2003 yayınının dökümü — Ömer Madra, Mustafa Arslantunalı',
+    url: 'https://bianet.org/haber/alpay-kamusalin-siyasal-topografisi-26100',
+    tags: [
+      'başörtüsü',
+      'kamusal alan',
+      'laiklik',
+      'Ömer Madra',
+      'Mustafa Arslantunalı',
+      'Açık Gazete',
+      'bianet',
+      'radyo',
+      '2003',
+    ],
+  },
   {
     slug: 'bir-hikayem-var-medyascope-2024',
     title: 'Bir Hikâyem Var',
@@ -19,6 +40,22 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     subtitle: 'Medyascope, video söyleşi — Ruşen Çakır',
     url: 'https://medyascope.tv/2024/11/25/sahin-alpay-ile-soylesi-bir-hikayem-var-video/',
     tags: ['Bir Hikâyem Var', 'anılar', 'gazetecilik', 'Ruşen Çakır', 'video', '2024'],
+  },
+  {
+    slug: 'olmek-icin-gonullu-oldum-serbestiyet-2024',
+    title: 'Şahin Alpay: “Ölmek için, İsrail’e karşı yapılacak operasyona gönüllü oldum”',
+    date: '22 Aralık 2024',
+    subtitle: 'Serbestiyet, video söyleşi — “Bir Hikâyem Var” üzerine',
+    url: 'https://serbestiyet.com/roportaj/roportaj-sahin-alpay-olmek-icin-israile-karsi-yapilacak-operasyona-gonullu-oldum-191639/',
+    tags: [
+      'Bir Hikâyem Var',
+      'anılar',
+      'Filistin Kurtuluş Örgütü',
+      'devrimcilik',
+      'Serbestiyet',
+      'video',
+      '2024',
+    ],
   },
   {
     slug: 'bir-hikayem-var-acik-radyo-2024',
@@ -35,6 +72,22 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     subtitle: 'Medyascope, video söyleşi — Ruşen Çakır',
     url: 'https://medyascope.tv/2025/03/17/hikayemin-sonu-sahin-alpay-anlatti/',
     tags: ['Hikâyemin Sonu', 'Silivri', 'tutukluluk', 'Ruşen Çakır', 'video', '2025'],
+  },
+  {
+    slug: 'liberal-demokratlikta-israrciyim-k24-2025',
+    title: 'Şahin Alpay’la söyleşi: “Liberal demokratlıkta ısrarcıyım.”',
+    date: '9 Ekim 2025',
+    subtitle: 'K24, söyleşi — İştar Gözaydın',
+    url: 'https://www.k24kitap.org/sahin-alpayla-soylesi-liberal-demokratlikta-israrciyim-5386',
+    tags: [
+      'liberal demokrasi',
+      'Kemalizm',
+      'sosyalizm',
+      'anılar',
+      'İştar Gözaydın',
+      'K24',
+      '2025',
+    ],
   },
   {
     slug: 'sol-devrimcilikten-liberal-demokratliga-khktv-2025',
