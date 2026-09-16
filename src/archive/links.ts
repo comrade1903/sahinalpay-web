@@ -35,10 +35,6 @@ export function archiveBasePath(lang: Lang, item: { category: ArchiveItem['categ
  * body exists in. scripts/lib/archive-model.mjs#routeForItem has always
  * derived the route this way for the sitemap and the prerenderer, so this is
  * the client agreeing with the build rather than a new rule.
- *
- * `archiveBasePath` keeps taking an explicit language for the home page's
- * weekly picks, which come from a per-language pool of seeds carrying no
- * `lang` of their own.
  */
 export function archiveItemBasePath(item: ArchiveItem): string {
   return archiveBasePath(item.lang, item)

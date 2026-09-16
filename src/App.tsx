@@ -10,7 +10,6 @@ import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
 import { useArchiveGate } from './components/useArchiveGate'
 import { ArticlePage } from './components/reader'
-import { archiveBasePath } from './archive/links'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
@@ -19,7 +18,6 @@ import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
 import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
 import { LANG_KEY } from './lib/preferences'
 import { readStoredValue } from './lib/storage'
-import { weeklyPicks } from './lib/picks'
 
 /* ------------------------------------------------------------------
    Şahin Alpay — a personal & political legacy site. Bilingual (EN/TR),
@@ -222,58 +220,6 @@ function HubGrid({
   )
 }
 
-function WeeklyPicks({
-  lang,
-  summary,
-}: {
-  lang: Lang
-  summary: ArchiveSummary | null
-}) {
-  if (!summary) return null
-  const items = weeklyPicks(summary, lang, 3)
-  if (items.length === 0) return null
-
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="recent-panel">
-          <Reveal className="recent-panel-inner">
-            <p className="kicker kicker-center">{lang === 'tr' ? 'Haftalık' : 'Weekly'}</p>
-            <h2 className="section-title section-title-center">
-              {lang === 'tr' ? 'Benden Seçkiler' : 'My Picks'}
-            </h2>
-          </Reveal>
-          <div className="recent-grid">
-            {items.map((item, i) => (
-              <Reveal as="div" key={item.id} delay={i * 0.06}>
-                <Link
-                  to={`${archiveBasePath(lang, item)}/${item.slug}`}
-                  className="recent-card"
-                >
-                  <div className="recent-card-media" aria-hidden="true">
-                    <span className="material-symbols-outlined">article</span>
-                  </div>
-                  <span className="recent-card-meta">
-                    {item.outlet}
-                    {item.date ? ` · ${item.date}` : ''}
-                  </span>
-                  <h3>{item.title}</h3>
-                  <span className="recent-card-cta">
-                    {lang === 'tr' ? 'Oku' : 'Read'}
-                    <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-sm)' }}>
-                      arrow_forward
-                    </span>
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* One band per outlet that actually has material, placed on a shared year axis.
    Everything here is derived from the archive itself — no span is asserted for an
    outlet we have not recovered yet, so the empty stretches are honest gaps rather
@@ -464,8 +410,90 @@ function HomePage({ lang }: { lang: Lang }) {
         <ArchiveInlineFailure lang={lang} onRetry={reloadArchive} />
       )}
       <HubGrid t={t} lang={lang} summary={summary} />
-      <WeeklyPicks lang={lang} summary={summary} />
       <AcademicHeritage lang={lang} summary={summary} />
+    </>
+  )
+}
+
+/** Shape shared by every long-form narrative page (About, Trial Process):
+ *  a title/subtitle/lead intro beside a jump-to-section control, followed by
+ *  the sections themselves. */
+interface NarrativeCopy {
+  kicker: string
+  title: string
+  subtitle: string
+  lead: string
+  editorialNote: string
+  contentsLabel: string
+  sections: { id: string; title: string; paragraphs: string[] }[]
+}
+
+/** The jump-to-section control and the section text that follows it. A
+ *  plain link list stopped being usable once a page (Trial Process) grew to
+ *  47 sections, so this is a "list of values" — a single select, styled
+ *  like the archive's own sort control — that jumps on choice. A page this
+ *  long also gets a back-to-top link fixed to the side, shown only once
+ *  there are enough sections that scrolling back up by hand is a chore. */
+function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
+  const hasContents = copy.sections.length > 1 && copy.sections.every((section) => section.title)
+  return (
+    <>
+      <section className="section section-solo" id="top">
+        <div className="container bio-grid">
+          <Reveal className="bio-aside">
+            <AuthorAvatar className="about-avatar" />
+            <h1 className="section-title">{copy.title}</h1>
+            {copy.subtitle && <p className="bio-subtitle">{copy.subtitle}</p>}
+          </Reveal>
+
+          <Reveal className="prose" delay={0.1}>
+            {copy.lead && <p className="lead">{copy.lead}</p>}
+            {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
+            {hasContents && (
+              <nav className="bio-contents" aria-label={copy.contentsLabel}>
+                <label className="bio-contents-label" htmlFor="bio-contents-select">
+                  {copy.contentsLabel}
+                </label>
+                <select
+                  id="bio-contents-select"
+                  className="sort-select bio-contents-select"
+                  defaultValue=""
+                  onChange={(e) => {
+                    const id = e.target.value
+                    if (id) window.location.hash = id
+                  }}
+                >
+                  <option value="" disabled>
+                    {lang === 'tr' ? 'Bir bölüm seçin' : 'Choose a section'}
+                  </option>
+                  {copy.sections.map((section) => (
+                    <option key={section.id} value={section.id}>
+                      {section.title}
+                    </option>
+                  ))}
+                </select>
+              </nav>
+            )}
+          </Reveal>
+        </div>
+      </section>
+
+      <article className="section bio-story" aria-label={copy.kicker}>
+        <div className="container container-narrow prose">
+          {copy.sections.map((section) => (
+            <section className="bio-chapter" id={section.id} key={section.id}>
+              {section.title && <h2>{section.title}</h2>}
+              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </section>
+          ))}
+        </div>
+      </article>
+
+      {hasContents && (
+        <a href="#top" className="back-to-top">
+          {lang === 'tr' ? 'Başa dön ↑' : 'Back to top ↑'}
+        </a>
+      )}
     </>
   )
 }
@@ -488,47 +516,7 @@ function AboutPage({ lang }: { lang: Lang }) {
       url: pageUrl(paths[lang].about!),
     }),
   )
-  const hasContents = t.about.sections.length > 1 && t.about.sections.every((section) => section.title)
-  return (
-    <>
-      <section className="section section-solo">
-        <div className="container bio-grid">
-          <Reveal className="bio-aside">
-            <AuthorAvatar className="about-avatar" />
-            <h1 className="section-title">{t.about.title}</h1>
-            {t.about.subtitle && <p className="bio-subtitle">{t.about.subtitle}</p>}
-          </Reveal>
-
-          <Reveal className="prose" delay={0.1}>
-            {t.about.lead && <p className="lead">{t.about.lead}</p>}
-            {t.about.editorialNote && <p className="bio-editorial-note">{t.about.editorialNote}</p>}
-            {hasContents && (
-              <nav className="bio-contents" aria-label={t.about.contentsLabel}>
-                <ol>
-                  {t.about.sections.map((section) => (
-                    <li key={section.id}>
-                      <a href={`#${section.id}`}>{section.title}</a>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            )}
-          </Reveal>
-        </div>
-      </section>
-
-      <article className="section bio-story" aria-label={t.about.kicker}>
-        <div className="container container-narrow prose">
-          {t.about.sections.map((section) => (
-            <section className="bio-chapter" id={section.id} key={section.id}>
-              {section.title && <h2>{section.title}</h2>}
-              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </section>
-          ))}
-        </div>
-      </article>
-    </>
-  )
+  return <NarrativeBody lang={lang} copy={t.about} />
 }
 
 /** Buy-button copy per retailer, keyed by hostname — pre-formatted so the
@@ -672,47 +660,7 @@ function TrialProcessPage({ lang }: { lang: Lang }) {
       url: pageUrl(paths[lang].trial!),
     }),
   )
-  const hasContents = trial.sections.length > 1 && trial.sections.every((section) => section.title)
-  return (
-    <>
-      <section className="section section-solo">
-        <div className="container bio-grid">
-          <Reveal className="bio-aside">
-            <AuthorAvatar className="about-avatar" />
-            <h1 className="section-title">{trial.title}</h1>
-            {trial.subtitle && <p className="bio-subtitle">{trial.subtitle}</p>}
-          </Reveal>
-
-          <Reveal className="prose" delay={0.1}>
-            {trial.lead && <p className="lead">{trial.lead}</p>}
-            {trial.editorialNote && <p className="bio-editorial-note">{trial.editorialNote}</p>}
-            {hasContents && (
-              <nav className="bio-contents" aria-label={trial.contentsLabel}>
-                <ol>
-                  {trial.sections.map((section) => (
-                    <li key={section.id}>
-                      <a href={`#${section.id}`}>{section.title}</a>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            )}
-          </Reveal>
-        </div>
-      </section>
-
-      <article className="section bio-story" aria-label={trial.kicker}>
-        <div className="container container-narrow prose">
-          {trial.sections.map((section) => (
-            <section className="bio-chapter" id={section.id} key={section.id}>
-              {section.title && <h2>{section.title}</h2>}
-              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </section>
-          ))}
-        </div>
-      </article>
-    </>
-  )
+  return <NarrativeBody lang={lang} copy={trial} />
 }
 
 function CookiePolicyPage({ lang }: { lang: Lang }) {

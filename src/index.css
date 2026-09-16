@@ -1076,87 +1076,6 @@ main:focus {
   gap: 0.6rem;
 }
 
-/* ---------- Recently added (home) ---------- */
-.recent-panel {
-  position: relative;
-  overflow: hidden;
-  background: var(--surface-low);
-  border: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
-  border-radius: 2rem;
-  padding: var(--space-4) var(--space-3);
-}
-@media (min-width: 700px) {
-  .recent-panel {
-    padding: var(--space-5) var(--space-4);
-  }
-}
-.recent-panel-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-.recent-card-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
-  background: var(--surface-mid);
-  color: var(--muted);
-  margin-bottom: 0.2rem;
-}
-.recent-card-media .material-symbols-outlined {
-  font-size: var(--icon-xl);
-}
-.recent-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
-}
-@media (min-width: 700px) {
-  .recent-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-.recent-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: var(--space-3);
-  background: var(--surface-lowest);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.recent-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--action);
-  box-shadow: var(--shadow-soft);
-}
-.recent-card-meta {
-  font-family: var(--label);
-  font-size: var(--text-label-sm);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--tertiary-ink);
-}
-.recent-card h3 {
-  font-size: var(--text-title-sm);
-  line-height: 1.35;
-}
-.recent-card-cta {
-  margin-top: auto;
-  font-size: var(--text-ui);
-  font-weight: 700;
-  color: var(--accent-ink);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
 /* ---------- Academic heritage (home) ---------- */
 .heritage-grid {
   display: grid;
@@ -1360,28 +1279,53 @@ main:focus {
   color: var(--muted);
   line-height: 1.6;
 }
-.bio-contents ol {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-4) 0 0;
-  display: grid;
-  gap: 0;
+.bio-contents {
+  margin-top: var(--space-4);
 }
-.bio-contents a {
+.bio-contents-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--muted);
+}
+.bio-contents-select {
+  width: 100%;
+}
+
+/* A fixed, side-anchored shortcut back to a long narrative page's top —
+   shown only once the jump-to-section control is (i.e. a page long enough
+   that scrolling back up by hand would be a chore). Right side to match
+   the archive's own controls; stacked above the page footer so it never
+   covers it, and hidden on narrow viewports where a fixed side element
+   would sit over the reading column instead of beside it. */
+.back-to-top {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 20;
   display: flex;
   align-items: center;
   min-height: 44px;
-  padding-block: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--surface-lowest);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-soft);
   font-family: var(--label);
   font-size: var(--text-ui);
-  color: var(--ink-soft);
-  text-decoration: underline;
-  text-decoration-color: var(--line);
-  text-underline-offset: 0.25em;
-}
-.bio-contents a:hover {
+  font-weight: 600;
   color: var(--ink);
-  text-decoration-color: currentColor;
+}
+.back-to-top:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-lift);
+}
+@media (max-width: 640px) {
+  .back-to-top {
+    display: none;
+  }
 }
 .bio-story {
   padding-top: 0;
