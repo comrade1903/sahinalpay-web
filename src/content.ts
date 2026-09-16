@@ -60,7 +60,6 @@ export interface Content {
     eyebrow: string
     intro: string
     ctaStory: string
-    ctaWorks: string
     portraitAlt: string
     portraitCaption: string
   }
@@ -252,7 +251,6 @@ export const content: Record<Lang, Content> = {
       intro:
         'Starting with my student years in the early 1960s, I have sought to understand and interpret politics in Turkey and the world. From the 1980s on, I have done so as a political scientist and journalist, and I am gathering a selection of what I wrote and said here in the hope that it may help future generations understand the period I lived through.',
       ctaStory: 'Who is Şahin Alpay?',
-      ctaWorks: 'Read my columns',
       portraitAlt: 'Portrait of Şahin Alpay',
       portraitCaption: 'Şahin Alpay · b. 1944, Istanbul',
     },
@@ -538,7 +536,6 @@ export const content: Record<Lang, Content> = {
       intro:
         '1960’ların başlarındaki öğrencilik yıllarımdan başlayarak Türkiye’de ve dünyada siyaseti anlama ve yorumlama çabasında oldum. Bu çabada 1980’lerden itibaren siyaset bilimci ve gazeteci olarak yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
       ctaStory: 'Şahin Alpay Kimdir?',
-      ctaWorks: 'Yazılarımı okuyun',
       portraitAlt: 'Şahin Alpay’ın portresi',
       portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
     },

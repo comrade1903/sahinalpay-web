@@ -64,9 +64,6 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
             <Link to={paths[lang].about!} className="btn btn-primary">
               {t.hero.ctaStory}
             </Link>
-            <Link to={paths[lang].columns!} className="btn btn-ghost">
-              {t.hero.ctaWorks}
-            </Link>
           </div>
           <form className="hero-search" onSubmit={onSearch} role="search">
             <div className="hero-search-field">
@@ -480,20 +477,22 @@ function HomePage({ lang }: { lang: Lang }) {
 function AboutPage({ lang }: { lang: Lang }) {
   const t = content[lang]
   const location = useLocation()
+  const metaDescription = t.about.lead || t.about.sections[0]?.paragraphs[0] || t.about.title
   usePageMeta({
     title: `${t.about.title} — Şahin Alpay`,
-    description: t.about.lead,
+    description: metaDescription,
     alternates: pageAlternates(location.pathname),
   })
   useJsonLd(
     'about',
     aboutJsonLd({
       name: t.about.title,
-      description: t.about.lead,
+      description: metaDescription,
       lang,
       url: pageUrl(paths[lang].about!),
     }),
   )
+  const hasContents = t.about.sections.length > 1 && t.about.sections.every((section) => section.title)
   return (
     <>
       <section className="section section-solo">
@@ -501,21 +500,23 @@ function AboutPage({ lang }: { lang: Lang }) {
           <Reveal className="bio-aside">
             <AuthorAvatar className="about-avatar" />
             <h1 className="section-title">{t.about.title}</h1>
-            <p className="bio-subtitle">{t.about.subtitle}</p>
+            {t.about.subtitle && <p className="bio-subtitle">{t.about.subtitle}</p>}
           </Reveal>
 
           <Reveal className="prose" delay={0.1}>
-            <p className="lead">{t.about.lead}</p>
-            <p className="bio-editorial-note">{t.about.editorialNote}</p>
-            <nav className="bio-contents" aria-label={t.about.contentsLabel}>
-              <ol>
-                {t.about.sections.map((section) => (
-                  <li key={section.id}>
-                    <a href={`#${section.id}`}>{section.title}</a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
+            {t.about.lead && <p className="lead">{t.about.lead}</p>}
+            {t.about.editorialNote && <p className="bio-editorial-note">{t.about.editorialNote}</p>}
+            {hasContents && (
+              <nav className="bio-contents" aria-label={t.about.contentsLabel}>
+                <ol>
+                  {t.about.sections.map((section) => (
+                    <li key={section.id}>
+                      <a href={`#${section.id}`}>{section.title}</a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
           </Reveal>
         </div>
       </section>
@@ -524,7 +525,7 @@ function AboutPage({ lang }: { lang: Lang }) {
         <div className="container container-narrow prose">
           {t.about.sections.map((section) => (
             <section className="bio-chapter" id={section.id} key={section.id}>
-              <h2>{section.title}</h2>
+              {section.title && <h2>{section.title}</h2>}
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
           ))}
