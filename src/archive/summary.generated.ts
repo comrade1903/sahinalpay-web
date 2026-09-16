@@ -39,7 +39,7 @@ export interface ArchiveSummary {
 export const archiveSummary: ArchiveSummary = {
   "counts": {
     "columns": {
-      "tr": 474,
+      "tr": 477,
       "en": 97
     },
     "analyses": 7,
@@ -76,6 +76,12 @@ export const archiveSummary: ArchiveSummary = {
       "from": 2017,
       "to": 2024,
       "count": 47
+    },
+    {
+      "outlet": "Medyascope",
+      "from": 2025,
+      "to": 2026,
+      "count": 3
     },
     {
       "outlet": "Today's Zaman",

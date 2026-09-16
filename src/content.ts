@@ -572,6 +572,7 @@ export const content: Record<Lang, Content> = {
         { outlet: 'Milliyet', items: [] },
         { outlet: 'Zaman', items: [] },
         { outlet: 'P24', items: [] },
+        { outlet: 'Medyascope', items: [] },
       ],
     },
     analyses: {

@@ -33,6 +33,7 @@ import logoAydinlik from '../../assets/logos/aydinlik.webp'
 import logoCumhuriyet from '../../assets/logos/cumhuriyet.webp'
 import logoForum from '../../assets/logos/forum.webp'
 import logoIsciKoylu from '../../assets/logos/isci-koylu.webp'
+import logoMedyascope from '../../assets/logos/medyascope.webp'
 import logoMilliyet from '../../assets/logos/milliyet.svg'
 import logoP24 from '../../assets/logos/p24.webp'
 import logoSabah from '../../assets/logos/sabah.webp'
@@ -535,6 +536,7 @@ const outletLogos: Partial<Record<string, string>> = {
   Cumhuriyet: logoCumhuriyet,
   Forum: logoForum,
   'İşçi Köylü': logoIsciKoylu,
+  Medyascope: logoMedyascope,
   Milliyet: logoMilliyet,
   Zaman: logoZaman,
   "Today's Zaman": logoTodaysZaman,
@@ -578,6 +580,8 @@ const outletAccent: Partial<Record<string, string>> = {
   Zaman: '#8a6a1f',
   "Today's Zaman": '#6d5518',
   P24: '#231f21',
+  /* The red of the outlet's own wordmark. */
+  Medyascope: '#cc0000',
 }
 const defaultOutletAccent = '#5c3f27'
 

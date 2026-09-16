@@ -13,20 +13,22 @@ import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
 import { zamanColumnSeeds } from './tr/columns/zaman'
 import { p24ColumnSeeds } from './tr/columns/p24'
+import { medyascopeColumnSeeds } from './tr/columns/medyascope'
 import { forumAnalysisSeeds } from './tr/analyses/forum'
 import { aydinlikAnalysisSeeds } from './tr/analyses/aydinlik'
 import { isciKoyluAnalysisSeeds } from './tr/analyses/isci-koylu'
 import { interviewSeeds } from './tr/interviews'
 import { academicArticleSeeds } from './tr/academic'
 
-/* 'print' columns ran in the physical newspaper; P24 pieces are online
-   news-blog columns. */
+/* 'print' columns ran in the physical newspaper; P24 and Medyascope pieces
+   are online columns. */
 const columns: OutletGroup[] = [
   outletGroup('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'tr', 'print'),
   outletGroup('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'tr', 'print'),
   outletGroup('Milliyet', 'milliyet', 'columns', milliyetColumnSeeds, 'tr', 'print'),
   outletGroup('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'tr', 'print'),
   outletGroup('P24', 'p24', 'columns', p24ColumnSeeds, 'tr', 'online'),
+  outletGroup('Medyascope', 'medyascope', 'columns', medyascopeColumnSeeds, 'tr', 'online'),
 ]
 
 const analyses: OutletGroup[] = [
