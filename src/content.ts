@@ -20,7 +20,6 @@ import type {
 } from './archive'
 import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
-import coverGuleninKatkisi from './assets/covers/gulenin-katkisi.jpg'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 
@@ -159,13 +158,6 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
     },
     {
-      year: '2004',
-      title: 'Gülen’in Katkısı',
-      desc: 'An essay on faith, civil society, and the contested currents of modern Turkish politics.',
-      cover: coverGuleninKatkisi,
-      purchaseUrl: 'https://www.kitapyurdu.com/kitap/gulenin-katkisi/63179.html',
-    },
-    {
       year: '2003',
       title: 'Türkiye’nin Tanıkları: İçeriden Bakanlar',
       desc: 'Conversations with those who shaped Turkey from within — a portrait of a country in argument with itself.',
@@ -199,13 +191,6 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınışımdan gazete yıllarına. İlk kitapta, fikirlerimin nasıl değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerini de arıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
-    },
-    {
-      year: '2004',
-      title: 'Gülen’in Katkısı',
-      desc: 'İnanç, sivil toplum ve modern Türkiye siyasetinin çekişmeli akımları üzerine bir deneme.',
-      cover: coverGuleninKatkisi,
-      purchaseUrl: 'https://www.kitapyurdu.com/kitap/gulenin-katkisi/63179.html',
     },
     {
       year: '2003',
