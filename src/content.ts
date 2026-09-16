@@ -22,6 +22,7 @@ import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
+import coverDspShp from './assets/covers/dsp-shp.jpg'
 import { trialProcessSections } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
@@ -203,6 +204,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
       desc: 'Written with Seyfettin Gürsel — where the politics of the Democratic Left Party and the Social Democratic Populist Party converged, and where they parted ways.',
+      cover: coverDspShp,
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
@@ -244,6 +246,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
       desc: 'Seyfettin Gürsel ile birlikte yazdığım, Demokratik Sol Parti ile Sosyaldemokrat Halkçı Parti’nin siyasetinin nerede birleştiğini, nerede ayrıldığını ele alan bir inceleme.',
+      cover: coverDspShp,
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
