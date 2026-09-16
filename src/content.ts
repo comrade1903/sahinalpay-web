@@ -172,9 +172,15 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
-      year: '1992',
-      title: 'Sosyal Demokrasi Açısından Kürt Sorunu',
-      desc: 'An early, unflinching study of the Kurdish question through the lens of social democracy.',
+      year: '1986',
+      title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
+      desc: 'Written with Seyfettin Gürsel — where the politics of the Democratic Left Party and the Social Democratic Populist Party converged, and where they parted ways.',
+      purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
+    },
+    {
+      year: '1980',
+      title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
+      desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics.',
     },
   ],
   tr: [
@@ -207,9 +213,15 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
-      year: '1992',
-      title: 'Sosyal Demokrasi Açısından Kürt Sorunu',
-      desc: 'Kürt sorununu sosyal demokrasi merceğinden ele alan erken tarihli, gözünü kaçırmayan bir inceleme.',
+      year: '1986',
+      title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
+      desc: 'Seyfettin Gürsel ile birlikte yazdığım, Demokratik Sol Parti ile Sosyaldemokrat Halkçı Parti’nin siyasetinin nerede birleştiğini, nerede ayrıldığını ele alan bir inceleme.',
+      purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
+    },
+    {
+      year: '1980',
+      title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
+      desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı.',
     },
   ],
 }

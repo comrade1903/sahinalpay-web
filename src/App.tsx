@@ -535,6 +535,25 @@ function AboutPage({ lang }: { lang: Lang }) {
   )
 }
 
+/** Buy-button copy per retailer, keyed by hostname — pre-formatted so the
+ *  Turkish ablative suffix (’dan/’tan) gets the right consonant for each
+ *  name rather than being concatenated blindly. */
+const RETAILER_LABELS: Record<string, { tr: string; en: string }> = {
+  'kitapyurdu.com': { tr: 'Kitapyurdu’dan satın al', en: 'Buy on Kitapyurdu' },
+  'nadirkitap.com': { tr: 'Nadir Kitap’tan satın al', en: 'Buy on Nadir Kitap' },
+}
+
+function buyButtonLabel(url: string, lang: Lang): string {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '')
+    const known = RETAILER_LABELS[host]
+    if (known) return known[lang]
+  } catch {
+    /* fall through to the default below */
+  }
+  return lang === 'tr' ? 'Kitapyurdu’dan satın al' : 'Buy on Kitapyurdu'
+}
+
 /** Where a row should link: internally to the full-article page when we
  *  have real body text or scanned clippings to show, externally to the
  *  source otherwise. Body/clippings win over a bare `url` so a scanned
@@ -610,13 +629,11 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     href={b.purchaseUrl}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${b.title}: ${
-                      lang === 'tr'
-                        ? 'Kitapyurdu’ndan satın al (yeni sekmede açılır)'
-                        : 'Buy on Kitapyurdu (opens in a new tab)'
+                    aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
+                      lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
                     }`}
                   >
-                    {lang === 'tr' ? 'Kitapyurdu’ndan satın al' : 'Buy on Kitapyurdu'}
+                    {buyButtonLabel(b.purchaseUrl, lang)}
                     <span
                       className="material-symbols-outlined"
                       aria-hidden="true"
