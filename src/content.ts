@@ -583,94 +583,23 @@ export const content: Record<Lang, Content> = {
     about: {
       "kicker": "Yaşam öyküsü",
       "title": "Şahin Alpay Kimdir?",
-      "subtitle": "Geçmişime bakarken fikirlerim kadar, hayatımı paylaştığım insanları da anlatmak istedim.",
-      "lead": "Şahin Alpay’ın İstanbul ve Ayvalık’tan İsveç’e, gazetecilikten üniversiteye uzanan hayatı; değişen düşünceleri, Silivri yılları ve Fatma’yla beraberliği.",
-      "editorialNote": "Bu sayfa için Şahin Alpay’ın anı kitapları ve yazıları temel alınarak birinci tekil şahısla hazırlanmıştır. Kitaplarından alıntı içermez.",
+      "subtitle": "",
+      "lead": "",
+      "editorialNote": "",
       "contentsLabel": "Bu sayfada",
       "sections": [
         {
-          "id": "a-life-in-writing",
-          "title": "Yazılarımın gerisindeki hayat",
+          "id": "hayatim",
+          "title": "",
           "paragraphs": [
-            "Beni gazete yazılarımdan tanıyanlar var. Bazılarıyla bir üniversite dersliğinde karşılaştık; bazıları adımı ilk kez tutuklandığımda duydu. Bunların hepsi benim hayatıma ait. Fakat kendimi anlatmaya yalnızca çalıştığım gazeteleri ve savunduğum fikirleri sıralayarak başlarsam, hikâyenin önemli bir kısmı eksik kalır. Fatma’yı, ailemi, dostlarımı, kararlarımın onlara neler yaşattığını da anlatmam gerekir.",
-            "Uzun yıllar ülkenin meseleleriyle uğraştım. Türkiye’nin daha özgür, daha adil, insanların geçim sıkıntısından kurtulduğu bir yer olmasını istedim. Bunun nasıl gerçekleşeceğine dair kanaatlerim ise aynı kalmadı. Bir zamanlar bütün açıklığıyla doğru sandığım düşüncelerden uzaklaştım. Bugün geçmişime bakarken gençliğimin heyecanını anlayabiliyorum; o heyecanla verdiğim her kararı haklı bulamıyorum. Anılarımı yazarken bu mesafeyi korumaya çalıştım. Kendim hakkında söylemekten hoşlanmadığım şeylerin de hikâyede yeri var."
-          ]
-        },
-        {
-          "id": "istanbul-ayvalik",
-          "title": "İstanbul’da doğdum, Ayvalık’ta kök saldım",
-          "paragraphs": [
-            "18 Nisan 1944’te İstanbul’da dünyaya geldim. Annem Sabiha, babam Ahmet’ti. Ailemizin geçmişi Ayvalık’a, oradan da Ege’nin öte yakasına, Midilli’ye ve Serez’e uzanıyordu. Ayvalık benim memleketim oldu. İstanbul’da okula giderken de, yıllar sonra başka ülkelerde yaşarken de orayla bağım sürdü. Ailemin hikâyesinde göçün, yer değiştirmek zorunda kalmanın ve yeniden bir hayat kurmanın geniş bir yeri vardı.",
-            "Çocukluğumuz sorunsuz geçmedi. Babamın rahatsızlığı aile düzenimizi derinden etkiledi. Annem bizi bir arada tutmak için büyük çaba gösterdi; eğitimimiz üzerinde titizlikle durdu. Ablalarım ve ağabeyim de yetişmemde pay sahibiydi. Okumaya merakımda, kendime duyduğum güvende onların izleri var. Daha sonra hayatımın zor bir döneminde ağabeyimden göreceğim yardım, aile bağının ne demek olduğunu bana bir kez daha gösterecekti. Bugün nerelerden geçtiğimi anlatırken bu insanların katkısını bir kenara koyamam."
-          ]
-        },
-        {
-          "id": "education",
-          "title": "Okullar ve açılan dünya",
-          "paragraphs": [
-            "İlkokulu Nişantaşı’ndaki Nilüfer Hatun’da, ortaokulu İngiliz Erkek Lisesi’nde okudum. Ardından Robert Kolej geldi. 1961–1962 öğretim yılında AFS bursuyla Kaliforniya’daki Webb School’a gittim. Henüz on yedi yaşındaydım. O güne kadar bildiğim çevrenin dışında, başka insanların gündelik hayatına katılmak, dünyaya bakışımı genişletti. Amerika’dan dönerken Türkiye’nin yoksulluğu ve özgürlük sorunları zihnimi eskisinden daha fazla meşgul ediyordu.",
-            "Columbia Üniversitesi’nde burslu öğrenim görme imkânından vazgeçip Ankara’ya, Mülkiye’ye gittim. Bu tercihimde Fatma’nın yeri büyüktü. 1963’te başladığım Siyasal Bilgiler Fakültesi’nden 1967’de mezun oldum. Mülkiye yıllarım derslerle sınırlı kalmadı. Tiyatro yaptım, öğrenci derneğinde görev aldım, siyasetin içine girdim. Sonraki yıllarda birbirimizden farklı yollara sapacağımız pek çok dostumu orada tanıdım. O yaşlarda önümüzde uzun bir hayat vardı; memleketi değiştirebileceğimize duyduğumuz güven de hayli büyüktü."
-          ]
-        },
-        {
-          "id": "youth",
-          "title": "Gençliğin kesin cevapları",
-          "paragraphs": [
-            "Sol düşünceye yaklaşmamda, Türkiye’nin neden geri kaldığına bir açıklama aramamın payı vardı. Önce Türkiye İşçi Partisi’nin görüşlerinden etkilendim. Zamanla Marksizmin daha katı yorumlarını benimsedim; devrimin toplumun sorunlarını çözeceğine inandım. Aydınlık çevresinde yer aldım, Doğu Perinçek’le birlikte çalıştım. O yıllardaki tartışmalarımızın ne kadarını ülkenin gerçekleri, ne kadarını okuduğumuz teoriler belirliyordu? Sonradan kendime bu soruyu çok sordum.",
-            "1971’de Filistin direniş hareketine katıldım; Suriye ve Lübnan’daki kamplarda bulundum. Geride eşimi ve küçük kızımızı bırakmıştım. Bu kararın aileme verdiği acıyla yüzleşmek kolay olmadı. İçinde yer aldığım hareketten kuşkulanıyor, buna rağmen ondan kopmakta zorlanıyordum. Bir süre sonra Türkiye’ye döndüm. Devrimci mücadeleden ayrılmaya karar vermem, o güne kadar kendime biçtiğim rolü de sorgulamamı gerektirdi. Bu yılları hatırlarken hem kendi sorumluluğumu hem de içinde bulunduğumuz siyasi ortamı düşünürüm. Birini anlatıp ötekini görmezden gelmek, olanları anlamaya yetmez."
-          ]
-        },
-        {
-          "id": "sweden",
-          "title": "İsveç’te yeniden başlamak",
-          "paragraphs": [
-            "12 Mart döneminde aranıyordum. 1972’de ağabeyimin yardımıyla Türkiye’den ayrıldım ve İsveç’e sığındım. Daha önce orada yaşayacağımı düşünmemiştim. Yeni bir dil öğrenmem, iş bulmam, eğitimime nasıl devam edebileceğimi araştırmam gerekiyordu. En çok da Fatma’yla Elvan’a kavuşmak istiyordum. Ayrılık uzamıştı. Onların 1974’te Stockholm’e gelişi, hayatımda büyük sevinçle hatırladığım olaylardan biridir.",
-            "Stockholm Üniversitesi’nde siyaset bilimi çalışmalarına katıldım. Hocam Tomas Hammar’ın bana açtığı imkân, hayatımın yönünü değiştirdi. Türkiye’den İsveç’e göç eden insanların toplumsal ve siyasi hayatını araştırdım; doktoramı 1981’de tamamladım. Bir yandan araştırma yapıyor, bir yandan içinde yaşadığım ülkeyi tanıyordum. Sosyal güvencelerin, demokratik kurumların ve kişisel özgürlüklerin bir arada nasıl işleyebildiğini yakından gördüm. Gençliğimde benimsediğim fikirleri yeniden tartmamda bu tecrübenin büyük payı oldu.",
-            "İsveç yıllarında düşüncelerim giderek sosyal liberal bir anlayışa yaklaştı. Eşitsizliklerin giderilmesini önemsemeye devam ediyordum; bunu yaparken bireyin özgürlüğünü koruyacak bir düzen arıyordum. Türkiye’ye dönüşüm bu bakımdan da bir başlangıçtı. Yanımda bir doktora diplomasıyla birlikte değişmiş kanaatler getiriyordum. Eski arkadaşlarımın hepsi bu değişimi hoş karşılamayacaktı."
-          ]
-        },
-        {
-          "id": "journalism",
-          "title": "Gazetecilikte yerimi ararken",
-          "paragraphs": [
-            "1981’de yurda döndüğümde üniversitede çalışmak istiyordum. Bu isteğim hemen gerçekleşmedi. Önce ansiklopedicilik yaptım; 1982’nin sonlarında, Hasan Cemal’in çağrısı üzerine Cumhuriyet kadrosuna katıldım. Kitaplarla, araştırmalarla, dış dünyadaki düşünce tartışmalarıyla uğraşmak ve bunları gazete okuruna ulaştırmak bana uygundu. Fakat bir gazetede kendinize yer bulmak, oradaki herkesle aynı fikirde olduğunuz anlamına gelmiyor. Cumhuriyet’te geçen yıllarımda bunu da öğrendim.",
-            "1992’de gazeteden ayrıldım. TÜSES’te çalıştım, bir süre CHP’de danışmanlık yaptım. Ardından Sabah ve Milliyet geldi. Entellektüel Bakış sayfasında bilim insanlarının, yazarların, farklı ülkelerden düşünürlerin söylediklerine yer verdim. Söyleşiler benim için başkasının düşüncesini öğrenme imkânıydı. Türkiye üzerine konuşan birinin ülkeye içeriden mi dışarıdan mı baktığı, neleri görebildiği, neleri gözden kaçırdığı ilgimi çekiyordu. Bu görüşmeler daha sonra Türkiye’nin Tanıkları kitaplarında da bir araya geldi.",
-            "Gazetecilik hayatımda işimi kaybettiğim, yeniden iş aradığım zamanlar oldu. Çalıştığım kurumların adlarını yan yana yazınca düzgün bir meslek çizgisi görünebilir. O yılları yaşarken önümde böyle hazır bir çizgi yoktu. Dostların yardımı, beklenmedik bir teklif, bir anlaşmazlık, geçinme zorunluluğu sonraki adımda etkili olabiliyordu."
-          ]
-        },
-        {
-          "id": "teaching",
-          "title": "Derslikte ve gazete sayfasında",
-          "paragraphs": [
-            "Akademik çalışmayla bağım hiçbir zaman bütünüyle kopmadı. Boğaziçi’nde ders verdim; 1998’de Princeton Üniversitesi’nde konuk öğretim üyesi olarak bulundum. 2001’de Bahçeşehir Üniversitesi’nde çalışmaya başladım ve 2015’e kadar orada siyaset dersleri verdim. Türkiye’nin siyasi hayatını başka ülkelerin tecrübeleriyle karşılaştırarak düşünmek, hem derslerimde hem yazılarımda başvurduğum bir yoldu. Türkiye’ye özgü görünen bir meselenin başka bir yerde nasıl ele alındığını bilmek, tartışmayı genişletebiliyordu.",
-            "2002’de Zaman’da köşe yazmaya başladım. Üniversitede çalışıyor, yazılarımı dışarıdan gönderiyordum. Daha sonra İngilizce yazılarım Today’s Zaman’da da yayımlandı. Televizyonda yaptığım programlarla birlikte, farklı okur ve dinleyicilere ulaşma imkânım oldu. Zaman’da yazmamın gerekçelerini anılarımda ayrıca ele aldım. Dindar bir okur çevresiyle özgürlükçü demokrasi üzerine konuşabileceğimi düşünüyor, görüşlerimi paylaşmak istiyordum. Bu tercihin bende uyandırdığı beklentileri de, sonradan gördüğüm sorunları da anlatmam gerekiyordu."
-          ]
-        },
-        {
-          "id": "ideas",
-          "title": "Umutlarımı da yanılgılarımı da yazmak",
-          "paragraphs": [
-            "Türkiye’nin Avrupa Birliği’ne katılma hedefini önemsedim. Bu hedefin hukuk devletini güçlendireceğini, hak ve özgürlükleri genişleteceğini düşünüyordum. AKP’nin ilk yıllarındaki reformlarını bu nedenle destekledim. Desteğimin gerekçesi, Türkiye’nin daha demokratik bir ülke olabileceğine dair beklentimdi. İktidar bu yönden uzaklaştıkça eleştirilerim arttı. Seçim kazanmanın, iktidarı denetimden ve hukuktan bağımsız kılmayacağını yazdım.",
-            "Gülen hareketine bakışımda da, dinle çoğulcu demokrasinin bağdaşabileceği bir yorum arayışım etkiliydi. Ancak hareketi tanıma imkânım sınırlıydı. Temas ettiğim çevrelerden edindiğim izlenimlerin ötesinde, iç işleyişini bilmiyordum. Geçmişteki değerlendirmelerimi anlatırken bu sınırı belirtmek gerekiyor. O gün neyi bildiğimi, neyi bilmediğimi, hangi umuda ne kadar pay verdiğimi birbirinden ayırmaya çalışıyorum.",
-            "Siyasi hayatıma dönüp baktığımda, istediğim Türkiye’ye ulaşılmış olduğunu söyleyemem. Bazı beklentilerim boşa çıktı. Bunları sonradan hiç taşımamışım gibi davranmak da bana doğru gelmiyor. Yazılarım farklı yıllarda ne düşündüğümü gösteriyor. Anılarımda ise bu düşüncelerin hangi şartlarda oluştuğunu, yaşadıklarımın onları nasıl etkilediğini anlatma fırsatı buldum. Kendini sorgulamak insanı her yanlıştan korumuyor; yine de geçmişe dürüstçe bakabilmenin buna bağlı olduğunu düşünüyorum."
-          ]
-        },
-        {
-          "id": "silivri",
-          "title": "Silivri ve eve dönüş",
-          "paragraphs": [
-            "Gözaltına alındığım tarih 27 Temmuz 2016’ydı. Dört gün sonra, 31 Temmuz’da tutuklanarak cezaevine gönderildim. Yetmiş iki yaşındaydım. Yaklaşık yirmi ay Silivri’de kaldım. Uzun süre üzerine yazdığım özgürlük meselesi, şimdi günün her saatini belirleyen kişisel bir yoksunluktu. Ailemden ayrıydım. Sağlığım, dışarıdaki yakınlarım, yargılamanın ne zaman ve nasıl sonuçlanacağı zihnimi meşgul ediyordu.",
-            "Cezaevinde okudum, notlar tuttum, mektup yazma imkânı doğunca yazdım. Ailemin ve dostlarımın desteği, içerideki hayatı sürdürebilmemde çok önemliydi. Aynı düşünceleri paylaşmadığımız insanların gösterdiği yakınlığı da unutmadım. Dostluk üzerine daha sonra yazdıklarımda bu tecrübelerin yeri var. Bir insanın zor zamanında yanında bulunmakla onun siyasi görüşlerine katılmanın ayrı şeyler olduğunu hayatım boyunca birkaç kez gördüm.",
-            "Anayasa Mahkemesi ve Avrupa İnsan Hakları Mahkemesi, tutukluluğumla ilgili hak ihlali kararları verdi. Mart 2018’de cezaevinden çıktım; bir süre ev hapsinde kaldım. Aileme kavuşmak büyük bir sevinçti. Fakat eve dönmek, yaşananların bütün sonuçlarının ortadan kalkması demek değildi. Yargılama sürüyordu; biz de uzun ayrılıktan sonra gündelik hayatımızı yeniden birlikte yaşamaya çalışıyorduk."
-          ]
-        },
-        {
-          "id": "fatma-memoirs",
-          "title": "Fatma ve hatırlamak istediklerim",
-          "paragraphs": [
-            "Fatma’yı çocukken tanıdım. 1965’te evlendik. Kızımız Elvan ve oğlumuz Acar doğdu; yıllar sonra torunlarımız Defne ve Leyla hayatımıza katıldı. Benim siyasi tercihlerim değişirken, iş hayatım bir kurumdan ötekine taşınırken Fatma’nın kendi yargıları, kendi duruşu vardı. Her düşünceme katılmıyordu. Anılarımda ona bu kadar yer vermemin bir nedeni de bu: Hayatımı anlatırken onun ayrı kişiliğini, bana karşı çıktığı zamanları, ailemiz için yaptıklarını da görünür kılmak istedim.",
-            "Evliliğimizin içinde mutluluk kadar sıkıntı da vardı. Kararlarımdan yalnız ben etkilenmedim; bazı bedelleri Fatma ve çocuklarım da ödedi. Bunu düşünmek, geçmişi anlatmanın en zor taraflarından biri. Silivri’den döndükten sonra Fatma’yla ancak altı ay kadar birlikte olabildik. Onu 6 Ekim 2018’de kaybettim. Ardından anılarımı tamamlama isteğim daha da güçlendi. Ailemiz için, çocuklarımızın ve torunlarımızın bizi daha yakından tanıyabilmesi için yazmak istiyordum.",
-            "Bir Hikâyem Var’da yetiştiğim çevreyi, gençliğimi, İsveç yıllarını ve gazeteciliğimin ilk dönemlerini anlattım. Hikâyemin Sonu’nda 2000’li yıllara, Zaman’a, Silivri’ye ve Fatma’yla son aylarımıza döndüm. Burada birkaç cümleyle geçtiğim insanların ve kararların arkasında uzun beraberlikler, konuşmalar, tereddütler var. Benim hayatım biraz da o ayrıntılarda. Okurlarımın yazılarımın gerisindeki insanı tanımasını isterim; sevdikleriyle, yanılgılarıyla, öğrendikleriyle."
+            "18 Nisan 1944’te Ayvalıklı bir ailenin, Sabiha ve Ahmet Alpay’ın (Sumru, Olcay ve Acar’dan sonraki dördüncü) çocuğu olarak İstanbul’da dünyaya geldim. Türkiye ile Yunanistan arasında 1923 tarihli zorunlu nüfus mübadelesi anlaşması uyarınca babam Serez’den, annem ailesi ise Midilli’den gelip Ayvalık’a yerleşti.",
+            "İlkokulu İstanbul Nişantaşı’ndaki Nilüfer Hatun İlkokulu’nda (1950 - 55), ortaokulu Nişantaşı’ndaki İngiliz Erkek Lisesi’nde (1955 - 60), liseyi Bebek’teki Robert Kolej’de (1960 - 63) okudum. İlkokul üçüncü sınıfa Ayvalık Cumhuriyet İlkokulu’nda (1952-53) devam ettim. Lise ikinci sınıfta, bir American Field Service (AFS) bursu ile gittiğim ABD’de özel bir okul olan Webb School of California’da son sınıfı okudum (1961-62) ve Amerikan lise diploması aldım.",
+            "ABD’nin New York kentindeki Columbia Üniversitesi’nden dört yıllık öğrenim bursu kazandım, ancak kullanmaktan vazgeçtim. Yüksek öğrenimi 1963-67 arasında Ankara Üniversitesi Siyasal Bilgiler Fakültesi’nde (SBF) yaptım. 1965’te aşkım, Ayvalıklı komşu kızı Fatma Nur (Kaptan) ile evlendik; 1968’de kızımız (Elvan), 1978’de oğlumuz (Acar) dünyaya geldi. Elvan’dan Defne, Acar’dan Leyla adında iki torunum var.",
+            "SBF’de okurken devrimci gençlik hareketine katıldım. Dönüşüm, Forum, Aydınlık, İşçi-Köylü, Türk Solu gibi dergilerde yazılarım çıktı. 1968-1971 yılları arasında Ankara Üniversitesi Eğitim Fakültesi’nde Anayasa Hukuku kürsüsünde asistan olarak çalıştım. 12 Mart 1971 askeri müdahalesi sonrasında Sıkıyönetim tarafından aranmam üzerine Doğu Perinçek’in liderliğini yaptığı Türkiye İhtilalci İşçi Köylü Partisi’ne katıldım ve Nayif Hawatme liderliğindeki Filistin Demokratik Halk Kurtuluş Cephesi örgütünün Suriye ve Lübnan’daki kamplarında gerilla eğitimi gördüm; bu sırada TİİKP örgütü ile ilişkimi kestim.",
+            "1972’de İsveç’ten siyasi iltica aldım ve 1974-1981 yılları arasında Stockholm Üniversitesi’nin Siyaset Bilimi Bölümü’nde, “Stockholm’de Türkler: Göçmenler Üzerine Sosyal ve Siyasal Bir Araştırma” başlıklı tezle doktora yaptım. Yurda dönüşte 1982-92 arasında Cumhuriyet, 1993-94 arasında Sabah, 1994-2001 arasında Milliyet gazetelerinde editörlük ve yazarlık yaptım. 1992-1993 arasında TÜSES Genel Sekreteri, 1993 yılında Cumhuriyet Halk Partisi TBMM grup danışmanı oldum. 1998 Kış döneminde aldığım davet üzerine ABD’nin Princeton Üniversitesi’nde konuk öğretim üyesi olarak Türk Siyasi Hayatı üzerine dersler verdim. 1999-2002 arasında CNN-Türk televizyon kanalında “Entelektüel Bakış” adlı haftalık mülakat programını sundum.",
+            "2001-2015 arasında Bahçeşehir Üniversitesi Siyaset Bilimi Bölümü’nde Türk Siyasi Hayatı ve Mukayeseli Politika dersleri verdim. 2002 - 2016 arasında Zaman, 2007-2016 arasında Today’s Zaman gazetelerinde köşe yazıları yazdım. 2006-2016 arasında Mehtap TV’de “Akıl Defteri” adlı programın yorumcuları arasında yer aldım.",
+            "Bütün yazarlık hayatım boyunca askeri darbelere karşı tavır aldığım halde 15 Temmuz 2016’daki darbe girişimi üzerine “FETÖ/PDY terör örgütüne üye” olduğum iddiasıyla tutuklandım ve 17 Mart 2018’de tahliye edilene kadar Silivri cezaevinde hapis yattım. Yargılama sonucunda 2022’de “üye olmamakla beraber terör örgütüne yardım” ettiğim gerekçesiyle 2 yıl 6 ay hapse mahkûm edildim. Hakkımdaki dava Yargıtay’da temyiz başvurumun sonucunu beklemekte.",
+            "Çok sevdiğim eşim Fatma Nur Alpay 6 Ekim 2018’de vefat etti. Birlikte yaşadıklarımızı Bir Hikayem Var (Lejand, 2024) ve Hikayemin Sonu (Lejand, 2025) başlıklı kitaplarda anlattım."
           ]
         }
       ],
