@@ -44,7 +44,7 @@ export const archiveSummary: ArchiveSummary = {
     },
     "analyses": 7,
     "interviews": 8,
-    "academic": 31
+    "academic": 29
   },
   "coverage": [
     {
@@ -103,9 +103,9 @@ export const archiveSummary: ArchiveSummary = {
     },
     {
       "academic": true,
-      "from": 1980,
+      "from": 1982,
       "to": 2011,
-      "count": 31
+      "count": 29
     }
   ],
   "pickPool": {

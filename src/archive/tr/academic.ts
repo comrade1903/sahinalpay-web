@@ -1,14 +1,18 @@
 import type { ArchiveItemSeed } from '../types'
 
-/** Academic output: the doctoral dissertation, the Swedish-period study it grew
- *  out of, and Turkish/English books and book chapters. Two further titles from
- *  the original list this file was seeded from — Türkiye'nin Tanıkları: İçeriden
- *  Bakanlar (2002) and Dışarıdan Bakanlar (2003) — are not repeated here because
- *  they already have full entries under Books.
+/** Academic output: Turkish/English books and book chapters, plus articles,
+ *  conference papers and translations. The doctoral dissertation and the
+ *  Swedish-period study it grew out of (Turkar i Stockholm, 1980) are not
+ *  listed here — Şahin Alpay confirmed the two are the same work, published
+ *  as a book, so it lives under Books rather than being duplicated here.
+ *  Two further titles from the original list this file was seeded from —
+ *  Türkiye'nin Tanıkları: İçeriden Bakanlar (2002) and Dışarıdan Bakanlar
+ *  (2003) — are likewise not repeated here because they already have full
+ *  entries under Books.
  *
  *  Every entry below was checked against an independent bibliographic source
  *  before being added, not taken on trust from the list it was seeded from.
- *  Two of the six needed real correction, not just confirmation:
+ *  Two needed real correction, not just confirmation:
  *
  *  - "Journalists: Cautious Democrats" was seeded with the wrong book entirely
  *    (Politics in the Third Turkish Republic, Heper & Evin, Westview, 1994).
@@ -20,36 +24,11 @@ import type { ArchiveItemSeed } from '../types'
  *    bookseller/library listings agree the 1991 Afa Yayınları book is titled
  *    "2020 Yılında Türkiye". Corrected.
  *
- *  Smaller corrections: the DSP-SHP book is co-authored with Seyfettin Gürsel
+ *  Smaller correction: the DSP-SHP book is co-authored with Seyfettin Gürsel
  *  and catalogued as "DSP-SHP", not "SHP-DSP" (Atatürk Kültür, Dil ve Tarih
- *  Yüksek Kurumu library catalogue). The Stockholm study's Swedish subtitle
- *  word order was "politik och samhälle", not "samhälle och politik" (Google
- *  Books, matching the LIBRIS/Stockholm Studies in Politics record).
- *
- *  The dissertation's exact title could not be confirmed from any source
- *  reached — general biographical accounts agree only on institution and year.
- *  It is listed with that gap stated rather than guessed at.
+ *  Yüksek Kurumu library catalogue).
  */
 export const academicArticleSeeds: ArchiveItemSeed[] = [
-  {
-    slug: 'doktora-tezi-stockholm-1981',
-    title: 'Stockholm’de Türkler: Göçmenler Üzerine Sosyal ve Siyasal Bir Araştırma',
-    date: '1981',
-    subtitle: 'Doktora tezi — Stockholm Üniversitesi, Siyaset Bilimi',
-    sourceNote:
-      'Kurum ve yıl genel biyografik kaynaklarla (Biyografya, T.C. Kültür ve Turizm Bakanlığı) teyit edilmiştir; başlık Şahin Alpay’ın kendi Kimdir metninde verdiği tez adıdır.',
-    tags: ['doktora tezi', 'Stockholm Üniversitesi', 'siyaset bilimi', '1981'],
-  },
-  {
-    slug: 'turkar-i-stockholm-1980',
-    title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-    date: '1980',
-    subtitle: 'Stockholm Studies in Politics, c. 16 — LiberFörlag, Stockholm, 1980',
-    sourceNote:
-      'Google Books ve LIBRIS (İsveç Ulusal Kütüphane Kataloğu) kayıtlarıyla teyit edilmiştir. ISBN 978-91-38-05635-6.',
-    url: 'https://books.google.com/books/about/Turkar_i_Stockholm.html?id=X9HPAAAAIAAJ',
-    tags: ['göç', 'İsveç', 'Stockholm', 'doktora dönemi', '1980'],
-  },
   {
     slug: 'dsp-shp-nerede-birlesiyor-1986',
     title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',

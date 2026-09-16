@@ -180,7 +180,7 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics.',
+      desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics. The book closes with a summary in Turkish and English.',
     },
   ],
   tr: [
@@ -221,7 +221,7 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı.',
+      desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı. Kitabın sonunda Türkçe ve İngilizce özeti var.',
     },
   ],
 }
