@@ -22,6 +22,7 @@ import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
+import { trialProcessSections } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
 
@@ -64,7 +65,6 @@ export interface Content {
   }
   hubKicker: string
   hubTitle: string
-  chronicleIntro: string
   /** Heading for the other language's records, which every archive section
    *  lists after its own so a reader never has to switch language to find a
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
@@ -84,6 +84,17 @@ export interface Content {
   analyses?: OutletArchiveSection
   interviews?: FlatArchiveSection
   academicArticles?: FlatArchiveSection
+  /** His own account of the criminal proceedings against him — Turkish only,
+   *  a legal record in his own words rather than a translated one. */
+  trialProcess?: {
+    kicker: string
+    title: string
+    subtitle: string
+    lead: string
+    editorialNote: string
+    contentsLabel: string
+    sections: { id: string; title: string; paragraphs: string[] }[]
+  }
   books: BooksSection
   footer: {
     kicker: string
@@ -238,7 +249,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Interviews' },
       { key: 'academic', label: 'Academic Articles' },
       { key: 'books', label: 'Books' },
-      { key: 'chronicle', label: 'Chronicle' },
+      { key: 'trial', label: 'The Case Against Me' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -253,7 +264,6 @@ export const content: Record<Lang, Content> = {
     },
     hubKicker: 'Explore',
     hubTitle: 'All sections',
-    chronicleIntro: 'My writing alongside the events of its time. Gaps in this archive do not necessarily mean that I stopped writing.',
     foreignArchiveLabel: 'Turkish-Language Writing',
     hub: [
       {
@@ -287,9 +297,9 @@ export const content: Record<Lang, Content> = {
         description: 'Two volumes of memoirs, interviews and studies of politics.',
       },
       {
-        key: 'chronicle',
-        title: 'Chronicle',
-        description: 'My writing alongside the events of its time, year by year.',
+        key: 'trial',
+        title: 'The Case Against Me',
+        description: 'A summary of the criminal case brought against me after the 2016 coup attempt.',
       },
     ],
     about: {
@@ -359,6 +369,27 @@ export const content: Record<Lang, Content> = {
       externalLabel: 'View book summaries ↗',
       externalUrl: '',
       books: BOOKS.en,
+    },
+    trialProcess: {
+      kicker: 'Legal Case',
+      title: 'The Case Against Me',
+      subtitle: '',
+      lead: '',
+      editorialNote: '',
+      contentsLabel: 'On this page',
+      sections: [
+        {
+          id: 'overview',
+          title: '',
+          paragraphs: [
+            'On 27 July 2016, days after the failed military coup of 15 July, I was detained at my home in Istanbul and, three days later, arrested on suspicion of membership in the Fethullahist Terror Organization (FETÖ/PDY), the movement blamed for the coup attempt. The evidence cited against me was a handful of newspaper columns I had written for Zaman between December 2013 and March 2014.',
+            "I spent close to twenty months in Silivri Prison before Turkey's Constitutional Court, and then the European Court of Human Rights, both ruled that my detention had violated my rights to liberty and to freedom of expression, finding no credible evidence that my columns served any organization's aims. I was released under house arrest in March 2018, and fully released a few months later.",
+            'In July 2018 a criminal court convicted me of membership in a terrorist organization and sentenced me to eight years and nine months in prison, without detention pending appeal. Turkey’s Court of Cassation quashed that verdict in 2020 for insufficient evidence and ordered a retrial.',
+            'The retrial concluded in November 2022 with a different verdict: not membership, but knowingly aiding a terrorist organization, carrying a sentence of two years and six months. I have appealed that decision, and it remains before the Court of Cassation.',
+            'I have written my own detailed account of these proceedings — my courtroom statements and the Constitutional Court’s and European Court of Human Rights’ rulings in full — in Turkish, on this site’s Turkish pages.',
+          ],
+        },
+      ],
     },
     footer: {
       kicker: 'Keep in touch',
@@ -452,7 +483,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Söyleşiler' },
       { key: 'academic', label: 'Akademik Makaleler' },
       { key: 'books', label: 'Kitaplar' },
-      { key: 'chronicle', label: 'Kronik' },
+      { key: 'trial', label: 'Yargılanma Sürecim' },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -467,7 +498,6 @@ export const content: Record<Lang, Content> = {
     },
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
-    chronicleIntro: 'Yazılarım, yazıldıkları yılların olaylarıyla yan yana. Arşivdeki boşluklar, o yıllarda yazmadığım anlamına gelmiyor.',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
     hub: [
       {
@@ -501,9 +531,9 @@ export const content: Record<Lang, Content> = {
         description: 'İki cilt anı, söyleşiler ve siyaset üzerine çalışmalar.',
       },
       {
-        key: 'chronicle',
-        title: 'Kronik',
-        description: 'Yazılarım ve yazıldıkları dönemin olayları, yıl yıl.',
+        key: 'trial',
+        title: 'Yargılanma Sürecim',
+        description: 'Hakkımdaki dava sürecini kendi ifadelerim ve mahkeme kararlarıyla anlatıyorum.',
       },
     ],
     about: {
@@ -577,6 +607,15 @@ export const content: Record<Lang, Content> = {
       externalLabel: 'Kitap özetlerini görüntüle ↗',
       externalUrl: '',
       books: BOOKS.tr,
+    },
+    trialProcess: {
+      kicker: 'Yargı Süreci',
+      title: 'Yargılanma Sürecim',
+      subtitle: '',
+      lead: '',
+      editorialNote: '',
+      contentsLabel: 'Bu sayfada',
+      sections: trialProcessSections,
     },
     footer: {
       kicker: 'İletişim',

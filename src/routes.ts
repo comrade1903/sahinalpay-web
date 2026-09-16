@@ -8,7 +8,7 @@ export type PageKey =
   | 'interviews'
   | 'academic'
   | 'books'
-  | 'chronicle'
+  | 'trial'
   | 'cookies'
 
 /* English includes hub pages for every archive category. Full source items
@@ -22,7 +22,11 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     interviews: '/interviews',
     academic: '/academic-articles',
     books: '/books',
-    chronicle: '/chronicle',
+    /* His full account — courtroom statements, and the Constitutional
+       Court's and ECHR's rulings — is only in Turkish (see
+       src/trialProcess.ts); this English page is a short factual summary,
+       not a translation of that record. */
+    trial: '/trial-process',
     cookies: '/cookie-policy',
   },
   tr: {
@@ -33,7 +37,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     interviews: '/tr/soylesiler',
     academic: '/tr/akademik-makaleler',
     books: '/tr/kitaplar',
-    chronicle: '/tr/kronik',
+    trial: '/tr/yargilanma-surecim',
     cookies: '/tr/cerez-politikasi',
   },
 }

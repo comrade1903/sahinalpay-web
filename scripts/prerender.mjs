@@ -306,12 +306,19 @@ for (const lang of ['tr', 'en']) {
             `<h2>${escapeHtml(section.heading)}</h2>${section.body.map((line) => `<p>${escapeHtml(line)}</p>`).join('')}`,
         )
         .join('')}`
-    } else if (pageKey === 'chronicle') {
-      const heading = lang === 'tr' ? 'Kronik' : 'Chronicle'
-      title = `${heading} — Şahin Alpay`
-      description = t.chronicleIntro
-      const chronicleItems = byLang[lang].filter((item) => item.internal)
-      inner = `<h1>${escapeHtml(heading)}</h1>${itemListHtml(chronicleItems, lang, 60)}`
+    } else if (pageKey === 'trial') {
+      const trial = t.trialProcess
+      title = `${trial.title} — Şahin Alpay`
+      description = trial.lead || trial.sections[0]?.paragraphs[0] || trial.title
+      inner = `<h1>${escapeHtml(trial.title)}</h1><p>${escapeHtml(trial.subtitle)}</p><p>${escapeHtml(trial.lead)}</p><p>${escapeHtml(trial.editorialNote)}</p>${trial.sections
+        .map((section) => `<section id="${escapeHtml(section.id)}"><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>`)
+        .join('')}`
+      jsonLd = schema.aboutJsonLd({
+        name: trial.title,
+        description,
+        lang,
+        url: url(routePath),
+      })
     } else {
       const section = sectionCopy(lang, pageKey)
       const { own, foreign } = itemsForSection(lang, pageKey)

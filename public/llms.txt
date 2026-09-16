@@ -31,8 +31,11 @@
 
 ## Site
 
-- Homepage: https://sahinalpay.com/ — biography, selected works, press-freedom
-  chronology, and contact.
+- Homepage: https://sahinalpay.com/ — biography, selected works, and contact.
+- His own account of the criminal proceedings against him — arrest, courtroom
+  statements, and the Constitutional Court's and European Court of Human
+  Rights' rulings in his case — is at /tr/yargilanma-surecim, in Turkish. A
+  short English-language factual summary of the case is at /trial-process.
 - Archive: 615 catalogued pieces across Cumhuriyet, Sabah, Milliyet, Zaman,
   Today's Zaman and P24, plus political analyses, interviews and academic
   articles. Turkish index at /tr/kose-yazilari, English at /columns.

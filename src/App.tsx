@@ -2,11 +2,9 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Content, type Lang, type BooksSection } from './content'
-import type { ArchiveItem } from './archive/types'
-import type { ArchiveData } from './archive/useArchiveData'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
-import { ArchiveRow, FlatArchivePage, NewsstandArchivePage } from './components/archive'
+import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
 import { AuthorAvatar, PORTRAIT } from './components/AuthorAvatar'
 import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
@@ -21,9 +19,7 @@ import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
 import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
 import { LANG_KEY } from './lib/preferences'
 import { readStoredValue } from './lib/storage'
-import { weeklyPicks, yearPicks } from './lib/picks'
-import { parseTurkishDate } from './dateUtils'
-import { chronicleEvents } from './chronicle'
+import { weeklyPicks } from './lib/picks'
 
 /* ------------------------------------------------------------------
    Şahin Alpay — a personal & political legacy site. Bilingual (EN/TR),
@@ -128,7 +124,7 @@ const HUB_ICONS: Record<PageKey, string> = {
   interviews: 'forum',
   academic: 'school',
   books: 'menu_book',
-  chronicle: 'timeline',
+  trial: 'timeline',
   cookies: 'cookie',
 }
 
@@ -652,115 +648,70 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   )
 }
 
-function ChroniclePage({ lang }: { lang: Lang }) {
+/** The case brought against Şahin Alpay after the 2016 coup attempt. The
+ *  Turkish page is his own full account — courtroom statements and the
+ *  Constitutional Court's and ECHR's rulings, transferred verbatim from his
+ *  own document; the English page is a short factual summary rather than a
+ *  translation of that record (see the note on `trial` in routes.ts). */
+function TrialProcessPage({ lang }: { lang: Lang }) {
+  const t = content[lang]
   const location = useLocation()
+  const trial = t.trialProcess!
+  const metaDescription = trial.lead || trial.sections[0]?.paragraphs[0] || trial.title
   usePageMeta({
-    title: `${lang === 'tr' ? 'Kronik' : 'Chronicle'} — Şahin Alpay`,
-    description: content[lang].chronicleIntro,
+    title: `${trial.title} — Şahin Alpay`,
+    description: metaDescription,
     alternates: pageAlternates(location.pathname),
   })
-  const { data, fallback } = useArchiveGate(lang)
-  if (!data) return fallback
-  return <LoadedChronicle lang={lang} archiveData={data} />
-}
-
-function LoadedChronicle({
-  lang,
-  archiveData,
-}: {
-  lang: Lang
-  archiveData: ArchiveData
-}) {
-  const items: ArchiveItem[] = [
-    ...archiveData.columns.flatMap((o) => o.items),
-    ...archiveData.analyses.flatMap((o) => o.items),
-    ...archiveData.academicArticles,
-  ]
-
-  const byYear = new Map<number, ArchiveItem[]>()
-  for (const it of items) {
-    const ts = it.date ? parseTurkishDate(it.date) : null
-    if (ts == null) continue
-    const y = new Date(ts).getUTCFullYear()
-    const bucket = byYear.get(y)
-    if (bucket) bucket.push(it)
-    else byYear.set(y, [it])
-  }
-
-  const counts = [...byYear.entries()].map(([y, arr]) => [y, arr.length] as const)
-  const maxCount = Math.max(1, ...counts.map(([, c]) => c))
-  const total = counts.reduce((n, [, c]) => n + c, 0)
-  const dataYears = counts.map(([y]) => y)
-  const firstYear = dataYears.length ? Math.min(...dataYears) : 0
-  const lastYear = dataYears.length ? Math.max(...dataYears) : 0
-
-  const years = Array.from(
-    new Set([...byYear.keys(), ...chronicleEvents.map((e) => e.year)]),
-  ).sort((a, b) => a - b)
-
+  useJsonLd(
+    'trial',
+    aboutJsonLd({
+      name: trial.title,
+      description: metaDescription,
+      lang,
+      url: pageUrl(paths[lang].trial!),
+    }),
+  )
+  const hasContents = trial.sections.length > 1 && trial.sections.every((section) => section.title)
   return (
-    <section className="section section-solo chronicle">
-      <div className="container container-narrow">
-        <Reveal>
-          <p className="kicker">{lang === 'tr' ? 'Zaman Çizgisi' : 'Timeline'}</p>
-          <h1 className="section-title">{lang === 'tr' ? 'Kronik' : 'Chronicle'}</h1>
-          <p className="lead">
-            {lang === 'tr'
-              ? `${firstYear}–${lastYear} arasında ${total.toLocaleString('tr')} yazı. ${content[lang].chronicleIntro}`
-              : `${total.toLocaleString('en')} pieces between ${firstYear} and ${lastYear}. ${content[lang].chronicleIntro}`}
-          </p>
-        </Reveal>
+    <>
+      <section className="section section-solo">
+        <div className="container bio-grid">
+          <Reveal className="bio-aside">
+            <AuthorAvatar className="about-avatar" />
+            <h1 className="section-title">{trial.title}</h1>
+            {trial.subtitle && <p className="bio-subtitle">{trial.subtitle}</p>}
+          </Reveal>
 
-        <div className="chronicle-spine">
-          {years.map((year) => {
-            const yearItems = byYear.get(year) ?? []
-            const count = yearItems.length
-            const events = chronicleEvents.filter((e) => e.year === year)
-            const picks = count > 0 ? yearPicks(yearItems, year, 2) : []
-            return (
-              <Reveal as="div" className="chronicle-row" key={year}>
-                {/* The year is this row's heading, so it closes the h1 → h3 gap
-                    that the article rows below would otherwise skip into. */}
-                <h2 className="chronicle-year">{year}</h2>
-                <div className="chronicle-body">
-                  {count > 0 && (
-                    <div className="chronicle-bar" aria-hidden="true">
-                      <span
-                        className="chronicle-bar-fill"
-                        style={{ width: `${Math.max(4, (count / maxCount) * 100)}%` }}
-                      />
-                    </div>
-                  )}
-                  {count > 0 && (
-                    <p className="chronicle-count">
-                      {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
-                    </p>
-                  )}
-                  {events.map((e) => (
-                    <p
-                      className={`chronicle-event chronicle-event-${e.kind}`}
-                      key={`${e.year}-${e.en}`}
-                    >
-                      <span className="material-symbols-outlined" aria-hidden="true">
-                        {e.kind === 'personal' ? 'person' : 'flag'}
-                      </span>
-                      {e[lang]}
-                    </p>
+          <Reveal className="prose" delay={0.1}>
+            {trial.lead && <p className="lead">{trial.lead}</p>}
+            {trial.editorialNote && <p className="bio-editorial-note">{trial.editorialNote}</p>}
+            {hasContents && (
+              <nav className="bio-contents" aria-label={trial.contentsLabel}>
+                <ol>
+                  {trial.sections.map((section) => (
+                    <li key={section.id}>
+                      <a href={`#${section.id}`}>{section.title}</a>
+                    </li>
                   ))}
-                  {picks.length > 0 && (
-                    <ul className="archive-list chronicle-picks">
-                      {picks.map((p) => (
-                        <ArchiveRow item={p} lang={lang} key={p.id} />
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </Reveal>
-            )
-          })}
+                </ol>
+              </nav>
+            )}
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <article className="section bio-story" aria-label={trial.kicker}>
+        <div className="container container-narrow prose">
+          {trial.sections.map((section) => (
+            <section className="bio-chapter" id={section.id} key={section.id}>
+              {section.title && <h2>{section.title}</h2>}
+              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </section>
+          ))}
+        </div>
+      </article>
+    </>
   )
 }
 
@@ -919,7 +870,7 @@ function MainShell() {
             element={<TurkishItemRedirect pageKey="academic" />}
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
-          <Route path="/chronicle" element={<ChroniclePage lang="en" />} />
+          <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
           <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
@@ -963,7 +914,10 @@ function MainShell() {
             path="/tr/kitaplar"
             element={<RouteFor lang="tr" pageKey="books" />}
           />
-          <Route path="/tr/kronik" element={<ChroniclePage lang="tr" />} />
+          <Route
+            path="/tr/yargilanma-surecim"
+            element={<TrialProcessPage lang="tr" />}
+          />
           <Route
             path="/tr/cerez-politikasi"
             element={<CookiePolicyPage lang="tr" />}

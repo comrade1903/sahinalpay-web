@@ -50,7 +50,7 @@ const STATIC_HINTS = {
   interviews: ['monthly', '0.6'],
   academic: ['monthly', '0.6'],
   books: ['monthly', '0.8'],
-  chronicle: ['monthly', '0.7'],
+  trial: ['monthly', '0.5'],
   cookies: ['yearly', '0.3'],
 }
 
@@ -76,7 +76,10 @@ for (const lang of ['en', 'tr']) {
       changefreq,
       priority,
       lastmod: lastmodFor(route, {
-        copy: content[lang][pageKey === 'academic' ? 'academicArticles' : pageKey] ?? null,
+        copy:
+          content[lang][
+            pageKey === 'academic' ? 'academicArticles' : pageKey === 'trial' ? 'trialProcess' : pageKey
+          ] ?? null,
         title: content[lang].htmlTitle,
         counts: items.filter((item) => item.lang === lang).length,
       }),

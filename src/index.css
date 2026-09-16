@@ -1219,8 +1219,7 @@ main:focus {
   font-size: var(--text-body-sm);
   color: var(--ink-soft);
 }
-/* Archive coverage strip. Same bar vocabulary as the chronicle — accent fill on a
-   surface-mid track — so the homepage and the timeline read as one system. */
+/* Archive coverage strip: accent fill on a surface-mid track. */
 .coverage {
   margin: 0;
 }
@@ -3015,74 +3014,6 @@ a.archive-row:hover .archive-row-title {
   border-top: 1px solid var(--line);
 }
 
-/* ---------- Chronicle ---------- */
-.chronicle-spine {
-  margin-top: var(--space-5);
-  border-left: 2px solid var(--line);
-  padding-left: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-.chronicle-row {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: var(--space-2);
-  align-items: start;
-}
-.chronicle-year {
-  font-family: var(--headline);
-  font-weight: 700;
-  font-size: var(--text-title-sm);
-  color: var(--tertiary-ink);
-  font-feature-settings: 'onum' 1;
-}
-.chronicle-body {
-  min-width: 0;
-}
-.chronicle-bar {
-  height: 0.5rem;
-  background: var(--surface-mid);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-}
-.chronicle-bar-fill {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  border-radius: var(--radius-full);
-}
-.chronicle-count {
-  margin: 0.35rem 0 0;
-  font-family: var(--label);
-  font-size: var(--text-ui);
-  color: var(--muted);
-}
-.chronicle-event {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0.5rem 0 0;
-  font-family: var(--label);
-  font-size: var(--text-body-sm);
-  color: var(--ink-soft);
-}
-.chronicle-event .material-symbols-outlined {
-  font-size: var(--icon-md);
-  color: var(--accent);
-}
-.chronicle-event-personal {
-  font-weight: 700;
-  color: var(--ink);
-}
-.chronicle-picks {
-  margin-top: var(--space-2);
-}
-@media (max-width: 560px) {
-  .chronicle-row {
-    grid-template-columns: 3rem 1fr;
-  }
-}
 .related-articles h2 {
   font-size: var(--text-title);
   margin-bottom: var(--space-3);

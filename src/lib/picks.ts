@@ -1,12 +1,10 @@
 import type { Lang } from '../content'
-import type { ArchiveItem } from '../archive/types'
 import type { ArchiveSummary, PickSeed } from '../archive/useArchiveSummary'
 
 /**
- * The homepage's "Benden Seçkiler" / "My Picks" and the chronicle's per-year
- * selection. Both are deterministic: a seeded shuffle, so every visitor sees
- * the same pieces in a given week or year, with no cron job, no backend and
- * no editorial queue to keep filled.
+ * The homepage's "Benden Seçkiler" / "My Picks". Deterministic: a seeded
+ * shuffle, so every visitor sees the same pieces in a given week, with no
+ * cron job, no backend and no editorial queue to keep filled.
  */
 
 /** Deterministic mulberry32 PRNG — same seed always produces the same
@@ -57,29 +55,4 @@ export function weeklyPicks(summary: ArchiveSummary, lang: Lang, count: number):
     0,
     count,
   )
-}
-
-/** Academic output (dissertation, book chapters, books) is rarer than a column
- *  and outranks it: a year that has one always leads with it, then fills the
- *  remaining slot(s) with a column/analysis piece from the same year if one
- *  exists. Both picks still come from the same year-seeded shuffle, so the
- *  choice among several academic or several ordinary pieces stays stable for
- *  every visitor in a given year, as it did before academic pieces existed. */
-export function yearPicks(items: ArchiveItem[], year: number, n: number): ArchiveItem[] {
-  const random = mulberry32(year)
-  const shuffle = <T,>(arr: T[]): T[] => shuffleWith(arr, random)
-
-  const academic = items.filter((i) => i.outletKey === 'academic')
-  const rest = items.filter((i) => i.outletKey !== 'academic')
-
-  const firstAcademic = shuffle(academic)[0]
-  const picks: ArchiveItem[] = firstAcademic ? [firstAcademic] : []
-
-  const pool = rest.filter((i) => i.hasBody)
-  const src = pool.length ? pool : rest
-  for (const item of shuffle(src)) {
-    if (picks.length >= n) break
-    picks.push(item)
-  }
-  return picks
 }
