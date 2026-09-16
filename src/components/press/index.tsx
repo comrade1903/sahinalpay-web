@@ -34,21 +34,22 @@ function PressRow({ item }: { item: PressItem }) {
   )
 }
 
+/* Both lists sit inside the page's single <section>, the way the archive's
+   own list pages do: a section per list gave each one a full band of
+   vertical padding and left the page mostly gaps. */
 function PressList({ label, items }: { label: string; items: PressItem[] }) {
   if (items.length === 0) return null
   return (
-    <section className="section" aria-label={label}>
-      <div className="container container-narrow">
-        <Reveal>
-          <h2 className="section-title">{label}</h2>
-        </Reveal>
-        <ul className="archive-list">
-          {items.map((item) => (
-            <PressRow key={item.id} item={item} />
-          ))}
-        </ul>
-      </div>
-    </section>
+    <>
+      <Reveal>
+        <h2 className="press-list-title">{label}</h2>
+      </Reveal>
+      <ul className="archive-list">
+        {items.map((item) => (
+          <PressRow key={item.id} item={item} />
+        ))}
+      </ul>
+    </>
   )
 }
 
@@ -63,16 +64,15 @@ export function PressPage({ lang }: { lang: Lang }) {
   })
 
   return (
-    <>
-      <section className="section section-solo">
-        <div className="container container-narrow">
+    <section className="section section-solo">
+      <div className="container">
           <Reveal>
             <p className="kicker">{copy.kicker}</p>
             <h1 className="section-title">{copy.title}</h1>
-            <p className="bio-subtitle">{copy.subtitle}</p>
+            <p className="archive-intro">{copy.subtitle}</p>
           </Reveal>
-          <Reveal className="prose" delay={0.1}>
-            <p className="lead">{copy.intro}</p>
+          <Reveal className="press-intro" delay={0.1}>
+            <p>{copy.intro}</p>
             {/* His friend's tally of the Swedish coverage, exactly as it
                 stands in the manuscript — including the total, which is the
                 figure he gives rather than the sum of the rows. */}
@@ -90,12 +90,11 @@ export function PressPage({ lang }: { lang: Lang }) {
             </dl>
             <p>{copy.outro}</p>
           </Reveal>
-        </div>
-      </section>
 
-      <PressList label={copy.turkishLabel} items={turkishPress} />
-      <PressList label={copy.foreignLabel} items={foreignPress} />
-    </>
+          <PressList label={copy.turkishLabel} items={turkishPress} />
+          <PressList label={copy.foreignLabel} items={foreignPress} />
+      </div>
+    </section>
   )
 }
 

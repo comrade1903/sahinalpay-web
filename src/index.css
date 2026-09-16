@@ -1096,6 +1096,21 @@ main:focus {
   text-transform: none;
   letter-spacing: 0.02em;
 }
+/* The running text keeps a readable measure even though the page itself is
+   as wide as the archive's list pages, which the lists below need. */
+.press-intro {
+  max-width: var(--measure);
+  margin-top: var(--space-3);
+}
+.press-intro p {
+  margin: 0 0 var(--space-2);
+}
+.press-list-title {
+  font-family: var(--headline);
+  font-size: var(--text-title);
+  line-height: 1.2;
+  margin: var(--space-4) 0 var(--space-2);
+}
 .press-tally {
   margin: var(--space-3) 0;
   border-top: 1px solid var(--line);

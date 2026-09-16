@@ -414,7 +414,7 @@ export const content: Record<Lang, Content> = {
       title: 'From Silivri',
       subtitle: 'What the Turkish and foreign press wrote about me',
       intro:
-        'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 819 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
+        'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 812 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
       tallyRows: [
         { label: 'Reports on Ş.A. by the Swedish news agency TT, carried in 105 newspapers', value: '735 reports' },
         { label: 'Dagens Nyheter', value: '28 articles' },
@@ -426,7 +426,7 @@ export const content: Record<Lang, Content> = {
         { label: 'Swedish public television (SVT)', value: '7 programmes' },
       ],
       tallyTotalLabel: 'Total',
-      tallyTotalValue: '819',
+      tallyTotalValue: '812',
       outro:
         'During my days in Silivri Prison I could mostly reach what was written about me in Hürriyet and Cumhuriyet, the papers I subscribed to. Some of the pieces gathered here I was therefore able to read only after my release. Below you will find a selection of the writing that bore witness to the injustices suffered not only by me but by my colleagues, and that defended freedom of expression. The pieces are in Turkish, as they stand in my memoirs; the foreign-press selection appears there in Turkish translation.',
       turkishLabel: 'In the Turkish Press',
@@ -667,7 +667,7 @@ export const content: Record<Lang, Content> = {
       title: 'Silivri’den…',
       subtitle: 'Yerli ve yabancı basında hakkımda yazılanlar',
       intro:
-        'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 819 haber ve yorum yayımlandı. Dağılımı şöyle:',
+        'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
       tallyRows: [
         { label: 'İsveç Haber Ajansı TT’nin 105 gazetede çıkan Ş.A. haberleri', value: '735 haber' },
         { label: 'Dagens Nyheter', value: '28 makale' },
@@ -679,7 +679,7 @@ export const content: Record<Lang, Content> = {
         { label: 'İsveç devlet televizyonu (SVT)', value: '7 program' },
       ],
       tallyTotalLabel: 'Genel toplam',
-      tallyTotalValue: '819',
+      tallyTotalValue: '812',
       outro:
         'Silivri cezaevinde yattığım günlerde esas olarak abone olduğum Hürriyet ve Cumhuriyet gazetelerinde hakkımda çıkan yazılara ulaşabiliyordum. Dolayısıyla buraya aktardığım yazıların bir kısmını ancak tahliyemden sonra okuyabildim. Sadece benim değil, meslektaşlarımın da maruz kaldığı haksızlıklara tanıklık eden ve ifade özgürlüğünü savunan yazılardan seçmeleri aşağıda bulacaksınız.',
       turkishLabel: 'Türkiye Basınında',
