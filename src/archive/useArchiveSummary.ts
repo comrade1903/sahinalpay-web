@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { ArchiveSummary } from './summary.generated'
 
-export type { ArchiveSummary, CoverageBand, PickSeed } from './summary.generated'
+export type { ArchiveSummary, CoverageBand } from './summary.generated'
 
 export interface ArchiveSummaryState {
   status: 'loading' | 'ready' | 'error'
@@ -21,9 +21,9 @@ function loadSummary(): Promise<ArchiveSummary> {
   return summaryPromise
 }
 
-/** The home page's view of the archive: section counts, coverage bands and
- *  the weekly-pick pool. A few kilobytes, against the ~468 kB of full record
- *  metadata the page used to pull in to show four numbers. */
+/** The home page's view of the archive: section counts and coverage bands.
+ *  A couple of kilobytes, against the ~468 kB of full record metadata the
+ *  page used to pull in to show four numbers. */
 export function useArchiveSummary(): ArchiveSummaryState {
   const [state, setState] = useState<{
     status: ArchiveSummaryState['status']

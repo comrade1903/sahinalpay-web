@@ -358,24 +358,6 @@ if (JSON.stringify(summary.counts) !== JSON.stringify(expectedCounts)) {
       `got ${JSON.stringify(summary.counts)}.`,
   )
 }
-const expectedPoolSize = items.filter(
-  (item) =>
-    item.hasBody &&
-    (item.category === 'columns' || (item.category === 'analyses' && item.lang === 'tr')),
-).length
-const poolSize = summary.pickPool.tr.length + summary.pickPool.en.length
-if (poolSize !== expectedPoolSize) {
-  fail(
-    `src/archive/summary.generated.ts is stale — the weekly-pick pool holds ${poolSize} ` +
-      `items, the archive has ${expectedPoolSize}. Run \`npm run generate:summary\`.`,
-  )
-}
-for (const seed of [...summary.pickPool.tr, ...summary.pickPool.en]) {
-  if (!items.some((item) => item.id === seed.id && item.slug === seed.slug)) {
-    fail(`src/archive/summary.generated.ts: pick "${seed.slug}" is not in the archive`)
-  }
-}
-
 /* ---- copy: both languages must carry the same UI keys ---- */
 
 function shapeOf(value, prefix = '') {

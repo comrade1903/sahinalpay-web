@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { archiveSummary } from '../src/archive/summary.generated'
-import { archiveData, allArchiveItems } from '../src/archive/index'
+import { archiveData } from '../src/archive/index'
 
 /* The home page reads these numbers instead of importing the whole archive
    index, so the generated file has to keep agreeing with the archive it was
@@ -36,30 +36,5 @@ describe('generated archive summary', () => {
       expect(band.count).toBeGreaterThan(0)
       expect(band.from).toBeGreaterThan(1940)
     }
-  })
-
-  it('draws the weekly-pick pool only from items that really have full text', () => {
-    const items = allArchiveItems()
-    const pool = [...archiveSummary.pickPool.tr, ...archiveSummary.pickPool.en]
-    expect(pool.length).toBeGreaterThan(0)
-    for (const seed of pool) {
-      const item = items.find((entry) => entry.id === seed.id)
-      expect(item, `pick ${seed.slug} is not in the archive`).toBeDefined()
-      expect(item?.hasBody || item?.body?.length).toBeTruthy()
-      expect(seed.title).toBe(item?.title)
-      expect(seed.slug).toBe(item?.slug)
-    }
-  })
-
-  it('holds every full-text piece the home page could pick', () => {
-    const eligible = allArchiveItems().filter(
-      (item) =>
-        item.hasBody &&
-        (item.category === 'columns' ||
-          (item.category === 'analyses' && item.lang === 'tr')),
-    )
-    expect(archiveSummary.pickPool.tr.length + archiveSummary.pickPool.en.length).toBe(
-      eligible.length,
-    )
   })
 })
