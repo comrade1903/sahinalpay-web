@@ -1076,6 +1076,63 @@ main:focus {
   gap: 0.6rem;
 }
 
+/* ---------- Press about him ("Silivri'den…") ---------- */
+/* These pieces are by other people, so the byline is a plain line of text
+   rather than the archive's own avatar byline, which speaks for Şahin Alpay. */
+.press-byline {
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 700;
+  color: var(--tertiary-ink);
+}
+/* Publication names stay as written. The page's lang is Turkish, so the
+   archive's uppercase treatment would render "Die Zeit" as "DİE ZEİT" —
+   Turkish casing puts a dot on the capital i, which is wrong for a foreign
+   masthead and looks like a typo. */
+.archive-row .press-row-outlet {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.press-tally {
+  margin: var(--space-3) 0;
+  border-top: 1px solid var(--line);
+}
+.press-tally-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+}
+.press-tally-row dt {
+  font-size: var(--text-ui);
+}
+.press-tally-row dd {
+  margin: 0;
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--tertiary-ink);
+}
+.press-tally-total dt,
+.press-tally-total dd {
+  font-weight: 800;
+  color: var(--ink);
+}
+.press-source {
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+  font-size: var(--text-ui);
+  color: var(--tertiary-ink);
+  overflow-wrap: anywhere;
+}
+
 /* ---------- Academic heritage (home) ---------- */
 .heritage-grid {
   display: grid;

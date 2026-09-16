@@ -10,6 +10,7 @@ import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
 import { useArchiveGate } from './components/useArchiveGate'
 import { ArticlePage } from './components/reader'
+import { PressPage, PressArticlePage } from './components/press'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
@@ -123,6 +124,7 @@ const HUB_ICONS: Record<PageKey, string> = {
   academic: 'school',
   books: 'menu_book',
   trial: 'timeline',
+  press: 'format_quote',
   cookies: 'cookie',
 }
 
@@ -819,6 +821,11 @@ function MainShell() {
           />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
           <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
+          <Route path="/from-silivri" element={<PressPage lang="en" />} />
+          <Route
+            path="/from-silivri/:slug"
+            element={<TurkishItemRedirect pageKey="press" />}
+          />
           <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
           <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
@@ -865,6 +872,11 @@ function MainShell() {
           <Route
             path="/tr/yargilanma-surecim"
             element={<TrialProcessPage lang="tr" />}
+          />
+          <Route path="/tr/silivriden" element={<PressPage lang="tr" />} />
+          <Route
+            path="/tr/silivriden/:slug"
+            element={<PressArticlePage lang="tr" />}
           />
           <Route
             path="/tr/cerez-politikasi"

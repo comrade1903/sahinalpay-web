@@ -9,6 +9,7 @@ export type PageKey =
   | 'academic'
   | 'books'
   | 'trial'
+  | 'press'
   | 'cookies'
 
 /* English includes hub pages for every archive category. Full source items
@@ -27,6 +28,10 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
        src/trialProcess.ts); this English page is a short factual summary,
        not a translation of that record. */
     trial: '/trial-process',
+    /* Other people's writing about him. The pieces themselves are Turkish,
+       so only /tr carries item routes; this English page lists the same
+       selection and links into them. */
+    press: '/from-silivri',
     cookies: '/cookie-policy',
   },
   tr: {
@@ -38,6 +43,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
     academic: '/tr/akademik-makaleler',
     books: '/tr/kitaplar',
     trial: '/tr/yargilanma-surecim',
+    press: '/tr/silivriden',
     cookies: '/tr/cerez-politikasi',
   },
 }

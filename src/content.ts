@@ -95,6 +95,23 @@ export interface Content {
     contentsLabel: string
     sections: { id: string; title: string; paragraphs: string[] }[]
   }
+  /** "Silivri'den…" — what other people wrote about him in the press. Not
+   *  his own work, so it lives outside src/archive and never reaches the
+   *  archive counts or search; see src/press/types.ts. */
+  press?: {
+    kicker: string
+    title: string
+    subtitle: string
+    intro: string
+    tallyRows: { label: string; value: string }[]
+    tallyTotalLabel: string
+    tallyTotalValue: string
+    outro: string
+    turkishLabel: string
+    foreignLabel: string
+    sourceLinkLabel: string
+    backLabel: string
+  }
   books: BooksSection
   footer: {
     kicker: string
@@ -250,6 +267,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', label: 'Academic Articles' },
       { key: 'books', label: 'Books' },
       { key: 'trial', label: 'The Case Against Me' },
+      { key: 'press', label: 'From Silivri' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -391,6 +409,31 @@ export const content: Record<Lang, Content> = {
         },
       ],
     },
+    press: {
+      kicker: 'About Me in the Press',
+      title: 'From Silivri',
+      subtitle: 'What the Turkish and foreign press wrote about me',
+      intro:
+        'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 819 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
+      tallyRows: [
+        { label: 'Reports on Ş.A. by the Swedish news agency TT, carried in 105 newspapers', value: '735 reports' },
+        { label: 'Dagens Nyheter', value: '28 articles' },
+        { label: 'Expressen', value: '12 articles' },
+        { label: 'Svenska Dagbladet', value: '18 articles' },
+        { label: 'Aftonbladet', value: '2 articles' },
+        { label: 'Journalisten', value: '4 articles' },
+        { label: 'Swedish public radio (SR)', value: '6 programmes' },
+        { label: 'Swedish public television (SVT)', value: '7 programmes' },
+      ],
+      tallyTotalLabel: 'Total',
+      tallyTotalValue: '819',
+      outro:
+        'During my days in Silivri Prison I could mostly reach what was written about me in Hürriyet and Cumhuriyet, the papers I subscribed to. Some of the pieces gathered here I was therefore able to read only after my release. Below you will find a selection of the writing that bore witness to the injustices suffered not only by me but by my colleagues, and that defended freedom of expression. The pieces are in Turkish, as they stand in my memoirs; the foreign-press selection appears there in Turkish translation.',
+      turkishLabel: 'In the Turkish Press',
+      foreignLabel: 'In the Foreign Press',
+      sourceLinkLabel: 'Original source',
+      backLabel: 'From Silivri',
+    },
     footer: {
       kicker: 'Keep in touch',
       navLabel: 'Footer',
@@ -484,6 +527,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', label: 'Akademik Makaleler' },
       { key: 'books', label: 'Kitaplar' },
       { key: 'trial', label: 'Yargılanma Sürecim' },
+      { key: 'press', label: 'Silivri’den…' },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -617,6 +661,31 @@ export const content: Record<Lang, Content> = {
       editorialNote: '',
       contentsLabel: 'Bu sayfada',
       sections: trialProcessSections,
+    },
+    press: {
+      kicker: 'Basında Hakkımda',
+      title: 'Silivri’den…',
+      subtitle: 'Yerli ve yabancı basında hakkımda yazılanlar',
+      intro:
+        'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 819 haber ve yorum yayımlandı. Dağılımı şöyle:',
+      tallyRows: [
+        { label: 'İsveç Haber Ajansı TT’nin 105 gazetede çıkan Ş.A. haberleri', value: '735 haber' },
+        { label: 'Dagens Nyheter', value: '28 makale' },
+        { label: 'Expressen', value: '12 makale' },
+        { label: 'Svenska Dagbladet', value: '18 makale' },
+        { label: 'Aftonbladet', value: '2 makale' },
+        { label: 'Journalisten', value: '4 makale' },
+        { label: 'İsveç devlet radyosu (SR)', value: '6 program' },
+        { label: 'İsveç devlet televizyonu (SVT)', value: '7 program' },
+      ],
+      tallyTotalLabel: 'Genel toplam',
+      tallyTotalValue: '819',
+      outro:
+        'Silivri cezaevinde yattığım günlerde esas olarak abone olduğum Hürriyet ve Cumhuriyet gazetelerinde hakkımda çıkan yazılara ulaşabiliyordum. Dolayısıyla buraya aktardığım yazıların bir kısmını ancak tahliyemden sonra okuyabildim. Sadece benim değil, meslektaşlarımın da maruz kaldığı haksızlıklara tanıklık eden ve ifade özgürlüğünü savunan yazılardan seçmeleri aşağıda bulacaksınız.',
+      turkishLabel: 'Türkiye Basınında',
+      foreignLabel: 'Yabancı Basında',
+      sourceLinkLabel: 'Orijinal kaynak',
+      backLabel: 'Silivri’den…',
     },
     footer: {
       kicker: 'İletişim',

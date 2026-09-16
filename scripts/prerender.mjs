@@ -56,6 +56,7 @@ const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs'
 /* The very builders lib/seo.ts feeds to useJsonLd. Static and client output
    cannot describe a page differently if there is one implementation. */
 const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
+const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
 const { content } = contentModule
 const { paths } = routes
 
@@ -319,6 +320,38 @@ for (const lang of ['tr', 'en']) {
         lang,
         url: url(routePath),
       })
+    } else if (pageKey === 'press') {
+      const copy = t.press
+      title = `${copy.title} — Şahin Alpay`
+      description = copy.subtitle
+      const list = (label, entries) =>
+        `<h2>${escapeHtml(label)}</h2><ul>${entries
+          .map(
+            (entry) =>
+              `<li><a href="${escapeHtml(`${paths.tr.press}/${entry.slug}`)}">${escapeHtml(
+                entry.title ?? entry.author,
+              )}</a> — ${escapeHtml([entry.author, entry.outlet, entry.date].filter(Boolean).join(' · '))}</li>`,
+          )
+          .join('')}</ul>`
+      inner =
+        `<h1>${escapeHtml(copy.title)}</h1><p>${escapeHtml(copy.subtitle)}</p>` +
+        `<p>${escapeHtml(copy.intro)}</p><ul>${copy.tallyRows
+          .map((row) => `<li>${escapeHtml(row.label)} — ${escapeHtml(row.value)}</li>`)
+          .join('')}<li>${escapeHtml(copy.tallyTotalLabel)} — ${escapeHtml(copy.tallyTotalValue)}</li></ul>` +
+        `<p>${escapeHtml(copy.outro)}</p>` +
+        list(copy.turkishLabel, press.turkishPress) +
+        list(copy.foreignLabel, press.foreignPress)
+      jsonLd = schema.collectionJsonLd({
+        name: copy.title,
+        description,
+        lang,
+        url: url(routePath),
+        items: press.allPressItems.map((entry) => ({
+          ...entry,
+          route: `${paths.tr.press}/${entry.slug}`,
+        })),
+        itemUrl: (entry) => url(entry.route),
+      })
     } else {
       const section = sectionCopy(lang, pageKey)
       const { own, foreign } = itemsForSection(lang, pageKey)
@@ -357,6 +390,43 @@ for (const lang of ['tr', 'en']) {
       noscript: noscriptBlock(lang, inner),
     })
   }
+}
+
+/* ------------------------------------------ press-about-him pages --- */
+/* Only Turkish: these pieces exist in Turkish alone, so /from-silivri/<slug>
+   redirects here rather than getting a second prerendered copy. */
+
+for (const entry of press.allPressItems) {
+  const lang = 'tr'
+  const t = content[lang]
+  const copy = t.press
+  const heading = entry.title ?? entry.author
+  const routePath = `${paths.tr.press}/${entry.slug}`
+  const byline = [entry.author, entry.outlet, entry.date].filter(Boolean).map(escapeHtml).join(' · ')
+  const parts = [`<h1>${escapeHtml(heading)}</h1>`, `<p><small>${byline}</small></p>`]
+  parts.push(entry.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join(''))
+  if (entry.url) {
+    parts.push(
+      `<p>${escapeHtml(copy.sourceLinkLabel)}: <a href="${escapeHtml(entry.url)}" rel="noreferrer">${escapeHtml(entry.url)}</a></p>`,
+    )
+  }
+  parts.push(
+    `<p><a href="${escapeHtml(paths.tr.press)}">${escapeHtml(copy.backLabel)}</a></p>`,
+  )
+
+  writePage(routePath, {
+    lang,
+    head: headBlock({
+      title: `${heading} — ${copy.title} — Şahin Alpay`,
+      description: byline,
+      canonicalPath: routePath,
+      alternates: { tr: routePath },
+      ogType: 'article',
+      lang,
+    }),
+    jsonLd: null,
+    noscript: noscriptBlock(lang, parts.join('')),
+  })
 }
 
 /* ------------------------------------------------------ article pages --- */

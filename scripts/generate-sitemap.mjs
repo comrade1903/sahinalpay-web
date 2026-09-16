@@ -51,6 +51,7 @@ const STATIC_HINTS = {
   academic: ['monthly', '0.6'],
   books: ['monthly', '0.8'],
   trial: ['monthly', '0.5'],
+  press: ['monthly', '0.5'],
   cookies: ['yearly', '0.3'],
 }
 
@@ -60,6 +61,7 @@ const { paths } = routesModule
 const { content } = contentModule
 
 const items = await readArchiveItems()
+const press = await loadModule('src/press/index.ts', 'press-sitemap.mjs')
 
 const entries = []
 
@@ -85,6 +87,24 @@ for (const lang of ['en', 'tr']) {
       }),
     })
   }
+}
+
+/* The press pieces about him exist in Turkish only, so each has one route. */
+for (const entry of press.allPressItems) {
+  const route = `${paths.tr.press}/${entry.slug}`
+  entries.push({
+    route,
+    changefreq: 'yearly',
+    priority: '0.5',
+    lastmod: lastmodFor(route, {
+      title: entry.title ?? null,
+      author: entry.author,
+      outlet: entry.outlet,
+      date: entry.date ?? null,
+      url: entry.url ?? null,
+      body: entry.body,
+    }),
+  })
 }
 
 for (const item of items) {
