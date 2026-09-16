@@ -4,10 +4,9 @@ import portrait from '../assets/portrait.jpg'
    The hero portrait. Setting PORTRAIT to null falls back to the ŞA
    monogram, which is what the hero showed before a photo existed.
 
-   Source: expressioninterrupted.com (P24), the only size that site
-   publishes — 670x310, so the 4/5 frame crops it to roughly 248x310 and
-   upscales from there. Replace this file with a taller, larger original
-   when one is available; nothing else needs to change.
+   An archival black-and-white photograph (898x1400), owner-supplied.
+   Tall enough that the 4/5 frame's object-fit: cover crops it rather
+   than upscaling, unlike the earlier 670x310 source it replaced.
 ------------------------------------------------------------------ */
 export const PORTRAIT: string | null = portrait
 
