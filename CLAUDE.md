@@ -10,7 +10,7 @@ A single-page bilingual (Turkish/English) personal & political archive site for 
 
 **Domain**: production is **sahinalpay.com**, registered and switched on 2026-09-08 (it replaced `sahinalpay.net`, a placeholder that was never registered). The origin lives in **one place** — `SITE_ORIGIN` in `src/siteConfig.ts` — from which `index.html`, the app, the sitemap and robots.txt all derive it, so a future change is one edit plus `npm run generate:sitemap`. `CONTACT_EMAIL` in the same file feeds the footer, the KVKK notice in both languages and docs/SECURITY.md. The `domain-migration` skill is spent and records the completed switch; do not re-run it.
 
-**Deployment**: pushing to `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). Treat every push to `main` as a production release — don't push half-finished work.
+**Deployment**: landing a commit on `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). `main` is reached only by merging a pull request (see Working conventions) — treat every merge as a production release. A PR also gets its own Vercel preview deployment, which is where a change should be looked at before it is merged.
 
 **GitHub account switching**: this repo authenticates as `comrade1903` (not the machine's default `iozgirgin` account) via a gitignored `.envrc` that exports `GH_CONFIG_DIR=~/.config/gh-comrade1903`, loaded by direnv in interactive shells only. Non-interactive shells (including Claude Code's Bash tool) never trigger direnv — prefix `git push`/`gh` commands with `GH_CONFIG_DIR="$HOME/.config/gh-comrade1903"`, otherwise the push fails with `Repository not found` (a 404 from authenticating as the wrong account, not a missing repo).
 
@@ -86,7 +86,18 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 ## Working conventions
 
 - The owner communicates in **Turkish**; reply in Turkish. Code, comments, and commit messages are in **English**.
-- Commit messages: imperative English subject line describing the user-visible outcome (see `git log` for the established style); commit directly to `main` for routine work — branches/PRs only for large or risky changesets.
+- Commit messages: imperative English subject line describing the user-visible outcome (see `git log` for the established style).
+- **Every change ships through a branch and a pull request — never push to `main`.** This holds for a one-line CSS fix as much as for a feature: `main` is the production deploy, and the PR is where CI proves the change before it becomes the live site. The rule is enforced by a GitHub ruleset on `main` (pull request required, plus the `Typecheck, lint, test, validate, build` check); an admin token *can* bypass it, and a bypassed push is a mistake to undo, not a shortcut to reuse.
+
+  ```bash
+  git checkout -b <kind>/<short-slug>          # feat/ fix/ content/ docs/ chore/
+  # …work, then the Done definition's checks…
+  git commit -m "Imperative subject line"
+  GH_CONFIG_DIR="$HOME/.config/gh-comrade1903" git push -u origin HEAD
+  GH_CONFIG_DIR="$HOME/.config/gh-comrade1903" gh pr create --fill
+  ```
+
+  Wait for CI to pass, then merge (squash) — the merge to `main` is what deploys. Delete the branch afterwards and return to `main`. Opening or merging a PR is an outward-facing action: ask the owner first unless they asked for it in this session.
 - When browser-verifying, check both languages (`/` and `/tr`), and for layout work both themes and a mobile-width viewport.
 
 ## Done definition
@@ -97,7 +108,7 @@ A change is complete only when all of the following hold:
 2. `npm run lint` is clean and `npm test` passes.
 3. If archive/content data was touched: `npm run validate:content` passes, and `npm run generate:sitemap`, `npm run generate:summary` and `npm run generate:redirects` were re-run and their output committed (CI fails on a stale one). Prove the archive itself is unchanged by diffing `npm run inventory:archive` before and after — equal totals are not enough.
 4. UI-visible changes were verified in a running browser (not just a successful build) in both languages.
-5. The change is committed with a descriptive message — and pushed only if it is production-ready, since `main` deploys automatically.
+5. The change is committed with a descriptive message on its own branch and opened as a pull request — never pushed to `main` directly. It reaches production only when CI is green on that PR and it is merged.
 
 ## Repo layout caveats
 
