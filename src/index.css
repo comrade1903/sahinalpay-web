@@ -1101,6 +1101,12 @@ main:focus {
 .press-lists {
   padding-top: 0;
 }
+/* A press row is a byline and a headline — two short lines, where an archive
+   row also carries a two-line excerpt. The archive's row padding therefore
+   leaves these lists looking mostly gap, so they run one step tighter. */
+.press-lists .archive-row {
+  padding-block: var(--space-2);
+}
 .press-list-title {
   font-family: var(--headline);
   font-size: var(--text-title);
