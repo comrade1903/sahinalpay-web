@@ -40,6 +40,7 @@ import logoSabah from '../../assets/logos/sabah.webp'
 import logoTodaysZaman from '../../assets/logos/todays-zaman.webp'
 import logoZaman from '../../assets/logos/zaman.webp'
 import { ArchiveSearchField } from './searchField'
+import { countLabel } from '../../lib/countLabel'
 
 /**
  * The archive list pages: the newsstand shelf that fronts the per-outlet
@@ -290,7 +291,7 @@ function ActiveFilterSummary({
   return (
     <div className="active-filter-summary" aria-live="polite">
       <span className="archive-count">
-        {lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+        {countLabel(count, lang)}
       </span>
       {filters.length > 0 && (
         <div className="active-filter-chips">
@@ -651,7 +652,11 @@ function NewsstandStackPaper({
             <span className="newsstand-stack-paper-name">{outlet.outlet}</span>
           )}
           <span className={logo ? 'newsstand-stack-paper-count-h' : 'newsstand-stack-paper-count'}>
-            {isEmpty ? (lang === 'tr' ? 'Yakında' : 'Coming soon') : lang === 'tr' ? `${count} yazı` : `${count} pieces`}
+            {isEmpty
+              ? lang === 'tr'
+                ? 'Yakında'
+                : 'Coming soon'
+              : countLabel(count, lang)}
           </span>
         </span>
       </span>
@@ -797,7 +802,7 @@ function NewsstandTOC({
         </div>
         <div className="newsstand-toc-meta">
           {dateRange && <span>{dateRange}</span>}
-          <span>{lang === 'tr' ? `${matchingCount} yazı` : `${matchingCount} pieces`}</span>
+          <span>{countLabel(matchingCount, lang)}</span>
         </div>
       </div>
       {items.length === 0 ? (

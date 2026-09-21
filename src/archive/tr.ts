@@ -14,8 +14,6 @@ import { sabahColumnSeeds } from './tr/columns/sabah'
 import { zamanColumnSeeds } from './tr/columns/zaman'
 import { p24ColumnSeeds } from './tr/columns/p24'
 import { medyascopeColumnSeeds } from './tr/columns/medyascope'
-import { forumAnalysisSeeds } from './tr/analyses/forum'
-import { aydinlikAnalysisSeeds } from './tr/analyses/aydinlik'
 import { isciKoyluAnalysisSeeds } from './tr/analyses/isci-koylu'
 import { interviewSeeds } from './tr/interviews'
 import { academicArticleSeeds } from './tr/academic'
@@ -31,15 +29,11 @@ const columns: OutletGroup[] = [
   outletGroup('Medyascope', 'medyascope', 'columns', medyascopeColumnSeeds, 'tr', 'online'),
 ]
 
+/* Forum and Aydınlık/PDA were removed from the archive on 2026-09-22 at the
+   owner's request in issue #20: İşçi Köylü is the analyses record he wants
+   kept. Their page scans and article PDFs stay under public/archive so
+   the material is not lost if any of it is restored later. */
 const analyses: OutletGroup[] = [
-  outletGroup('Forum', 'forum', 'analyses', forumAnalysisSeeds, 'tr'),
-  outletGroup(
-    'Aydınlık (Sosyalist Dergi/Proleter Devrimci)',
-    'aydinlik',
-    'analyses',
-    aydinlikAnalysisSeeds,
-    'tr',
-  ),
   outletGroup('İşçi Köylü', 'isci-koylu', 'analyses', isciKoyluAnalysisSeeds, 'tr'),
 ]
 

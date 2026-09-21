@@ -12,8 +12,8 @@
     "date": "2026-09-18"
   },
   "/analyses": {
-    "fingerprint": "7e2cd041c9dd159b",
-    "date": "2026-09-18"
+    "fingerprint": "1b733a1b8929cc33",
+    "date": "2026-09-21"
   },
   "/interviews": {
     "fingerprint": "6338815724246a87",
@@ -40,44 +40,44 @@
     "date": "2026-09-05"
   },
   "/tr": {
-    "fingerprint": "62d37ac0c74d8889",
-    "date": "2026-09-16"
+    "fingerprint": "bf04715e37d277e0",
+    "date": "2026-09-21"
   },
   "/tr/kimdir": {
-    "fingerprint": "791297c314db4483",
-    "date": "2026-09-16"
+    "fingerprint": "15d59116a400e438",
+    "date": "2026-09-21"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "27e16f8348b934f6",
-    "date": "2026-09-18"
+    "fingerprint": "dd90bfd1119e4014",
+    "date": "2026-09-21"
   },
   "/tr/analizler": {
-    "fingerprint": "e18a5beb2b652e02",
-    "date": "2026-09-18"
+    "fingerprint": "078e25c611686716",
+    "date": "2026-09-21"
   },
   "/tr/soylesiler": {
-    "fingerprint": "55ef39c149a0c9cc",
-    "date": "2026-09-18"
+    "fingerprint": "3afa106257cca005",
+    "date": "2026-09-21"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "e9e7df381d68bc7b",
-    "date": "2026-09-18"
+    "fingerprint": "284c2b8f28fc134e",
+    "date": "2026-09-21"
   },
   "/tr/kitaplar": {
-    "fingerprint": "062a4fde16036ffb",
-    "date": "2026-09-16"
+    "fingerprint": "0f6fa43051daa2d4",
+    "date": "2026-09-21"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "5ce08228a820a5cc",
-    "date": "2026-09-16"
+    "fingerprint": "ef13d3127a91054e",
+    "date": "2026-09-21"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "dc603712a5588fd0",
-    "date": "2026-09-18"
+    "fingerprint": "530c439e591b9ac6",
+    "date": "2026-09-21"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "62d37ac0c74d8889",
-    "date": "2026-09-16"
+    "fingerprint": "bf04715e37d277e0",
+    "date": "2026-09-21"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",
@@ -2601,30 +2601,6 @@
   },
   "/columns/theories-about-erdogan-i-and-ii": {
     "fingerprint": "63f2bb65e29340f9",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/forum-338-turk-is": {
-    "fingerprint": "362a39193b7f5ad5",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/forum-339-gucbirligine-dogru-ilk-adim": {
-    "fingerprint": "ae764fb5c58a7d64",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/aydinlik-devrimci-teorik-egitim": {
-    "fingerprint": "536eef160c3c74a7",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/aydinlik-osmanli-ticaret-sozlesmeleri": {
-    "fingerprint": "7c948904e94cfd06",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/aydinlik-turkiyenin-duzeni-uzerine": {
-    "fingerprint": "2ae89876547917d3",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/pda-isci-sinifi-milli-demokratik-devrim": {
-    "fingerprint": "721f8a064fc26127",
     "date": "2026-09-09"
   },
   "/tr/analizler/isci-koylu-1-mayis-1970": {
