@@ -126,9 +126,17 @@ function useArticleBody(item: ArchiveItem | undefined): {
   )
   const [failed, setFailed] = useState(false)
   const [attempt, setAttempt] = useState(0)
-  useEffect(() => {
+  const [requested, setRequested] = useState({ item, attempt })
+
+  /* Moving to another article (or retrying this one) resets the text during
+     render, so the previous piece's body is never shown under the new title. */
+  if (requested.item !== item || requested.attempt !== attempt) {
+    setRequested({ item, attempt })
     setBody(item ? (item.body ?? getCachedBody(item)) : undefined)
     setFailed(false)
+  }
+
+  useEffect(() => {
     if (!item || item.body || !item.hasBody) return
     if (getCachedBody(item)) return
     let cancelled = false

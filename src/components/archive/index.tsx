@@ -148,19 +148,29 @@ function useBodySearchIndex(items: ArchiveItem[], search: string): BodySearchSta
   const [bodyIndex, setBodyIndex] = useState<ReadonlyMap<string, string[]>>(
     () => new Map(),
   )
-  const [searching, setSearching] = useState(false)
+  /* A query restored from the URL is already loading bodies on the first
+     render, so the flag starts from the query rather than from false. */
+  const [searching, setSearching] = useState(() => Boolean(debouncedSearch))
   const [failed, setFailed] = useState(false)
   const [attempt, setAttempt] = useState(0)
+  const [requested, setRequested] = useState({ debouncedSearch, items, attempt })
+
+  /* The flags belong to the render that starts a fetch, not to an effect that
+     re-renders to set them: a search either is loading bodies or is not, and
+     the row count should never paint as "complete" for a frame first. */
+  if (
+    requested.debouncedSearch !== debouncedSearch ||
+    requested.items !== items ||
+    requested.attempt !== attempt
+  ) {
+    setRequested({ debouncedSearch, items, attempt })
+    setSearching(Boolean(debouncedSearch))
+    setFailed(false)
+  }
 
   useEffect(() => {
-    if (!debouncedSearch) {
-      setSearching(false)
-      setFailed(false)
-      return
-    }
+    if (!debouncedSearch) return
     let cancelled = false
-    setSearching(true)
-    setFailed(false)
     loadOutletBodies(items)
       .then(() => {
         if (cancelled) return

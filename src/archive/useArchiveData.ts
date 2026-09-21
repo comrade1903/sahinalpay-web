@@ -51,10 +51,20 @@ export function useArchiveData(lang: ArchiveLang): ArchiveDataState {
     foreign: ArchiveData | null
   }>({ status: 'loading', data: null, foreign: null })
   const [attempt, setAttempt] = useState(0)
+  const request = `${lang}:${attempt}`
+  const [requested, setRequested] = useState(request)
+
+  /* Reset during render rather than from the effect: a new language (or a
+     retry) must not paint the previous language's rows for a frame, and an
+     effect that calls setState only starts a second render to do the same
+     thing. React applies this before anything is committed. */
+  if (requested !== request) {
+    setRequested(request)
+    setState({ status: 'loading', data: null, foreign: null })
+  }
 
   useEffect(() => {
     let active = true
-    setState({ status: 'loading', data: null, foreign: null })
     /* Both or neither. A page that rendered its own language and then popped
        the other one in underneath would move the ground under a reader who
        had already started down the list. */
