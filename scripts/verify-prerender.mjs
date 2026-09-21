@@ -128,10 +128,15 @@ for (const lang of ['tr', 'en']) {
     const routePath = paths[lang][pageKey]
     const copy = content[lang][copyKey]
     if (!routePath || !copy) continue
-    const sectionItems = items.filter((item) => {
-      if (item.category !== (pageKey === 'academic' ? 'academic' : pageKey)) return false
-      return pageKey === 'columns' ? item.lang === lang : item.lang === 'tr'
-    })
+    /* The page lists the reader's own language first, then the other
+       language's under its own heading, and its JSON-LD follows that order —
+       for every section, not just columns. */
+    const category = pageKey === 'academic' ? 'academic' : pageKey
+    const ofCategory = items.filter((item) => item.category === category)
+    const sectionItems = [
+      ...ofCategory.filter((item) => item.lang === lang),
+      ...ofCategory.filter((item) => item.lang !== lang),
+    ]
     compare(
       routePath,
       schema.collectionJsonLd({

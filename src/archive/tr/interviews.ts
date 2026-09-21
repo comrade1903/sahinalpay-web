@@ -105,4 +105,13 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     url: 'https://www.youtube.com/watch?v=UGrAaipn1DQ',
     tags: ['Ahmet Turan Alkan', 'KHK', 'anma', 'KHK TV', 'video', '2026'],
   },
+  {
+    slug: 'baykal-gorbacov-olamaz-aksiyon-2008',
+    title: 'Şahin Alpay: Baykal, Gorbaçov olamaz',
+    date: '15 Aralık 2008',
+    subtitle:
+      'Aksiyon (haftalık haber dergisi), Sayı 733, 15 Aralık 2008, s. 35-40 — Emin Akdağ',
+    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
+    tags: ['Deniz Baykal', 'CHP', 'sosyal demokrasi', 'Emin Akdağ', 'Aksiyon', '2008'],
+  },
 ]

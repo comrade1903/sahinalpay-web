@@ -2337,11 +2337,13 @@ a.archive-row:hover .archive-row-title {
   line-height: 1.35;
   margin: 0;
 }
+/* Sits between the reader's own language and the rest, so it needs air above
+   it as well as below — it used to sit under the page intro. */
 .archive-foreign-title {
   font-family: var(--headline);
   font-size: var(--text-title-sm);
   line-height: 1.35;
-  margin: var(--space-3) 0 0;
+  margin: var(--space-5) 0 var(--space-3);
 }
 
 /* From ~900px the rack turns 90°: a vertical rail down the left edge,

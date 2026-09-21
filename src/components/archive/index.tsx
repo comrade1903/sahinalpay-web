@@ -1194,19 +1194,32 @@ export function FlatArchivePage({
 
   const bodySearch = useBodySearchIndex(items, search)
   const { bodyIndex } = bodySearch
-  const filtered = useMemo(
-    () =>
-      sortItems(
-        items.filter((item) =>
-          matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
-        ),
+  /* Grouped by language, then sorted inside each group: the reader's own
+     language first, the rest under their own heading further down. Sorting the
+     two together would scatter the foreign pieces through the list by date,
+     leaving nothing to put a heading in front of. */
+  const filtered = useMemo(() => {
+    const matching = items.filter((item) =>
+      matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
+    )
+    return [
+      ...sortItems(
+        matching.filter((item) => item.lang === lang),
         sort,
       ),
-    [items, search, fromYear, toYear, sourceKind, sort, bodyIndex],
-  )
+      ...sortItems(
+        matching.filter((item) => item.lang !== lang),
+        sort,
+      ),
+    ]
+  }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex])
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
+  /* Split again at the shelf, the way the outlet pages do: a page of results
+     can hold the end of one language's run and the start of the other's. */
+  const ownRows = paginated.filter((item) => item.lang === lang)
+  const foreignRows = paginated.filter((item) => item.lang !== lang)
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -1255,9 +1268,6 @@ export function FlatArchivePage({
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
           <p className="archive-intro">{data.intro}</p>
-          {foreignItems.length > 0 && data.items.length === 0 && (
-            <h2 className="archive-foreign-title">{content[lang].foreignArchiveLabel}</h2>
-          )}
         </Reveal>
 
         <ArchiveSearchRow
@@ -1331,11 +1341,27 @@ export function FlatArchivePage({
                     : 'No pieces match these filters.'}
                 </p>
               ) : (
-                <ul className="archive-list">
-                  {paginated.map((item) => (
-                    <ArchiveRow item={item} lang={lang} key={item.id} />
-                  ))}
-                </ul>
+                <>
+                  {ownRows.length > 0 && (
+                    <ul className="archive-list">
+                      {ownRows.map((item) => (
+                        <ArchiveRow item={item} lang={lang} key={item.id} />
+                      ))}
+                    </ul>
+                  )}
+                  {foreignRows.length > 0 && (
+                    <>
+                      <h3 className="archive-foreign-title">
+                        {content[lang].foreignArchiveLabel}
+                      </h3>
+                      <ul className="archive-list">
+                        {foreignRows.map((item) => (
+                          <ArchiveRow item={item} lang={lang} key={item.id} />
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </>
               )}
             </Reveal>
             <Pagination

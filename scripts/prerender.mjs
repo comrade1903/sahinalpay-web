@@ -227,25 +227,22 @@ function sectionCopy(lang, pageKey) {
   return key ? content[lang][key] : undefined
 }
 
-/* Split the way the page itself splits: the reader's own language first,
-   then the other language's under its own heading. Analyses, interviews and
-   academic articles exist in Turkish only, so for English every record is
-   foreign — which is what the page shows too, now that the English explainer
-   pages were replaced by the records themselves. */
+/* Split the way the page itself splits: the reader's own language first, then
+   the other language's under its own heading. This is one rule for every
+   section — where a category exists in one language only (analyses and
+   interviews are Turkish), the other language's page simply shows all of them
+   as foreign, which is what the page does too. */
 function itemsForSection(lang, pageKey) {
   const of = (source, category) => source.filter((item) => item.category === category)
   const foreignLang = lang === 'tr' ? 'en' : 'tr'
-  if (pageKey === 'columns') {
-    return { own: of(byLang[lang], 'columns'), foreign: of(byLang[foreignLang], 'columns') }
+  const category = ['columns', 'analyses', 'interviews', 'academic'].find(
+    (name) => name === pageKey,
+  )
+  if (!category) return { own: [], foreign: [] }
+  return {
+    own: of(byLang[lang], category),
+    foreign: of(byLang[foreignLang], category),
   }
-  for (const category of ['analyses', 'interviews', 'academic']) {
-    if (pageKey === category) {
-      return lang === 'tr'
-        ? { own: of(byLang.tr, category), foreign: [] }
-        : { own: [], foreign: of(byLang.tr, category) }
-    }
-  }
-  return { own: [], foreign: [] }
 }
 
 for (const lang of ['tr', 'en']) {
