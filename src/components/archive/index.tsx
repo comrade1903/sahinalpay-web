@@ -39,6 +39,7 @@ import logoP24 from '../../assets/logos/p24.webp'
 import logoSabah from '../../assets/logos/sabah.webp'
 import logoTodaysZaman from '../../assets/logos/todays-zaman.webp'
 import logoZaman from '../../assets/logos/zaman.webp'
+import { ArchiveSearchField } from './searchField'
 
 /**
  * The archive list pages: the newsstand shelf that fronts the per-outlet
@@ -252,18 +253,7 @@ function ArchiveSearchRow({
 }) {
   return (
     <div className="archive-search-row">
-      <div className="search-field">
-        <span className="material-symbols-outlined" aria-hidden="true">
-          search
-        </span>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder={lang === 'tr' ? 'Ara…' : 'Search…'}
-          aria-label={lang === 'tr' ? 'Arşivde ara' : 'Search archive'}
-        />
-      </div>
+      <ArchiveSearchField lang={lang} value={search} onChange={setSearch} />
       {bodySearch.searching && (
         <p className="search-status" role="status" aria-live="polite" aria-atomic="true">
           {lang === 'tr' ? 'İçerik aranıyor…' : 'Searching full text…'}
