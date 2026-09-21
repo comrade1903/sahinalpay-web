@@ -30,12 +30,18 @@ export function useArchiveSummary(): ArchiveSummaryState {
     data: ArchiveSummary | null
   }>({ status: 'loading', data: null })
   const [attempt, setAttempt] = useState(0)
+  const [requested, setRequested] = useState(attempt)
+
+  /* A retry puts the card back into its loading state during render, not from
+     the effect: doing it in the effect only starts a second render to reach
+     the same place. Already-loaded counts stay on screen. */
+  if (requested !== attempt) {
+    setRequested(attempt)
+    if (state.status !== 'ready') setState({ status: 'loading', data: null })
+  }
 
   useEffect(() => {
     let active = true
-    setState((previous) =>
-      previous.status === 'ready' ? previous : { status: 'loading', data: null },
-    )
     loadSummary().then(
       (data) => {
         if (active) setState({ status: 'ready', data })

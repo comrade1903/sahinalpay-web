@@ -51,9 +51,13 @@ export function Header() {
     document.documentElement.lang = lang
   }, [lang])
 
-  useEffect(() => {
+  /* Navigation closes the mobile menu. Done during render rather than in an
+     effect, so the panel is never committed over the page it just left. */
+  const [menuPath, setMenuPath] = useState(location.pathname)
+  if (menuPath !== location.pathname) {
+    setMenuPath(location.pathname)
     setMenuOpen(false)
-  }, [location.pathname])
+  }
 
   useEffect(() => {
     if (!menuOpen) return undefined
