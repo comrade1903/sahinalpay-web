@@ -289,11 +289,6 @@ export const content: Record<Lang, Content> = {
     foreignArchiveLabel: 'Turkish-Language Writing',
     hub: [
       {
-        key: 'about',
-        title: 'Who is Şahin Alpay?',
-        description: 'The people, experiences and changing ideas behind my writing.',
-      },
-      {
         key: 'columns',
         title: 'Columns',
         description: 'A newspaper-columns archive, organized by outlet.',
@@ -549,11 +544,6 @@ export const content: Record<Lang, Content> = {
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
     hub: [
-      {
-        key: 'about',
-        title: 'Şahin Alpay Kimdir?',
-        description: 'Yazılarımın gerisindeki insanlar, yaşadıklarım ve değişen düşüncelerim.',
-      },
       {
         key: 'columns',
         title: 'Köşe Yazıları',
