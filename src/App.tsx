@@ -5,6 +5,7 @@ import { content, type Content, type Lang, type BooksSection } from './content'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
+import { countLabel } from './lib/countLabel'
 import { PORTRAIT } from './components/AuthorAvatar'
 import { NarrativeHeader, BackToTop } from './components/NarrativeHeader'
 import { DeadEnd } from './components/DeadEnd'
@@ -195,7 +196,7 @@ function HubGrid({
                     {count !== null &&
                       (count > 0 ? (
                         <span className="hub-card-count">
-                          {count} {lang === 'tr' ? 'yazı' : 'pieces'}
+                          {countLabel(count, lang)}
                         </span>
                       ) : (
                         <span className="hub-card-count-empty">

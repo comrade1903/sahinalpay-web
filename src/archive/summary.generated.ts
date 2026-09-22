@@ -32,7 +32,7 @@ export const archiveSummary: ArchiveSummary = {
       "tr": 477,
       "en": 97
     },
-    "analyses": 7,
+    "analyses": 1,
     "interviews": 9,
     "academic": 42
   },
@@ -78,18 +78,6 @@ export const archiveSummary: ArchiveSummary = {
       "from": 2007,
       "to": 2012,
       "count": 97
-    },
-    {
-      "outlet": "Forum",
-      "from": 1968,
-      "to": 1968,
-      "count": 2
-    },
-    {
-      "outlet": "Aydınlık (Sosyalist Dergi/Proleter Devrimci)",
-      "from": 1968,
-      "to": 1970,
-      "count": 4
     },
     {
       "outlet": "İşçi Köylü",
