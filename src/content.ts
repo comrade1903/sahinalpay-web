@@ -357,11 +357,7 @@ export const content: Record<Lang, Content> = {
       intro:
         'These early essays show the ideas I argued for at the time. Read together, they also offer a way into how my political thinking changed.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
-      outlets: [
-        { outlet: 'Forum', items: [] },
-        { outlet: 'Aydınlık (Sosyalist Dergi/Proleter Devrimci)', items: [] },
-        { outlet: 'İşçi Köylü', items: [] },
-      ],
+      outlets: [{ outlet: 'İşçi Köylü', items: [] }],
     },
     interviews: {
       kicker: 'Archive',
@@ -620,11 +616,7 @@ export const content: Record<Lang, Content> = {
       intro:
         'Bu yazılarda, kaleme alındıkları dönemde savunduğum fikirler var. Bugün geriye baktığımda, düşüncemin nerelerden geçtiğini de burada görüyorum.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
-      outlets: [
-        { outlet: 'Forum', items: [] },
-        { outlet: 'Aydınlık (Sosyalist Dergi/Proleter Devrimci)', items: [] },
-        { outlet: 'İşçi Köylü', items: [] },
-      ],
+      outlets: [{ outlet: 'İşçi Köylü', items: [] }],
     },
     interviews: {
       kicker: 'Arşiv',
