@@ -1,7 +1,9 @@
 import type { ArchiveItemSeed } from '../types'
 
-/** The academic and analytical work Şahin Alpay published in languages other
- *  than Turkish: chapters and articles in English, and three pieces in German.
+/** The academic and analytical work Şahin Alpay published outside the Turkish
+ *  press: chapters and articles in English, three pieces in German, and three
+ *  Turkish-language texts that a foreign institution published (two Konrad
+ *  Adenauer volumes and one from the Swedish Research Institute).
  *
  *  They live on the English side of the archive so the Academic Articles page
  *  separates them from the Turkish list under its own heading, the way every
@@ -142,5 +144,40 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
       'In What Does Turkey Think? — European Council on Foreign Relations, London, June 2011, pp. 31-36',
     sourceNote: "From Şahin Alpay's own academic publication list.",
     tags: ['European Union', 'authoritarianism', 'chapter', '2011'],
+  },
+
+  /* Turkish-language texts, published abroad or by a foreign institution's
+     Turkish programme. They sit on this side of the archive at the owner's
+     instruction — the section separates work published outside the Turkish
+     press from the rest — so their titles, citations, source notes and tags
+     stay exactly as they were written, in Turkish. */
+  {
+    slug: 'turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003',
+    title: 'Türk Modelinin Laikliğinin 21. Yüzyılda Geleceği',
+    date: '2003',
+    subtitle:
+      'Devlet ve Din İlişkileri - Farklı Modeller, Konseptler ve Tecrübeler Sempozyumu içinde — Konrad Adenauer Vakfı, Ankara, 2003, s. 135-138',
+    sourceNote:
+      'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; listede "Türk Moddeli Laikliğin" olarak geçen başlıktaki yazım hatası düzeltilmiştir.',
+    tags: ['laiklik', 'bildiri', '2003'],
+  },
+  {
+    slug: 'turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007',
+    title: 'Türkiye’deki Laiklik, İslam ve İslamcılık Hakkında Yanlış Anlayışlar',
+    date: '2007',
+    subtitle:
+      'Türkiye, İsveç ve Avrupa Birliği: Deneyimler ve Beklentiler içinde — İsveç Araştırma Enstitüsü, İstanbul, 2007, s. 45-52',
+    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
+    tags: ['laiklik', 'İslamcılık', 'makale', '2007'],
+  },
+  {
+    slug: 'stratejik-derinlik-turkiyenin-uluslararasi-durusu-2010',
+    title:
+      'Stratejik Derinlik — Türkiye’nin Uluslararası Duruşu: Türkiye’nin Yeni Bir Dış Politikası Var mı?',
+    date: '2010',
+    subtitle:
+      '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye içinde — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',
+    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
+    tags: ['dış politika', 'bildiri', '2010'],
   },
 ]

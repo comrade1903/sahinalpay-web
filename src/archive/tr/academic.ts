@@ -119,25 +119,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     tags: ['medya', 'makale', '2003'],
   },
   {
-    slug: 'turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003',
-    title: 'Türk Modelinin Laikliğinin 21. Yüzyılda Geleceği',
-    date: '2003',
-    subtitle:
-      'Devlet ve Din İlişkileri - Farklı Modeller, Konseptler ve Tecrübeler Sempozyumu içinde — Konrad Adenauer Vakfı, Ankara, 2003, s. 135-138',
-    sourceNote:
-      'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; listede "Türk Moddeli Laikliğin" olarak geçen başlıktaki yazım hatası düzeltilmiştir.',
-    tags: ['laiklik', 'bildiri', '2003'],
-  },
-  {
-    slug: 'turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007',
-    title: 'Türkiye’deki Laiklik, İslam ve İslamcılık Hakkında Yanlış Anlayışlar',
-    date: '2007',
-    subtitle:
-      'Türkiye, İsveç ve Avrupa Birliği: Deneyimler ve Beklentiler içinde — İsveç Araştırma Enstitüsü, İstanbul, 2007, s. 45-52',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['laiklik', 'İslamcılık', 'makale', '2007'],
-  },
-  {
     slug: 'dunya-gorusu-ve-siyaset-2009',
     title: 'Dünya Görüşü ve Siyaset',
     date: '2009',
@@ -145,16 +126,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
       'İletişimde Mükemmellik Programı: Dünya Görüşü içinde — Oger Telecom, İstanbul, Aralık 2009, s. 92-111',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
     tags: ['siyaset', 'makale', '2009'],
-  },
-  {
-    slug: 'stratejik-derinlik-turkiyenin-uluslararasi-durusu-2010',
-    title:
-      'Stratejik Derinlik — Türkiye’nin Uluslararası Duruşu: Türkiye’nin Yeni Bir Dış Politikası Var mı?',
-    date: '2010',
-    subtitle:
-      '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye içinde — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['dış politika', 'bildiri', '2010'],
   },
   {
     slug: 'toplum-bilimlerinin-mantigi-1983',
