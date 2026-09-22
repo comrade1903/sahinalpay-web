@@ -10,6 +10,8 @@
  *   1. The English archive item routes, whose content exists only in Turkish.
  *   2. Retired slugs from src/archive/aliases.ts, so a citation of an old
  *      address keeps resolving.
+ *   3. Withdrawn records from the same file, whose addresses lead to the
+ *      section they were removed from rather than to a 404.
  *
  * vercel.json is committed and CI fails if it is stale, the same way it does
  * for the sitemap.
@@ -55,13 +57,29 @@ for (const [lang, table] of Object.entries(aliasesModule.archiveSlugAliases)) {
   }
 }
 
+/* A withdrawn record has no successor to point at, so its address leads to
+   the section that used to hold it. */
+const withdrawnRedirects = []
+for (const [lang, table] of Object.entries(aliasesModule.withdrawnArchiveSlugs)) {
+  for (const [slug, category] of Object.entries(table)) {
+    const base = await sectionPath(category, lang)
+    if (!base) continue
+    withdrawnRedirects.push({
+      source: `${base}/${slug}`,
+      destination: base,
+      permanent: true,
+    })
+  }
+}
+
 const configPath = path.join(projectRoot, 'vercel.json')
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'))
 /* Aliases first: they name an exact path, the language rules a pattern. */
-config.redirects = [...aliasRedirects, ...LANGUAGE_REDIRECTS]
+config.redirects = [...aliasRedirects, ...withdrawnRedirects, ...LANGUAGE_REDIRECTS]
 fs.writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`)
 
 console.log(
   `Wrote ${config.redirects.length} redirect(s) to vercel.json: ` +
-    `${aliasRedirects.length} retired slug(s), ${LANGUAGE_REDIRECTS.length} language rule(s).`,
+    `${aliasRedirects.length} retired slug(s), ${withdrawnRedirects.length} withdrawn record(s), ` +
+    `${LANGUAGE_REDIRECTS.length} language rule(s).`,
 )
