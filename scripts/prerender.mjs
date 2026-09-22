@@ -357,7 +357,9 @@ for (const lang of ['tr', 'en']) {
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
       const foreignHtml = foreign.length
-        ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
+        ? `<h2>${escapeHtml(
+            pageKey === 'academic' ? t.abroadArchiveLabel : t.foreignArchiveLabel,
+          )}</h2>${itemListHtml(foreign, lang)}`
         : ''
       inner =
         `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +

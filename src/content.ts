@@ -71,6 +71,11 @@ export interface Content {
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
    *  language", an English reader sees "Turkish". */
   foreignArchiveLabel: string
+  /** Academic Articles uses this instead: that section's other-language group
+   *  also holds three Turkish texts a foreign institution published, so
+   *  "yabancı dilde" would be wrong for them, while every record in it was
+   *  published outside the Turkish press. */
+  abroadArchiveLabel: string
   hub: { key: PageKey; title: string; description: string }[]
   about: {
     kicker: string
@@ -287,6 +292,7 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Explore',
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
+    abroadArchiveLabel: 'Turkish-Language Writing',
     hub: [
       {
         key: 'about',
@@ -548,6 +554,7 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
+    abroadArchiveLabel: 'Yurtdışında Yayımlananlar',
     hub: [
       {
         key: 'about',

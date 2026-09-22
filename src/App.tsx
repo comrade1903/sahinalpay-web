@@ -705,6 +705,7 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
         <FlatArchivePage
           data={{ ...t.academicArticles, items: archiveData.academicArticles }}
           foreignItems={foreign.academicArticles}
+          foreignLabel={t.abroadArchiveLabel}
           lang={lang}
         />
       ) : (
