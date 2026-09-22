@@ -4,6 +4,36 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/tr/analizler/forum-338-turk-is",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/tr/analizler/forum-339-gucbirligine-dogru-ilk-adim",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/tr/analizler/aydinlik-devrimci-teorik-egitim",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/tr/analizler/aydinlik-osmanli-ticaret-sozlesmeleri",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/tr/analizler/aydinlik-turkiyenin-duzeni-uzerine",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/tr/analizler/pda-isci-sinifi-milli-demokratik-devrim",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
       "source": "/analyses/:slug",
       "destination": "/tr/analizler/:slug",
       "permanent": true

@@ -338,6 +338,26 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
   }
 }
 
+/* ---- withdrawn records must not shadow a live slug ---- */
+
+const CATEGORIES = ['columns', 'analyses', 'interviews', 'academic']
+for (const [lang, table] of Object.entries(aliasModule.withdrawnArchiveSlugs)) {
+  for (const [slug, category] of Object.entries(table)) {
+    if (!CATEGORIES.includes(category)) {
+      fail(`aliases.ts: withdrawn ${lang} slug "${slug}" names no real section ("${category}")`)
+    }
+    if (items.some((item) => item.lang === lang && item.slug === slug)) {
+      fail(
+        `aliases.ts: withdrawn ${lang} slug "${slug}" is a live record — ` +
+          `its address would redirect away from the piece itself`,
+      )
+    }
+    if (slug in aliasModule.archiveSlugAliases[lang]) {
+      fail(`aliases.ts: ${lang} slug "${slug}" is listed both as a retired alias and as withdrawn`)
+    }
+  }
+}
+
 /* ---- the home page's generated summary must match the archive ---- */
 
 const summaryModule = await loadModule('src/archive/summary.generated.ts', 'summary.mjs')

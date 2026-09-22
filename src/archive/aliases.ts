@@ -1,4 +1,4 @@
-import type { ArchiveLang } from './types'
+import type { ArchiveCategory, ArchiveLang } from './types'
 
 /**
  * Retired slugs that must keep resolving.
@@ -27,6 +27,39 @@ import type { ArchiveLang } from './types'
  */
 export const archiveSlugAliases: Record<ArchiveLang, Record<string, string>> = {
   tr: {},
+  en: {},
+}
+
+/**
+ * Records that were taken out of the archive, and the section their addresses
+ * now lead to.
+ *
+ * Different from an alias above, which moves one address to another address
+ * for the same piece. Here the piece is gone — Forum and Aydınlık / Proleter
+ * Devrimci Aydınlık were removed on 2026-09-22 at the owner's request — so
+ * there is nothing to point the old URL at except the section it belonged to.
+ * Without an entry the address answers a real 404, because the build
+ * prerenders only live routes and vercel.json has no catch-all rewrite.
+ *
+ * A section page is an honest destination for a withdrawn piece: it says what
+ * the archive holds now, rather than pretending the citation still resolves.
+ *
+ * `npm run generate:redirects` turns each entry into a permanent redirect, and
+ * `npm run validate:content` checks that no entry shadows a live record or
+ * doubles as an alias.
+ */
+export const withdrawnArchiveSlugs: Record<
+  ArchiveLang,
+  Record<string, ArchiveCategory>
+> = {
+  tr: {
+    'forum-338-turk-is': 'analyses',
+    'forum-339-gucbirligine-dogru-ilk-adim': 'analyses',
+    'aydinlik-devrimci-teorik-egitim': 'analyses',
+    'aydinlik-osmanli-ticaret-sozlesmeleri': 'analyses',
+    'aydinlik-turkiyenin-duzeni-uzerine': 'analyses',
+    'pda-isci-sinifi-milli-demokratik-devrim': 'analyses',
+  },
   en: {},
 }
 
