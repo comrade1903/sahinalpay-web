@@ -34,16 +34,16 @@ import { ArchiveRow } from '../archive'
  * shows that state and offers a retry rather than sitting on "loading".
  */
 
-function archivePool(archiveData: ArchiveData, lang: Lang): ArchiveItem[] {
+/* This is one language's own archive, so every section of it belongs in the
+   pool: the sections that exist in Turkish only are empty arrays on the
+   English side. Naming the languages here instead would go stale the moment
+   a section gains a record in the other one, as academic articles did. */
+function archivePool(archiveData: ArchiveData): ArchiveItem[] {
   return [
     ...archiveData.columns.flatMap((o) => o.items),
-    ...(lang === 'tr'
-      ? [
-          ...archiveData.analyses.flatMap((o) => o.items),
-          ...archiveData.interviews,
-          ...archiveData.academicArticles,
-        ]
-      : []),
+    ...archiveData.analyses.flatMap((o) => o.items),
+    ...archiveData.interviews,
+    ...archiveData.academicArticles,
   ]
 }
 
@@ -56,19 +56,18 @@ function findArchiveItemBySlug(
   slug: string,
 ): ArchiveItem | undefined {
   const current = resolveArchiveSlug(lang, slug)
-  return archivePool(archiveData, lang).find((item) => item.slug === current)
+  return archivePool(archiveData).find((item) => item.slug === current)
 }
 
 /** Other full articles (real body text, not the current one) — used for
  *  "related pieces" instead of a fabricated recommendation engine. */
 function relatedArticles(
   archiveData: ArchiveData,
-  lang: Lang,
   current: ArchiveItem,
   count: number,
 ): ArchiveItem[] {
   const currentTs = current.date ? parseTurkishDate(current.date) : null
-  return archivePool(archiveData, lang)
+  return archivePool(archiveData)
     .filter((item) => item !== current && item.hasBody)
     .map((item) => {
       const ts = item.date ? parseTurkishDate(item.date) : null
@@ -312,7 +311,7 @@ export function LoadedArticlePage({
     )
   }
 
-  const related = relatedArticles(archiveData, lang, item, 3)
+  const related = relatedArticles(archiveData, item, 3)
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
