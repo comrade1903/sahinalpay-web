@@ -1,22 +1,42 @@
 import type { ArchiveItemSeed } from '../types'
 
-/** Academic and analytical articles Şahin Alpay published in languages other
- *  than Turkish: a TÜSİAD quarterly in English and three German outlets.
+/** The academic and analytical work Şahin Alpay published in languages other
+ *  than Turkish: chapters and articles in English, and three pieces in German.
  *
  *  They live on the English side of the archive so the Academic Articles page
  *  separates them from the Turkish list under its own heading, the way every
- *  section already lists the other language's records.
+ *  section already lists the other language's records. Ten of them were filed
+ *  with the Turkish records until 2026-09-22, which put English chapters under
+ *  a "Turkish-Language Writing" heading; only their language and the wording
+ *  of their citations changed in the move — no title, date, page range or
+ *  source note lost a fact.
  *
- *  Every entry comes from Şahin Alpay's own publication list and says so in
- *  `sourceNote`. One was checked further: the list gave the APuZ piece as
- *  "Die Politische Rolle des Militars in der Türkei" in "Aus Politik und
- *  Zeitgeshichte". The Bundeszentrale für politische Bildung's own page for
- *  issue 39-40/2009 has it as "Die politische Rolle des Militärs in der
- *  Türkei", which is used here; the two slips were transcription, not a
- *  different article. The Süddeutsche Zeitung and FAZ pieces predate those
- *  papers' open archives and could not be confirmed outside the list.
+ *  Sources: most entries come from Şahin Alpay's own publication list and say
+ *  so. Two were checked further, and the APuZ title was corrected against the
+ *  Bundeszentrale für politische Bildung's own page for issue 39-40/2009 (the
+ *  list had "Die Politische Rolle des Militars" in "Zeitgeshichte" — both
+ *  transcription slips). The Süddeutsche Zeitung and FAZ pieces predate those
+ *  papers' open archives and rest on the list alone.
  */
 export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
+  {
+    slug: 'journalists-cautious-democrats-1993',
+    title: 'Journalists: Cautious Democrats',
+    date: '1993',
+    subtitle:
+      'In Turkey and the West: Changing Political and Cultural Identities (ed. Metin Heper, Ayşe Öncü, Heinz Kramer) — I.B. Tauris, London, 1993, pp. 69-91',
+    sourceNote:
+      'This record was supplied citing "Politics in the Third Turkish Republic" (Heper & Evin, Westview, 1994); that book holds no such chapter. The real source was confirmed by a work citing the article (Bilkent University Institutional Repository) and by an independent search.',
+    tags: ['journalism', 'democracy', 'press', '1993'],
+  },
+  {
+    slug: 'turkey-crisis-of-political-will-1998',
+    title: 'Turkey: Crisis of Political Will',
+    date: '1998',
+    subtitle: 'Danish Institute of International Affairs, Working Papers 1998/3, 14 pp.',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['Turkish politics', 'working paper', '1998'],
+  },
   {
     slug: 'after-ocalan-private-view-2000',
     title: 'After Öcalan',
@@ -24,6 +44,33 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     subtitle: 'Private View (TÜSİAD Quarterly Review), Spring 2000, pp. 34-42',
     sourceNote: "From Şahin Alpay's own publication list.",
     tags: ['Öcalan', 'Kurdish question', 'Private View', 'TÜSİAD', '2000'],
+  },
+  {
+    slug: 'borders-of-europe-a-turkish-perspective-2003',
+    title: 'Borders of Europe: A Turkish Perspective',
+    date: '2003',
+    subtitle:
+      'In Whither Europe? Borders, Boundaries, Frontiers in a Changing World (ed. Rutger Lindahl) — Göteborg University, Göteborg, 2003, pp. 73-82',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['Europe', 'borders', 'chapter', '2003'],
+  },
+  {
+    slug: 'crisis-in-the-identity-politics-of-turkey-2005',
+    title: 'Crisis in the Identity Politics of Turkey',
+    date: '2005',
+    subtitle:
+      'In Politics of Group Rights: The State and Multiculturalism (ed. Ishtiaq Ahmed) — University Press of America, Lanham, 2005, pp. 101-128',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['identity politics', 'multiculturalism', 'chapter', '2005'],
+  },
+  {
+    slug: 'turkey-and-westernization-2007',
+    title: 'Turkey and Westernization',
+    date: '2007',
+    subtitle:
+      'In What is the West?: Perspectives from the Engelsberg Seminar 2007 (ed. Kurt Almqvist) — Axel and Margaret Ax:son Johnson Foundation, Stockholm, 2007, pp. 109-122',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['Westernization', 'chapter', '2007'],
   },
   {
     slug: 'die-republik-der-buerokraten-sz-2007',
@@ -34,12 +81,37 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     tags: ['bureaucracy', 'Turkish politics', 'Süddeutsche Zeitung', 'German', '2007'],
   },
   {
+    slug: 'making-sense-of-turkish-politics-2008',
+    title: 'Making Sense of Turkish Politics',
+    date: '2008',
+    subtitle: 'The International Spectator, Vol. 43, No. 3, 2008, pp. 5-12',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['Turkish politics', 'article', '2008'],
+  },
+  {
     slug: 'was-wird-aus-der-tuerkei-faz-2008',
     title: 'Was wird aus der Türkei?',
     date: '15 October 2008',
     subtitle: 'Frankfurter Allgemeine Zeitung, 15. Oktober 2008, S. 8',
     sourceNote: "From Şahin Alpay's own publication list.",
     tags: ['Turkey', 'EU accession', 'Frankfurter Allgemeine Zeitung', 'German', '2008'],
+  },
+  {
+    slug: 'the-declining-soft-power-of-the-eu-2009',
+    title: 'The Declining Soft Power of the EU Regarding Turkey and Its Consequences',
+    date: '2009',
+    subtitle:
+      'In Perceptions and Misperceptions in the EU and Turkey: Stumbling Blocks on the Road to Accession (ed. Peter Wolten) — Harmonie Papers, Centre for European Security Studies, Groningen, 2009, pp. 157-178',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['European Union', 'soft power', 'chapter', '2009'],
+  },
+  {
+    slug: 'the-european-union-and-the-consolidation-of-democracy-2009',
+    title: 'The European Union and the Consolidation of Democracy in Turkey',
+    date: '2009',
+    subtitle: 'Journal of Interdisciplinary Economics (ed. Ruth Taplin), Vol. 20, 2009, pp. 221-244',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['European Union', 'democracy', 'article', '2009'],
   },
   {
     slug: 'die-politische-rolle-des-militaers-apuz-2009',
@@ -50,5 +122,25 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     sourceNote:
       "From Şahin Alpay's own publication list; the title and issue were confirmed against the Bundeszentrale für politische Bildung's own page for APuZ 39-40/2009.",
     tags: ['military', 'Ergenekon', 'civil-military relations', 'APuZ', 'German', '2009'],
+  },
+  {
+    slug: 'two-faces-of-the-press-2010',
+    title:
+      "Two Faces of the Press in Turkey: The Role of the Media in Turkey's Modernisation and Democracy",
+    date: '2010',
+    subtitle:
+      "In Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, pp. 370-387",
+    url: 'https://link.springer.com/chapter/10.1057/9780230277397_20',
+    sourceNote: 'Confirmed through Crossref (DOI 10.1057/9780230277397_20).',
+    tags: ['media', 'press freedom', 'modernization', 'democracy', '2010'],
+  },
+  {
+    slug: 'will-turkey-veer-towards-authoritarianism-2011',
+    title: 'Will Turkey Veer Towards Authoritarianism Without the EU Anchor?',
+    date: '2011',
+    subtitle:
+      'In What Does Turkey Think? — European Council on Foreign Relations, London, June 2011, pp. 31-36',
+    sourceNote: "From Şahin Alpay's own academic publication list.",
+    tags: ['European Union', 'authoritarianism', 'chapter', '2011'],
   },
 ]

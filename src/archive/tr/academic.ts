@@ -1,8 +1,12 @@
 import type { ArchiveItemSeed } from '../types'
 
-/** Academic output: Turkish/English books and book chapters, plus articles,
- *  conference papers and translations. The doctoral dissertation and the
- *  Swedish-period study it grew out of (Turkar i Stockholm, 1980) are not
+/** His Turkish-language academic output: books and book chapters, articles,
+ *  conference papers, magazine essays and translations. The work he published
+ *  in English and German sits in archive/en/academic.ts, which is what gives
+ *  the Academic Articles page its foreign-language half.
+ *
+ *  The doctoral dissertation and the Swedish-period study it grew out of
+ *  (Turkar i Stockholm, 1980) are not
  *  listed here — Şahin Alpay confirmed the two are the same work, published
  *  as a book, so it lives under Books rather than being duplicated here.
  *  Two further titles from the original list this file was seeded from —
@@ -10,16 +14,12 @@ import type { ArchiveItemSeed } from '../types'
  *  (2003) — are likewise not repeated here because they already have full
  *  entries under Books.
  *
- *  Every entry below was checked against an independent bibliographic source
- *  before being added, not taken on trust from the list it was seeded from.
- *  Two needed real correction, not just confirmation:
+ *  The entries seeded from his publication list were checked against an
+ *  independent bibliographic source before being added, rather than taken on
+ *  trust. One needed real correction, not just confirmation (the correction
+ *  to "Journalists: Cautious Democrats" travelled with it to the English
+ *  file):
  *
- *  - "Journalists: Cautious Democrats" was seeded with the wrong book entirely
- *    (Politics in the Third Turkish Republic, Heper & Evin, Westview, 1994).
- *    The chapter is not in that book. A citing article (Bilkent repository PDF)
- *    and a second independent search both place it in Turkey and the West:
- *    Changing Political and Cultural Identities (Heper, Öncü, Kramer, eds.,
- *    I.B. Tauris, 1993), pp. 69-91 — corrected here accordingly.
  *  - "2000 Yılında Türkiye" does not exist under that title; three independent
  *    bookseller/library listings agree the 1991 Afa Yayınları book is titled
  *    "2020 Yılında Türkiye". Corrected.
@@ -46,27 +46,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     sourceNote:
       'Üç bağımsız ikinci el kitap kaydıyla (Nadir Kitap, Janus Mezat) teyit edilmiştir.',
     tags: ['Türkiye', 'gelecek öngörüsü', '1991'],
-  },
-  {
-    slug: 'journalists-cautious-democrats-1993',
-    title: 'Journalists: Cautious Democrats',
-    date: '1993',
-    subtitle:
-      'Turkey and the West: Changing Political and Cultural Identities içinde (ed. Metin Heper, Ayşe Öncü, Heinz Kramer) — I.B. Tauris, London, 1993, s. 69-91',
-    sourceNote:
-      'Bu kayıt "Politics in the Third Turkish Republic" (Heper & Evin, Westview, 1994) kaynak gösterilerek iletilmişti; o kitapta böyle bir bölüm yok. Gerçek kaynak, makaleye atıf yapan bir çalışma (Bilkent Üniversitesi Kurumsal Arşivi) ile bağımsız bir aramada teyit edilmiştir.',
-    tags: ['gazetecilik', 'demokrasi', 'basın', '1993'],
-  },
-  {
-    slug: 'two-faces-of-the-press-2010',
-    title:
-      "Two Faces of the Press in Turkey: The Role of the Media in Turkey's Modernisation and Democracy",
-    date: '2010',
-    subtitle:
-      "Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century içinde (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, s. 370-387",
-    sourceNote: 'Crossref (DOI 10.1057/9780230277397_20) ile teyit edilmiştir.',
-    url: 'https://link.springer.com/chapter/10.1057/9780230277397_20',
-    tags: ['medya', 'basın özgürlüğü', 'modernleşme', 'demokrasi', '2010'],
   },
   // Makale ve bildiriler — Şahin Alpay'ın kendi akademik yayın listesinden
   // alınmıştır. Bağımsız bir ikinci kaynakla teyit edilmemiştir; sourceNote
@@ -176,74 +155,6 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
       '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye içinde — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
     tags: ['dış politika', 'bildiri', '2010'],
-  },
-  {
-    slug: 'turkey-crisis-of-political-will-1998',
-    title: 'Turkey: Crisis of Political Will',
-    date: '1998',
-    subtitle: 'Danish Institute of International Affairs, Working Papers 1998/3, 14 s.',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['siyaset', 'çalışma raporu', '1998'],
-  },
-  {
-    slug: 'borders-of-europe-a-turkish-perspective-2003',
-    title: 'Borders of Europe: A Turkish Perspective',
-    date: '2003',
-    subtitle:
-      'Whither Europe? Borders, Boundaries, Frontiers in a Changing World içinde (ed. Rutger Lindahl) — Göteborg University, Göteborg, 2003, pp. 73-82',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['Avrupa', 'makale', '2003'],
-  },
-  {
-    slug: 'crisis-in-the-identity-politics-of-turkey-2005',
-    title: 'Crisis in the Identity Politics of Turkey',
-    date: '2005',
-    subtitle:
-      'Politics of Group Rights: The State and Multiculturalism içinde (ed. Ishtiaq Ahmed) — University Press of America, Lanham, 2005, pp. 101-128',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['kimlik siyaseti', 'makale', '2005'],
-  },
-  {
-    slug: 'turkey-and-westernization-2007',
-    title: 'Turkey and Westernization',
-    date: '2007',
-    subtitle:
-      'What is the West?: Perspectives from the Engelsberg Seminar 2007 içinde (ed. Kurt Almqvist) — Axel and Margaret Ax:son Johnson Foundation, Stockholm, 2007, pp. 109-122',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['batılılaşma', 'makale', '2007'],
-  },
-  {
-    slug: 'making-sense-of-turkish-politics-2008',
-    title: 'Making Sense of Turkish Politics',
-    date: '2008',
-    subtitle: 'The International Spectator, Vol. 43, No. 3, 2008, pp. 5-12',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['Türk siyaseti', 'makale', '2008'],
-  },
-  {
-    slug: 'the-declining-soft-power-of-the-eu-2009',
-    title: 'The Declining Soft Power of the EU Regarding Turkey and Its Consequences',
-    date: '2009',
-    subtitle:
-      'Perceptions and Misperceptions in the EU and Turkey: Stumbling Blocks on the Road to Accession içinde (ed. Peter Wolten) — Harmonie Papers, Centre for European Security Studies, Groningen, 2009, pp. 157-178',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['Avrupa Birliği', 'makale', '2009'],
-  },
-  {
-    slug: 'the-european-union-and-the-consolidation-of-democracy-2009',
-    title: 'The European Union and the Consolidation of Democracy in Turkey',
-    date: '2009',
-    subtitle: 'Journal of Interdisciplinary Economics (ed. Ruth Taplin), Vol. 20, 2009, pp. 221-244',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['Avrupa Birliği', 'demokrasi', 'makale', '2009'],
-  },
-  {
-    slug: 'will-turkey-veer-towards-authoritarianism-2011',
-    title: 'Will Turkey Veer Towards Authoritarianism Without the EU Anchor?',
-    date: '2011',
-    subtitle: 'What Does Turkey Think? içinde — European Council on Foreign Relations, London, Haziran 2011, pp. 31-36',
-    sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
-    tags: ['Avrupa Birliği', 'otoriterleşme', 'makale', '2011'],
   },
   {
     slug: 'toplum-bilimlerinin-mantigi-1983',
