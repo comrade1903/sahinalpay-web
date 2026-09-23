@@ -1155,10 +1155,16 @@ export function FlatArchivePage({
   lang,
   foreignItems = [],
   foreignLabel,
+  showIntro = true,
 }: {
   data: FlatArchiveSection
   lang: Lang
-  /** Heading for the other-language group. Academic Articles passes its own,
+  /** Whether `data.intro` is printed under the title. It stays the page's
+   *  description for the browser tab and for search engines either way —
+   *  a section that reads better without a standfirst still needs one in
+   *  its <head>. */
+  showIntro?: boolean
+  /** Heading for the other-language group. Makale ve Bildiriler passes its own,
    *  because that group holds work published abroad rather than only work in
    *  another language. */
   foreignLabel?: string
@@ -1277,7 +1283,7 @@ export function FlatArchivePage({
         <Reveal>
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
-          <p className="archive-intro">{data.intro}</p>
+          {showIntro && <p className="archive-intro">{data.intro}</p>}
         </Reveal>
 
         <ArchiveSearchRow

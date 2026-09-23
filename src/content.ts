@@ -2,8 +2,10 @@
    Bilingual content for sahinalpay.com — English and Turkish.
 
    Site is organized as a writing archive:
-   Kimdir? / About → Köşe Yazıları / Columns → Analizler → Söyleşiler →
-   Akademik Makaleler → Kitaplar / Books.
+   Kimdir? / About → Köşe Yazıları / Columns → Söyleşiler →
+   Makale ve Bildiriler / Articles and Papers → Kitaplar / Books.
+   Analizler keeps its route and its records but is not linked from the
+   navigation or the home page for now, at the owner's request.
 
    This file holds bilingual UI copy only. Archive entries live under
    src/archive so hundreds of articles and clipping images can scale by outlet.
@@ -71,7 +73,7 @@ export interface Content {
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
    *  language", an English reader sees "Turkish". */
   foreignArchiveLabel: string
-  /** Academic Articles uses this instead: that section's other-language group
+  /** Makale ve Bildiriler uses this instead: that section's other-language group
    *  also holds three Turkish texts a foreign institution published, so
    *  "yabancı dilde" would be wrong for them, while every record in it was
    *  published outside the Turkish press. */
@@ -273,7 +275,7 @@ export const content: Record<Lang, Content> = {
       { key: 'columns', label: 'Columns' },
       { key: 'analyses', label: 'Analyses' },
       { key: 'interviews', label: 'Interviews' },
-      { key: 'academic', label: 'Academic Articles' },
+      { key: 'academic', label: 'Articles and Papers' },
       { key: 'books', label: 'Books' },
       { key: 'trial', label: 'The Case Against Me' },
       { key: 'press', label: 'About Me in the Press' },
@@ -311,7 +313,7 @@ export const content: Record<Lang, Content> = {
       },
       {
         key: 'academic',
-        title: 'Academic Articles',
+        title: 'Articles and Papers',
         description: 'Academic publications and research writing.',
       },
       {
@@ -374,7 +376,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Archive',
-      title: 'Academic Articles',
+      title: 'Articles and Papers',
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
@@ -526,7 +528,7 @@ export const content: Record<Lang, Content> = {
       { key: 'columns', label: 'Köşe Yazıları' },
       { key: 'analyses', label: 'Analizler' },
       { key: 'interviews', label: 'Söyleşiler' },
-      { key: 'academic', label: 'Akademik Makaleler' },
+      { key: 'academic', label: 'Makale ve Bildiriler' },
       { key: 'books', label: 'Kitaplar' },
       { key: 'trial', label: 'Yargılanma Sürecim' },
       { key: 'press', label: 'Basında Hakkımda' },
@@ -564,7 +566,7 @@ export const content: Record<Lang, Content> = {
       },
       {
         key: 'academic',
-        title: 'Akademik Makaleler',
+        title: 'Makale ve Bildiriler',
         description: 'Akademik dergilerde yayımlanmış makaleleri.',
       },
       {
@@ -634,7 +636,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Arşiv',
-      title: 'Akademik Makaleler',
+      title: 'Makale ve Bildiriler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
       items: [],
