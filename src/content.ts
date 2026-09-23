@@ -273,7 +273,6 @@ export const content: Record<Lang, Content> = {
     nav: [
       { key: 'about', label: 'About' },
       { key: 'columns', label: 'Columns' },
-      { key: 'analyses', label: 'Analyses' },
       { key: 'interviews', label: 'Interviews' },
       { key: 'academic', label: 'Articles and Papers' },
       { key: 'books', label: 'Books' },
@@ -300,11 +299,6 @@ export const content: Record<Lang, Content> = {
         key: 'columns',
         title: 'Columns',
         description: 'A newspaper-columns archive, organized by outlet.',
-      },
-      {
-        key: 'analyses',
-        title: 'Analyses',
-        description: 'Long-form political and intellectual essays, organized by publication.',
       },
       {
         key: 'interviews',
@@ -526,7 +520,6 @@ export const content: Record<Lang, Content> = {
     nav: [
       { key: 'about', label: 'Kimdir?' },
       { key: 'columns', label: 'Köşe Yazıları' },
-      { key: 'analyses', label: 'Analizler' },
       { key: 'interviews', label: 'Söyleşiler' },
       { key: 'academic', label: 'Makale ve Bildiriler' },
       { key: 'books', label: 'Kitaplar' },
@@ -553,11 +546,6 @@ export const content: Record<Lang, Content> = {
         key: 'columns',
         title: 'Köşe Yazıları',
         description: 'Gazete yazıları arşivi, yayın bazında düzenlenmiştir.',
-      },
-      {
-        key: 'analyses',
-        title: 'Analizler',
-        description: 'Dergilerde yayımlanmış analiz yazıları.',
       },
       {
         key: 'interviews',

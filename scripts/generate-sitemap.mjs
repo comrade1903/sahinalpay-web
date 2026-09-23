@@ -69,6 +69,14 @@ const STATIC_HINTS = {
   cookies: ['yearly', '0.3'],
 }
 
+/* Sections that still work but are not linked from the site. Analizler was
+   unlinked on 2026-09-23 at the owner's request, while keeping its records and
+   its address — the six withdrawn pieces redirect to it, and citations of the
+   one that remains have to keep resolving. It stays out of the sitemap while
+   it is out of the navigation: a page we deliberately stopped showing is not
+   one to advertise to crawlers. Deleting the line puts it back. */
+const UNLISTED_PAGES = new Set(['analyses'])
+
 const routesModule = await loadModule('src/routes.ts', 'routes-sitemap.mjs')
 const contentModule = await loadModule('src/content.ts', 'content-sitemap.mjs')
 const { paths } = routesModule
@@ -81,6 +89,7 @@ const entries = []
 
 for (const lang of ['en', 'tr']) {
   for (const [pageKey, route] of Object.entries(paths[lang])) {
+    if (UNLISTED_PAGES.has(pageKey)) continue
     const hint = STATIC_HINTS[pageKey]
     if (!hint) {
       console.error(`No sitemap hint for page "${pageKey}" — add one to STATIC_HINTS.`)
