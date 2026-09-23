@@ -12,4 +12,10 @@ describe('countLabel', () => {
     expect(countLabel(1, 'tr')).toBe('1 yazı')
     expect(countLabel(574, 'tr')).toBe('574 yazı')
   })
+
+  it('counts books as books', () => {
+    expect(countLabel(7, 'tr', 'book')).toBe('7 kitap')
+    expect(countLabel(7, 'en', 'book')).toBe('7 books')
+    expect(countLabel(1, 'en', 'book')).toBe('1 book')
+  })
 })
