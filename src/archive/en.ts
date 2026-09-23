@@ -29,7 +29,7 @@ export const enArchive: LanguageArchive = {
   analyses: [],
   interviews: [],
   academicArticles: normalizeArchiveItems(
-    'Academic Articles',
+    'Articles and Papers',
     'academic',
     'academic',
     enAcademicArticleSeeds,

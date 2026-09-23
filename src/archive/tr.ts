@@ -48,7 +48,7 @@ export const trArchive: LanguageArchive = {
     'tr',
   ),
   academicArticles: normalizeArchiveItems(
-    'Akademik Makaleler',
+    'Makale ve Bildiriler',
     'academic',
     'academic',
     academicArticleSeeds,

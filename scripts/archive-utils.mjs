@@ -206,7 +206,7 @@ function outletForFile(filePath) {
     aydinlik: 'Aydınlık (Sosyalist Dergi/Proleter Devrimci)',
     'isci-koylu': 'İşçi Köylü',
     interviews: 'Söyleşiler',
-    academic: 'Akademik Makaleler',
+    academic: 'Makale ve Bildiriler',
   }
   return names[base] ?? base
 }

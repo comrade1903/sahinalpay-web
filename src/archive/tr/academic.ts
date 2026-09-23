@@ -9,10 +9,10 @@ import type { ArchiveItemSeed } from '../types'
  *  (Turkar i Stockholm, 1980) are not
  *  listed here — Şahin Alpay confirmed the two are the same work, published
  *  as a book, so it lives under Books rather than being duplicated here.
- *  Two further titles from the original list this file was seeded from —
- *  Türkiye'nin Tanıkları: İçeriden Bakanlar (2002) and Dışarıdan Bakanlar
- *  (2003) — are likewise not repeated here because they already have full
- *  entries under Books.
+ *  Books are not repeated here at all. Türkiye'nin Tanıkları: İçeriden
+ *  Bakanlar (2002) and Dışarıdan Bakanlar (2003) never were; DSP-SHP (1986)
+ *  and 2020 Yılında Türkiye (1991) were listed as articles until 2026-09-23
+ *  and now sit under Books, where the owner placed them.
  *
  *  The entries seeded from his publication list were checked against an
  *  independent bibliographic source before being added, rather than taken on
@@ -29,24 +29,6 @@ import type { ArchiveItemSeed } from '../types'
  *  Yüksek Kurumu library catalogue).
  */
 export const academicArticleSeeds: ArchiveItemSeed[] = [
-  {
-    slug: 'dsp-shp-nerede-birlesiyor-1986',
-    title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
-    date: '1986',
-    subtitle: 'Şahin Alpay, Seyfettin Gürsel — Afa Yayınları, İstanbul, 1986, 172 s.',
-    sourceNote:
-      'Atatürk Kültür, Dil ve Tarih Yüksek Kurumu Kütüphanesi kataloğuyla teyit edilmiştir.',
-    tags: ['DSP', 'SHP', 'sosyal demokrasi', 'Seyfettin Gürsel', '1986'],
-  },
-  {
-    slug: '2020-yilinda-turkiye-1991',
-    title: '2020 Yılında Türkiye',
-    date: '1991',
-    subtitle: 'Afa Yayınları, İstanbul, 1991, 182 s.',
-    sourceNote:
-      'Üç bağımsız ikinci el kitap kaydıyla (Nadir Kitap, Janus Mezat) teyit edilmiştir.',
-    tags: ['Türkiye', 'gelecek öngörüsü', '1991'],
-  },
   // Makale ve bildiriler — Şahin Alpay'ın kendi akademik yayın listesinden
   // alınmıştır. Bağımsız bir ikinci kaynakla teyit edilmemiştir; sourceNote
   // bunu her kayıtta belirtir.

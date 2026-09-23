@@ -238,15 +238,15 @@ function CoverageStrip({
   /* Every outlet, in both languages. The strip answers "what does this archive
      hold", and the archive is bilingual — filtering it by UI language would show
      an English reader 411 pieces from one paper instead of the real body of work.
-     Outlet names are proper nouns, so they read the same either way. Academic
-     Articles is the one row that isn't a named outlet — it groups a doctoral
+     Outlet names are proper nouns, so they read the same either way. Makale ve
+     Bildiriler is the one row that isn't a named outlet — it groups a doctoral
      dissertation, book chapters and books rather than one publication, so its
      label is translated like any other UI string instead of staying fixed. */
   const bands = summary.coverage
     .map((band) => ({
       ...band,
       outlet:
-        band.outlet ?? (lang === 'tr' ? 'Akademik Makaleler' : 'Academic Articles'),
+        band.outlet ?? (lang === 'tr' ? 'Makale ve Bildiriler' : 'Articles and Papers'),
     }))
     .sort((a, b) => a.from - b.from)
 
@@ -534,7 +534,6 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
         <Reveal>
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
-          <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
         {data.externalUrl && (
@@ -706,7 +705,6 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
         <FlatArchivePage
           data={{ ...t.academicArticles, items: archiveData.academicArticles }}
           foreignItems={foreign.academicArticles}
-          foreignLabel={t.abroadArchiveLabel}
           lang={lang}
         />
       ) : (

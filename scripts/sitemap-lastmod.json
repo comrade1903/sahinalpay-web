@@ -1,6 +1,6 @@
 {
   "/": {
-    "fingerprint": "f01fb1892d54138c",
+    "fingerprint": "ea22be87209c1d7f",
     "date": "2026-09-23"
   },
   "/about": {
@@ -11,21 +11,17 @@
     "fingerprint": "8fdaabf15117df65",
     "date": "2026-09-22"
   },
-  "/analyses": {
-    "fingerprint": "a7bc1ab6cd8d1e7a",
-    "date": "2026-09-22"
-  },
   "/interviews": {
     "fingerprint": "5360f3beef51a272",
     "date": "2026-09-22"
   },
   "/academic-articles": {
-    "fingerprint": "2f924024064e9096",
-    "date": "2026-09-22"
+    "fingerprint": "421ebf9d4c4d5303",
+    "date": "2026-09-23"
   },
   "/books": {
-    "fingerprint": "fd48b17d60d48175",
-    "date": "2026-09-22"
+    "fingerprint": "3aac3c466ce2cf70",
+    "date": "2026-09-23"
   },
   "/trial-process": {
     "fingerprint": "6c16688d1d5640f4",
@@ -40,44 +36,40 @@
     "date": "2026-09-22"
   },
   "/tr": {
-    "fingerprint": "9d01b9573fd048cc",
+    "fingerprint": "c93753b099ce1e72",
     "date": "2026-09-23"
   },
   "/tr/kimdir": {
-    "fingerprint": "141365f598cfdf88",
-    "date": "2026-09-22"
+    "fingerprint": "97ea246f2b6c6caf",
+    "date": "2026-09-23"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "7049a4d81665bd28",
-    "date": "2026-09-22"
-  },
-  "/tr/analizler": {
-    "fingerprint": "c69d16e71a2ce864",
-    "date": "2026-09-22"
+    "fingerprint": "cbaef52b0f3993ae",
+    "date": "2026-09-23"
   },
   "/tr/soylesiler": {
-    "fingerprint": "9d1eea993f776761",
-    "date": "2026-09-22"
+    "fingerprint": "86f3d8e42bbd8a9e",
+    "date": "2026-09-23"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "e52a2d737aab5987",
-    "date": "2026-09-22"
+    "fingerprint": "57bc6825c9fa3fbb",
+    "date": "2026-09-23"
   },
   "/tr/kitaplar": {
-    "fingerprint": "701bab4abdf5557a",
-    "date": "2026-09-22"
+    "fingerprint": "6819db101269b9e9",
+    "date": "2026-09-23"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "0650a35e49fc5db1",
-    "date": "2026-09-22"
+    "fingerprint": "2a73f2bc65147b23",
+    "date": "2026-09-23"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "a258f41e033f6919",
-    "date": "2026-09-22"
+    "fingerprint": "f38fd2deb40a32d8",
+    "date": "2026-09-23"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "ad052b5a9257b07e",
-    "date": "2026-09-22"
+    "fingerprint": "d9cd63fd7907f86d",
+    "date": "2026-09-23"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",

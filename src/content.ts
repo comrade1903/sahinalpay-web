@@ -2,8 +2,10 @@
    Bilingual content for sahinalpay.com — English and Turkish.
 
    Site is organized as a writing archive:
-   Kimdir? / About → Köşe Yazıları / Columns → Analizler → Söyleşiler →
-   Akademik Makaleler → Kitaplar / Books.
+   Kimdir? / About → Köşe Yazıları / Columns → Söyleşiler →
+   Makale ve Bildiriler / Articles and Papers → Kitaplar / Books.
+   Analizler keeps its route and its records but is not linked from the
+   navigation or the home page for now, at the owner's request.
 
    This file holds bilingual UI copy only. Archive entries live under
    src/archive so hundreds of articles and clipping images can scale by outlet.
@@ -23,6 +25,7 @@ import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
+import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import { trialProcessSections } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
@@ -71,11 +74,6 @@ export interface Content {
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
    *  language", an English reader sees "Turkish". */
   foreignArchiveLabel: string
-  /** Academic Articles uses this instead: that section's other-language group
-   *  also holds three Turkish texts a foreign institution published, so
-   *  "yabancı dilde" would be wrong for them, while every record in it was
-   *  published outside the Turkish press. */
-  abroadArchiveLabel: string
   hub: { key: PageKey; title: string; description: string }[]
   about: {
     kicker: string
@@ -214,6 +212,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: "Published in Afa's \u201cTowards the 21st Century\u201d series: Turkey's next thirty years read through democracy, the economy, the Kurdish question and relations with Europe.",
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics. The book closes with a summary in Turkish and English.',
@@ -256,6 +260,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: 'Afa Yayınları’nın “21. Yüzyıla Doğru” dizisinden: demokrasi, ekonomi, Kürt sorunu ve Avrupa’yla ilişkiler başlıkları altında Türkiye’nin önündeki otuz yıla baktığım kitap.',
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı. Kitabın sonunda Türkçe ve İngilizce özeti var.',
@@ -271,9 +281,8 @@ export const content: Record<Lang, Content> = {
     nav: [
       { key: 'about', label: 'About' },
       { key: 'columns', label: 'Columns' },
-      { key: 'analyses', label: 'Analyses' },
       { key: 'interviews', label: 'Interviews' },
-      { key: 'academic', label: 'Academic Articles' },
+      { key: 'academic', label: 'Articles and Papers' },
       { key: 'books', label: 'Books' },
       { key: 'trial', label: 'The Case Against Me' },
       { key: 'press', label: 'About Me in the Press' },
@@ -292,17 +301,11 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Explore',
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
-    abroadArchiveLabel: 'Turkish-Language Writing',
     hub: [
       {
         key: 'columns',
         title: 'Columns',
         description: 'A newspaper-columns archive, organized by outlet.',
-      },
-      {
-        key: 'analyses',
-        title: 'Analyses',
-        description: 'Long-form political and intellectual essays, organized by publication.',
       },
       {
         key: 'interviews',
@@ -311,7 +314,7 @@ export const content: Record<Lang, Content> = {
       },
       {
         key: 'academic',
-        title: 'Academic Articles',
+        title: 'Articles and Papers',
         description: 'Academic publications and research writing.',
       },
       {
@@ -374,7 +377,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Archive',
-      title: 'Academic Articles',
+      title: 'Articles and Papers',
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
@@ -524,9 +527,8 @@ export const content: Record<Lang, Content> = {
     nav: [
       { key: 'about', label: 'Kimdir?' },
       { key: 'columns', label: 'Köşe Yazıları' },
-      { key: 'analyses', label: 'Analizler' },
       { key: 'interviews', label: 'Söyleşiler' },
-      { key: 'academic', label: 'Akademik Makaleler' },
+      { key: 'academic', label: 'Makale ve Bildiriler' },
       { key: 'books', label: 'Kitaplar' },
       { key: 'trial', label: 'Yargılanma Sürecim' },
       { key: 'press', label: 'Basında Hakkımda' },
@@ -545,17 +547,11 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
-    abroadArchiveLabel: 'Yurtdışında Yayımlananlar',
     hub: [
       {
         key: 'columns',
         title: 'Köşe Yazıları',
         description: 'Gazete yazıları arşivi, yayın bazında düzenlenmiştir.',
-      },
-      {
-        key: 'analyses',
-        title: 'Analizler',
-        description: 'Dergilerde yayımlanmış analiz yazıları.',
       },
       {
         key: 'interviews',
@@ -564,7 +560,7 @@ export const content: Record<Lang, Content> = {
       },
       {
         key: 'academic',
-        title: 'Akademik Makaleler',
+        title: 'Makale ve Bildiriler',
         description: 'Akademik dergilerde yayımlanmış makaleleri.',
       },
       {
@@ -634,7 +630,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Arşiv',
-      title: 'Akademik Makaleler',
+      title: 'Makale ve Bildiriler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
       items: [],
