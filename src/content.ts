@@ -74,7 +74,8 @@ export interface Content {
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
    *  language", an English reader sees "Turkish". */
   foreignArchiveLabel: string
-  hub: { key: PageKey; title: string; description: string }[]
+  /** Home-page section cards: the title only, at the owner's request. */
+  hub: { key: PageKey; title: string }[]
   about: {
     kicker: string
     title: string
@@ -284,7 +285,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Interviews' },
       { key: 'academic', label: 'Articles and Papers' },
       { key: 'books', label: 'Books' },
-      { key: 'trial', label: 'The Case Against Me' },
+      { key: 'trial', label: 'The 15 July Case Against Me' },
       { key: 'press', label: 'About Me in the Press' },
     ],
     contactLabel: 'Contact',
@@ -302,31 +303,11 @@ export const content: Record<Lang, Content> = {
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
     hub: [
-      {
-        key: 'columns',
-        title: 'Columns',
-        description: 'A newspaper-columns archive, organized by outlet.',
-      },
-      {
-        key: 'interviews',
-        title: 'Interviews',
-        description: 'Conversations, profiles, and published interviews.',
-      },
-      {
-        key: 'academic',
-        title: 'Articles and Papers',
-        description: 'Academic publications and research writing.',
-      },
-      {
-        key: 'books',
-        title: 'Books',
-        description: 'Two volumes of memoirs, interviews and studies of politics.',
-      },
-      {
-        key: 'trial',
-        title: 'The Case Against Me',
-        description: 'A summary of the criminal case brought against me after the 2016 coup attempt.',
-      },
+      { key: 'columns', title: 'Columns' },
+      { key: 'interviews', title: 'Interviews' },
+      { key: 'academic', title: 'Articles and Papers' },
+      { key: 'books', title: 'Books' },
+      { key: 'trial', title: 'The 15 July Case Against Me' },
     ],
     about: {
       "kicker": "Life story",
@@ -394,7 +375,7 @@ export const content: Record<Lang, Content> = {
     },
     trialProcess: {
       kicker: 'Legal Case',
-      title: 'The Case Against Me',
+      title: 'The 15 July Case Against Me',
       subtitle: '',
       lead: '',
       editorialNote: '',
@@ -530,7 +511,7 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Söyleşiler' },
       { key: 'academic', label: 'Makale ve Bildiriler' },
       { key: 'books', label: 'Kitaplar' },
-      { key: 'trial', label: 'Yargılanma Sürecim' },
+      { key: 'trial', label: '15 Temmuz Yargılanma Sürecim' },
       { key: 'press', label: 'Basında Hakkımda' },
     ],
     contactLabel: 'İletişim',
@@ -548,31 +529,11 @@ export const content: Record<Lang, Content> = {
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
     hub: [
-      {
-        key: 'columns',
-        title: 'Köşe Yazıları',
-        description: 'Gazete yazıları arşivi, yayın bazında düzenlenmiştir.',
-      },
-      {
-        key: 'interviews',
-        title: 'Söyleşiler',
-        description: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
-      },
-      {
-        key: 'academic',
-        title: 'Makale ve Bildiriler',
-        description: 'Akademik dergilerde yayımlanmış makaleleri.',
-      },
-      {
-        key: 'books',
-        title: 'Kitaplar',
-        description: 'İki cilt anı, söyleşiler ve siyaset üzerine çalışmalar.',
-      },
-      {
-        key: 'trial',
-        title: 'Yargılanma Sürecim',
-        description: 'Hakkımdaki dava sürecini kendi ifadelerim ve mahkeme kararlarıyla anlatıyorum.',
-      },
+      { key: 'columns', title: 'Köşe Yazıları' },
+      { key: 'interviews', title: 'Söyleşiler' },
+      { key: 'academic', title: 'Makale ve Bildiriler' },
+      { key: 'books', title: 'Kitaplar' },
+      { key: 'trial', title: '15 Temmuz Yargılanma Sürecim' },
     ],
     about: {
       "kicker": "Yaşam öyküsü",
@@ -645,7 +606,7 @@ export const content: Record<Lang, Content> = {
     },
     trialProcess: {
       kicker: 'Yargı Süreci',
-      title: 'Yargılanma Sürecim',
+      title: '15 Temmuz Yargılanma Sürecim',
       subtitle: '',
       lead: '',
       editorialNote: '',

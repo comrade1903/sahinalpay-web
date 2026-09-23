@@ -7,7 +7,7 @@ import { Reveal } from './Reveal'
    The opening every long first-person page shares: his portrait and the
    page title in a sticky aside, with that page's own opening text beside
    it, and a jump-to-section control when the page is long enough to need
-   one. About, Yargılanma Sürecim and Basında Hakkımda all render through
+   one. About, 15 Temmuz Yargılanma Sürecim and Basında Hakkımda all render through
    this, so they read as one section of the site rather than three
    separate designs.
 ------------------------------------------------------------------ */
