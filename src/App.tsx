@@ -196,7 +196,7 @@ function HubGrid({
                     {count !== null &&
                       (count > 0 ? (
                         <span className="hub-card-count">
-                          {countLabel(count, lang)}
+                          {countLabel(count, lang, h.key === 'books' ? 'book' : 'piece')}
                         </span>
                       ) : (
                         <span className="hub-card-count-empty">
@@ -206,7 +206,6 @@ function HubGrid({
                   </div>
                   <div>
                     <h3>{h.title}</h3>
-                    <p>{h.description}</p>
                     <span className="hub-arrow" aria-hidden="true">
                       {lang === 'tr' ? 'İncele' : 'Explore'}
                       <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
