@@ -2712,6 +2712,10 @@ a.archive-row:hover .archive-row-title {
 /* The tint is a panel, so it gets the inset a panel needs — bled back out
    with a negative margin, the way .archive-row does, so the controls stay
    optically aligned with the text above them. */
+/* Search and the year range share one row: they are the page's two
+   controls, and stacking them left a short search pill above a short filter
+   line with most of the bar empty. Where the row is too narrow for both, the
+   year range wraps under the search, as it always did. */
 .newsstand-controlbar {
   background: color-mix(in srgb, var(--surface) 92%, transparent);
   border-bottom: 1px solid var(--line);
@@ -2719,13 +2723,30 @@ a.archive-row:hover .archive-row-title {
   padding-inline: var(--space-2);
   margin-inline: calc(var(--space-2) * -1);
   margin-bottom: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2) var(--space-4);
+}
+/* The search row's own top margin spaces it from the title on the flat
+   pages; inside the bar it would push the pill below the year range. */
+.newsstand-controlbar .archive-search-row {
+  margin-top: 0;
+}
+/* Same 44px block as the year inputs beside it, border included, so the two
+   controls share a top and a bottom edge. The pill as a whole stays a 44px
+   touch target. */
+.newsstand-controlbar .search-field input {
+  min-height: 42px;
+  padding-block: 0;
 }
 .newsstand-controlbar-filters {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   align-items: center;
-  margin-top: var(--space-2);
+  /* Matches the 44px search pill, so the two sit on one baseline. */
+  min-height: 44px;
 }
 /* The year-range card reads as boxed, block-shaped filter chrome in its
    original (sidebar) context; sitting next to the compact pill-shaped
