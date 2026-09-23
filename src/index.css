@@ -1566,15 +1566,9 @@ main:focus {
 }
 
 /* ---------- Archive layout (sidebar + list) ---------- */
-.archive-intro {
-  font-family: var(--headline);
-  font-size: var(--text-lead);
-  font-style: italic;
-  color: var(--ink);
-  max-width: var(--measure);
-  margin: var(--space-3) 0 0;
-}
-
+/* .archive-intro is gone with the standfirsts it styled: the section pages
+   now run title → search → list, and each section's sentence lives on in the
+   page description and its JSON-LD. */
 .archive-layout {
   display: flex;
   flex-direction: column;

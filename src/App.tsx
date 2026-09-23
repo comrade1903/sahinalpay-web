@@ -534,7 +534,6 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
         <Reveal>
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
-          <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
         {data.externalUrl && (
@@ -706,10 +705,6 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
         <FlatArchivePage
           data={{ ...t.academicArticles, items: archiveData.academicArticles }}
           foreignItems={foreign.academicArticles}
-          foreignLabel={t.abroadArchiveLabel}
-          /* No standfirst here at the owner's request; the sentence stays in
-             the page description and the section's JSON-LD. */
-          showIntro={false}
           lang={lang}
         />
       ) : (

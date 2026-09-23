@@ -25,6 +25,7 @@ import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
+import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import { trialProcessSections } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
@@ -73,11 +74,6 @@ export interface Content {
    *  piece. Named from the reader's side: a Turkish reader sees "foreign
    *  language", an English reader sees "Turkish". */
   foreignArchiveLabel: string
-  /** Makale ve Bildiriler uses this instead: that section's other-language group
-   *  also holds three Turkish texts a foreign institution published, so
-   *  "yabancı dilde" would be wrong for them, while every record in it was
-   *  published outside the Turkish press. */
-  abroadArchiveLabel: string
   hub: { key: PageKey; title: string; description: string }[]
   about: {
     kicker: string
@@ -216,6 +212,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: "Published in Afa's \u201cTowards the 21st Century\u201d series: Turkey's next thirty years read through democracy, the economy, the Kurdish question and relations with Europe.",
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics. The book closes with a summary in Turkish and English.',
@@ -258,6 +260,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: 'Afa Yayınları’nın “21. Yüzyıla Doğru” dizisinden: demokrasi, ekonomi, Kürt sorunu ve Avrupa’yla ilişkiler başlıkları altında Türkiye’nin önündeki otuz yıla baktığım kitap.',
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı. Kitabın sonunda Türkçe ve İngilizce özeti var.',
@@ -293,7 +301,6 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Explore',
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
-    abroadArchiveLabel: 'Turkish-Language Writing',
     hub: [
       {
         key: 'columns',
@@ -540,7 +547,6 @@ export const content: Record<Lang, Content> = {
     hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
-    abroadArchiveLabel: 'Yurtdışında Yayımlananlar',
     hub: [
       {
         key: 'columns',

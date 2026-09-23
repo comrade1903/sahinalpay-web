@@ -1080,7 +1080,6 @@ export function NewsstandArchivePage({
         <Reveal>
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
-          <p className="archive-intro">{data.intro}</p>
         </Reveal>
 
         <NewsstandControlBar
@@ -1154,20 +1153,9 @@ export function FlatArchivePage({
   data,
   lang,
   foreignItems = [],
-  foreignLabel,
-  showIntro = true,
 }: {
   data: FlatArchiveSection
   lang: Lang
-  /** Whether `data.intro` is printed under the title. It stays the page's
-   *  description for the browser tab and for search engines either way —
-   *  a section that reads better without a standfirst still needs one in
-   *  its <head>. */
-  showIntro?: boolean
-  /** Heading for the other-language group. Makale ve Bildiriler passes its own,
-   *  because that group holds work published abroad rather than only work in
-   *  another language. */
-  foreignLabel?: string
   /* The other language's records for this section. Merged into one dated list
      rather than shown as a second block: interviews and academic articles
      exist in Turkish only, so on the English pages `data.items` is empty and
@@ -1283,7 +1271,6 @@ export function FlatArchivePage({
         <Reveal>
           <p className="kicker">{data.kicker}</p>
           <h1 className="section-title">{data.title}</h1>
-          {showIntro && <p className="archive-intro">{data.intro}</p>}
         </Reveal>
 
         <ArchiveSearchRow
@@ -1368,7 +1355,7 @@ export function FlatArchivePage({
                   {foreignRows.length > 0 && (
                     <>
                       <h3 className="archive-foreign-title">
-                        {foreignLabel ?? content[lang].foreignArchiveLabel}
+                        {content[lang].foreignArchiveLabel}
                       </h3>
                       <ul className="archive-list">
                         {foreignRows.map((item) => (
