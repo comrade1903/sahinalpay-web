@@ -40,6 +40,20 @@ function lastmodFor(route, fingerprintSource) {
   return date
 }
 
+/* What a page's lastmod is fingerprinted against. Most page keys name their
+   own copy object; the home page has none — its text is the hero and the hub
+   around it — so it has to be named, or a rewritten hero would leave the
+   sitemap claiming the page had not changed since. */
+function copyForPage(lang, pageKey) {
+  const t = content[lang]
+  if (pageKey === 'home') {
+    return { hero: t.hero, hubKicker: t.hubKicker, hubTitle: t.hubTitle, hub: t.hub }
+  }
+  const key =
+    pageKey === 'academic' ? 'academicArticles' : pageKey === 'trial' ? 'trialProcess' : pageKey
+  return t[key] ?? null
+}
+
 /* Static pages: crawl hints only, so their shape lives here rather than in
    the app. Every key must exist in src/routes.ts — checked below. */
 const STATIC_HINTS = {
@@ -78,10 +92,7 @@ for (const lang of ['en', 'tr']) {
       changefreq,
       priority,
       lastmod: lastmodFor(route, {
-        copy:
-          content[lang][
-            pageKey === 'academic' ? 'academicArticles' : pageKey === 'trial' ? 'trialProcess' : pageKey
-          ] ?? null,
+        copy: copyForPage(lang, pageKey),
         title: content[lang].htmlTitle,
         counts: items.filter((item) => item.lang === lang).length,
       }),
