@@ -36,40 +36,40 @@
     "date": "2026-09-22"
   },
   "/tr": {
-    "fingerprint": "0b2b4c6d4d970967",
-    "date": "2026-09-23"
+    "fingerprint": "fca97e51d35e4902",
+    "date": "2026-09-24"
   },
   "/tr/kimdir": {
-    "fingerprint": "97ea246f2b6c6caf",
-    "date": "2026-09-23"
+    "fingerprint": "3ecc9901e76672f3",
+    "date": "2026-09-24"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "cbaef52b0f3993ae",
-    "date": "2026-09-23"
+    "fingerprint": "873e03725b39e174",
+    "date": "2026-09-24"
   },
   "/tr/soylesiler": {
-    "fingerprint": "86f3d8e42bbd8a9e",
-    "date": "2026-09-23"
+    "fingerprint": "1b373d71ae9b5c1b",
+    "date": "2026-09-24"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "57bc6825c9fa3fbb",
-    "date": "2026-09-23"
+    "fingerprint": "c6098220b4312581",
+    "date": "2026-09-24"
   },
   "/tr/kitaplar": {
-    "fingerprint": "6819db101269b9e9",
-    "date": "2026-09-23"
+    "fingerprint": "354983176d103c7d",
+    "date": "2026-09-24"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "ba3b340751dc2a03",
-    "date": "2026-09-23"
+    "fingerprint": "8f7b2b51505a2130",
+    "date": "2026-09-24"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "f38fd2deb40a32d8",
-    "date": "2026-09-23"
+    "fingerprint": "cf052cfb193c71fd",
+    "date": "2026-09-24"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "d9cd63fd7907f86d",
-    "date": "2026-09-23"
+    "fingerprint": "1bcaeef106811163",
+    "date": "2026-09-24"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",
@@ -2593,10 +2593,6 @@
   },
   "/columns/theories-about-erdogan-i-and-ii": {
     "fingerprint": "63f2bb65e29340f9",
-    "date": "2026-09-09"
-  },
-  "/tr/analizler/isci-koylu-1-mayis-1970": {
-    "fingerprint": "b522de581895c0d2",
     "date": "2026-09-09"
   }
 }

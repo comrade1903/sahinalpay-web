@@ -14,7 +14,6 @@ import { sabahColumnSeeds } from './tr/columns/sabah'
 import { zamanColumnSeeds } from './tr/columns/zaman'
 import { p24ColumnSeeds } from './tr/columns/p24'
 import { medyascopeColumnSeeds } from './tr/columns/medyascope'
-import { isciKoyluAnalysisSeeds } from './tr/analyses/isci-koylu'
 import { interviewSeeds } from './tr/interviews'
 import { academicArticleSeeds } from './tr/academic'
 
@@ -29,13 +28,14 @@ const columns: OutletGroup[] = [
   outletGroup('Medyascope', 'medyascope', 'columns', medyascopeColumnSeeds, 'tr', 'online'),
 ]
 
-/* Forum and Aydınlık/PDA were removed from the archive on 2026-09-22 at the
-   owner's request in issue #20: İşçi Köylü is the analyses record he wants
-   kept. Their page scans and article PDFs stay under public/archive so
-   the material is not lost if any of it is restored later. */
-const analyses: OutletGroup[] = [
-  outletGroup('İşçi Köylü', 'isci-koylu', 'analyses', isciKoyluAnalysisSeeds, 'tr'),
-]
+/* Forum, Aydınlık/PDA and İşçi Köylü were all removed from the archive at
+   the owner's request — Forum and Aydınlık on 2026-09-22 (issue #20), İşçi
+   Köylü on 2026-09-24, once Analizler itself was unlinked and a single
+   surviving record there no longer served a purpose. The section stays wired
+   up with zero outlets rather than deleted outright, so a restored record
+   would have somewhere to go. Every page scan and PDF stays under
+   public/archive so the material is not lost. */
+const analyses: OutletGroup[] = []
 
 export const trArchive: LanguageArchive = {
   columns,
