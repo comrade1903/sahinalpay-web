@@ -34,6 +34,11 @@
       "permanent": true
     },
     {
+      "source": "/tr/analizler/isci-koylu-1-mayis-1970",
+      "destination": "/tr/analizler",
+      "permanent": true
+    },
+    {
       "source": "/analyses/:slug",
       "destination": "/tr/analizler/:slug",
       "permanent": true

@@ -36,8 +36,9 @@ export const archiveSlugAliases: Record<ArchiveLang, Record<string, string>> = {
  *
  * Different from an alias above, which moves one address to another address
  * for the same piece. Here the piece is gone — Forum and Aydınlık / Proleter
- * Devrimci Aydınlık were removed on 2026-09-22 at the owner's request — so
- * there is nothing to point the old URL at except the section it belonged to.
+ * Devrimci Aydınlık on 2026-09-22, İşçi Köylü on 2026-09-24, all removed at
+ * the owner's request — so there is nothing to point the old URL at except
+ * the section it belonged to.
  * Without an entry the address answers a real 404, because the build
  * prerenders only live routes and vercel.json has no catch-all rewrite.
  *
@@ -59,6 +60,7 @@ export const withdrawnArchiveSlugs: Record<
     'aydinlik-osmanli-ticaret-sozlesmeleri': 'analyses',
     'aydinlik-turkiyenin-duzeni-uzerine': 'analyses',
     'pda-isci-sinifi-milli-demokratik-devrim': 'analyses',
+    'isci-koylu-1-mayis-1970': 'analyses',
   },
   en: {},
 }

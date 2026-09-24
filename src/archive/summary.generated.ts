@@ -32,7 +32,7 @@ export const archiveSummary: ArchiveSummary = {
       "tr": 477,
       "en": 97
     },
-    "analyses": 1,
+    "analyses": 0,
     "interviews": 9,
     "academic": 40
   },
@@ -78,12 +78,6 @@ export const archiveSummary: ArchiveSummary = {
       "from": 2007,
       "to": 2012,
       "count": 97
-    },
-    {
-      "outlet": "İşçi Köylü",
-      "from": 1970,
-      "to": 1970,
-      "count": 1
     },
     {
       "academic": true,
