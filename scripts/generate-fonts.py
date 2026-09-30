@@ -27,6 +27,10 @@ Prerequisites (not repo dependencies):
 
 Usage:
     python3 scripts/generate-fonts.py --src /tmp/fonts
+    python3 scripts/generate-fonts.py --src /tmp/fonts --icons-only
+
+`--icons-only` rebuilds just the icon font, for when ICONS changes. It needs
+only material.ttf, and leaves the text faces byte-for-byte as committed.
 """
 import argparse
 import json
@@ -53,28 +57,17 @@ LATIN_EXT = (
 # Every Material Symbols ligature the app renders. Kept in sync with the app
 # by scripts/validate-content.mjs, which fails on an icon that is not here.
 ICONS = [
-    "analytics",
     "arrow_back",
     "arrow_forward",
-    "article",
     "close",
-    "cookie",
-    "flag",
     "format_quote",
-    "forum",
-    "home",
-    "link",
     "menu",
     "menu_book",
-    "person",
     "picture_as_pdf",
-    "school",
     "search",
     "text_decrease",
     "text_increase",
-    "timeline",
     "tune",
-    "update",
     "warning",
     "zoom_in",
 ]
@@ -90,6 +83,11 @@ parser.add_argument("--src", default="/tmp/fonts", help="directory holding the u
 parser.add_argument(
     "--out",
     default=str(pathlib.Path(__file__).resolve().parent.parent / "public" / "fonts"),
+)
+parser.add_argument(
+    "--icons-only",
+    action="store_true",
+    help="rebuild only material-symbols.woff2 (and icons.json); needs only material.ttf",
 )
 args = parser.parse_args()
 
@@ -144,34 +142,36 @@ def instance(source, target, **axes):
 work = out / ".build"
 work.mkdir(exist_ok=True)
 
-# Nunito Sans ships four axes; the design varies only weight. Pinning the
-# other three cuts each slice by roughly three quarters. Literata keeps its
-# optical-size axis, which the browser applies automatically and which is
-# visible across this site's range from 0.85rem labels to display headings.
-nunito_wght = instance("nunito.ttf", work / "nunito-wght.ttf", YTLC=500, opsz=12, wdth=100)
+if not args.icons_only:
+    # Nunito Sans ships four axes; the design varies only weight. Pinning the
+    # other three cuts each slice by roughly three quarters. Literata keeps its
+    # optical-size axis, which the browser applies automatically and which is
+    # visible across this site's range from 0.85rem labels to display headings.
+    nunito_wght = instance("nunito.ttf", work / "nunito-wght.ttf", YTLC=500, opsz=12, wdth=100)
 
-faces = [
-    ("literata.ttf", "literata"),
-    ("literata-italic.ttf", "literata-italic"),
-    (nunito_wght, "nunito-sans"),
-]
+    faces = [
+        ("literata.ttf", "literata"),
+        ("literata-italic.ttf", "literata-italic"),
+        (nunito_wght, "nunito-sans"),
+    ]
 
-for source, stem in faces:
-    for range_name, unicodes in RANGES.items():
-        written[f"{stem}-{range_name}.woff2"] = subset(
-            source,
-            f"{stem}-{range_name}.woff2",
-            f"--unicodes={unicodes}",
-            f"--layout-features={FEATURES}",
-            "--drop-tables+=DSIG",
-        )
+    for source, stem in faces:
+        for range_name, unicodes in RANGES.items():
+            written[f"{stem}-{range_name}.woff2"] = subset(
+                source,
+                f"{stem}-{range_name}.woff2",
+                f"--unicodes={unicodes}",
+                f"--layout-features={FEATURES}",
+                "--drop-tables+=DSIG",
+            )
+
 
 def prune_ligatures(source, target, names):
     """Keeps only the ligature rules that produce the icons we render.
 
     The icon font is ligature-driven: the element's text ("arrow_forward")
     is substituted for a single glyph. Subsetting it naively does not work.
-    Ask for the 24 icon glyphs plus the ASCII letters that spell them and the
+    Ask for the icon glyphs plus the ASCII letters that spell them and the
     subsetter's layout closure pulls in every ligature reachable from those
     letters — the whole 4,277-rule set, 3.8 MB. Turn the closure off instead
     and the ligature lookups are dropped entirely, so the icons render as the
