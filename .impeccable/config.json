@@ -62,6 +62,12 @@
         "value": "18px",
         "createdAt": "2026-09-02T12:57:51.114Z",
         "reason": "Agent: wire-clip curve on the newsstand card, halved from the already-sanctioned 36px when the card turned landscape (96px tall) — same physical-hardware silhouette exception as that entry"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "material symbols outlined",
+        "createdAt": "2026-09-30T06:36:44.581Z",
+        "reason": "Claude triage: DESIGN.md Do's/Don'ts and Typography sections name Material Symbols ligatures as the site's sole icon system; it is an icon font, not a text face"
       }
     ]
   }
