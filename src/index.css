@@ -62,7 +62,6 @@
   --icon-sm: 16px;
   --icon-md: 18px;
   --icon-lg: 20px;
-  --icon-xl: 36px;
 
   /* Lettermarks — Literata initials set inside a frame. Not type (they
      are not read) and not icons (they are letters), so they carry their
@@ -831,10 +830,10 @@ main:focus {
   letter-spacing: 0;
   margin-bottom: var(--space-3);
 }
-.hero-name em {
-  font-style: italic;
+/* The given name steps down a weight; the surname carries the display
+   weight. Roman throughout — emphasis in a heading is weight, not italic. */
+.hero-name-first {
   font-weight: 500;
-  color: var(--accent-ink);
 }
 .hero-intro {
   font-family: var(--headline);
@@ -1007,12 +1006,12 @@ main:focus {
      at 220px the title floated in space left for a paragraph. */
   min-height: 176px;
   height: 100%;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.2s ease;
 }
+/* One signal: the hairline darkens to ink. No lift, no shadow — a card is
+   flat at rest and stays on the page plane when pointed at. */
 .hub-card:hover {
-  transform: translateY(-3px);
   border-color: var(--action);
-  box-shadow: var(--shadow-soft);
 }
 /* Card tone now carries information instead of decoration. Six
    near-identical per-category tints read as muddiness, not as a
@@ -1031,11 +1030,11 @@ main:focus {
 .hub-card-top {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
 }
-.hub-card-icon {
-  font-size: var(--icon-xl);
-  color: var(--ink-soft);
+/* Title and "Explore" sit at the foot of the card whether or not a count
+   sits above them, so every card in a row shares a baseline. */
+.hub-card-body {
+  margin-top: auto;
 }
 .hub-card-count {
   font-family: var(--label);
@@ -1067,10 +1066,6 @@ main:focus {
   font-weight: 700;
   font-size: var(--text-ui);
   gap: 0.3rem;
-  transition: gap 0.2s ease;
-}
-.hub-card:hover .hub-arrow {
-  gap: 0.6rem;
 }
 
 /* ---------- Press about him ("Silivri'den…") ---------- */
@@ -1149,7 +1144,7 @@ main:focus {
   overflow-wrap: anywhere;
 }
 
-/* ---------- Academic heritage (home) ---------- */
+/* ---------- Archive coverage (home) ---------- */
 .heritage-grid {
   display: grid;
   gap: var(--space-4);
@@ -1160,21 +1155,6 @@ main:focus {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
   }
-}
-.badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--label);
-  font-size: var(--text-label-sm);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent-ink);
-  background: var(--surface-mid);
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-3);
 }
 .heritage-copy .section-title {
   margin-bottom: var(--space-2);
@@ -1188,20 +1168,10 @@ main:focus {
   flex-direction: column;
   gap: var(--space-2);
 }
+/* Two short notes, ruled off by a hairline rather than boxed or iconed. */
 .heritage-feature {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-}
-.heritage-feature .material-symbols-outlined {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius);
-  background: var(--surface-high);
-  color: var(--ink-soft);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
 }
 .heritage-feature h3 {
   font-size: var(--text-title-sm);
@@ -1489,7 +1459,11 @@ main:focus {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
-  margin-top: var(--space-5);
+  /* Lives here rather than inline on the <ul>: an inline margin: 0 used to
+     override it, leaving the first card flush against the page title. */
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0 0;
 }
 @media (min-width: 800px) {
   .books-list {

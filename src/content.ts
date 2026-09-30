@@ -67,7 +67,6 @@ export interface Content {
     portraitAlt: string
     portraitCaption: string
   }
-  hubKicker: string
   hubTitle: string
   /** Heading for the other language's records, which every archive section
    *  lists after its own so a reader never has to switch language to find a
@@ -299,7 +298,6 @@ export const content: Record<Lang, Content> = {
       portraitAlt: 'Portrait of Şahin Alpay',
       portraitCaption: 'Şahin Alpay · b. 1944, Istanbul',
     },
-    hubKicker: 'Explore',
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
     hub: [
@@ -526,7 +524,6 @@ export const content: Record<Lang, Content> = {
       portraitAlt: 'Şahin Alpay’ın portresi',
       portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
     },
-    hubKicker: 'Keşfet',
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
     hub: [

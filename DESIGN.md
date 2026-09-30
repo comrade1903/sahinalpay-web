@@ -272,7 +272,7 @@ the most legible link treatment available to an older readership.
 - **Ink 900** (`#1a171c`): Headings, reading text, and every affordance. Never `#000`.
 - **Ink 700** (`#332e37`): Default body and UI text — the colour `<body>` actually sets.
 - **Ink 500** (`#57505d`): Muted metadata — captions, placeholders, source notes, dates,
-  kickers, the medium badge, and the large section icons.
+  kickers, and the medium badge.
 - **Line** (`#bdb0c9`) / **Line Strong** (`#6c5c7a` light, `#7b6c89` dark): The hairline
   vocabulary. Section dividers, list-row rules, card borders, ghost-button strokes. Line
   Strong is bound to `--control-border` and draws the visible boundary of real controls,
@@ -336,8 +336,10 @@ When you are operating the site, you are in Nunito Sans.
 ### Hierarchy
 
 - **Display** (700, `clamp(3rem, 9vw, 5.5rem)`, 1.12): The name in the hero, once per
-  site. Its italic span differs by style and weight (500) alone, not by colour — the
-  coloured second word was the single loudest generic-template tell on the page.
+  site. The given name steps down to weight 500 and the surname carries the full 700;
+  both are roman. The surname was once coloured and later italic, and both treatments
+  went for the same reason: an emphasised word inside a display heading is among the
+  most recognisable generic-template tells. Headings in this system are never italic.
 - **Headline** (700, `clamp(2rem, 4.5vw, 3rem)`, 1.12): Section and page titles, capped
   at 26ch so they break into readable lines rather than stretching the container.
 - **Title** (700, 1.3rem, 1.35): Card headings — hub cards, book cards, the clipping
@@ -378,8 +380,12 @@ The root size is 18px, so a "1rem" icon would be 18px and every icon in the syst
 silently resize with the reading base. Icon size is a glyph decision; reading size is not.
 
 `--icon-sm` 16px (inline with label and badge text) · `--icon-md` 18px (inline with UI
-text — arrows, the back link) · `--icon-lg` 20px (leading icon inside a field) ·
-`--icon-xl` 36px (section and card icons).
+text — arrows, the back link) · `--icon-lg` 20px (leading icon inside a field).
+
+There is no large icon step. A 36px `--icon-xl` once put a section glyph at the top of
+every home-page hub card and beside each archive-coverage note; it was retired on
+2026-09-30 along with those glyphs. An icon above a heading on a card is the
+icon-tile template, and the headings and counts already say what each card is.
 
 ### Lettermarks
 
@@ -409,6 +415,13 @@ font, and no weight of one substitutes for the other's job.
 dateline sit on the baseline with ascenders and descenders, the way the original page
 printed them. Interface numerals (counts, filters, years in badges) stay lining. Never
 apply `onum` to a UI number; never strip it from prose.
+
+**The One Kicker Rule.** A page opens with at most one kicker: the hero eyebrow on the
+home page, the kicker above the page title everywhere else. The sections below it do
+not get their own — the heading carries a section, and a label over every heading turns
+the page into a list of labelled lists. The footer's closing kicker is chrome and does
+not count. A small uppercase pill that does the same job (the old "Arşivin Kapsamı"
+badge) is a kicker too.
 
 **The 68ch Rule.** Reading measure is capped at `68ch` and never widened for a
 "denser" layout. Wide viewports get more margin, not longer lines.
@@ -460,7 +473,8 @@ Two shadows exist, and both are answers to state or layer:
 ### Shadow Vocabulary
 
 - **Soft** (`box-shadow: 0 4px 20px rgba(26, 23, 28, 0.08)`): The hover response on
-  cards and list surfaces, and the resting treatment for genuinely separate objects —
+  buttons and book cards (hub cards answer hover with their border alone — see Cards),
+  and the resting treatment for genuinely separate objects —
   filter panels, timeline cards, clipping frames.
 - **Lift** (`box-shadow: 0 10px 32px -8px rgba(26, 23, 28, 0.2)`): True overlays only —
   the skip link, drawers, dialogs, the clipping viewer.
@@ -532,11 +546,14 @@ one signal a user can read at a glance.
   takes a transparent fill with a dashed Line border. The six near-identical per-category
   tints this replaced read as muddiness rather than as a system, and carried no
   information — the counts underneath were identical
-- **Shadow Strategy:** None at rest; Soft on hover (see Elevation)
+- **Shadow Strategy:** None, at rest or on hover
 - **Border:** 1px at 55% Line alpha; dashed on a pending card
 - **Internal Padding:** `1.5rem`, with a `220px` minimum height on hub cards so a
   populated and an empty card sit at the same size
-- **Hover:** `translateY(-3px)`, border to Ink, Soft shadow, 0.25s ease
+- **Hover:** One signal — the border steps to Ink over 0.2s. No lift and no shadow:
+  a hub card stays on the page plane when pointed at, and the "Explore" arrow does not
+  move. Stacking a lift, a shadow, a border change and a moving arrow on one card was
+  four answers to one question
 
 ### Inputs / Fields
 
