@@ -54,7 +54,7 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
         >
           <p className="hero-eyebrow">{t.hero.eyebrow}</p>
           <h1 className="hero-name">
-            Şahin <em>Alpay</em>
+            <span className="hero-name-first">Şahin</span> Alpay
           </h1>
           <p className="hero-intro">{t.hero.intro}</p>
           <div className="hero-actions">
@@ -117,19 +117,6 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
  *  circles; `object-fit: cover` takes the centre square of the source,
  *  which lands on head and shoulders. */
 
-const HUB_ICONS: Record<PageKey, string> = {
-  home: 'home',
-  about: 'person',
-  columns: 'article',
-  analyses: 'analytics',
-  interviews: 'forum',
-  academic: 'school',
-  books: 'menu_book',
-  trial: 'timeline',
-  press: 'format_quote',
-  cookies: 'cookie',
-}
-
 /** Real item counts per section — never fabricated. Returns null where a
  *  count doesn't apply (e.g. the About page). */
 function hubCount(
@@ -166,58 +153,49 @@ function HubGrid({
   return (
     <section className="section">
       <div className="container">
+        {/* One entrance for the heading and the whole grid, not a stagger
+            per card: the cards are one index, so they arrive together. */}
         <Reveal>
-          <p className="kicker">{t.hubKicker}</p>
           <h2 className="section-title">{t.hubTitle}</h2>
-        </Reveal>
-        <div className="hub-grid">
-          {t.hub.map((h, i) => {
-            const count = hubCount(h.key, t, lang, summary)
-            const wide = h.key === 'columns' || h.key === 'books'
-            return (
-              <Reveal
-                as="div"
-                key={h.key}
-                delay={(i % 4) * 0.06}
-                className={wide ? 'hub-card-wide' : undefined}
-              >
-                <Link
-                  to={paths[lang][h.key]!}
-                  className={`hub-card hub-card-${h.key}`}
-                  data-state={count === 0 ? 'pending' : 'filled'}
-                >
-                  <div className="hub-card-top">
-                    <span
-                      className="material-symbols-outlined hub-card-icon"
-                      aria-hidden="true"
-                    >
-                      {HUB_ICONS[h.key]}
-                    </span>
-                    {count !== null &&
-                      (count > 0 ? (
-                        <span className="hub-card-count">
-                          {countLabel(count, lang, h.key === 'books' ? 'book' : 'piece')}
+          <div className="hub-grid">
+            {t.hub.map((h) => {
+              const count = hubCount(h.key, t, lang, summary)
+              const wide = h.key === 'columns' || h.key === 'books'
+              return (
+                <div key={h.key} className={wide ? 'hub-card-wide' : undefined}>
+                  <Link
+                    to={paths[lang][h.key]!}
+                    className={`hub-card hub-card-${h.key}`}
+                    data-state={count === 0 ? 'pending' : 'filled'}
+                  >
+                    {count !== null && (
+                      <div className="hub-card-top">
+                        {count > 0 ? (
+                          <span className="hub-card-count">
+                            {countLabel(count, lang, h.key === 'books' ? 'book' : 'piece')}
+                          </span>
+                        ) : (
+                          <span className="hub-card-count-empty">
+                            {lang === 'tr' ? 'Yakında' : 'Coming soon'}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    <div className="hub-card-body">
+                      <h3>{h.title}</h3>
+                      <span className="hub-arrow" aria-hidden="true">
+                        {lang === 'tr' ? 'İncele' : 'Explore'}
+                        <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
+                          arrow_forward
                         </span>
-                      ) : (
-                        <span className="hub-card-count-empty">
-                          {lang === 'tr' ? 'Yakında' : 'Coming soon'}
-                        </span>
-                      ))}
-                  </div>
-                  <div>
-                    <h3>{h.title}</h3>
-                    <span className="hub-arrow" aria-hidden="true">
-                      {lang === 'tr' ? 'İncele' : 'Explore'}
-                      <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
-                        arrow_forward
                       </span>
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            )
-          })}
-        </div>
+                    </div>
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -301,7 +279,7 @@ function CoverageStrip({
   )
 }
 
-function AcademicHeritage({
+function ArchiveCoverage({
   lang,
   summary,
 }: {
@@ -312,12 +290,6 @@ function AcademicHeritage({
     <section className="section">
       <div className="container heritage-grid">
         <Reveal className="heritage-copy">
-          <span className="badge-pill">
-            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-sm)' }}>
-              school
-            </span>
-            {lang === 'tr' ? 'Arşivin Kapsamı' : 'Archive Coverage'}
-          </span>
           <h2 className="section-title">
             {lang === 'tr'
               ? 'Arşivde ne var, ne yok'
@@ -330,30 +302,20 @@ function AcademicHeritage({
           </p>
           <div className="heritage-features">
             <div className="heritage-feature">
-              <span className="material-symbols-outlined" aria-hidden="true">
-                link
-              </span>
-              <div>
-                <h3>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h3>
-                <p>
-                  {lang === 'tr'
-                    ? 'Her yazı orijinal kaynağını belirtir.'
-                    : 'Each piece of writing references its original source.'}
-                </p>
-              </div>
+              <h3>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h3>
+              <p>
+                {lang === 'tr'
+                  ? 'Her yazı orijinal kaynağını belirtir.'
+                  : 'Each piece of writing references its original source.'}
+              </p>
             </div>
             <div className="heritage-feature">
-              <span className="material-symbols-outlined" aria-hidden="true">
-                update
-              </span>
-              <div>
-                <h3>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h3>
-                <p>
-                  {lang === 'tr'
-                    ? 'İçerik, zaman içinde yeni gazete küpürleri ve bağlantılarla genişletilmektedir.'
-                    : 'Content keeps expanding over time with new clippings and links.'}
-                </p>
-              </div>
+              <h3>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h3>
+              <p>
+                {lang === 'tr'
+                  ? 'İçerik, zaman içinde yeni gazete küpürleri ve bağlantılarla genişletilmektedir.'
+                  : 'Content keeps expanding over time with new clippings and links.'}
+              </p>
             </div>
           </div>
         </Reveal>
@@ -413,7 +375,7 @@ function HomePage({ lang }: { lang: Lang }) {
         <ArchiveInlineFailure lang={lang} onRetry={reloadArchive} />
       )}
       <HubGrid t={t} lang={lang} summary={summary} />
-      <AcademicHeritage lang={lang} summary={summary} />
+      <ArchiveCoverage lang={lang} summary={summary} />
     </>
   )
 }
@@ -551,52 +513,54 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
           </Reveal>
         )}
 
-        <ul className="books-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {data.books.map((b, i) => (
-            <Reveal as="li" key={`${b.year}-${b.title}`} className="book-card" delay={(i % 2) * 0.08}>
-              <div className="book-cover">
-                {b.cover ? (
-                  <img
-                    src={b.cover}
-                    alt={lang === 'tr' ? `${b.title} kapağı` : `${b.title} cover`}
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="book-cover-placeholder" aria-hidden="true">
-                    <span className="material-symbols-outlined">menu_book</span>
-                  </span>
-                )}
-              </div>
-              <div className="book-card-body">
-                <span className="book-year">{b.year}</span>
-                <h2 className="book-title">
-                  <em lang="tr">{b.title}</em>
-                </h2>
-                <p className="book-desc">{b.desc}</p>
-                {b.purchaseUrl && (
-                  <a
-                    className="book-buy"
-                    href={b.purchaseUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
-                      lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                    }`}
-                  >
-                    {buyButtonLabel(b.purchaseUrl, lang)}
-                    <span
-                      className="material-symbols-outlined"
-                      aria-hidden="true"
-                      style={{ fontSize: 'var(--icon-sm)' }}
-                    >
-                      arrow_forward
+        <Reveal delay={0.05}>
+          <ul className="books-list">
+            {data.books.map((b) => (
+              <li key={`${b.year}-${b.title}`} className="book-card">
+                <div className="book-cover">
+                  {b.cover ? (
+                    <img
+                      src={b.cover}
+                      alt={lang === 'tr' ? `${b.title} kapağı` : `${b.title} cover`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="book-cover-placeholder" aria-hidden="true">
+                      <span className="material-symbols-outlined">menu_book</span>
                     </span>
-                  </a>
-                )}
-              </div>
-            </Reveal>
-          ))}
-        </ul>
+                  )}
+                </div>
+                <div className="book-card-body">
+                  <span className="book-year">{b.year}</span>
+                  <h2 className="book-title">
+                    <em lang="tr">{b.title}</em>
+                  </h2>
+                  <p className="book-desc">{b.desc}</p>
+                  {b.purchaseUrl && (
+                    <a
+                      className="book-buy"
+                      href={b.purchaseUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
+                        lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                      }`}
+                    >
+                      {buyButtonLabel(b.purchaseUrl, lang)}
+                      <span
+                        className="material-symbols-outlined"
+                        aria-hidden="true"
+                        style={{ fontSize: 'var(--icon-sm)' }}
+                      >
+                        arrow_forward
+                      </span>
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   )
