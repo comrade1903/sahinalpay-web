@@ -240,6 +240,10 @@
     --mark-container: #4a221c;
 
     --action: var(--ink-900);
+    /* Must match the [data-theme='dark'] block below. Left unset here, it
+       fell back to the light theme's var(--ink-700), which in dark resolves
+       darker than the button — so hover dimmed instead of brightening. */
+    --action-hover: #f5f3f7;
     --on-action: var(--paper-50);
     --accent-ink: var(--ink-900);
     --on-accent: var(--paper-50);
@@ -289,7 +293,10 @@
   --mark-container: #4a221c;
 
   --action: var(--ink-900);
-  --action-hover: #ffffff;
+  /* The lightest step in dark theme: the lilac off-white of the light
+     theme's top sheet, not pure #fff — the palette has no fully
+     desaturated value in either theme. */
+  --action-hover: #f5f3f7;
   --on-action: var(--paper-50);
   --accent-ink: var(--ink-900);
   --on-accent: var(--paper-50);
@@ -838,8 +845,8 @@ main:focus {
 .hero-eyebrow {
   font-family: var(--label);
   font-size: var(--text-label);
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--mark-700);
   margin-bottom: var(--space-3);
@@ -937,7 +944,9 @@ main:focus {
   overflow: hidden;
   background: linear-gradient(160deg, var(--surface-low), var(--surface-mid));
   border: 1px solid var(--line);
-  box-shadow: var(--shadow-lift);
+  /* Soft, not Lift: a photograph resting on the page, like a clipping
+     frame, not an overlay. */
+  box-shadow: var(--shadow-soft);
 }
 .portrait img {
   width: 100%;
@@ -1247,7 +1256,6 @@ main:focus {
   font-size: var(--text-label);
   color: var(--muted);
   text-align: right;
-  font-feature-settings: 'onum' 1;
 }
 .coverage-axis {
   position: relative;
@@ -1264,7 +1272,6 @@ main:focus {
   font-family: var(--label);
   font-size: var(--text-label-sm);
   color: var(--muted);
-  font-feature-settings: 'onum' 1;
   white-space: nowrap;
 }
 
@@ -1727,10 +1734,15 @@ main:focus {
   cursor: pointer;
   transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
-.chip:hover,
+.chip:hover {
+  border-color: var(--action);
+  color: var(--ink);
+}
+/* Focus is the one state that takes the red mark, the same as the global
+   focus ring: ink says "you can press this", red says "you are here". */
 .chip:focus-visible {
   border-color: var(--accent);
-  color: var(--accent-ink);
+  color: var(--ink);
 }
 .chip[data-active='true'] {
   background: var(--action);
@@ -2443,7 +2455,9 @@ a.archive-row:hover .archive-row-title {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
+  /* Sits on each outlet's own brand colour, so it is a fixed value in both
+     themes; lilac off-white, never pure white. */
+  color: rgba(245, 243, 247, 0.92);
 }
 
 .newsstand-stack-paper-face {

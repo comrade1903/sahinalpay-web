@@ -147,13 +147,13 @@ components:
     textColor: "{colors.ink-700}"
     rounded: "{rounded.lg}"
     padding: "1.5rem"
-    height: "220px"
+    height: "176px"
   card-hub-pending:
     backgroundColor: "transparent"
     textColor: "{colors.ink-700}"
     rounded: "{rounded.lg}"
     padding: "1.5rem"
-    height: "220px"
+    height: "176px"
   card-lifted:
     backgroundColor: "{colors.paper-0}"
     textColor: "{colors.ink-700}"
@@ -237,8 +237,8 @@ The system has exactly **two roles**, and the whole palette follows from them:
 - **Proof Red** (`#a32b22`, dark `#e2796c`): The editor's pencil. The 24px rule before
   every kicker, the pull-quote rule, the article-subtitle rule, the nav underline on the
   current page, the link underline, the focus ring, the drop cap, the end mark, the
-  timeline and chronicle markers, the coverage bands, the reading-progress bar, the
-  monogram stamp. It marks; it never fills.
+  coverage bands, the reading-progress bar, the monogram stamp. It marks; it never
+  fills.
 - **Proof Red Deep** (`#7d1f18`, dark `#f0968c`): Red at text weight, where it must pass
   4.5:1 as small type. Only two places earn it: the hero eyebrow, and the clipping badge
   that says a piece survives only as a scan.
@@ -256,9 +256,11 @@ the most legible link treatment available to an older readership.
 - **Action** (`ink-900` in light, `ink-900` in dark — which is the *pale* value there):
   Button and active-chip fills. In dark theme ink is the light, so a button correctly
   inverts to paper-on-black instead of staying a dark rectangle on a dark page.
-- **Action Hover** (`ink-700` light / `#ffffff` dark): The hover step. It is a token, not
+- **Action Hover** (`ink-700` light / `#f5f3f7` dark): The hover step. It is a token, not
   a `filter: brightness()`, because a brightness multiplier that reads well on a
-  near-black button blows out a near-white one.
+  near-black button blows out a near-white one. In dark theme it is the lilac
+  off-white of the light theme's top sheet rather than `#ffffff`, which was the one
+  fully desaturated value in the palette until 2026-09-30.
 
 ### Neutral
 
@@ -345,9 +347,10 @@ When you are operating the site, you are in Nunito Sans.
 - **Title** (700, 1.3rem, 1.35): Card headings — hub cards, book cards, the clipping
   viewer, related articles.
 - **Title small** (700, 1.05rem, 1.35): The dense heading step — archive list rows,
-  recent cards, chronicle years, timeline eras, heritage features. Five components had
-  independently reached into the 1–1.15rem gap before this role existed; it is a real
-  role, not drift, and pretending otherwise is what let the gap refill.
+  the newsstand's paper names and contents rows, the two archive-coverage notes on the
+  home page. Five components had independently reached into the 1–1.15rem gap before
+  this role existed; it is a real role, not drift, and pretending otherwise is what let
+  the gap refill.
 - **Reading** (400, 1.05rem, 1.72): The article reader's own base, a touch above site
   body because that page is nothing but long-form. The A−/A+ control multiplies this
   token rather than a number buried in the component.
@@ -450,10 +453,11 @@ non-linear, widening as it goes so that section-level rhythm is unmistakably dif
 from component-level rhythm. Use the scale; there are no arbitrary gaps.
 
 Responsive behaviour is progressive disclosure of structure rather than a redraw. The
-observed breakpoints are `600px` (facts grid), `640px` (list rows go from stacked to
-date-column + body), `700px` (three-up card grids), `768px` (container padding, base
-font size), `900px` (desktop nav appears, hero splits `1.1fr / 0.9fr`, chronicle
-timeline moves from a left spine to a centre spine), and `1080px` (four-up hub grid).
+observed breakpoints are `560px` (coverage rows stack their year range under the
+track), `640px` (list rows go from stacked to date-column + body), `700px` (two-up hub
+grid), `768px` (container padding, base font size), `800px` (two-up book list),
+`900px` (desktop nav appears, hero splits `1.1fr / 0.9fr`), and `1080px` (four-up hub
+grid).
 Below 900px the navigation collapses into a drawer; the header itself stays sticky at
 `72px` with a saturating backdrop blur, gaining its bottom hairline only once scrolled.
 
@@ -475,7 +479,7 @@ Two shadows exist, and both are answers to state or layer:
 - **Soft** (`box-shadow: 0 4px 20px rgba(26, 23, 28, 0.08)`): The hover response on
   buttons and book cards (hub cards answer hover with their border alone — see Cards),
   and the resting treatment for genuinely separate objects —
-  filter panels, timeline cards, clipping frames.
+  filter panels, clipping frames, the hero portrait.
 - **Lift** (`box-shadow: 0 10px 32px -8px rgba(26, 23, 28, 0.2)`): True overlays only —
   the skip link, drawers, dialogs, the clipping viewer.
 
@@ -500,16 +504,15 @@ first, a tonal step second, and a shadow only if the element actually overlays c
 Two radii, two meanings. **`1rem` (rounded rectangle)** is the container language:
 cards, buttons, panels, filter cards, clipping frames, image wells. **`9999px` (pill)**
 is the status and control language: chips, badges, counts, the search field, the
-timeline marker, the red kicker rule, the nav underline. `0.5rem` is the inner
+coverage bands, the red kicker rule, the nav underline. `0.5rem` is the inner
 radius — an image or input nested inside an already-rounded container — and `1.5rem`
-is reserved for the largest panels (the home "recently added" panel uses `2rem`, the
-one deliberate outlier).
+is reserved for the largest surfaces, the hero portrait and its backing sheet.
 
 Borders are hairlines, and card borders are deliberately softened with
 `color-mix(in srgb, var(--line) 55%, transparent)` so a grid of cards reads as a group
-rather than a set of boxes. Nothing in the system uses a border heavier than 1px except
-the timeline marker's 3px surface-coloured ring, which exists to punch the dot out of
-the spine behind it.
+rather than a set of boxes. No container border is heavier than 1px. The two 2px lines
+in the system are rules, not borders: the red rule under an article subtitle and the
+ink rule that heads the newsstand's contents list.
 
 ### Named Rules
 
@@ -548,8 +551,9 @@ one signal a user can read at a glance.
   information — the counts underneath were identical
 - **Shadow Strategy:** None, at rest or on hover
 - **Border:** 1px at 55% Line alpha; dashed on a pending card
-- **Internal Padding:** `1.5rem`, with a `220px` minimum height on hub cards so a
-  populated and an empty card sit at the same size
+- **Internal Padding:** `1.5rem`, with a `176px` minimum height on hub cards so a
+  populated and an empty card sit at the same size. It was `220px` while the cards
+  carried a description; without one, the title floated in space left for a paragraph
 - **Hover:** One signal — the border steps to Ink over 0.2s. No lift and no shadow:
   a hub card stays on the page plane when pointed at, and the "Explore" arrow does not
   move. Stacking a lift, a shadow, a border change and a moving arrow on one card was
@@ -598,29 +602,13 @@ The first-person text is labelled as a new editorial introduction based on the
 memoirs and essays. It carries no attributed pull quote or promotional statistics.
 The narrative leads directly to the footer. Book cards remain on the dedicated Books page.
 
-### The Chronicle Spine
-
-A year-by-year timeline: a 2px left rail with a `4rem` year gutter (`3rem` below 560px)
-at every width. Each year carries a proportional bar of published output and a count.
-
-**Known gap — the axis is not continuous.** Only years that carry an item or an event
-are rendered; a year with neither is omitted, so the spine jumps. A continuous axis
-with labelled gap bands was built and then withdrawn, and this file described that
-behaviour for a while as though it had shipped — it had not.
-
-The design problem the withdrawn work was aimed at is still open and still real: an
-omitted year reads as "he did not write", which is the one thing this page must never
-imply about material that simply has not been recovered. The page introduction now
-explicitly distinguishes archival gaps from years without writing. The axis itself
-still omits empty years.
-
 ### The Coverage Strip
 
 The homepage's answer to "what does this archive hold". One row per outlet on a shared
 year axis: an uppercase outlet label, a track carrying a band across the years that
-outlet covers, the year range, and decade ticks along the bottom. It reuses the
-chronicle's bar vocabulary — a red band on a `--surface-mid` track — so the front page
-and the timeline read as one system.
+outlet covers, the year range, and decade ticks along the bottom. Each band is a red
+mark on a `--surface-mid` track: the mark plots, the paper step carries the axis. Years
+here are interface numerals, so they stay lining (see the Old-Style Figures Rule).
 
 Every span is derived from the archive data, so no coverage is claimed for an outlet
 whose material has not been recovered; the gaps between bands are the honest shape of
