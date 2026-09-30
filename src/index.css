@@ -172,6 +172,21 @@
   --container: 1320px;
   --measure: 68ch;
 
+  /* Easing. One curve for every CSS transition — the same one the motion
+     entrances use — so a hover and a scroll-reveal settle the same way.
+     Never the browser's bare `ease`. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Stacking scale, lowest to highest. Named layers instead of ad-hoc
+     numbers, so a new overlay has an obvious place to go. */
+  --z-raised: 3; /* a part lifted over its own component */
+  --z-sticky: 5; /* sticky elements inside the page flow */
+  --z-float: 20; /* floating page controls */
+  --z-progress: 90; /* the reading-progress bar */
+  --z-notice: 95; /* the cookie notice */
+  --z-header: 100; /* the sticky site header and its drawer */
+  --z-skip: 110; /* the skip link, above everything */
+
   color-scheme: light dark;
   font-family: var(--body);
   font-size: 18px;
@@ -304,7 +319,11 @@ body {
   background: var(--bg);
   color: var(--ink-soft);
   min-height: 100dvh;
+  /* clip, not hidden: it stops sideways overflow without making body a
+     scroll container. hidden stays as the fallback for browsers that
+     predate clip. */
   overflow-x: hidden;
+  overflow-x: clip;
   /* Inherited by all text: long words/URLs wrap instead of pushing past the viewport */
   overflow-wrap: break-word;
 }
@@ -378,7 +397,7 @@ html {
   position: fixed;
   top: 0.75rem;
   left: 50%;
-  z-index: 999;
+  z-index: var(--z-skip);
   transform: translate(-50%, -140%);
   background: var(--action);
   color: var(--on-accent);
@@ -388,7 +407,7 @@ html {
   font-size: var(--text-ui);
   font-weight: 800;
   box-shadow: var(--shadow-lift);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s var(--ease-out);
 }
 .skip-link:focus {
   transform: translate(-50%, 0);
@@ -510,11 +529,11 @@ main:focus {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-header);
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   backdrop-filter: saturate(1.3) blur(10px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
 }
 .site-header[data-scrolled='true'] {
   border-bottom-color: var(--line);
@@ -564,7 +583,7 @@ main:focus {
   position: relative;
   padding-block: 0.4rem;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: color 0.2s var(--ease-out);
 }
 /* The rule is drawn at full width and revealed with scaleX from the
    left, rather than animated from width 0 — a width transition on a
@@ -580,7 +599,7 @@ main:focus {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s var(--ease-out);
 }
 .nav a:hover {
   color: var(--ink);
@@ -614,7 +633,7 @@ main:focus {
   display: inline-grid;
   place-items: center;
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 .icon-btn:hover,
 .icon-btn:focus-visible {
@@ -642,7 +661,7 @@ main:focus {
   display: inline-grid;
   place-items: center;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 .lang-toggle:hover,
 .lang-toggle:focus-visible {
@@ -662,7 +681,7 @@ main:focus {
   display: inline-grid;
   place-items: center;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 .mobile-menu-toggle:hover,
 .mobile-menu-toggle:focus-visible {
@@ -687,7 +706,7 @@ main:focus {
   display: inline-grid;
   place-items: center;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
@@ -763,8 +782,8 @@ main:focus {
   border-radius: var(--radius-lg);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
-    border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s var(--ease-out), background 0.2s var(--ease-out), color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
 }
 /* Ink carries the affordance: the primary button is a solid press of
    ink on paper, not a coloured pill. */
@@ -794,7 +813,7 @@ main:focus {
   color: var(--accent-ink);
   font-weight: 700;
   border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease-out);
 }
 .text-link:hover {
   border-color: var(--accent);
@@ -908,10 +927,6 @@ main:focus {
   background: var(--surface-mid);
   border-radius: var(--radius-xl);
   transform: rotate(-3deg) scale(1.05);
-  transition: transform 0.5s ease;
-}
-.portrait-frame:hover .portrait-echo {
-  transform: rotate(0deg) scale(1.05);
 }
 .portrait {
   position: relative;
@@ -1006,7 +1021,7 @@ main:focus {
      at 220px the title floated in space left for a paragraph. */
   min-height: 176px;
   height: 100%;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease-out);
 }
 /* One signal: the hairline darkens to ink. No lift, no shadow — a card is
    flat at rest and stays on the page plane when pointed at. */
@@ -1347,7 +1362,7 @@ main:focus {
   position: fixed;
   right: var(--space-4);
   bottom: var(--space-4);
-  z-index: 20;
+  z-index: var(--z-float);
   display: flex;
   align-items: center;
   min-height: 44px;
@@ -1415,7 +1430,7 @@ main:focus {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 .book:hover {
   transform: translateY(-3px);
@@ -1478,7 +1493,7 @@ main:focus {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: var(--space-3);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 .book-card:hover {
   transform: translateY(-3px);
@@ -1530,7 +1545,7 @@ main:focus {
   color: var(--accent-ink);
   align-self: flex-start;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease-out);
 }
 .book-buy:hover {
   border-color: var(--action);
@@ -1710,7 +1725,7 @@ main:focus {
   padding: 0.5rem 0.9rem;
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 .chip:hover,
 .chip:focus-visible {
@@ -1759,7 +1774,7 @@ main:focus {
   font-size: var(--text-ui);
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s var(--ease-out);
 }
 .filter-reset:hover,
 .filter-reset:focus-visible {
@@ -1867,7 +1882,7 @@ main:focus {
   gap: 0.5rem;
   padding-block: var(--space-3);
   border-bottom: 1px solid var(--line);
-  transition: background 0.2s ease;
+  transition: background 0.2s var(--ease-out);
 }
 .archive-row-static {
   cursor: default;
@@ -1939,7 +1954,7 @@ a.archive-row:hover {
 }
 .archive-row-title {
   font-size: var(--text-title-sm);
-  transition: color 0.2s ease;
+  transition: color 0.2s var(--ease-out);
 }
 a.archive-row:hover .archive-row-title {
   color: var(--accent-ink);
@@ -1966,7 +1981,7 @@ a.archive-row:hover .archive-row-title {
     color: var(--accent-ink);
     opacity: 0;
     transform: translateX(-6px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
   }
   a.archive-row:hover .archive-row-arrow {
     opacity: 1;
@@ -2076,7 +2091,7 @@ a.archive-row:hover .archive-row-title {
   width: 100%;
   height: 3px;
   background: transparent;
-  z-index: 90;
+  z-index: var(--z-progress);
 }
 /* Scaled, not resized. This bar updates on every scroll frame of a
    long article, so animating width would hand the compositor a layout
@@ -2124,7 +2139,7 @@ a.archive-row:hover .archive-row-title {
   color: var(--accent-ink);
   margin-bottom: var(--space-3);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease-out);
 }
 .back-link:hover {
   border-color: var(--action);
@@ -2141,7 +2156,7 @@ a.archive-row:hover .archive-row-title {
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 5;
+  z-index: var(--z-sticky);
   margin-top: 0.4rem;
   max-width: min(92vw, 34rem);
   padding: 0.75rem 0.9rem;
@@ -2382,7 +2397,7 @@ a.archive-row:hover .archive-row-title {
   transform-origin: 50% 92%;
   transition:
     transform 0.35s cubic-bezier(0.22, 0.85, 0.24, 1),
-    filter 0.3s ease;
+    filter 0.3s var(--ease-out);
 }
 /* An outlet with real branding but no pieces yet (Sabah, Zaman, Today's
    Zaman) — still a real, clickable spine, just visibly quieter than a
@@ -2404,7 +2419,7 @@ a.archive-row:hover .archive-row-title {
      stays themed and legible in both light and dark. Flat at rest — the
      lift shadow appears only on the selected card. */
   background: var(--surface-raised);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s var(--ease-out);
 }
 .newsstand-stack-paper[data-active='true'] .newsstand-stack-paper-inner {
   box-shadow: var(--shadow-lift);
@@ -2508,7 +2523,7 @@ a.archive-row:hover .archive-row-title {
   border: 1px solid var(--line-strong);
   border-top: none;
   border-radius: 0 0 var(--radius) var(--radius);
-  z-index: 3;
+  z-index: var(--z-raised);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2605,7 +2620,7 @@ a.archive-row:hover .archive-row-title {
   border-bottom: 1px solid var(--line);
   color: inherit;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background 0.15s var(--ease-out);
 }
 .newsstand-toc-row:hover,
 .newsstand-toc-row:focus-visible {
@@ -3010,7 +3025,7 @@ a.archive-row:hover .archive-row-title {
   font-family: var(--label);
   font-size: var(--text-ui);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s var(--ease-out);
 }
 .clipping-open:hover .clipping-open-hint,
 .clipping-open:focus-visible .clipping-open-hint {
@@ -3079,7 +3094,7 @@ a.archive-row:hover .archive-row-title {
   font-weight: 600;
   color: var(--ink-soft);
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
 }
 .footer-links a:hover {
   color: var(--accent-ink);
@@ -3102,7 +3117,7 @@ a.archive-row:hover .archive-row-title {
   position: fixed;
   inset-inline: 0;
   bottom: 0;
-  z-index: 95;
+  z-index: var(--z-notice);
   padding: 0.85rem 0;
   background: var(--surface);
   border-top: 1px solid var(--line);

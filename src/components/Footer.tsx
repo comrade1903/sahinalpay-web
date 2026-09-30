@@ -1,3 +1,5 @@
+import { useReducedMotion } from 'motion/react'
+import type { MouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { content } from '../content'
 import { langForPath, paths } from '../routes'
@@ -7,6 +9,14 @@ export function Footer() {
   const location = useLocation()
   const lang = langForPath(location.pathname)
   const t = content[lang]
+  const reduce = useReducedMotion()
+  /* "Back to top" means the top of this page, not the home page. Focus goes
+     to <main> as well, so a keyboard user's next Tab starts at the top too. */
+  const toTop = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, left: 0, behavior: reduce ? 'instant' : 'smooth' })
+    document.getElementById('main-content')?.focus({ preventScroll: true })
+  }
   return (
     <footer className="site-footer" id="contact">
       <div className="container">
@@ -19,7 +29,9 @@ export function Footer() {
             <a href={`mailto:${CONTACT_EMAIL}`}>{t.footer.email}</a>
             <Link to={paths[lang].columns!}>{t.footer.columnsLabel}</Link>
             <Link to={paths[lang].books!}>{t.footer.booksLabel}</Link>
-            <Link to={paths[lang].home!}>{t.footer.backToTop}</Link>
+            <a href="#main-content" onClick={toTop}>
+              {t.footer.backToTop}
+            </a>
             <Link to={paths[lang].cookies!}>{t.footer.cookieLabel}</Link>
           </nav>
         </div>

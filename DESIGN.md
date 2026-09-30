@@ -524,7 +524,7 @@ one signal a user can read at a glance.
 - **Shape:** Rounded rectangle (`1rem`), `44px` minimum height, `0.85rem 1.6rem` padding
 - **Primary:** Ink fill, paper text, matching border. Nunito Sans 0.85rem/700
 - **Hover:** Rises 1px, gains the Soft shadow, and steps to `--action-hover` — all over
-  0.2s ease. A token, not a brightness filter, so it works in both themes
+  0.2s on `--ease-out`. A token, not a brightness filter, so it works in both themes
 - **Ghost:** Transparent with a Line Strong stroke and Ink 900 text; on hover the stroke
   turns Ink, the fill becomes the 6%-alpha ink wash, the text stays Ink 900
 - **Text link:** Ink 900 at weight 700 with a red underline that goes solid on hover.
@@ -652,6 +652,9 @@ fading in.
   and for an existing custom property before writing a literal value.
 - **Do** put every animation behind `useReducedMotion` or the global reduced-motion
   block, and give reduced-motion users the end state rather than nothing.
+- **Do** time every CSS transition on `--ease-out` (`cubic-bezier(0.22, 1, 0.36, 1)`),
+  the same curve the motion entrances use, so a hover and a reveal settle alike. The
+  browser's bare `ease` is not used, and neither is a bouncing or overshooting curve.
 - **Do** pass `behavior: 'instant'` on any programmatic scroll reset — `html` sets
   `scroll-behavior: smooth` site-wide, so a bare `scrollTo` silently animates.
 - **Do** check every visual change in both themes and at a mobile width; dark is a
