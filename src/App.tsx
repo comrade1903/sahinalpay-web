@@ -337,8 +337,8 @@ function AcademicHeritage({
                 <h3>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h3>
                 <p>
                   {lang === 'tr'
-                    ? 'Her yazı, orijinal yayınına doğrudan bağlantılıdır.'
-                    : 'Every piece links directly back to its original publication.'}
+                    ? 'Her yazı orijinal kaynağını belirtir.'
+                    : 'Each piece of writing references its original source.'}
                 </p>
               </div>
             </div>
