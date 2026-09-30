@@ -441,9 +441,6 @@ if (!fs.existsSync(iconsPath)) {
       const single = /^\s*'([a-z_0-9]+)'\s*$/.exec(expression)
       if (single) used.add(single[1])
     }
-    for (const match of source.matchAll(/^const HUB_ICONS[\s\S]*?^\}/gm)) {
-      for (const literal of match[0].matchAll(/:\s*'([a-z_0-9]+)'/g)) used.add(literal[1])
-    }
   }
   const missing = [...used].filter((name) => !subsetIcons.has(name))
   if (missing.length) {
