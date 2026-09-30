@@ -927,13 +927,15 @@ main:focus {
   margin-inline: auto;
 }
 /* A second sheet behind the first, not a coloured halo — the depth
-   here is paper stacked on paper. */
+   here is paper stacked on paper. Upright: it used to rest at -3deg and
+   straighten on hover, and once the hover went it was left permanently
+   askew. */
 .portrait-echo {
   position: absolute;
   inset: 0;
   background: var(--surface-mid);
   border-radius: var(--radius-xl);
-  transform: rotate(-3deg) scale(1.05);
+  transform: scale(1.05);
 }
 .portrait {
   position: relative;
