@@ -172,6 +172,11 @@
   --container: 1320px;
   --measure: 68ch;
 
+  /* Header geometry. The wordmark row, and below it on wide screens the
+     section bar. Anything positioned against the header reads these. */
+  --header-row-h: 72px;
+  --section-bar-h: 3rem;
+
   /* Easing. One curve for every CSS transition — the same one the motion
      entrances use — so a hover and a scroll-reveal settle the same way.
      Never the browser's bare `ease`. */
@@ -548,55 +553,87 @@ main:focus {
   border-bottom-color: var(--line);
   box-shadow: 0 1px 0 var(--line);
 }
+/* Wide screens: the header sticks with its wordmark row pulled above the
+   viewport, so scrolling takes the wordmark away and leaves the section
+   bar pinned. The bar draws its own bottom rule, so the scrolled hairline
+   would double it. */
+@media (min-width: 1080px) {
+  .site-header {
+    top: calc(-1 * var(--header-row-h));
+  }
+  .site-header[data-scrolled='true'] {
+    border-bottom-color: transparent;
+    box-shadow: none;
+  }
+}
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  height: 72px;
+  height: var(--header-row-h);
 }
 
 /* One-off: the wordmark is a brand lockup, not a heading. It sits
    between --text-title and --text-headline on purpose, because it is
-   sized to the 72px header rather than to the type scale. */
+   sized to the header row rather than to the type scale; on wide screens,
+   where the row holds nothing else but the two toggles, it steps up.
+   Weighted like the hero name: the given name a step lighter, both roman. */
 .wordmark {
   font-family: var(--headline);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0;
   color: var(--ink);
   white-space: nowrap;
 }
-.wordmark span {
-  color: var(--accent-ink);
+.wordmark-first {
+  font-weight: 500;
+}
+@media (min-width: 1080px) {
+  .wordmark {
+    font-size: 1.65rem;
+  }
 }
 
+/* The section bar. Every section at equal weight in one ruled strip,
+   split by hairlines, like a newspaper's section index. */
 .nav {
   display: none;
-  gap: clamp(1rem, 1.6vw, 1.75rem);
-  align-items: center;
 }
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .nav {
     display: flex;
+    align-items: stretch;
+    height: var(--section-bar-h);
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
   }
 }
 
 .nav a {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-1);
   font-family: var(--label);
   font-size: var(--text-ui);
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--ink-soft);
   position: relative;
-  padding-block: 0.4rem;
   white-space: nowrap;
   transition: color 0.2s var(--ease-out);
 }
-/* The rule is drawn at full width and revealed with scaleX from the
-   left, rather than animated from width 0 — a width transition on a
-   sticky header makes the browser lay the row out on every frame. */
+.nav a + a {
+  border-left: 1px solid var(--line);
+}
+/* The rule runs along the foot of the cell. It is drawn at full width and
+   revealed with scaleX from the left, rather than animated from width 0 —
+   a width transition on a sticky header makes the browser lay the row out
+   on every frame. */
 .nav a::after {
   content: '';
   position: absolute;
@@ -604,7 +641,6 @@ main:focus {
   bottom: 0;
   height: 2px;
   width: 100%;
-  border-radius: var(--radius-full);
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left center;
@@ -702,7 +738,7 @@ main:focus {
   border-color: var(--control-border-hover);
   background: var(--control-bg-hover);
 }
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -734,7 +770,7 @@ main:focus {
 
 .mobile-nav-backdrop {
   position: fixed;
-  inset: 72px 0 0;
+  inset: var(--header-row-h) 0 0;
   display: none;
   background: var(--menu-scrim);
 }
@@ -743,7 +779,7 @@ main:focus {
 }
 .mobile-nav {
   position: fixed;
-  top: 72px;
+  top: var(--header-row-h);
   left: var(--space-2);
   right: var(--space-2);
   display: none;
@@ -774,7 +810,7 @@ main:focus {
   color: var(--accent-ink);
   background: var(--accent-soft);
 }
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .mobile-nav,
   .mobile-nav-backdrop {
     display: none !important;
@@ -2107,12 +2143,19 @@ a.archive-row:hover .archive-row-title {
 }
 .reading-progress {
   position: fixed;
-  top: 72px;
+  top: var(--header-row-h);
   left: 0;
   width: 100%;
   height: 3px;
   background: transparent;
   z-index: var(--z-progress);
+}
+/* Wide screens: once the wordmark row has scrolled away the pinned header
+   is just the section bar, so the progress line sits under that. */
+@media (min-width: 1080px) {
+  .reading-progress {
+    top: var(--section-bar-h);
+  }
 }
 /* Scaled, not resized. This bar updates on every scroll frame of a
    long article, so animating width would hand the compositor a layout

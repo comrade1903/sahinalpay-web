@@ -400,8 +400,9 @@ base because they are set in the reading face.
 ### One-Offs
 
 Four values are deliberately outside every scale, each with a reason recorded at its
-declaration: the root size (18px / 17px), the **wordmark** (1.4rem — a brand lockup sized
-to the 72px header), the **article body paragraph** (`1em`, inheriting the reader's scaled
+declaration: the root size (18px / 17px), the **wordmark** (1.4rem, 1.65rem from 1080px —
+a brand lockup sized to the 72px header row, given name at 500 and surname at 700 like the
+hero name), the **article body paragraph** (`1em`, inheriting the reader's scaled
 base), and the **drop cap** (`3.4em`, relative to the paragraph it opens).
 
 Two more stood here until the About page was rewritten as a first-person narrative: the
@@ -456,10 +457,9 @@ Responsive behaviour is progressive disclosure of structure rather than a redraw
 observed breakpoints are `560px` (coverage rows stack their year range under the
 track), `640px` (list rows go from stacked to date-column + body), `700px` (two-up hub
 grid), `768px` (container padding, base font size), `800px` (two-up book list),
-`900px` (desktop nav appears, hero splits `1.1fr / 0.9fr`), and `1080px` (four-up hub
-grid).
-Below 900px the navigation collapses into a drawer; the header itself stays sticky at
-`72px` with a saturating backdrop blur, gaining its bottom hairline only once scrolled.
+`900px` (hero splits `1.1fr / 0.9fr`), and `1080px` (four-up hub grid; the section bar
+replaces the drawer). Below 1080px the navigation lives in a drawer; the header stays
+sticky with a saturating backdrop blur, gaining its bottom hairline only once scrolled.
 
 Article list rows are the archive's densest surface: a fixed `9rem` metadata column
 carrying date and outlet, then a fluid body. Below 640px that column unstacks into an
@@ -570,14 +570,27 @@ one signal a user can read at a glance.
 
 ### Navigation
 
-- Nunito Sans 0.85rem/600 in Ink 700, hidden below 900px. Hover lifts text to Ink 900
-  and grows a 2px red underline from 0 to 100% width over 0.25s. The current page takes
-  Ink 900 text with the underline already full — position is the mark's job, so the
-  underline is red while the text stays ink. Below 900px the same links move into a
-  slide-in drawer over a scrim, where the active item gets a filled red wash instead of
-  an underline.
-- The header is sticky at `72px` with `saturate(1.3) blur(10px)` over a 90%-alpha
-  surface, and grows its bottom hairline only once the page has scrolled.
+The header has two tiers on wide screens, like a newspaper: a `72px` wordmark row holding
+only the wordmark and the language and theme toggles, and below it the **section bar**.
+
+- **The section bar** (from 1080px): every section on one `3rem` strip between two Line
+  Strong rules, at equal weight. Each label takes an equal share of the width, centred,
+  Nunito Sans 0.85rem/600 in Ink 700, and cells are split by Line hairlines. Hover lifts
+  text to Ink 900 and draws a 2px red rule along the foot of the cell, revealed with
+  `scaleX` over 0.25s; the current page takes Ink 900 text with the rule already drawn —
+  position is the mark's job, so the rule is red while the text stays ink. 1080px is
+  where all seven labels fit on one line in both languages with room either side;
+  below it they would wrap or crowd, and a navigation label never wraps.
+- **Scrolling** (from 1080px): the header is sticky at `top: -72px`, so the wordmark row
+  scrolls away and the section bar is what stays pinned. The bar's own bottom rule
+  replaces the scrolled hairline, and the reading-progress line sits under the bar. No
+  script decides this; it is the sticky offset alone.
+- **Below 1080px**: one `72px` row of wordmark, menu button and toggles. The links move
+  into a slide-in drawer over a scrim, where the active item gets a filled red wash
+  instead of a rule. Phones keep the drawer rather than a sideways-scrolling strip,
+  which would hide sections off the edge of the screen from an older readership.
+- The header uses `saturate(1.3) blur(10px)` over a 90%-alpha surface, and below 1080px
+  grows its bottom hairline only once the page has scrolled.
 
 ### The Article Page
 
