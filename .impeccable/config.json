@@ -68,6 +68,15 @@
         "value": "material symbols outlined",
         "createdAt": "2026-09-30T06:36:44.581Z",
         "reason": "Claude triage: DESIGN.md Do's/Don'ts and Typography sections name Material Symbols ligatures as the site's sole icon system; it is an icon font, not a text face"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.65rem",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-10-01T10:25:53.736Z",
+        "reason": "Claude: the wide-screen wordmark size, recorded as a deliberate one-off in DESIGN.md Typography > One-Offs; owner approved the section-bar header it belongs to"
       }
     ]
   }

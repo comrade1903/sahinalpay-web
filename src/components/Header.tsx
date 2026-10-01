@@ -117,21 +117,8 @@ export function Header() {
       <header className="site-header" data-scrolled={scrolled}>
         <div className="container header-inner">
           <Link to={paths[lang].home!} className="wordmark">
-            Şahin <span>Alpay</span>
+            <span className="wordmark-first">Şahin</span> Alpay
           </Link>
-          <nav className="nav" aria-label={lang === 'tr' ? 'Ana menü' : 'Primary'}>
-            {t.nav.map((n) => (
-              <Link
-                key={n.key}
-                to={paths[lang][n.key]!}
-                aria-current={
-                  pageKeyForPath(location.pathname) === n.key ? 'page' : undefined
-                }
-              >
-                {n.label}
-              </Link>
-            ))}
-          </nav>
           <div className="header-actions">
             <button
               type="button"
@@ -165,6 +152,35 @@ export function Header() {
             <SunMoon />
           </button>
           </div>
+        </div>
+        {/* The section bar: every section at equal weight on a ruled strip,
+            like a newspaper's section index. Shown from 1080px, where all
+            seven labels fit on one line; below that the drawer carries
+            them. On wide screens the wordmark row scrolls away and this
+            strip is what stays pinned (see .site-header in index.css). */}
+        <div className="container">
+          <nav className="nav" aria-label={lang === 'tr' ? 'Bölümler' : 'Sections'}>
+            {t.nav.map((n) => (
+              <Link
+                key={n.key}
+                to={paths[lang][n.key]!}
+                className={n.lines ? 'nav-two-line' : undefined}
+                aria-current={
+                  pageKeyForPath(location.pathname) === n.key ? 'page' : undefined
+                }
+              >
+                {n.lines ? (
+                  <span>
+                    {n.lines[0]}
+                    <br />
+                    {n.lines[1]}
+                  </span>
+                ) : (
+                  n.label
+                )}
+              </Link>
+            ))}
+          </nav>
         </div>
         <div
           className="mobile-nav-backdrop"
