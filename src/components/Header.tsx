@@ -164,11 +164,20 @@ export function Header() {
               <Link
                 key={n.key}
                 to={paths[lang][n.key]!}
+                className={n.lines ? 'nav-two-line' : undefined}
                 aria-current={
                   pageKeyForPath(location.pathname) === n.key ? 'page' : undefined
                 }
               >
-                {n.label}
+                {n.lines ? (
+                  <span>
+                    {n.lines[0]}
+                    <br />
+                    {n.lines[1]}
+                  </span>
+                ) : (
+                  n.label
+                )}
               </Link>
             ))}
           </nav>

@@ -56,7 +56,9 @@ export interface BooksSection {
 export interface Content {
   htmlTitle: string
   htmlDescription: string
-  nav: { key: PageKey; label: string }[]
+  /* `lines` sets a label on two lines in the wide-screen section bar, split
+     where the language reads naturally; everywhere else `label` is used. */
+  nav: { key: PageKey; label: string; lines?: [string, string] }[]
   contactLabel: string
   themeToggleLabel: string
   langToggleLabel: string
@@ -282,9 +284,17 @@ export const content: Record<Lang, Content> = {
       { key: 'about', label: 'About' },
       { key: 'columns', label: 'Columns' },
       { key: 'interviews', label: 'Interviews' },
-      { key: 'academic', label: 'Articles and Papers' },
+      {
+        key: 'academic',
+        label: 'Articles and Papers',
+        lines: ['Articles', 'Papers'],
+      },
       { key: 'books', label: 'Books' },
-      { key: 'trial', label: 'The 15 July Case Against Me' },
+      {
+        key: 'trial',
+        label: 'The 15 July Case Against Me',
+        lines: ['The 15 July', 'Case Against Me'],
+      },
       { key: 'press', label: 'About Me in the Press' },
     ],
     contactLabel: 'Contact',
@@ -508,9 +518,17 @@ export const content: Record<Lang, Content> = {
       { key: 'about', label: 'Kimdir?' },
       { key: 'columns', label: 'Köşe Yazıları' },
       { key: 'interviews', label: 'Söyleşiler' },
-      { key: 'academic', label: 'Makale ve Bildiriler' },
+      {
+        key: 'academic',
+        label: 'Makale ve Bildiriler',
+        lines: ['Makaleler', 'Bildiriler'],
+      },
       { key: 'books', label: 'Kitaplar' },
-      { key: 'trial', label: '15 Temmuz Yargılanma Sürecim' },
+      {
+        key: 'trial',
+        label: '15 Temmuz Yargılanma Sürecim',
+        lines: ['15 Temmuz', 'Yargılanma Sürecim'],
+      },
       { key: 'press', label: 'Basında Hakkımda' },
     ],
     contactLabel: 'İletişim',

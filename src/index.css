@@ -630,6 +630,13 @@ main:focus {
 .nav a + a {
   border-left: 1px solid var(--line);
 }
+/* A label with `lines` in content.ts is set on two lines, broken where
+   the language reads naturally, so the longest label stops taking the
+   widest cell of the bar. */
+.nav a.nav-two-line span {
+  text-align: center;
+  line-height: 1.2;
+}
 /* The rule runs along the foot of the cell. It is drawn at full width and
    revealed with scaleX from the left, rather than animated from width 0 —
    a width transition on a sticky header makes the browser lay the row out

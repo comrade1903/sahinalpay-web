@@ -579,8 +579,15 @@ only the wordmark and the language and theme toggles, and below it the **section
   text to Ink 900 and draws a 2px red rule along the foot of the cell, revealed with
   `scaleX` over 0.25s; the current page takes Ink 900 text with the rule already drawn —
   position is the mark's job, so the rule is red while the text stays ink. 1080px is
-  where all seven labels fit on one line in both languages with room either side;
-  below it they would wrap or crowd, and a navigation label never wraps.
+  where all seven labels fit with room either side; below it they would crowd.
+- **Two-line labels** are the one exception to "a navigation label never wraps", and
+  they are set, not wrapped: a nav item in `content.ts` may carry `lines`, two strings
+  the bar stacks with a fixed break (line-height 1.2, inside the `3rem` bar). Two do
+  today — Makaleler / Bildiriler (Articles / Papers) and 15 Temmuz / Yargılanma Sürecim
+  (The 15 July / Case Against Me) — so the longest labels stop taking the widest cells.
+  The break is chosen per language where the words read naturally, never left to the
+  browser, and only the bar uses it; the drawer, page titles and everything else keep
+  the one-line `label`.
 - **Scrolling** (from 1080px): the header is sticky at `top: -72px`, so the wordmark row
   scrolls away and the section bar is what stays pinned. The bar's own bottom rule
   replaces the scrolled hairline, and the reading-progress line sits under the bar. No
