@@ -426,12 +426,14 @@ main:focus {
 
 .material-symbols-outlined {
   /* The first six declarations came from Google's own stylesheet, which the
-     site no longer loads (see fonts.css). Same values, so the icons keep
-     their size, spacing and ligature behaviour. */
+     site no longer loads (see fonts.css), so the icons keep its spacing and
+     ligature behaviour. The size is the exception: Google's 24px is not on
+     this site's icon scale, so an icon given no size of its own lands on
+     --icon-lg instead. */
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: var(--icon-lg);
   letter-spacing: normal;
   text-transform: none;
   white-space: nowrap;
@@ -689,6 +691,10 @@ main:focus {
   place-items: center;
   cursor: pointer;
   transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+/* Matches the 18px glyph in the theme toggle beside it. */
+.mobile-menu-toggle .material-symbols-outlined {
+  font-size: var(--icon-md);
 }
 .mobile-menu-toggle:hover,
 .mobile-menu-toggle:focus-visible {
@@ -1986,6 +1992,7 @@ a.archive-row:hover .archive-row-title {
 }
 .archive-row-arrow {
   display: none;
+  font-size: var(--icon-md);
 }
 @media (min-width: 900px) {
   .archive-row-arrow {
