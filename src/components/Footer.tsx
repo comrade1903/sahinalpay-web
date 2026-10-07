@@ -5,6 +5,10 @@ import { content } from '../content'
 import { langForPath, paths } from '../routes'
 import { CONTACT_EMAIL } from '../siteConfig'
 
+/* Read once at load rather than during render, which oxlint's react(purity)
+   rule flags: a static page only needs the year it was opened in. */
+const CURRENT_YEAR = new Date().getFullYear()
+
 export function Footer() {
   const location = useLocation()
   const lang = langForPath(location.pathname)
@@ -37,7 +41,7 @@ export function Footer() {
         </div>
         <div className="footer-meta">
           <span>
-            © {new Date().getFullYear()} Şahin Alpay. {t.footer.rights}
+            © {CURRENT_YEAR} Şahin Alpay. {t.footer.rights}
           </span>
           <span>{t.footer.tagline}</span>
         </div>
