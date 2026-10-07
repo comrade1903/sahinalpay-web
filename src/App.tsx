@@ -215,15 +215,15 @@ function CoverageStrip({
   /* Every outlet, in both languages. The strip answers "what does this archive
      hold", and the archive is bilingual — filtering it by UI language would show
      an English reader 411 pieces from one paper instead of the real body of work.
-     Outlet names are proper nouns, so they read the same either way. Makale ve
-     Bildiriler is the one row that isn't a named outlet — it groups a doctoral
+     Outlet names are proper nouns, so they read the same either way. Türkçe ve
+     Yabancı Dilde Makaleler is the one row that isn't a named outlet — it groups a doctoral
      dissertation, book chapters and books rather than one publication, so its
      label is translated like any other UI string instead of staying fixed. */
   const bands = summary.coverage
     .map((band) => ({
       ...band,
       outlet:
-        band.outlet ?? (lang === 'tr' ? 'Makale ve Bildiriler' : 'Articles and Papers'),
+        band.outlet ?? (lang === 'tr' ? 'Türkçe ve Yabancı Dilde Makaleler' : 'Articles in Turkish and Other Languages'),
     }))
     .sort((a, b) => a.from - b.from)
 
