@@ -1156,12 +1156,9 @@ export function FlatArchivePage({
 }: {
   data: FlatArchiveSection
   lang: Lang
-  /* The other language's records for this section. Merged into one dated list
-     rather than shown as a second block: interviews and academic articles
-     exist in Turkish only, so on the English pages `data.items` is empty and
-     these are the whole list. Should a section ever hold both, the merged
-     list stays honest — every row names its outlet, and the outlets do not
-     overlap between languages — and the note below says what is here. */
+  /* The other language's records for this section. Filtered and paged
+     together with the page's own records, then listed after them under
+     `foreignArchiveLabel`. */
   foreignItems?: ArchiveItem[]
 }) {
   const location = useLocation()

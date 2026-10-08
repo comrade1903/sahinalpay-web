@@ -647,9 +647,9 @@ function CookiePolicyPage({ lang }: { lang: Lang }) {
 /* Every section lists the other language's records under their own heading,
    so a reader looking for a piece never has to switch language to find it.
    This is also what replaced the English explainer pages for analyses,
-   interviews and academic articles: those sections exist only in Turkish, so
+   interviews and academic articles: those sections are almost all Turkish, so
    the English page used to be a title and a button pointing across. It now
-   shows the records themselves, each opening on its Turkish page. */
+   shows the records themselves, each opening on its own language's page. */
 function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
   const { data: archiveData, foreign, fallback } = useArchiveGate(lang)
   const t = content[lang]
@@ -859,7 +859,7 @@ export default function App() {
    slug that no longer matches an entry. Both used to <Navigate> home, which hands
    the reader a 200 OK page showing the wrong thing with no signal that anything
    went wrong — worse for a citable record than an honest dead end. */
-/* Analyses, interviews and academic articles are Turkish-only content, but their
+/* Analyses, interviews and academic articles are almost all Turkish, but their
    English URLs are real addresses that appear in citations. Sending them to the
    homepage threw away a link that points at an article we actually have; send the
    reader to the piece itself instead. */

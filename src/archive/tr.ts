@@ -1,6 +1,7 @@
 /**
- * The Turkish archive: the Turkish-press columns plus the analyses,
- * interviews and academic articles, all of which exist only in Turkish.
+ * The Turkish archive: the Turkish-press columns plus the analyses, and the
+ * Turkish-language interviews and academic articles (the English and German
+ * ones live in the English archive).
  *
  * Split from the English archive so a page loads one language's metadata, not
  * both. Nothing at runtime needs both at once — the home page's cross-language
