@@ -63,6 +63,9 @@ export function pageKeyForPath(pathname: string): PageKey {
 
 /** Path to the same page in another language, falling back to that language's home. */
 export function equivalentPath(pathname: string, targetLang: Lang): string {
+  if (['/tr/soylesiler-new', '/interviews-new'].includes(pathname)) {
+    return targetLang === 'tr' ? '/tr/soylesiler-new' : '/interviews-new'
+  }
   const key = pageKeyForPath(pathname)
   return paths[targetLang][key] ?? paths[targetLang].home!
 }

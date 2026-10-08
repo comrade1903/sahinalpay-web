@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Content, type Lang, type BooksSection } from './content'
@@ -21,6 +21,8 @@ import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
 import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
 import { LANG_KEY } from './lib/preferences'
 import { readStoredValue } from './lib/storage'
+
+const InterviewsPreviewPage = lazy(() => import('./components/InterviewsPage').then(module => ({ default: module.InterviewsPage })))
 
 /* ------------------------------------------------------------------
    Şahin Alpay — a personal & political legacy site. Bilingual (EN/TR),
@@ -716,6 +718,10 @@ function MainShell() {
   return (
     <main id="main-content" tabIndex={-1} ref={mainRef}>
       <Routes>
+          {/* Unlisted draft routes: intentionally absent from navigation and sitemap. */}
+          <Route path="/soylesiler-new" element={<Navigate to="/tr/soylesiler-new" replace />} />
+          <Route path="/tr/soylesiler-new" element={<Suspense fallback={null}><InterviewsPreviewPage lang="tr" /></Suspense>} />
+          <Route path="/interviews-new" element={<Suspense fallback={null}><InterviewsPreviewPage lang="en" /></Suspense>} />
           <Route path="/" element={<RouteFor lang="en" pageKey="home" />} />
           <Route path="/about" element={<RouteFor lang="en" pageKey="about" />} />
           <Route
