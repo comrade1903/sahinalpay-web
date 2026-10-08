@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
-import { content, type Content, type Lang, type BooksSection } from './content'
+import { content, type Book, type Content, type Lang, type BooksSection } from './content'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
@@ -16,6 +16,7 @@ import { PressPage, PressArticlePage } from './components/press'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
+import { BookForewordDialog } from './components/BookForewordDialog'
 import { paths, langForPath, type PageKey } from './routes'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
 import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
@@ -474,6 +475,7 @@ function buyButtonLabel(url: string, lang: Lang): string {
  *  (often third-party, sometimes defunct) source link. */
 function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
+  const [forewordBook, setForewordBook] = useState<Book | null>(null)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -536,32 +538,52 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     <em lang="tr">{b.title}</em>
                   </h2>
                   <p className="book-desc">{b.desc}</p>
-                  {b.purchaseUrl && (
-                    <a
-                      className="book-buy"
-                      href={b.purchaseUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
-                        lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                      }`}
-                    >
-                      {buyButtonLabel(b.purchaseUrl, lang)}
-                      <span
-                        className="material-symbols-outlined"
-                        aria-hidden="true"
-                        style={{ fontSize: 'var(--icon-sm)' }}
+                  <div className="book-actions">
+                    {b.foreword && (
+                      <button
+                        type="button"
+                        className="book-buy book-foreword-open"
+                        aria-haspopup="dialog"
+                        onClick={() => setForewordBook(b)}
                       >
-                        arrow_forward
-                      </span>
-                    </a>
-                  )}
+                        {lang === 'tr' ? 'Önsözü oku' : 'Read the foreword (in Turkish)'}
+                        <span
+                          className="material-symbols-outlined"
+                          aria-hidden="true"
+                          style={{ fontSize: 'var(--icon-sm)' }}
+                        >
+                          menu_book
+                        </span>
+                      </button>
+                    )}
+                    {b.purchaseUrl && (
+                      <a
+                        className="book-buy"
+                        href={b.purchaseUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
+                          lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                        }`}
+                      >
+                        {buyButtonLabel(b.purchaseUrl, lang)}
+                        <span
+                          className="material-symbols-outlined"
+                          aria-hidden="true"
+                          style={{ fontSize: 'var(--icon-sm)' }}
+                        >
+                          arrow_forward
+                        </span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
         </Reveal>
       </div>
+      <BookForewordDialog book={forewordBook} lang={lang} onClose={() => setForewordBook(null)} />
     </section>
   )
 }
