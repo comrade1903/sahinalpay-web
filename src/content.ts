@@ -3,7 +3,7 @@
 
    Site is organized as a writing archive:
    Kimdir? / About → Köşe Yazıları / Columns → Söyleşiler →
-   Makale ve Bildiriler / Articles and Papers → Kitaplar / Books.
+   Türkçe ve Yabancı Dilde Makaleler / Articles in Turkish and Other Languages → Kitaplar / Books.
    Analizler keeps its route and its records but is not linked from the
    navigation or the home page for now, at the owner's request.
 
@@ -181,96 +181,96 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '2025',
       title: 'Hikâyemin Sonu',
-      desc: 'The second memoir follows my years at Zaman, the hopes and disappointments of the 2000s, my imprisonment in Silivri and my last months with Fatma. It returns to the decisions whose consequences reached into our family life.',
+      desc: 'My years writing for Zaman... my hopes and disappointments of the early 2000s... the notes I kept in prison in Silivri... my last months together with Fatma... In this second book of my memoirs I reconsider the choices whose consequences reached as far as my family life.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
     },
     {
       year: '2024',
       title: 'Bir Hikâyem Var',
-      desc: 'From my childhood in Istanbul and Ayvalık through revolutionary politics and refuge in Sweden to life in the newsroom. The first memoir traces how my ideas changed, with Fatma, family and friends at the heart of the account.',
+      desc: 'This book covers my memories from my childhood in Istanbul and Ayvalık to my revolutionary youth, from taking refuge in Sweden and earning my doctorate there to my return home and my years as a newspaper columnist. In telling how my ideas changed over time, and under which influences, I look at the place Fatma, my family and my friends have had in my life.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
     },
     {
       year: '2003',
       title: 'Türkiye’nin Tanıkları: İçeriden Bakanlar',
-      desc: 'Conversations with those who shaped Turkey from within — a portrait of a country in argument with itself.',
+      desc: 'Interviews I conducted during my years at Cumhuriyet, Sabah and Milliyet (1982-2001) with the politicians, thinkers and scholars who shaped intellectual life in Turkey, a range running from Sabri Ülgener and Şerif Mardin to Ergun Özbudun and Ersin Kalaycıoğlu.',
       cover: coverTaniklariIceriden,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-iceriden-bakanlar/54111.html',
     },
     {
       year: '2002',
       title: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar',
-      desc: 'Outside observers on Turkey: how the republic has been read, admired, and misunderstood abroad.',
+      desc: 'In this book I gathered, under the heading “Türkiye’nin Tanıkları” (Turkey’s Witnesses), the interviews I conducted during my years at Cumhuriyet, Sabah and Milliyet (1982-2001) with world-renowned statesmen, social scientists and journalists who came to Turkey on various occasions.',
       cover: coverTaniklariDisaridan,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
-      desc: 'Written with Seyfettin Gürsel — where the politics of the Democratic Left Party and the Social Democratic Populist Party converged, and where they parted ways.',
+      desc: 'This study, carried out together with Seyfettin Gürsel, set out to shed light on where the two parties claiming to be on the left in the 1980s converged and where they parted ways, by comparing their programmes and interviewing their leaders. (At the time the DSP’s leader was Rahşan Ecevit, but we spoke with her husband, who was then banned from politics.)',
       cover: coverDspShp,
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
       year: '1991',
       title: '2020 Yılında Türkiye',
-      desc: "Published in Afa's \u201cTowards the 21st Century\u201d series: Turkey's next thirty years read through democracy, the economy, the Kurdish question and relations with Europe.",
+      desc: 'Based on interviews with people who shaped the country’s intellectual and political life, this study set out to shed light on how Turkey’s elites saw its relatively long-term (thirty-year) future: in a sense, on their “psychology”. In this book I interpreted the results of my research.',
       cover: cover2020Turkiye,
     },
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'My doctoral-era study of Turkish immigrants in Stockholm — their social and political life, published in Swedish as volume 16 of Stockholm Studies in Politics. The book closes with a summary in Turkish and English.',
+      desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish.',
     },
   ],
   tr: [
     {
       year: '2025',
       title: 'Hikâyemin Sonu',
-      desc: 'Zaman’da geçen yıllar, 2000’lerin umutları ve hayal kırıklıkları, Silivri, Fatma’yla son aylarımız. İkinci kitapta, sonuçları aile hayatımıza kadar uzanan tercihlerime ve yaşadıklarıma yeniden bakıyorum.',
+      desc: 'Zaman gazetesinde yazdığım yıllar... 2000’lerin başındaki umutlarım ve hayal kırıklıklarım... Silivri’de hapislikte tuttuğum notlar... Fatma’yla birlikte son aylarımız... Anılarımın bu ikinci kitabında sonuçları aile hayatıma kadar uzanan tercihlerimi yeniden değerlendiriyorum.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
     },
     {
       year: '2024',
       title: 'Bir Hikâyem Var',
-      desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınışımdan gazete yıllarına. İlk kitapta, fikirlerimin nasıl değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerini de arıyorum.',
+      desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınıp doktora yapmamdan, yurda dönüş ve gazete yazarlığına uzanan anılarımı kapsayan bu kitapta fikirlerimin nasıl zamanla, hangi etkiler altında değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerine bakıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
     },
     {
       year: '2003',
       title: 'Türkiye’nin Tanıkları: İçeriden Bakanlar',
-      desc: 'Türkiye’yi içeriden biçimlendirenlerle söyleşiler — kendisiyle tartışan bir ülkenin portresi.',
+      desc: 'Cumhuriyet, Sabah ve Milliyet gazetelerinde çalıştığım yıllarda (1982-2001), Sabri Ülgener ve Şerif Mardin’den başlayıp Ergun Özbudun ve Ersin Kalaycıoğlu’na kadar uzanan bir yelpazede Türkiye’de fikir hayatına yön veren siyasiler, fikir ve bilim adamları ile yaptığım söyleşiler bu kitapta.',
       cover: coverTaniklariIceriden,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-iceriden-bakanlar/54111.html',
     },
     {
       year: '2002',
       title: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar',
-      desc: 'Türkiye’ye dışarıdan bakanlar: Cumhuriyet yurtdışında nasıl okundu, hayranlık duyuldu ve yanlış anlaşıldı.',
+      desc: 'Cumhuriyet, Sabah ve Milliyet gazetelerinde çalıştığım yıllarda (1982-2001) çeşitli vesilelerle Türkiye’ye gelen dünyaca tanınmış siyaset adamları, sosyal bilimciler ve gazetecilerle yaptığım söyleşileri “Türkiye’nin Tanıkları” başlığı altında bu kitapta topladım.',
       cover: coverTaniklariDisaridan,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
-      desc: 'Seyfettin Gürsel ile birlikte yazdığım, Demokratik Sol Parti ile Sosyaldemokrat Halkçı Parti’nin siyasetinin nerede birleştiğini, nerede ayrıldığını ele alan bir inceleme.',
+      desc: 'Seyfettin Gürsel ile birlikte yaptığımız bu çalışma, parti programlarını karşılaştırarak ve genel başkanlarıyla mülakatlar yaparak 1980’lerde sol olma iddiasındaki iki partinin birleştikleri ve ayrıldıkları konulara ışık tutmayı amaçlıyordu. (O tarihte DSP Genel Başkanı Rahşan Ecevit idi, ama biz yasaklı eşiyle konuşmuştuk.)',
       cover: coverDspShp,
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
       year: '1991',
       title: '2020 Yılında Türkiye',
-      desc: 'Afa Yayınları’nın “21. Yüzyıla Doğru” dizisinden: demokrasi, ekonomi, Kürt sorunu ve Avrupa’yla ilişkiler başlıkları altında Türkiye’nin önündeki otuz yıla baktığım kitap.',
+      desc: 'Fikir ve siyaset yaşamına yön veren kimselerle yaptığım mülakatlara dayanan bu araştırma, ülke seçkinlerinin görece uzun vadeli (30 yıllık) geleceği nasıl gördüklerine, bir anlamda “psikolojisi”ne ışık tutmayı amaçlıyordu. Araştırmamın sonuçlarını bu kitapta yorumladım.',
       cover: cover2020Turkiye,
     },
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'Stockholm’deki Türk göçmenler üzerine doktora dönemimden kalan araştırma; İsveççe olarak Stockholm Studies in Politics dizisinin 16. cildinde yayımlandı. Kitabın sonunda Türkçe ve İngilizce özeti var.',
+      desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe özet bulunuyordu.',
     },
   ],
 }
@@ -286,8 +286,8 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Interviews' },
       {
         key: 'academic',
-        label: 'Articles and Papers',
-        lines: ['Articles', 'Papers'],
+        label: 'Articles in Turkish and Other Languages',
+        lines: ['Articles in Turkish', 'and Other Languages'],
       },
       { key: 'books', label: 'Books' },
       {
@@ -295,7 +295,7 @@ export const content: Record<Lang, Content> = {
         label: 'The 15 July Case Against Me',
         lines: ['The 15 July', 'Case Against Me'],
       },
-      { key: 'press', label: 'About Me in the Press' },
+      { key: 'press', label: 'In the Turkish and Foreign Press' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -313,10 +313,10 @@ export const content: Record<Lang, Content> = {
     hub: [
       { key: 'columns', title: 'Columns' },
       { key: 'interviews', title: 'Interviews' },
-      { key: 'academic', title: 'Articles and Papers' },
+      { key: 'academic', title: 'Articles in Turkish and Other Languages' },
       { key: 'books', title: 'Books' },
       { key: 'trial', title: 'The 15 July Case Against Me' },
-      { key: 'press', title: 'About Me in the Press' },
+      { key: 'press', title: 'In the Turkish and Foreign Press' },
     ],
     about: {
       "kicker": "Life story",
@@ -367,7 +367,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Archive',
-      title: 'Articles and Papers',
+      title: 'Articles in Turkish and Other Languages',
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
@@ -405,7 +405,7 @@ export const content: Record<Lang, Content> = {
     },
     press: {
       kicker: 'Selections from the Press',
-      title: 'About Me in the Press',
+      title: 'In the Turkish and Foreign Press',
       subtitle: 'What the Turkish and foreign press wrote about me',
       intro:
         'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 812 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
@@ -427,7 +427,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'In the Turkish Press',
       foreignLabel: 'In the Foreign Press',
       sourceLinkLabel: 'Original source',
-      backLabel: 'About Me in the Press',
+      backLabel: 'In the Turkish and Foreign Press',
     },
     footer: {
       kicker: 'Keep in touch',
@@ -520,8 +520,8 @@ export const content: Record<Lang, Content> = {
       { key: 'interviews', label: 'Söyleşiler' },
       {
         key: 'academic',
-        label: 'Makale ve Bildiriler',
-        lines: ['Makaleler', 'Bildiriler'],
+        label: 'Türkçe ve Yabancı Dilde Makaleler',
+        lines: ['Türkçe ve Yabancı', 'Dilde Makaleler'],
       },
       { key: 'books', label: 'Kitaplar' },
       {
@@ -529,7 +529,7 @@ export const content: Record<Lang, Content> = {
         label: '15 Temmuz Yargılanma Sürecim',
         lines: ['15 Temmuz', 'Yargılanma Sürecim'],
       },
-      { key: 'press', label: 'Basında Hakkımda' },
+      { key: 'press', label: 'Yerli ve Dış Basında' },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -547,10 +547,10 @@ export const content: Record<Lang, Content> = {
     hub: [
       { key: 'columns', title: 'Köşe Yazıları' },
       { key: 'interviews', title: 'Söyleşiler' },
-      { key: 'academic', title: 'Makale ve Bildiriler' },
+      { key: 'academic', title: 'Türkçe ve Yabancı Dilde Makaleler' },
       { key: 'books', title: 'Kitaplar' },
       { key: 'trial', title: '15 Temmuz Yargılanma Sürecim' },
-      { key: 'press', title: 'Basında Hakkımda' },
+      { key: 'press', title: 'Yerli ve Dış Basında' },
     ],
     about: {
       "kicker": "Yaşam öyküsü",
@@ -608,7 +608,7 @@ export const content: Record<Lang, Content> = {
     },
     academicArticles: {
       kicker: 'Arşiv',
-      title: 'Makale ve Bildiriler',
+      title: 'Türkçe ve Yabancı Dilde Makaleler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
       items: [],
@@ -632,7 +632,7 @@ export const content: Record<Lang, Content> = {
     },
     press: {
       kicker: 'Basından Seçmeler',
-      title: 'Basında Hakkımda',
+      title: 'Yerli ve Dış Basında',
       subtitle: 'Yerli ve yabancı basında hakkımda yazılanlar',
       intro:
         'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
@@ -654,7 +654,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'Türkiye Basınında',
       foreignLabel: 'Yabancı Basında',
       sourceLinkLabel: 'Orijinal kaynak',
-      backLabel: 'Basında Hakkımda',
+      backLabel: 'Yerli ve Dış Basında',
     },
     footer: {
       kicker: 'İletişim',
