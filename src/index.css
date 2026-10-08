@@ -3260,27 +3260,3 @@ html {
     scroll-behavior: auto;
   }
 }
-
-/* Interview bibliography extends the archive's paper, type and ruled rows. */
-.interview-jumps, .interview-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-.interview-jumps { margin-block: var(--space-3); font-family: var(--label); }
-.interview-jumps a, .interview-links a, .interview-archive-note > a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 0.2em; }
-.interview-controls { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-3); padding-block: var(--space-3); border-block: 1px solid var(--line); font-family: var(--label); }
-.interview-controls label { display: flex; flex-direction: column; gap: 0.5rem; }
-.interview-search { flex: 1 1 22rem; }
-.interview-search input { width: 100%; min-height: 44px; padding: 0.65rem 0.9rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-low); color: var(--ink); font: inherit; }
-.interview-result-count { font-family: var(--label); color: var(--muted); margin-block: var(--space-3); }
-.interview-group { margin-block: var(--space-6); scroll-margin-top: 110px; }
-.interview-group > h2 { margin-bottom: var(--space-4); }
-.interview-facts { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0.75rem 1.5rem; margin-block: 1rem; font-family: var(--label); }
-.interview-facts dt { font-size: var(--text-label-sm); color: var(--muted); }
-.interview-facts dd { margin: 0.2rem 0 0; overflow-wrap: anywhere; }
-.interview-links { list-style: none; padding: 0; margin: 0; font-family: var(--label); }
-.interview-note { max-width: 68ch; color: var(--muted); }
-.interview-archive-note { max-width: 68ch; border-top: 1px solid var(--line); padding-top: var(--space-4); margin-top: var(--space-6); }
-.interview-archive-note h3 { margin-top: var(--space-4); }
-@media (max-width: 639px) {
- .interview-facts { grid-template-columns: minmax(0, 1fr); }
- .interview-controls { align-items: stretch; }
- .interview-controls > label { width: 100%; }
-}

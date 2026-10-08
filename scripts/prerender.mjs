@@ -537,14 +537,4 @@ writePage('/404', {
 fs.renameSync(path.join(distDir, '404', 'index.html'), path.join(distDir, '404.html'))
 fs.rmdirSync(path.join(distDir, '404'))
 
-/* Unlisted drafts remain directly reachable without entering public route maps. */
-for (const [routePath, lang] of [['/tr/soylesiler-new', 'tr'], ['/interviews-new', 'en'], ['/soylesiler-new', 'tr']]) {
-  writePage(routePath, {
-    lang,
-    head: headBlock({ title: `${content[lang].interviews.title} — Şahin Alpay`, description: '', canonicalPath: routePath, alternates: {}, robots: 'noindex, nofollow', lang }),
-    jsonLd: null,
-    noscript: noscriptBlock(lang, `<h1>${content[lang].interviews.title}</h1>`),
-  })
-}
-
 console.log(`Prerendered ${written} HTML files into dist/.`)

@@ -118,8 +118,8 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     tags: ['Deniz Baykal', 'CHP', 'sosyal demokrasi', 'Emin Akdağ', 'Aksiyon', '2008'],
   },
 
-  /* Added 2026-10-08 from the owner’s working interview bibliography (the
-     /tr/soylesiler-new preview). Where the source gives a season or a span,
+  /* Added 2026-10-08 from the owner’s working interview bibliography (shown
+     briefly as the unlisted /tr/soylesiler-new preview). Where the source gives a season or a span,
      `date` holds the nearest parseable point and `subtitle` the full span. */
   {
     slug: 'ernest-gellner-turkiye-gunlugu-1993',
