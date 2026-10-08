@@ -1565,23 +1565,26 @@ main:focus {
     flex-direction: column;
   }
 }
+/* Covers keep their own proportions (they run from about 0.63 to 0.79 wide
+   to tall), so the frame takes the image's height instead of cropping it to a
+   fixed ratio. Only the coverless placeholder is held at the 2:3 book shape. */
 .book-cover {
   flex-shrink: 0;
+  align-self: flex-start;
   width: 96px;
-  aspect-ratio: 2 / 3;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   background: var(--surface-high);
 }
 .book-cover img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 .book-cover-placeholder {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 2 / 3;
   display: grid;
   place-items: center;
   color: var(--muted);
