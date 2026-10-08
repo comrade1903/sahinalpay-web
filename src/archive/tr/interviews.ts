@@ -316,14 +316,6 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     tags: ['Alp Ulagay', 'Açık Radyo', 'radyo', '2006'],
   },
   {
-    slug: 'on-the-verge-of-the-west-axess-2007',
-    title: 'On the Verge of the West',
-    date: '2007',
-    subtitle: 'Global Axess, söyleşi — Thomas Gür',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Thomas Gür', 'Global Axess', '2007'],
-  },
-  {
     slug: 'sokak-guzeldir-nadire-mater-2009',
     title: 'Sokak Güzeldir: 68’de Ne Oldu?',
     date: '2009',

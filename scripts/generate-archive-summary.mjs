@@ -58,7 +58,7 @@ const counts = {
     en: archive.archiveData.columns.en.reduce((sum, group) => sum + group.items.length, 0),
   },
   analyses: archive.archiveData.analyses.reduce((sum, group) => sum + group.items.length, 0),
-  interviews: archive.archiveData.interviews.length,
+  interviews: archive.archiveData.interviews.tr.length + archive.archiveData.interviews.en.length,
   academic: academicItems.length,
 }
 

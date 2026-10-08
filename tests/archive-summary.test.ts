@@ -14,7 +14,7 @@ describe('generated archive summary', () => {
         en: archiveData.columns.en.reduce((sum, group) => sum + group.items.length, 0),
       },
       analyses: archiveData.analyses.reduce((sum, group) => sum + group.items.length, 0),
-      interviews: archiveData.interviews.length,
+      interviews: archiveData.interviews.tr.length + archiveData.interviews.en.length,
       academic:
         archiveData.academicArticles.tr.length + archiveData.academicArticles.en.length,
     })

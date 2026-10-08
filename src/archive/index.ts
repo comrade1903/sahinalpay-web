@@ -20,11 +20,14 @@ export const archiveData = {
     en: enArchive.columns,
   } satisfies Record<ArchiveLang, OutletGroup[]>,
   analyses: trArchive.analyses,
-  interviews: trArchive.interviews,
-  /* Per-language like columns: the articles he published in English and
-     German live on the English side, which is what splits that page into a
-     Turkish list and a foreign-language one. Analyses and interviews stay
-     Turkish-only arrays because there is nothing else to hold. */
+  /* Per-language like columns: the interviews and articles he published in
+     English and German live on the English side, which is what splits those
+     pages into a Turkish list and a foreign-language one. Analyses stay a
+     Turkish-only array because there is nothing else to hold. */
+  interviews: {
+    tr: trArchive.interviews,
+    en: enArchive.interviews,
+  } satisfies Record<ArchiveLang, ArchiveItem[]>,
   academicArticles: {
     tr: trArchive.academicArticles,
     en: enArchive.academicArticles,
@@ -50,7 +53,8 @@ export function allArchiveItems(): ArchiveItem[] {
     ...archiveData.columns.tr.flatMap((group) => group.items),
     ...archiveData.columns.en.flatMap((group) => group.items),
     ...archiveData.analyses.flatMap((group) => group.items),
-    ...archiveData.interviews,
+    ...archiveData.interviews.tr,
+    ...archiveData.interviews.en,
     ...archiveData.academicArticles.tr,
     ...archiveData.academicArticles.en,
   ]
