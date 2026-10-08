@@ -22,6 +22,7 @@ import type {
 } from './archive'
 import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
+import { birHikayemVarForeword, hikayeminSonuForeword, type BookForeword } from './bookForewords'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
@@ -40,6 +41,8 @@ export interface Book {
   cover?: string
   /** Real retailer product page (e.g. Kitapyurdu) — never a fabricated link. */
   purchaseUrl?: string
+  /** The book's own foreword, opened in a dialog from its card. */
+  foreword?: BookForeword
 }
 
 export interface BooksSection {
@@ -184,6 +187,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'My years writing for Zaman... my hopes and disappointments of the early 2000s... the notes I kept in prison in Silivri... my last months together with Fatma... In this second book of my memoirs I reconsider the choices whose consequences reached as far as my family life.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
+      foreword: hikayeminSonuForeword,
     },
     {
       year: '2024',
@@ -191,6 +195,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'This book covers my memories from my childhood in Istanbul and Ayvalık to my revolutionary youth, from taking refuge in Sweden and earning my doctorate there to my return home and my years as a newspaper columnist. In telling how my ideas changed over time, and under which influences, I look at the place Fatma, my family and my friends have had in my life.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
+      foreword: birHikayemVarForeword,
     },
     {
       year: '2003',
@@ -232,6 +237,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'Zaman gazetesinde yazdığım yıllar... 2000’lerin başındaki umutlarım ve hayal kırıklıklarım... Silivri’de hapislikte tuttuğum notlar... Fatma’yla birlikte son aylarımız... Anılarımın bu ikinci kitabında sonuçları aile hayatıma kadar uzanan tercihlerimi yeniden değerlendiriyorum.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
+      foreword: hikayeminSonuForeword,
     },
     {
       year: '2024',
@@ -239,6 +245,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınıp doktora yapmamdan, yurda dönüş ve gazete yazarlığına uzanan anılarımı kapsayan bu kitapta fikirlerimin nasıl zamanla, hangi etkiler altında değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerine bakıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
+      foreword: birHikayemVarForeword,
     },
     {
       year: '2003',

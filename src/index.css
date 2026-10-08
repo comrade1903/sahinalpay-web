@@ -1611,6 +1611,155 @@ main:focus {
 .book-buy:hover {
   border-color: var(--action);
 }
+.book-actions {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+.book-actions:empty {
+  display: none;
+}
+.book-actions .book-buy {
+  margin-top: 0;
+}
+/* The foreword opener shares the buy link's look; this only undoes the
+   browser's button chrome. */
+.book-foreword-open {
+  appearance: none;
+  background: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ---------- Book foreword dialog ---------- */
+/* A native modal <dialog>: it sits in the top layer above the sticky header
+   and the cookie notice, so it needs no z-index. The dialog box itself has no
+   padding, so a click whose target is the <dialog> fell on the backdrop. */
+.foreword-dialog {
+  width: min(44rem, calc(100% - 2 * var(--space-2)));
+  max-width: none;
+  max-height: calc(100dvh - 2 * var(--space-2));
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-lowest);
+  color: var(--ink);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+.foreword-dialog::backdrop {
+  background: rgba(15, 12, 17, 0.62);
+}
+.foreword-dialog[open] {
+  animation: foreword-in 0.32s var(--ease-out);
+}
+.foreword-dialog[open]::backdrop {
+  animation: foreword-fade 0.32s var(--ease-out);
+}
+@keyframes foreword-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes foreword-fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .foreword-dialog[open],
+  .foreword-dialog[open]::backdrop {
+    animation: none;
+  }
+}
+/* The page behind stays put while the foreword scrolls. */
+html:has(.foreword-dialog[open]) {
+  overflow: hidden;
+}
+.foreword-sheet {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 2 * var(--space-2));
+}
+.foreword-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--line);
+}
+.foreword-heading {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.foreword-book {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+}
+.foreword-title {
+  font-family: var(--headline);
+  font-size: var(--text-title);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.foreword-note {
+  font-size: var(--text-body-xs);
+  color: var(--muted);
+}
+.foreword-close {
+  flex-shrink: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1rem 0 0.75rem;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-full);
+  background: var(--control-bg);
+  color: var(--control-fg);
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+.foreword-close:hover,
+.foreword-close:focus-visible {
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
+}
+.foreword-close .material-symbols-outlined {
+  font-size: var(--icon-sm);
+}
+.foreword-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-3);
+}
+/* The sheet is already sized to a reading measure; the prose cap would only
+   leave a ragged gap down its right side. */
+.foreword-body p {
+  max-width: none;
+}
+@media (max-width: 559px) {
+  .foreword-head {
+    padding: var(--space-2);
+  }
+  .foreword-body {
+    padding: var(--space-2) var(--space-2) var(--space-3);
+  }
+}
 
 /* ---------- Archive layout (sidebar + list) ---------- */
 /* .archive-intro is gone with the standfirsts it styled: the section pages
