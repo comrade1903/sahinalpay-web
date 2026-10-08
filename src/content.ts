@@ -537,7 +537,7 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Siyaset Bilimci · Yazar · Gazeteci',
       intro:
-        '1960’ların başlarındaki öğrencilik yıllarımdan başlayarak ve sonrasında siyaset bilimci ve gazeteci olarak Türkiye’yi ve dünyayı anlama ve yorumlama çabasında oldum. Bu çabada yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
+        '1960’ların başlarındaki öğrencilik yıllarımdan başlayarak, sonrasında siyaset bilimci ve gazeteci olarak Türkiye’yi ve dünyayı anlama ve yorumlama çabasında oldum. Bu çabada yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
       ctaStory: 'Şahin Alpay Kimdir?',
       portraitAlt: 'Şahin Alpay’ın portresi',
       portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
