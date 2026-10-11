@@ -26,6 +26,7 @@ import {
   birHikayemVarForeword,
   hikayeminSonuForeword,
   turkarIStockholmSummary,
+  turksInStockholmSummary,
   type BookForeword,
 } from './bookForewords'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
@@ -233,7 +234,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish.',
-      foreword: turkarIStockholmSummary,
+      foreword: turksInStockholmSummary,
     },
   ],
   tr: [

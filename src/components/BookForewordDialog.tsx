@@ -26,6 +26,7 @@ export function BookForewordDialog({
 
   const foreword = book?.foreword
   const isSummary = foreword?.kind === 'summary'
+  const textLang = foreword?.lang ?? 'tr'
   return (
     <dialog
       ref={ref}
@@ -45,9 +46,11 @@ export function BookForewordDialog({
                 <em lang="tr">{book.title}</em> · {book.year}
               </p>
               <h2 id={titleId} className="foreword-title">
-                {isSummary ? (lang === 'tr' ? 'Türkçe Özet' : 'Turkish Summary') : lang === 'tr' ? 'Önsöz' : 'Foreword'}
+                {isSummary ? (lang === 'tr' ? 'Türkçe Özet' : 'Summary') : lang === 'tr' ? 'Önsöz' : 'Foreword'}
               </h2>
-              {lang === 'en' && <p className="foreword-note">In Turkish, as published in the book.</p>}
+              {lang === 'en' && textLang === 'tr' && (
+                <p className="foreword-note">In Turkish, as published in the book.</p>
+              )}
             </div>
             <button
               type="button"
@@ -60,7 +63,7 @@ export function BookForewordDialog({
               {lang === 'tr' ? 'Kapat' : 'Close'}
             </button>
           </header>
-          <div className="foreword-body prose" lang="tr">
+          <div className="foreword-body prose" lang={textLang}>
             {foreword.heading && <p className="foreword-doc-title">{foreword.heading}</p>}
             {foreword.paragraphs.map((block, i) =>
               typeof block === 'string' ? (

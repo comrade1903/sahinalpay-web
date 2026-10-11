@@ -549,7 +549,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                         {b.foreword.kind === 'summary'
                           ? lang === 'tr'
                             ? 'Türkçe özeti oku'
-                            : 'Read the summary (in Turkish)'
+                            : 'Read the summary'
                           : lang === 'tr'
                             ? 'Önsözü oku'
                             : 'Read the foreword (in Turkish)'}
