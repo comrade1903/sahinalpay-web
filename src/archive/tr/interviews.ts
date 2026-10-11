@@ -11,6 +11,15 @@ import type { ArchiveItemSeed } from '../types'
  *  so. The 2003 bianet entry is a radio programme's transcript but is read as
  *  text, so it counts as written, by the owner's call.
  *
+ *  Subtitles carry no editorial caveats (the owner asked on 2026-10-11). What
+ *  they used to say is kept here instead: the ATV, Alp Ulagay, listener-support
+ *  and Zafer Özcan entries have no direct link to the broadcast; the 1993
+ *  Türkiye Günlüğü interview has no open full text; for the Dışarıdan
+ *  Bakanlar interviews, 2002 is the book's publication year, not the date of
+ *  the interview; the İçeriden Bakanlar list of interviewees is incomplete;
+ *  and the 2024 Açık Radyo page is dated 26 December while the owner's
+ *  working list gives 25 December as the broadcast date.
+ *
  *  The interviewer is named in `subtitle` because the archive has no separate
  *  field for one. Where a piece isn't credited to a named interviewer (or,
  *  for the KHK TV piece below, isn't an interview at all but a tribute essay
@@ -73,7 +82,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     title: 'Bir Hikâyem Var',
     date: '26 Aralık 2024',
     subtitle:
-      'Açık Radyo, Açık Gazete — Ömer Madra, Özdeş Özbay. Kaynak sayfasının tarihi 26 Aralık 2024’tür; çalışma listesinde yayın tarihi 25 Aralık olarak geçer. Spotify’da Açık Gazete kanalı: https://open.spotify.com/show/4DS9QcZ6GoWNUVmwiKDuT6',
+      'Açık Radyo, Açık Gazete — Ömer Madra, Özdeş Özbay. Spotify’da Açık Gazete kanalı: https://open.spotify.com/show/4DS9QcZ6GoWNUVmwiKDuT6',
     url: 'https://apacikradyo.com.tr/acik-gazete/sahin-alpay-bir-hikayem-var',
     tags: ['Bir Hikâyem Var', 'anılar', 'Ömer Madra', 'Açık Gazete', 'radyo', '2024'],
   },
@@ -141,7 +150,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Ernest Gellner',
     date: '1993',
-    subtitle: 'Türkiye Günlüğü, sayı 24 (Güz 1993) — söyleşiyi yapan: Şahin Alpay. Açık tam metin bağlantısı bulunmuyor.',
+    subtitle: 'Türkiye Günlüğü, sayı 24 (Güz 1993) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Ernest Gellner', 'Türkiye Günlüğü', '1993'],
   },
@@ -250,7 +259,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Paul Kennedy',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Paul Kennedy', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -259,7 +268,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Ernest Gellner',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Ernest Gellner', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -268,7 +277,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Abdülkerim Soruş (Abdolkarim Soroush)',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Abdülkerim Soruş', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -277,7 +286,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Samuel P. Huntington',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Samuel P. Huntington', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -286,7 +295,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Bernard Lewis',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Bernard Lewis', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -295,7 +304,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Sadık Celal El Azm (Sadiq al-Azm)',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Sadık Celal El Azm', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -304,7 +313,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Francis Fukuyama',
     date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay. 2002 kitabın basım yılıdır; söyleşinin kesin tarihi belirtilmemiştir.',
+    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Francis Fukuyama', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
   },
@@ -313,7 +322,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'written',
     title: 'Türkiye’nin Tanıkları — İçeriden Bakanlar',
     date: '2003',
-    subtitle: 'Timaş, söyleşi derlemesi (kitap) — söyleşileri yapan: Şahin Alpay. Kişi listesi henüz tamamlanmadı.',
+    subtitle: 'Timaş, söyleşi derlemesi (kitap) — söyleşileri yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Türkiye’nin Tanıkları', 'Timaş', 'kitap', '2003'],
   },
@@ -331,7 +340,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'broadcast',
     title: 'Bilinmeyen Refah',
     date: '1994',
-    subtitle: 'ATV, Güneri Cıvaoğlu belgeseli (yaklaşık 50 görüşme) — mülakatları yapan: Şahin Alpay. Doğrudan yayın bağlantısı bulunmuyor.',
+    subtitle: 'ATV, Güneri Cıvaoğlu belgeseli (yaklaşık 50 görüşme) — mülakatları yapan: Şahin Alpay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Refah Partisi', 'Güneri Cıvaoğlu', 'ATV', 'video', '1994'],
   },
@@ -350,7 +359,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'broadcast',
     title: 'Alp Ulagay – Şahin Alpay',
     date: '13 Mart 2006',
-    subtitle: 'Açık Radyo, radyo mülakatı — Alp Ulagay. Doğrudan yayın bağlantısı bulunmuyor.',
+    subtitle: 'Açık Radyo, radyo mülakatı — Alp Ulagay.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Alp Ulagay', 'Açık Radyo', 'radyo', '2006'],
   },
@@ -368,7 +377,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'broadcast',
     title: 'Dinleyici Destek yayını',
     date: '25 Mart 2012',
-    subtitle: 'Açık Radyo, dinleyici destek yayını — Şahin Alpay, Elvan Alpay, Defne Güler. Doğrudan yayın bağlantısı bulunmuyor.',
+    subtitle: 'Açık Radyo, dinleyici destek yayını — Şahin Alpay, Elvan Alpay, Defne Güler.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Elvan Alpay', 'Defne Güler', 'Açık Radyo', 'radyo', '2012'],
   },
@@ -387,7 +396,7 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     interviewFormat: 'broadcast',
     title: 'Bir Hikâyem Var / Hikâyemin Sonu',
     date: '17 Nisan 2025',
-    subtitle: 'Zafer Özcan TV / Zaman Avustralya, video mülakat, 17–18 Nisan 2025 — Zafer Özcan. Doğrudan yayın bağlantısı bulunmuyor.',
+    subtitle: 'Zafer Özcan TV / Zaman Avustralya, video mülakat, 17–18 Nisan 2025 — Zafer Özcan.',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Bir Hikâyem Var', 'Hikâyemin Sonu', 'anılar', 'Zafer Özcan', 'video', '2025'],
   },
