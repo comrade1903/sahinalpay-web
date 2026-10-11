@@ -39,6 +39,7 @@ for (const item of items) {
     outletKey: item.outletKey,
     medium: item.medium,
     pieceKind: item.pieceKind,
+    interviewFormat: item.interviewFormat,
     title: item.title,
     date: item.date,
     subtitle: item.subtitle,
