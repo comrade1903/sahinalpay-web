@@ -22,7 +22,12 @@ import type {
 } from './archive'
 import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
-import { birHikayemVarForeword, hikayeminSonuForeword, type BookForeword } from './bookForewords'
+import {
+  birHikayemVarForeword,
+  hikayeminSonuForeword,
+  turkarIStockholmSummary,
+  type BookForeword,
+} from './bookForewords'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
@@ -228,6 +233,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish.',
+      foreword: turkarIStockholmSummary,
     },
   ],
   tr: [
@@ -278,6 +284,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe özet bulunuyordu.',
+      foreword: turkarIStockholmSummary,
     },
   ],
 }
