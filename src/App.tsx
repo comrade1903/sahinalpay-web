@@ -546,7 +546,13 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                         aria-haspopup="dialog"
                         onClick={() => setForewordBook(b)}
                       >
-                        {lang === 'tr' ? 'Önsözü oku' : 'Read the foreword (in Turkish)'}
+                        {b.foreword.kind === 'summary'
+                          ? lang === 'tr'
+                            ? 'Türkçe özeti oku'
+                            : 'Read the summary'
+                          : lang === 'tr'
+                            ? 'Önsözü oku'
+                            : 'Read the foreword (in Turkish)'}
                         <span
                           className="material-symbols-outlined"
                           aria-hidden="true"

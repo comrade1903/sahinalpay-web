@@ -1749,8 +1749,32 @@ html:has(.foreword-dialog[open]) {
 }
 /* The sheet is already sized to a reading measure; the prose cap would only
    leave a ragged gap down its right side. */
-.foreword-body p {
+.foreword-body p,
+.foreword-body ul {
   max-width: none;
+}
+/* The thesis summary carries its own Turkish title and section headings. */
+.foreword-body .foreword-doc-title {
+  font-style: italic;
+  color: var(--muted);
+}
+.foreword-body h3 {
+  margin: var(--space-4) 0 var(--space-2);
+  font-family: var(--headline);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.foreword-body ul {
+  margin: 0 0 var(--space-3);
+  padding-left: 1.25rem;
+  list-style: disc;
+  font-family: var(--headline);
+  line-height: 1.72;
+}
+.foreword-body li + li {
+  margin-top: var(--space-1);
 }
 @media (max-width: 559px) {
   .foreword-head {
