@@ -2572,6 +2572,10 @@ a.archive-row:hover .archive-row-title {
   line-height: 1.35;
   margin: var(--space-5) 0 var(--space-3);
 }
+/* The interviews page opens on a group heading rather than a list. */
+.archive-foreign-title:first-child {
+  margin-top: 0;
+}
 
 /* From ~900px the rack turns 90°: a vertical rail down the left edge,
    spines stacked top to bottom, with the İçindekiler panel filling the

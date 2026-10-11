@@ -10,6 +10,7 @@ import type { ArchiveItemSeed } from '../types'
 export const enInterviewSeeds: ArchiveItemSeed[] = [
   {
     slug: 'on-the-verge-of-the-west-axess-2007',
+    interviewFormat: 'written',
     title: 'On the Verge of the West',
     date: '2007',
     subtitle: 'Global Axess, interview — Thomas Gür',

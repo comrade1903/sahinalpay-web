@@ -233,7 +233,7 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish.',
+      desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish and English.',
       foreword: turksInStockholmSummary,
     },
   ],
@@ -284,7 +284,7 @@ const BOOKS: Record<Lang, Book[]> = {
     {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe özet bulunuyordu.',
+      desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe ve İngilize özet bulunuyordu.',
       foreword: turkarIStockholmSummary,
     },
   ],
@@ -379,6 +379,7 @@ export const content: Record<Lang, Content> = {
       intro: 'In these interviews, questions about my writing open into conversations about my life, political choices and what experience taught me.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       items: [],
+      formatLabels: { written: 'Interviews', broadcast: 'Conversations' },
     },
     academicArticles: {
       kicker: 'Archive',
@@ -617,9 +618,10 @@ export const content: Record<Lang, Content> = {
     interviews: {
       kicker: 'Arşiv',
       title: 'Söyleşiler',
-      intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
+      intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşi ve mülakatlarda yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       items: [],
+      formatLabels: { written: 'Söyleşiler', broadcast: 'Mülakatlar' },
     },
     academicArticles: {
       kicker: 'Arşiv',
