@@ -1,10 +1,11 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 import { content, type Lang } from '../content'
 import { paths } from '../routes'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from '../lib/seo'
 import { aboutJsonLd } from '../lib/structuredData'
 import { photoSrc, photoStoryEntries, type PhotoStoryPhoto } from '../photoStory'
+import { ImageLightbox, type LightboxImage } from './ImageLightbox'
 import { Reveal } from './Reveal'
 
 /** The caption's own emphasis: **bold** as he set it, *italic* for the
@@ -17,19 +18,29 @@ function renderCaption(caption: string): ReactNode[] {
   })
 }
 
-function Photo({ photo, enlargeLabel, pair }: { photo: PhotoStoryPhoto; enlargeLabel: string; pair: boolean }) {
+function Photo({
+  photo,
+  enlargeLabel,
+  pair,
+  onOpen,
+}: {
+  photo: PhotoStoryPhoto
+  enlargeLabel: string
+  pair: boolean
+  onOpen: () => void
+}) {
   /* A pair shares the column, so each photo is drawn at half the width a
      single one gets; `sizes` tells the browser which file that needs. */
   const sizes = pair
     ? '(max-width: 768px) 46vw, 560px'
     : '(max-width: 768px) calc(100vw - 2rem), 620px'
   return (
-    <a
+    <button
+      type="button"
       className="photo-story-frame"
-      href={photoSrc(photo.id, 1600)}
-      target="_blank"
-      rel="noreferrer"
+      aria-haspopup="dialog"
       aria-label={enlargeLabel}
+      onClick={onOpen}
       /* In a pair, each frame grows in proportion to its photo's aspect
          ratio, so a portrait and a landscape print come out the same
          height instead of the same width. */
@@ -45,9 +56,26 @@ function Photo({ photo, enlargeLabel, pair }: { photo: PhotoStoryPhoto; enlargeL
         loading="lazy"
         decoding="async"
       />
-    </a>
+    </button>
   )
 }
+
+/* Every photograph in story order, each carrying its entry's caption, so the
+   lightbox can step through the whole story; a pair's two photos share one. */
+const gallery: LightboxImage[] = photoStoryEntries.flatMap((entry) =>
+  entry.photos.map((photo) => ({
+    src: photoSrc(photo.id, 1600),
+    srcSet: `${photoSrc(photo.id, 800)} 800w, ${photoSrc(photo.id, 1600)} 1600w`,
+    width: photo.width,
+    height: photo.height,
+    alt: photo.alt ?? '',
+    caption: renderCaption(entry.caption),
+    captionLang: 'tr' as const,
+  })),
+)
+const galleryIndex = new Map(
+  photoStoryEntries.flatMap((entry) => entry.photos).map((photo, i) => [photo.id, i]),
+)
 
 /** "Fotoğraflarla Hikayem": his photographs and captions in his own order,
  *  photo and caption side by side and alternating sides down the page,
@@ -56,6 +84,7 @@ function Photo({ photo, enlargeLabel, pair }: { photo: PhotoStoryPhoto; enlargeL
 export function PhotoStoryPage({ lang }: { lang: Lang }) {
   const location = useLocation()
   const copy = content[lang].photoStory
+  const [open, setOpen] = useState<number | null>(null)
   usePageMeta({
     title: `${copy.title} — Şahin Alpay`,
     description: copy.description,
@@ -88,7 +117,13 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
                   <figure className={pair ? 'photo-story-figure photo-story-figure-pair' : 'photo-story-figure'}>
                     <div className={pair ? 'photo-story-media photo-story-pair' : 'photo-story-media'}>
                       {entry.photos.map((photo) => (
-                        <Photo key={photo.id} photo={photo} enlargeLabel={copy.enlargeLabel} pair={pair} />
+                        <Photo
+                          key={photo.id}
+                          photo={photo}
+                          enlargeLabel={copy.enlargeLabel}
+                          pair={pair}
+                          onOpen={() => setOpen(galleryIndex.get(photo.id)!)}
+                        />
                       ))}
                     </div>
                     <figcaption className="photo-story-caption">{renderCaption(entry.caption)}</figcaption>
@@ -99,6 +134,13 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
           })}
         </ol>
       </div>
+      <ImageLightbox
+        images={gallery}
+        index={open}
+        onIndexChange={setOpen}
+        onClose={() => setOpen(null)}
+        lang={lang}
+      />
     </section>
   )
 }

@@ -193,7 +193,7 @@ export interface Content {
     openPdf: string
     openPdfHint: string
     openImage: string
-    openImageHint: string
+    enlargePhoto: string
     pagesSuffix: string
   }
 }
@@ -543,7 +543,7 @@ export const content: Record<Lang, Content> = {
       openPdf: 'Read the full scan as a PDF',
       openPdfHint: '(opens in a new tab)',
       openImage: 'Open the full-size clipping',
-      openImageHint: '(opens in a new tab)',
+      enlargePhoto: 'Enlarge the photograph',
       pagesSuffix: 'pages',
     },
   },
@@ -781,7 +781,7 @@ export const content: Record<Lang, Content> = {
       openPdf: 'Tamamını PDF olarak oku',
       openPdfHint: '(yeni sekmede açılır)',
       openImage: 'Kupürü tam boyutunda aç',
-      openImageHint: '(yeni sekmede açılır)',
+      enlargePhoto: 'Fotoğrafı büyüt',
       pagesSuffix: 'sayfa',
     },
   },

@@ -1785,6 +1785,199 @@ html:has(.foreword-dialog[open]) {
   }
 }
 
+/* ---------- Image lightbox ---------- */
+/* Every photograph and clipping opens here rather than in a new tab (see
+   ImageLightbox.tsx). Same native-<dialog> footing as the foreword dialog,
+   but sized to the viewport: a bar with the counter and the close button,
+   the image fitted into whatever height is left, and the caption under it
+   the way it runs under a printed photograph. */
+.lightbox {
+  width: calc(100% - 2 * var(--space-2));
+  height: calc(100dvh - 2 * var(--space-2));
+  max-width: 80rem;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-lowest);
+  color: var(--ink);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+.lightbox::backdrop {
+  background: rgba(15, 12, 17, 0.78);
+}
+.lightbox[open] {
+  animation: foreword-fade 0.24s var(--ease-out);
+}
+.lightbox[open]::backdrop {
+  animation: foreword-fade 0.24s var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open],
+  .lightbox[open]::backdrop {
+    animation: none;
+  }
+}
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+.lightbox-sheet {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-2);
+}
+.lightbox-count,
+.lightbox-hint {
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-feature-settings: 'lnum' 1;
+  color: var(--muted);
+}
+.lightbox-count {
+  white-space: nowrap;
+}
+.lightbox-hint {
+  margin-right: auto;
+  min-width: 0;
+}
+.lightbox-close,
+.lightbox-step {
+  flex-shrink: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-full);
+  background: var(--control-bg);
+  color: var(--control-fg);
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+.lightbox-close {
+  padding: 0 1rem 0 0.75rem;
+}
+.lightbox-step {
+  min-width: 44px;
+  padding: 0;
+}
+.lightbox-close:hover,
+.lightbox-close:focus-visible,
+.lightbox-step:hover,
+.lightbox-step:focus-visible {
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
+}
+.lightbox-close .material-symbols-outlined,
+.lightbox-step .material-symbols-outlined {
+  font-size: var(--icon-sm);
+}
+/* The image is fitted with object-fit inside a box that fills the stage, so
+   it takes all the height the caption leaves, portrait or landscape. */
+.lightbox-stage {
+  position: relative;
+  min-height: 0;
+  margin: 0 var(--space-2);
+  overflow: hidden;
+}
+.lightbox-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.lightbox-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Zoomed: the image at its natural size, scrolled within the stage. */
+.lightbox-stage.is-zoomed {
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.lightbox-stage.is-zoomed .lightbox-image {
+  position: static;
+  width: max-content;
+  height: auto;
+  min-width: 100%;
+  cursor: zoom-out;
+}
+.lightbox-stage.is-zoomed .lightbox-image img {
+  width: auto;
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+}
+.lightbox-image:focus-visible {
+  outline-offset: -4px;
+}
+.lightbox-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+}
+.lightbox-caption {
+  flex: 1;
+  min-width: 0;
+  max-height: 28dvh;
+  overflow-y: auto;
+  margin: 0;
+  font-family: var(--display);
+  font-size: var(--text-reading);
+  line-height: 1.6;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+  color: var(--ink);
+}
+.lightbox-caption strong {
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .lightbox {
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+  .lightbox-stage {
+    margin: 0;
+    border-radius: 0;
+  }
+  /* On a phone the caption takes the full width and the arrows sit below it. */
+  .lightbox-foot {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .lightbox-caption {
+    flex-basis: 100%;
+    order: -1;
+    font-size: var(--text-body-sm);
+  }
+  .lightbox-hint {
+    font-size: var(--text-label);
+  }
+}
+
 /* ---------- Archive layout (sidebar + list) ---------- */
 /* .archive-intro is gone with the standfirsts it styled: the section pages
    now run title → search → list, and each section's sentence lives on in the
@@ -3094,7 +3287,16 @@ a.archive-row:hover .archive-row-title {
 .article-lead-photo {
   margin: 0;
 }
+.article-lead-photo-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
 .article-lead-photo img {
+  display: block;
   width: 100%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -3310,13 +3512,16 @@ a.archive-row:hover .archive-row-title {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   cursor: zoom-in;
+  font: inherit;
+  color: inherit;
   transition: border-color 0.2s var(--ease-out);
 }
 .photo-story-pair .photo-story-frame {
   /* flex-grow is set per photo from its aspect ratio (see PhotoStoryPage). */
   flex-basis: 0;
 }
-.photo-story-frame:hover {
+.photo-story-frame:hover,
+.photo-story-frame:focus-visible {
   border-color: var(--line-strong);
 }
 .photo-story-frame img {
