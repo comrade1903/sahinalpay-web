@@ -12,6 +12,7 @@ export function Reveal({
   as = 'div',
   className,
   id,
+  lang,
   style,
 }: {
   children: ReactNode
@@ -19,6 +20,7 @@ export function Reveal({
   as?: 'div' | 'section' | 'li' | 'article' | 'aside' | undefined
   className?: string | undefined
   id?: string | undefined
+  lang?: string | undefined
   /* MotionStyle, not React's CSSProperties: the value is forwarded straight
      to a motion element, and under exactOptionalPropertyTypes the two are
      genuinely different types (CSSProperties allows `x: undefined`, which
@@ -35,6 +37,7 @@ export function Reveal({
     <MotionTag
       {...(className ? { className } : {})}
       {...(id ? { id } : {})}
+      {...(lang ? { lang } : {})}
       {...(style ? { style } : {})}
       initial={reduce ? false : { opacity: 0, y: 24 }}
       {...(reduce ? {} : { whileInView: { opacity: 1, y: 0 } })}

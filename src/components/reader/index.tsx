@@ -5,7 +5,7 @@ import type { ArchiveClipping, ArchiveItem } from '../../archive/types'
 import type { ArchiveData } from '../../archive/useArchiveData'
 import { getCachedBody, loadArticleBody } from '../../archive/bodyRegistry'
 import { isRetiredSlug, resolveArchiveSlug } from '../../archive/aliases'
-import { archiveBasePath, mediumLabel, pieceKindLabel } from '../../archive/links'
+import { archiveBasePath, mediumLabel, pieceKindLabel, readerBasePath } from '../../archive/links'
 import { parseTurkishDate } from '../../dateUtils'
 import {
   isoDateFromArchiveDate,
@@ -58,6 +58,20 @@ function findArchiveItemBySlug(
 ): ArchiveItem | undefined {
   const current = resolveArchiveSlug(lang, slug)
   return archivePool(archiveData).find((item) => item.slug === current)
+}
+
+/* The other language's columns also read under this language's columns path
+   (see readerBasePath in archive/links.ts), so the site's own language does
+   not change under a reader who opens one from a mixed list. Slugs are unique
+   across the two languages — validate:content checks it — so the page
+   language's own record always wins. */
+function findForeignColumnBySlug(
+  foreign: ArchiveData,
+  slug: string,
+): ArchiveItem | undefined {
+  return foreign.columns
+    .flatMap((o) => o.items)
+    .find((item) => item.slug === resolveArchiveSlug(item.lang, slug))
 }
 
 /** Other full articles (real body text, not the current one) — used for
@@ -157,9 +171,9 @@ function useArticleBody(item: ArchiveItem | undefined): {
 }
 
 export function ArticlePage({ lang }: { lang: Lang }) {
-  const { data, fallback } = useArchiveGate(lang)
-  if (!data) return fallback
-  return <LoadedArticlePage lang={lang} archiveData={data} />
+  const { data, foreign, fallback } = useArchiveGate(lang)
+  if (!data || !foreign) return fallback
+  return <LoadedArticlePage lang={lang} archiveData={data} foreignData={foreign} />
 }
 
 function buildCitation(item: ArchiveItem, articleUrl: string, lang: Lang): string {
@@ -235,47 +249,60 @@ function CiteThis({
 export function LoadedArticlePage({
   lang,
   archiveData,
+  foreignData,
 }: {
   lang: Lang
   archiveData: ArchiveData
+  foreignData: ArchiveData
 }) {
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
-  const item = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
+  const ownItem = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
+  const foreignColumn =
+    slug && !ownItem && location.pathname.startsWith(`${paths[lang].columns}/`)
+      ? findForeignColumnBySlug(foreignData, slug)
+      : undefined
+  const item = ownItem ?? foreignColumn
+  /* The interface follows the page's language; everything that describes the
+     piece to search engines and citations follows the piece's own, so a
+     mirrored column names its canonical address, never this one. */
+  const itemLang: Lang = item?.lang ?? lang
+  /* The article's own text, marked up in its language when that differs. */
+  const textLang = itemLang !== lang ? { lang: itemLang } : {}
   /* An old citation lands on the current permalink rather than rendering the
      piece at a second address, so canonical stays single. */
-  const retired = Boolean(slug && item && isRetiredSlug(lang, slug))
+  const retired = Boolean(slug && item && isRetiredSlug(itemLang, slug))
   const { body, failed: bodyFailed, retry: retryBody } = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
   const [lightbox, setLightbox] = useState<number | null>(null)
   const t = content[lang]
-  const articleCanonicalPath = item ? `${archiveBasePath(lang, item)}/${item.slug}` : location.pathname
+  const articleCanonicalPath = item ? `${archiveBasePath(itemLang, item)}/${item.slug}` : location.pathname
   const articleDateIso = isoDateFromArchiveDate(item?.date)
   usePageMeta({
     title: item ? `${item.title} — Şahin Alpay` : t.htmlTitle,
     description: item ? (item.subtitle ?? item.excerpt ?? item.title) : t.htmlDescription,
     canonicalPath: articleCanonicalPath,
-    alternates: item ? { [lang]: articleCanonicalPath } : pageAlternates(location.pathname),
+    alternates: item ? { [itemLang]: articleCanonicalPath } : pageAlternates(location.pathname),
     robots: item ? 'index,follow' : 'noindex,follow',
     type: 'article',
   })
-  const articleUrl = item ? `${pageUrl(archiveBasePath(lang, item))}/${item.slug}` : ''
-  const sectionName = item ? sectionNameFor(lang, item.category) : t.columns.title
+  const articleUrl = item ? `${pageUrl(archiveBasePath(itemLang, item))}/${item.slug}` : ''
+  const sectionName = item ? sectionNameFor(itemLang, item.category) : t.columns.title
   const sectionUrl = item
-    ? pageUrl(archiveBasePath(lang, item))
+    ? pageUrl(archiveBasePath(itemLang, item))
     : pageUrl(paths[lang].columns!)
 
   useJsonLd(
     'article',
-    item ? articleJsonLd({ item, lang, articleUrl, sectionUrl, sectionName }) : null,
+    item ? articleJsonLd({ item, lang: itemLang, articleUrl, sectionUrl, sectionName }) : null,
   )
   useJsonLd(
     'breadcrumb',
     item
       ? breadcrumbJsonLd({
-          lang,
-          homeUrl: pageUrl(paths[lang].home!),
+          lang: itemLang,
+          homeUrl: pageUrl(paths[itemLang].home!),
           sectionUrl,
           sectionName: item.category === 'columns' ? sectionName : item.outlet,
           articleUrl,
@@ -299,7 +326,7 @@ export function LoadedArticlePage({
   }, [item, lang, articleUrl])
 
   if (retired && item) {
-    return <Navigate to={`${archiveBasePath(lang, item)}/${item.slug}`} replace />
+    return <Navigate to={`${readerBasePath(item, lang)}/${item.slug}`} replace />
   }
 
   if (!item || (!item.hasBody && !item.clippings?.length && !item.imageSrc)) {
@@ -313,7 +340,7 @@ export function LoadedArticlePage({
     )
   }
 
-  const related = relatedArticles(archiveData, item, 3)
+  const related = relatedArticles(ownItem ? archiveData : foreignData, item, 3)
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
@@ -430,8 +457,14 @@ export function LoadedArticlePage({
             )}
             <CiteThis item={item} articleUrl={articleUrl} lang={lang} />
           </div>
-          <h1 className="section-title">{item.title}</h1>
-          {item.subtitle && <p className="article-subtitle">{item.subtitle}</p>}
+          <h1 className="section-title" {...textLang}>
+            {item.title}
+          </h1>
+          {item.subtitle && (
+            <p className="article-subtitle" {...textLang}>
+              {item.subtitle}
+            </p>
+          )}
           <div className="article-byline">
             <AuthorAvatar className="article-byline-avatar" />
             <span className="article-byline-text">
@@ -489,6 +522,7 @@ export function LoadedArticlePage({
           delay={0.08}
           className={`article-body${shortOpener ? ' no-dropcap' : ''}`}
           id="article-body"
+          {...textLang}
           style={{ fontSize: `calc(var(--text-reading) * ${fontScale})` }}
         >
           {body && body.length > 0 ? (

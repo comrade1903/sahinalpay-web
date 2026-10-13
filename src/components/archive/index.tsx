@@ -62,7 +62,7 @@ export function ArchiveRow({
   outlet?: string
   lang: Lang
 }) {
-  const link = archiveLink(item)
+  const link = archiveLink(item, lang)
   const preview = item.excerpt ?? item.subtitle
   const inner = (
     <>
@@ -699,7 +699,7 @@ function deriveNewsstandOutlets(
     design's three-column masthead-index layout instead of ArchiveRow's
     card shape. */
 function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
-  const link = archiveLink(item)
+  const link = archiveLink(item, lang)
   const section = item.pieceKind
     ? pieceKindLabel(item.pieceKind, lang)
     : item.medium

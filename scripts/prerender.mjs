@@ -37,7 +37,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
+import { mirrorRouteForItem, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
 import { loadModule, projectRoot } from './lib/load-archive.mjs'
 
 const distDir = path.join(projectRoot, 'dist')
@@ -468,6 +468,8 @@ for (const entry of press.allPressItems) {
 
 /* ------------------------------------------------------ article pages --- */
 
+let mirrored = 0
+
 for (const item of items) {
   if (!item.internal) continue
   const lang = item.lang
@@ -522,25 +524,40 @@ for (const item of items) {
     )}</a></p>`,
   )
 
-  writePage(item.route, {
+  const head = headBlock({
+    title,
+    description,
+    canonicalPath: item.route,
+    alternates: { [lang]: item.route },
+    ogType: 'article',
     lang,
-    head: headBlock({
-      title,
-      description,
-      canonicalPath: item.route,
-      alternates: { [lang]: item.route },
-      ogType: 'article',
-      lang,
-    }),
-    jsonLd: schema.articleJsonLd({
-      item,
-      lang,
-      articleUrl: url(item.route),
-      sectionUrl: url(await sectionPath(item.category, lang)),
-      sectionName: schema.sectionNameFor(lang, item.category),
-    }),
-    noscript: noscriptBlock(lang, parts.join('')),
   })
+  const jsonLd = schema.articleJsonLd({
+    item,
+    lang,
+    articleUrl: url(item.route),
+    sectionUrl: url(await sectionPath(item.category, lang)),
+    sectionName: schema.sectionNameFor(lang, item.category),
+  })
+  writePage(item.route, { lang, head, jsonLd, noscript: noscriptBlock(lang, parts.join('')) })
+
+  /* A column also reads under the other language's columns path, so opening
+     it from that language's mixed list does not switch the site's language
+     (see readerBasePath in src/archive/links.ts). The mirror is the same
+     piece described the same way — its canonical, hreflang and JSON-LD all
+     name the record's own address — and only the page chrome differs. It
+     must exist as a file: without one a reload or a shared link would 404. */
+  const mirror = mirrorRouteForItem(item)
+  if (mirror) {
+    const pageLang = lang === 'tr' ? 'en' : 'tr'
+    writePage(await mirror, {
+      lang: pageLang,
+      head,
+      jsonLd,
+      noscript: noscriptBlock(pageLang, `<div lang="${lang}">${parts.join('')}</div>`),
+    })
+    mirrored += 1
+  }
 }
 
 /* ------------------------------------------------------------ 404 page --- */
@@ -577,4 +594,4 @@ writePage('/404', {
 fs.renameSync(path.join(distDir, '404', 'index.html'), path.join(distDir, '404.html'))
 fs.rmdirSync(path.join(distDir, '404'))
 
-console.log(`Prerendered ${written} HTML files into dist/.`)
+console.log(`Prerendered ${written} HTML files into dist/ (${mirrored} of them mirrored columns).`)

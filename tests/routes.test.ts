@@ -49,6 +49,13 @@ describe('equivalentPath', () => {
     }
   })
 
+  it('keeps a column open across languages', () => {
+    expect(equivalentPath('/columns/a-new-victory-for-democracy', 'tr')).toBe(
+      '/tr/kose-yazilari/a-new-victory-for-democracy',
+    )
+    expect(equivalentPath('/tr/kose-yazilari/baslarken', 'en')).toBe('/columns/baslarken')
+  })
+
   it('falls back to the target language home for an unknown path', () => {
     expect(equivalentPath('/nope', 'tr')).toBe('/tr')
   })
