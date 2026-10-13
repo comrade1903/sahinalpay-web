@@ -6,43 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A single-page bilingual (Turkish/English) personal & political archive site for Şahin Alpay (b. 1944) — his columns, analyses, interviews, academic articles, and books. The site is his public legacy record: accuracy of the historical material matters more than feature velocity.
 
-**Stack**: React 19 + TypeScript ~6.0 (strict unused-checks, `verbatimModuleSyntax`, `erasableSyntaxOnly`), Vite 8, react-router-dom **v7**, `motion` for animation (with `useReducedMotion` respected). Linting is **oxlint** (not ESLint). Deployed as a fully static SPA on Vercel.
-
 **Domain**: production is **sahinalpay.com**, registered and switched on 2026-09-08 (it replaced `sahinalpay.net`, a placeholder that was never registered). The origin lives in **one place** — `SITE_ORIGIN` in `src/siteConfig.ts` — from which `index.html`, the app, the sitemap and robots.txt all derive it, so a future change is one edit plus `npm run generate:sitemap`. `CONTACT_EMAIL` in the same file feeds the footer, the KVKK notice in both languages and docs/SECURITY.md. The `domain-migration` skill is spent and records the completed switch; do not re-run it.
 
 **Deployment**: landing a commit on `main` on GitHub (`comrade1903/sahinalpay-web`) auto-deploys production via Vercel (team `comrade1905`; local link lives in gitignored `.vercel/`). `main` is reached only by merging a pull request (see Working conventions) — treat every merge as a production release. A PR also gets its own Vercel preview deployment, which is where a change should be looked at before it is merged.
 
 **GitHub account switching**: this repo authenticates as `comrade1903` (not the machine's default `iozgirgin` account) via a gitignored `.envrc` that exports `GH_CONFIG_DIR=~/.config/gh-comrade1903`, loaded by direnv in interactive shells only. Non-interactive shells (including Claude Code's Bash tool) never trigger direnv — prefix `git push`/`gh` commands with `GH_CONFIG_DIR="$HOME/.config/gh-comrade1903"`, otherwise the push fails with `Repository not found` (a 404 from authenticating as the wrong account, not a missing repo).
-
-## Commands
-
-```bash
-npm run dev                # Vite dev server with HMR
-npm run build              # tsc -b, vite build, then scripts/prerender.mjs
-npm run lint               # oxlint (see .oxlintrc.json — react/typescript/oxc plugins)
-npm test                   # vitest (happy-dom); npm run test:watch to iterate
-npm run serve:dist         # serve dist/ the way Vercel does — real 404s, real headers
-npm run preview            # Vite's own preview; SPA-fallbacks everything to 200
-npm run validate:content   # archive integrity — see below for the full check list
-npm run check:secrets      # coarse credential-pattern scan of tracked files
-npm run generate:sitemap   # regenerate public/sitemap.xml + robots.txt (committed)
-npm run generate:summary   # regenerate src/archive/summary.generated.ts (committed)
-npm run generate:redirects # regenerate vercel.json's redirects from the alias table
-npm run verify:prerender   # check dist/ against what the app builds (run after build)
-npm run recover:tustav     # re-fetch the TÜSTAV source volumes and prove they match
-npm run inventory:archive  # diffable dump of every record, for before/after proofs
-npm run inventory:media    # which files under public/archive the site actually links
-npm run split:archive      # re-split large outlets into metadata + .body.ts modules
-npm run ocr:scans          # OCR a directory of incoming clipping scans into tmp/ocr/
-npm run find:spots         # locate a clipping's pull-quote and crop it for reading
-```
-
-Tests are **vitest** with happy-dom, under `tests/`. They cover the behaviour a
-refactor can silently break: Turkish search folding, year and source filters, date
-precision, route/language mapping, pagination bounds, permalink derivation, blocked
-browser storage, missing article bodies, archive-chunk load failure and retry, and
-the generated summary's agreement with the archive. Verification is
-`build` + `lint` + `test` + `validate:content` + the running app in a browser.
 
 **Use `npm run serve:dist`, not `npm run preview`, when checking status codes**:
 Vite's preview rewrites every unmatched path to index.html and answers 200, which
@@ -50,9 +18,8 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 
 ## Architecture
 
-- **Everything renders from one file**: `src/App.tsx` (~3,690 lines) contains every page component (Home, About, the outlet/flat archive list pages, the single-article reader, Books) plus shared chrome (Header, Footer, theme toggle, language toggle, scroll-reveal wrapper). There is no `components/` or `pages/` directory — new UI goes into this file unless it grows enough to justify splitting.
 - **Content is data, not JSX**: `src/content.ts` exports `content: Record<Lang, Content>` (page copy, bio, books — one full copy per language), and archive articles live as `ArchiveItemSeed[]` files under `src/archive/{tr,en}/` (one file per outlet), assembled in `src/archive/index.ts`. Editing an article/book/bio fact means editing these files, not `App.tsx`. Any change to UI copy must be made in **both** languages at once — never ship a string in one language only.
-  - **Columns are per-language** (`archiveData.columns.tr` / `.en`); analyses, interviews and academic articles are Turkish-only **content**. Every section page nonetheless lists *both* languages: the reader's own first, then the other language's under `foreignArchiveLabel` ("Yabancı Dilde Yayınlar" / "Turkish-Language Writing"), so nobody has to switch language to find a piece. `useArchiveData` therefore loads both chunks and reports ready only when both arrive. A row always links to its own language's reader page — `archiveItemBasePath(item)`, never the page's language — which is the rule `scripts/lib/archive-model.mjs#routeForItem` has always used for the sitemap and prerenderer. Only the English *item* routes (`/analyses/:slug` etc.) redirect home. Outlet groups carry a `medium` (`'print'` newspaper vs `'online'` e-publication like P24) that renders as list badges and byline labels.
+  - **Columns, interviews and academic articles are per-language** (`archiveData.columns.tr` / `.en`, likewise `interviews` and `academicArticles` — the few English/German interviews and articles live on the English side); analyses are Turkish-only. Every section page nonetheless lists *both* languages, so nobody has to switch language to find a piece: the reader's own first, then the other language's under `foreignArchiveLabel` ("Yabancı Dilde Yayınlar" / "Turkish-Language Writing") — except the interviews page, which merges both languages and splits by `interviewFormat` instead (written "Söyleşiler" / "Interviews" first, radio/TV/video "Mülakatlar" / "Conversations" after, via the section's `formatLabels`; `validate:content` requires the field on every interview). `useArchiveData` therefore loads both chunks and reports ready only when both arrive. A row always links to its own language's reader page — `archiveItemBasePath(item)`, never the page's language — which is the rule `scripts/lib/archive-model.mjs#routeForItem` has always used for the sitemap and prerenderer. The English *item* routes for those sections (`/analyses/:slug` etc.) redirect to the Turkish reader page for the same slug. Outlet groups carry a `medium` (`'print'` newspaper vs `'online'` e-publication like P24) that renders as list badges and byline labels.
   - `src/archive/tr/columns/zaman.ts` and `src/archive/en/columns/todays-zaman.ts` are **generated** by `scripts/import-zaman-md.mjs` from markdown exports outside the repo — regenerate, don't hand-edit. P24 photos come from `scripts/import-p24-pdf-images.mjs` (PDF dir outside the repo; needs `pdftoppm` from poppler).
   - An `ArchiveItem` opens **internally** (own `/…/:slug` reader page) when it has a non-empty `body` (or a `clippings` array — see `archiveLink()` in `App.tsx`), otherwise it links **externally** to `url` (or `imageSrc` for scanned clippings). Slug comes from the seed's explicit `slug`, else the last path segment of `url`, else slugified title (`normalizeArchiveItems` in `src/archive/utils.ts`).
   - Article dates are free-text Turkish or English strings (e.g. `"7 Kasım 2017"`, `"11 January 2003"`); `src/dateUtils.ts#parseTurkishDate` is the only place that parses them into sortable timestamps — reuse it rather than re-parsing dates elsewhere.
@@ -63,9 +30,7 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 - **`src/press/` is not the archive**: "Yerli ve Dış Basında" (formerly "Basında Hakkımda") (`/tr/basinda-hakkimda`, `/about-me-in-the-press`) holds pieces *other people* wrote about Şahin Alpay, transcribed from the İkinci Kitap manuscripts under `Archive/ikinci kitap/`. It has its own types (`src/press/types.ts`), its own page and reader (`src/components/press/`) and its own prerender/sitemap branches. It must never reach `allArchiveItems()`, the home-page counts, the coverage strip or the archive search — `tests/press.test.ts` guards that. The pieces exist in Turkish only, so item routes live under `/tr` alone and `/about-me-in-the-press/:slug` redirects to them. `url` is set only where the manuscript itself records the original address; most entries have none and show no source link.
 - **Routing is two parallel trees, not locale-prefixed generic routes**: `src/routes.ts` defines `paths: Record<Lang, Partial<Record<PageKey, string>>>` mapping each `PageKey` to a real, differently-worded URL per language (e.g. `about` → `/about` in English, `/tr/kimdir` in Turkish). `App.tsx`'s `<Routes>` lists every language/page combination explicitly rather than generating them, because the English and Turkish path sets aren't structurally identical. When adding a page, add it to `PageKey`, both language path maps in `routes.ts`, the route list in `App.tsx`, and the static-routes list in `scripts/generate-sitemap.mjs`.
 - Language is derived purely from the URL (`langForPath`: `/tr` prefix → Turkish, everything else → English), not from React context/state; the language switcher just navigates to `equivalentPath(pathname, targetLang)` and persists the choice to `localStorage`.
-- **The home page no longer carries a weekly picks section.** "Benden Seçkiler" / "My Picks" was removed on 2026-09-16 at the owner's request, along with `App.tsx#WeeklyPicks`, `src/lib/picks.ts`, the `.recent-*` CSS and the generated summary's `pickPool` (which dropped `summary.generated.ts` from 15 kB to 2 kB). The summary now carries only counts and coverage bands.
 - **`MainShell`'s route-change effect resets scroll with `window.scrollTo({ top: 0, left: 0, behavior: 'instant' })`, not a bare `scrollTo(0, 0)`** — `src/index.css` sets `html { scroll-behavior: smooth }` site-wide, which silently makes a plain `scrollTo` animate instead of jump, so a bare call looks like a scroll-position bug when navigating from a scrolled-down list to an article. Any other programmatic scroll reset should pass `behavior: 'instant'` explicitly for the same reason.
-- This is a fully static SPA: `vercel.json` rewrites everything to `/index.html` so client-side routing works on refresh/deep links; there is no server/API layer.
 
 ## Styling
 
@@ -117,5 +82,3 @@ Several top-level directories are **not part of the active app** — don't treat
 - `stitch_ahin_alpay_dijital_ar_ivi/` — static HTML/design mockups (Google Stitch output), reference only.
 - `agent-skills/`, `awesome-claude-code-subagents/` — vendored third-party skill/agent repos, unrelated to this site's code.
 - `docs/superpowers/` — vendored skill docs, not project documentation.
-
-`.mcp.json` configures a 21st.dev MCP server that expects an `API_KEY_21ST` environment variable.
