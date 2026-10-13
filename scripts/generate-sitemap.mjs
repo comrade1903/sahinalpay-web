@@ -50,7 +50,13 @@ function copyForPage(lang, pageKey) {
     return { hero: t.hero, hubKicker: t.hubKicker, hubTitle: t.hubTitle, hub: t.hub }
   }
   const key =
-    pageKey === 'academic' ? 'academicArticles' : pageKey === 'trial' ? 'trialProcess' : pageKey
+    pageKey === 'academic'
+      ? 'academicArticles'
+      : pageKey === 'trial'
+        ? 'trialProcess'
+        : pageKey === 'photos'
+          ? 'photoStory'
+          : pageKey
   return t[key] ?? null
 }
 
@@ -59,6 +65,7 @@ function copyForPage(lang, pageKey) {
 const STATIC_HINTS = {
   home: ['monthly', '1.0'],
   about: ['monthly', '0.8'],
+  photos: ['monthly', '0.7'],
   columns: ['weekly', '0.8'],
   analyses: ['monthly', '0.6'],
   interviews: ['monthly', '0.6'],

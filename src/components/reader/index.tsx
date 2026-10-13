@@ -20,6 +20,7 @@ import {
   sectionNameFor,
 } from '../../lib/structuredData'
 import { paths } from '../../routes'
+import { ImageLightbox, type LightboxImage } from '../ImageLightbox'
 import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
 import { DeadEnd } from '../DeadEnd'
@@ -247,6 +248,7 @@ export function LoadedArticlePage({
   const { body, failed: bodyFailed, retry: retryBody } = useArticleBody(item)
   const progress = useReadingProgress()
   const [fontScale, setFontScale] = useState(1)
+  const [lightbox, setLightbox] = useState<number | null>(null)
   const t = content[lang]
   const articleCanonicalPath = item ? `${archiveBasePath(lang, item)}/${item.slug}` : location.pathname
   const articleDateIso = isoDateFromArchiveDate(item?.date)
@@ -322,6 +324,39 @@ export function LoadedArticlePage({
   const hasRunningText = Boolean(item?.hasBody || (body && body.length > 0) || bodyFailed)
   const cover: ArchiveClipping | null =
     scans[0] ?? (item.imageSrc ? { src: item.imageSrc, alt: item.title } : null)
+  /* The lead photos and the clipping open in the page's own lightbox, in the
+     order they appear, each captioned with the piece it belongs to. A cover
+     with a PDF behind it still opens the PDF: that is a document, not an
+     image to enlarge. */
+  const clippingCaption = [cover?.pageLabel ?? item.subtitle, item.outlet, item.date]
+    .filter(Boolean)
+    .join(' · ')
+  const lightboxImages: LightboxImage[] = [
+    ...photos.map((clipping) => ({
+      src: clipping.src,
+      alt: clipping.alt ?? item.title,
+      caption: (
+        <>
+          <strong>{item.title}</strong>
+          {item.imageCredit ? ` · ${item.imageCredit}` : ''}
+        </>
+      ),
+    })),
+    ...(cover && !item.pdfSrc
+      ? [
+          {
+            src: cover.src,
+            alt: cover.alt ?? item.title,
+            caption: (
+              <>
+                <strong>{item.title}</strong>
+                {clippingCaption ? ` · ${clippingCaption}` : ''}
+              </>
+            ),
+          },
+        ]
+      : []),
+  ]
 
   return (
     <section className="section section-solo article-page">
@@ -433,9 +468,17 @@ export function LoadedArticlePage({
         </Reveal>
         {photos.length > 0 && (
           <Reveal as="div" delay={0.08} className="article-lead-photos">
-            {photos.map((clipping) => (
+            {photos.map((clipping, i) => (
               <figure className="article-lead-photo" key={clipping.src}>
-                <img src={clipping.src} alt={clipping.alt ?? item.title} loading="lazy" />
+                <button
+                  type="button"
+                  className="article-lead-photo-open"
+                  aria-haspopup="dialog"
+                  aria-label={content[lang].clippingViewer.enlargePhoto}
+                  onClick={() => setLightbox(i)}
+                >
+                  <img src={clipping.src} alt={clipping.alt ?? item.title} loading="lazy" />
+                </button>
               </figure>
             ))}
           </Reveal>
@@ -498,15 +541,14 @@ export function LoadedArticlePage({
                 </a>
               ) : (
                 /* No PDF behind this one — the clipping image itself is the
-                   only rendering of the scan, so opening it full-size in a
-                   new tab is the only way to read past what the thumbnail
-                   shows. */
-                <a
+                   only rendering of the scan, so it opens full-size in the
+                   lightbox, where it can be zoomed to read the type. */
+                <button
+                  type="button"
                   className="clipping-open"
-                  href={cover.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${content[lang].clippingViewer.openImage} ${content[lang].clippingViewer.openImageHint}`}
+                  aria-haspopup="dialog"
+                  aria-label={content[lang].clippingViewer.openImage}
+                  onClick={() => setLightbox(photos.length)}
                 >
                   <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
                   <span className="clipping-open-hint">
@@ -515,7 +557,7 @@ export function LoadedArticlePage({
                     </span>
                     {content[lang].clippingViewer.openImage}
                   </span>
-                </a>
+                </button>
               )}
               <figcaption>
                 {cover.pageLabel ?? item.subtitle}
@@ -565,6 +607,13 @@ export function LoadedArticlePage({
             )}
           </p>
         )}
+        <ImageLightbox
+          images={lightboxImages}
+          index={lightbox}
+          onIndexChange={setLightbox}
+          onClose={() => setLightbox(null)}
+          lang={lang}
+        />
         {related.length > 0 && (
           <aside className="related-articles">
             <h2>{lang === 'tr' ? 'Benzer Yazılar' : 'Related pieces'}</h2>

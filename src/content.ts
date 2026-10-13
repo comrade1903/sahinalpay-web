@@ -99,6 +99,19 @@ export interface Content {
   analyses?: OutletArchiveSection
   interviews?: FlatArchiveSection
   academicArticles?: FlatArchiveSection
+  /** "Fotoğraflarla Hikayem": the photographs and captions themselves live
+   *  in src/photoStory.ts and are the same in both languages. */
+  photoStory: {
+    kicker: string
+    title: string
+    /** Page meta description; not shown on the page. */
+    description: string
+    /** Shown on the English page only (empty in Turkish): the captions
+     *  are Turkish. */
+    captionNote: string
+    /** Accessible name for the link that opens a photo at full size. */
+    enlargeLabel: string
+  }
   /** His own account of the criminal proceedings against him — Turkish only,
    *  a legal record in his own words rather than a translated one. */
   trialProcess?: {
@@ -180,7 +193,7 @@ export interface Content {
     openPdf: string
     openPdfHint: string
     openImage: string
-    openImageHint: string
+    enlargePhoto: string
     pagesSuffix: string
   }
 }
@@ -297,6 +310,7 @@ export const content: Record<Lang, Content> = {
       'Şahin Alpay’s writing archive, memoirs and life story: from Istanbul and Ayvalık to Sweden, journalism and teaching.',
     nav: [
       { key: 'about', label: 'About' },
+      { key: 'photos', label: 'My Story in Photographs', lines: ['My Story', 'in Photographs'] },
       { key: 'columns', label: 'Columns' },
       { key: 'interviews', label: 'Interviews' },
       {
@@ -397,6 +411,14 @@ export const content: Record<Lang, Content> = {
       externalLabel: 'View book summaries ↗',
       externalUrl: '',
       books: BOOKS.en,
+    },
+    photoStory: {
+      kicker: 'Life story',
+      title: 'My Story in Photographs',
+      description:
+        'Şahin Alpay’s life in 37 photographs, from a 1945 family portrait to 2018, with his own captions in Turkish.',
+      captionNote: 'The captions are in Turkish, as I wrote them.',
+      enlargeLabel: 'Open the photograph at full size',
     },
     trialProcess: {
       kicker: 'Legal Case',
@@ -521,7 +543,7 @@ export const content: Record<Lang, Content> = {
       openPdf: 'Read the full scan as a PDF',
       openPdfHint: '(opens in a new tab)',
       openImage: 'Open the full-size clipping',
-      openImageHint: '(opens in a new tab)',
+      enlargePhoto: 'Enlarge the photograph',
       pagesSuffix: 'pages',
     },
   },
@@ -532,6 +554,7 @@ export const content: Record<Lang, Content> = {
       'Şahin Alpay’ın yazı arşivi, anı kitapları ve yaşam öyküsü: İstanbul ve Ayvalık’tan İsveç’e, gazeteciliğe ve üniversiteye.',
     nav: [
       { key: 'about', label: 'Kimdir?' },
+      { key: 'photos', label: 'Fotoğraflarla Hikayem', lines: ['Fotoğraflarla', 'Hikayem'] },
       { key: 'columns', label: 'Köşe Yazıları' },
       { key: 'interviews', label: 'Söyleşiler' },
       {
@@ -637,6 +660,15 @@ export const content: Record<Lang, Content> = {
       externalLabel: 'Kitap özetlerini görüntüle ↗',
       externalUrl: '',
       books: BOOKS.tr,
+    },
+    photoStory: {
+      kicker: 'Yaşam öyküsü',
+      title: 'Fotoğraflarla Hikayem',
+      description:
+        'Şahin Alpay’ın hayatı, 1945’teki bir aile fotoğrafından 2018’e 37 fotoğraf ve kendi yazdığı açıklamalarla.',
+      /* The captions are already in the page's language. */
+      captionNote: '',
+      enlargeLabel: 'Fotoğrafı büyük boyutta aç',
     },
     trialProcess: {
       kicker: 'Yargı Süreci',
@@ -749,7 +781,7 @@ export const content: Record<Lang, Content> = {
       openPdf: 'Tamamını PDF olarak oku',
       openPdfHint: '(yeni sekmede açılır)',
       openImage: 'Kupürü tam boyutunda aç',
-      openImageHint: '(yeni sekmede açılır)',
+      enlargePhoto: 'Fotoğrafı büyüt',
       pagesSuffix: 'sayfa',
     },
   },

@@ -57,6 +57,7 @@ const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs'
    cannot describe a page differently if there is one implementation. */
 const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
 const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
+const photoStory = await loadModule('src/photoStory.ts', 'photo-story-prerender.mjs')
 const { content } = contentModule
 const { paths } = routes
 
@@ -275,6 +276,33 @@ for (const lang of ['tr', 'en']) {
         .join('')}`
       jsonLd = schema.aboutJsonLd({
         name: t.about.title,
+        description,
+        lang,
+        url: url(routePath),
+      })
+    } else if (pageKey === 'photos') {
+      const copy = t.photoStory
+      title = `${copy.title} — Şahin Alpay`
+      description = copy.description
+      /* Every photo with its caption, so a reader without JavaScript (or a
+         crawler) gets the whole story, not just the title. The captions'
+         *italic* / **bold** markers are dropped rather than rendered. */
+      inner =
+        `<h1>${escapeHtml(copy.title)}</h1>` +
+        (copy.captionNote ? `<p>${escapeHtml(copy.captionNote)}</p>` : '') +
+        `<ol lang="tr">${photoStory.photoStoryEntries
+          .map(
+            (entry) =>
+              `<li><figure>${entry.photos
+                .map(
+                  (photo) =>
+                    `<img src="${escapeHtml(photoStory.photoSrc(photo.id, 800))}" width="${photo.width}" height="${photo.height}" alt="${escapeHtml(photo.alt ?? '')}" loading="lazy">`,
+                )
+                .join('')}<figcaption>${escapeHtml(entry.caption.replace(/\*\*?([^*]+)\*\*?/g, '$1'))}</figcaption></figure></li>`,
+          )
+          .join('')}</ol>`
+      jsonLd = schema.aboutJsonLd({
+        name: copy.title,
         description,
         lang,
         url: url(routePath),

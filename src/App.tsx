@@ -17,6 +17,7 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
 import { BookForewordDialog } from './components/BookForewordDialog'
+import { PhotoStoryPage } from './components/PhotoStoryPage'
 import { paths, langForPath, type PageKey } from './routes'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
 import { aboutJsonLd, booksJsonLd, profileJsonLd } from './lib/structuredData'
@@ -775,6 +776,7 @@ function MainShell() {
             path="/academic-articles/:slug"
             element={<TurkishItemRedirect pageKey="academic" />}
           />
+          <Route path="/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
           <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
           <Route path="/about-me-in-the-press" element={<PressPage lang="en" />} />
@@ -821,6 +823,7 @@ function MainShell() {
             path="/tr/akademik-makaleler/:slug"
             element={<ArticlePage lang="tr" />}
           />
+          <Route path="/tr/fotograflarla-hikayem" element={<PhotoStoryPage lang="tr" />} />
           <Route
             path="/tr/kitaplar"
             element={<RouteFor lang="tr" pageKey="books" />}
