@@ -339,6 +339,25 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
   }
 }
 
+/* ---- a column's slug is unique across both languages ---- */
+
+/* Each column also reads under the other language's columns path (see
+   readerBasePath in src/archive/links.ts), where the reader looks up the page
+   language's records first. A Turkish and an English column sharing a slug
+   would make the English one unreachable from the Turkish site, and the
+   prerendered mirror of one would overwrite the other's real page. */
+{
+  const seen = new Map()
+  for (const item of items) {
+    if (item.category !== 'columns' || !item.slug) continue
+    const other = seen.get(item.slug)
+    if (other && other.lang !== item.lang) {
+      fail(`Column slug "${item.slug}" is used in both languages: ${where(item)} and ${where(other)}`)
+    }
+    seen.set(item.slug, item)
+  }
+}
+
 /* ---- every interview says whether it is written or broadcast ---- */
 
 /* The interviews page is split on this field; a missing value would quietly

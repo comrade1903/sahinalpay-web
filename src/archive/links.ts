@@ -26,23 +26,37 @@ export function archiveBasePath(lang: Lang, item: { category: ArchiveItem['categ
 }
 
 /**
- * Where a record's own reader page lives — always in the record's language,
- * never the page's.
- *
- * These differ now that each section lists the other language's records too:
- * a Turkish column shown on /columns still reads at /tr/kose-yazilari/<slug>,
- * because that is the only place it was prerendered and the only language its
- * body exists in. scripts/lib/archive-model.mjs#routeForItem has always
- * derived the route this way for the sitemap and the prerenderer, so this is
- * the client agreeing with the build rather than a new rule.
+ * Where a record's canonical reader page lives — always in the record's
+ * language, never the page's. This is the address the sitemap, structured data
+ * and `<link rel="canonical">` use; scripts/lib/archive-model.mjs#routeForItem
+ * derives the same route for the build.
  */
 export function archiveItemBasePath(item: ArchiveItem): string {
   return archiveBasePath(item.lang, item)
 }
 
-export function archiveLink(item: ArchiveItem): { href: string; internal: boolean } | null {
+/**
+ * Where a row on a `pageLang` page sends the reader. Each section lists the
+ * other language's records too, and linking those to their canonical page
+ * used to switch the whole site's language under the reader: a Today's Zaman
+ * column clicked on /tr/kose-yazilari opened at /columns/<slug> with an
+ * English menu. Columns therefore also read under the page's own language
+ * (the article text stays in its own language; the page points its canonical
+ * at the record's own address). Only columns have that mirror route — the
+ * English item routes for the other sections redirect to Turkish — so every
+ * other section keeps its canonical address. scripts/prerender.mjs writes the
+ * mirror pages from the same rule (`mirrorRouteForItem`).
+ */
+export function readerBasePath(item: ArchiveItem, pageLang: Lang): string {
+  return item.category === 'columns' ? archiveBasePath(pageLang, item) : archiveItemBasePath(item)
+}
+
+export function archiveLink(
+  item: ArchiveItem,
+  pageLang: Lang = item.lang,
+): { href: string; internal: boolean } | null {
   if (item.hasBody || itemScanClippings(item).length > 0) {
-    return { href: `${archiveItemBasePath(item)}/${item.slug}`, internal: true }
+    return { href: `${readerBasePath(item, pageLang)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }
   if (item.imageSrc) return { href: item.imageSrc, internal: false }

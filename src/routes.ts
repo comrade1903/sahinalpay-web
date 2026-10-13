@@ -66,8 +66,15 @@ export function pageKeyForPath(pathname: string): PageKey {
   return found ? found[0] : 'home'
 }
 
-/** Path to the same page in another language, falling back to that language's home. */
+/** Path to the same page in another language, falling back to that language's home.
+ *  A column keeps its slug: every column reads under both languages' columns
+ *  paths (see readerBasePath in archive/links.ts), so switching language on
+ *  one stays on the piece instead of dropping back to the list. */
 export function equivalentPath(pathname: string, targetLang: Lang): string {
+  const columns = paths[langForPath(pathname)].columns!
+  if (pathname.startsWith(`${columns}/`)) {
+    return `${paths[targetLang].columns!}${pathname.slice(columns.length)}`
+  }
   const key = pageKeyForPath(pathname)
   return paths[targetLang][key] ?? paths[targetLang].home!
 }

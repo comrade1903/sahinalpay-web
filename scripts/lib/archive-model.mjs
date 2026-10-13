@@ -61,6 +61,15 @@ export async function routeForItem(item) {
   return `${await sectionPath(item.category, item.lang)}/${item.slug}`
 }
 
+/** The second address a column reads at: the other language's columns path,
+ *  mirroring readerBasePath() in src/archive/links.ts. Null for every other
+ *  section, whose other-language item routes redirect instead. Only for
+ *  internal items — a record without a reader page has no mirror either. */
+export function mirrorRouteForItem(item) {
+  if (item.category !== 'columns') return null
+  return sectionPath('columns', item.lang === 'tr' ? 'en' : 'tr').then((base) => `${base}/${item.slug}`)
+}
+
 /** Flat list of every archive item, with the derived facts attached. */
 export async function readArchiveItems() {
   const archive = await loadArchive()
