@@ -56,6 +56,10 @@ export default defineConfig({
               test: /[\\/]src[\\/]archive[\\/]tr[\\/]columns[\\/]medyascope\.body/,
             },
             {
+              name: 'archive-en-todays-zaman',
+              test: /[\\/]src[\\/]archive[\\/]en[\\/]columns[\\/]todays-zaman\.body/,
+            },
+            {
               name: 'archive-shared',
               test: /[\\/]src[\\/]archive[\\/](utils|types)\.ts$/,
             },

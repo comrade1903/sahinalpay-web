@@ -30,7 +30,7 @@ export const archiveSummary: ArchiveSummary = {
   "counts": {
     "columns": {
       "tr": 522,
-      "en": 114
+      "en": 138
     },
     "analyses": 0,
     "interviews": 40,
@@ -76,8 +76,8 @@ export const archiveSummary: ArchiveSummary = {
     {
       "outlet": "Today's Zaman",
       "from": 2007,
-      "to": 2015,
-      "count": 114
+      "to": 2016,
+      "count": 138
     },
     {
       "academic": true,

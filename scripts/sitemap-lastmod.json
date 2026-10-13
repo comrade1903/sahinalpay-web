@@ -1,42 +1,42 @@
 {
   "/": {
-    "fingerprint": "fa1038b4b66727d7",
+    "fingerprint": "ce345e541c9b47ee",
     "date": "2026-10-13"
   },
   "/about": {
-    "fingerprint": "04ebb2bca943bcce",
+    "fingerprint": "cb6787bec9039196",
     "date": "2026-10-13"
   },
   "/my-story-in-photographs": {
-    "fingerprint": "0490e9f25bd2ee80",
+    "fingerprint": "7a5f3b3b2f890140",
     "date": "2026-10-13"
   },
   "/columns": {
-    "fingerprint": "e964093c55d65886",
+    "fingerprint": "5c88605e70afcb7f",
     "date": "2026-10-13"
   },
   "/interviews": {
-    "fingerprint": "2b3079618a543ce6",
+    "fingerprint": "dbc31064ec8559ab",
     "date": "2026-10-13"
   },
   "/academic-articles": {
-    "fingerprint": "96fe026a723ec8a9",
+    "fingerprint": "fd3bcc78e0ccdb44",
     "date": "2026-10-13"
   },
   "/books": {
-    "fingerprint": "0b395e0b245743ca",
+    "fingerprint": "ff3336495fe7dd1e",
     "date": "2026-10-13"
   },
   "/trial-process": {
-    "fingerprint": "4cf2301b76c2d304",
+    "fingerprint": "45f8e7f73b515792",
     "date": "2026-10-13"
   },
   "/about-me-in-the-press": {
-    "fingerprint": "7522345ad272ccae",
+    "fingerprint": "342317a7f0a86f60",
     "date": "2026-10-13"
   },
   "/cookie-policy": {
-    "fingerprint": "f2debf6d1376dd42",
+    "fingerprint": "4e3f8bcb12f277ec",
     "date": "2026-10-13"
   },
   "/tr": {
@@ -2783,6 +2783,54 @@
     "fingerprint": "63f2bb65e29340f9",
     "date": "2026-09-09"
   },
+  "/columns/turks-and-kurds-have-common-interests": {
+    "fingerprint": "f88c8398f2d083ad",
+    "date": "2026-10-13"
+  },
+  "/columns/why-love-hate-with-the-west": {
+    "fingerprint": "11d69501f109ca98",
+    "date": "2026-10-13"
+  },
+  "/columns/what-should-turkey-do-with-the-european-union": {
+    "fingerprint": "086e9041b247f42f",
+    "date": "2026-10-13"
+  },
+  "/columns/the-growing-role-of-women-in-turkey": {
+    "fingerprint": "90565e14d18bde56",
+    "date": "2026-10-13"
+  },
+  "/columns/a-major-step-towards-turkish-kurdish-peace": {
+    "fingerprint": "262db71afae3f2c8",
+    "date": "2026-10-13"
+  },
+  "/columns/why-is-the-turkish-militarys-political-role-waning": {
+    "fingerprint": "3d8e1f6b44821bbd",
+    "date": "2026-10-13"
+  },
+  "/columns/is-erdogan-mildly-moderately-or-slightly-islamist": {
+    "fingerprint": "c59636bed39872fe",
+    "date": "2026-10-13"
+  },
+  "/columns/when-would-the-pkk-cease-to-be-terrorist": {
+    "fingerprint": "f72454a310817e0b",
+    "date": "2026-10-13"
+  },
+  "/columns/turkey-will-not-bow-to-authoritarianism": {
+    "fingerprint": "863aaa26965662d0",
+    "date": "2026-10-13"
+  },
+  "/columns/turkey-needs-europe-but-europe-does-not-care": {
+    "fingerprint": "ef78f951ec49b013",
+    "date": "2026-10-13"
+  },
+  "/columns/why-is-erdogan-polarizing-turkey": {
+    "fingerprint": "adabc8bb1ba7a595",
+    "date": "2026-10-13"
+  },
+  "/columns/is-humanitarian-intervention-good-or-bad": {
+    "fingerprint": "ac375691cddc2d45",
+    "date": "2026-10-13"
+  },
   "/columns/conspiracy-theory-par-excellence": {
     "fingerprint": "132f3d625f963d6b",
     "date": "2026-10-13"
@@ -2819,6 +2867,14 @@
     "fingerprint": "2597bdc104dd63ee",
     "date": "2026-10-13"
   },
+  "/columns/where-erdogan-falls-short-of-putin": {
+    "fingerprint": "0c8510b54efa1a55",
+    "date": "2026-10-13"
+  },
+  "/columns/no-secularism-or-democracy-without-religious-freedom": {
+    "fingerprint": "1a7e7ae60260c63f",
+    "date": "2026-10-13"
+  },
   "/columns/civil-society-will-not-bow": {
     "fingerprint": "6cda407c910c7f84",
     "date": "2026-10-13"
@@ -2843,12 +2899,52 @@
     "fingerprint": "5eeac33ad91b7712",
     "date": "2026-10-13"
   },
+  "/columns/political-crisis-in-turkey": {
+    "fingerprint": "8546ab8d3808394e",
+    "date": "2026-10-13"
+  },
   "/columns/the-root-cause-of-turkeys-problems": {
     "fingerprint": "67c1860bc299b8b9",
     "date": "2026-10-13"
   },
   "/columns/why-vote-for-hdp": {
     "fingerprint": "0c5e3146ff3ec3c2",
+    "date": "2026-10-13"
+  },
+  "/columns/how-the-rule-of-law-has-been-dismantled": {
+    "fingerprint": "ad6bba1ecdf11c77",
+    "date": "2026-10-13"
+  },
+  "/columns/revive-the-peace-process": {
+    "fingerprint": "2622547aaade608e",
+    "date": "2026-10-13"
+  },
+  "/columns/demanding-autonomy-is-not-treason": {
+    "fingerprint": "9741191336a6ea12",
+    "date": "2026-10-13"
+  },
+  "/columns/clash-of-religious-fundamentalists": {
+    "fingerprint": "9b5edbdc1c44fbd5",
+    "date": "2026-10-13"
+  },
+  "/columns/the-difference-between-the-pkk-and-daesh": {
+    "fingerprint": "fe82a01ae88757dd",
+    "date": "2026-10-13"
+  },
+  "/columns/risks-involved-for-turkey": {
+    "fingerprint": "d66683483ca4bd56",
+    "date": "2026-10-13"
+  },
+  "/columns/turkey-in-erdogans-grip-and-the-eu": {
+    "fingerprint": "50bec798a43b514f",
+    "date": "2026-10-13"
+  },
+  "/columns/akp-rule-means-chaos-and-war": {
+    "fingerprint": "d392610b444c3301",
+    "date": "2026-10-13"
+  },
+  "/columns/even-erdogan-needs-the-west": {
+    "fingerprint": "caf58abf37bd8a2f",
     "date": "2026-10-13"
   }
 }

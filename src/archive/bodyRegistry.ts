@@ -13,6 +13,8 @@ const bodyLoaders: Record<string, BodyLoader> = {
   'columns:p24': () => import('./tr/columns/p24.body').then((m) => m.p24Bodies),
   'columns:medyascope': () =>
     import('./tr/columns/medyascope.body').then((m) => m.medyascopeBodies),
+  'columns:todays-zaman': () =>
+    import('./en/columns/todays-zaman.body').then((m) => m.todaysZamanBodies),
 }
 
 /** A `hasBody` item whose outlet has no registered loader, or whose slug is
