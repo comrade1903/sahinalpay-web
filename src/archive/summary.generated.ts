@@ -29,8 +29,8 @@ export interface ArchiveSummary {
 export const archiveSummary: ArchiveSummary = {
   "counts": {
     "columns": {
-      "tr": 477,
-      "en": 97
+      "tr": 522,
+      "en": 114
     },
     "analyses": 0,
     "interviews": 40,
@@ -58,8 +58,8 @@ export const archiveSummary: ArchiveSummary = {
     {
       "outlet": "Zaman",
       "from": 2002,
-      "to": 2013,
-      "count": 244
+      "to": 2016,
+      "count": 289
     },
     {
       "outlet": "P24",
@@ -76,8 +76,8 @@ export const archiveSummary: ArchiveSummary = {
     {
       "outlet": "Today's Zaman",
       "from": 2007,
-      "to": 2012,
-      "count": 97
+      "to": 2015,
+      "count": 114
     },
     {
       "academic": true,

@@ -1,6 +1,6 @@
 import type { ArchiveItemSeed } from '../../types'
 
-/** Şahin Alpay's Today's Zaman column, 2007-2012. Each entry is a cropped
+/** Şahin Alpay's Today's Zaman column, 2007-2015. Each entry is a cropped
  *  clipping of his own column - byline photo, headline and the full
  *  column text - taken from a scan of the printed Columns page; there is
  *  no separate full-page scan or transcribed body text behind it. */
@@ -1554,6 +1554,278 @@ export const todaysZamanColumnSeeds: ArchiveItemSeed[] = [
         src: '/archive/clippings/todays-zaman/2012/theories-about-erdogan-i-and-ii/cover.webp',
         alt: 'Today\'s Zaman, 31 December 2012, p. 15',
         pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'conspiracy-theory-par-excellence',
+    title: 'Conspiracy theory par excellence',
+    date: '6 January 2014',
+    subtitle: 'Today\'s Zaman, Columns, 6 January 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['conspiracy theories', 'Karl Popper', 'corruption probe', 'Gülen movement', 'AKP', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/conspiracy-theory-par-excellence/cover.webp',
+        alt: 'Today\'s Zaman, 6 January 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'you-cannot-fool-all-the-people-all-the-time',
+    title: 'You cannot fool all the people all the time',
+    date: '20 January 2014',
+    subtitle: 'Today\'s Zaman, Columns, 20 January 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['AKP', 'Recep Tayyip Erdoğan', 'Gezi Park', 'corruption probe', 'authoritarianism', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/you-cannot-fool-all-the-people-all-the-time/cover.webp',
+        alt: 'Today\'s Zaman, 20 January 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'vote-out-erdogan-and-his-clique',
+    title: 'Vote out Erdoğan and his clique',
+    date: '24 March 2014',
+    subtitle: 'Today\'s Zaman, Columns, 24 March 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Twitter ban', 'social media', 'corruption scandal', 'local elections', 'Recep Tayyip Erdoğan', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/vote-out-erdogan-and-his-clique/cover.webp',
+        alt: 'Today\'s Zaman, 24 March 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'a-step-toward-turkish-armenian-reconciliation',
+    title: 'A step toward Turkish-Armenian reconciliation?',
+    date: '28 April 2014',
+    subtitle: 'Today\'s Zaman, Columns, 28 April 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Armenia', '1915', 'Committee of Union and Progress', 'Recep Tayyip Erdoğan', 'Turkish-Armenian relations', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/a-step-toward-turkish-armenian-reconciliation/cover.webp',
+        alt: 'Today\'s Zaman, 28 April 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'kurdish-right-to-autonomy',
+    title: 'Kurdish right to autonomy',
+    date: '12 May 2014',
+    subtitle: 'Today\'s Zaman, Columns, 12 May 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Kurdish question', 'autonomy', 'PKK', 'peace process', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/kurdish-right-to-autonomy/cover.webp',
+        alt: 'Today\'s Zaman, 12 May 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'turkeys-erdogan-problem',
+    title: 'Turkey’s Erdoğan problem',
+    date: '19 May 2014',
+    subtitle: 'Today\'s Zaman, Columns, 19 May 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Soma mining disaster', 'mining safety', 'Recep Tayyip Erdoğan', 'AKP', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/turkeys-erdogan-problem/cover.webp',
+        alt: 'Today\'s Zaman, 19 May 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'why-cant-turkey-consolidate-democracy',
+    title: 'Why can’t Turkey consolidate democracy',
+    date: '9 June 2014',
+    subtitle: 'Today\'s Zaman, Columns, 9 June 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['democratic consolidation', 'Kemalism', 'Islam and democracy', 'Rainer Hermann', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/why-cant-turkey-consolidate-democracy/cover.webp',
+        alt: 'Today\'s Zaman, 9 June 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'erdogans-witch-hunt-goes-crazy',
+    title: 'Erdoğan’s witch hunt goes crazy',
+    date: '14 July 2014',
+    subtitle: 'Today\'s Zaman, Columns, 14 July 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Gülen movement', 'witch hunt', 'police', 'profiling', 'Recep Tayyip Erdoğan', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/erdogans-witch-hunt-goes-crazy/cover.webp',
+        alt: 'Today\'s Zaman, 14 July 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'why-does-erdogan-keep-winning',
+    title: 'Why does Erdoğan keep winning?',
+    date: '18 August 2014',
+    subtitle: 'Today\'s Zaman, Columns, 18 August 2014, p. 15',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['presidential election', 'Recep Tayyip Erdoğan', 'AKP', 'electorate', '2014'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2014/why-does-erdogan-keep-winning/cover.webp',
+        alt: 'Today\'s Zaman, 18 August 2014, p. 15',
+        pageLabel: 'p. 15',
+      },
+    ],
+  },
+  {
+    slug: 'civil-society-will-not-bow',
+    title: 'Civil society will not bow',
+    date: '5 January 2015',
+    subtitle: 'Today\'s Zaman, Columns, 5 January 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['civil society', 'Recep Tayyip Erdoğan', 'rule of law', 'TÜSİAD', 'parallel state', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/civil-society-will-not-bow/cover.webp',
+        alt: 'Today\'s Zaman, 5 January 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'a-better-understanding-of-the-akp-required',
+    title: 'A better understanding of the AKP required',
+    date: '19 January 2015',
+    subtitle: 'Today\'s Zaman, Columns, 19 January 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['AKP', 'Islamism', 'National Vision', 'Necmettin Erbakan', 'conservative democracy', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/a-better-understanding-of-the-akp-required/cover.webp',
+        alt: 'Today\'s Zaman, 19 January 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'media-and-democracy-in-turkey',
+    title: 'Media and democracy in Turkey',
+    date: '2 February 2015',
+    subtitle: 'Today\'s Zaman, Columns, 2 February 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['press freedom', 'media barons', 'Kemalism', 'censorship', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/media-and-democracy-in-turkey/cover.webp',
+        alt: 'Today\'s Zaman, 2 February 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'how-do-i-view-the-west',
+    title: 'How do I view the West?',
+    date: '9 February 2015',
+    subtitle: 'Today\'s Zaman, Columns, 9 February 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['the West', 'Charlie Hebdo', 'European Union', 'secularism', 'human rights', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/how-do-i-view-the-west/cover.webp',
+        alt: 'Today\'s Zaman, 9 February 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'erdogan-and-huntington',
+    title: 'Erdoğan and Huntington',
+    date: '16 March 2015',
+    subtitle: 'Today\'s Zaman, Columns, 16 March 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['Samuel P. Huntington', 'clash of civilizations', 'Recep Tayyip Erdoğan', 'NATO', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/erdogan-and-huntington/cover.webp',
+        alt: 'Today\'s Zaman, 16 March 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'dark-clouds-blown-away',
+    title: 'Dark clouds blown away',
+    date: '15 June 2015',
+    subtitle: 'Today\'s Zaman, Columns, 15 June 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['June 7 election', 'HDP', 'Selahattin Demirtaş', 'presidential system', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/dark-clouds-blown-away/cover.webp',
+        alt: 'Today\'s Zaman, 15 June 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'the-root-cause-of-turkeys-problems',
+    title: 'The root cause of Turkey’s problems',
+    date: '17 August 2015',
+    subtitle: 'Today\'s Zaman, Columns, 17 August 2015, p. 11',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['PKK', 'early election', 'Kemalism', 'Kurdish question', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/the-root-cause-of-turkeys-problems/cover.webp',
+        alt: 'Today\'s Zaman, 17 August 2015, p. 11',
+        pageLabel: 'p. 11',
+      },
+    ],
+  },
+  {
+    slug: 'why-vote-for-hdp',
+    title: 'Why vote for HDP?',
+    date: '26 October 2015',
+    subtitle: 'Today\'s Zaman, Columns, 26 October 2015, p. A7',
+    sourceNote: 'From Şahin Alpay\'s personal archive, a clipping from the Today\'s Zaman Columns page.',
+    tags: ['HDP', 'PKK', 'Kurdish question', 'Abdullah Öcalan', 'November 1 election', '2015'],
+    pieceKind: 'column',
+    clippings: [
+      {
+        src: '/archive/clippings/todays-zaman/2015/why-vote-for-hdp/cover.webp',
+        alt: 'Today\'s Zaman, 26 October 2015, p. A7',
+        pageLabel: 'p. A7',
       },
     ],
   },

@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://sahinalpay.com/about</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,43 +20,43 @@
   </url>
   <url>
     <loc>https://sahinalpay.com/columns</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/interviews</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/academic-articles</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/books</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/trial-process</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/about-me-in-the-press</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sahinalpay.com/cookie-policy</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -2893,6 +2893,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/basbakan-degismeli</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sahinalpay.com/tr/kose-yazilari/milli-irade-yuzde-50den-ibaret-degildir</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
@@ -2947,6 +2953,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/iceride-kutuplasma-disarida-yalnizlasma</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sahinalpay.com/tr/kose-yazilari/aleviler-ve-sunniler-esittir</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
@@ -2967,6 +2979,12 @@
   <url>
     <loc>https://sahinalpay.com/tr/kose-yazilari/cogulculugu-kabulden-kacinilamaz</loc>
     <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/evet-ama-yetmez</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3021,6 +3039,258 @@
   <url>
     <loc>https://sahinalpay.com/tr/kose-yazilari/barzaninin-ziyareti-neden-tarihi</loc>
     <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/kemalistlerle-akpnin-ortak-yanlari</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/kokusmus-bir-seyler-var</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/komplo-teorisi-zirve-yapti</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/uludere-katliami-cezasiz-kalamaz</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/komplo-teorileri-ise-yaramaz</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/evet-suc-da-ceza-da-sahs-dir</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/meselenin-ozu-ozgurluk-mucadelesi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/hizmet-hareketinin-nihai-amaci</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/bu-millet-bidon-kafali-degildir</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/kumpas-degil-safsata</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/akp-bile-bu-erdogana-katlanamaz</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/hukuksuzluk-ve-yolsuzluga-evet-denemez</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/turkiye-bu-zihniyetle-yonetilemez</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/muhaberat-devletine-dogru-bir-adim-daha</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/erdogana-hayir</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/otoriterlesmeye-karsi-durma-zamani</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/hukuk-degil-tek-adam-devleti</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/sivil-toplum-boyun-egmez</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/demokrasiye-evet-erdogana-hayir</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/coban-suluye-veda</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/akp-ile-helallesmek-mumkun-mu</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/hdp-firsati-heba-edilmemeli</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/hdpnin-dislanmasi-buyuk-risktir</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/ortadogu-diktatorlugune-dogru-gidis</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/baskici-rejimler-nasil-coker</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/secimli-otokrasiye-dogru</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/gobels-rejimi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/17-25-aralik-hukuk-devletinde-sonun-baslangici</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/ne-hukuk-kaldi-ne-de-mantik</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/koktendinciler-kavgasinin-verdigi-dersler</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/insanligindan-utanmasi-gerekenler</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/suriyeli-cocuklarin-gelecegi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/liberalizmin-krizi-mi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/dokuzuncu-gezegenin-mesaji</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/pkk-ile-daes-farksiz-mi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/chp-iktidar-olabilir-mi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/abd-fasist-olur-mu</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/pkk-geriliyor-mu</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/abnin-ihaneti-mi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/terorle-mucadele-stratejisi-yurumuyor</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/abdyle-guven-bunalimi-nereye-varacak</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/tr/kose-yazilari/tosun-terzioglu-bir-rol-modeli</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3903,6 +4173,108 @@
   <url>
     <loc>https://sahinalpay.com/columns/theories-about-erdogan-i-and-ii</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/conspiracy-theory-par-excellence</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/you-cannot-fool-all-the-people-all-the-time</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/vote-out-erdogan-and-his-clique</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/a-step-toward-turkish-armenian-reconciliation</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/kurdish-right-to-autonomy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/turkeys-erdogan-problem</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/why-cant-turkey-consolidate-democracy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/erdogans-witch-hunt-goes-crazy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/why-does-erdogan-keep-winning</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/civil-society-will-not-bow</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/a-better-understanding-of-the-akp-required</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/media-and-democracy-in-turkey</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/how-do-i-view-the-west</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/erdogan-and-huntington</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/dark-clouds-blown-away</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/the-root-cause-of-turkeys-problems</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sahinalpay.com/columns/why-vote-for-hdp</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
