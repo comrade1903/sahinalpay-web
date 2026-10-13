@@ -3,6 +3,7 @@ import type { Lang } from './content'
 export type PageKey =
   | 'home'
   | 'about'
+  | 'photos'
   | 'columns'
   | 'analyses'
   | 'interviews'
@@ -18,6 +19,9 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
   en: {
     home: '/',
     about: '/about',
+    /* The captions are his own and Turkish only; this page shows them
+       untranslated (see src/photoStory.ts). */
+    photos: '/my-story-in-photographs',
     columns: '/columns',
     analyses: '/analyses',
     interviews: '/interviews',
@@ -37,6 +41,7 @@ export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
   tr: {
     home: '/tr',
     about: '/tr/kimdir',
+    photos: '/tr/fotograflarla-hikayem',
     columns: '/tr/kose-yazilari',
     analyses: '/tr/analizler',
     interviews: '/tr/soylesiler',

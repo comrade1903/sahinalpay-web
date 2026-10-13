@@ -1,11 +1,15 @@
 {
   "/": {
     "fingerprint": "cadd6b1f8fe7bf71",
-    "date": "2026-10-08"
+    "date": "2026-10-13"
   },
   "/about": {
     "fingerprint": "0c809ccfccc274fa",
     "date": "2026-10-08"
+  },
+  "/my-story-in-photographs": {
+    "fingerprint": "495413bed47f59df",
+    "date": "2026-10-13"
   },
   "/columns": {
     "fingerprint": "06cdb9431a230b7a",
@@ -37,11 +41,15 @@
   },
   "/tr": {
     "fingerprint": "7c4adf3254a4dcce",
-    "date": "2026-10-08"
+    "date": "2026-10-13"
   },
   "/tr/kimdir": {
     "fingerprint": "7b1b0b5f8bc6b2cb",
     "date": "2026-10-08"
+  },
+  "/tr/fotograflarla-hikayem": {
+    "fingerprint": "10f5042029686ba3",
+    "date": "2026-10-13"
   },
   "/tr/kose-yazilari": {
     "fingerprint": "7d2672cc098198a7",
