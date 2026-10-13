@@ -19,6 +19,12 @@ import type { ArchiveItemSeed } from '../types'
  *  the interview; the İçeriden Bakanlar list of interviewees is incomplete;
  *  and the 2024 Açık Radyo page is dated 26 December while the owner's
  *  working list gives 25 December as the broadcast date.
+
+ *  The NEWSROOM MEDIA video (added 2026-10-13) carries only what Vimeo shows:
+ *  its title is just "Şahin Alpay", it has no description or credited
+ *  interviewer, and 13 April 2026 is its upload date, not a known recording
+ *  date. The link is Vimeo's unlisted share link; the owner asked for it to be
+ *  listed as is.
  *
  *  The interviewer is named in `subtitle` because the archive has no separate
  *  field for one. Where a piece isn't credited to a named interviewer (or,
@@ -130,6 +136,15 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     subtitle: 'KHK TV, video (anma yazısı) — Ahmet Turan Alkan için',
     url: 'https://www.youtube.com/watch?v=UGrAaipn1DQ',
     tags: ['Ahmet Turan Alkan', 'KHK', 'anma', 'KHK TV', 'video', '2026'],
+  },
+  {
+    slug: 'sahin-alpay-newsroom-media-2026',
+    interviewFormat: 'broadcast',
+    title: 'Şahin Alpay',
+    date: '13 Nisan 2026',
+    subtitle: 'NEWSROOM MEDIA, video mülakat',
+    url: 'https://vimeo.com/1182593301/cdf038ee1f',
+    tags: ['NEWSROOM MEDIA', 'video', '2026'],
   },
   {
     slug: 'baykal-gorbacov-olamaz-aksiyon-2008',
