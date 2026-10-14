@@ -33,8 +33,8 @@ export const archiveSummary: ArchiveSummary = {
       "en": 138
     },
     "analyses": 0,
-    "interviews": 40,
-    "academic": 40
+    "interviews": 12,
+    "academic": 41
   },
   "coverage": [
     {
@@ -83,7 +83,7 @@ export const archiveSummary: ArchiveSummary = {
       "academic": true,
       "from": 1982,
       "to": 2011,
-      "count": 40
+      "count": 41
     }
   ]
 }

@@ -4,17 +4,6 @@ import type { ArchiveItemSeed } from '../types'
  *  English side of the archive so the Söyleşiler page lists them under their
  *  own heading after the Turkish ones, as the academic articles page does.
  *
- *  The Global Axess interview moved here from the Turkish file on 2026-10-08;
- *  only the wording of its citation changed (Global Axess was the
- *  English-language edition of the Swedish magazine Axess). */
-export const enInterviewSeeds: ArchiveItemSeed[] = [
-  {
-    slug: 'on-the-verge-of-the-west-axess-2007',
-    interviewFormat: 'written',
-    title: 'On the Verge of the West',
-    date: '2007',
-    subtitle: 'Global Axess, interview — Thomas Gür',
-    sourceNote: "From Şahin Alpay's own publication list.",
-    tags: ['Thomas Gür', 'Global Axess', '2007'],
-  },
-]
+ *  Empty since 2026-10-14: the only entry, the 2007 Global Axess interview,
+ *  moved to the academic articles at the owner's request. */
+export const enInterviewSeeds: ArchiveItemSeed[] = []

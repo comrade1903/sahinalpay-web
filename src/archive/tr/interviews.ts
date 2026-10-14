@@ -11,15 +11,19 @@ import type { ArchiveItemSeed } from '../types'
  *  so. The 2003 bianet entry is a radio programme's transcript but is read as
  *  text, so it counts as written, by the owner's call.
  *
- *  Subtitles carry no editorial caveats (the owner asked on 2026-10-11). What
- *  they used to say is kept here instead: the ATV, Alp Ulagay, listener-support
- *  and Zafer Özcan entries have no direct link to the broadcast; the 1993
- *  Türkiye Günlüğü interview has no open full text; for the Dışarıdan
- *  Bakanlar interviews, 2002 is the book's publication year, not the date of
- *  the interview; the İçeriden Bakanlar list of interviewees is incomplete;
- *  and the 2024 Açık Radyo page is dated 26 December while the owner's
- *  working list gives 25 December as the broadcast date.
-
+ *  Subtitles carry no editorial caveats (the owner asked on 2026-10-11). The
+ *  2024 Açık Radyo page is dated 26 December while the owner's working list
+ *  gives 25 December as the broadcast date.
+ *
+ *  On 2026-10-14 the owner asked to keep only what a reader can actually
+ *  follow: written pieces whose text is online and broadcasts whose recording
+ *  is. Entries known only from the publication list (the Dışarıdan/İçeriden
+ *  Bakanlar books, Entelektüel Bakış, Akıl Defteri, the ATV documentary, the
+ *  Aksiyon and Türkiye Günlüğü interviews, among others) were removed, as was
+ *  the 1995 Birebir Söyleşiler series, whose link was Açık Radyo's profile
+ *  page rather than a recording. The Global Axess interview moved to the
+ *  English academic articles.
+ *
  *  The NEWSROOM MEDIA video (added 2026-10-13) carries only what Vimeo shows:
  *  its title is just "Şahin Alpay", it has no description or credited
  *  interviewer, and 13 April 2026 is its upload date, not a known recording
@@ -146,219 +150,8 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     url: 'https://vimeo.com/1182593301/cdf038ee1f',
     tags: ['NEWSROOM MEDIA', 'video', '2026'],
   },
-  {
-    slug: 'baykal-gorbacov-olamaz-aksiyon-2008',
-    interviewFormat: 'written',
-    title: 'Şahin Alpay: Baykal, Gorbaçov olamaz',
-    date: '15 Aralık 2008',
-    subtitle:
-      'Aksiyon (haftalık haber dergisi), Sayı 733, 15 Aralık 2008, s. 35-40 — Emin Akdağ',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Deniz Baykal', 'CHP', 'sosyal demokrasi', 'Emin Akdağ', 'Aksiyon', '2008'],
-  },
 
-  /* Added 2026-10-08 from the owner’s working interview bibliography (shown
-     briefly as the unlisted /tr/soylesiler-new preview). Where the source gives a season or a span,
-     `date` holds the nearest parseable point and `subtitle` the full span. */
-  {
-    slug: 'ernest-gellner-turkiye-gunlugu-1993',
-    interviewFormat: 'written',
-    title: 'Ernest Gellner',
-    date: '1993',
-    subtitle: 'Türkiye Günlüğü, sayı 24 (Güz 1993) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Ernest Gellner', 'Türkiye Günlüğü', '1993'],
-  },
-  {
-    slug: 'birebir-soylesiler-acik-radyo-1995',
-    interviewFormat: 'broadcast',
-    title: 'Birebir Söyleşiler',
-    date: '13 Kasım 1995',
-    subtitle: 'Açık Radyo, program dizisi, 13 Kasım 1995 – 27 Ocak 1996 — programı yapan: Şahin Alpay',
-    url: 'https://apacikradyo.com.tr/kisi/sahin-alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Açık Radyo', 'radyo', '1995', '1996'],
-  },
-  {
-    slug: 'entelektuel-bakis-cnn-turk-1999',
-    interviewFormat: 'broadcast',
-    title: 'Entelektüel Bakış',
-    date: '1999',
-    subtitle: 'CNN Türk, program dizisi, 1999–2002 — programı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Entelektüel Bakış', 'CNN Türk', 'video', '1999', '2002'],
-  },
-  {
-    slug: 'nur-vergin-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Nur Vergin',
-    date: '4 Mart 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Nur Vergin', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'ahmet-evin-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Ahmet Evin — Türkiye–AB',
-    date: '10 Haziran 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Ahmet Evin', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'kemal-kirisci-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Kemal Kirişçi — 11 Eylül sonrası dünya',
-    date: '16 Eylül 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Kemal Kirişçi', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'ali-bulac-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Ali Bulaç',
-    date: '30 Eylül 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Ali Bulaç', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'ahmet-sozen-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Ahmet Sözen — Kıbrıs',
-    date: '25 Kasım 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Ahmet Sözen', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'nursin-guney-entelektuel-bakis-2001',
-    interviewFormat: 'broadcast',
-    title: 'Nurşin Güney — Avrupa güvenliği',
-    date: '2 Aralık 2001',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Nurşin Güney', 'Entelektüel Bakış', 'CNN Türk', 'video', '2001'],
-  },
-  {
-    slug: 'ustun-erguder-entelektuel-bakis-2002',
-    interviewFormat: 'broadcast',
-    title: 'Üstün Ergüder — Üniversiteler',
-    date: '17 Mart 2002',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Üstün Ergüder', 'Entelektüel Bakış', 'CNN Türk', 'video', '2002'],
-  },
-  {
-    slug: 'nermin-abadan-unat-entelektuel-bakis-2002',
-    interviewFormat: 'broadcast',
-    title: 'Nermin Abadan-Unat — Göç',
-    date: '5 Mayıs 2002',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Nermin Abadan-Unat', 'Entelektüel Bakış', 'CNN Türk', 'video', '2002'],
-  },
-  {
-    slug: 'cem-duna-entelektuel-bakis-2002',
-    interviewFormat: 'broadcast',
-    title: 'Cem Duna — Türkiye–AB',
-    date: '19 Mayıs 2002',
-    subtitle: 'CNN Türk, Entelektüel Bakış, video mülakat — mülakatı yapan: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Cem Duna', 'Entelektüel Bakış', 'CNN Türk', 'video', '2002'],
-  },
-  {
-    slug: 'paul-kennedy-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Paul Kennedy',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Paul Kennedy', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'ernest-gellner-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Ernest Gellner',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Ernest Gellner', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'abdulkerim-sorus-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Abdülkerim Soruş (Abdolkarim Soroush)',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Abdülkerim Soruş', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'samuel-huntington-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Samuel P. Huntington',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Samuel P. Huntington', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'bernard-lewis-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Bernard Lewis',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Bernard Lewis', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'sadik-celal-el-azm-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Sadık Celal El Azm (Sadiq al-Azm)',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Sadık Celal El Azm', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'francis-fukuyama-disaridan-bakanlar',
-    interviewFormat: 'written',
-    title: 'Francis Fukuyama',
-    date: '2002',
-    subtitle: 'Türkiye’nin Tanıkları: Dışarıdan Bakanlar (kitap) — söyleşiyi yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Francis Fukuyama', 'Türkiye’nin Tanıkları', 'kitap', '2002'],
-  },
-  {
-    slug: 'turkiyenin-taniklari-iceriden-bakanlar-2003',
-    interviewFormat: 'written',
-    title: 'Türkiye’nin Tanıkları — İçeriden Bakanlar',
-    date: '2003',
-    subtitle: 'Timaş, söyleşi derlemesi (kitap) — söyleşileri yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Türkiye’nin Tanıkları', 'Timaş', 'kitap', '2003'],
-  },
-  {
-    slug: 'akil-defteri-mehtap-tv-2006',
-    interviewFormat: 'broadcast',
-    title: 'Akıl Defteri',
-    date: '2006',
-    subtitle: 'Mehtap TV, program dizisi, 2006–2016 — programın yorumcularından: Şahin Alpay',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Akıl Defteri', 'Mehtap TV', 'video', '2006', '2016'],
-  },
-  {
-    slug: 'bilinmeyen-refah-atv-1994',
-    interviewFormat: 'broadcast',
-    title: 'Bilinmeyen Refah',
-    date: '1994',
-    subtitle: 'ATV, Güneri Cıvaoğlu belgeseli (yaklaşık 50 görüşme) — mülakatları yapan: Şahin Alpay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Refah Partisi', 'Güneri Cıvaoğlu', 'ATV', 'video', '1994'],
-  },
+  /* Added 2026-10-08 from the owner’s working interview bibliography. */
   {
     slug: 'medya-konusmalari-acik-radyo-2006',
     interviewFormat: 'broadcast',
@@ -370,33 +163,6 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     tags: ['ifade özgürlüğü', 'Ömer Madra', 'Avi Haligua', 'Açık Radyo', 'radyo', '2006'],
   },
   {
-    slug: 'alp-ulagay-acik-radyo-2006',
-    interviewFormat: 'broadcast',
-    title: 'Alp Ulagay – Şahin Alpay',
-    date: '13 Mart 2006',
-    subtitle: 'Açık Radyo, radyo mülakatı — Alp Ulagay.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Alp Ulagay', 'Açık Radyo', 'radyo', '2006'],
-  },
-  {
-    slug: 'sokak-guzeldir-nadire-mater-2009',
-    interviewFormat: 'written',
-    title: 'Sokak Güzeldir: 68’de Ne Oldu?',
-    date: '2009',
-    subtitle: 'Kitap söyleşisi — Nadire Mater',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['1968', 'Nadire Mater', 'kitap', '2009'],
-  },
-  {
-    slug: 'dinleyici-destek-acik-radyo-2012',
-    interviewFormat: 'broadcast',
-    title: 'Dinleyici Destek yayını',
-    date: '25 Mart 2012',
-    subtitle: 'Açık Radyo, dinleyici destek yayını — Şahin Alpay, Elvan Alpay, Defne Güler.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Elvan Alpay', 'Defne Güler', 'Açık Radyo', 'radyo', '2012'],
-  },
-  {
     slug: 'neyim-kalmis-ki-muebbetlik-oluyorum-bianet-2018',
     interviewFormat: 'written',
     title: 'Neyim Kalmış ki Müebbetlik Oluyorum',
@@ -405,15 +171,6 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     url: 'https://bianet.org/haber/sahin-alpay-neyim-kalmis-ki-muebbetlik-oluyorum-193182',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Silivri', 'tutukluluk', 'Pınar Türenç', 'bianet', '2018'],
-  },
-  {
-    slug: 'bir-hikayem-var-zafer-ozcan-2025',
-    interviewFormat: 'broadcast',
-    title: 'Bir Hikâyem Var / Hikâyemin Sonu',
-    date: '17 Nisan 2025',
-    subtitle: 'Zafer Özcan TV / Zaman Avustralya, video mülakat, 17–18 Nisan 2025 — Zafer Özcan.',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Bir Hikâyem Var', 'Hikâyemin Sonu', 'anılar', 'Zafer Özcan', 'video', '2025'],
   },
   {
     slug: 'turk-solu-ve-filistin-sorunu-medyascope-2026',
