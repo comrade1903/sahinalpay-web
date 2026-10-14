@@ -90,7 +90,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '011', width: 1600, height: 1095 }],
     caption:
-      'Yüksek öğrenimi 1963-67 arasında Ankara Üniversitesi Siyasal Bilgiler Fakültesi\'nde (SBF) yaptım ve sorunlu geçecek yıllara adım attım. Beni dört yıllık tam bursunu kazandığım New York\'taki Columbia Üniversitesi\'ne değil de SBF\'de okumaya ikna eden Robert Kolej\'den ömür boyu arkadaşım Nuri Çolakoğlu ile 1964 yazında Ayvalık\'tayız.',
+      'Yüksek öğrenimi 1963-67 arasında Ankara Üniversitesi Siyasal Bilgiler Fakültesi\'nde (SBF) yaptım ve sorunlu geçecek yıllara adım attım. Beni dört yıllık tam bursunu kazandığım New York\'taki Columbia Üniversitesi\'nde değil de SBF\'de okumaya ikna eden Robert Kolej\'den ömür boyu arkadaşım Nuri Çolakoğlu ile 1964 yazında Ayvalık\'tayız.',
   },
   {
     photos: [{ id: '012', width: 1600, height: 1007 }],
@@ -115,12 +115,12 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '016', width: 1160, height: 1600 }],
     caption:
-      '12 Mart 1971 askeri müdahalesi sonucunda "azılı solcu" olarak aranmaya başladım. Ülkeden kaçıp Suriye ve Lübnan\'daki *Filistin\'in Kurtuluşu için Demokratik Cephe* adlı örgütün kamplarında sekiz ay süreyle eğitim gördükten sonra yurda döndüm. Çeşitli maceralar sonunda devrimciliğe veda etme kararı aldım ve beni kurtarmak için büyük riskleri göze alan ağabeyim Acar Alpay sayesinde Ağustos 1972\'de yurtdışına kaçmayı başardım ve İsveç\'e sığındım. Stockholm\'deki ilk yıllarımda yaptığım çeşitli işlerden biri de Türkiyeli göçmen çocuklara Türkçe öğretmenliği olmuştu.',
+      '12 Mart 1971 askeri müdahalesi sonucunda "azılı solcu" olarak aranmaya başladım. Ülkeden kaçıp Suriye ve Lübnan\'daki *Filistin\'in Kurtuluşu için Demokratik Cephe* adlı örgütün kamplarında sekiz ay süreyle eğitim görüp silahlardan nefret ettikten sonra yurda döndüm. Çeşitli maceralar sonunda devrimciliğe veda etme kararı aldım ve beni kurtarmak için büyük riskleri göze alan ağabeyim Acar Alpay sayesinde Ağustos 1972\'de yurtdışına kaçmayı başardım ve İsveç\'e sığındım. Stockholm\'deki ilk yıllarımda yaptığım çeşitli işlerden biri de Türkiyeli göçmen çocuklara Türkçe öğretmenliği olmuştu.',
   },
   {
     photos: [{ id: '017', width: 1398, height: 1125 }],
     caption:
-      'Uzun ve sancılı bir bekleyişten sonra nihayet Ocak 1974\'te Fatma ve Elvan\'a kavuştum. Birlikteki ilk günlerimizden birinde, İsveçli arkadaşım Klas\'ın çektiği fotoğraf ta mutluluğum yüzüme yansıyor.',
+      'Uzun ve sancılı bir bekleyişten sonra nihayet Ocak 1974\'te Fatma ve Elvan\'a kavuştum. Birlikteki ilk günlerimizden birinde, İsveçli arkadaşım Klas\'ın çektiği fotoğrafta mutluluğum yüzüme yansıyor.',
   },
   {
     photos: [{ id: '018', width: 1600, height: 1064 }],
