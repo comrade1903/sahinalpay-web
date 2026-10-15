@@ -1,6 +1,8 @@
 /** "Fotoğraflarla Hikayem" — Şahin Alpay's life told through 37 photographs
  *  and his own captions, in the order of the owner's document
- *  (Foto/fotohikaye.md, supplied 2026-10-13; scans in Foto/taramalar).
+ *  (Foto/fotohikaye.md, supplied 2026-10-13; scans in Foto/taramalar),
+ *  except 028 (the children and grandchildren), which the owner moved to
+ *  the end on 2026-10-15.
  *  Captions are verbatim and Turkish only; the English page shows them
  *  untranslated, never machine-translated.
  *
@@ -173,14 +175,6 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
       'Fatma\'nın en çok sevdiğim fotoğraflarından birini Haziran 1995\'te New York\'a birlikte yaptığımız ilk ziyaret sırasında *Empire State Building* adlı ünlü gökdelenin tepesinde çektim.',
   },
   {
-    photos: [
-      { id: '028-1', width: 1200, height: 1600 },
-      { id: '028-2', width: 1600, height: 1156 },
-    ],
-    caption:
-      'Hiç kuşkum yok ki, hayattaki en büyük mutluluk kaynağım, Fatma gibi bir eşe, Elvan ve Acar gibi evlatlara, Defne ve Leyla gibi torunlara sahip olmam. Fotoğraflarda Elvan ile Defne yakınlarda Filibe\'de; Acar\'la Leyla birkaç yıl önce Çamlık, Ayvalık\'ta görülüyor.',
-  },
-  {
     photos: [{ id: '029', width: 1600, height: 1081 }],
     caption:
       'Fatma\'nın bu çok sevdiğim fotoğrafını da, 1999\'da davetli olarak gittiğimiz Çin Halk Cumhuriyeti\'nde çektim. Arka planda Çin seddi görülüyor.',
@@ -232,5 +226,13 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '037', width: 1600, height: 1189 }],
     caption:
       'Fatma\'yla bu fotoğrafımız Mayıs 2018\'de, Ayvalık Çamlık\'taki evimizin bahçesinde elele tutuşmuş olarak, artık hiç ayrılmayacağımızı konuşurken, yeğenimiz Yeşim tarafından bizden habersiz çekildi. Ne yazık ki Fatmam 6 Ekim 2018\'de aramızdan ayrılacaktı...',
+  },
+  {
+    photos: [
+      { id: '028-1', width: 1200, height: 1600 },
+      { id: '028-2', width: 1600, height: 1156 },
+    ],
+    caption:
+      'Hiç kuşkum yok ki, hayattaki en büyük mutluluk kaynağım, Fatma gibi bir eşe, Elvan ve Acar gibi evlatlara, Defne ve Leyla gibi torunlara sahip olmam. Fotoğraflarda Elvan ile Defne yakınlarda Filibe\'de; Acar\'la Leyla birkaç yıl önce Çamlık, Ayvalık\'ta görülüyor.',
   },
 ]
