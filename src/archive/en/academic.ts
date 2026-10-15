@@ -75,6 +75,14 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     tags: ['Westernization', 'chapter', '2007'],
   },
   {
+    slug: 'on-the-verge-of-the-west-axess-2007',
+    title: 'On the Verge of the West',
+    date: '2007',
+    subtitle: 'Global Axess, interview — Thomas Gür',
+    sourceNote: "From Şahin Alpay's own publication list.",
+    tags: ['Thomas Gür', 'Global Axess', '2007'],
+  },
+  {
     slug: 'die-republik-der-buerokraten-sz-2007',
     title: 'Die Republik der Bürokraten',
     date: '3 May 2007',
