@@ -545,16 +545,18 @@ const outletLogos: Partial<Record<string, string>> = {
   Sabah: logoSabah,
 }
 
-/** Most recent year an outlet was written for, used to order the rack
+/** The date of an outlet's most recent piece, used to order the rack
     top-to-bottom (most recent era first, matching this file's newest-first
-    convention elsewhere). 0 for an outlet with no parseable dates, so it
-    sorts last rather than throwing off real ones. */
-function outletSortYear(items: ArchiveItem[]): number {
-  const years = items
+    convention elsewhere). The full date, not just the year: Zaman and
+    Today's Zaman both end in 2016, and comparing years alone left their
+    order to whichever language's outlets came first in the list, so the
+    two language pages disagreed. 0 for an outlet with no parseable dates,
+    so it sorts last rather than throwing off real ones. */
+function outletLatestDate(items: ArchiveItem[]): number {
+  const dates = items
     .map((item) => (item.date ? parseTurkishDate(item.date) : null))
     .filter((ts): ts is number => ts !== null)
-    .map((ts) => new Date(ts).getUTCFullYear())
-  return years.length ? Math.max(...years) : 0
+  return dates.length ? Math.max(...dates) : 0
 }
 
 /** Shared ordering for the shelf: newest era first, both for the stack of
@@ -562,7 +564,7 @@ function outletSortYear(items: ArchiveItem[]): number {
     so the two never drift apart. */
 function orderNewsstandOutlets(entries: NewsstandOutlet[]): NewsstandOutlet[] {
   return [...entries].sort(
-    (a, b) => outletSortYear(b.outlet.items) - outletSortYear(a.outlet.items),
+    (a, b) => outletLatestDate(b.outlet.items) - outletLatestDate(a.outlet.items),
   )
 }
 

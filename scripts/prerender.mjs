@@ -58,6 +58,7 @@ const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs'
 const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
 const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
 const photoStory = await loadModule('src/photoStory.ts', 'photo-story-prerender.mjs')
+const query = await loadModule('src/archive/query.ts', 'query-prerender.mjs')
 const { content } = contentModule
 const { paths } = routes
 
@@ -158,8 +159,10 @@ function navLinks(lang) {
     .join(' · ')
 }
 
+/* Newest first, as the pages themselves list them (sortItems is the very
+   function they use), so a reader without JavaScript meets the same order. */
 function itemListHtml(items, lang, limit = 200) {
-  const rows = items.slice(0, limit).map((item) => {
+  const rows = query.sortItems(items, 'newest').slice(0, limit).map((item) => {
     const href = item.internal ? item.route : (item.url ?? item.imageSrc ?? null)
     const label = escapeHtml(item.title)
     const meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(', ')
