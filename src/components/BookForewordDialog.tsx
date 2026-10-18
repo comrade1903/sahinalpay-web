@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef } from 'react'
+import { forewordLabels, type BookForeword } from '../bookForewords'
 import type { Book, Lang } from '../content'
 
 /** A book's foreword in a modal <dialog>. The native element supplies the top
@@ -6,11 +7,11 @@ import type { Book, Lang } from '../content'
  *  this component only opens it, closes it on the button or a backdrop click,
  *  and reports the close back so the page can clear its state. */
 export function BookForewordDialog({
-  book,
+  open,
   lang,
   onClose,
 }: {
-  book: Book | null
+  open: { book: Book; foreword: BookForeword } | null
   lang: Lang
   onClose: () => void
 }) {
@@ -20,12 +21,13 @@ export function BookForewordDialog({
   useEffect(() => {
     const dialog = ref.current
     if (!dialog) return
-    if (book && !dialog.open) dialog.showModal()
-    if (!book && dialog.open) dialog.close()
-  }, [book])
+    if (open && !dialog.open) dialog.showModal()
+    if (!open && dialog.open) dialog.close()
+  }, [open])
 
-  const foreword = book?.foreword
-  const isSummary = foreword?.kind === 'summary'
+  const book = open?.book
+  const foreword = open?.foreword
+  const labels = foreword && forewordLabels(foreword, lang)
   const textLang = foreword?.lang ?? 'tr'
   return (
     <dialog
@@ -38,7 +40,7 @@ export function BookForewordDialog({
         if (event.target === event.currentTarget) event.currentTarget.close()
       }}
     >
-      {book && foreword && (
+      {book && foreword && labels && (
         <div className="foreword-sheet">
           <header className="foreword-head">
             <div className="foreword-heading">
@@ -46,11 +48,9 @@ export function BookForewordDialog({
                 <em lang="tr">{book.title}</em> · {book.year}
               </p>
               <h2 id={titleId} className="foreword-title">
-                {isSummary ? (lang === 'tr' ? 'Türkçe Özet' : 'Summary') : lang === 'tr' ? 'Önsöz' : 'Foreword'}
+                {labels.title}
               </h2>
-              {lang === 'en' && textLang === 'tr' && (
-                <p className="foreword-note">In Turkish, as published in the book.</p>
-              )}
+              {labels.note && <p className="foreword-note">{labels.note}</p>}
             </div>
             <button
               type="button"
