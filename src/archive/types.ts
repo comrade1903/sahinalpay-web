@@ -23,7 +23,7 @@ export type ArchiveMedium = 'print' | 'online'
 export type ArchivePieceKind = 'column' | 'interview'
 
 /** See ArchiveItemSeed.interviewFormat. */
-export type ArchiveInterviewFormat = 'written' | 'broadcast' | 'reference'
+export type ArchiveInterviewFormat = 'written' | 'broadcast'
 
 export interface ArchiveItemSeed {
   id?: string
@@ -60,16 +60,10 @@ export interface ArchiveItemSeed {
   /** Column vs. interview, for outlets whose columns section mixes both
       (see ArchivePieceKind). Omitted where the distinction doesn't apply. */
   pieceKind?: ArchivePieceKind
-  /** Interviews only: a written piece (print, web text, book), a radio,
-      TV or video broadcast, or a piece by someone else that refers to him or
-      his work. Splits the interviews page into "Söyleşiler", "Mülakatlar" and
-      "Referans Alanlar"; validate-content requires it on every interview. */
+  /** Interviews only: a written piece (print, web text, book) or a radio,
+      TV or video broadcast. Splits the interviews page into "Söyleşiler" and
+      "Mülakatlar"; validate-content requires it on every interview. */
   interviewFormat?: ArchiveInterviewFormat
-  /** The piece's author, only where it is not Şahin Alpay (the "Referans
-      Alanlar" pieces). Replaces his name in the reader's byline, the citation
-      and the structured data, so another writer's text is never presented as
-      his. validate-content requires it on every 'reference' interview. */
-  author?: string
 }
 
 export interface ArchiveItem extends ArchiveItemSeed {
