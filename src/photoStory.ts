@@ -11,10 +11,10 @@
  *  (some phone photos carried location data). `width`/`height` are the
  *  1600 version's, so the page reserves each photo's space before it loads.
  *
- *  026 is the one retouched image: the camera's yellow date imprint
- *  ("26/02/2003") in its lower right was painted out at the owner's request
- *  on 2026-10-13 (OpenCV inpainting over the imprint's pixels only, with the
- *  print's grain restored); the scan in Foto/taramalar is untouched.
+ *  026 is made from Foto/taramalar/026.png, a restored version without the
+ *  camera's date imprint that the owner supplied on 2026-10-18 to replace
+ *  the scan (026.jpg); its 1600 version is upscaled slightly from the PNG's
+ *  1537px width.
  *
  *  In captions, *x* marks a publication name in italics and **x** the owner's
  *  own bold, as in his document. */
@@ -165,7 +165,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
       '*Cumhuriyet\'*ten yakın arkadaşım rahmetli Ufuk Güldemir genel yayın müdürü atanınca sayfayı Nilüfer\'le birlikte *Milliyet*\'e taşıdık (1994-2001). Güldemir\'den sonraki genel yayın müdürü Derya Sazak\'la birlikte çekilen fotoğrafta, meslektaşlar (ayakta) Osman Ulagay, Ahmet Tan, Duygu Asena, Edip Öymen, Yavuz Baydar, (oturanlar) Meral Tamer, ben, Sazak ve Tayfun Ertan.',
   },
   {
-    photos: [{ id: '026', width: 1600, height: 1064 }],
+    photos: [{ id: '026', width: 1600, height: 1065 }],
     caption:
       'İsveç\'ten yurda dönüş sonrasında en yakın arkadaşım ve fikirdaşım, doktora yaptığı Fransa\'dan dönen (o da önce devrimci sonra sosyal demokrat) değerli iktisatçımız Prof. Dr. Seyfettin Gürsel oldu. Onunla *DSP-SHP: Nerede Birleşiyor, Nerede ayrılıyorlar* (AFA, 1986) başlıklı bir kitapçık yazdığımız gibi uzun yıllar Bahçeşehir Üniversitesi\'nde birlikte çalıştık.',
   },
