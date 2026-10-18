@@ -1197,9 +1197,8 @@ export function FlatArchivePage({
   const bodySearch = useBodySearchIndex(items, search)
   const { bodyIndex } = bodySearch
   /* Grouped by language — the reader's own first, the rest under their own
-     heading further down — or, on the interviews page, written pieces first,
-     then broadcasts, then pieces by others that cite him, each group under
-     its own heading. Sorted inside
+     heading further down — or, on the interviews page, written pieces first
+     and broadcasts after, each group under its own heading. Sorted inside
      each group: sorting them together would scatter one group through the
      other by date, leaving nothing to put a heading in front of. */
   const { formatLabels } = data
@@ -1210,18 +1209,12 @@ export function FlatArchivePage({
             {
               key: 'written',
               label: formatLabels.written,
-              test: (item: ArchiveItem) =>
-                item.interviewFormat !== 'broadcast' && item.interviewFormat !== 'reference',
+              test: (item: ArchiveItem) => item.interviewFormat !== 'broadcast',
             },
             {
               key: 'broadcast',
               label: formatLabels.broadcast,
               test: (item: ArchiveItem) => item.interviewFormat === 'broadcast',
-            },
-            {
-              key: 'reference',
-              label: formatLabels.reference,
-              test: (item: ArchiveItem) => item.interviewFormat === 'reference',
             },
           ]
         : [

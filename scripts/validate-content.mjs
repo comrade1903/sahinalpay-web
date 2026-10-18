@@ -54,7 +54,6 @@ const SEED_FIELDS = {
   pdfPageCount: 'number',
   pieceKind: 'string',
   interviewFormat: 'string',
-  author: 'string',
 }
 
 /** Added by normalizeArchiveItems(), plus the fields archive-model derives. */
@@ -365,23 +364,8 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
    file a radio or TV programme under the written "Söyleşiler". */
 for (const item of items) {
   if (item.category !== 'interviews') continue
-  if (!['written', 'broadcast', 'reference'].includes(item.interviewFormat)) {
-    fail(
-      `interview "${item.slug}" (${item.lang}) needs interviewFormat: 'written', 'broadcast' or 'reference'`,
-    )
-  }
-  /* A piece someone else wrote must say who, or the reader would credit it
-     to Şahin Alpay. */
-  if (item.interviewFormat === 'reference' && !item.author) {
-    fail(`reference "${item.slug}" (${item.lang}) needs an author`)
-  }
-}
-
-/* ---- only another writer's piece names an author ---- */
-
-for (const item of items) {
-  if (item.author !== undefined && item.interviewFormat !== 'reference') {
-    fail(`"${item.slug}" (${item.lang}) sets author but is not a 'reference' interview`)
+  if (item.interviewFormat !== 'written' && item.interviewFormat !== 'broadcast') {
+    fail(`interview "${item.slug}" (${item.lang}) needs interviewFormat: 'written' or 'broadcast'`)
   }
 }
 

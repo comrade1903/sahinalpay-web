@@ -16,7 +16,7 @@
     "date": "2026-10-13"
   },
   "/interviews": {
-    "fingerprint": "60cad7dbf81c287f",
+    "fingerprint": "dbc31064ec8559ab",
     "date": "2026-10-18"
   },
   "/academic-articles": {
@@ -40,44 +40,44 @@
     "date": "2026-10-13"
   },
   "/tr": {
-    "fingerprint": "d65bc4805bda98b9",
-    "date": "2026-10-14"
+    "fingerprint": "93242b444f5a2e59",
+    "date": "2026-10-18"
   },
   "/tr/kimdir": {
-    "fingerprint": "bfded87ca51c65c9",
+    "fingerprint": "5b216532d102b618",
     "date": "2026-10-18"
   },
   "/tr/fotograflarla-hikayem": {
-    "fingerprint": "6aacb937929d06c2",
-    "date": "2026-10-14"
+    "fingerprint": "43a6389e24fdb77f",
+    "date": "2026-10-18"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "2f84fb4b4c948873",
-    "date": "2026-10-14"
+    "fingerprint": "78e45fbdca5a6cd0",
+    "date": "2026-10-18"
   },
   "/tr/soylesiler": {
-    "fingerprint": "350538274266ae1b",
+    "fingerprint": "7ec427f5843dc321",
     "date": "2026-10-18"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "f3a1885897642ce0",
-    "date": "2026-10-14"
+    "fingerprint": "6bd119b8ba5d3b2a",
+    "date": "2026-10-18"
   },
   "/tr/kitaplar": {
-    "fingerprint": "3d6368e3334fdad3",
+    "fingerprint": "a50213f63ab09851",
     "date": "2026-10-18"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "b8b3544cf03eb0c7",
-    "date": "2026-10-14"
+    "fingerprint": "3d9f9efe38453bb2",
+    "date": "2026-10-18"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "a2f01818bceb4021",
-    "date": "2026-10-14"
+    "fingerprint": "9f7672d6e6681f38",
+    "date": "2026-10-18"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "5695c607acbfbd1a",
-    "date": "2026-10-14"
+    "fingerprint": "2c1bde1a938cc0d0",
+    "date": "2026-10-18"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",
@@ -2946,9 +2946,5 @@
   "/columns/even-erdogan-needs-the-west": {
     "fingerprint": "9fb9f028a078547c",
     "date": "2026-10-13"
-  },
-  "/tr/soylesiler/karl-popper-tartismasi-tercuman-1984": {
-    "fingerprint": "580a498e7a9c9f33",
-    "date": "2026-10-18"
   }
 }

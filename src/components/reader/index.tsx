@@ -177,7 +177,7 @@ export function ArticlePage({ lang }: { lang: Lang }) {
 }
 
 function buildCitation(item: ArchiveItem, articleUrl: string, lang: Lang): string {
-  const parts = [`${item.author ?? 'Şahin Alpay'}, "${item.title}"`]
+  const parts = [`Şahin Alpay, "${item.title}"`]
   if (item.outlet) parts.push(item.outlet)
   if (item.date) parts.push(item.date)
   const today = new Date().toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', {
@@ -317,7 +317,7 @@ export function LoadedArticlePage({
     const onCopy = (e: ClipboardEvent) => {
       const selection = window.getSelection()?.toString() ?? ''
       if (selection.length < 40 || !e.clipboardData) return
-      const attribution = `\n\n— ${item.author ?? 'Şahin Alpay'}, "${item.title}". ${content[lang].reader.copySourceLabel}: ${articleUrl}`
+      const attribution = `\n\n— Şahin Alpay, "${item.title}". ${content[lang].reader.copySourceLabel}: ${articleUrl}`
       e.clipboardData.setData('text/plain', selection + attribution)
       e.preventDefault()
     }
@@ -466,11 +466,9 @@ export function LoadedArticlePage({
             </p>
           )}
           <div className="article-byline">
-            {/* His portrait marks his own writing; another author's piece
-                gets their name alone. */}
-            {!item.author && <AuthorAvatar className="article-byline-avatar" />}
+            <AuthorAvatar className="article-byline-avatar" />
             <span className="article-byline-text">
-              <span className="article-byline-name">{item.author ?? 'Şahin Alpay'}</span>
+              <span className="article-byline-name">Şahin Alpay</span>
               {item.date && (
                 <>
                   <time

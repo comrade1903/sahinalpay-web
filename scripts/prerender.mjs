@@ -391,10 +391,10 @@ for (const lang of ['tr', 'en']) {
          does (see FlatArchivePage). */
       const formatLabels = section?.formatLabels
       const listHtml = formatLabels
-        ? ['written', 'broadcast', 'reference']
+        ? ['written', 'broadcast']
             .map((format) => {
               const group = sectionItems.filter(
-                (item) => (item.interviewFormat ?? 'written') === format,
+                (item) => (item.interviewFormat === 'broadcast') === (format === 'broadcast'),
               )
               return group.length
                 ? `<h2>${escapeHtml(formatLabels[format])}</h2>${itemListHtml(group, lang)}`
@@ -487,7 +487,7 @@ for (const item of items) {
 
   const byline = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ')
   const parts = [`<h1>${escapeHtml(item.title)}</h1>`]
-  if (byline) parts.push(`<p><small>${escapeHtml(item.author ?? 'Şahin Alpay')} — ${byline}</small></p>`)
+  if (byline) parts.push(`<p><small>Şahin Alpay — ${byline}</small></p>`)
   if (item.subtitle) parts.push(`<p><em>${escapeHtml(item.subtitle)}</em></p>`)
   if (item.excerpt) parts.push(`<p><em>${escapeHtml(item.excerpt)}</em></p>`)
   if (body?.length) {
