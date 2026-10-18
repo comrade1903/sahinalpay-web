@@ -167,6 +167,9 @@ export const foreignPressSeeds: PressItemSeed[] = [
   },
   {
     title: 'İsveçli akademisyen ve gazetecilerden Şahin Alpay çağrısı',
+    date: '21.03.2017',
+    // Pinned: the address it had before its date was added on 2026-10-18.
+    slug: 'isvecli-akademisyen-ve-gazetecilerden-sahin-alpay-cagrisi',
     body: [
       'İSVEÇLİ AKADEMİSYEN VE GAZETECİLERDEN ADALET BAKANINA ÇAĞRI',
       'İsveçli bir grup akademisyen ve gazeteci Adalet Bakanı Bekir Bozdağ’a hitaben yazdıkları mektupta gazeteci yazar Şahin Alpay’ın serbest bırakılması çağrısında bulundu.',
@@ -256,6 +259,9 @@ export const foreignPressSeeds: PressItemSeed[] = [
   },
   {
     title: '31 Temmuz 2016’dan beri cezaevinde bulunan eski Zaman gazetesi yazarlarından Şahin Alpay için İsveçli bir akademisyen dostundan destek açıklaması geldi',
+    date: '15.10.2017',
+    // Pinned: the address it had before its date was added on 2026-10-18.
+    slug: '31-temmuz-2016dan-beri-cezaevinde-bulunan-eski-zaman-gazetesi-yazarlarindan-sahin-alpay-icin-isvecli-bir-akademisyen-dostundan-destek-aciklamasi-geldi',
     body: [
       'Cezaevindeki gazeteci Şahin Alpay’ın eski bir dostu ve geçmişte Stockholm Üniversitesi’nin Uluslararası Göç ve Etnik İlişkiler Merkezinin (CEIFO) başkanlığını yapmış olan Tomas Hammar, gazetecinin derhal salıverilmesi için çağrı yaptığı bir açıklama yayınladı.',
       '2016 Temmuz ayından beri tutuklu bulunan Alpay hakkında “Anayasal düzeni, TBMM ve Türkiye Cumhuriyeti hükümetini ortadan kaldırmaya veya görevlerini yapmasını engellemeye teşebbüs etme” suçlarından üçer kez ağırlaştırılmış müebbet, “silahlı terör örgütüne üye olma” suçundan ise 7,5 yıldan 15 yıla kadar hapis cezası isteniyor.',
