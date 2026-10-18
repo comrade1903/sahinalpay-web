@@ -24,6 +24,9 @@ import type { ArchiveItemSeed } from '../types'
  *  page rather than a recording. The Global Axess interview moved to the
  *  English academic articles.
  *
+ *  The 2018 bianet interview by Pınar Türenç was removed at the owner's
+ *  request on 2026-10-18.
+ *
  *  The NEWSROOM MEDIA video (added 2026-10-13) carries only what Vimeo shows:
  *  its title is just "Şahin Alpay", it has no description or credited
  *  interviewer, and 13 April 2026 is its upload date, not a known recording
@@ -163,16 +166,6 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     tags: ['ifade özgürlüğü', 'Ömer Madra', 'Avi Haligua', 'Açık Radyo', 'radyo', '2006'],
   },
   {
-    slug: 'neyim-kalmis-ki-muebbetlik-oluyorum-bianet-2018',
-    interviewFormat: 'written',
-    title: 'Neyim Kalmış ki Müebbetlik Oluyorum',
-    date: '10 Ocak 2018',
-    subtitle: 'bianet, söyleşi — Pınar Türenç',
-    url: 'https://bianet.org/haber/sahin-alpay-neyim-kalmis-ki-muebbetlik-oluyorum-193182',
-    sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
-    tags: ['Silivri', 'tutukluluk', 'Pınar Türenç', 'bianet', '2018'],
-  },
-  {
     slug: 'turk-solu-ve-filistin-sorunu-medyascope-2026',
     interviewFormat: 'broadcast',
     title: 'Türk solu ve Filistin sorunu',
@@ -181,5 +174,31 @@ export const interviewSeeds: ArchiveItemSeed[] = [
     url: 'https://medyascope.tv/2026/02/16/turk-solu-ve-filistin-sorunu/',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Filistin', 'sol', 'Emir Berke Yaşar', 'Medyascope', '2026'],
+  },
+
+  /* Referans Alanlar — pieces by other writers that refer to Şahin Alpay or
+     his work, added at the owner's request on 2026-10-18 from his own
+     clippings. Taha Akyol's column mentions his translation of a chapter of
+     Popper's "The Poverty of Historicism", appended to Mete Tunçay's Turkish
+     edition of Bryan Magee's book on Popper. The date is the one handwritten
+     on the sheet the clippings are pasted on; the scan is the owner's phone
+     photo, straightened and cropped, with its metadata dropped. */
+  {
+    slug: 'karl-popper-tartismasi-tercuman-1984',
+    interviewFormat: 'reference',
+    author: 'Taha Akyol',
+    title: 'Karl Popper tartışması',
+    date: '18 Aralık 1984',
+    subtitle: 'Tercüman, “Objektif” köşesi — Taha Akyol',
+    sourceNote:
+      'Şahin Alpay’ın kendi kupür arşivinden. Tarih, kupürlerin yapıştırıldığı kâğıda elle yazılmış nottan alınmıştır.',
+    tags: ['Karl Popper', 'Taha Akyol', 'Tercüman', 'çeviri', 'açık toplum', '1984'],
+    clippings: [
+      {
+        src: '/archive/clippings/tercuman/1984/karl-popper-tartismasi/cover.webp',
+        alt: 'Tercüman, 18 Aralık 1984: Taha Akyol, “Karl Popper tartışması” — yazının başı, 10. sayfadaki devamı ve “Türkçe’de Popper” ara başlıklı bölüm',
+        pageLabel: 'Kupür',
+      },
+    ],
   },
 ]

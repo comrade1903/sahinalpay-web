@@ -82,7 +82,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '009', width: 1600, height: 1155 }],
     caption:
-      'Robert Lisesi\'nde son sınıfı okurken Öğrenci Konseyi (Student Council) başkan yardımcısı seçildim. Başkan, ileride Türkiye\'nin en başarılı iş adamlarından biri olacak, yakın arkadaşım Hüsnü Özyeğin\'di. Konsey toplantılarından birinde çekilen bu fotoğrafta (baştaki sırada, soldan sağa) ABD\'de okuyup dünyanın en önemli beyin cerrahlarından biri olacak Prof. Dr. Marsel Meşulam, (yüzünü eliyle örten) ünlü romatizma uzmanı Prof. Dr. Hasan Yazıcı, Özyeğin, ben, (Yunus Nadi\'nin torunu) Ali Nun ve tanınmış bir iktisatçı olacak Prof. Dr. Reşat Kayalı görülüyor.',
+      'Robert Lisesi\'nde son sınıfı okurken Öğrenci Konseyi (Student Council) başkan yardımcısı seçildim. Başkan, ileride Türkiye\'nin en başarılı iş adamlarından biri olacak Hüsnü Özyeğin\'di. Konsey toplantılarından birinde çekilen bu fotoğrafta (baştaki sırada, soldan sağa) ABD\'de okuyup dünyanın en önemli beyin cerrahlarından biri olacak Prof. Dr. Marsel Meşulam, (yüzünü eliyle örten) ünlü romatizma uzmanı Prof. Dr. Hasan Yazıcı, Özyeğin, ben, (Yunus Nadi\'nin torunu) Ali Nun ve tanınmış bir iktisatçı olacak Prof. Dr. Reşat Kayalı görülüyor.',
   },
   {
     photos: [{ id: '010', width: 1122, height: 1600 }],
