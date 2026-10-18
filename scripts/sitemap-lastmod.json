@@ -4,8 +4,8 @@
     "date": "2026-10-13"
   },
   "/about": {
-    "fingerprint": "cb6787bec9039196",
-    "date": "2026-10-13"
+    "fingerprint": "e8efdedec1b32f0b",
+    "date": "2026-10-18"
   },
   "/my-story-in-photographs": {
     "fingerprint": "7a5f3b3b2f890140",
@@ -16,8 +16,8 @@
     "date": "2026-10-13"
   },
   "/interviews": {
-    "fingerprint": "dbc31064ec8559ab",
-    "date": "2026-10-13"
+    "fingerprint": "60cad7dbf81c287f",
+    "date": "2026-10-18"
   },
   "/academic-articles": {
     "fingerprint": "fd3bcc78e0ccdb44",
@@ -44,8 +44,8 @@
     "date": "2026-10-14"
   },
   "/tr/kimdir": {
-    "fingerprint": "77dd092f8504872e",
-    "date": "2026-10-14"
+    "fingerprint": "bfded87ca51c65c9",
+    "date": "2026-10-18"
   },
   "/tr/fotograflarla-hikayem": {
     "fingerprint": "6aacb937929d06c2",
@@ -56,8 +56,8 @@
     "date": "2026-10-14"
   },
   "/tr/soylesiler": {
-    "fingerprint": "d6f6c7b3376b30b7",
-    "date": "2026-10-14"
+    "fingerprint": "350538274266ae1b",
+    "date": "2026-10-18"
   },
   "/tr/akademik-makaleler": {
     "fingerprint": "f3a1885897642ce0",
@@ -2946,5 +2946,9 @@
   "/columns/even-erdogan-needs-the-west": {
     "fingerprint": "9fb9f028a078547c",
     "date": "2026-10-13"
+  },
+  "/tr/soylesiler/karl-popper-tartismasi-tercuman-1984": {
+    "fingerprint": "580a498e7a9c9f33",
+    "date": "2026-10-18"
   }
 }

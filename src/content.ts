@@ -360,7 +360,7 @@ export const content: Record<Lang, Content> = {
           "id": "my-life",
           "title": "",
           "paragraphs": [
-            "I was born in Istanbul on 18 April 1944, the fourth child — after Sumru, Olcay and Acar — of Sabiha and Ahmet Alpay, a family from Ayvalık. Under the compulsory population exchange agreed between Turkey and Greece in 1923, my father’s family had settled in Ayvalık from Serres and my mother’s from Lesbos.",
+            "I was born in Istanbul on 18 April 1944, the fourth child — after Sumru, Olcay and Acar — of Sabiha and Ahmet Alpay, a family from Ayvalık. Under the compulsory population exchange agreed between Turkey and Greece in 1923, my father came to Ayvalık from Serres and my mother’s family from Lesbos.",
             "I attended primary school at Nilüfer Hatun Primary School in Nişantaşı, Istanbul (1950–55), middle school at the English High School for Boys in Nişantaşı (1955–60), and high school at Robert College in Bebek (1960–63). I spent third grade at Ayvalık Cumhuriyet Primary School (1952–53). In my second year of high school, on an American Field Service (AFS) scholarship, I went to the United States and completed my final year (1961–62) at the Webb School of California, a private school, earning an American high school diploma.",
             "I won a four-year scholarship to study at Columbia University in New York, but chose not to use it. I completed my higher education between 1963 and 1967 at the Faculty of Political Sciences (SBF) of Ankara University. In 1965 I married my sweetheart, Fatma Nur (Kaptan), a neighbor’s daughter from Ayvalık; our daughter Elvan was born in 1968 and our son Acar in 1978. I have two grandchildren, Defne through Elvan and Leyla through Acar.",
             "While a student at SBF I joined the revolutionary youth movement. My writing appeared in journals such as Dönüşüm, Forum, Aydınlık, İşçi-Köylü and Türk Solu. Between 1968 and 1971 I worked as a teaching assistant in constitutional law at the Faculty of Education of Ankara University. After the 12 March 1971 military intervention, when martial law authorities sought my arrest, I joined the Revolutionary Workers and Peasants’ Party of Turkey (TİİKP), led by Doğu Perinçek, and received guerrilla training in the camps of the Popular Democratic Front for the Liberation of Palestine, led by Nayef Hawatmeh, in Syria and Lebanon; it was during this period that I ended my ties with the TİİKP.",
@@ -394,7 +394,7 @@ export const content: Record<Lang, Content> = {
       intro: 'In these interviews, questions about my writing open into conversations about my life, political choices and what experience taught me.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       items: [],
-      formatLabels: { written: 'Interviews', broadcast: 'Conversations' },
+      formatLabels: { written: 'Interviews', broadcast: 'Conversations', reference: 'Cited by Others' },
     },
     academicArticles: {
       kicker: 'Archive',
@@ -604,7 +604,7 @@ export const content: Record<Lang, Content> = {
           "id": "hayatim",
           "title": "",
           "paragraphs": [
-            "18 Nisan 1944’te Ayvalıklı bir ailenin, Sabiha ve Ahmet Alpay’ın (Sumru, Olcay ve Acar’dan sonraki dördüncü) çocuğu olarak İstanbul’da dünyaya geldim. Türkiye ile Yunanistan arasında 1923 tarihli zorunlu nüfus mübadelesi anlaşması uyarınca babam Serez’den, annem ailesi ise Midilli’den gelip Ayvalık’a yerleşti.",
+            "18 Nisan 1944’te Ayvalıklı bir ailenin, Sabiha ve Ahmet Alpay’ın (Sumru, Olcay ve Acar’dan sonraki dördüncü) çocuğu olarak İstanbul’da dünyaya geldim. Türkiye ile Yunanistan arasında 1923 tarihli zorunlu nüfus mübadelesi anlaşması uyarınca babam Serez’den, annemin ailesi ise Midilli’den gelip Ayvalık’a yerleşti.",
             "İlkokulu İstanbul Nişantaşı’ndaki Nilüfer Hatun İlkokulu’nda (1950 - 55), ortaokulu Nişantaşı’ndaki İngiliz Erkek Lisesi’nde (1955 - 60), liseyi Bebek’teki Robert Kolej’de (1960 - 63) okudum. İlkokul üçüncü sınıfa Ayvalık Cumhuriyet İlkokulu’nda (1952-53) devam ettim. Lise ikinci sınıfta, bir American Field Service (AFS) bursu ile gittiğim ABD’de özel bir okul olan Webb School of California’da son sınıfı okudum (1961-62) ve Amerikan lise diploması aldım.",
             "ABD’nin New York kentindeki Columbia Üniversitesi’nden dört yıllık öğrenim bursu kazandım, ancak kullanmaktan vazgeçtim. Yüksek öğrenimi 1963-67 arasında Ankara Üniversitesi Siyasal Bilgiler Fakültesi’nde (SBF) yaptım. 1965’te aşkım, Ayvalıklı komşu kızı Fatma Nur (Kaptan) ile evlendik; 1968’de kızımız (Elvan), 1978’de oğlumuz (Acar) dünyaya geldi. Elvan’dan Defne, Acar’dan Leyla adında iki torunum var.",
             "SBF’de okurken devrimci gençlik hareketine katıldım. Dönüşüm, Forum, Aydınlık, İşçi-Köylü, Türk Solu gibi dergilerde yazılarım çıktı. 1968-1971 yılları arasında Ankara Üniversitesi Eğitim Fakültesi’nde Anayasa Hukuku kürsüsünde asistan olarak çalıştım. 12 Mart 1971 askeri müdahalesi sonrasında Sıkıyönetim tarafından aranmam üzerine Doğu Perinçek’in liderliğini yaptığı Türkiye İhtilalci İşçi Köylü Partisi’ne katıldım ve Nayif Hawatme liderliğindeki Filistin Demokratik Halk Kurtuluş Cephesi örgütünün Suriye ve Lübnan’daki kamplarında gerilla eğitimi gördüm; bu sırada TİİKP örgütü ile ilişkimi kestim.",
@@ -645,7 +645,7 @@ export const content: Record<Lang, Content> = {
       intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşi ve mülakatlarda yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       items: [],
-      formatLabels: { written: 'Söyleşiler', broadcast: 'Mülakatlar' },
+      formatLabels: { written: 'Söyleşiler', broadcast: 'Mülakatlar', reference: 'Referans Alanlar' },
     },
     academicArticles: {
       kicker: 'Arşiv',

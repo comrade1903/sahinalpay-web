@@ -93,7 +93,8 @@ export function articleJsonLd({
     inLanguage: lang,
     url: articleUrl,
     mainEntityOfPage: articleUrl,
-    author: authorRef,
+    author: item.author ? { '@type': 'Person', name: item.author } : authorRef,
+    ...(item.author ? { about: authorRef } : {}),
     publisher: publisherRef,
     isPartOf: {
       '@type': 'CollectionPage',
