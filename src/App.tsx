@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Book, type Content, type Lang, type BooksSection } from './content'
+import { forewordLabels, type BookForeword } from './bookForewords'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
@@ -476,7 +477,7 @@ function buyButtonLabel(url: string, lang: Lang): string {
  *  (often third-party, sometimes defunct) source link. */
 function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
-  const [forewordBook, setForewordBook] = useState<Book | null>(null)
+  const [openForeword, setOpenForeword] = useState<{ book: Book; foreword: BookForeword } | null>(null)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -540,20 +541,15 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                   </h2>
                   <p className="book-desc">{b.desc}</p>
                   <div className="book-actions">
-                    {b.foreword && (
+                    {b.forewords?.map((foreword) => (
                       <button
+                        key={foreword.lang ?? 'tr'}
                         type="button"
                         className="book-buy book-foreword-open"
                         aria-haspopup="dialog"
-                        onClick={() => setForewordBook(b)}
+                        onClick={() => setOpenForeword({ book: b, foreword })}
                       >
-                        {b.foreword.kind === 'summary'
-                          ? lang === 'tr'
-                            ? 'Türkçe özeti oku'
-                            : 'Read the summary'
-                          : lang === 'tr'
-                            ? 'Önsözü oku'
-                            : 'Read the foreword (in Turkish)'}
+                        {forewordLabels(foreword, lang).open}
                         <span
                           className="material-symbols-outlined"
                           aria-hidden="true"
@@ -562,7 +558,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           menu_book
                         </span>
                       </button>
-                    )}
+                    ))}
                     {b.purchaseUrl && (
                       <a
                         className="book-buy"
@@ -590,7 +586,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
           </ul>
         </Reveal>
       </div>
-      <BookForewordDialog book={forewordBook} lang={lang} onClose={() => setForewordBook(null)} />
+      <BookForewordDialog open={openForeword} lang={lang} onClose={() => setOpenForeword(null)} />
     </section>
   )
 }

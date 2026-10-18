@@ -1,3 +1,5 @@
+import type { Lang } from './content'
+
 /** One block of a foreword: a paragraph, a section heading, or a bulleted
  *  list. */
 export type ForewordBlock = string | { heading: string } | { list: string[] }
@@ -15,6 +17,31 @@ export interface BookForeword {
    *  book's own (the thesis was published in Swedish). */
   heading?: string
   paragraphs: ForewordBlock[]
+}
+
+/** The opener's and the dialog's wording for one text. A book with summaries
+ *  in two languages needs them told apart, so a summary names its language. */
+export function forewordLabels(foreword: BookForeword, lang: Lang) {
+  const textLang = foreword.lang ?? 'tr'
+  const note =
+    lang === 'en' && textLang === 'tr'
+      ? 'In Turkish, as published in the book.'
+      : lang === 'tr' && textLang === 'en'
+        ? 'Kitapta yayımlandığı gibi, İngilizce.'
+        : undefined
+  if (foreword.kind !== 'summary') {
+    return lang === 'tr'
+      ? { open: 'Önsözü oku', title: 'Önsöz', note }
+      : { open: 'Read the foreword (in Turkish)', title: 'Foreword', note }
+  }
+  if (lang === 'tr') {
+    return textLang === 'tr'
+      ? { open: 'Türkçe özeti oku', title: 'Türkçe Özet', note }
+      : { open: 'İngilizce özeti oku', title: 'İngilizce Özet', note }
+  }
+  return textLang === 'tr'
+    ? { open: 'Read the Turkish summary', title: 'Turkish Summary', note }
+    : { open: 'Read the English summary', title: 'English Summary', note }
 }
 
 /* Bir Hikâyem Var (2024), “Önsöz” — as supplied by the owner on 2026-10-08.

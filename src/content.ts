@@ -47,8 +47,9 @@ export interface Book {
   cover?: string
   /** Real retailer product page (e.g. Kitapyurdu) — never a fabricated link. */
   purchaseUrl?: string
-  /** The book's own foreword, opened in a dialog from its card. */
-  foreword?: BookForeword
+  /** The book's own foreword or summaries, each opened in a dialog from its
+   *  card; the reader's own language comes first. */
+  forewords?: BookForeword[]
 }
 
 export interface BooksSection {
@@ -206,7 +207,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'My years writing for Zaman... my hopes and disappointments of the early 2000s... the notes I kept in prison in Silivri... my last months together with Fatma... In this second book of my memoirs I reconsider the choices whose consequences reached as far as my family life.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
-      foreword: hikayeminSonuForeword,
+      forewords: [hikayeminSonuForeword],
     },
     {
       year: '2024',
@@ -214,7 +215,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'This book covers my memories from my childhood in Istanbul and Ayvalık to my revolutionary youth, from taking refuge in Sweden and earning my doctorate there to my return home and my years as a newspaper columnist. In telling how my ideas changed over time, and under which influences, I look at the place Fatma, my family and my friends have had in my life.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
-      foreword: birHikayemVarForeword,
+      forewords: [birHikayemVarForeword],
     },
     {
       year: '2003',
@@ -231,6 +232,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: 'Based on interviews with people who shaped the country’s intellectual and political life, this study set out to shed light on how Turkey’s elites saw its relatively long-term (thirty-year) future: in a sense, on their “psychology”. In this book I interpreted the results of my research.',
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
       desc: 'This study, carried out together with Seyfettin Gürsel, set out to shed light on where the two parties claiming to be on the left in the 1980s converged and where they parted ways, by comparing their programmes and interviewing their leaders. (At the time the DSP’s leader was Rahşan Ecevit, but we spoke with her husband, who was then banned from politics.)',
@@ -238,16 +245,10 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
-      year: '1991',
-      title: '2020 Yılında Türkiye',
-      desc: 'Based on interviews with people who shaped the country’s intellectual and political life, this study set out to shed light on how Turkey’s elites saw its relatively long-term (thirty-year) future: in a sense, on their “psychology”. In this book I interpreted the results of my research.',
-      cover: cover2020Turkiye,
-    },
-    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish and English.',
-      foreword: turksInStockholmSummary,
+      forewords: [turksInStockholmSummary, turkarIStockholmSummary],
     },
   ],
   tr: [
@@ -257,7 +258,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'Zaman gazetesinde yazdığım yıllar... 2000’lerin başındaki umutlarım ve hayal kırıklıklarım... Silivri’de hapislikte tuttuğum notlar... Fatma’yla birlikte son aylarımız... Anılarımın bu ikinci kitabında sonuçları aile hayatıma kadar uzanan tercihlerimi yeniden değerlendiriyorum.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
-      foreword: hikayeminSonuForeword,
+      forewords: [hikayeminSonuForeword],
     },
     {
       year: '2024',
@@ -265,7 +266,7 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınıp doktora yapmamdan, yurda dönüş ve gazete yazarlığına uzanan anılarımı kapsayan bu kitapta fikirlerimin nasıl zamanla, hangi etkiler altında değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerine bakıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
-      foreword: birHikayemVarForeword,
+      forewords: [birHikayemVarForeword],
     },
     {
       year: '2003',
@@ -282,6 +283,12 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/turkiyenin-taniklari-disaridan-bakanlar/46443.html',
     },
     {
+      year: '1991',
+      title: '2020 Yılında Türkiye',
+      desc: 'Fikir ve siyaset yaşamına yön veren kimselerle yaptığım mülakatlara dayanan bu araştırma, ülke seçkinlerinin görece uzun vadeli (30 yıllık) geleceği nasıl gördüklerine, bir anlamda “psikolojisi”ne ışık tutmayı amaçlıyordu. Araştırmamın sonuçlarını bu kitapta yorumladım.',
+      cover: cover2020Turkiye,
+    },
+    {
       year: '1986',
       title: 'DSP-SHP: Nerede Birleşiyor, Nerede Ayrılıyorlar?',
       desc: 'Seyfettin Gürsel ile birlikte yaptığımız bu çalışma, parti programlarını karşılaştırarak ve genel başkanlarıyla mülakatlar yaparak 1980’lerde sol olma iddiasındaki iki partinin birleştikleri ve ayrıldıkları konulara ışık tutmayı amaçlıyordu. (O tarihte DSP Genel Başkanı Rahşan Ecevit idi, ama biz yasaklı eşiyle konuşmuştuk.)',
@@ -289,16 +296,10 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
-      year: '1991',
-      title: '2020 Yılında Türkiye',
-      desc: 'Fikir ve siyaset yaşamına yön veren kimselerle yaptığım mülakatlara dayanan bu araştırma, ülke seçkinlerinin görece uzun vadeli (30 yıllık) geleceği nasıl gördüklerine, bir anlamda “psikolojisi”ne ışık tutmayı amaçlıyordu. Araştırmamın sonuçlarını bu kitapta yorumladım.',
-      cover: cover2020Turkiye,
-    },
-    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
-      desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe ve İngilize özet bulunuyordu.',
-      foreword: turkarIStockholmSummary,
+      desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe ve İngilizce özet bulunuyordu.',
+      forewords: [turkarIStockholmSummary, turksInStockholmSummary],
     },
   ],
 }
