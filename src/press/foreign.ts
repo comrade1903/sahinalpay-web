@@ -258,9 +258,11 @@ export const foreignPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: '31 Temmuz 2016’dan beri cezaevinde bulunan eski Zaman gazetesi yazarlarından Şahin Alpay için İsveçli bir akademisyen dostundan destek açıklaması geldi',
+    title: 'İsveçli doktora tez hocası Profesör Tomas Hammar’ın açıklaması',
     date: '15.10.2017',
-    // Pinned: the address it had before its date was added on 2026-10-18.
+    // Pinned: the address it had before its date was added and its title
+    // changed at the owner's request on 2026-10-18 (the title was the news
+    // item's headline, "31 Temmuz 2016’dan beri cezaevinde bulunan…").
     slug: '31-temmuz-2016dan-beri-cezaevinde-bulunan-eski-zaman-gazetesi-yazarlarindan-sahin-alpay-icin-isvecli-bir-akademisyen-dostundan-destek-aciklamasi-geldi',
     body: [
       'Cezaevindeki gazeteci Şahin Alpay’ın eski bir dostu ve geçmişte Stockholm Üniversitesi’nin Uluslararası Göç ve Etnik İlişkiler Merkezinin (CEIFO) başkanlığını yapmış olan Tomas Hammar, gazetecinin derhal salıverilmesi için çağrı yaptığı bir açıklama yayınladı.',
