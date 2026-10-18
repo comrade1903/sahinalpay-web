@@ -300,24 +300,24 @@ function ArchiveCoverage({
           </h2>
           <p className="lead">
             {lang === 'tr'
-              ? 'Yarım yüzyıldan uzun bir yazı hayatı, hangi yayında hangi yıllara ulaşabildiğimizle birlikte. Boşluklar, henüz çıkaramadığımız dönemler.'
-              : "More than half a century of writing, shown as the years we have reached in each publication. The gaps are periods we have not recovered yet."}
+              ? 'Yarım yüzyıldan uzun süren bir yazı hayatım oldu. Bu sayfada yazarlık hayatımdan ulaşabildiğim seçmeleri bulacaksınız.'
+              : 'My writing life has spanned more than half a century. On this page you will find the selections from it that I have been able to gather.'}
           </p>
           <div className="heritage-features">
             <div className="heritage-feature">
-              <h3>{lang === 'tr' ? 'Gerçek Kaynaklar' : 'Real Sources'}</h3>
+              <h3>{lang === 'tr' ? 'Kaynaklar' : 'Sources'}</h3>
               <p>
                 {lang === 'tr'
-                  ? 'Her yazı orijinal kaynağını belirtir.'
-                  : 'Each piece of writing references its original source.'}
+                  ? 'Her yazının kaynağı belirtilmiştir.'
+                  : 'The source of every piece is given.'}
               </p>
             </div>
             <div className="heritage-feature">
-              <h3>{lang === 'tr' ? 'Büyüyen Bir Arşiv' : 'A Growing Archive'}</h3>
+              <h3>{lang === 'tr' ? 'Büyüyen bir arşiv' : 'A growing archive'}</h3>
               <p>
                 {lang === 'tr'
-                  ? 'İçerik, zaman içinde yeni gazete küpürleri ve bağlantılarla genişletilmektedir.'
-                  : 'Content keeps expanding over time with new clippings and links.'}
+                  ? 'İçerik zaman içinde eklerle genişleyecektir.'
+                  : 'The content will grow over time with new additions.'}
               </p>
             </div>
           </div>
