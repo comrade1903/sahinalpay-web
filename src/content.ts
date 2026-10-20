@@ -394,7 +394,6 @@ export const content: Record<Lang, Content> = {
       intro: 'In these interviews, questions about my writing open into conversations about my life, political choices and what experience taught me.',
       emptyLabel: 'No items yet. Links and archived clippings will be added here.',
       items: [],
-      formatLabels: { written: 'Interviews', broadcast: 'Conversations' },
     },
     academicArticles: {
       kicker: 'Archive',
@@ -642,10 +641,9 @@ export const content: Record<Lang, Content> = {
     interviews: {
       kicker: 'Arşiv',
       title: 'Söyleşiler',
-      intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşi ve mülakatlarda yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
+      intro: 'Bana sorulan sorular, yazılarımdan hayatıma ve siyasi tercihlerime uzanıyor. Bu söyleşilerde yaşadıklarımı ve zamanla değişen kanaatlerimi anlattım.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar ve gazete küpürleri eklenecek.',
       items: [],
-      formatLabels: { written: 'Söyleşiler', broadcast: 'Mülakatlar' },
     },
     academicArticles: {
       kicker: 'Arşiv',

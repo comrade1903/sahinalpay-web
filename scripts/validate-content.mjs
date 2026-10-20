@@ -53,7 +53,6 @@ const SEED_FIELDS = {
   pdfSrc: 'string',
   pdfPageCount: 'number',
   pieceKind: 'string',
-  interviewFormat: 'string',
 }
 
 /** Added by normalizeArchiveItems(), plus the fields archive-model derives. */
@@ -355,17 +354,6 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
       fail(`Column slug "${item.slug}" is used in both languages: ${where(item)} and ${where(other)}`)
     }
     seen.set(item.slug, item)
-  }
-}
-
-/* ---- every interview says whether it is written or broadcast ---- */
-
-/* The interviews page is split on this field; a missing value would quietly
-   file a radio or TV programme under the written "Söyleşiler". */
-for (const item of items) {
-  if (item.category !== 'interviews') continue
-  if (item.interviewFormat !== 'written' && item.interviewFormat !== 'broadcast') {
-    fail(`interview "${item.slug}" (${item.lang}) needs interviewFormat: 'written' or 'broadcast'`)
   }
 }
 

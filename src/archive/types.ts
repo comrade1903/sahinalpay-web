@@ -22,9 +22,6 @@ export type ArchiveMedium = 'print' | 'online'
     Milliyet's columns list holds both. */
 export type ArchivePieceKind = 'column' | 'interview'
 
-/** See ArchiveItemSeed.interviewFormat. */
-export type ArchiveInterviewFormat = 'written' | 'broadcast'
-
 export interface ArchiveItemSeed {
   id?: string
   slug?: string
@@ -60,10 +57,6 @@ export interface ArchiveItemSeed {
   /** Column vs. interview, for outlets whose columns section mixes both
       (see ArchivePieceKind). Omitted where the distinction doesn't apply. */
   pieceKind?: ArchivePieceKind
-  /** Interviews only: a written piece (print, web text, book) or a radio,
-      TV or video broadcast. Splits the interviews page into "Söyleşiler" and
-      "Mülakatlar"; validate-content requires it on every interview. */
-  interviewFormat?: ArchiveInterviewFormat
 }
 
 export interface ArchiveItem extends ArchiveItemSeed {
@@ -103,9 +96,6 @@ export interface FlatArchiveSection {
   intro: string
   emptyLabel: string
   items: ArchiveItem[]
-  /** When set, the page is split by `interviewFormat` under these headings
-      instead of by language (the interviews page). */
-  formatLabels?: Record<ArchiveInterviewFormat, string>
 }
 
 /** One language's whole archive. Loaded on its own — see archive/tr.ts and
