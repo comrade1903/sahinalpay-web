@@ -212,7 +212,10 @@ export const foreignPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'Türk siyaset bilimci ve gazeteci Şahin Alpay bir yıldır tutuklu. Ama hala mahkemeye çıkarılmadı.',
+    title: 'Alpay hala mahkemeye çıkarılmadı',
+    // Pinned: the address it had under its full title, before the owner
+    // shortened the title on 2026-10-20.
+    slug: 'nathan-shacharlent-turk-siyaset-bilimci-ve-gazeteci-sahin-alpay-bir-yildir-tutuklu-ama-hala-mahkemeye-cikarilmadi',
     author: 'Nathan Shacharlent',
     outlet: 'Dagens Nyheter',
     date: '01 Ağustos 2017',
@@ -258,7 +261,7 @@ export const foreignPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'İsveçli doktora tez hocası Profesör Tomas Hammar’ın açıklaması',
+    title: 'Profesör Tomas Hammar’ın açıklaması',
     date: '15.10.2017',
     // Pinned: the address it had before its date was added and its title
     // changed at the owner's request on 2026-10-18 (the title was the news
