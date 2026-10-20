@@ -324,7 +324,7 @@ export const content: Record<Lang, Content> = {
         label: 'The 15 July Case Against Me',
         lines: ['The 15 July', 'Case Against Me'],
       },
-      { key: 'press', label: 'In the Turkish and Foreign Press' },
+      { key: 'press', label: 'About Me In The Press' },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -345,7 +345,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', title: 'Articles in Turkish and Other Languages' },
       { key: 'books', title: 'Books' },
       { key: 'trial', title: 'The 15 July Case Against Me' },
-      { key: 'press', title: 'In the Turkish and Foreign Press' },
+      { key: 'press', title: 'About Me In The Press' },
     ],
     about: {
       "kicker": "Life story",
@@ -442,7 +442,7 @@ export const content: Record<Lang, Content> = {
     },
     press: {
       kicker: 'Selections from the Press',
-      title: 'In the Turkish and Foreign Press',
+      title: 'About Me In The Press',
       intro:
         'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 812 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
       tallyRows: [
@@ -463,7 +463,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'In the Turkish Press',
       foreignLabel: 'In the Foreign Press',
       sourceLinkLabel: 'Original source',
-      backLabel: 'In the Turkish and Foreign Press',
+      backLabel: 'About Me In The Press',
     },
     footer: {
       kicker: 'Keep in touch',
