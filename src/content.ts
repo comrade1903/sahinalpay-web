@@ -445,7 +445,7 @@ export const content: Record<Lang, Content> = {
     press: {
       kicker: 'Selections from the Press',
       title: 'In the Turkish and Foreign Press',
-      subtitle: 'What the Turkish and foreign press wrote about me',
+      subtitle: 'What was written about me',
       intro:
         'While I was held between 27 July 2016 and 18 March 2018, and after my release as well, a great many reports and articles appeared in the Turkish and foreign press about the injustice done to me. By a friend’s count, 812 reports and commentaries about me were published in the Swedish media alone during my imprisonment. They break down as follows:',
       tallyRows: [
@@ -683,7 +683,7 @@ export const content: Record<Lang, Content> = {
     press: {
       kicker: 'Basından Seçmeler',
       title: 'Yerli ve Dış Basında',
-      subtitle: 'Yerli ve yabancı basında hakkımda yazılanlar',
+      subtitle: 'Hakkımda yazılanlar',
       intro:
         'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
       tallyRows: [
