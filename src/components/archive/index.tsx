@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { content, type Lang } from '../../content'
@@ -1160,8 +1160,7 @@ export function FlatArchivePage({
   lang: Lang
   /* The other language's records for this section. Filtered and paged
      together with the page's own records, then listed after them under
-     `foreignArchiveLabel` — or, where the section has `formatLabels`, merged
-     with them and split by format instead. */
+     `foreignArchiveLabel`. */
   foreignItems?: ArchiveItem[]
 }) {
   const location = useLocation()
@@ -1198,49 +1197,32 @@ export function FlatArchivePage({
 
   const bodySearch = useBodySearchIndex(items, search)
   const { bodyIndex } = bodySearch
-  /* Grouped by language — the reader's own first, the rest under their own
-     heading further down — or, on the interviews page, written pieces first
-     and broadcasts after, each group under its own heading. Sorted inside
-     each group: sorting them together would scatter one group through the
-     other by date, leaving nothing to put a heading in front of. */
-  const { formatLabels } = data
-  const groups = useMemo(
-    () =>
-      formatLabels
-        ? [
-            {
-              key: 'written',
-              label: formatLabels.written,
-              test: (item: ArchiveItem) => item.interviewFormat !== 'broadcast',
-            },
-            {
-              key: 'broadcast',
-              label: formatLabels.broadcast,
-              test: (item: ArchiveItem) => item.interviewFormat === 'broadcast',
-            },
-          ]
-        : [
-            { key: 'own', label: null, test: (item: ArchiveItem) => item.lang === lang },
-            {
-              key: 'foreign',
-              label: content[lang].foreignArchiveLabel,
-              test: (item: ArchiveItem) => item.lang !== lang,
-            },
-          ],
-    [formatLabels, lang],
-  )
+  /* Grouped by language, then sorted inside each group: the reader's own
+     language first, the rest under their own heading further down. Sorting the
+     two together would scatter the foreign pieces through the list by date,
+     leaving nothing to put a heading in front of. */
   const filtered = useMemo(() => {
     const matching = items.filter((item) =>
       matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
     )
-    return groups.flatMap((group) => sortItems(matching.filter(group.test), sort))
-  }, [items, groups, search, fromYear, toYear, sourceKind, sort, bodyIndex])
+    return [
+      ...sortItems(
+        matching.filter((item) => item.lang === lang),
+        sort,
+      ),
+      ...sortItems(
+        matching.filter((item) => item.lang !== lang),
+        sort,
+      ),
+    ]
+  }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex])
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
   /* Split again at the shelf, the way the outlet pages do: a page of results
-     can hold the end of one group's run and the start of the next's. */
-  const shelves = groups.map((group) => ({ ...group, rows: paginated.filter(group.test) }))
+     can hold the end of one language's run and the start of the other's. */
+  const ownRows = paginated.filter((item) => item.lang === lang)
+  const foreignRows = paginated.filter((item) => item.lang !== lang)
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -1362,20 +1344,24 @@ export function FlatArchivePage({
                 </p>
               ) : (
                 <>
-                  {shelves.map(
-                    (shelf) =>
-                      shelf.rows.length > 0 && (
-                        <Fragment key={shelf.key}>
-                          {shelf.label && (
-                            <h3 className="archive-foreign-title">{shelf.label}</h3>
-                          )}
-                          <ul className="archive-list">
-                            {shelf.rows.map((item) => (
-                              <ArchiveRow item={item} lang={lang} key={item.id} />
-                            ))}
-                          </ul>
-                        </Fragment>
-                      ),
+                  {ownRows.length > 0 && (
+                    <ul className="archive-list">
+                      {ownRows.map((item) => (
+                        <ArchiveRow item={item} lang={lang} key={item.id} />
+                      ))}
+                    </ul>
+                  )}
+                  {foreignRows.length > 0 && (
+                    <>
+                      <h3 className="archive-foreign-title">
+                        {content[lang].foreignArchiveLabel}
+                      </h3>
+                      <ul className="archive-list">
+                        {foreignRows.map((item) => (
+                          <ArchiveRow item={item} lang={lang} key={item.id} />
+                        ))}
+                      </ul>
+                    </>
                   )}
                 </>
               )}

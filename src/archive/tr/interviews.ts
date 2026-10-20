@@ -5,13 +5,7 @@ import type { ArchiveItemSeed } from '../types'
  *  publisher's own page: the recording (or the interviewer's text) is theirs
  *  and is not mirrored here.
  *
- *  `interviewFormat` splits the page in two, as the owner asked on
- *  2026-10-11: written pieces (print, web text, books) are "söyleşi", radio,
- *  TV and video ones are "mülakat", and the broadcast entries' subtitles say
- *  so. The 2003 bianet entry is a radio programme's transcript but is read as
- *  text, so it counts as written, by the owner's call.
- *
- *  Subtitles carry no editorial caveats (the owner asked on 2026-10-11). The
+ *  Subtitles carry no editorial caveats (the owner asked on 2026-10-11). The owner briefly had the page split into Söyleşiler and Mülakatlar and took that back, so everything here is a söyleşi. The
  *  2024 Açık Radyo page is dated 26 December while the owner's working list
  *  gives 25 December as the broadcast date.
  *
@@ -44,7 +38,6 @@ import type { ArchiveItemSeed } from '../types'
 export const interviewSeeds: ArchiveItemSeed[] = [
   {
     slug: 'kamusalin-siyasal-topografisi-bianet-2003',
-    interviewFormat: 'written',
     title: 'Alpay: Kamusalın Siyasal Topografisi',
     date: '8 Kasım 2003',
     subtitle:
@@ -64,20 +57,18 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   },
   {
     slug: 'bir-hikayem-var-medyascope-2024',
-    interviewFormat: 'broadcast',
     title: 'Bir Hikâyem Var',
     date: '25 Kasım 2024',
     subtitle:
-      'Medyascope, video mülakat — Ruşen Çakır. Spotify’da Medyascope kanalında (bölüm bağlantısı değil): https://open.spotify.com/show/0eMOSpamqoKAY6WwqWdeR6',
+      'Medyascope, video söyleşi — Ruşen Çakır. Spotify’da Medyascope kanalında (bölüm bağlantısı değil): https://open.spotify.com/show/0eMOSpamqoKAY6WwqWdeR6',
     url: 'https://medyascope.tv/2024/11/25/sahin-alpay-ile-soylesi-bir-hikayem-var-video/',
     tags: ['Bir Hikâyem Var', 'anılar', 'gazetecilik', 'Ruşen Çakır', 'video', '2024'],
   },
   {
     slug: 'olmek-icin-gonullu-oldum-serbestiyet-2024',
-    interviewFormat: 'broadcast',
     title: 'Şahin Alpay: “Ölmek için, İsrail’e karşı yapılacak operasyona gönüllü oldum”',
     date: '22 Aralık 2024',
-    subtitle: 'Serbestiyet, video mülakat — “Bir Hikâyem Var” üzerine',
+    subtitle: 'Serbestiyet, video söyleşi — “Bir Hikâyem Var” üzerine',
     url: 'https://serbestiyet.com/roportaj/roportaj-sahin-alpay-olmek-icin-israile-karsi-yapilacak-operasyona-gonullu-oldum-191639/',
     tags: [
       'Bir Hikâyem Var',
@@ -91,7 +82,6 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   },
   {
     slug: 'bir-hikayem-var-acik-radyo-2024',
-    interviewFormat: 'broadcast',
     title: 'Bir Hikâyem Var',
     date: '26 Aralık 2024',
     subtitle:
@@ -101,17 +91,15 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   },
   {
     slug: 'hikayemin-sonu-medyascope-2025',
-    interviewFormat: 'broadcast',
     title: 'Hikâyemin Sonu',
     date: '17 Mart 2025',
     subtitle:
-      'Medyascope, video mülakat — Ruşen Çakır. Spotify bölümü: https://open.spotify.com/episode/2NtvyM0pFJ6kZ3I35rHRNM',
+      'Medyascope, video söyleşi — Ruşen Çakır. Spotify bölümü: https://open.spotify.com/episode/2NtvyM0pFJ6kZ3I35rHRNM',
     url: 'https://medyascope.tv/2025/03/17/hikayemin-sonu-sahin-alpay-anlatti/',
     tags: ['Hikâyemin Sonu', 'Silivri', 'tutukluluk', 'Ruşen Çakır', 'video', '2025'],
   },
   {
     slug: 'liberal-demokratlikta-israrciyim-k24-2025',
-    interviewFormat: 'written',
     title: 'Şahin Alpay’la söyleşi: “Liberal demokratlıkta ısrarcıyım.”',
     date: '9 Ekim 2025',
     subtitle: 'K24, söyleşi — İştar Gözaydın',
@@ -128,16 +116,14 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   },
   {
     slug: 'sol-devrimcilikten-liberal-demokratliga-khktv-2025',
-    interviewFormat: 'broadcast',
     title: 'Sol devrimcilikten liberal demokratlığa: sürgün ve tutukluluk hikâyesi',
     date: '10 Ekim 2025',
-    subtitle: 'KHK TV, video mülakat',
+    subtitle: 'KHK TV, video söyleşi',
     url: 'https://www.youtube.com/watch?v=pBVn6047yB8',
     tags: ['sürgün', 'İsveç', 'Silivri', 'tutukluluk', 'KHK TV', 'video', '2025'],
   },
   {
     slug: 'ahmet-turan-alkana-veda-khktv-2026',
-    interviewFormat: 'broadcast',
     title: "'Çok üzülüyor, yaşıyor olmaktan hicap duyuyorum'",
     date: '6 Şubat 2026',
     subtitle: 'KHK TV, video (anma yazısı) — Ahmet Turan Alkan için',
@@ -146,10 +132,9 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   },
   {
     slug: 'sahin-alpay-newsroom-media-2026',
-    interviewFormat: 'broadcast',
     title: 'Şahin Alpay',
     date: '13 Nisan 2026',
-    subtitle: 'NEWSROOM MEDIA, video mülakat',
+    subtitle: 'NEWSROOM MEDIA, video söyleşi',
     url: 'https://vimeo.com/1182593301/cdf038ee1f',
     tags: ['NEWSROOM MEDIA', 'video', '2026'],
   },
@@ -157,20 +142,18 @@ export const interviewSeeds: ArchiveItemSeed[] = [
   /* Added 2026-10-08 from the owner’s working interview bibliography. */
   {
     slug: 'medya-konusmalari-acik-radyo-2006',
-    interviewFormat: 'broadcast',
     title: 'Medya Konuşmaları IV: Açık Toplum ve İfade Özgürlüğü',
     date: '12 Haziran 2006',
-    subtitle: 'Açık Radyo, radyo mülakatı — Ömer Madra, Avi Haligua',
+    subtitle: 'Açık Radyo, radyo söyleşisi — Ömer Madra, Avi Haligua',
     url: 'https://apacikradyo.com.tr/arsiv-icerigi/medya-konusmalari-iv-acik-toplum-ve-ifade-ozgurlugu',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['ifade özgürlüğü', 'Ömer Madra', 'Avi Haligua', 'Açık Radyo', 'radyo', '2006'],
   },
   {
     slug: 'turk-solu-ve-filistin-sorunu-medyascope-2026',
-    interviewFormat: 'broadcast',
     title: 'Türk solu ve Filistin sorunu',
     date: '16 Şubat 2026',
-    subtitle: 'Medyascope, video mülakat — Emir Berke Yaşar',
+    subtitle: 'Medyascope, video söyleşi — Emir Berke Yaşar',
     url: 'https://medyascope.tv/2026/02/16/turk-solu-ve-filistin-sorunu/',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
     tags: ['Filistin', 'sol', 'Emir Berke Yaşar', 'Medyascope', '2026'],

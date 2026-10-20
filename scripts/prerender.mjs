@@ -390,22 +390,10 @@ for (const lang of ['tr', 'en']) {
       const foreignHtml = foreign.length
         ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
         : ''
-      /* The interviews page splits by format, not language — as the page
-         does (see FlatArchivePage). */
-      const formatLabels = section?.formatLabels
-      const listHtml = formatLabels
-        ? ['written', 'broadcast']
-            .map((format) => {
-              const group = sectionItems.filter(
-                (item) => (item.interviewFormat === 'broadcast') === (format === 'broadcast'),
-              )
-              return group.length
-                ? `<h2>${escapeHtml(formatLabels[format])}</h2>${itemListHtml(group, lang)}`
-                : ''
-            })
-            .join('')
-        : (own.length ? itemListHtml(own, lang) : '') + foreignHtml
-      inner = `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` + listHtml
+      inner =
+        `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
+        (own.length ? itemListHtml(own, lang) : '') +
+        foreignHtml
       jsonLd = schema.collectionJsonLd({
         name: heading,
         description,
