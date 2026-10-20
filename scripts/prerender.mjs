@@ -351,7 +351,7 @@ for (const lang of ['tr', 'en']) {
     } else if (pageKey === 'press') {
       const copy = t.press
       title = `${copy.title} — Şahin Alpay`
-      description = copy.subtitle
+      description = copy.intro
       const list = (id, label, entries) =>
         `<h2 id="${escapeHtml(id)}">${escapeHtml(label)}</h2><ul>${entries
           .map(
@@ -362,7 +362,7 @@ for (const lang of ['tr', 'en']) {
           )
           .join('')}</ul>`
       inner =
-        `<h1>${escapeHtml(copy.title)}</h1><p>${escapeHtml(copy.subtitle)}</p>` +
+        `<h1>${escapeHtml(copy.title)}</h1>` +
         `<p>${escapeHtml(copy.intro)}</p><ul>${copy.tallyRows
           .map((row) => `<li>${escapeHtml(row.label)} — ${escapeHtml(row.value)}</li>`)
           .join('')}<li>${escapeHtml(copy.tallyTotalLabel)} — ${escapeHtml(copy.tallyTotalValue)}</li></ul>` +

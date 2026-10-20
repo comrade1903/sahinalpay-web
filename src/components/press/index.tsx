@@ -77,7 +77,7 @@ export function PressPage({ lang }: { lang: Lang }) {
   const location = useLocation()
   usePageMeta({
     title: `${copy.title} — Şahin Alpay`,
-    description: copy.subtitle,
+    description: copy.intro,
     alternates: pageAlternates(location.pathname),
   })
 
@@ -91,7 +91,7 @@ export function PressPage({ lang }: { lang: Lang }) {
       <NarrativeHeader
         lang={lang}
         title={copy.title}
-        subtitle={copy.subtitle}
+        subtitle=""
         contentsLabel={copy.contentsLabel}
         jumpTargets={jumpTargets}
       >
