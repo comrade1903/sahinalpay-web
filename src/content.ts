@@ -683,7 +683,7 @@ export const content: Record<Lang, Content> = {
     press: {
       kicker: 'Basından Seçmeler',
       title: 'Yerli ve Dış Basında',
-      subtitle: 'Hakkımda yazılanlar',
+      subtitle: 'Hakkımda Yazılanlar',
       intro:
         'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
       tallyRows: [
