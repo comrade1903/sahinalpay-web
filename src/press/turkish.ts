@@ -131,7 +131,10 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'HİLMİ YAVUZ, ŞAHİN ALPAY, ALİ BULAÇ, TERS KELEPÇE VE DEMOKRASİNİN ZAFERİ',
+    title: 'Ters kelepçe ve demokrasinin zaferi',
+    // Pinned: the address it had under its full title, before the owner
+    // shortened the title on 2026-10-20.
+    slug: 'umur-talu-hilmi-yavuz-sahin-alpay-ali-bulac-ters-kelepce-ve-demokrasinin-zaferi',
     author: 'Umur Talu',
     outlet: 'Habertürk',
     date: '29 Temmuz 2016',
@@ -180,7 +183,10 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'ETİK KODLARI MERAKLA BEKLİYORUM',
+    title: 'Etik kodları merakla bekliyorum',
+    // Pinned: the address it had under its full title, before the owner
+    // shortened the title on 2026-10-20.
+    slug: 'mehmet-y-yilmaz-etik-kodlari-merakla-bekliyorum',
     author: 'Mehmet Y. Yılmaz',
     outlet: 'Hürriyet',
     date: '22 Mart 2017',
@@ -236,7 +242,10 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'Düşünülmüyorsunuz sanmayın. Unutulmadınız, düşünülüyorsunuz, seviliyorsunuz ve sayılıyorsunuz',
+    title: 'Düşünülmüyorsunuz sanmayın',
+    // Pinned: the address it had under its full title, before the owner
+    // shortened the title on 2026-10-20.
+    slug: 'metin-munir-dusunulmuyorsunuz-sanmayin-unutulmadiniz-dusunuluyorsunuz-seviliyorsunuz-ve-sayiliyorsunuz',
     author: 'Metin Münir',
     outlet: 'T24',
     date: '11 Temmuz 2017',
@@ -350,7 +359,10 @@ export const turkishPressSeeds: PressItemSeed[] = [
     ],
   },
   {
-    title: 'Fehmi Koru, İlker Başbuğ kararını hatırlattı: Dün tutuklanmış insanlar değil Şahin Alpay ve Mehmet Altan!',
+    title: 'Dün tutuklanmış insanlar değil Şahin Alpay ve Mehmet Altan!',
+    // Pinned: the address it had under its full title, before the owner
+    // shortened the title on 2026-10-20.
+    slug: 'fehmi-koru-fehmi-koru-ilker-basbug-kararini-hatirlatti-dun-tutuklanmis-insanlar-degil-sahin-alpay-ve-mehmet-altan',
     author: 'Fehmi Koru',
     outlet: 'T24',
     date: '13 Ocak 2018',
