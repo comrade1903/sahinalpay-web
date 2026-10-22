@@ -104,13 +104,8 @@
       "permanent": true
     },
     {
-      "source": "/academic-articles/anglosakson-bilim-felsefesi-1-1982",
-      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1-1982",
-      "permanent": true
-    },
-    {
-      "source": "/academic-articles/anglosakson-bilim-felsefesi-2-1983",
-      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-2-1983",
+      "source": "/academic-articles/anglosakson-bilim-felsefesi-1982",
+      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1982",
       "permanent": true
     },
     {
@@ -164,8 +159,18 @@
       "permanent": true
     },
     {
-      "source": "/academic-articles/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006",
-      "destination": "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006",
+      "source": "/academic-articles/turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003",
+      "destination": "/tr/akademik-makaleler/turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007",
+      "destination": "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/stratejik-derinlik-turkiyenin-uluslararasi-durusu-2010",
+      "destination": "/tr/akademik-makaleler/stratejik-derinlik-turkiyenin-uluslararasi-durusu-2010",
       "permanent": true
     }
   ],

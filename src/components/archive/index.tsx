@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { Fragment, useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { content, type Lang } from '../../content'
@@ -10,7 +10,7 @@ import type {
 } from '../../archive/types'
 import { getCachedBody, loadOutletBodies } from '../../archive/bodyRegistry'
 import { itemScanClippings } from '../../archive/itemUtils'
-import { archiveItemBasePath, archiveLink, hasReaderPage, mediumLabel, pieceKindLabel } from '../../archive/links'
+import { archiveItemBasePath, archiveLink, mediumLabel, pieceKindLabel } from '../../archive/links'
 import {
   archiveItemKey,
   clampPage,
@@ -57,13 +57,10 @@ export function ArchiveRow({
   item,
   outlet,
   lang,
-  showLanguage = false,
 }: {
   item: ArchiveItem
   outlet?: string
   lang: Lang
-  /** Badge a piece written in the other language, for lists that mix the two. */
-  showLanguage?: boolean
 }) {
   const link = archiveLink(item, lang)
   const preview = item.excerpt ?? item.subtitle
@@ -74,9 +71,6 @@ export function ArchiveRow({
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
         {item.medium && (
           <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
-        )}
-        {showLanguage && item.lang !== lang && (
-          <span className="archive-row-badge">{lang === 'tr' ? 'Yabancı dilde' : 'In Turkish'}</span>
         )}
         {item.pieceKind && (
           <span className="archive-row-badge">{pieceKindLabel(item.pieceKind, lang)}</span>
@@ -1218,11 +1212,13 @@ export function FlatArchivePage({
      language first, the rest under their own heading further down. Sorting the
      two together would scatter the foreign pieces through the list by date,
      leaving nothing to put a heading in front of. */
-  /* Where the section has `otherLabel` (academic articles), every piece that
-     opens on a reader page of its own comes first, whatever its language —
-     the foreign-language ones carry a badge — and the link-only pieces follow
-     under that heading, then the other language's under its usual one. */
-  const { otherLabel } = data
+  /* Where the section has `otherLabel` (academic articles), the pieces a
+     reader can open — a reader page of their own or a link to the source —
+     come first, the reader's language and then the other under its usual
+     heading, and the ones that exist only as a citation follow under that
+     heading, in the same two parts. */
+  const { otherLabel, openLabel, otherForeignLabel } = data
+  const isOpenable = (item: ArchiveItem) => archiveLink(item, lang) !== null
   const filtered = useMemo(() => {
     const matching = items.filter((item) =>
       matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
@@ -1230,27 +1226,33 @@ export function FlatArchivePage({
     const own = matching.filter((item) => item.lang === lang)
     const foreignOnes = matching.filter((item) => item.lang !== lang)
     if (!otherLabel) return [...sortItems(own, sort), ...sortItems(foreignOnes, sort)]
+    const open = (list: ArchiveItem[]) => list.filter((item) => archiveLink(item, lang) !== null)
+    const rest = (list: ArchiveItem[]) => list.filter((item) => archiveLink(item, lang) === null)
     return [
-      ...sortItems(matching.filter(hasReaderPage), sort),
-      ...sortItems(own.filter((item) => !hasReaderPage(item)), sort),
-      ...sortItems(foreignOnes.filter((item) => !hasReaderPage(item)), sort),
+      ...sortItems(open(own), sort),
+      ...sortItems(open(foreignOnes), sort),
+      ...sortItems(rest(own), sort),
+      ...sortItems(rest(foreignOnes), sort),
     ]
   }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex, otherLabel])
-  const hasReadable = Boolean(otherLabel) && filtered.some(hasReaderPage)
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
   /* Split again at the shelf, the way the outlet pages do: a page of results
-     can hold the end of one language's run and the start of the other's. */
-  const leadRows = hasReadable
-    ? paginated.filter(hasReaderPage)
-    : paginated.filter((item) => item.lang === lang)
-  const ownOtherRows = hasReadable
-    ? paginated.filter((item) => item.lang === lang && !hasReaderPage(item))
-    : []
-  const foreignRows = hasReadable
-    ? paginated.filter((item) => item.lang !== lang && !hasReaderPage(item))
-    : paginated.filter((item) => item.lang !== lang)
+     can hold the end of one group's run and the start of the next's. */
+  const foreignLabel = content[lang].foreignArchiveLabel
+  const shelves =
+    otherLabel && filtered.some(isOpenable)
+      ? [
+          { key: 'open-own', label: openLabel ?? null, rows: paginated.filter((item) => item.lang === lang && isOpenable(item)) },
+          { key: 'open-foreign', label: foreignLabel, rows: paginated.filter((item) => item.lang !== lang && isOpenable(item)) },
+          { key: 'rest-own', label: otherLabel, rows: paginated.filter((item) => item.lang === lang && !isOpenable(item)) },
+          { key: 'rest-foreign', label: otherForeignLabel ?? `${otherLabel} — ${foreignLabel}`, rows: paginated.filter((item) => item.lang !== lang && !isOpenable(item)) },
+        ]
+      : [
+          { key: 'own', label: null, rows: paginated.filter((item) => item.lang === lang) },
+          { key: 'foreign', label: foreignLabel, rows: paginated.filter((item) => item.lang !== lang) },
+        ]
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -1373,34 +1375,18 @@ export function FlatArchivePage({
                 </p>
               ) : (
                 <>
-                  {leadRows.length > 0 && (
-                    <ul className="archive-list">
-                      {leadRows.map((item) => (
-                        <ArchiveRow item={item} lang={lang} showLanguage={hasReadable} key={item.id} />
-                      ))}
-                    </ul>
-                  )}
-                  {ownOtherRows.length > 0 && (
-                    <>
-                      <h3 className="archive-foreign-title">{otherLabel}</h3>
-                      <ul className="archive-list">
-                        {ownOtherRows.map((item) => (
-                          <ArchiveRow item={item} lang={lang} key={item.id} />
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  {foreignRows.length > 0 && (
-                    <>
-                      <h3 className="archive-foreign-title">
-                        {content[lang].foreignArchiveLabel}
-                      </h3>
-                      <ul className="archive-list">
-                        {foreignRows.map((item) => (
-                          <ArchiveRow item={item} lang={lang} key={item.id} />
-                        ))}
-                      </ul>
-                    </>
+                  {shelves.map(
+                    (shelf) =>
+                      shelf.rows.length > 0 && (
+                        <Fragment key={shelf.key}>
+                          {shelf.label && <h3 className="archive-foreign-title">{shelf.label}</h3>}
+                          <ul className="archive-list">
+                            {shelf.rows.map((item) => (
+                              <ArchiveRow item={item} lang={lang} key={item.id} />
+                            ))}
+                          </ul>
+                        </Fragment>
+                      ),
                   )}
                 </>
               )}
