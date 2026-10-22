@@ -6,7 +6,6 @@ import type { ArchiveData } from '../../archive/useArchiveData'
 import { getCachedBody, loadArticleBody } from '../../archive/bodyRegistry'
 import { isRetiredSlug, resolveArchiveSlug } from '../../archive/aliases'
 import { archiveBasePath, mediumLabel, pieceKindLabel, readerBasePath } from '../../archive/links'
-import { parseTurkishDate } from '../../dateUtils'
 import {
   isoDateFromArchiveDate,
   pageAlternates,
@@ -25,7 +24,6 @@ import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
 import { DeadEnd } from '../DeadEnd'
 import { useArchiveGate } from '../useArchiveGate'
-import { ArchiveRow } from '../archive'
 
 /**
  * The single-article reader: body text or page scans, the citation box, the
@@ -72,39 +70,6 @@ function findForeignColumnBySlug(
   return foreign.columns
     .flatMap((o) => o.items)
     .find((item) => item.slug === resolveArchiveSlug(item.lang, slug))
-}
-
-/** Other full articles (real body text, not the current one) — used for
- *  "related pieces" instead of a fabricated recommendation engine. */
-function relatedArticles(
-  archiveData: ArchiveData,
-  current: ArchiveItem,
-  count: number,
-): ArchiveItem[] {
-  const currentTs = current.date ? parseTurkishDate(current.date) : null
-  return archivePool(archiveData)
-    .filter((item) => item !== current && item.hasBody)
-    .map((item) => {
-      const ts = item.date ? parseTurkishDate(item.date) : null
-      const dateScore =
-        currentTs !== null && ts !== null
-          ? Math.max(0, 12 - Math.abs(currentTs - ts) / (1000 * 60 * 60 * 24 * 365))
-          : 0
-      const score =
-        (item.category === current.category ? 50 : 0) +
-        (item.outlet === current.outlet ? 35 : 0) +
-        dateScore
-      return { item, score, ts }
-    })
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score
-      if (a.ts === null && b.ts === null) return 0
-      if (a.ts === null) return 1
-      if (b.ts === null) return -1
-      return b.ts - a.ts
-    })
-    .map(({ item }) => item)
-    .slice(0, count)
 }
 
 function useReadingProgress() {
@@ -340,7 +305,6 @@ export function LoadedArticlePage({
     )
   }
 
-  const related = relatedArticles(ownItem ? archiveData : foreignData, item, 3)
   const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
@@ -648,16 +612,6 @@ export function LoadedArticlePage({
           onClose={() => setLightbox(null)}
           lang={lang}
         />
-        {related.length > 0 && (
-          <aside className="related-articles">
-            <h2>{lang === 'tr' ? 'Benzer Yazılar' : 'Related pieces'}</h2>
-            <ul className="archive-list">
-              {related.map((r) => (
-                <ArchiveRow item={r} lang={lang} key={r.id} />
-              ))}
-            </ul>
-          </aside>
-        )}
       </div>
     </section>
   )

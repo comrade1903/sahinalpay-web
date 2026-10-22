@@ -3621,17 +3621,6 @@ a.archive-row:hover .archive-row-title {
   }
 }
 
-.related-articles {
-  margin-top: var(--space-5);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--line);
-}
-
-.related-articles h2 {
-  font-size: var(--text-title);
-  margin-bottom: var(--space-3);
-}
-
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--surface-low);
