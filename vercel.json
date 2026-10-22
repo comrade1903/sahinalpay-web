@@ -49,8 +49,123 @@
       "permanent": true
     },
     {
-      "source": "/academic-articles/:slug",
-      "destination": "/tr/akademik-makaleler/:slug",
+      "source": "/academic-articles/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987",
+      "destination": "/tr/akademik-makaleler/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/68-kusagi-uzerine-bir-deneme-1988",
+      "destination": "/tr/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/turkiyede-devlet-sivil-toplum-dengesi-1991",
+      "destination": "/tr/akademik-makaleler/turkiyede-devlet-sivil-toplum-dengesi-1991",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/bizde-sosyal-demokrasi-marksizmden-degil-1991",
+      "destination": "/tr/akademik-makaleler/bizde-sosyal-demokrasi-marksizmden-degil-1991",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992",
+      "destination": "/tr/akademik-makaleler/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/kurt-sorunu-nasil-asilabilir-1996",
+      "destination": "/tr/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/mukayeseli-acidan-turkiyede-laiklik-2002",
+      "destination": "/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/medyanin-krizi-krizin-medyasi-2003",
+      "destination": "/tr/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/dunya-gorusu-ve-siyaset-2009",
+      "destination": "/tr/akademik-makaleler/dunya-gorusu-ve-siyaset-2009",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/toplum-bilimlerinin-mantigi-1983",
+      "destination": "/tr/akademik-makaleler/toplum-bilimlerinin-mantigi-1983",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/toplum-bilimlerinde-ondeyi-ve-kehanet-1982",
+      "destination": "/tr/akademik-makaleler/toplum-bilimlerinde-ondeyi-ve-kehanet-1982",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/anglosakson-bilim-felsefesi-1-1982",
+      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1-1982",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/anglosakson-bilim-felsefesi-2-1983",
+      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-2-1983",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/piyasa-ekonomisi-ve-demokrasi-1985",
+      "destination": "/tr/akademik-makaleler/piyasa-ekonomisi-ve-demokrasi-1985",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/siyasal-islamin-basari-sansi-1997",
+      "destination": "/tr/akademik-makaleler/siyasal-islamin-basari-sansi-1997",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/iskandinav-sosyal-demokrasisi-ornek-olabilir-mi-1988",
+      "destination": "/tr/akademik-makaleler/iskandinav-sosyal-demokrasisi-ornek-olabilir-mi-1988",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/shpnin-sorunu-liderlik-mi-1988",
+      "destination": "/tr/akademik-makaleler/shpnin-sorunu-liderlik-mi-1988",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/shp-programi-yenilensin-1991",
+      "destination": "/tr/akademik-makaleler/shp-programi-yenilensin-1991",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/gelecegi-bilmek-ve-secmek-1992",
+      "destination": "/tr/akademik-makaleler/gelecegi-bilmek-ve-secmek-1992",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/turkiyede-reform-ihtiyaci-ve-sol-1993",
+      "destination": "/tr/akademik-makaleler/turkiyede-reform-ihtiyaci-ve-sol-1993",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/milliyetcilik-ozgurlukcu-demokrasiyle-nasil-bagdasir-1993",
+      "destination": "/tr/akademik-makaleler/milliyetcilik-ozgurlukcu-demokrasiyle-nasil-bagdasir-1993",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/medyada-ifade-ozgurlugunun-engelleri-2001",
+      "destination": "/tr/akademik-makaleler/medyada-ifade-ozgurlugunun-engelleri-2001",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/11-eylul-ve-uygarlik-savasi-2002",
+      "destination": "/tr/akademik-makaleler/11-eylul-ve-uygarlik-savasi-2002",
+      "permanent": true
+    },
+    {
+      "source": "/academic-articles/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006",
+      "destination": "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006",
       "permanent": true
     }
   ],

@@ -141,8 +141,13 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     subtitle:
       "In Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, pp. 370-387",
     url: 'https://link.springer.com/chapter/10.1057/9780230277397_20',
-    sourceNote: 'Confirmed through Crossref (DOI 10.1057/9780230277397_20).',
+    sourceNote:
+      'Confirmed through Crossref (DOI 10.1057/9780230277397_20). The two pages shown are the chapter’s opening pages (pp. 370-371); the full chapter, pp. 370-387, is at the publisher’s page linked below.',
     tags: ['media', 'press freedom', 'modernization', 'democracy', '2010'],
+    clippings: [
+      { src: '/archive/clippings/academic/2010/two-faces-of-the-press-2010/page-1.webp', pageLabel: 'Page 1' },
+      { src: '/archive/clippings/academic/2010/two-faces-of-the-press-2010/page-2.webp', pageLabel: 'Page 2' },
+    ],
   },
   {
     slug: 'will-turkey-veer-towards-authoritarianism-2011',

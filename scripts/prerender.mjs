@@ -387,21 +387,23 @@ for (const lang of ['tr', 'en']) {
       const heading = section?.title ?? pageKey
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
-      const foreignHtml = foreign.length
-        ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
-        : ''
-      /* Where the section has `otherLabel`, pieces with a reader page come
-         first and the link-only ones follow under that heading, as the page
+      /* Where the section has `otherLabel`, every piece with a reader page
+         comes first (either language), the link-only ones follow under that
+         heading, then the other language's under its usual one — as the page
          does (see FlatArchivePage). */
       const otherLabel = section?.otherLabel
-      const ownReadable = otherLabel ? own.filter(hasInternalPage) : own
-      const ownOther = otherLabel && ownReadable.length ? own.filter((item) => !hasInternalPage(item)) : []
-      const ownLead = otherLabel && !ownReadable.length ? own : ownReadable
+      const readable = otherLabel ? [...own, ...foreign].filter(hasInternalPage) : []
+      const hasReadable = readable.length > 0
+      const lead = hasReadable ? readable : own
+      const ownOther = hasReadable ? own.filter((item) => !hasInternalPage(item)) : []
+      const foreignRest = hasReadable ? foreign.filter((item) => !hasInternalPage(item)) : foreign
       inner =
         `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
-        (ownLead.length ? itemListHtml(ownLead, lang) : '') +
+        (lead.length ? itemListHtml(lead, lang) : '') +
         (ownOther.length ? `<h2>${escapeHtml(otherLabel)}</h2>${itemListHtml(ownOther, lang)}` : '') +
-        foreignHtml
+        (foreignRest.length
+          ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreignRest, lang)}`
+          : '')
       jsonLd = schema.collectionJsonLd({
         name: heading,
         description,

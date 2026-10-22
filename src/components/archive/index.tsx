@@ -57,10 +57,13 @@ export function ArchiveRow({
   item,
   outlet,
   lang,
+  showLanguage = false,
 }: {
   item: ArchiveItem
   outlet?: string
   lang: Lang
+  /** Badge a piece written in the other language, for lists that mix the two. */
+  showLanguage?: boolean
 }) {
   const link = archiveLink(item, lang)
   const preview = item.excerpt ?? item.subtitle
@@ -71,6 +74,9 @@ export function ArchiveRow({
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
         {item.medium && (
           <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
+        )}
+        {showLanguage && item.lang !== lang && (
+          <span className="archive-row-badge">{lang === 'tr' ? 'Yabancı dilde' : 'In Turkish'}</span>
         )}
         {item.pieceKind && (
           <span className="archive-row-badge">{pieceKindLabel(item.pieceKind, lang)}</span>
@@ -1212,40 +1218,39 @@ export function FlatArchivePage({
      language first, the rest under their own heading further down. Sorting the
      two together would scatter the foreign pieces through the list by date,
      leaving nothing to put a heading in front of. */
-  /* Where the section has `otherLabel` (academic articles), a piece that opens
-     on a reader page of its own comes before one that only links out, in each
-     language's run, and the link-only pieces sit under that heading. */
+  /* Where the section has `otherLabel` (academic articles), every piece that
+     opens on a reader page of its own comes first, whatever its language —
+     the foreign-language ones carry a badge — and the link-only pieces follow
+     under that heading, then the other language's under its usual one. */
   const { otherLabel } = data
-  const readableFirst = useMemo(
-    () =>
-      (list: ArchiveItem[]) =>
-        otherLabel
-          ? [
-              ...sortItems(list.filter(hasReaderPage), sort),
-              ...sortItems(list.filter((item) => !hasReaderPage(item)), sort),
-            ]
-          : sortItems(list, sort),
-    [otherLabel, sort],
-  )
   const filtered = useMemo(() => {
     const matching = items.filter((item) =>
       matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
     )
+    const own = matching.filter((item) => item.lang === lang)
+    const foreignOnes = matching.filter((item) => item.lang !== lang)
+    if (!otherLabel) return [...sortItems(own, sort), ...sortItems(foreignOnes, sort)]
     return [
-      ...readableFirst(matching.filter((item) => item.lang === lang)),
-      ...readableFirst(matching.filter((item) => item.lang !== lang)),
+      ...sortItems(matching.filter(hasReaderPage), sort),
+      ...sortItems(own.filter((item) => !hasReaderPage(item)), sort),
+      ...sortItems(foreignOnes.filter((item) => !hasReaderPage(item)), sort),
     ]
-  }, [items, lang, search, fromYear, toYear, sourceKind, readableFirst, bodyIndex])
-  const ownHasReadable = Boolean(otherLabel) && filtered.some((item) => item.lang === lang && hasReaderPage(item))
+  }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex, otherLabel])
+  const hasReadable = Boolean(otherLabel) && filtered.some(hasReaderPage)
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
   /* Split again at the shelf, the way the outlet pages do: a page of results
      can hold the end of one language's run and the start of the other's. */
-  const ownRows = paginated.filter((item) => item.lang === lang)
-  const foreignRows = paginated.filter((item) => item.lang !== lang)
-  const ownLeadRows = ownHasReadable ? ownRows.filter(hasReaderPage) : ownRows
-  const ownOtherRows = ownHasReadable ? ownRows.filter((item) => !hasReaderPage(item)) : []
+  const leadRows = hasReadable
+    ? paginated.filter(hasReaderPage)
+    : paginated.filter((item) => item.lang === lang)
+  const ownOtherRows = hasReadable
+    ? paginated.filter((item) => item.lang === lang && !hasReaderPage(item))
+    : []
+  const foreignRows = hasReadable
+    ? paginated.filter((item) => item.lang !== lang && !hasReaderPage(item))
+    : paginated.filter((item) => item.lang !== lang)
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -1368,10 +1373,10 @@ export function FlatArchivePage({
                 </p>
               ) : (
                 <>
-                  {ownLeadRows.length > 0 && (
+                  {leadRows.length > 0 && (
                     <ul className="archive-list">
-                      {ownLeadRows.map((item) => (
-                        <ArchiveRow item={item} lang={lang} key={item.id} />
+                      {leadRows.map((item) => (
+                        <ArchiveRow item={item} lang={lang} showLanguage={hasReadable} key={item.id} />
                       ))}
                     </ul>
                   )}
