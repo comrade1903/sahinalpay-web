@@ -51,11 +51,17 @@ export function readerBasePath(item: ArchiveItem, pageLang: Lang): string {
   return item.category === 'columns' ? archiveBasePath(pageLang, item) : archiveItemBasePath(item)
 }
 
+/** Whether a piece opens on a reader page of its own (full text or page
+ *  scans) rather than linking out to its source. */
+export function hasReaderPage(item: ArchiveItem): boolean {
+  return Boolean(item.hasBody || itemScanClippings(item).length > 0)
+}
+
 export function archiveLink(
   item: ArchiveItem,
   pageLang: Lang = item.lang,
 ): { href: string; internal: boolean } | null {
-  if (item.hasBody || itemScanClippings(item).length > 0) {
+  if (hasReaderPage(item)) {
     return { href: `${readerBasePath(item, pageLang)}/${item.slug}`, internal: true }
   }
   if (item.url) return { href: item.url, internal: false }

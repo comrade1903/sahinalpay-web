@@ -20,8 +20,8 @@
     "date": "2026-10-20"
   },
   "/academic-articles": {
-    "fingerprint": "fd3bcc78e0ccdb44",
-    "date": "2026-10-13"
+    "fingerprint": "a03e6145b9949f05",
+    "date": "2026-10-22"
   },
   "/books": {
     "fingerprint": "74096a3bf612db2c",
@@ -40,44 +40,44 @@
     "date": "2026-10-13"
   },
   "/tr": {
-    "fingerprint": "877d25dbad1f81cd",
-    "date": "2026-10-20"
+    "fingerprint": "16c3ce8f856a638d",
+    "date": "2026-10-22"
   },
   "/tr/kimdir": {
-    "fingerprint": "5b216532d102b618",
-    "date": "2026-10-18"
+    "fingerprint": "bfded87ca51c65c9",
+    "date": "2026-10-22"
   },
   "/tr/fotograflarla-hikayem": {
-    "fingerprint": "43a6389e24fdb77f",
-    "date": "2026-10-18"
+    "fingerprint": "6aacb937929d06c2",
+    "date": "2026-10-22"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "78e45fbdca5a6cd0",
-    "date": "2026-10-18"
+    "fingerprint": "2f84fb4b4c948873",
+    "date": "2026-10-22"
   },
   "/tr/soylesiler": {
-    "fingerprint": "a8cf95e7449522d2",
-    "date": "2026-10-20"
+    "fingerprint": "27217c5ecb2818a4",
+    "date": "2026-10-22"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "6bd119b8ba5d3b2a",
-    "date": "2026-10-18"
+    "fingerprint": "cf6e84c6c4802f78",
+    "date": "2026-10-22"
   },
   "/tr/kitaplar": {
-    "fingerprint": "3267a4e57c20fc2b",
+    "fingerprint": "3754302111ab7bc3",
     "date": "2026-10-22"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "3d9f9efe38453bb2",
-    "date": "2026-10-18"
+    "fingerprint": "b8b3544cf03eb0c7",
+    "date": "2026-10-22"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "774bdb86706ab3a0",
-    "date": "2026-10-20"
+    "fingerprint": "21007ffffb97a9d2",
+    "date": "2026-10-22"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "2c1bde1a938cc0d0",
-    "date": "2026-10-18"
+    "fingerprint": "5695c607acbfbd1a",
+    "date": "2026-10-22"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",
@@ -2946,5 +2946,41 @@
   "/columns/even-erdogan-needs-the-west": {
     "fingerprint": "9fb9f028a078547c",
     "date": "2026-10-13"
+  },
+  "/tr/akademik-makaleler/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987": {
+    "fingerprint": "d51a7dfed5fab0b9",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988": {
+    "fingerprint": "092502c01aa1e349",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/turkiyede-devlet-sivil-toplum-dengesi-1991": {
+    "fingerprint": "e10f520c1533e35f",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/bizde-sosyal-demokrasi-marksizmden-degil-1991": {
+    "fingerprint": "f243fcf08f36c156",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996": {
+    "fingerprint": "b1f89aea4eb9d593",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003": {
+    "fingerprint": "c729d00b7596930a",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/toplum-bilimlerinin-mantigi-1983": {
+    "fingerprint": "776ea0837314343a",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/toplum-bilimlerinde-ondeyi-ve-kehanet-1982": {
+    "fingerprint": "3b038de7d1d3d579",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006": {
+    "fingerprint": "db5b4c5eb6c83bf8",
+    "date": "2026-10-22"
   }
 }

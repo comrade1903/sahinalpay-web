@@ -355,6 +355,9 @@ export function LoadedArticlePage({
      order they appear, each captioned with the piece it belongs to. A cover
      with a PDF behind it still opens the PDF: that is a document, not an
      image to enlarge. */
+  /* A multi-page scan (a journal article photographed page by page) is read
+     in place, page after page, instead of through a single cover image. */
+  const pageScans = !item.pdfSrc && scans.length > 1
   const clippingCaption = [cover?.pageLabel ?? item.subtitle, item.outlet, item.date]
     .filter(Boolean)
     .join(' · ')
@@ -369,7 +372,19 @@ export function LoadedArticlePage({
         </>
       ),
     })),
-    ...(cover && !item.pdfSrc
+    ...(pageScans
+      ? scans.map((clipping, i) => ({
+          src: clipping.src,
+          alt: clipping.alt ?? `${item.title} — ${clipping.pageLabel ?? i + 1}`,
+          caption: (
+            <>
+              <strong>{item.title}</strong>
+              {` · ${clipping.pageLabel ?? i + 1} / ${scans.length}`}
+            </>
+          ),
+        }))
+      : []),
+    ...(cover && !item.pdfSrc && !pageScans
       ? [
           {
             src: cover.src,
@@ -553,7 +568,40 @@ export function LoadedArticlePage({
           ) : null}
         </Reveal>
         )}
-        {cover && (
+        {pageScans && (
+          <Reveal as="aside" className="clipping-viewer page-scans" delay={0.12}>
+            <h2>{content[lang].clippingViewer.pagesHeading}</h2>
+            <ol className="page-scan-list">
+              {scans.map((clipping, i) => (
+                <li className="page-scan" key={clipping.src}>
+                  <button
+                    type="button"
+                    className="clipping-open"
+                    aria-haspopup="dialog"
+                    aria-label={`${content[lang].clippingViewer.openPage} — ${clipping.pageLabel ?? i + 1}`}
+                    onClick={() => setLightbox(photos.length + i)}
+                  >
+                    <img
+                      src={clipping.src}
+                      alt={clipping.alt ?? `${item.title} — ${clipping.pageLabel ?? i + 1}`}
+                      loading="lazy"
+                    />
+                    <span className="clipping-open-hint">
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        zoom_in
+                      </span>
+                      {content[lang].clippingViewer.openPage}
+                    </span>
+                  </button>
+                  <p className="page-scan-label">
+                    {clipping.pageLabel ?? i + 1} / {scans.length}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        )}
+        {cover && !pageScans && (
           <Reveal as="aside" className="clipping-viewer" delay={0.12}>
             <h2>{content[lang].clippingViewer.heading}</h2>
             <figure className="clipping-frame">

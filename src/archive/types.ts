@@ -96,6 +96,9 @@ export interface FlatArchiveSection {
   intro: string
   emptyLabel: string
   items: ArchiveItem[]
+  /** When set, pieces that open on a reader page of their own (a full text or
+      page scans) are listed first and the rest follow under this heading. */
+  otherLabel?: string
 }
 
 /** One language's whole archive. Loaded on its own — see archive/tr.ts and

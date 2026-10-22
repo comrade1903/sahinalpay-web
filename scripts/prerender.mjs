@@ -37,7 +37,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { mirrorRouteForItem, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
+import { hasInternalPage, mirrorRouteForItem, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
 import { loadModule, projectRoot } from './lib/load-archive.mjs'
 
 const distDir = path.join(projectRoot, 'dist')
@@ -390,9 +390,17 @@ for (const lang of ['tr', 'en']) {
       const foreignHtml = foreign.length
         ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
         : ''
+      /* Where the section has `otherLabel`, pieces with a reader page come
+         first and the link-only ones follow under that heading, as the page
+         does (see FlatArchivePage). */
+      const otherLabel = section?.otherLabel
+      const ownReadable = otherLabel ? own.filter(hasInternalPage) : own
+      const ownOther = otherLabel && ownReadable.length ? own.filter((item) => !hasInternalPage(item)) : []
+      const ownLead = otherLabel && !ownReadable.length ? own : ownReadable
       inner =
         `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
-        (own.length ? itemListHtml(own, lang) : '') +
+        (ownLead.length ? itemListHtml(ownLead, lang) : '') +
+        (ownOther.length ? `<h2>${escapeHtml(otherLabel)}</h2>${itemListHtml(ownOther, lang)}` : '') +
         foreignHtml
       jsonLd = schema.collectionJsonLd({
         name: heading,
@@ -490,7 +498,9 @@ for (const item of items) {
   const scans = (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
   if (scans.length) {
     parts.push(
-      `<h2>${escapeHtml(t.clippingViewer.heading)}</h2><ul>${scans
+      `<h2>${escapeHtml(
+        scans.length > 1 && !item.pdfSrc ? t.clippingViewer.pagesHeading : t.clippingViewer.heading,
+      )}</h2><ul>${scans
         .map(
           (clipping, index) =>
             `<li><a href="${escapeHtml(clipping.src)}">${escapeHtml(

@@ -10,7 +10,7 @@ import type {
 } from '../../archive/types'
 import { getCachedBody, loadOutletBodies } from '../../archive/bodyRegistry'
 import { itemScanClippings } from '../../archive/itemUtils'
-import { archiveItemBasePath, archiveLink, mediumLabel, pieceKindLabel } from '../../archive/links'
+import { archiveItemBasePath, archiveLink, hasReaderPage, mediumLabel, pieceKindLabel } from '../../archive/links'
 import {
   archiveItemKey,
   clampPage,
@@ -77,7 +77,9 @@ export function ArchiveRow({
         )}
         {itemScanClippings(item).length ? (
           <span className="archive-row-badge archive-row-badge-scan">
-            {lang === 'tr' ? 'Kupür' : 'Clipping'}
+            {item.category === 'academic'
+              ? lang === 'tr' ? 'Tarama' : 'Scan'
+              : lang === 'tr' ? 'Kupür' : 'Clipping'}
           </span>
         ) : null}
       </div>
@@ -207,9 +209,16 @@ function useBodySearchIndex(items: ArchiveItem[], search: string): BodySearchSta
   }
 }
 
-function sourceKindLabel(kind: SourceKind, lang: Lang) {
+/* The academic articles are scanned journal and book pages, not newspaper
+   clippings, so that section names the scan kind differently. */
+function scanKindLabel(academic: boolean, lang: Lang) {
+  if (academic) return lang === 'tr' ? 'Sayfa taraması' : 'Page scans'
+  return lang === 'tr' ? 'Gazete kupürü' : 'Clipping'
+}
+
+function sourceKindLabel(kind: SourceKind, lang: Lang, academic = false) {
   if (kind === 'digital') return lang === 'tr' ? 'Dijital metin' : 'Digital text'
-  if (kind === 'clipping') return lang === 'tr' ? 'Gazete kupürü' : 'Clipping'
+  if (kind === 'clipping') return scanKindLabel(academic, lang)
   return lang === 'tr' ? 'Tüm kaynaklar' : 'All sources'
 }
 
@@ -392,15 +401,17 @@ function SourceKindFilter({
   lang,
   sourceKind,
   setSourceKind,
+  academic = false,
 }: {
   lang: Lang
   sourceKind: SourceKind
   setSourceKind: (v: SourceKind) => void
+  academic?: boolean
 }) {
   const options: { value: SourceKind; label: string }[] = [
     { value: 'all', label: lang === 'tr' ? 'Tüm kaynaklar' : 'All sources' },
     { value: 'digital', label: lang === 'tr' ? 'Dijital metin' : 'Digital text' },
-    { value: 'clipping', label: lang === 'tr' ? 'Gazete kupürü' : 'Clipping' },
+    { value: 'clipping', label: scanKindLabel(academic, lang) },
   ]
 
   return (
@@ -1201,21 +1212,31 @@ export function FlatArchivePage({
      language first, the rest under their own heading further down. Sorting the
      two together would scatter the foreign pieces through the list by date,
      leaving nothing to put a heading in front of. */
+  /* Where the section has `otherLabel` (academic articles), a piece that opens
+     on a reader page of its own comes before one that only links out, in each
+     language's run, and the link-only pieces sit under that heading. */
+  const { otherLabel } = data
+  const readableFirst = useMemo(
+    () =>
+      (list: ArchiveItem[]) =>
+        otherLabel
+          ? [
+              ...sortItems(list.filter(hasReaderPage), sort),
+              ...sortItems(list.filter((item) => !hasReaderPage(item)), sort),
+            ]
+          : sortItems(list, sort),
+    [otherLabel, sort],
+  )
   const filtered = useMemo(() => {
     const matching = items.filter((item) =>
       matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
     )
     return [
-      ...sortItems(
-        matching.filter((item) => item.lang === lang),
-        sort,
-      ),
-      ...sortItems(
-        matching.filter((item) => item.lang !== lang),
-        sort,
-      ),
+      ...readableFirst(matching.filter((item) => item.lang === lang)),
+      ...readableFirst(matching.filter((item) => item.lang !== lang)),
     ]
-  }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex])
+  }, [items, lang, search, fromYear, toYear, sourceKind, readableFirst, bodyIndex])
+  const ownHasReadable = Boolean(otherLabel) && filtered.some((item) => item.lang === lang && hasReaderPage(item))
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
@@ -1223,6 +1244,8 @@ export function FlatArchivePage({
      can hold the end of one language's run and the start of the other's. */
   const ownRows = paginated.filter((item) => item.lang === lang)
   const foreignRows = paginated.filter((item) => item.lang !== lang)
+  const ownLeadRows = ownHasReadable ? ownRows.filter(hasReaderPage) : ownRows
+  const ownOtherRows = ownHasReadable ? ownRows.filter((item) => !hasReaderPage(item)) : []
 
   const setParam = (key: string, value: string | null, options?: { replace?: boolean; keepPage?: boolean }) =>
     updateSearchParams(searchParams, setSearchParams, { [key]: value }, options)
@@ -1253,7 +1276,7 @@ export function FlatArchivePage({
     sourceKind !== 'all' && {
       key: 'source',
       label: lang === 'tr' ? 'Kaynak' : 'Source',
-      value: sourceKindLabel(sourceKind, lang),
+      value: sourceKindLabel(sourceKind, lang, Boolean(otherLabel)),
       onClear: () => setParam('source', null),
     },
     sort !== 'newest' && {
@@ -1312,6 +1335,7 @@ export function FlatArchivePage({
                 lang={lang}
                 sourceKind={sourceKind}
                 setSourceKind={(value) => setParam('source', value)}
+                academic={Boolean(otherLabel)}
               />
             </div>
           </aside>
@@ -1344,12 +1368,22 @@ export function FlatArchivePage({
                 </p>
               ) : (
                 <>
-                  {ownRows.length > 0 && (
+                  {ownLeadRows.length > 0 && (
                     <ul className="archive-list">
-                      {ownRows.map((item) => (
+                      {ownLeadRows.map((item) => (
                         <ArchiveRow item={item} lang={lang} key={item.id} />
                       ))}
                     </ul>
+                  )}
+                  {ownOtherRows.length > 0 && (
+                    <>
+                      <h3 className="archive-foreign-title">{otherLabel}</h3>
+                      <ul className="archive-list">
+                        {ownOtherRows.map((item) => (
+                          <ArchiveRow item={item} lang={lang} key={item.id} />
+                        ))}
+                      </ul>
+                    </>
                   )}
                   {foreignRows.length > 0 && (
                     <>
