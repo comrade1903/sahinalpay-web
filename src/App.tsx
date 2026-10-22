@@ -12,7 +12,7 @@ import { NarrativeHeader, BackToTop } from './components/NarrativeHeader'
 import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
 import { useArchiveGate } from './components/useArchiveGate'
-import { ArticlePage } from './components/reader'
+import { ArticlePage, LoadedArticlePage } from './components/reader'
 import { PressPage, PressArticlePage } from './components/press'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -770,7 +770,7 @@ function MainShell() {
           />
           <Route
             path="/academic-articles/:slug"
-            element={<TurkishItemRedirect pageKey="academic" />}
+            element={<EnglishAcademicItem />}
           />
           <Route path="/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
           <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
@@ -872,6 +872,20 @@ function TurkishItemRedirect({ pageKey }: { pageKey: PageKey }) {
   const { slug } = useParams<{ slug: string }>()
   const base = paths.tr[pageKey]!
   return <Navigate to={slug ? `${base}/${slug}` : base} replace />
+}
+
+/* The few English and German academic articles that open on a reader page of
+   their own (page scans) live at the English address; every other slug on that
+   path is a Turkish piece cited by its English URL and still goes to its
+   Turkish page, as TurkishItemRedirect does for the other sections. */
+function EnglishAcademicItem() {
+  const { slug } = useParams<{ slug: string }>()
+  const { data, foreign, fallback } = useArchiveGate('en')
+  if (!data || !foreign) return fallback
+  if (slug && data.academicArticles.some((item) => item.slug === slug)) {
+    return <LoadedArticlePage lang="en" archiveData={data} foreignData={foreign} />
+  }
+  return <TurkishItemRedirect pageKey="academic" />
 }
 
 function NotFound() {

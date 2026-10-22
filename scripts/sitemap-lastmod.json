@@ -1,82 +1,82 @@
 {
   "/": {
-    "fingerprint": "51105a89f0588626",
-    "date": "2026-10-20"
+    "fingerprint": "094e4a9f84297317",
+    "date": "2026-10-22"
   },
   "/about": {
-    "fingerprint": "e8efdedec1b32f0b",
-    "date": "2026-10-18"
+    "fingerprint": "c942e832ebafea1b",
+    "date": "2026-10-22"
   },
   "/my-story-in-photographs": {
-    "fingerprint": "7a5f3b3b2f890140",
-    "date": "2026-10-13"
+    "fingerprint": "f846b987d739024a",
+    "date": "2026-10-22"
   },
   "/columns": {
-    "fingerprint": "5c88605e70afcb7f",
-    "date": "2026-10-13"
+    "fingerprint": "ca943cfe8052303f",
+    "date": "2026-10-22"
   },
   "/interviews": {
-    "fingerprint": "b174199a2c0f9509",
-    "date": "2026-10-20"
+    "fingerprint": "9a8802160abc04ce",
+    "date": "2026-10-22"
   },
   "/academic-articles": {
-    "fingerprint": "a03e6145b9949f05",
+    "fingerprint": "79c9cf0d62a0a2dc",
     "date": "2026-10-22"
   },
   "/books": {
-    "fingerprint": "74096a3bf612db2c",
+    "fingerprint": "03bc9d57de88fd11",
     "date": "2026-10-22"
   },
   "/trial-process": {
-    "fingerprint": "45f8e7f73b515792",
-    "date": "2026-10-13"
+    "fingerprint": "e5b195df1e078b50",
+    "date": "2026-10-22"
   },
   "/about-me-in-the-press": {
-    "fingerprint": "7dc813d6b0e680be",
-    "date": "2026-10-20"
+    "fingerprint": "f6dd4eae48d3b9ab",
+    "date": "2026-10-22"
   },
   "/cookie-policy": {
-    "fingerprint": "4e3f8bcb12f277ec",
-    "date": "2026-10-13"
+    "fingerprint": "46f1f7647b59f61f",
+    "date": "2026-10-22"
   },
   "/tr": {
-    "fingerprint": "16c3ce8f856a638d",
+    "fingerprint": "0cf881d521582c3f",
     "date": "2026-10-22"
   },
   "/tr/kimdir": {
-    "fingerprint": "bfded87ca51c65c9",
+    "fingerprint": "4a323f6764bad168",
     "date": "2026-10-22"
   },
   "/tr/fotograflarla-hikayem": {
-    "fingerprint": "6aacb937929d06c2",
+    "fingerprint": "6e39cdd42c8b0a3e",
     "date": "2026-10-22"
   },
   "/tr/kose-yazilari": {
-    "fingerprint": "2f84fb4b4c948873",
+    "fingerprint": "eeb0dc9a7c4ff356",
     "date": "2026-10-22"
   },
   "/tr/soylesiler": {
-    "fingerprint": "27217c5ecb2818a4",
+    "fingerprint": "14defff449652b6c",
     "date": "2026-10-22"
   },
   "/tr/akademik-makaleler": {
-    "fingerprint": "cf6e84c6c4802f78",
+    "fingerprint": "11fb52b84c676e42",
     "date": "2026-10-22"
   },
   "/tr/kitaplar": {
-    "fingerprint": "3754302111ab7bc3",
+    "fingerprint": "3264dd0fce40f008",
     "date": "2026-10-22"
   },
   "/tr/yargilanma-surecim": {
-    "fingerprint": "b8b3544cf03eb0c7",
+    "fingerprint": "990c3cfa7f5d96ef",
     "date": "2026-10-22"
   },
   "/tr/basinda-hakkimda": {
-    "fingerprint": "21007ffffb97a9d2",
+    "fingerprint": "3b5731efed186a8e",
     "date": "2026-10-22"
   },
   "/tr/cerez-politikasi": {
-    "fingerprint": "5695c607acbfbd1a",
+    "fingerprint": "5b76f2344f0caff5",
     "date": "2026-10-22"
   },
   "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
@@ -2963,8 +2963,16 @@
     "fingerprint": "f243fcf08f36c156",
     "date": "2026-10-22"
   },
+  "/tr/akademik-makaleler/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992": {
+    "fingerprint": "5fe9b7e61dcb7211",
+    "date": "2026-10-22"
+  },
   "/tr/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996": {
     "fingerprint": "b1f89aea4eb9d593",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002": {
+    "fingerprint": "9adf5ba9156c68a4",
     "date": "2026-10-22"
   },
   "/tr/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003": {
@@ -2979,8 +2987,16 @@
     "fingerprint": "3b038de7d1d3d579",
     "date": "2026-10-22"
   },
-  "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkindaki-yanlis-anlayislar-2006": {
-    "fingerprint": "db5b4c5eb6c83bf8",
+  "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1982": {
+    "fingerprint": "b085d025e8457af8",
+    "date": "2026-10-22"
+  },
+  "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007": {
+    "fingerprint": "a4136bdc48f2a6ac",
+    "date": "2026-10-22"
+  },
+  "/academic-articles/two-faces-of-the-press-2010": {
+    "fingerprint": "e4b2f0bb4b15e6bf",
     "date": "2026-10-22"
   }
 }

@@ -418,7 +418,9 @@ export const content: Record<Lang, Content> = {
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
+      openLabel: 'Articles',
       otherLabel: 'Other Articles',
+      otherForeignLabel: 'Other Turkish-Language Writing',
       items: [],
     },
     books: {
@@ -669,7 +671,9 @@ export const content: Record<Lang, Content> = {
       title: 'Türkçe ve Yabancı Dilde Makaleler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
+      openLabel: 'Makaleler',
       otherLabel: 'Diğer Makaleler',
+      otherForeignLabel: 'Yabancı Dilde Diğer Makaleler',
       items: [],
     },
     books: {

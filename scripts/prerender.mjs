@@ -387,21 +387,26 @@ for (const lang of ['tr', 'en']) {
       const heading = section?.title ?? pageKey
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
-      const foreignHtml = foreign.length
-        ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
-        : ''
-      /* Where the section has `otherLabel`, pieces with a reader page come
-         first and the link-only ones follow under that heading, as the page
-         does (see FlatArchivePage). */
+      /* Where the section has `otherLabel`, the pieces a reader can open (a
+         reader page or a link to the source) come first — the reader's
+         language, then the other's under its usual heading — and the
+         citation-only ones follow under `otherLabel` and `otherForeignLabel`,
+         as the page does (see FlatArchivePage). */
       const otherLabel = section?.otherLabel
-      const ownReadable = otherLabel ? own.filter(hasInternalPage) : own
-      const ownOther = otherLabel && ownReadable.length ? own.filter((item) => !hasInternalPage(item)) : []
-      const ownLead = otherLabel && !ownReadable.length ? own : ownReadable
-      inner =
-        `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
-        (ownLead.length ? itemListHtml(ownLead, lang) : '') +
-        (ownOther.length ? `<h2>${escapeHtml(otherLabel)}</h2>${itemListHtml(ownOther, lang)}` : '') +
-        foreignHtml
+      const isOpenable = (item) => hasInternalPage(item) || Boolean(item.url || item.imageSrc)
+      const part = (label, list) =>
+        list.length ? (label ? `<h2>${escapeHtml(label)}</h2>` : '') + itemListHtml(list, lang) : ''
+      let listHtml
+      if (otherLabel && sectionItems.some(isOpenable)) {
+        listHtml =
+          part(section.openLabel, own.filter(isOpenable)) +
+          part(t.foreignArchiveLabel, foreign.filter(isOpenable)) +
+          part(otherLabel, own.filter((item) => !isOpenable(item))) +
+          part(section.otherForeignLabel ?? `${otherLabel} — ${t.foreignArchiveLabel}`, foreign.filter((item) => !isOpenable(item)))
+      } else {
+        listHtml = part(null, own) + part(t.foreignArchiveLabel, foreign)
+      }
+      inner = `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` + listHtml
       jsonLd = schema.collectionJsonLd({
         name: heading,
         description,
