@@ -3449,6 +3449,28 @@ a.archive-row:hover .archive-row-title {
   color: var(--muted);
 }
 
+.page-scan-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+.page-scan {
+  padding: var(--space-2);
+  background: var(--surface-lowest);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+.page-scan-label {
+  margin: 0.6rem 0 0;
+  font-family: var(--label);
+  font-size: var(--text-label);
+  font-weight: 700;
+  color: var(--muted);
+}
+
 /* ---------- Fotoğraflarla Hikayem ---------- */
 /* Hallmark · page: photo story · system: design.md (The Reading Room) ·
    structure: alternating photo / caption rows, one column below 769px.

@@ -191,9 +191,12 @@ export interface Content {
   }
   clippingViewer: {
     heading: string
+    /** Heading for an article photographed page by page. */
+    pagesHeading: string
     openPdf: string
     openPdfHint: string
     openImage: string
+    openPage: string
     enlargePhoto: string
     pagesSuffix: string
   }
@@ -415,6 +418,9 @@ export const content: Record<Lang, Content> = {
       intro:
         'Research into migration, political participation and democracy, beginning with my work on migrants from Turkey in Stockholm.',
       emptyLabel: 'No items yet. Links will be added here.',
+      openLabel: 'Articles',
+      otherLabel: 'Other Articles',
+      otherForeignLabel: 'Other Turkish-Language Writing',
       items: [],
     },
     books: {
@@ -553,9 +559,11 @@ export const content: Record<Lang, Content> = {
     },
     clippingViewer: {
       heading: 'Newspaper Clipping',
+      pagesHeading: 'Article Pages',
       openPdf: 'Read the full scan as a PDF',
       openPdfHint: '(opens in a new tab)',
       openImage: 'Open the full-size clipping',
+      openPage: 'Open the full-size page',
       enlargePhoto: 'Enlarge the photograph',
       pagesSuffix: 'pages',
     },
@@ -663,6 +671,9 @@ export const content: Record<Lang, Content> = {
       title: 'Türkçe ve Yabancı Dilde Makaleler',
       intro: 'Stockholm’deki Türkiyeli göçmenler üzerine doktora çalışmamdan başlayarak göç, siyasi katılım ve demokrasiyi anlamak için yaptığım araştırmalar.',
       emptyLabel: 'Bu bölümde henüz içerik yok. Bağlantılar eklenecek.',
+      openLabel: 'Makaleler',
+      otherLabel: 'Diğer Makaleler',
+      otherForeignLabel: 'Yabancı Dilde Diğer Makaleler',
       items: [],
     },
     books: {
@@ -789,9 +800,11 @@ export const content: Record<Lang, Content> = {
     },
     clippingViewer: {
       heading: 'Gazete Kupürü',
+      pagesHeading: 'Makale Sayfaları',
       openPdf: 'Tamamını PDF olarak oku',
       openPdfHint: '(yeni sekmede açılır)',
       openImage: 'Kupürü tam boyutunda aç',
+      openPage: 'Sayfayı tam boyutunda aç',
       enlargePhoto: 'Fotoğrafı büyüt',
       pagesSuffix: 'sayfa',
     },

@@ -96,6 +96,14 @@ export interface FlatArchiveSection {
   intro: string
   emptyLabel: string
   items: ArchiveItem[]
+  /** When set, the page is split in four: the pieces a reader can open (a
+      reader page of their own or a link to the source) first under `openLabel`,
+      the other language's open pieces under its usual heading, then the pieces
+      that exist only as a citation under `otherLabel` and, last,
+      `otherForeignLabel`. */
+  otherLabel?: string
+  openLabel?: string
+  otherForeignLabel?: string
 }
 
 /** One language's whole archive. Loaded on its own — see archive/tr.ts and

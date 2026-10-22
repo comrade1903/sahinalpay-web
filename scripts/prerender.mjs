@@ -37,7 +37,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { mirrorRouteForItem, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
+import { hasInternalPage, mirrorRouteForItem, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
 import { loadModule, projectRoot } from './lib/load-archive.mjs'
 
 const distDir = path.join(projectRoot, 'dist')
@@ -387,13 +387,26 @@ for (const lang of ['tr', 'en']) {
       const heading = section?.title ?? pageKey
       title = `${heading} — Şahin Alpay`
       description = section?.intro ?? t.htmlDescription
-      const foreignHtml = foreign.length
-        ? `<h2>${escapeHtml(t.foreignArchiveLabel)}</h2>${itemListHtml(foreign, lang)}`
-        : ''
-      inner =
-        `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` +
-        (own.length ? itemListHtml(own, lang) : '') +
-        foreignHtml
+      /* Where the section has `otherLabel`, the pieces a reader can open (a
+         reader page or a link to the source) come first — the reader's
+         language, then the other's under its usual heading — and the
+         citation-only ones follow under `otherLabel` and `otherForeignLabel`,
+         as the page does (see FlatArchivePage). */
+      const otherLabel = section?.otherLabel
+      const isOpenable = (item) => hasInternalPage(item) || Boolean(item.url || item.imageSrc)
+      const part = (label, list) =>
+        list.length ? (label ? `<h2>${escapeHtml(label)}</h2>` : '') + itemListHtml(list, lang) : ''
+      let listHtml
+      if (otherLabel && sectionItems.some(isOpenable)) {
+        listHtml =
+          part(section.openLabel, own.filter(isOpenable)) +
+          part(t.foreignArchiveLabel, foreign.filter(isOpenable)) +
+          part(otherLabel, own.filter((item) => !isOpenable(item))) +
+          part(section.otherForeignLabel ?? `${otherLabel} — ${t.foreignArchiveLabel}`, foreign.filter((item) => !isOpenable(item)))
+      } else {
+        listHtml = part(null, own) + part(t.foreignArchiveLabel, foreign)
+      }
+      inner = `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(description)}</p>` + listHtml
       jsonLd = schema.collectionJsonLd({
         name: heading,
         description,
@@ -490,7 +503,9 @@ for (const item of items) {
   const scans = (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
   if (scans.length) {
     parts.push(
-      `<h2>${escapeHtml(t.clippingViewer.heading)}</h2><ul>${scans
+      `<h2>${escapeHtml(
+        scans.length > 1 && !item.pdfSrc ? t.clippingViewer.pagesHeading : t.clippingViewer.heading,
+      )}</h2><ul>${scans
         .map(
           (clipping, index) =>
             `<li><a href="${escapeHtml(clipping.src)}">${escapeHtml(
