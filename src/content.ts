@@ -33,6 +33,7 @@ import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceride
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
 import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
+import coverPiyasaEkonomisi from './assets/covers/piyasa-ekonomisi-ve-demokrasi.jpg'
 import { trialProcessSections } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
@@ -244,6 +245,13 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
     },
     {
+      year: '1985',
+      title: 'Piyasa Ekonomisi ve Demokrasi: Yeni Sol’un İktisadi Görüşlerinin Eleştirisi',
+      desc: 'A translated book. The Turkish edition of Assar Lindbeck’s The Political Economy of the New Left (1971), a critique of the New Left’s economic views by the Swedish economist, published by Birey ve Toplum Yayınları as the first title in its Sol’da Tartışmalar (Debates on the Left) series.',
+      cover: coverPiyasaEkonomisi,
+      purchaseUrl: 'https://www.nadirkitap.com/piyasa-ekonomisi-ve-demokrasi-yeni-sol-un-iktisadi-goruslerinin-elestirisi-assar-lindbeck-kitap42145808.html',
+    },
+    {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish and English.',
@@ -293,6 +301,13 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'Seyfettin Gürsel ile birlikte yaptığımız bu çalışma, parti programlarını karşılaştırarak ve genel başkanlarıyla mülakatlar yaparak 1980’lerde sol olma iddiasındaki iki partinin birleştikleri ve ayrıldıkları konulara ışık tutmayı amaçlıyordu. (O tarihte DSP Genel Başkanı Rahşan Ecevit idi, ama biz yasaklı eşiyle konuşmuştuk.)',
       cover: coverDspShp,
       purchaseUrl: 'https://www.nadirkitap.com/dsp-shp-nerede-birlesiyor-nerede-ayriliyorlar-sahin-alpay-seyfettin-gursel-kitap39671088.html',
+    },
+    {
+      year: '1985',
+      title: 'Piyasa Ekonomisi ve Demokrasi: Yeni Sol’un İktisadi Görüşlerinin Eleştirisi',
+      desc: 'Çeviri kitap. İsveçli iktisatçı Assar Lindbeck’in The Political Economy of the New Left (1971) adlı eserinin Türkçe baskısı; Yeni Sol’un iktisadi görüşlerinin eleştirisi. Birey ve Toplum Yayınları’nın Sol’da Tartışmalar dizisinin ilk kitabı olarak yayımlandı.',
+      cover: coverPiyasaEkonomisi,
+      purchaseUrl: 'https://www.nadirkitap.com/piyasa-ekonomisi-ve-demokrasi-yeni-sol-un-iktisadi-goruslerinin-elestirisi-assar-lindbeck-kitap42145808.html',
     },
     {
       year: '1980',
