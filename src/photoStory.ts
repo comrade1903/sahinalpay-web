@@ -2,8 +2,9 @@
  *  and his own captions, in the order of the owner's document
  *  (Foto/fotohikaye.md, supplied 2026-10-13; scans in Foto/taramalar),
  *  except 028 (the children and grandchildren), which the owner moved to
- *  the end on 2026-10-15. 029 (Fatma at the Great Wall of China, 1999) and
- *  its caption were removed at the owner's request on 2026-10-25.
+ *  the end on 2026-10-15. 029 (Fatma at the Great Wall of China, 1999) is
+ *  kept with its caption but `hidden` from the page since 2026-10-25, at the
+ *  owner's request.
  *  Captions are verbatim and Turkish only; the English page shows them
  *  untranslated, never machine-translated.
  *
@@ -31,6 +32,9 @@ export interface PhotoStoryEntry {
   /** One photo, or two shown side by side. */
   photos: PhotoStoryPhoto[]
   caption: string
+  /** Kept in the record but not shown on the page or in its prerendered
+   *  fallback, at the owner's request. */
+  hidden?: boolean
 }
 
 export const PHOTO_STORY_DIR = '/photos/hikayem'
@@ -176,6 +180,12 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
       'Fatma\'nın en çok sevdiğim fotoğraflarından birini Haziran 1995\'te New York\'a birlikte yaptığımız ilk ziyaret sırasında *Empire State Building* adlı ünlü gökdelenin tepesinde çektim.',
   },
   {
+    photos: [{ id: '029', width: 1600, height: 1081 }],
+    caption:
+      'Fatma\'nın bu çok sevdiğim fotoğrafını da, 1999\'da davetli olarak gittiğimiz Çin Halk Cumhuriyeti\'nde çektim. Arka planda Çin seddi görülüyor.',
+    hidden: true,
+  },
+  {
     photos: [{ id: '030', width: 1600, height: 1079 }],
     caption:
       '2001\'de *Milliyet*\'teki işime son verilince, Stockholm Üniversitesi\'nde yaptığım doktora işe yaradı. Yakın dostlarımdan biri olacak Prof. Dr. Eser Karakaş beni Bahçeşehir Üniversitesi\'nde ders vermeye davet etti. Fotoğraf Eser\'in çalışma odasında çekildi.',
@@ -232,3 +242,6 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
       'Hiç kuşkum yok ki, hayattaki en büyük mutluluk kaynağım, Fatma gibi bir eşe, Elvan ve Acar gibi evlatlara, Defne ve Leyla gibi torunlara sahip olmam. Fotoğraflarda Elvan ile Defne yakınlarda Filibe\'de; Acar\'la Leyla birkaç yıl önce Çamlık, Ayvalık\'ta görülüyor.',
   },
 ]
+
+/** The entries the page shows, in story order. */
+export const visiblePhotoStoryEntries = photoStoryEntries.filter((entry) => !entry.hidden)
