@@ -1,9 +1,8 @@
 import { parseTurkishDate } from '../dateUtils'
 import { foldSearchText } from '../textUtils'
-import { archiveItemText, itemHasSourceKind } from './itemUtils'
+import { archiveItemText } from './itemUtils'
 import type { ArchiveItem } from './types'
 
-export type SourceKind = 'all' | 'digital' | 'clipping'
 export type SortOrder = 'newest' | 'oldest'
 
 /** Rows rendered per archive page. Pagination bounds the DOM, not the
@@ -40,11 +39,8 @@ export function matchesFilters(
   search: string,
   fromYear: string,
   toYear: string,
-  sourceKind: SourceKind,
   bodyIndex: ReadonlyMap<string, string[]>,
 ): boolean {
-  if (!itemHasSourceKind(item, sourceKind)) return false
-
   if (
     search &&
     !foldedTextFor(item, bodyIndex.get(archiveItemKey(item))).includes(
@@ -84,10 +80,6 @@ export function sortByDate<T>(
 
 export function sortItems(items: ArchiveItem[], sort: SortOrder): ArchiveItem[] {
   return sortByDate(items, (item) => item.date, sort)
-}
-
-export function validSourceKind(value: string | null): SourceKind {
-  return value === 'digital' || value === 'clipping' ? value : 'all'
 }
 
 export function validSort(value: string | null): SortOrder {

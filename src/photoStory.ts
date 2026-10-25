@@ -1,8 +1,9 @@
-/** "Fotoğraflarla Hikayem" — Şahin Alpay's life told through 37 photographs
+/** "Fotoğraflarla Hikayem" — Şahin Alpay's life told through 36 photographs
  *  and his own captions, in the order of the owner's document
  *  (Foto/fotohikaye.md, supplied 2026-10-13; scans in Foto/taramalar),
  *  except 028 (the children and grandchildren), which the owner moved to
- *  the end on 2026-10-15.
+ *  the end on 2026-10-15. 029 (Fatma at the Great Wall of China, 1999) and
+ *  its caption were removed at the owner's request on 2026-10-25.
  *  Captions are verbatim and Turkish only; the English page shows them
  *  untranslated, never machine-translated.
  *
@@ -173,11 +174,6 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '027', width: 1600, height: 1051 }],
     caption:
       'Fatma\'nın en çok sevdiğim fotoğraflarından birini Haziran 1995\'te New York\'a birlikte yaptığımız ilk ziyaret sırasında *Empire State Building* adlı ünlü gökdelenin tepesinde çektim.',
-  },
-  {
-    photos: [{ id: '029', width: 1600, height: 1081 }],
-    caption:
-      'Fatma\'nın bu çok sevdiğim fotoğrafını da, 1999\'da davetli olarak gittiğimiz Çin Halk Cumhuriyeti\'nde çektim. Arka planda Çin seddi görülüyor.',
   },
   {
     photos: [{ id: '030', width: 1600, height: 1079 }],

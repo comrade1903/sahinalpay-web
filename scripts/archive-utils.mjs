@@ -120,7 +120,7 @@ function booleanField(objectSource, field) {
   return new RegExp(`${field}:\\s*true\\b`).test(objectSource)
 }
 
-/** Mirrors archiveLink()/itemHasSourceKind() in src/App.tsx: an entry only
+/** Mirrors archiveLink() in src/archive/links.ts: an entry only
  *  gets a real internal reader page when it has body text, a scan clipping
  *  (a 'photo'-kind clipping is a lead image, not a readable scan), or a bare
  *  imageSrc. Anything else — url-only entries included — 404s if visited by

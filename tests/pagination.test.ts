@@ -7,7 +7,6 @@ import {
   sortItems,
   totalPagesFor,
   validSort,
-  validSourceKind,
 } from '../src/archive/query'
 import { makeItem } from './helpers'
 
@@ -22,11 +21,9 @@ describe('URL parameter parsing', () => {
     expect(positivePage('7')).toBe(7)
   })
 
-  it('normalises unknown sort and source values', () => {
+  it('normalises unknown sort values', () => {
     expect(validSort('sideways')).toBe('newest')
     expect(validSort('oldest')).toBe('oldest')
-    expect(validSourceKind('paper')).toBe('all')
-    expect(validSourceKind('clipping')).toBe('clipping')
   })
 })
 
