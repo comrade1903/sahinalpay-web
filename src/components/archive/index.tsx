@@ -21,9 +21,7 @@ import {
   sortItems,
   totalPagesFor,
   validSort,
-  validSourceKind,
   type SortOrder,
-  type SourceKind,
 } from '../../archive/query'
 import { parseTurkishDate } from '../../dateUtils'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from '../../lib/seo'
@@ -209,19 +207,6 @@ function useBodySearchIndex(items: ArchiveItem[], search: string): BodySearchSta
   }
 }
 
-/* The academic articles are scanned journal and book pages, not newspaper
-   clippings, so that section names the scan kind differently. */
-function scanKindLabel(academic: boolean, lang: Lang) {
-  if (academic) return lang === 'tr' ? 'Sayfa taraması' : 'Page scans'
-  return lang === 'tr' ? 'Gazete kupürü' : 'Clipping'
-}
-
-function sourceKindLabel(kind: SourceKind, lang: Lang, academic = false) {
-  if (kind === 'digital') return lang === 'tr' ? 'Dijital metin' : 'Digital text'
-  if (kind === 'clipping') return scanKindLabel(academic, lang)
-  return lang === 'tr' ? 'Tüm kaynaklar' : 'All sources'
-}
-
 function updateSearchParams(
   searchParams: URLSearchParams,
   setSearchParams: ReturnType<typeof useSearchParams>[1],
@@ -394,44 +379,6 @@ function SortSelect({
       <option value="newest">{lang === 'tr' ? 'En Yeni' : 'Newest'}</option>
       <option value="oldest">{lang === 'tr' ? 'En Eski' : 'Oldest'}</option>
     </select>
-  )
-}
-
-function SourceKindFilter({
-  lang,
-  sourceKind,
-  setSourceKind,
-  academic = false,
-}: {
-  lang: Lang
-  sourceKind: SourceKind
-  setSourceKind: (v: SourceKind) => void
-  academic?: boolean
-}) {
-  const options: { value: SourceKind; label: string }[] = [
-    { value: 'all', label: lang === 'tr' ? 'Tüm kaynaklar' : 'All sources' },
-    { value: 'digital', label: lang === 'tr' ? 'Dijital metin' : 'Digital text' },
-    { value: 'clipping', label: scanKindLabel(academic, lang) },
-  ]
-
-  return (
-    <div className="filter-card">
-      <h3>{lang === 'tr' ? 'Kaynak Türü' : 'Source type'}</h3>
-      <div className="chip-row">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            className="chip"
-            data-active={sourceKind === option.value}
-            aria-pressed={sourceKind === option.value}
-            onClick={() => setSourceKind(option.value)}
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
-    </div>
   )
 }
 
@@ -697,7 +644,7 @@ function deriveNewsstandOutlets(
       outlet: o,
       matchingItems: sortByDate(
         o.items.filter((item) =>
-          matchesFilters(item, search, fromYear, toYear, 'all', bodyIndex),
+          matchesFilters(item, search, fromYear, toYear, bodyIndex),
         ),
         (item) => item.date,
         'newest',
@@ -1197,13 +1144,12 @@ export function FlatArchivePage({
      result are visible rather than hidden behind a button. Search is excluded —
      it has its own always-visible row and shouldn't force the panel open. */
   const [filtersOpen, setFiltersOpen] = useState(() =>
-    ['outlet', 'from', 'to', 'source'].some((key) => searchParams.get(key)),
+    ['outlet', 'from', 'to'].some((key) => searchParams.get(key)),
   )
   const search = searchParams.get('q') ?? ''
   const fromYear = searchParams.get('from') ?? ''
   const toYear = searchParams.get('to') ?? ''
   const sort = validSort(searchParams.get('sort'))
-  const sourceKind = validSourceKind(searchParams.get('source'))
   const requestedPage = positivePage(searchParams.get('page'))
 
   const bodySearch = useBodySearchIndex(items, search)
@@ -1221,7 +1167,7 @@ export function FlatArchivePage({
   const isOpenable = (item: ArchiveItem) => archiveLink(item, lang) !== null
   const filtered = useMemo(() => {
     const matching = items.filter((item) =>
-      matchesFilters(item, search, fromYear, toYear, sourceKind, bodyIndex),
+      matchesFilters(item, search, fromYear, toYear, bodyIndex),
     )
     const own = matching.filter((item) => item.lang === lang)
     const foreignOnes = matching.filter((item) => item.lang !== lang)
@@ -1234,7 +1180,7 @@ export function FlatArchivePage({
       ...sortItems(rest(own), sort),
       ...sortItems(rest(foreignOnes), sort),
     ]
-  }, [items, lang, search, fromYear, toYear, sourceKind, sort, bodyIndex, otherLabel])
+  }, [items, lang, search, fromYear, toYear, sort, bodyIndex, otherLabel])
   const totalPages = totalPagesFor(filtered.length)
   const currentPage = clampPage(requestedPage, filtered.length)
   const paginated = pageSlice(filtered, currentPage)
@@ -1279,12 +1225,6 @@ export function FlatArchivePage({
       label: lang === 'tr' ? 'Bitiş' : 'To',
       value: toYear,
       onClear: () => setParam('to', null),
-    },
-    sourceKind !== 'all' && {
-      key: 'source',
-      label: lang === 'tr' ? 'Kaynak' : 'Source',
-      value: sourceKindLabel(sourceKind, lang, Boolean(otherLabel)),
-      onClear: () => setParam('source', null),
     },
     sort !== 'newest' && {
       key: 'sort',
@@ -1337,12 +1277,6 @@ export function FlatArchivePage({
                 toYear={toYear}
                 setFromYear={(value) => setParam('from', value)}
                 setToYear={(value) => setParam('to', value)}
-              />
-              <SourceKindFilter
-                lang={lang}
-                sourceKind={sourceKind}
-                setSourceKind={(value) => setParam('source', value)}
-                academic={Boolean(otherLabel)}
               />
             </div>
           </aside>

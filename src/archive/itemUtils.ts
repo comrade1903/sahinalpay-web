@@ -25,12 +25,3 @@ export function archiveItemText(item: ArchiveItem, loadedBody?: string[]): strin
 export function itemScanClippings(item: ArchiveItem) {
   return (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
 }
-
-export function itemHasSourceKind(
-  item: ArchiveItem,
-  kind: 'all' | 'digital' | 'clipping',
-) {
-  if (kind === 'all') return true
-  if (kind === 'digital') return Boolean(item.url || item.hasBody)
-  return Boolean(itemScanClippings(item).length || item.imageSrc)
-}

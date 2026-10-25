@@ -4,7 +4,7 @@ import { content, type Lang } from '../content'
 import { paths } from '../routes'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from '../lib/seo'
 import { aboutJsonLd } from '../lib/structuredData'
-import { photoSrc, photoStoryEntries, type PhotoStoryPhoto } from '../photoStory'
+import { photoSrc, visiblePhotoStoryEntries, type PhotoStoryPhoto } from '../photoStory'
 import { ImageLightbox, type LightboxImage } from './ImageLightbox'
 import { Reveal } from './Reveal'
 
@@ -62,7 +62,7 @@ function Photo({
 
 /* Every photograph in story order, each carrying its entry's caption, so the
    lightbox can step through the whole story; a pair's two photos share one. */
-const gallery: LightboxImage[] = photoStoryEntries.flatMap((entry) =>
+const gallery: LightboxImage[] = visiblePhotoStoryEntries.flatMap((entry) =>
   entry.photos.map((photo) => ({
     src: photoSrc(photo.id, 1600),
     srcSet: `${photoSrc(photo.id, 800)} 800w, ${photoSrc(photo.id, 1600)} 1600w`,
@@ -74,7 +74,7 @@ const gallery: LightboxImage[] = photoStoryEntries.flatMap((entry) =>
   })),
 )
 const galleryIndex = new Map(
-  photoStoryEntries.flatMap((entry) => entry.photos).map((photo, i) => [photo.id, i]),
+  visiblePhotoStoryEntries.flatMap((entry) => entry.photos).map((photo, i) => [photo.id, i]),
 )
 
 /** "Fotoğraflarla Hikayem": his photographs and captions in his own order,
@@ -109,7 +109,7 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
         </Reveal>
 
         <ol className="photo-story" lang="tr">
-          {photoStoryEntries.map((entry) => {
+          {visiblePhotoStoryEntries.map((entry) => {
             const pair = entry.photos.length > 1
             return (
               <li key={entry.photos[0]!.id} className="photo-story-entry">

@@ -293,7 +293,7 @@ for (const lang of ['tr', 'en']) {
       inner =
         `<h1>${escapeHtml(copy.title)}</h1>` +
         (copy.captionNote ? `<p>${escapeHtml(copy.captionNote)}</p>` : '') +
-        `<ol lang="tr">${photoStory.photoStoryEntries
+        `<ol lang="tr">${photoStory.visiblePhotoStoryEntries
           .map(
             (entry) =>
               `<li><figure>${entry.photos

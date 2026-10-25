@@ -436,7 +436,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Life story',
       title: 'My Story in Photographs',
       description:
-        'Şahin Alpay’s life in 37 photographs, from a 1945 family portrait to 2018, with his own captions in Turkish.',
+        'Şahin Alpay’s life in 36 photographs, from a 1945 family portrait to 2018, with his own captions in Turkish.',
       captionNote: 'The captions are in Turkish, as I wrote them.',
       enlargeLabel: 'Open the photograph at full size',
     },
@@ -589,7 +589,11 @@ export const content: Record<Lang, Content> = {
         label: '15 Temmuz Yargılanma Sürecim',
         lines: ['15 Temmuz', 'Yargılanma Sürecim'],
       },
-      { key: 'press', label: 'Basında Hakkımda' },
+      {
+        key: 'press',
+        label: 'Basında Hakkımda Yazılanlar',
+        lines: ['Basında Hakkımda', 'Yazılanlar'],
+      },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
@@ -610,7 +614,7 @@ export const content: Record<Lang, Content> = {
       { key: 'academic', title: 'Türkçe ve Yabancı Dilde Makaleler' },
       { key: 'books', title: 'Kitaplar' },
       { key: 'trial', title: '15 Temmuz Yargılanma Sürecim' },
-      { key: 'press', title: 'Basında Hakkımda' },
+      { key: 'press', title: 'Basında Hakkımda Yazılanlar' },
     ],
     about: {
       "kicker": "Yaşam öyküsü",
@@ -688,7 +692,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Yaşam öyküsü',
       title: 'Fotoğraflarla Hikayem',
       description:
-        'Şahin Alpay’ın hayatı, 1945’teki bir aile fotoğrafından 2018’e 37 fotoğraf ve kendi yazdığı açıklamalarla.',
+        'Şahin Alpay’ın hayatı, 1945’teki bir aile fotoğrafından 2018’e 36 fotoğraf ve kendi yazdığı açıklamalarla.',
       /* The captions are already in the page's language. */
       captionNote: '',
       enlargeLabel: 'Fotoğrafı büyük boyutta aç',
@@ -704,7 +708,7 @@ export const content: Record<Lang, Content> = {
     },
     press: {
       kicker: 'Basından Seçmeler',
-      title: 'Basında Hakkımda',
+      title: 'Basında Hakkımda Yazılanlar',
       intro:
         'Tutuklu kaldığım 27 Temmuz 2016 ila 18 Mart 2018 tarihleri arasında ve tahliyemden sonra da yerli ve yabancı basında uğradığım haksızlık hakkında çok sayıda haber ve yazı çıktı. Bir arkadaşımın hesabına göre tutukluluğum sırasında sadece İsveç medyasında hakkımda 812 haber ve yorum yayımlandı. Dağılımı şöyle:',
       tallyRows: [
@@ -725,7 +729,7 @@ export const content: Record<Lang, Content> = {
       turkishLabel: 'Türkiye Basınında',
       foreignLabel: 'Yabancı Basında',
       sourceLinkLabel: 'Orijinal kaynak',
-      backLabel: 'Basında Hakkımda',
+      backLabel: 'Basında Hakkımda Yazılanlar',
     },
     footer: {
       kicker: 'İletişim',
