@@ -44,68 +44,63 @@
       "permanent": true
     },
     {
-      "source": "/interviews/:slug",
-      "destination": "/tr/soylesiler/:slug",
+      "source": "/interviews/kamusalin-siyasal-topografisi-bianet-2003",
+      "destination": "/tr/soylesiler/kamusalin-siyasal-topografisi-bianet-2003",
       "permanent": true
     },
     {
-      "source": "/academic-articles/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987",
-      "destination": "/tr/akademik-makaleler/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987",
+      "source": "/interviews/bir-hikayem-var-medyascope-2024",
+      "destination": "/tr/soylesiler/bir-hikayem-var-medyascope-2024",
       "permanent": true
     },
     {
-      "source": "/academic-articles/68-kusagi-uzerine-bir-deneme-1988",
-      "destination": "/tr/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988",
+      "source": "/interviews/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "destination": "/tr/soylesiler/olmek-icin-gonullu-oldum-serbestiyet-2024",
       "permanent": true
     },
     {
-      "source": "/academic-articles/turkiyede-devlet-sivil-toplum-dengesi-1991",
-      "destination": "/tr/akademik-makaleler/turkiyede-devlet-sivil-toplum-dengesi-1991",
+      "source": "/interviews/bir-hikayem-var-acik-radyo-2024",
+      "destination": "/tr/soylesiler/bir-hikayem-var-acik-radyo-2024",
       "permanent": true
     },
     {
-      "source": "/academic-articles/bizde-sosyal-demokrasi-marksizmden-degil-1991",
-      "destination": "/tr/akademik-makaleler/bizde-sosyal-demokrasi-marksizmden-degil-1991",
+      "source": "/interviews/hikayemin-sonu-medyascope-2025",
+      "destination": "/tr/soylesiler/hikayemin-sonu-medyascope-2025",
       "permanent": true
     },
     {
-      "source": "/academic-articles/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992",
-      "destination": "/tr/akademik-makaleler/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992",
+      "source": "/interviews/liberal-demokratlikta-israrciyim-k24-2025",
+      "destination": "/tr/soylesiler/liberal-demokratlikta-israrciyim-k24-2025",
       "permanent": true
     },
     {
-      "source": "/academic-articles/kurt-sorunu-nasil-asilabilir-1996",
-      "destination": "/tr/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996",
+      "source": "/interviews/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "destination": "/tr/soylesiler/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
       "permanent": true
     },
     {
-      "source": "/academic-articles/mukayeseli-acidan-turkiyede-laiklik-2002",
-      "destination": "/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002",
+      "source": "/interviews/ahmet-turan-alkana-veda-khktv-2026",
+      "destination": "/tr/soylesiler/ahmet-turan-alkana-veda-khktv-2026",
       "permanent": true
     },
     {
-      "source": "/academic-articles/medyanin-krizi-krizin-medyasi-2003",
-      "destination": "/tr/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003",
+      "source": "/interviews/sahin-alpay-newsroom-media-2026",
+      "destination": "/tr/soylesiler/sahin-alpay-newsroom-media-2026",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/medya-konusmalari-acik-radyo-2006",
+      "destination": "/tr/soylesiler/medya-konusmalari-acik-radyo-2006",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/turk-solu-ve-filistin-sorunu-medyascope-2026",
+      "destination": "/tr/soylesiler/turk-solu-ve-filistin-sorunu-medyascope-2026",
       "permanent": true
     },
     {
       "source": "/academic-articles/dunya-gorusu-ve-siyaset-2009",
       "destination": "/tr/akademik-makaleler/dunya-gorusu-ve-siyaset-2009",
-      "permanent": true
-    },
-    {
-      "source": "/academic-articles/toplum-bilimlerinin-mantigi-1983",
-      "destination": "/tr/akademik-makaleler/toplum-bilimlerinin-mantigi-1983",
-      "permanent": true
-    },
-    {
-      "source": "/academic-articles/toplum-bilimlerinde-ondeyi-ve-kehanet-1982",
-      "destination": "/tr/akademik-makaleler/toplum-bilimlerinde-ondeyi-ve-kehanet-1982",
-      "permanent": true
-    },
-    {
-      "source": "/academic-articles/anglosakson-bilim-felsefesi-1982",
-      "destination": "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1982",
       "permanent": true
     },
     {
@@ -161,11 +156,6 @@
     {
       "source": "/academic-articles/turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003",
       "destination": "/tr/akademik-makaleler/turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003",
-      "permanent": true
-    },
-    {
-      "source": "/academic-articles/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007",
-      "destination": "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007",
       "permanent": true
     },
     {

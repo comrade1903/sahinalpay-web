@@ -5,7 +5,7 @@ import type { ArchiveClipping, ArchiveItem } from '../../archive/types'
 import type { ArchiveData } from '../../archive/useArchiveData'
 import { getCachedBody, loadArticleBody } from '../../archive/bodyRegistry'
 import { isRetiredSlug, resolveArchiveSlug } from '../../archive/aliases'
-import { archiveBasePath, mediumLabel, pieceKindLabel, readerBasePath } from '../../archive/links'
+import { MIRRORED_CATEGORIES, archiveBasePath, mediumLabel, pieceKindLabel, readerBasePath } from '../../archive/links'
 import {
   isoDateFromArchiveDate,
   pageAlternates,
@@ -58,18 +58,24 @@ function findArchiveItemBySlug(
   return archivePool(archiveData).find((item) => item.slug === current)
 }
 
-/* The other language's columns also read under this language's columns path
-   (see readerBasePath in archive/links.ts), so the site's own language does
-   not change under a reader who opens one from a mixed list. Slugs are unique
-   across the two languages — validate:content checks it — so the page
-   language's own record always wins. */
-function findForeignColumnBySlug(
+/* The other language's columns, interviews and academic articles also read
+   under this language's path for their section (see readerBasePath in archive/links.ts),
+   so the site's own language does not change under a reader who opens one
+   from a mixed list. Slugs are unique across the two languages —
+   validate:content checks it — so the page language's own record always
+   wins. */
+function findForeignItemBySlug(
   foreign: ArchiveData,
+  category: (typeof MIRRORED_CATEGORIES)[number],
   slug: string,
 ): ArchiveItem | undefined {
-  return foreign.columns
-    .flatMap((o) => o.items)
-    .find((item) => item.slug === resolveArchiveSlug(item.lang, slug))
+  const pool =
+    category === 'columns'
+      ? foreign.columns.flatMap((o) => o.items)
+      : category === 'interviews'
+        ? foreign.interviews
+        : foreign.academicArticles
+  return pool.find((item) => item.slug === resolveArchiveSlug(item.lang, slug))
 }
 
 function useReadingProgress() {
@@ -223,11 +229,14 @@ export function LoadedArticlePage({
   const location = useLocation()
   const { slug } = useParams<{ slug: string }>()
   const ownItem = slug ? findArchiveItemBySlug(archiveData, lang, slug) : undefined
-  const foreignColumn =
-    slug && !ownItem && location.pathname.startsWith(`${paths[lang].columns}/`)
-      ? findForeignColumnBySlug(foreignData, slug)
+  const mirroredCategory = MIRRORED_CATEGORIES.find((category) =>
+    location.pathname.startsWith(`${archiveBasePath(lang, { category })}/`),
+  )
+  const foreignItem =
+    slug && !ownItem && mirroredCategory
+      ? findForeignItemBySlug(foreignData, mirroredCategory, slug)
       : undefined
-  const item = ownItem ?? foreignColumn
+  const item = ownItem ?? foreignItem
   /* The interface follows the page's language; everything that describes the
      piece to search engines and citations follows the piece's own, so a
      mirrored column names its canonical address, never this one. */
@@ -322,7 +331,12 @@ export function LoadedArticlePage({
   /* A multi-page scan (a journal article photographed page by page) is read
      in place, page after page, instead of through a single cover image. */
   const pageScans = !item.pdfSrc && scans.length > 1
-  const clippingCaption = [cover?.pageLabel ?? item.subtitle, item.outlet, item.date]
+  /* An academic record's outlet is its section's name in the record's own
+     language, not a publication, so a mirrored one names the section in the
+     page's language instead — the way a mirrored column's back link reads. */
+  const outletLabel = item.category === 'academic' && itemLang !== lang ? sectionNameFor(lang, 'academic') : item.outlet
+  const sectionLinkLabel = item.category === 'columns' ? t.columns.title : outletLabel
+  const clippingCaption = [cover?.pageLabel ?? item.subtitle, outletLabel, item.date]
     .filter(Boolean)
     .join(' · ')
   const lightboxImages: LightboxImage[] = [
@@ -377,9 +391,7 @@ export function LoadedArticlePage({
           <nav className="breadcrumb" aria-label={lang === 'tr' ? 'Kırıntı yolu' : 'Breadcrumb'}>
             <Link to={paths[lang].home!}>{lang === 'tr' ? 'Ana sayfa' : 'Home'}</Link>
             <span aria-hidden="true">/</span>
-            <Link to={archiveBasePath(lang, item)}>
-              {item.category === 'columns' ? t.columns.title : item.outlet}
-            </Link>
+            <Link to={archiveBasePath(lang, item)}>{sectionLinkLabel}</Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page">{item.title}</span>
           </nav>
@@ -388,7 +400,7 @@ export function LoadedArticlePage({
               <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                 arrow_back
               </span>
-              {item.category === 'columns' ? t.columns.title : item.outlet}
+              {sectionLinkLabel}
             </Link>
             {hasRunningText && (
             <div
@@ -456,10 +468,10 @@ export function LoadedArticlePage({
                   >
                     {item.date}
                   </time>
-                  {item.outlet ? ' · ' : ''}
+                  {outletLabel ? ' · ' : ''}
                 </>
               )}
-              {item.outlet}
+              {outletLabel}
               {item.medium
                 ? ` (${mediumLabel(item.medium, lang).toLocaleLowerCase(lang)})`
                 : ''}
@@ -625,13 +637,13 @@ export function LoadedArticlePage({
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${item.outlet} — ${
+                aria-label={`${outletLabel} — ${
                   lang === 'tr'
                     ? 'orijinal kaynak (yeni sekmede açılır)'
                     : 'original source (opens in a new tab)'
                 }`}
               >
-                {item.outlet} — {lang === 'tr' ? 'orijinal kaynak' : 'original source'}
+                {outletLabel} — {lang === 'tr' ? 'orijinal kaynak' : 'original source'}
               </a>
             )}
             {item.url && item.archiveUrl && <span className="article-source-sep"> · </span>}
