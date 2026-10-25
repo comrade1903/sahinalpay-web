@@ -1,43 +1,43 @@
 {
   "/": {
-    "fingerprint": "094e4a9f84297317",
-    "date": "2026-10-22"
+    "fingerprint": "6e7e11476d22ee20",
+    "date": "2026-10-25"
   },
   "/about": {
-    "fingerprint": "c942e832ebafea1b",
-    "date": "2026-10-22"
+    "fingerprint": "3138d698730229b3",
+    "date": "2026-10-25"
   },
   "/my-story-in-photographs": {
-    "fingerprint": "f846b987d739024a",
-    "date": "2026-10-22"
+    "fingerprint": "3e0b69967d5088c0",
+    "date": "2026-10-25"
   },
   "/columns": {
-    "fingerprint": "ca943cfe8052303f",
-    "date": "2026-10-22"
+    "fingerprint": "2a4bf0477373f26c",
+    "date": "2026-10-25"
   },
   "/interviews": {
-    "fingerprint": "9a8802160abc04ce",
-    "date": "2026-10-22"
+    "fingerprint": "a47a06c32f0f0fb1",
+    "date": "2026-10-25"
   },
   "/academic-articles": {
-    "fingerprint": "79c9cf0d62a0a2dc",
-    "date": "2026-10-22"
+    "fingerprint": "62af687348e3dd5d",
+    "date": "2026-10-25"
   },
   "/books": {
-    "fingerprint": "03bc9d57de88fd11",
-    "date": "2026-10-22"
+    "fingerprint": "a5c9fbf95fdf3c88",
+    "date": "2026-10-25"
   },
   "/trial-process": {
-    "fingerprint": "e5b195df1e078b50",
-    "date": "2026-10-22"
+    "fingerprint": "838a811a176afa13",
+    "date": "2026-10-25"
   },
   "/about-me-in-the-press": {
-    "fingerprint": "f6dd4eae48d3b9ab",
-    "date": "2026-10-22"
+    "fingerprint": "944634faee352f36",
+    "date": "2026-10-25"
   },
   "/cookie-policy": {
-    "fingerprint": "46f1f7647b59f61f",
-    "date": "2026-10-22"
+    "fingerprint": "605dd464798eb6c2",
+    "date": "2026-10-25"
   },
   "/tr": {
     "fingerprint": "0cf881d521582c3f",
@@ -2992,11 +2992,47 @@
     "date": "2026-10-22"
   },
   "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007": {
-    "fingerprint": "a4136bdc48f2a6ac",
-    "date": "2026-10-22"
+    "fingerprint": "154e1e9ffdb90632",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/turkey-crisis-of-political-will-1998": {
+    "fingerprint": "c199272d1ddfe4bb",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/borders-of-europe-a-turkish-perspective-2003": {
+    "fingerprint": "73f05e5bf282850b",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/crisis-in-the-identity-politics-of-turkey-2005": {
+    "fingerprint": "62371ea40b865e0f",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/misconceptions-about-secularism-islam-and-islamism-in-turkey-2006": {
+    "fingerprint": "0c7648d878bad981",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/turkey-and-westernization-2007": {
+    "fingerprint": "34da0aa11440814e",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/making-sense-of-turkish-politics-2008": {
+    "fingerprint": "a1076264679c743f",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/the-declining-soft-power-of-the-eu-2009": {
+    "fingerprint": "39de34f29bf88635",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/the-european-union-and-the-consolidation-of-democracy-2009": {
+    "fingerprint": "c015b9387831e4fa",
+    "date": "2026-10-25"
   },
   "/academic-articles/two-faces-of-the-press-2010": {
-    "fingerprint": "e4b2f0bb4b15e6bf",
-    "date": "2026-10-22"
+    "fingerprint": "41a2820843e4a0fd",
+    "date": "2026-10-25"
+  },
+  "/academic-articles/will-turkey-veer-towards-authoritarianism-2011": {
+    "fingerprint": "0ac28695bf223923",
+    "date": "2026-10-25"
   }
 }

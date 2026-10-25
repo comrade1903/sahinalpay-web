@@ -438,7 +438,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     subtitle:
       'Türkiye, İsveç ve Avrupa Birliği: Deneyimler ve Beklentiler içinde — İsveç Araştırma Enstitüsü, İstanbul, 2007, s. 45-52',
     sourceNote:
-      'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
+      'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir. Aynı başlıklı İngilizce metin, Misconceptions about Secularism, Islam, and Islamism in Turkey, Nisan 2006’da SIEPS’in (Stockholm) Turkey, Sweden and the European Union: Experiences and Expectations raporunda yayımlanmıştır.',
     tags: ['laiklik', 'İslamcılık', 'makale', '2007'],
     clippings: [
       { src: '/archive/clippings/academic/2007/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007/page-1.webp', pageLabel: 'Sayfa 1' },
