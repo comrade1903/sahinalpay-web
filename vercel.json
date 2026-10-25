@@ -44,8 +44,58 @@
       "permanent": true
     },
     {
-      "source": "/interviews/:slug",
-      "destination": "/tr/soylesiler/:slug",
+      "source": "/interviews/kamusalin-siyasal-topografisi-bianet-2003",
+      "destination": "/tr/soylesiler/kamusalin-siyasal-topografisi-bianet-2003",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/bir-hikayem-var-medyascope-2024",
+      "destination": "/tr/soylesiler/bir-hikayem-var-medyascope-2024",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "destination": "/tr/soylesiler/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/bir-hikayem-var-acik-radyo-2024",
+      "destination": "/tr/soylesiler/bir-hikayem-var-acik-radyo-2024",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/hikayemin-sonu-medyascope-2025",
+      "destination": "/tr/soylesiler/hikayemin-sonu-medyascope-2025",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/liberal-demokratlikta-israrciyim-k24-2025",
+      "destination": "/tr/soylesiler/liberal-demokratlikta-israrciyim-k24-2025",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "destination": "/tr/soylesiler/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/ahmet-turan-alkana-veda-khktv-2026",
+      "destination": "/tr/soylesiler/ahmet-turan-alkana-veda-khktv-2026",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/sahin-alpay-newsroom-media-2026",
+      "destination": "/tr/soylesiler/sahin-alpay-newsroom-media-2026",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/medya-konusmalari-acik-radyo-2006",
+      "destination": "/tr/soylesiler/medya-konusmalari-acik-radyo-2006",
+      "permanent": true
+    },
+    {
+      "source": "/interviews/turk-solu-ve-filistin-sorunu-medyascope-2026",
+      "destination": "/tr/soylesiler/turk-solu-ve-filistin-sorunu-medyascope-2026",
       "permanent": true
     },
     {

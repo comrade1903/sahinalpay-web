@@ -7,15 +7,15 @@ describe('readerBasePath', () => {
   const item = (category: ArchiveItem['category'], lang: 'tr' | 'en') =>
     ({ category, lang }) as ArchiveItem
 
-  it('keeps a column or academic article under the page language', () => {
+  it('keeps a column, interview or academic article under the page language', () => {
     expect(readerBasePath(item('academic', 'en'), 'tr')).toBe('/tr/akademik-makaleler')
     expect(readerBasePath(item('academic', 'tr'), 'en')).toBe('/academic-articles')
+    expect(readerBasePath(item('interviews', 'tr'), 'en')).toBe('/interviews')
     expect(readerBasePath(item('columns', 'en'), 'tr')).toBe('/tr/kose-yazilari')
   })
 
-  it('sends analyses and interviews to their own language', () => {
+  it('sends analyses to their own language', () => {
     expect(readerBasePath(item('analyses', 'tr'), 'en')).toBe('/tr/analizler')
-    expect(readerBasePath(item('interviews', 'tr'), 'en')).toBe('/tr/soylesiler')
   })
 })
 
@@ -72,6 +72,10 @@ describe('equivalentPath', () => {
       '/tr/kose-yazilari/a-new-victory-for-democracy',
     )
     expect(equivalentPath('/tr/kose-yazilari/baslarken', 'en')).toBe('/columns/baslarken')
+  })
+
+  it('keeps an interview open across languages', () => {
+    expect(equivalentPath('/tr/soylesiler/bir-soylesi', 'en')).toBe('/interviews/bir-soylesi')
   })
 
   it('keeps an academic article open across languages', () => {

@@ -67,12 +67,12 @@ export function pageKeyForPath(pathname: string): PageKey {
 }
 
 /** Path to the same page in another language, falling back to that language's home.
- *  A column or academic article keeps its slug: each reads under both
- *  languages' paths for its section (MIRRORED_CATEGORIES in archive/links.ts),
+ *  A column, interview or academic article keeps its slug: each reads under
+ *  both languages' paths for its section (MIRRORED_CATEGORIES in archive/links.ts),
  *  so switching language on one stays on the piece instead of dropping back
  *  to the list. */
 export function equivalentPath(pathname: string, targetLang: Lang): string {
-  for (const key of ['columns', 'academic'] as const) {
+  for (const key of ['columns', 'interviews', 'academic'] as const) {
     const base = paths[langForPath(pathname)][key]!
     if (pathname.startsWith(`${base}/`)) {
       return `${paths[targetLang][key]!}${pathname.slice(base.length)}`

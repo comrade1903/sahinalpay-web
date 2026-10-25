@@ -7,7 +7,9 @@
  * no catch-all rewrite, an address with no file answers 404 — so a redirect
  * the app performs after mounting never gets the chance to run.
  *
- *   1. The English archive item routes, whose content exists only in Turkish.
+ *   1. The English archive item routes of Turkish records with no English
+ *      reader page: every analysis, and the citation-only interviews and
+ *      academic articles.
  *   2. Retired slugs from src/archive/aliases.ts, so a citation of an old
  *      address keeps resolving.
  *   3. Withdrawn records from the same file, whose addresses lead to the
@@ -27,25 +29,26 @@ const aliasesModule = await loadModule('src/archive/aliases.ts', 'aliases-redire
 const routes = await loadModule('src/routes.ts', 'routes-redirects.mjs')
 const { paths } = routes
 
-/* Analyses and interviews are Turkish-only content, but their English URLs are
-   real addresses that appear in citations. */
-const LANGUAGE_REDIRECTS = ['analyses', 'interviews'].map((pageKey) => ({
+/* Analyses are Turkish-only content, but their English URLs are real
+   addresses that appear in citations. */
+const LANGUAGE_REDIRECTS = ['analyses'].map((pageKey) => ({
   source: `${paths.en[pageKey]}/:slug`,
   destination: `${paths.tr[pageKey]}/:slug`,
   permanent: true,
 }))
 
-/* Academic articles read under both languages' paths (mirrorRouteForItem), so
-   a blanket /academic-articles/:slug rule would hide the English records and
-   the English-interface mirrors of the Turkish ones. Vercel applies redirects
+/* Interviews and academic articles read under both languages' paths
+   (mirrorRouteForItem), so a blanket /interviews/:slug or
+   /academic-articles/:slug rule would hide the English records and the
+   English-interface mirrors of the Turkish ones. Vercel applies redirects
    before the filesystem, so only a Turkish record with no reader page — and
    therefore no mirror file — gets a rule of its own. */
 const items = await readArchiveItems()
-const academicRedirects = items
-  .filter((item) => item.category === 'academic' && item.lang === 'tr' && !item.internal)
+const itemRedirects = items
+  .filter((item) => ['interviews', 'academic'].includes(item.category) && item.lang === 'tr' && !item.internal)
   .map((item) => ({
-    source: `${paths.en.academic}/${item.slug}`,
-    destination: `${paths.tr.academic}/${item.slug}`,
+    source: `${paths.en[item.category]}/${item.slug}`,
+    destination: `${paths.tr[item.category]}/${item.slug}`,
     permanent: true,
   }))
 
@@ -89,12 +92,12 @@ config.redirects = [
   ...aliasRedirects,
   ...withdrawnRedirects,
   ...LANGUAGE_REDIRECTS,
-  ...academicRedirects,
+  ...itemRedirects,
 ]
 fs.writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`)
 
 console.log(
   `Wrote ${config.redirects.length} redirect(s) to vercel.json: ` +
     `${aliasRedirects.length} retired slug(s), ${withdrawnRedirects.length} withdrawn record(s), ` +
-    `${LANGUAGE_REDIRECTS.length} language rule(s), ${academicRedirects.length} academic article(s).`,
+    `${LANGUAGE_REDIRECTS.length} language rule(s), ${itemRedirects.length} interview/academic record(s).`,
 )

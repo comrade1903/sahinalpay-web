@@ -338,9 +338,9 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
   }
 }
 
-/* ---- a column's or academic article's slug is unique across both languages ---- */
+/* ---- a mirrored record's slug is unique across both languages ---- */
 
-/* Each column and academic article also reads under the other language's path
+/* Each column, interview and academic article also reads under the other language's path
    for its section (see readerBasePath in src/archive/links.ts), where the
    reader looks up the page language's records first. A Turkish and an English
    record sharing a slug there would make the English one unreachable from the

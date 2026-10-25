@@ -58,8 +58,8 @@ function findArchiveItemBySlug(
   return archivePool(archiveData).find((item) => item.slug === current)
 }
 
-/* The other language's columns and academic articles also read under this
-   language's path for their section (see readerBasePath in archive/links.ts),
+/* The other language's columns, interviews and academic articles also read
+   under this language's path for their section (see readerBasePath in archive/links.ts),
    so the site's own language does not change under a reader who opens one
    from a mixed list. Slugs are unique across the two languages —
    validate:content checks it — so the page language's own record always
@@ -69,7 +69,12 @@ function findForeignItemBySlug(
   category: (typeof MIRRORED_CATEGORIES)[number],
   slug: string,
 ): ArchiveItem | undefined {
-  const pool = category === 'columns' ? foreign.columns.flatMap((o) => o.items) : foreign.academicArticles
+  const pool =
+    category === 'columns'
+      ? foreign.columns.flatMap((o) => o.items)
+      : category === 'interviews'
+        ? foreign.interviews
+        : foreign.academicArticles
   return pool.find((item) => item.slug === resolveArchiveSlug(item.lang, slug))
 }
 

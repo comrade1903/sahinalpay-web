@@ -63,13 +63,13 @@ export async function routeForItem(item) {
 
 /** Sections whose records also read under the other language's path —
  *  MIRRORED_CATEGORIES in src/archive/links.ts. */
-export const MIRRORED_CATEGORIES = ['columns', 'academic']
+export const MIRRORED_CATEGORIES = ['columns', 'interviews', 'academic']
 
-/** The second address a column or academic article reads at: the other
- *  language's path for its section, mirroring readerBasePath() in
- *  src/archive/links.ts. Null for analyses and interviews, whose
- *  other-language item routes redirect instead. Only for internal items — a
- *  record without a reader page has no mirror either. */
+/** The second address a column, interview or academic article reads at: the
+ *  other language's path for its section, mirroring readerBasePath() in
+ *  src/archive/links.ts. Null for analyses, whose English item route
+ *  redirects instead. Only for internal items — a record without a reader
+ *  page has no mirror either. */
 export function mirrorRouteForItem(item) {
   if (!MIRRORED_CATEGORIES.includes(item.category)) return null
   return sectionPath(item.category, item.lang === 'tr' ? 'en' : 'tr').then((base) => `${base}/${item.slug}`)
