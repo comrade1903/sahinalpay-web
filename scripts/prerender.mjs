@@ -547,8 +547,9 @@ for (const item of items) {
   })
   writePage(item.route, { lang, head, jsonLd, noscript: noscriptBlock(lang, parts.join('')) })
 
-  /* A column also reads under the other language's columns path, so opening
-     it from that language's mixed list does not switch the site's language
+  /* A column or academic article also reads under the other language's path
+     for its section, so opening it from that language's mixed list does not
+     switch the site's language
      (see readerBasePath in src/archive/links.ts). The mirror is the same
      piece described the same way — its canonical, hreflang and JSON-LD all
      name the record's own address — and only the page chrome differs. It
@@ -600,4 +601,4 @@ writePage('/404', {
 fs.renameSync(path.join(distDir, '404', 'index.html'), path.join(distDir, '404.html'))
 fs.rmdirSync(path.join(distDir, '404'))
 
-console.log(`Prerendered ${written} HTML files into dist/ (${mirrored} of them mirrored columns).`)
+console.log(`Prerendered ${written} HTML files into dist/ (${mirrored} of them mirrored columns and academic articles).`)

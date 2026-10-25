@@ -12,6 +12,7 @@ import { NarrativeHeader, BackToTop } from './components/NarrativeHeader'
 import { DeadEnd } from './components/DeadEnd'
 import { ArchiveInlineFailure } from './components/ArchiveGate'
 import { useArchiveGate } from './components/useArchiveGate'
+import { hasReaderPage } from './archive/links'
 import { ArticlePage, LoadedArticlePage } from './components/reader'
 import { PressPage, PressArticlePage } from './components/press'
 import { Header } from './components/Header'
@@ -874,15 +875,21 @@ function TurkishItemRedirect({ pageKey }: { pageKey: PageKey }) {
   return <Navigate to={slug ? `${base}/${slug}` : base} replace />
 }
 
-/* The few English and German academic articles that open on a reader page of
-   their own (page scans) live at the English address; every other slug on that
-   path is a Turkish piece cited by its English URL and still goes to its
-   Turkish page, as TurkishItemRedirect does for the other sections. */
+/* The English and German academic articles live at the English address, and
+   a Turkish one with a reader page of its own reads there too, under the
+   English interface (see readerBasePath in archive/links.ts). Any other slug
+   on that path is a Turkish citation-only piece cited by its English URL and
+   still goes to its Turkish address, as TurkishItemRedirect does for the
+   other sections. */
 function EnglishAcademicItem() {
   const { slug } = useParams<{ slug: string }>()
   const { data, foreign, fallback } = useArchiveGate('en')
   if (!data || !foreign) return fallback
-  if (slug && data.academicArticles.some((item) => item.slug === slug)) {
+  if (
+    slug &&
+    (data.academicArticles.some((item) => item.slug === slug) ||
+      foreign.academicArticles.some((item) => item.slug === slug && hasReaderPage(item)))
+  ) {
     return <LoadedArticlePage lang="en" archiveData={data} foreignData={foreign} />
   }
   return <TurkishItemRedirect pageKey="academic" />

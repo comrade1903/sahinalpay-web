@@ -40,15 +40,21 @@ export function archiveItemBasePath(item: ArchiveItem): string {
  * other language's records too, and linking those to their canonical page
  * used to switch the whole site's language under the reader: a Today's Zaman
  * column clicked on /tr/kose-yazilari opened at /columns/<slug> with an
- * English menu. Columns therefore also read under the page's own language
- * (the article text stays in its own language; the page points its canonical
- * at the record's own address). Only columns have that mirror route — the
- * English item routes for the other sections redirect to Turkish — so every
- * other section keeps its canonical address. scripts/prerender.mjs writes the
+ * English menu. Columns and academic articles therefore also read under the
+ * page's own language (the article text stays in its own language; the page
+ * points its canonical at the record's own address). Analyses and interviews
+ * have no such mirror route — their English item routes redirect to Turkish —
+ * so they keep their canonical address. scripts/prerender.mjs writes the
  * mirror pages from the same rule (`mirrorRouteForItem`).
  */
+export const MIRRORED_CATEGORIES = ['columns', 'academic'] as const
+
+export function hasMirrorRoute(category: ArchiveItem['category']): boolean {
+  return (MIRRORED_CATEGORIES as readonly string[]).includes(category)
+}
+
 export function readerBasePath(item: ArchiveItem, pageLang: Lang): string {
-  return item.category === 'columns' ? archiveBasePath(pageLang, item) : archiveItemBasePath(item)
+  return hasMirrorRoute(item.category) ? archiveBasePath(pageLang, item) : archiveItemBasePath(item)
 }
 
 /** Whether a piece opens on a reader page of its own (full text or page

@@ -1,5 +1,23 @@
 import { describe, expect, it } from 'vitest'
 import { equivalentPath, langForPath, pageKeyForPath, paths } from '../src/routes'
+import { readerBasePath } from '../src/archive/links'
+import type { ArchiveItem } from '../src/archive/types'
+
+describe('readerBasePath', () => {
+  const item = (category: ArchiveItem['category'], lang: 'tr' | 'en') =>
+    ({ category, lang }) as ArchiveItem
+
+  it('keeps a column or academic article under the page language', () => {
+    expect(readerBasePath(item('academic', 'en'), 'tr')).toBe('/tr/akademik-makaleler')
+    expect(readerBasePath(item('academic', 'tr'), 'en')).toBe('/academic-articles')
+    expect(readerBasePath(item('columns', 'en'), 'tr')).toBe('/tr/kose-yazilari')
+  })
+
+  it('sends analyses and interviews to their own language', () => {
+    expect(readerBasePath(item('analyses', 'tr'), 'en')).toBe('/tr/analizler')
+    expect(readerBasePath(item('interviews', 'tr'), 'en')).toBe('/tr/soylesiler')
+  })
+})
 
 describe('langForPath', () => {
   it('treats /tr and its children as Turkish', () => {
@@ -54,6 +72,15 @@ describe('equivalentPath', () => {
       '/tr/kose-yazilari/a-new-victory-for-democracy',
     )
     expect(equivalentPath('/tr/kose-yazilari/baslarken', 'en')).toBe('/columns/baslarken')
+  })
+
+  it('keeps an academic article open across languages', () => {
+    expect(equivalentPath('/academic-articles/making-sense-of-turkish-politics-2008', 'tr')).toBe(
+      '/tr/akademik-makaleler/making-sense-of-turkish-politics-2008',
+    )
+    expect(equivalentPath('/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002', 'en')).toBe(
+      '/academic-articles/mukayeseli-acidan-turkiyede-laiklik-2002',
+    )
   })
 
   it('falls back to the target language home for an unknown path', () => {

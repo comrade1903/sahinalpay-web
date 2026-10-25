@@ -35,13 +35,14 @@ const LANGUAGE_REDIRECTS = ['analyses', 'interviews'].map((pageKey) => ({
   permanent: true,
 }))
 
-/* Academic articles are mostly Turkish too, but the few English and German ones
-   that open on a reader page live at the English address, so a blanket
-   /academic-articles/:slug rule would hide them. Each Turkish record gets its
-   own rule instead. */
+/* Academic articles read under both languages' paths (mirrorRouteForItem), so
+   a blanket /academic-articles/:slug rule would hide the English records and
+   the English-interface mirrors of the Turkish ones. Vercel applies redirects
+   before the filesystem, so only a Turkish record with no reader page — and
+   therefore no mirror file — gets a rule of its own. */
 const items = await readArchiveItems()
 const academicRedirects = items
-  .filter((item) => item.category === 'academic' && item.lang === 'tr')
+  .filter((item) => item.category === 'academic' && item.lang === 'tr' && !item.internal)
   .map((item) => ({
     source: `${paths.en.academic}/${item.slug}`,
     destination: `${paths.tr.academic}/${item.slug}`,

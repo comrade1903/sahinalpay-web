@@ -19,7 +19,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
+import { MIRRORED_CATEGORIES, readArchiveItems, resolveBody, sectionPath } from './lib/archive-model.mjs'
 import { loadModule, projectRoot } from './lib/load-archive.mjs'
 
 const errors = []
@@ -338,20 +338,21 @@ for (const [lang, table] of Object.entries(aliasModule.archiveSlugAliases)) {
   }
 }
 
-/* ---- a column's slug is unique across both languages ---- */
+/* ---- a column's or academic article's slug is unique across both languages ---- */
 
-/* Each column also reads under the other language's columns path (see
-   readerBasePath in src/archive/links.ts), where the reader looks up the page
-   language's records first. A Turkish and an English column sharing a slug
-   would make the English one unreachable from the Turkish site, and the
-   prerendered mirror of one would overwrite the other's real page. */
-{
+/* Each column and academic article also reads under the other language's path
+   for its section (see readerBasePath in src/archive/links.ts), where the
+   reader looks up the page language's records first. A Turkish and an English
+   record sharing a slug there would make the English one unreachable from the
+   Turkish site, and the prerendered mirror of one would overwrite the other's
+   real page. */
+for (const category of MIRRORED_CATEGORIES) {
   const seen = new Map()
   for (const item of items) {
-    if (item.category !== 'columns' || !item.slug) continue
+    if (item.category !== category || !item.slug) continue
     const other = seen.get(item.slug)
     if (other && other.lang !== item.lang) {
-      fail(`Column slug "${item.slug}" is used in both languages: ${where(item)} and ${where(other)}`)
+      fail(`${category} slug "${item.slug}" is used in both languages: ${where(item)} and ${where(other)}`)
     }
     seen.set(item.slug, item)
   }
