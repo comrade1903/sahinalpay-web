@@ -4,7 +4,8 @@
  *  except 028 (the children and grandchildren), which the owner moved to
  *  the end on 2026-10-15. 029 (Fatma at the Great Wall of China, 1999) is
  *  kept with its caption but `hidden` from the page since 2026-10-25, at the
- *  owner's request.
+ *  owner's request; its image files moved out of the repo to Foto/hikayem,
+ *  so showing it again means copying them back into public/photos/hikayem.
  *  Captions are verbatim and Turkish only; the English page shows them
  *  untranslated, never machine-translated.
  *
@@ -33,7 +34,8 @@ export interface PhotoStoryEntry {
   photos: PhotoStoryPhoto[]
   caption: string
   /** Kept in the record but not shown on the page or in its prerendered
-   *  fallback, at the owner's request. */
+   *  fallback, at the owner's request. A hidden entry's image files need not
+   *  be in public/. */
   hidden?: boolean
 }
 
