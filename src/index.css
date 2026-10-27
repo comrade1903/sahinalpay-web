@@ -470,15 +470,11 @@ main:focus {
   }
 }
 
+/* Half the old 6rem/4rem rhythm: at full size the gap between two stacked
+   sections (one bottom plus the next top) read as empty page. */
 .section {
-  padding-block: var(--space-6);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
   border-top: 1px solid var(--line);
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-block: var(--space-5);
-  }
 }
 
 /* Standalone page content (no stacked section above it, so no divider) —
@@ -880,7 +876,7 @@ main:focus {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-6);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
 }
 .hero-grid {
   display: grid;
@@ -3659,7 +3655,7 @@ a.archive-row:hover .archive-row-title {
 .site-footer {
   background: var(--surface-low);
   border-top: 1px solid var(--line);
-  padding-block: var(--space-5);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
 }
 .footer-grid {
   display: grid;
