@@ -350,7 +350,7 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Political Scientist · Author · Journalist',
       intro:
-        'From my student years in the early 1960s onwards, and later as a political scientist and journalist, I have sought to understand and interpret Turkey and the world. I gather here a selection of what I wrote and said in that effort, in the hope that it may help future generations understand the period I lived through.',
+        'From my student years in the 1960s onwards, and later as a political scientist and journalist, I have sought to understand and interpret Turkey and the world. I gather here a selection of what I wrote and said in that effort, in the hope that it may help future generations understand the period I lived through.',
       ctaStory: 'Who is Şahin Alpay?',
       portraitAlt: 'Portrait of Şahin Alpay',
       portraitCaption: 'Şahin Alpay · b. 1944, Istanbul',
@@ -601,7 +601,7 @@ export const content: Record<Lang, Content> = {
     hero: {
       eyebrow: 'Siyaset Bilimci · Yazar · Gazeteci',
       intro:
-        '1960’ların başlarındaki öğrencilik yıllarımdan başlayarak, sonrasında siyaset bilimci ve gazeteci olarak Türkiye’yi ve dünyayı anlama ve yorumlama çabasında oldum. Bu çabada yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
+        '1960’lardaki öğrencilik yıllarımdan başlayarak, sonrasında siyaset bilimci ve gazeteci olarak Türkiye’yi ve dünyayı anlama ve yorumlama çabasında oldum. Bu çabada yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
       ctaStory: 'Şahin Alpay Kimdir?',
       portraitAlt: 'Şahin Alpay’ın portresi',
       portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
