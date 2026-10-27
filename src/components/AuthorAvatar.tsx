@@ -4,9 +4,12 @@ import portrait from '../assets/portrait.jpg'
    The hero portrait. Setting PORTRAIT to null falls back to the ŞA
    monogram, which is what the hero showed before a photo existed.
 
-   An archival black-and-white photograph (898x1400), owner-supplied.
-   Tall enough that the 4/5 frame's object-fit: cover crops it rather
-   than upscaling, unlike the earlier 670x310 source it replaced.
+   A colour photograph from an interview, owner-supplied on 2026-10-27
+   as a 640x385 web copy (no original exists). Cropped to the hero's 4:5
+   frame and enlarged to 760x950 so the 380px frame stays sharp on 2x
+   screens, with the shirt's blue toned down and a magenta cast taken off
+   the skin. Source, script and the archival black-and-white portrait it
+   replaced are kept outside the repo in Foto/portre.
 ------------------------------------------------------------------ */
 export const PORTRAIT: string | null = portrait
 
