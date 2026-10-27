@@ -394,14 +394,20 @@ interface NarrativeCopy {
   lead: string
   editorialNote: string
   contentsLabel: string
-  sections: { id: string; title: string; paragraphs: string[] }[]
+  /** `sub` marks a heading inside the main section before it. */
+  sections: { id: string; title: string; sub?: boolean; paragraphs: string[] }[]
 }
 
 /** A narrative page: the shared header, then the sections themselves. The
  *  jump control and the back-to-top link appear together, once the page has
- *  enough titled sections to be worth navigating rather than scrolling. */
+ *  enough titled sections to be worth navigating rather than scrolling.
+ *  Where some sections are sub-headings (the trial record), the main ones
+ *  read as part headings, the jump control lists only those, and the gaps
+ *  between sections tighten (`bio-story-parts`). */
 function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
   const hasContents = copy.sections.length > 1 && copy.sections.every((section) => section.title)
+  const hasParts = copy.sections.some((section) => section.sub)
+  const mainSections = copy.sections.filter((section) => !section.sub)
   return (
     <>
       <NarrativeHeader
@@ -409,17 +415,21 @@ function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
         title={copy.title}
         subtitle={copy.subtitle}
         contentsLabel={copy.contentsLabel}
-        jumpTargets={hasContents ? copy.sections : []}
+        jumpTargets={hasContents ? mainSections : []}
       >
         {copy.lead && <p className="lead">{copy.lead}</p>}
         {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
       </NarrativeHeader>
 
-      <article className="section bio-story" aria-label={copy.kicker}>
+      <article className={hasParts ? 'section bio-story bio-story-parts' : 'section bio-story'} aria-label={copy.kicker}>
         <div className="container container-narrow prose">
           {copy.sections.map((section) => (
-            <section className="bio-chapter" id={section.id} key={section.id}>
-              {section.title && <h2>{section.title}</h2>}
+            <section
+              className={section.sub ? 'bio-chapter bio-chapter-sub' : 'bio-chapter'}
+              id={section.id}
+              key={section.id}
+            >
+              {section.title && (section.sub ? <h3>{section.title}</h3> : <h2>{section.title}</h2>)}
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
           ))}
