@@ -78,7 +78,6 @@ export interface Content {
     intro: string
     ctaStory: string
     portraitAlt: string
-    portraitCaption: string
   }
   hubTitle: string
   /** Heading for the other language's records, which every archive section
@@ -353,7 +352,6 @@ export const content: Record<Lang, Content> = {
         'From my student years in the 1960s onwards, and later as a political scientist and journalist, I have sought to understand and interpret Turkey and the world. I gather here a selection of what I wrote and said in that effort, in the hope that it may help future generations understand the period I lived through.',
       ctaStory: 'Who is Şahin Alpay?',
       portraitAlt: 'Portrait of Şahin Alpay',
-      portraitCaption: 'Şahin Alpay · b. 1944, Istanbul',
     },
     hubTitle: 'All sections',
     foreignArchiveLabel: 'Turkish-Language Writing',
@@ -604,7 +602,6 @@ export const content: Record<Lang, Content> = {
         '1960’lardaki öğrencilik yıllarımdan başlayarak, sonrasında siyaset bilimci ve gazeteci olarak Türkiye’yi ve dünyayı anlama ve yorumlama çabasında oldum. Bu çabada yazıp söylediklerimden seçmeleri yaşadığım dönemin gelecek kuşaklar tarafından anlaşılmasına katkı olabilir umuduyla bu sayfada topluyorum.',
       ctaStory: 'Şahin Alpay Kimdir?',
       portraitAlt: 'Şahin Alpay’ın portresi',
-      portraitCaption: 'Şahin Alpay · d. 1944, İstanbul',
     },
     hubTitle: 'Tüm Bölümler',
     foreignArchiveLabel: 'Yabancı Dilde Yayınlar',

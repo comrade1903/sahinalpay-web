@@ -880,7 +880,7 @@ main:focus {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(3rem, 8vw, 6rem) var(--space-6);
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-6);
 }
 .hero-grid {
   display: grid;
@@ -1033,21 +1033,6 @@ main:focus {
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--surface-lowest) 78%, transparent);
   box-shadow: var(--shadow-soft);
-}
-.portrait-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  font-size: var(--text-label-sm);
-  letter-spacing: 0.03em;
-  color: #eeeaf0;
-  /* The scrim used to start fully transparent, so over a light placeholder the
-     near-white caption sat at 1.06:1 — invisible. It now carries enough weight at
-     the top to stay legible on any surface behind it, photo or placeholder.
-     Fixed values, not tokens: this sits over an image in both themes. */
-  background: linear-gradient(rgba(15, 12, 17, 0.62), rgba(15, 12, 17, 0.88));
 }
 
 /* ---------- Bento category grid (home) ---------- */
