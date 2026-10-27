@@ -880,7 +880,7 @@ main:focus {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(3rem, 8vw, 6rem) var(--space-6);
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-6);
 }
 .hero-grid {
   display: grid;
