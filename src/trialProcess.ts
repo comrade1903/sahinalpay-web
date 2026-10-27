@@ -1,6 +1,9 @@
 export interface TrialProcessSection {
   id: string
   title: string
+  /** A heading inside the main section above it (the owner's 23 main
+   *  headings carry none). */
+  sub?: boolean
   paragraphs: string[]
 }
 
@@ -34,6 +37,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "egitimim",
     title: "Eğitimim",
+    sub: true,
     paragraphs: [
       "İlk öğrenimi İstanbul Nişantaşı’ndaki Nilüfer Hatun İlkokulu’nda (1950- 55), -iki yıl hazırlık dâhil- orta öğrenimi yine Nişantaşı’ndaki İngiliz Erkek Lisesi’nde (1955- 60) tamamladım. Liseyi Bebek’teki Amerikan Robert Kolej’de (1960- 63) bitirdim. Bu arada lise ikinci sınıfı bir AFS bursu ile ABD’nin California eyaletindeki seçkin özel liselerden Webb School’da okudum ve ABD lise diploması da aldım. Robert Kolej’den “yüksek şeref” listesinde mezun olduktan sonra, ABD’nin en seçkin üniversitelerinden biri olan New York’taki Columbia Üniversitesi’nde sosyoloji okumak üzere dört yıllık tam burs kazandım. Fakat bu bursu kullanmayarak, üniversiteyi Türkiye’de okumamın daha doğru olacağı düşüncesiyle, giriş sınavını kazandığım Ankara Üniversitesi Siyasal Bilgiler Fakültesi’ne devama karar verdim. 1963’te girdiğim SBF/Mülkiye’den 1967’de, Diplomasi ve Dış Münasebetler Şubesi’nden iyi dereceyle mezun oldum.",
     ],
@@ -41,6 +45,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "yaptigim-isler",
     title: "Yaptığım İşler",
+    sub: true,
     paragraphs: [
       "Benim siyaset bilimci- akademisyen ve gazete yorum yazarı olarak iki şapkam var. 1968-71 yılları arasında Ankara Üniversitesi Eğitim Fakültesi’nde “Anayasa Hukuku ve İnsan Hakları” kürsüsünde rahmetli Prof. Dr. Bülent Nuri Esen’in asistanlığını yaptım. Bu sırada SBF’de yüksek lisans öğrenimi gördüm ve doktora tezi için yeterlik sınavını verdim. Hayatım boyunca askerî darbelerin mağduru oldum. 12 Mart 1971 askerî darbesi üzerine İsveç’e sığınmak zorunda kaldım. 1972 - 81 yılları arasında İsveç’in Stockholm Üniversitesi Siyaset Bilimi Bölümü’nde araştırma görevlisi olarak çalıştım ve kazandığım devlet bursuyla doktora yaptım.",
       "Yurda döndüğümde, 12 Eylül 1980 askerî darbesi olmuştu ve akademik kariyeri sürdürme olanağı bulamadım. 1982 - 1992 arasında Cumhuriyet gazetesinde editörlük ve yazarlık yaptım. 1992’de istifa ederek ayrıldım. 1992- 93 arasında rahmetli Erdal İnönü’nün davetiyle, mütevelli heyetinde yer aldığım, Türkiye Sosyal ve Ekonomik Araştırmalar Vakfı’nın (TÜSES) direktörlüğünü yaptım, 1993’te CHP Genel Başkanı Deniz Baykal’ın daveti üzerine Araştırma Merkezi Direktörü ve TBMM Grup Danışmanı olarak CHP’de çalıştım. Bir yararım olmadığına kanaat getirince istifa ettim ve 1993 - 94 arasında Sabah gazetesinde editör ve yazarlık yaptım. Editörlüğünü yaptığım yorum sayfası “Entelektüel Bakış” 1994 malî krizi üzerine kapatılınca, Mayıs 1994’te istifa ederek ayrıldım; o yaz ATV’de hazırlanan bir belgesel programının yayın danışmanlığını yaptım. Kasım 1994’te rahmetli Ufuk Güldemir’in davetiyle Milliyet gazetesinde editörlük ve yazarlığa başladım. 1999 - 2002 arasında CNN-Türk’te “Entelektüel Bakış” adını alan bir haftalık mülakat programı yaptım.",
@@ -55,6 +60,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "fikir-hayatim",
     title: "Fikir Hayatım",
+    sub: true,
     paragraphs: [
       "SBF/Mülkiye’de okuduğum 1960’ların ortasında okulda sol fikirler egemendi. Ben de akıntıya kapıldım ve giderek daha radikal sosyalist görüşler savunur oldum. Sol dergilerde yazdığım yazılardan dolayı, 12 Mart 1971 darbesi sonrasında sıkıyönetim tarafından hakkımda yakalama kararı çıkarıldı. Teslim olmadım ve rahmetli ağabeyimin yardımıyla yurt dışına gitme imkânı buldum. İsveç’te sığınma talebim kabul edildi. Kısa süre sonra Stockholm Üniversitesi Siyaset Bilimi Bölümü’nde araştırma görevlisi olarak çalışmaya başladım. 1974 genel affıyla yurda dönüp (1975 yazında kısa dönem yedek subay olarak) askerliğimi yaptım. Sonra İsveç’e dönüp başladığım doktora çalışmalarını bitirdim ve 1981’de kesin dönüş yaptım.",
       "İsveç’te siyasî fikirlerim kökten değişti. 1970’lerden itibaren otoriter sosyalizm fikrinin toplumlar için vahim sonuçlarını idrak etmeye başlamıştım. 1980’lerde yurda döndüğümde liberal sosyal demokrat bir felsefeyi benimsemiştim. Bana “dönek” olarak saldıranlara cevabım, “dönekliğimle iftihar ediyorum” oldu; “yanlışlardan dönmek erdemdir” dedim. Bir süre sonra sosyalist ülkelerin çoğu da sosyalizmi terk edecekti. 12 Eylül 1980 askerî darbesi, özgürlükçü demokrasiye ve hukuk devletine inancımı pekiştirdi. 1980 sonunda hiçbir neden olmadığı hâlde gözaltına alınıp yaklaşık iki hafta tutulduktan sonra serbest bırakıldım.",
@@ -131,6 +137,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-1-olaylar",
     title: "Olaylar",
+    sub: true,
     paragraphs: [
       "Başvurucu, kamuoyunca bilinen bir gazeteci ve yazardır.",
       "Türkiye, 15 Temmuz 2016 gecesi askerî bir darbe teşebbüsüyle karşı karşıya kalmış; bu nedenle 21/7/2016 tarihinde ülke genelinde olağanüstü hâl ilan edilmesine karar verilmiştir. Kamu makamları ve soruşturma mercileri -olgusal temellere dayanarak- bu teşebbüsün arkasında Türkiye'de uzun yıllardır faaliyetlerine devam eden ve son yıllarda Fetullahçı Terör Örgütü (FETÖ) ve/veya Paralel Devlet Yapılanması (PDY) olarak isimlendirilen bir yapılanmanın olduğunu değerlendirmişlerdir.",
@@ -145,6 +152,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-1-iddialar",
     title: "İddialar",
+    sub: true,
     paragraphs: [
       "Başvurucu; gazeteci olduğunu ve telif ücreti karşılığı köşe yazarlığı yaptığını, yazılarının ifade ve basın özgürlükleri kapsamında kaldığını, kuvvetli suç şüphesi ve tutuklama nedenleri somut olgularla ortaya konulmadan tutuklandığını belirterek kişi hürriyeti ve güvenliği hakkı ile ifade ve basın özgürlüklerinin ihlal edildiğini ileri sürmüştür.",
       "Başvurucu ayrıca sağlık durumunun ciddi riskler taşıdığını ve ceza infaz kurumunda kalmaya elverişli olmadığını belirterek kötü muamele yasağının ihlal edildiğini iddia etmiştir.",
@@ -153,6 +161,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-1-degerlendirme",
     title: "Mahkemenin Değerlendirmesi — Tutuklamanın Hukuki Olmadığına İlişkin İddia Yönünden",
+    sub: true,
     paragraphs: [
       "Anayasa Mahkemesi bu iddia kapsamında özetle aşağıdaki değerlendirmeleri yapmıştır:",
       "Anayasa Mahkemesinin buradaki incelemesi, başvurucu hakkında soruşturma ve kovuşturma yapılması ile yargılamanın muhtemel sonuçlarından bağımsız olarak tutuklamanın hukukiliğinin değerlendirilmesiyle sınırlı olacaktır. Öte yandan Anayasa'nın 19. maddesinin üçüncü fıkrasının ihlal edilip edilmediği incelenirken her bir başvuru kendi koşullarında değerlendirilir.",
@@ -176,6 +185,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-1-ifade-ozgurlugu",
     title: "İfade Özgürlüğünün İhlal Edildiğine İlişkin İddia",
+    sub: true,
     paragraphs: [
       "Anayasa'nın 26. maddesinde yer alan ifade özgürlüğü ile onun özel güvencelere bağlanmış şekli olan ve Anayasa'nın 28. maddesinde düzenlenmiş olan basın özgürlüğü, demokratik bir toplumun zorunlu temellerinden ve toplumun ilerlemesi, her bireyin gelişmesi için gerekli temel şartlardan birini oluşturmaktadır.",
       "Demokratik toplumda taşıdığı öneme rağmen ifade ve basın özgürlükleri, mutlak nitelikte olmayıp Anayasa'nın 13. maddesinde belirtilen güvencelere uygun olmak kaydıyla birtakım sınırlamalara tabi tutulabilir. İfade ve basın özgürlüklerine yönelik bir müdahale Anayasa'nın 13. maddesinde düzenlenen temel hak ve özgürlüklerin sınırlandırılmasına ilişkin koşullara uygun olmadıkça Anayasa'nın 26. ve 28. maddelerinin ihlali sonucunu doğuracaktır. Bu nedenle sınırlamanın Anayasa'nın 13. maddesinde öngörülen ve somut başvuruya uygun düşen; kanun tarafından öngörülme, Anayasa'nın ilgili maddelerinde belirtilen haklı sebeplerden bir veya daha fazlasına dayanma, demokratik toplum düzeninin gereklerine ve ölçülülük ilkesine aykırı olmama koşullarına uygun olup olmadığının belirlenmesi gerekir.",
@@ -196,6 +206,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-1-kotu-muamele",
     title: "Kötü Muamele Yasağının İhlal Edildiğine İlişkin İddia Yönünden",
+    sub: true,
     paragraphs: [
       "Cezaevinde tutulan başvurucunun bazı sağlık sorunları bulunduğu ancak gerekli tıbbi kontrol ve tedavilerinin sağlandığı Ceza İnfaz Kurumunca sunulan bilgi ve belgelerden anlaşılmış ve somut olayın koşullarında tutulmanın kötü muamele oluşturmadığı sonucuna varılmıştır. Bu sebeplerle bu iddianın açıkça dayanaktan yoksun olması nedeniyle kabul edilemez olduğuna karar verilmiştir.",
     ],
@@ -213,6 +224,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-2-olaylar",
     title: "Olaylar",
+    sub: true,
     paragraphs: [
       "15 Temmuz 2016 gecesi yaşanan darbe teşebbüsü sonrasında, bu teşebbüsün arkasındaki yapılanma olduğu belirtilen Fetullahçı Terör Örgütü/Paralel Devlet Yapılanmasının (FETÖ/PDY) medyadaki örgütlenmesine yönelik olarak yürütülen bir soruşturma kapsamında başvurucu silahlı terör örgütüne üye olma suçundan tutuklanmıştır.",
       "Başvurucu tarafından yapılan ilk bireysel başvuru üzerine Anayasa Mahkemesi Genel Kurulu 11/1/2018 tarihinde, kişi hürriyeti ve güvenliği hakkı ile ifade ve basın özgürlüklerinin ihlal edildiğine karar vermiştir.",
@@ -224,6 +236,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-2-iddialar",
     title: "İddialar",
+    sub: true,
     paragraphs: [
       "Başvurucu, Anayasa Mahkemesince verilen ihlal kararının derece mahkemelerince uygulanmaması nedeniyle kişi hürriyeti ve güvenliği hakkı ile diğer bazı hak ve hürriyetlerinin ihlal edildiğini ileri sürmüştür.",
     ],
@@ -231,6 +244,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aym-2-degerlendirme",
     title: "Mahkemenin Değerlendirmesi",
+    sub: true,
     paragraphs: [
       "Anayasa Mahkemesi bu iddia kapsamında özetle aşağıdaki değerlendirmeleri yapmıştır:",
       "Anayasa'nın 148. maddesinin üçüncü fıkrası ile 30/3/2011 tarihli ve 6216 sayılı Anayasa Mahkemesinin Kuruluşu ve Yargılama Usulleri Hakkında Kanun'un 45. maddesinin (1) numaralı fıkrasına göre herkes, Anayasa'da güvence altına alınmış temel hak ve özgürlüklerinden, Avrupa İnsan Hakları Sözleşmesi (AİHS) ve buna ek Türkiye'nin taraf olduğu protokoller kapsamındaki herhangi birinin kamu gücü tarafından ihlal edildiği iddiasıyla Anayasa Mahkemesine başvurabilir.",
@@ -272,6 +286,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-baslica-olaylar",
     title: "Başlıca Olaylar",
+    sub: true,
     paragraphs: [
       "Başvurucu, Şahin Alpay, 1944 doğumlu bir Türk vatandaşıdır. Halen İstanbul’da (Türkiye) tutuklu bulunmaktadır.",
       "Sayın Alpay “Gülenci” ağının ana yayın organı olarak görülen ve 27 Temmuz 2016’da yayınlanan 668 sayılı Kanun Hükmünde Kararnamenin kabul edilmesinin ardından kapatılan Zaman gazetesinde 2002 yılından beri çalışan bir gazetecidir. Ayrıca sayın Alpay İstanbul’da özel bir üniversitede karşılaştırmalı politika ve Türk siyasi tarihi konularında ders vermektedir.",
@@ -284,6 +299,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-sikayetler-usul",
     title: "Şikâyetler, Usul ve Mahkeme’nin Oluşumu",
+    sub: true,
     paragraphs: [
       "Sayın Alpay, Sözleşmenin 5 § 1 ve 3(özgürlük ve güvenlik hakkı) maddelerine dayanarak, tutuklamanın ve tutukluluğunun uzatılmasının keyfi olduğundan ve suç işlediğine dair delil bulunmadığından bahisle şikâyetçi olmuştur. Ayrıca, Anayasa Mahkemesi’nin ihlal tespitine rağmen (11 Ocak 2018 tarihli kararında) tutuklu bulundurulmasına itiraz etmiştir. Buna ek olarak, tutukluluk süresinin uzun olduğunu ve tutuklama ve tutukluluğun uzatılmasına ilişkin yargı kararlarında yetersiz gerekçelere dayanıldığını öne sürerek şikâyetçi olmuştur.",
       "Sayın Alpay, Sözleşmenin 5 § 4 maddesine dayanarak (tutukluluğun kanuna uygunluğunun hızlı bir şekilde gözden geçirilmesi hakkı), Anayasa Mahkemesindeki yargılama usulünün “hızlılık” koşullarını karşılamadığını öne sürmüştür.",
@@ -298,6 +314,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-1",
     title: "Mahkeme’nin Kararı — Madde 5 § 1 (Özgürlük ve Güvenlik Hakkı)",
+    sub: true,
     paragraphs: [
       "Mahkeme, aşağıdaki nedenlerden dolayı 5 § 1 maddesinin ihlal edildiğine karar vermiştir.",
     ],
@@ -305,6 +322,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-1-aym-karari",
     title: "1. Anayasa Mahkemesi’nin Kararı",
+    sub: true,
     paragraphs: [
       "Anayasa Mahkemesi, 11 Ocak 2018 tarihli kararında, soruşturma makamlarının sayın Alpay’ın FETÖ / PDY’nin amaçları doğrultusunda hareket ettiğini gösteren olgusal temelleri ortaya koyamadıklarını belirterek sayın Alpay’ın tutuklanmasının Anayasa’nın 19. maddesinin 3. fıkrasına[1] aykırı olduğuna hükmetmiştir.",
       "Soruşturma makamı tarafından sunulan delillere göre, Anayasa Mahkemesi Sayın Alpay’a isnat edilen suçu işlediğine dair güçlü belirtilerin bulunmadığına karar vermiştir. Anayasa Mahkemesi’nin görüşüne göre, bu yüzden Alpay’ın özgürlüğünden mahrum bırakılması durumun kesin bir şekilde gerektirdiği ölçü ile orantısızdır. Anayasa Mahkemesinin sayın Alpay’ın özgürlüğünden mahrum bırakılmasının Sözleşme’nin 5. Maddesinin 1. Fıkrasına aykırılık oluşturduğu yönündeki tespitine Mahkeme katılmaktadır",
@@ -313,6 +331,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-1-serbest-birakma",
     title: "2. Anayasa Mahkemesi’nin Kararını Takiben Serbest Bırakılma Talebi",
+    sub: true,
     paragraphs: [
       "Anayasa Mahkemesi Anayasa’nın 19 § 3 maddesinin ihlal edildiğini tespit etmesine rağmen, İstanbul 13. ve 14. Ağır Ceza Mahkemeleri, sayın Alpay’ı serbest bırakmamışlardır. Özellikle, 13. Ağır Ceza Mahkemesi, Anayasa Mahkemesi’nin dava dosyasındaki delilleri değerlendirme yetkisine sahip olmadığını ve kararının hukuka uygun olmadığını ve yetki gaspı oluşturduğu tespiti yapmıştır.",
       "Mahkeme, 13. Ağır Ceza Mahkemesi’nin Anayasa Mahkemesi’nin dava dosyasındaki delilleri değerlendirmemesi gerektiği iddiasını kabul edemez. Aksi şekilde karar vermek Anayasa Mahkemesinin, sunulan delillerin özünü dikkate almadan sayın Alpay’ın ilk ve devam eden tutukluluğuna ilişkin şikâyetini incelemesi anlamına gelecektir.",
@@ -325,6 +344,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-1-askiya-alma",
     title: "3. Türkiye Tarafından Askıya Alma Bildirimi (Derogasyon)",
+    sub: true,
     paragraphs: [
       "Mahkeme, Türkiye tarafından yapılan askıya alma (derogasyon) bildiriminin, Sözleşme’nin 15. maddesinin 3. paragrafında belirtilen resmi gereklilikleri yerine getirdiğini kabul etmiştir. Şöyle ki Avrupa Konseyi Genel Sekreterliği Sözleşmeye çekince (deregasyon) yoluyla alınan önlemlerden tam olarak bilgilendirilmiştir. Sözleşme’nin 15. Maddesine göre, herhangi bir Yüksek Sözleşmeci Tarafın, savaş zamanında veya ulusun hayatını tehdit eden olağanüstü durumlarda, 2. paragrafta sayılanlar dışında, tedbirlerin durumun gereklilikleriyle sıkı bir şekilde orantılı olması ve uluslararası hukuktan doğan diğer yükümlülüklerle çelişmesi koşuluyla Sözleşme kapsamındaki yükümlülüklerinden sapan önlemler alma hakkı olduğu yinelenmiştir. Anayasa Mahkemesi’nin, olağanüstü hal ilanına yol açan olayları anayasal bir perspektiften inceleyerek, askeri darbe girişiminin ulusun hayatı ve varoluşuna karşı ciddi bir tehdit oluşturduğu sonucuna vardığı hususu gözlemlenmiştir. Anayasa Mahkemesi’nin tespitleri ve elindeki diğer tüm materyaller ışığında, Mahkeme benzer şekilde, askeri darbe girişiminin, Sözleşme’nin anlamı içinde “ulusun yaşamını tehdit eden bir olağanüstü hali” ortaya çıkardığını belirtmiştir.",
       "Mevcut davada alınan tedbirlerin durumun gerektirdiği ölçüde olup olmadığına ilişkin olarak, Mahkeme, Sözleşme’nin 15. Maddesi ve Türkiye tarafından yapılan askıya alma (derogasyon) göz önüne alınarak, Anayasa Mahkemesi’nin de tespit ettiği gibi, makul şüphe bulunmaması nedeniyle hukuki olmayan ve yasa tarafından öngörülen usule uygun olmayan tutuklamanın durumun gerektirdiği ölçüde olduğunun söylenemeyeceğine karar vermiştir.",
@@ -333,6 +353,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-1-bireysel-basvuru",
     title: "4. Bireysel Başvuru Yolunun Etkinliği",
+    sub: true,
     paragraphs: [
       "Mahkeme, İstanbul 13. Ağır Ceza Mahkemesi’nin verdiği kararlar sonucunda, Anayasa Mahkemesinin kararından sonra bile, sayın Alpay’ın tutukluluğunun devam etmesinin, tutuklama ile ilgili davalarda Anayasa Mahkemesine bireysel başvuru yolunun etkililiği konusunda ciddi şüpheler doğurduğunu vurgulamaktadır. Bununla birlikte, şimdiki halde, Mahkeme, Anayasa Mahkemesine bireysel başvuruda bulunma hakkının Anayasa’nın 19. Maddesi uyarınca özgürlüğünden yoksun bırakılan kişilerin şikâyetleri konusunda etkili bir hukuk yolu oluşturduğuna ilişkin önceki tespitinden ayrılma niyetinde değildir (Koçintar, § 44). Bununla birlikte, başta Anayasa Mahkemesi kararlarının yetkisine ilişkin olarak ağır ceza mahkemeleri olmak üzere özellikle ilk derece mahkemelerinin içtihadında meydana gelen gelişmeler ışığında, Sözleşme’nin 5. maddesine dayanan davalarla ilgili olarak, Anayasa Mahkemesine bireysel başvuru sisteminin etkinliğini inceleme hakkı saklı tutulmuştur. Bu açıdan, Hükümet’in bu hukuk yolunun hem teoride hem de uygulamada etkili olduğunu kanıtlaması gerekir.",
     ],
@@ -340,6 +361,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-3",
     title: "Madde 5 § 3 — Yetersiz Gerekçe İddiası",
+    sub: true,
     paragraphs: [
       "Mahkeme, Sözleşme’nin 5. maddesinin 1. fıkrası uyarınca yaptığı tespitler ışığında, bu şikâyetin incelenmesine gerek olmadığına karar vermiştir.",
     ],
@@ -347,6 +369,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-4",
     title: "Madde 5 § 4 — Hızlı Yargısal Denetim İddiası",
+    sub: true,
     paragraphs: [
       "Mahkeme, Anayasa Mahkemesi önündeki 16 ay ve üç günlük sürenin, olağan bir durumda “hızlı” olarak nitelendirilememesine rağmen, davanın özel koşullarında, Sözleşme’nin 5 § 4. maddesinin ihlal edilmediğine hükmetmiştir. İlk olarak Mahkeme, iş bu davanın karmaşık olduğunu, askerî darbe girişiminin ardından ilan edilen olağanüstü hal koşullarında özgürlük ve güvenlik hakkı ve ifade özgürlüğü ile ilgili yeni ve karmaşık konuları gündeme getiren ilklerden biri olduğunu gözlemlemiştir. İkinci olarak, Anayasa Mahkemesinin olağanüstü hal ilanından sonraki iş yükünü nazara alarak, Mahkeme bunun istisnai bir durum olduğunu tespit etmiştir. Ancak, bu sonucun Anayasa Mahkemesinin benzer şikâyetlere bakarken sınırsız bir yetkiye (carteblanche) sahip olduğu anlamına gelmediğine işaret etmektedir. Sözleşmenin 19. maddesi uyarınca, Mahkeme, Anayasa Mahkemesine bireysel başvuruda bulunduktan sonra, tutuklanmalarının hukukiliğine ilişkin hızlı bir yargı kararı alamadıklarını iddia eden diğer başvuranlar tarafından sunulan şikâyetler konusunda nihai denetim yetkisini saklı tutmaktadır.",
     ],
@@ -354,6 +377,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-5-5",
     title: "Madde 5 § 5 — Hukuka Aykırı Gözaltı İçin Tazminat Hakkı",
+    sub: true,
     paragraphs: [
       "Sayın Alpay, tutukluluğu nedeniyle maruz kaldığı zarar için tazminat alabileceği etkili bir hukuk yolu bulunmadığından şikâyetçi olmuştur.",
       "Mahkeme oybirliği ile Sözleşme’nin 5 § 1. Maddesi ile ilgili olarak açıkça temelden yoksun olduğu ve Sözleşme’nin 5. Maddesinin 4. Fıkrası ile ilgili, Sözleşmenin maddeleri ile konu bakımından bağdaşmadığı (rationemateriae) tespitleri ile bu şikâyetlerin kabul edilemez olduğuna karar vermiştir.",
@@ -363,6 +387,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-10",
     title: "Madde 10 — İfade Özgürlüğü",
+    sub: true,
     paragraphs: [
       "Mahkeme ilk olarak, Anayasa Mahkemesi’nin 11 Ocak 2018 tarihli kararının ışığında, Alpay’ın tutukluluğunun ifade özgürlüğü hakkına bir “müdahale” teşkil ettiğine, müdahalenin, Ceza Kanunu’nun ve Ceza Muhakemesi Kanununun ilgili hükümleri tarafından öngörüldüğüne ve kamu düzenini sağlamave suçun önlenmesi meşru amaçlarına matuf olduğuna karar vermiştir.",
       "Daha sonra, sayın Alpay’ın görüşlerini açıklaması nedeniyle başlangıçtaki ve devam eden tutukluluğunun, Anayasa’nın 26 ve 28’inci maddelerinin amaçları doğrultusunda demokratik bir toplumda gerekli ve orantılı bir müdahale sayılamayacak sert bir tedbiri oluşturduğu tespitine ilişkin Anayasa Mahkemesi tarafından ulaşılan sonuçtan farklı bir sonuca ulaşmak için bir neden görmemektedir. Söz konusu yargıçların, Alpay’ın özgürlüğünden mahrum bırakılmasının acil bir sosyal ihtiyacı karşıladığını göstermedikleri, Anayasa Mahkemesi şahsın tutukluluğunun makaleleri dışında herhangi bir somut delile dayanmadığına karar verdiği, İfade ve basın özgürlüğü ve basın üzerinde caydırıcı etkiye sahip olduğu saptanmıştır. Mahkeme ayrıca, AİHS’nin 5 § 1 maddesi uyarınca kendi kararına atıfta bulunmuştur.",
@@ -374,6 +399,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-18",
     title: "Madde 18 — Haklarla İlgili Kısıtlamaların Sınırlandırılması",
+    sub: true,
     paragraphs: [
       "Mahkeme, Sözleşme’nin 5 § 1 ve 10. Maddesi uyarınca ulaştığı tüm sonuçları dikkate alarak, bu şikâyeti ayrıca incelemeyi gerekli görmemiştir.",
     ],
@@ -381,6 +407,7 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "aihm-madde-46",
     title: "Madde 46 — Bağlayıcı Etki ve Kararın İnfazı",
+    sub: true,
     paragraphs: [
       "Mahkeme, sayın Alpay’ın tutukluluğunun devamının, Sözleşme’nin 5 § 1 maddesinin ihlalinin devam etmesine ve Sözleşmenin 46 § 1. maddesi uyarınca Mahkeme’nin kararına uyma konusundaki davalı devletin yükümlülüklerinin bir ihlaline yol açacağına hükmetmiştir. Mahkeme, sayın Alpay’ın tutukluluğunun mümkün olan en kısa sürede sona ermesini sağlamanın davalı devletin sorumluluğunda olduğuna hükmetmiştir.",
       "Madde 41 Adil Tazminat Mahkeme, Türkiye’nin sayın Alpay’a manevi tazminat olarak 21,500 Avro ödemesini kararlaştırmıştır.",

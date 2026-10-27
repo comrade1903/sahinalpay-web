@@ -123,7 +123,7 @@ export interface Content {
     lead: string
     editorialNote: string
     contentsLabel: string
-    sections: { id: string; title: string; paragraphs: string[] }[]
+    sections: { id: string; title: string; sub?: boolean; paragraphs: string[] }[]
   }
   /** "Silivri'den…" — what other people wrote about him in the press. Not
    *  his own work, so it lives outside src/archive and never reaches the
