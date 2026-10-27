@@ -27,6 +27,11 @@ import type { ArchiveItemSeed } from '../types'
  *  Smaller correction: the DSP-SHP book is co-authored with Seyfettin Gürsel
  *  and catalogued as "DSP-SHP", not "SHP-DSP" (Atatürk Kültür, Dil ve Tarih
  *  Yüksek Kurumu library catalogue).
+ *
+ *  The pieces marked `hidden` exist here only as citations: neither the owner
+ *  nor the scan folders hold their text, so on 2026-10-27 the owner asked for
+ *  them to come off the page. They stay in the record should the originals
+ *  turn up.
  */
 export const academicArticleSeeds: ArchiveItemSeed[] = [
   // Makale ve bildiriler — Şahin Alpay'ın kendi akademik yayın listesinden
@@ -241,6 +246,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'dunya-gorusu-ve-siyaset-2009',
     title: 'Dünya Görüşü ve Siyaset',
+    hidden: true,
     date: '2009',
     subtitle:
       'İletişimde Mükemmellik Programı: Dünya Görüşü içinde — Oger Telecom, İstanbul, Aralık 2009, s. 92-111',
@@ -342,6 +348,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'piyasa-ekonomisi-ve-demokrasi-1985',
     title: 'Piyasa Ekonomisi ve Demokrasi',
+    hidden: true,
     date: '1985',
     subtitle: 'Assar Lindbeck’ten çeviri — Birey ve Toplum Yayınları, İstanbul, Mart 1985, 131 s.',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
@@ -350,6 +357,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'siyasal-islamin-basari-sansi-1997',
     title: "Siyasal İslam'ın Başarı Şansı",
+    hidden: true,
     date: 'Kasım 1997',
     subtitle: 'Sözleşme (aylık dergi), Yıl 1, Sayı 1, Kasım 1997, s. 20-22',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -358,6 +366,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'iskandinav-sosyal-demokrasisi-ornek-olabilir-mi-1988',
     title: "İskandinav sosyal demokrasisi Türkiye'ye örnek olabilir mi?",
+    hidden: true,
     date: 'Mart 1988',
     subtitle: 'Sosyal Demokrat (aylık siyasi kültürel dergi), Mart 1988, s. 18-19',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -366,6 +375,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'shpnin-sorunu-liderlik-mi-1988',
     title: "SHP'nin sorunu liderlik mi?",
+    hidden: true,
     date: 'Nisan 1988',
     subtitle: 'Sosyal Demokrat, Nisan 1988, s. 26-27',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -374,6 +384,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'shp-programi-yenilensin-1991',
     title: 'SHP programı yenilensin',
+    hidden: true,
     date: 'Temmuz 1991',
     subtitle: 'Sosyal Demokrat, Temmuz 1991, s. 28-30',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -382,6 +393,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'gelecegi-bilmek-ve-secmek-1992',
     title: 'Geleceği bilmek ve seçmek',
+    hidden: true,
     date: '1992',
     subtitle:
       'Türkiye Günlüğü (üç aylık fikir ve kültür dergisi), Yaz 1992, s. 53-56',
@@ -391,6 +403,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'turkiyede-reform-ihtiyaci-ve-sol-1993',
     title: "Türkiye'de reform ihtiyacı ve sol",
+    hidden: true,
     date: '1993',
     subtitle: 'Türkiye Günlüğü, Bahar 1993, s. 75-83',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -399,6 +412,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'milliyetcilik-ozgurlukcu-demokrasiyle-nasil-bagdasir-1993',
     title: 'Milliyetçilik özgürlükçü demokrasiyle nasıl bağdaşır?',
+    hidden: true,
     date: '1993',
     subtitle: 'Türkiye Günlüğü, Yaz 1993, s. 14-16',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -407,6 +421,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'medyada-ifade-ozgurlugunun-engelleri-2001',
     title: 'Medyada ifade özgürlüğünün engelleri',
+    hidden: true,
     date: '2001',
     subtitle:
       'Karizma (üç aylık düşünce dergisi), Temmuz-Ağustos-Eylül 2001 sayısı, s. 63-67',
@@ -416,6 +431,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: '11-eylul-ve-uygarlik-savasi-2002',
     title: '11 Eylül ve uygarlık savaşı',
+    hidden: true,
     date: '2002',
     subtitle: 'Karizma, Ocak-Şubat-Mart 2002 sayısı, s. 65-69',
     sourceNote: 'Şahin Alpay’ın kendi yayın listesinden alınmıştır.',
@@ -424,6 +440,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'turk-modelinin-laikliginin-21-yuzyilda-gelecegi-2003',
     title: 'Türk Modelinin Laikliğinin 21. Yüzyılda Geleceği',
+    hidden: true,
     date: '2003',
     subtitle:
       'Devlet ve Din İlişkileri - Farklı Modeller, Konseptler ve Tecrübeler Sempozyumu içinde — Konrad Adenauer Vakfı, Ankara, 2003, s. 135-138',
@@ -455,6 +472,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     slug: 'stratejik-derinlik-turkiyenin-uluslararasi-durusu-2010',
     title:
       'Stratejik Derinlik — Türkiye’nin Uluslararası Duruşu: Türkiye’nin Yeni Bir Dış Politikası Var mı?',
+    hidden: true,
     date: '2010',
     subtitle:
       '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye içinde — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',

@@ -45,7 +45,7 @@ export function normalizeArchiveItems(
   lang: ArchiveLang,
   medium?: ArchiveMedium,
 ): ArchiveItem[] {
-  return seeds.map((seed) => {
+  return seeds.filter((seed) => !seed.hidden).map((seed) => {
     const slug = seed.slug ?? (seed.url ? slugFromSourceUrl(seed.url) : slugify(seed.title))
     return {
       ...seed,
