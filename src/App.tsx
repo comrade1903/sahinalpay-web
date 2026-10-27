@@ -102,9 +102,6 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
                   <span className="portrait-monogram">ŞA</span>
                 </div>
               )}
-              <figcaption className="portrait-caption">
-                {t.hero.portraitCaption}
-              </figcaption>
             </figure>
           </div>
         </motion.div>
