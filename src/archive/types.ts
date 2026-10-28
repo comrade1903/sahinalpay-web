@@ -57,6 +57,11 @@ export interface ArchiveItemSeed {
   /** Column vs. interview, for outlets whose columns section mixes both
       (see ArchivePieceKind). Omitted where the distinction doesn't apply. */
   pieceKind?: ArchivePieceKind
+  /** Kept in the record but off the site: `normalizeArchiveItems` drops it,
+      so it reaches no list, count, search, route or sitemap. Used for the
+      academic pieces whose original text could not be found (the owner
+      asked on 2026-10-27 that they come off the page). */
+  hidden?: boolean
 }
 
 export interface ArchiveItem extends ArchiveItemSeed {

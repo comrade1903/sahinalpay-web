@@ -21,6 +21,11 @@ import type { ArchiveItemSeed } from '../types'
  *  list had "Die Politische Rolle des Militars" in "Zeitgeshichte" — both
  *  transcription slips). The Süddeutsche Zeitung and FAZ pieces predate those
  *  papers' open archives and rest on the list alone.
+ *
+ *  The pieces marked `hidden` exist here only as citations: neither the owner
+ *  nor the scan folders hold their text, so on 2026-10-27 the owner asked for
+ *  them to come off the page. They stay in the record should the originals
+ *  turn up.
  */
 export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
   {
@@ -89,6 +94,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'after-ocalan-private-view-2000',
     title: 'After Öcalan',
+    hidden: true,
     date: '2000',
     subtitle: 'Private View (TÜSİAD Quarterly Review), Spring 2000, pp. 34-42',
     sourceNote: "From Şahin Alpay's own publication list.",
@@ -200,6 +206,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'on-the-verge-of-the-west-axess-2007',
     title: 'On the Verge of the West',
+    hidden: true,
     date: '2007',
     subtitle: 'Global Axess, interview — Thomas Gür',
     sourceNote: "From Şahin Alpay's own publication list.",
@@ -208,6 +215,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'die-republik-der-buerokraten-sz-2007',
     title: 'Die Republik der Bürokraten',
+    hidden: true,
     date: '3 May 2007',
     subtitle: 'Süddeutsche Zeitung, Nr. 101, "Thema des Tages", 3 Mai 2007, S. 2',
     sourceNote: "From Şahin Alpay's own publication list.",
@@ -234,6 +242,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
   {
     slug: 'was-wird-aus-der-tuerkei-faz-2008',
     title: 'Was wird aus der Türkei?',
+    hidden: true,
     date: '15 October 2008',
     subtitle: 'Frankfurter Allgemeine Zeitung, 15. Oktober 2008, S. 8',
     sourceNote: "From Şahin Alpay's own publication list.",
