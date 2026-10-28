@@ -534,6 +534,11 @@ main:focus {
   line-height: 1.72;
   font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
 }
+.prose p.lead {
+  /* The lead's own, tighter leading: the larger size needs less air
+     between lines than running text. */
+  line-height: 1.5;
+}
 .prose p:last-child {
   margin-bottom: 0;
 }
@@ -2885,6 +2890,9 @@ a.archive-row:hover .archive-row-title {
 .newsstand-stack-paper-strip {
   flex: 0 0 22px;
   width: 100%;
+  /* One black band for every outlet: the dates belong to the page's own
+     design, not to the mastheads, so they don't take each paper's colour. */
+  background: #231f21;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2897,8 +2905,8 @@ a.archive-row:hover .archive-row-title {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  /* Sits on each outlet's own brand colour, so it is a fixed value in both
-     themes; lilac off-white, never pure white. */
+  /* Sits on the fixed black band, so it is a fixed value in both themes;
+     lilac off-white, never pure white. */
   color: rgba(245, 243, 247, 0.92);
 }
 

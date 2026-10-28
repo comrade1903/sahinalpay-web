@@ -60,7 +60,7 @@ ICONS = [
     "arrow_back",
     "arrow_forward",
     "close",
-    "format_quote",
+    "content_copy",
     "menu",
     "menu_book",
     "picture_as_pdf",

@@ -194,6 +194,7 @@ function CiteThis({
         type="button"
         className="icon-btn"
         aria-label={t.citeLabel}
+        title={t.citeLabel}
         aria-expanded={open}
         onClick={onClick}
       >
@@ -202,7 +203,7 @@ function CiteThis({
           aria-hidden="true"
           style={{ fontSize: 'var(--icon-md)' }}
         >
-          format_quote
+          content_copy
         </span>
       </button>
       {open && (
@@ -336,6 +337,18 @@ export function LoadedArticlePage({
      page's language instead — the way a mirrored column's back link reads. */
   const outletLabel = item.category === 'academic' && itemLang !== lang ? sectionNameFor(lang, 'academic') : item.outlet
   const sectionLinkLabel = item.category === 'columns' ? t.columns.title : outletLabel
+  /* Back to the list the reader came from — the same paper, page and search
+     (the list hands its address over in the link's state). Arriving from
+     anywhere else, a shelf section still opens on the piece's own paper
+     rather than on the newest one. */
+  const sectionPath = archiveBasePath(lang, item)
+  const cameFrom = (location.state as { from?: unknown } | null)?.from
+  const backTo =
+    typeof cameFrom === 'string' && cameFrom.split('?')[0] === sectionPath
+      ? cameFrom
+      : item.category === 'columns' || item.category === 'analyses'
+        ? `${sectionPath}?open=${encodeURIComponent(item.outlet)}`
+        : sectionPath
   const clippingCaption = [cover?.pageLabel ?? item.subtitle, outletLabel, item.date]
     .filter(Boolean)
     .join(' · ')
@@ -391,12 +404,12 @@ export function LoadedArticlePage({
           <nav className="breadcrumb" aria-label={lang === 'tr' ? 'Kırıntı yolu' : 'Breadcrumb'}>
             <Link to={paths[lang].home!}>{lang === 'tr' ? 'Ana sayfa' : 'Home'}</Link>
             <span aria-hidden="true">/</span>
-            <Link to={archiveBasePath(lang, item)}>{sectionLinkLabel}</Link>
+            <Link to={backTo}>{sectionLinkLabel}</Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page">{item.title}</span>
           </nav>
           <div className="article-tools">
-            <Link className="back-link" to={archiveBasePath(lang, item)}>
+            <Link className="back-link" to={backTo}>
               <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                 arrow_back
               </span>
@@ -476,7 +489,9 @@ export function LoadedArticlePage({
                 ? ` (${mediumLabel(item.medium, lang).toLocaleLowerCase(lang)})`
                 : ''}
             </span>
-            {item.pieceKind && (
+            {/* An interview filed among the columns says so; a column on the
+                columns page does not repeat what the page already says. */}
+            {item.pieceKind && !(item.pieceKind === 'column' && item.category === 'columns') && (
               <span className="archive-row-badge">{pieceKindLabel(item.pieceKind, lang)}</span>
             )}
           </div>

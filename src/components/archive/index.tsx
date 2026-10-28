@@ -51,6 +51,14 @@ import { countLabel } from '../../lib/countLabel'
  * searches. See docs/OPERATIONS.md.
  */
 
+/** The list's own address, filters and open paper included, handed to the
+    reader page so its back link returns to the same paper, page and search
+    rather than to the section's default view (see LoadedArticlePage). */
+function useListAddress(): string {
+  const location = useLocation()
+  return `${location.pathname}${location.search}`
+}
+
 export function ArchiveRow({
   item,
   outlet,
@@ -61,6 +69,7 @@ export function ArchiveRow({
   lang: Lang
 }) {
   const link = archiveLink(item, lang)
+  const from = useListAddress()
   const preview = item.excerpt ?? item.subtitle
   const inner = (
     <>
@@ -95,7 +104,7 @@ export function ArchiveRow({
   if (link?.internal) {
     return (
       <li>
-        <Link to={link.href} className="archive-row">
+        <Link to={link.href} state={{ from }} className="archive-row">
           {inner}
         </Link>
       </li>
@@ -318,19 +327,33 @@ function ActiveFilterSummary({
   )
 }
 
+/** The first and last year a section has pieces from, for the year range's
+    placeholders: a fixed 1970 suggested interviews the section doesn't hold. */
+function yearBounds(items: ArchiveItem[]): { first: string; last: string } | null {
+  const years = items
+    .map((item) => (item.date ? parseTurkishDate(item.date) : null))
+    .filter((ts): ts is number => ts !== null)
+    .map((ts) => new Date(ts).getUTCFullYear())
+  if (!years.length) return null
+  return { first: String(Math.min(...years)), last: String(Math.max(...years)) }
+}
+
 function YearRangeFilter({
   lang,
+  items,
   fromYear,
   toYear,
   setFromYear,
   setToYear,
 }: {
   lang: Lang
+  items: ArchiveItem[]
   fromYear: string
   toYear: string
   setFromYear: (v: string) => void
   setToYear: (v: string) => void
 }) {
+  const bounds = useMemo(() => yearBounds(items), [items])
   return (
     <div className="filter-card">
       <h3>{lang === 'tr' ? 'Yıl Aralığı' : 'Year range'}</h3>
@@ -340,7 +363,9 @@ function YearRangeFilter({
           <input
             type="number"
             inputMode="numeric"
-            placeholder="1970"
+            placeholder={bounds?.first}
+            min={bounds?.first}
+            max={bounds?.last}
             value={fromYear}
             onChange={(e) => setFromYear(e.target.value)}
           />
@@ -350,7 +375,9 @@ function YearRangeFilter({
           <input
             type="number"
             inputMode="numeric"
-            placeholder="2026"
+            placeholder={bounds?.last}
+            min={bounds?.first}
+            max={bounds?.last}
             value={toYear}
             onChange={(e) => setToYear(e.target.value)}
           />
@@ -526,32 +553,8 @@ function orderNewsstandOutlets(entries: NewsstandOutlet[]): NewsstandOutlet[] {
   )
 }
 
-/** Brand colors for the outlets we actually have (matched to their real
-    mastheads where known); an unbranded outlet falls back to the site's
-    wood-edge tone rather than a guessed color. */
-const outletAccent: Partial<Record<string, string>> = {
-  'Aydınlık (Sosyalist Dergi/Proleter Devrimci)': '#a44e8c',
-  Milliyet: '#b3241c',
-  Cumhuriyet: '#e30512',
-  Forum: '#9c1c22',
-  /* The masthead red as it survives on the newsprint scan, darkened just
-     enough for the white band label to clear contrast. */
-  'İşçi Köylü': '#b34435',
-  Sabah: '#da251c',
-  Zaman: '#8a6a1f',
-  "Today's Zaman": '#6d5518',
-  P24: '#231f21',
-  /* The red of the outlet's own wordmark. */
-  Medyascope: '#cc0000',
-}
-const defaultOutletAccent = '#5c3f27'
-
-function outletAccentFor(outletName: string): string {
-  return outletAccent[outletName] ?? defaultOutletAccent
-}
-
 /** One upright spine standing on the shelf rail — clicking it lifts it
-    forward (see NewsstandStack). Text-only (accent strip + rotated outlet
+    forward (see NewsstandStack). Text-only (date band + rotated outlet
     name/count), matching the reference design's book-spine treatment. */
 function NewsstandStackPaper({
   outlet,
@@ -570,7 +573,6 @@ function NewsstandStackPaper({
   reduce: boolean
   onSelect: () => void
 }) {
-  const accent = outletAccentFor(outlet.outlet)
   const logo = outletLogos[outlet.outlet]
   /* A real outlet the owner is going to write into (Sabah, Zaman, Today's
      Zaman today) but that has no pieces yet — still stood on the shelf
@@ -598,7 +600,7 @@ function NewsstandStackPaper({
       aria-pressed={active}
     >
       <span className="newsstand-stack-paper-inner">
-        <span className="newsstand-stack-paper-strip" style={{ background: accent }}>
+        <span className="newsstand-stack-paper-strip">
           <span className="newsstand-stack-paper-strip-text">
             {dateRange ?? (lang === 'tr' ? 'Arşiv' : 'Archive')}
           </span>
@@ -660,6 +662,7 @@ function deriveNewsstandOutlets(
     card shape. */
 function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
   const link = archiveLink(item, lang)
+  const from = useListAddress()
   const section = item.pieceKind
     ? pieceKindLabel(item.pieceKind, lang)
     : item.medium
@@ -693,7 +696,7 @@ function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
   if (link?.internal) {
     return (
       <li>
-        <Link to={link.href} className="newsstand-toc-row">
+        <Link to={link.href} state={{ from }} className="newsstand-toc-row">
           {inner}
         </Link>
       </li>
@@ -879,6 +882,7 @@ function NewsstandStack({
 
 function NewsstandControlBar({
   lang,
+  items,
   search,
   setSearch,
   bodySearch,
@@ -888,6 +892,7 @@ function NewsstandControlBar({
   setToYear,
 }: {
   lang: Lang
+  items: ArchiveItem[]
   search: string
   setSearch: (value: string) => void
   bodySearch: BodySearchState
@@ -917,6 +922,7 @@ function NewsstandControlBar({
             the page's worst consistency defect. */}
         <YearRangeFilter
           lang={lang}
+          items={items}
           fromYear={fromYear}
           toYear={toYear}
           setFromYear={setFromYear}
@@ -1044,6 +1050,7 @@ export function NewsstandArchivePage({
 
         <NewsstandControlBar
           lang={lang}
+          items={sectionItems}
           search={search}
           setSearch={(value) => setParam('q', value)}
           bodySearch={bodySearch}
@@ -1273,6 +1280,7 @@ export function FlatArchivePage({
             >
               <YearRangeFilter
                 lang={lang}
+                items={items}
                 fromYear={fromYear}
                 toYear={toYear}
                 setFromYear={(value) => setParam('from', value)}
