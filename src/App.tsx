@@ -33,10 +33,11 @@ import { readStoredValue } from './lib/storage'
    back to the ŞA monogram, which is what the hero showed before a photo
    existed.
 ------------------------------------------------------------------ */
-/* Source: expressioninterrupted.com (P24), the only size that site
-   publishes — 670×310, so the 4/5 frame crops it to roughly 248×310 and
-   upscales from there. Replace this file with a taller, larger original
-   when one is available; nothing else needs to change. */
+/* Source: the same photograph expressioninterrupted.com (P24) publishes
+   at 670×310, supplied by the owner as a 2752×1536 upscale (made with
+   Gemini) and cropped to the 4/5 frame at 960×1200. Replace this file with
+   a larger camera original when one is available; nothing else needs to
+   change. */
 function Hero({ t, lang }: { t: Content; lang: Lang }) {
   const reduce = useReducedMotion()
   const navigate = useNavigate()
