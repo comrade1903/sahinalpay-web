@@ -578,7 +578,7 @@ main:focus {
    between --text-title and --text-headline on purpose, because it is
    sized to the header row rather than to the type scale; on wide screens,
    where the row holds nothing else but the two toggles, it steps up.
-   Weighted like the hero name: the given name a step lighter, both roman. */
+   Set in bold throughout, so the name reads as one mark, like a logo. */
 .wordmark {
   font-family: var(--headline);
   font-size: 1.4rem;
@@ -586,9 +586,6 @@ main:focus {
   letter-spacing: 0;
   color: var(--ink);
   white-space: nowrap;
-}
-.wordmark-first {
-  font-weight: 500;
 }
 @media (min-width: 1080px) {
   .wordmark {
