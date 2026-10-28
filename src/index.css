@@ -1466,16 +1466,7 @@ main:focus {
 /* A PDF a section points to (the English defence statement): a quiet
    button, so it reads as a document to open rather than the page's action. */
 .bio-chapter .bio-document {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1) var(--space-2);
   margin-top: var(--space-3);
-}
-.bio-document-meta {
-  font-family: var(--label);
-  font-size: var(--text-label-sm);
-  color: var(--muted);
 }
 .bio-chapter h3 {
   font-family: var(--headline);

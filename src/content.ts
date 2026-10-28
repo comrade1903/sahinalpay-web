@@ -460,7 +460,6 @@ export const content: Record<Lang, Content> = {
           document: {
             href: '/archive/pdf/trial/sahin-alpay-defence-2017-09-18.pdf',
             label: 'My defence statement, 18 September 2017',
-            meta: 'PDF, 16 pages · opens in a new tab',
           },
         },
       ],

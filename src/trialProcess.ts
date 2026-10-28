@@ -14,8 +14,6 @@ export interface TrialProcessSection {
 export interface NarrativeDocument {
   href: string
   label: string
-  /** Format and length, shown beside the link. */
-  meta: string
 }
 
 /** Şahin Alpay's own account of the criminal proceedings against him
@@ -42,7 +40,6 @@ export const trialProcessSections: TrialProcessSection[] = [
     document: {
       href: "/archive/pdf/trial/sahin-alpay-defence-2017-09-18.pdf",
       label: "Savunmamın İngilizce çevirisi",
-      meta: "PDF, 16 sayfa · yeni sekmede açılır",
     },
     paragraphs: [
       "18 Eylül 2017'de yapılan ilk duruşmada yaptığım savunmada şunları söyledim:",

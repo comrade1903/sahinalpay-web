@@ -437,7 +437,6 @@ function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
                     </span>
                     {section.document.label}
                   </a>
-                  <span className="bio-document-meta">{section.document.meta}</span>
                 </p>
               )}
             </section>
