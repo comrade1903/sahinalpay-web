@@ -91,10 +91,13 @@
    an italic label or body face — every italic rule in index.css resolves to
    --headline (Literata). Left out rather than shipped unused. */
 
+/* /fonts/ is served immutable for a year, so a browser that has the icon
+   font keeps it. Bump ?v= whenever scripts/generate-fonts.py changes ICONS,
+   or returning visitors see a new icon's name spelled out as text. */
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
   font-weight: 100 700;
   font-display: block;
-  src: url('/fonts/material-symbols.woff2') format('woff2');
+  src: url('/fonts/material-symbols.woff2?v=2') format('woff2');
 }

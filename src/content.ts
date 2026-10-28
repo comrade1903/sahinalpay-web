@@ -543,7 +543,7 @@ export const content: Record<Lang, Content> = {
     },
     reader: {
       copySourceLabel: 'Source',
-      citeLabel: 'Cite',
+      citeLabel: 'Copy citation',
       copied: 'Copied ✓',
       copyManual: 'Select and copy the text below',
       accessed: 'Accessed',
@@ -787,7 +787,7 @@ export const content: Record<Lang, Content> = {
     },
     reader: {
       copySourceLabel: 'Kaynak',
-      citeLabel: 'Alıntıla',
+      citeLabel: 'Künyeyi kopyala',
       copied: 'Kopyalandı ✓',
       copyManual: 'Aşağıdaki metni seçip kopyalayın',
       accessed: 'Erişim:',
