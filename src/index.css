@@ -1463,6 +1463,11 @@ main:focus {
   line-height: 1.25;
   margin-bottom: var(--space-2);
 }
+/* A PDF a section points to (the English defence statement): a quiet
+   button, so it reads as a document to open rather than the page's action. */
+.bio-chapter .bio-document {
+  margin-top: var(--space-3);
+}
 .bio-chapter h3 {
   font-family: var(--headline);
   font-size: var(--text-title-sm);

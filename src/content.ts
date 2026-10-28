@@ -34,7 +34,7 @@ import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disari
 import coverDspShp from './assets/covers/dsp-shp.jpg'
 import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import coverPiyasaEkonomisi from './assets/covers/piyasa-ekonomisi-ve-demokrasi.jpg'
-import { trialProcessSections } from './trialProcess'
+import { trialProcessSections, type NarrativeDocument } from './trialProcess'
 
 export type Lang = 'en' | 'tr'
 
@@ -122,7 +122,7 @@ export interface Content {
     lead: string
     editorialNote: string
     contentsLabel: string
-    sections: { id: string; title: string; sub?: boolean; paragraphs: string[] }[]
+    sections: { id: string; title: string; sub?: boolean; paragraphs: string[]; document?: NarrativeDocument }[]
   }
   /** "Silivri'den…" — what other people wrote about him in the press. Not
    *  his own work, so it lives outside src/archive and never reaches the
@@ -455,7 +455,12 @@ export const content: Record<Lang, Content> = {
             'In July 2018 a criminal court convicted me of membership in a terrorist organization and sentenced me to eight years and nine months in prison, without detention pending appeal. Turkey’s Court of Cassation quashed that verdict in 2020 for insufficient evidence and ordered a retrial.',
             'The retrial concluded in November 2022 with a different verdict: not membership, but knowingly aiding a terrorist organization, carrying a sentence of two years and six months. I have appealed that decision, and it remains before the Court of Cassation.',
             'I have written my own detailed account of these proceedings — my courtroom statements and the Constitutional Court’s and European Court of Human Rights’ rulings in full — in Turkish, on this site’s Turkish pages.',
+            'The defence statement I gave at the first hearing, at Silivri on 18 September 2017, can be read in English below.',
           ],
+          document: {
+            href: '/archive/pdf/trial/sahin-alpay-defence-2017-09-18.pdf',
+            label: 'My defence statement, 18 September 2017',
+          },
         },
       ],
     },

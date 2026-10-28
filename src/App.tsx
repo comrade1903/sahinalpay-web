@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Book, type Content, type Lang, type BooksSection } from './content'
+import type { NarrativeDocument } from './trialProcess'
 import { forewordLabels, type BookForeword } from './bookForewords'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
@@ -392,7 +393,7 @@ interface NarrativeCopy {
   editorialNote: string
   contentsLabel: string
   /** `sub` marks a heading inside the main section before it. */
-  sections: { id: string; title: string; sub?: boolean; paragraphs: string[] }[]
+  sections: { id: string; title: string; sub?: boolean; paragraphs: string[]; document?: NarrativeDocument }[]
 }
 
 /** A narrative page: the shared header, then the sections themselves. The
@@ -428,6 +429,16 @@ function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
             >
               {section.title && (section.sub ? <h3>{section.title}</h3> : <h2>{section.title}</h2>)}
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {section.document && (
+                <p className="bio-document">
+                  <a className="btn btn-ghost" href={section.document.href} target="_blank" rel="noopener noreferrer">
+                    <span className="material-symbols-outlined" aria-hidden="true">
+                      picture_as_pdf
+                    </span>
+                    {section.document.label}
+                  </a>
+                </p>
+              )}
             </section>
           ))}
         </div>
