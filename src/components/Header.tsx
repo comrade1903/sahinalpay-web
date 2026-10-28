@@ -117,7 +117,7 @@ export function Header() {
       <header className="site-header" data-scrolled={scrolled}>
         <div className="container header-inner">
           <Link to={paths[lang].home!} className="wordmark">
-            <span className="wordmark-first">Şahin</span> Alpay
+            Şahin Alpay
           </Link>
           <div className="header-actions">
             <button
