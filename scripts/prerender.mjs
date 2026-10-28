@@ -340,7 +340,7 @@ for (const lang of ['tr', 'en']) {
       title = `${trial.title} — Şahin Alpay`
       description = trial.lead || trial.sections[0]?.paragraphs[0] || trial.title
       inner = `<h1>${escapeHtml(trial.title)}</h1><p>${escapeHtml(trial.subtitle)}</p><p>${escapeHtml(trial.lead)}</p><p>${escapeHtml(trial.editorialNote)}</p>${trial.sections
-        .map((section) => `<section id="${escapeHtml(section.id)}">${section.sub ? '<h3>' : '<h2>'}${escapeHtml(section.title)}${section.sub ? '</h3>' : '</h2>'}${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>`)
+        .map((section) => `<section id="${escapeHtml(section.id)}">${section.sub ? '<h3>' : '<h2>'}${escapeHtml(section.title)}${section.sub ? '</h3>' : '</h2>'}${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.document ? `<p><a href="${escapeHtml(section.document.href)}">${escapeHtml(section.document.label)}</a> (${escapeHtml(section.document.meta)})</p>` : ''}</section>`)
         .join('')}`
       jsonLd = schema.aboutJsonLd({
         name: trial.title,

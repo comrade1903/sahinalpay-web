@@ -5,6 +5,17 @@ export interface TrialProcessSection {
    *  headings carry none). */
   sub?: boolean
   paragraphs: string[]
+  /** A document the section points to, opened in a new tab after its text. */
+  document?: NarrativeDocument
+}
+
+/** A PDF published alongside a narrative section, e.g. the English
+ *  translation of his defence statement. */
+export interface NarrativeDocument {
+  href: string
+  label: string
+  /** Format and length, shown beside the link. */
+  meta: string
 }
 
 /** Şahin Alpay's own account of the criminal proceedings against him
@@ -28,6 +39,11 @@ export const trialProcessSections: TrialProcessSection[] = [
   {
     id: "ana-savunmam",
     title: "Ana Savunmam — 18 Eylül 2017, İlk Duruşma",
+    document: {
+      href: "/archive/pdf/trial/sahin-alpay-defence-2017-09-18.pdf",
+      label: "Savunmamın İngilizce çevirisi",
+      meta: "PDF, 16 sayfa · yeni sekmede açılır",
+    },
     paragraphs: [
       "18 Eylül 2017'de yapılan ilk duruşmada yaptığım savunmada şunları söyledim:",
       "\"Sayın Başkan, Sayın Üyeler, Sayın Cumhuriyet Savcısı,",
