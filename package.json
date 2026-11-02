@@ -30,10 +30,10 @@
     "find:spots": "node scripts/find-clipping-spots.mjs"
   },
   "dependencies": {
-    "motion": "^14.6.0",
+    "motion": "^14.9.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.4"
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.3",
