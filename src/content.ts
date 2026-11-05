@@ -327,7 +327,6 @@ export const content: Record<Lang, Content> = {
       'Şahin Alpay’s writing archive, memoirs and life story: from Istanbul and Ayvalık to Sweden, journalism and teaching.',
     nav: [
       { key: 'about', label: 'About' },
-      { key: 'photos', label: 'My Story in Photographs', lines: ['My Story', 'in Photographs'] },
       { key: 'columns', label: 'Columns' },
       { key: 'interviews', label: 'Interviews' },
       {
@@ -342,6 +341,7 @@ export const content: Record<Lang, Content> = {
         lines: ['The 15 July', 'Case Against Me'],
       },
       { key: 'press', label: 'About Me In The Press' },
+      { key: 'photos', label: 'My Story in Photographs', lines: ['My Story', 'in Photographs'] },
     ],
     contactLabel: 'Contact',
     themeToggleLabel: 'Toggle light and dark theme',
@@ -578,7 +578,6 @@ export const content: Record<Lang, Content> = {
       'Şahin Alpay’ın yazı arşivi, anı kitapları ve yaşam öyküsü: İstanbul ve Ayvalık’tan İsveç’e, gazeteciliğe ve üniversiteye.',
     nav: [
       { key: 'about', label: 'Kimdir?' },
-      { key: 'photos', label: 'Fotoğraflarla Hikayem', lines: ['Fotoğraflarla', 'Hikayem'] },
       { key: 'columns', label: 'Köşe Yazıları' },
       { key: 'interviews', label: 'Söyleşiler' },
       {
@@ -597,6 +596,7 @@ export const content: Record<Lang, Content> = {
         label: 'Basında Hakkımda Yazılanlar',
         lines: ['Basında Hakkımda', 'Yazılanlar'],
       },
+      { key: 'photos', label: 'Fotoğraflarla Hikayem', lines: ['Fotoğraflarla', 'Hikayem'] },
     ],
     contactLabel: 'İletişim',
     themeToggleLabel: 'Açık ve koyu tema arasında geçiş yap',
