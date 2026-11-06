@@ -33,7 +33,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Journalists: Cautious Democrats',
     date: '1993',
     subtitle:
-      'In Turkey and the West: Changing Political and Cultural Identities (ed. Metin Heper, Ayşe Öncü, Heinz Kramer) — I.B. Tauris, London, 1993, pp. 69-91',
+      'Turkey and the West: Changing Political and Cultural Identities (ed. Metin Heper, Ayşe Öncü, Heinz Kramer) — I.B. Tauris, London, 1993, pp. 69-91',
     sourceNote:
       'This record was supplied citing "Politics in the Third Turkish Republic" (Heper & Evin, Westview, 1994); that book holds no such chapter. The real source was confirmed by a work citing the article (Bilkent University Institutional Repository) and by an independent search, and then by the volume itself, whose chapter 4 opens under Şahin Alpay\'s name. The page images are pp. 69-91 of that volume.',
     tags: ['journalism', 'democracy', 'press', '1993'],
@@ -105,7 +105,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Borders of Europe: A Turkish Perspective',
     date: '2003',
     subtitle:
-      'In Whither Europe? Borders, Boundaries, Frontiers in a Changing World (ed. Rutger Lindahl) — Göteborg University, Göteborg, 2003, pp. 73-82',
+      'Whither Europe? Borders, Boundaries, Frontiers in a Changing World (ed. Rutger Lindahl) — Göteborg University, Göteborg, 2003, pp. 73-82',
     sourceNote: "From Şahin Alpay's own academic publication list. The page images are from Şahin Alpay's archive.",
     tags: ['Europe', 'borders', 'chapter', '2003'],
     clippings: [
@@ -126,7 +126,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Crisis in the Identity Politics of Turkey',
     date: '2005',
     subtitle:
-      'In The Politics of Group Rights: The State and Multiculturalism (ed. Ishtiaq Ahmed) — University Press of America, Lanham, 2005, pp. 101-128',
+      'The Politics of Group Rights: The State and Multiculturalism (ed. Ishtiaq Ahmed) — University Press of America, Lanham, 2005, pp. 101-128',
     sourceNote: "From Şahin Alpay's own academic publication list. The page images are from Şahin Alpay's archive.",
     tags: ['identity politics', 'multiculturalism', 'chapter', '2005'],
     clippings: [
@@ -165,7 +165,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Misconceptions about Secularism, Islam, and Islamism in Turkey',
     date: 'April 2006',
     subtitle:
-      'In Turkey, Sweden and the European Union: Experiences and Expectations — Swedish Institute for European Policy Studies (SIEPS), Stockholm, April 2006, pp. 14-17',
+      'Turkey, Sweden and the European Union: Experiences and Expectations — Swedish Institute for European Policy Studies (SIEPS), Stockholm, April 2006, pp. 14-17',
     url: 'https://sieps.se/en/publications/2006/turkey-sweden-and-the-european-union-experiences-and-expectations/',
     sourceNote:
       "Confirmed against the report's own table of contents and list of contributors, published by SIEPS. The page images are from Şahin Alpay's archive. A Turkish text under the same title, Türkiye’deki Laiklik, İslam ve İslamcılık Hakkında Yanlış Anlayışlar, appeared in 2007 in the Swedish Research Institute's Türkiye, İsveç ve Avrupa Birliği.",
@@ -182,7 +182,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Turkey and Westernisation',
     date: '2007',
     subtitle:
-      'In What is the West?: Perspectives from the Engelsberg Seminar 2007 (ed. Kurt Almqvist) — Axel and Margaret Ax:son Johnson Foundation, Stockholm, 2007, pp. 109-122',
+      'What is the West?: Perspectives from the Engelsberg Seminar 2007 (ed. Kurt Almqvist) — Axel and Margaret Ax:son Johnson Foundation, Stockholm, 2007, pp. 109-122',
     sourceNote:
       "From Şahin Alpay's own academic publication list; the title is spelt as printed in the chapter. The page images are from Şahin Alpay's archive.",
     tags: ['Westernization', 'chapter', '2007'],
@@ -253,7 +253,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'The Declining Soft Power of the EU Regarding Turkey and Its Consequences',
     date: '2009',
     subtitle:
-      'In Perceptions and Misperceptions in the EU and Turkey: Stumbling Blocks on the Road to Accession (ed. Peter M.E. Volten) — Harmonie Papers, Centre for European Security Studies, Groningen, 2009, pp. 157-177',
+      'Perceptions and Misperceptions in the EU and Turkey: Stumbling Blocks on the Road to Accession (ed. Peter M.E. Volten) — Harmonie Papers, Centre for European Security Studies, Groningen, 2009, pp. 157-177',
     sourceNote:
       "From Şahin Alpay's own academic publication list; the editor's name and the last page (177, not 178) were corrected against the chapter itself. The page images are from Şahin Alpay's archive.",
     tags: ['European Union', 'soft power', 'chapter', '2009'],
@@ -331,7 +331,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
       "Two Faces of the Press in Turkey: The Role of the Media in Turkey's Modernisation and Democracy",
     date: '2010',
     subtitle:
-      "In Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, pp. 370-387",
+      "Turkey's Engagement with Modernity: Conflict and Change in the Twentieth Century (ed. Celia Kerslake, Kerem Öktem, Philip Robins) — Palgrave Macmillan, Basingstoke, 2010, pp. 370-387",
     url: 'https://link.springer.com/chapter/10.1057/9780230277397_20',
     sourceNote:
       "Confirmed through Crossref (DOI 10.1057/9780230277397_20). The page images, the whole chapter (pp. 370-387), are from Şahin Alpay's archive.",
@@ -362,7 +362,7 @@ export const enAcademicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Will Turkey Veer Towards Authoritarianism Without the EU Anchor?',
     date: '2011',
     subtitle:
-      'In What Does Turkey Think? (ed. Dimitar Bechev) — European Council on Foreign Relations, London, June 2011, pp. 31-36',
+      'What Does Turkey Think? (ed. Dimitar Bechev) — European Council on Foreign Relations, London, June 2011, pp. 31-36',
     sourceNote: "From Şahin Alpay's own academic publication list. The page images are from Şahin Alpay's archive.",
     tags: ['European Union', 'authoritarianism', 'chapter', '2011'],
     clippings: [
