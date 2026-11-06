@@ -114,7 +114,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '014', width: 1156, height: 1600 }],
     caption:
-      'SBF son sınıfta okurken (1966-67) rahmetli Mahir Çayan\'ın başkanlığını yaptığı sol eğilimli Fikir Kulübü\'nün adayı olarak, tek bir oy farkla Öğrenci Derneği başkanlığına seçildim ve sıkıntılı geçecek bir döneme adım attım. Bu hayli suratsız fotoğrafım başkan olduğum günlerde çekildi.',
+      'SBF son sınıfta okurken (1966-67) rahmetli Mahir Çayan\'ın başkanlığını yaptığı sol eğilimli Fikir Kulübü\'nün adayı olarak, tek bir oy farkla Öğrenci Derneği başkanlığına seçildim ve çetin geçecek bir döneme adım attım. Bu hayli suratsız fotoğrafım başkan olduğum günlerde çekildi.',
   },
   {
     photos: [{ id: '015', width: 1600, height: 1155 }],
@@ -144,7 +144,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '020', width: 1600, height: 1209 }],
     caption:
-      '2024\'te kaybettiğimiz çok değerli sosyal tarihçimiz Prof. Dr. Zafer Toprak ile dostluğumuz 1965\'te SBF Tiyatro Kulübü\'nde başlayıp ömür boyu sürdü. Çanakkale\'de askerlik yaparken manga komutanım olan Zafer\'le fotoğraf çektirmeyi ihmal etmedik.',
+      '2024\'te kaybettiğimiz çok değerli sosyal tarihçimiz Prof. Dr. Zafer Toprak ile dostluğumuz 1965\'te SBF Tiyatro Kulübü\'nde başlayıp ömür boyu sürdü. Çanakkale\'de askerlik yaparken manga komutanım olan Zafer\'le.',
   },
   {
     photos: [{ id: '021', width: 1600, height: 1034 }],
