@@ -284,7 +284,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Toplum Bilimlerinde Öndeyi ve Kehanet',
     date: '1982',
     subtitle:
-      'Karl R. Popper / Bryan Magee’den çeviri, Mete Tunçay’a ek — Karl Popper’in Bilim Felsefesi ve Siyaset Kuramı içinde, Remzi Kitabevi, İstanbul, 1982, s. 135-149',
+      'Bryan Magee / Karl R. Popper’dan çeviri, Mete Tunçay’a ek — Karl Popper’in Bilim Felsefesi ve Siyaset Kuramı içinde, Remzi Kitabevi, İstanbul, 1982, s. 135-149',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['çeviri', 'Karl Popper', '1982'],
     clippings: [
