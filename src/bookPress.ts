@@ -3,8 +3,8 @@
  *
  *  Each entry was given by the owner as a link (2026-11-06). Headline,
  *  author and date are copied from the page's own metadata as read that day;
- *  two pages could not be reached, and their headlines are the owner's,
- *  with no date rather than a guessed one. */
+ *  two pages, blocked from Turkey, could not be read, and their headlines
+ *  and dates are the owner's. */
 
 /** The card's button and the dialog's heading. */
 export const bookPressLabels = {
@@ -33,6 +33,15 @@ export const birHikayemVarPress: BookPressItem[] = [
     url: 'https://www.odatv.com/guncel/ozkok-donekliginden-gurur-duyan-sahin-alpay-ornegini-verip-noktayi-koyuyor-aldatmis-aldatilmis-aydinlar-enkazi-120073324',
   },
   {
+    // The page is blocked from Turkey and could not be read here. The
+    // headline and date are the owner's (2026-11-06).
+    title: 'Dostluklar insanı ayakta tutar!',
+    author: 'Hasan Cemal',
+    outlet: 'T24',
+    date: '2024-11-28',
+    url: 'https://t24.com.tr/yazarlar/hasan-cemal/dostluklar-insani-ayakta-tutar,47423',
+  },
+  {
     title: 'Şahin Alpay’ın anıları',
     author: 'Bilgehan Uçak',
     outlet: 'Yeni Arayış',
@@ -54,8 +63,8 @@ export const birHikayemVarPress: BookPressItem[] = [
     url: 'https://www.karar.com/yazarlar/taha-akyol/sahin-alpay-ne-diyor-1602190',
   },
   {
-    // The page could not be reached from here. The headline is the owner's
-    // (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
+    // The page is blocked from Turkey and could not be read here. The
+    // headline is the owner's (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
     // hikayesi burada ..." and completed from the page's address
     // ("…-burada-bitmez"); the date is also the owner's.
     title: 'Şahin Alpay’ın hikayesi burada bitmez',
@@ -71,13 +80,5 @@ export const birHikayemVarPress: BookPressItem[] = [
     outlet: 'K24',
     date: '2025-10-09',
     url: 'https://www.k24kitap.org/sahin-alpayla-soylesi-liberal-demokratlikta-israrciyim-5386',
-  },
-  {
-    // The page could not be reached from here. The headline is the owner's
-    // (2026-11-06); the date is not known.
-    title: 'Dostluklar insanı ayakta tutar!',
-    author: 'Hasan Cemal',
-    outlet: 'T24',
-    url: 'https://t24.com.tr/yazarlar/hasan-cemal/dostluklar-insani-ayakta-tutar,47423',
   },
 ]
