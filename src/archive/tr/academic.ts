@@ -194,7 +194,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Mukayeseli Açıdan Türkiye’de Laiklik',
     date: '2002',
     subtitle:
-      'Uluslararası Atatürk ve Çağdaş Toplum Sempozyumu (haz. Mürşit Balabanlılar) — Türkiye İş Bankası Kültür Yayınları, İstanbul, 2002, s. 343-368',
+      'Uluslararası Atatürk ve Çağdaş Toplum Sempozyumu (ed. Zafer Toprak) — Türkiye İş Bankası Kültür Yayınları, İstanbul, 2002, s. 343-368',
     sourceNote:
       'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; yayın bilgileri 22 Ekim 2026’da Şahin Alpay’ın bildirdiği künyeye göre güncellenmiştir. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['laiklik', 'bildiri', '2002'],
