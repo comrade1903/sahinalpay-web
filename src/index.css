@@ -3794,3 +3794,18 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* The English rendering of a Turkish title, set beside it on English pages
+   (see components/ItemTitle.tsx). Quieter than the title so the author's own
+   words stay the heading. */
+.title-translation {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+/* In a reader page's headline it takes its own, smaller line, so the title
+   keeps the display size. */
+.section-title .title-translation {
+  display: block;
+  font-size: 0.6em;
+  margin-top: var(--space-1);
+}

@@ -64,6 +64,19 @@ export interface ArchiveItemSeed {
   hidden?: boolean
 }
 
+/** What an English-language page shows for a Turkish record in place of its
+ *  Turkish descriptive text (see archive/english.ts). `title` is the English
+ *  rendering set beside the Turkish title, never instead of it. */
+export interface ArchiveItemEnglish {
+  title?: string
+  subtitle?: string
+  date?: string
+  sourceNote?: string
+  imageCredit?: string
+  outlet?: string
+  clippings?: ArchiveClipping[]
+}
+
 export interface ArchiveItem extends ArchiveItemSeed {
   id: string
   slug: string
@@ -76,6 +89,8 @@ export interface ArchiveItem extends ArchiveItemSeed {
   category: ArchiveCategory
   /** See the note on OutletGroup.medium. */
   medium?: ArchiveMedium | undefined
+  /** Turkish records only: their English view. */
+  en?: ArchiveItemEnglish
 }
 
 export interface OutletGroup {

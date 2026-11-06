@@ -5,7 +5,9 @@ export function archiveItemText(item: ArchiveItem, loadedBody?: string[]): strin
   const body = loadedBody ?? item.body ?? getCachedBody(item)
   return [
     item.title,
+    item.en?.title,
     item.subtitle,
+    item.en?.subtitle,
     item.excerpt,
     item.sourceNote,
     item.imageCredit,

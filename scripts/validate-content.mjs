@@ -55,8 +55,11 @@ const SEED_FIELDS = {
   pieceKind: 'string',
 }
 
-/** Added by normalizeArchiveItems(), plus the fields archive-model derives. */
+/** Added by normalizeArchiveItems(), plus the fields archive-model derives,
+ *  plus `en`, the English view the Turkish chunk attaches (archive/english.ts;
+ *  checked by tests/english-view.test.ts). */
 const DERIVED_FIELDS = new Set([
+  'en',
   'lang',
   'outlet',
   'outletKey',
