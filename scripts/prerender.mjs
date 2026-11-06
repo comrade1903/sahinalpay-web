@@ -499,7 +499,7 @@ for (const item of items) {
   const shown = displayItem(item, pageLang)
   const byline = [shown.outlet, shown.date].filter(Boolean).map(escapeHtml).join(' · ')
   const heading = shown.titleTranslation
-    ? `<span lang="${item.lang}">${escapeHtml(item.title)}</span> [${escapeHtml(shown.titleTranslation)}]`
+    ? `<span lang="${item.lang}">${escapeHtml(item.title)}</span><br>[${escapeHtml(shown.titleTranslation)}]`
     : escapeHtml(item.title)
   const parts = [`<h1>${heading}</h1>`]
   if (byline) parts.push(`<p><small>Şahin Alpay — ${byline}</small></p>`)
