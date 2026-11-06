@@ -1435,6 +1435,12 @@ main:focus {
 .bio-story .container {
   max-width: 72ch;
 }
+/* The About page's life story reads one point larger than the site's body
+   text (owner's request, 2026-11-06); calc keeps the step at one point on
+   the smaller mobile root too. */
+.bio-story-about .prose p {
+  font-size: calc(1rem + 1px);
+}
 .bio-chapter {
   scroll-margin-top: 100px;
 }

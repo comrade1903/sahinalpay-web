@@ -403,7 +403,16 @@ interface NarrativeCopy {
  *  Where some sections are sub-headings (the trial record), the main ones
  *  read as part headings, the jump control lists only those, and the gaps
  *  between sections tighten (`bio-story-parts`). */
-function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
+function NarrativeBody({
+  lang,
+  copy,
+  className,
+}: {
+  lang: Lang
+  copy: NarrativeCopy
+  /** An extra class on the article, for one page's own adjustments. */
+  className?: string
+}) {
   const hasContents = copy.sections.length > 1 && copy.sections.every((section) => section.title)
   const hasParts = copy.sections.some((section) => section.sub)
   const mainSections = copy.sections.filter((section) => !section.sub)
@@ -420,7 +429,10 @@ function NarrativeBody({ lang, copy }: { lang: Lang; copy: NarrativeCopy }) {
         {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
       </NarrativeHeader>
 
-      <article className={hasParts ? 'section bio-story bio-story-parts' : 'section bio-story'} aria-label={copy.kicker}>
+      <article
+        className={['section bio-story', hasParts && 'bio-story-parts', className].filter(Boolean).join(' ')}
+        aria-label={copy.kicker}
+      >
         <div className="container container-narrow prose">
           {copy.sections.map((section) => (
             <section
@@ -468,7 +480,7 @@ function AboutPage({ lang }: { lang: Lang }) {
       url: pageUrl(paths[lang].about!),
     }),
   )
-  return <NarrativeBody lang={lang} copy={t.about} />
+  return <NarrativeBody lang={lang} copy={t.about} className="bio-story-about" />
 }
 
 /** Buy-button copy per retailer, keyed by hostname — pre-formatted so the
