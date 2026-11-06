@@ -137,7 +137,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Sosyal Demokrat Partiler ve Ulusal Azınlıklar Sorunu',
     date: '1992',
     subtitle:
-      'Şahin Alpay ve diğerleri, Sosyal Demokrasi Açısından Kürt Sorunu (dergi) — TÜSES, İstanbul, 1992, s. 1-22',
+      'Şahin Alpay ve diğerleri, Sosyal Demokrasi Açısından Kürt Sorunu — TÜSES, İstanbul, 1992, s. 1-22',
     sourceNote:
       'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; yayın organının dergi olduğu 22 Ekim 2026’da Şahin Alpay’ın bildirdiğine göre düzeltilmiştir. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['Kürt sorunu', 'sosyal demokrasi', 'makale', '1992'],
