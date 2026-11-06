@@ -91,7 +91,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     slug: 'turkiyede-devlet-sivil-toplum-dengesi-1991',
     title: 'Türkiye’de Devlet-Sivil Toplum Dengesi Yeniden Kurulmalı',
     date: '1991',
-    subtitle: 'Sivil Toplum içinde (ed. Yurdakul Fincancı) — TÜSES, İstanbul, 1991, s. 17-26',
+    subtitle: 'Sivil Toplum (ed. Yurdakul Fincancı) — TÜSES, İstanbul, 1991, s. 17-26',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['sivil toplum', 'devlet', 'makale', '1991'],
     clippings: [
@@ -112,7 +112,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Bizde Sosyal Demokrasi Marksizm’den Değil Ona Alternatif Olarak Doğdu',
     date: '1991',
     subtitle:
-      'Resmi Tarih Sivil Arayış / Sosyal Demokratlarda İdeoloji ve Politika içinde — Röportaj: Ruşen Çakır, Hıdır Göktaş, Metis Güncel, İstanbul, Ekim 1991, s. 173-186',
+      'Resmi Tarih Sivil Arayış / Sosyal Demokratlarda İdeoloji ve Politika — Röportaj: Ruşen Çakır, Hıdır Göktaş, Metis Güncel, İstanbul, Ekim 1991, s. 173-186',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['sosyal demokrasi', 'söyleşi', '1991'],
     clippings: [
@@ -171,7 +171,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Kürt Sorunu Nasıl Aşılabilir?',
     date: '1996',
     subtitle:
-      'Seyfettin Gürsel ve diğerleri, Türkiye’nin Kürt Sorunu içinde — TÜSES, İstanbul, 1996, s. 153-164',
+      'Seyfettin Gürsel ve diğerleri, Türkiye’nin Kürt Sorunu — TÜSES, İstanbul, 1996, s. 153-164',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['Kürt sorunu', 'Seyfettin Gürsel', 'makale', '1996'],
     clippings: [
@@ -194,7 +194,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Mukayeseli Açıdan Türkiye’de Laiklik',
     date: '2002',
     subtitle:
-      'Uluslararası Atatürk ve Çağdaş Toplum Sempozyumu içinde (haz. Mürşit Balabanlılar) — Türkiye İş Bankası Kültür Yayınları, İstanbul, 2002, s. 343-368',
+      'Uluslararası Atatürk ve Çağdaş Toplum Sempozyumu (haz. Mürşit Balabanlılar) — Türkiye İş Bankası Kültür Yayınları, İstanbul, 2002, s. 343-368',
     sourceNote:
       'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; yayın bilgileri 22 Ekim 2026’da Şahin Alpay’ın bildirdiği künyeye göre güncellenmiştir. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['laiklik', 'bildiri', '2002'],
@@ -249,7 +249,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     hidden: true,
     date: '2009',
     subtitle:
-      'İletişimde Mükemmellik Programı: Dünya Görüşü içinde — Oger Telecom, İstanbul, Aralık 2009, s. 92-111',
+      'İletişimde Mükemmellik Programı: Dünya Görüşü — Oger Telecom, İstanbul, Aralık 2009, s. 92-111',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
     tags: ['siyaset', 'makale', '2009'],
   },
@@ -284,7 +284,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Toplum Bilimlerinde Öndeyi ve Kehanet',
     date: '1982',
     subtitle:
-      'Bryan Magee / Karl R. Popper’dan çeviri, Mete Tunçay’a ek — Karl Popper’in Bilim Felsefesi ve Siyaset Kuramı içinde, Remzi Kitabevi, İstanbul, 1982, s. 135-149',
+      'Bryan Magee / Karl R. Popper’dan çeviri, Mete Tunçay’a ek — Karl Popper’in Bilim Felsefesi ve Siyaset Kuramı, Remzi Kitabevi, İstanbul, 1982, s. 135-149',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir.',
     tags: ['çeviri', 'Karl Popper', '1982'],
     clippings: [
@@ -443,7 +443,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     hidden: true,
     date: '2003',
     subtitle:
-      'Devlet ve Din İlişkileri - Farklı Modeller, Konseptler ve Tecrübeler Sempozyumu içinde — Konrad Adenauer Vakfı, Ankara, 2003, s. 135-138',
+      'Devlet ve Din İlişkileri - Farklı Modeller, Konseptler ve Tecrübeler Sempozyumu — Konrad Adenauer Vakfı, Ankara, 2003, s. 135-138',
     sourceNote:
       'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır; listede "Türk Moddeli Laikliğin" olarak geçen başlıktaki yazım hatası düzeltilmiştir.',
     tags: ['laiklik', 'bildiri', '2003'],
@@ -453,7 +453,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     title: 'Türkiye’deki Laiklik, İslam ve İslamcılık Hakkında Yanlış Anlayışlar',
     date: '2007',
     subtitle:
-      'Türkiye, İsveç ve Avrupa Birliği: Deneyimler ve Beklentiler içinde — İsveç Araştırma Enstitüsü, İstanbul, 2007, s. 45-52',
+      'Türkiye, İsveç ve Avrupa Birliği: Deneyimler ve Beklentiler — İsveç Araştırma Enstitüsü, İstanbul, 2007, s. 45-52',
     sourceNote:
       'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır. Sayfa görüntüleri Şahin Alpay’ın arşivindendir. Aynı başlıklı İngilizce metin, Misconceptions about Secularism, Islam, and Islamism in Turkey, Nisan 2006’da SIEPS’in (Stockholm) Turkey, Sweden and the European Union: Experiences and Expectations raporunda yayımlanmıştır.',
     tags: ['laiklik', 'İslamcılık', 'makale', '2007'],
@@ -475,7 +475,7 @@ export const academicArticleSeeds: ArchiveItemSeed[] = [
     hidden: true,
     date: '2010',
     subtitle:
-      '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye içinde — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',
+      '23. Türk-Alman Gazetecilik Semineri: Tarihi Miras ve Güncel Beklentiler Arasındaki Türkiye — Konrad Adenauer Stiftung, Ankara, 2010, s. 31-44',
     sourceNote: 'Şahin Alpay’ın kendi akademik yayın listesinden alınmıştır.',
     tags: ['dış politika', 'bildiri', '2010'],
   },
