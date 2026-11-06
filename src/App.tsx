@@ -35,10 +35,10 @@ import { readStoredValue } from './lib/storage'
    existed.
 ------------------------------------------------------------------ */
 /* Source: the same photograph expressioninterrupted.com (P24) publishes
-   at 670×310, supplied by the owner as a 2752×1536 upscale (made with
-   Gemini) and cropped to the 4/5 frame at 960×1200. Replace this file with
-   a larger camera original when one is available; nothing else needs to
-   change. */
+   at 670×310, supplied by the owner on 2026-11-06 as a corrected 1280×770
+   copy, cropped to the 4/5 frame (600×750) and enlarged to 960×1200.
+   Replace this file with a larger camera original when one is available;
+   nothing else needs to change. */
 function Hero({ t, lang }: { t: Content; lang: Lang }) {
   const reduce = useReducedMotion()
   const navigate = useNavigate()
