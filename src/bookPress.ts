@@ -54,22 +54,23 @@ export const birHikayemVarPress: BookPressItem[] = [
     url: 'https://www.karar.com/yazarlar/taha-akyol/sahin-alpay-ne-diyor-1602190',
   },
   {
+    // The page could not be reached from here. The headline is the owner's
+    // (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
+    // hikayesi burada ..." and completed from the page's address
+    // ("…-burada-bitmez"); the date is also the owner's.
+    title: 'Şahin Alpay’ın hikayesi burada bitmez',
+    author: 'H. Agah Kalender',
+    outlet: 'Turkish Post',
+    date: '2025-04-05',
+    url: 'https://www.turkishpost.net/h-agah-kalender-yazdi-i-sahin-alpayin-hikayesi-burada-bitmez/',
+  },
+  {
     // Also listed under Interviews.
     title: 'Şahin Alpay’la söyleşi: “Liberal demokratlıkta ısrarcıyım.”',
     author: 'İştar Gözaydın',
     outlet: 'K24',
     date: '2025-10-09',
     url: 'https://www.k24kitap.org/sahin-alpayla-soylesi-liberal-demokratlikta-israrciyim-5386',
-  },
-  {
-    // The page could not be reached from here. The headline is the owner's
-    // (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
-    // hikayesi burada ..." and completed from the page's address
-    // ("…-burada-bitmez"); the date is not known.
-    title: 'Şahin Alpay’ın hikayesi burada bitmez',
-    author: 'H. Agah Kalender',
-    outlet: 'Turkish Post',
-    url: 'https://www.turkishpost.net/h-agah-kalender-yazdi-i-sahin-alpayin-hikayesi-burada-bitmez/',
   },
   {
     // The page could not be reached from here. The headline is the owner's
