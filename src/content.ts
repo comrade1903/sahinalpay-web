@@ -609,7 +609,7 @@ export const content: Record<Lang, Content> = {
       portraitAlt: 'Şahin Alpay’ın portresi',
     },
     hubTitle: 'Tüm Bölümler',
-    foreignArchiveLabel: 'Yabancı Dilde Yayınlar',
+    foreignArchiveLabel: 'Yabancı Dilde',
     hub: [
       { key: 'columns', title: 'Köşe Yazıları' },
       { key: 'interviews', title: 'Söyleşiler' },
