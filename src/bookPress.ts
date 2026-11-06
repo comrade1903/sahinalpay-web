@@ -3,9 +3,8 @@
  *
  *  Each entry was given by the owner as a link (2026-11-06). Headline,
  *  author and date are copied from the page's own metadata as read that day;
- *  where a page could not be reached, only what its address itself names
- *  (the author and the publication) is shown, and `title`/`date` are left
- *  out rather than guessed. */
+ *  two pages could not be reached, and their headlines are the owner's,
+ *  with no date rather than a guessed one. */
 
 /** The card's button and the dialog's heading. */
 export const bookPressLabels = {
@@ -63,15 +62,19 @@ export const birHikayemVarPress: BookPressItem[] = [
     url: 'https://www.k24kitap.org/sahin-alpayla-soylesi-liberal-demokratlikta-israrciyim-5386',
   },
   {
-    // The page could not be reached on 2026-11-06; author and outlet are
-    // from its address.
+    // The page could not be reached from here. The headline is the owner's
+    // (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
+    // hikayesi burada ..." and completed from the page's address
+    // ("…-burada-bitmez"); the date is not known.
+    title: 'Şahin Alpay’ın hikayesi burada bitmez',
     author: 'H. Agah Kalender',
     outlet: 'Turkish Post',
     url: 'https://www.turkishpost.net/h-agah-kalender-yazdi-i-sahin-alpayin-hikayesi-burada-bitmez/',
   },
   {
-    // The page could not be reached on 2026-11-06; author and outlet are
-    // from its address.
+    // The page could not be reached from here. The headline is the owner's
+    // (2026-11-06); the date is not known.
+    title: 'Dostluklar insanı ayakta tutar!',
     author: 'Hasan Cemal',
     outlet: 'T24',
     url: 'https://t24.com.tr/yazarlar/hasan-cemal/dostluklar-insani-ayakta-tutar,47423',
