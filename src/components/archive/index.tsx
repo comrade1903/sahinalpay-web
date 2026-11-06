@@ -10,6 +10,8 @@ import type {
 } from '../../archive/types'
 import { getCachedBody, loadOutletBodies } from '../../archive/bodyRegistry'
 import { itemScanClippings } from '../../archive/itemUtils'
+import { displayItem } from '../../archive/display'
+import { ItemTitle } from '../ItemTitle'
 import { archiveItemBasePath, archiveLink, mediumLabel, pieceKindLabel } from '../../archive/links'
 import {
   archiveItemKey,
@@ -70,11 +72,12 @@ export function ArchiveRow({
 }) {
   const link = archiveLink(item, lang)
   const from = useListAddress()
-  const preview = item.excerpt ?? item.subtitle
+  const shown = displayItem(item, lang)
+  const preview = shown.excerpt ?? shown.subtitle
   const inner = (
     <>
       <div className="archive-row-meta">
-        {item.date && <span className="archive-row-date">{item.date}</span>}
+        {shown.date && <span className="archive-row-date">{shown.date}</span>}
         {outlet && <span className="archive-row-outlet">{outlet}</span>}
         {item.medium && (
           <span className="archive-row-badge">{mediumLabel(item.medium, lang)}</span>
@@ -91,7 +94,9 @@ export function ArchiveRow({
         ) : null}
       </div>
       <div className="archive-row-body">
-        <h3 className="archive-row-title">{item.title}</h3>
+        <h3 className="archive-row-title">
+          <ItemTitle item={shown} pageLang={lang} />
+        </h3>
         {preview && <p className="archive-row-excerpt">{preview}</p>}
       </div>
       {link && (
@@ -670,7 +675,8 @@ function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
       : lang === 'tr'
         ? 'Yazı'
         : 'Piece'
-  const preview = item.excerpt ?? item.subtitle
+  const shown = displayItem(item, lang)
+  const preview = shown.excerpt ?? shown.subtitle
   const isScan = itemScanClippings(item).length > 0
   const inner = (
     <>
@@ -687,10 +693,12 @@ function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
         )}
       </span>
       <span className="newsstand-toc-row-body">
-        <span className="newsstand-toc-row-title">{item.title}</span>
+        <span className="newsstand-toc-row-title">
+          <ItemTitle item={shown} pageLang={lang} />
+        </span>
         {preview && <span className="newsstand-toc-row-dek">{preview}</span>}
       </span>
-      {item.date && <span className="newsstand-toc-row-date">{item.date}</span>}
+      {shown.date && <span className="newsstand-toc-row-date">{shown.date}</span>}
     </>
   )
   if (link?.internal) {

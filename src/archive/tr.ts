@@ -9,6 +9,7 @@
  */
 import type { LanguageArchive, OutletGroup } from './types'
 import { outletGroup, normalizeArchiveItems } from './utils'
+import { withEnglishView } from './english'
 import { cumhuriyetColumnSeeds } from './tr/columns/cumhuriyet'
 import { milliyetColumnSeeds } from './tr/columns/milliyet'
 import { sabahColumnSeeds } from './tr/columns/sabah'
@@ -20,6 +21,9 @@ import { academicArticleSeeds } from './tr/academic'
 
 /* 'print' columns ran in the physical newspaper; P24 and Medyascope pieces
    are online columns. */
+/* Every Turkish record carries its English view, which the English pages
+   that list it show in place of its Turkish descriptive text (see
+   english.ts). */
 const columns: OutletGroup[] = [
   outletGroup('Cumhuriyet', 'cumhuriyet', 'columns', cumhuriyetColumnSeeds, 'tr', 'print'),
   outletGroup('Sabah', 'sabah', 'columns', sabahColumnSeeds, 'tr', 'print'),
@@ -27,7 +31,7 @@ const columns: OutletGroup[] = [
   outletGroup('Zaman', 'zaman', 'columns', zamanColumnSeeds, 'tr', 'print'),
   outletGroup('P24', 'p24', 'columns', p24ColumnSeeds, 'tr', 'online'),
   outletGroup('Medyascope', 'medyascope', 'columns', medyascopeColumnSeeds, 'tr', 'online'),
-]
+].map((group) => ({ ...group, items: withEnglishView(group.items) }))
 
 /* Forum, Aydınlık/PDA and İşçi Köylü were all removed from the archive at
    the owner's request — Forum and Aydınlık on 2026-09-22 (issue #20), İşçi
@@ -41,18 +45,16 @@ const analyses: OutletGroup[] = []
 export const trArchive: LanguageArchive = {
   columns,
   analyses,
-  interviews: normalizeArchiveItems(
-    'Söyleşiler',
-    'interviews',
-    'interviews',
-    interviewSeeds,
-    'tr',
+  interviews: withEnglishView(
+    normalizeArchiveItems('Söyleşiler', 'interviews', 'interviews', interviewSeeds, 'tr'),
   ),
-  academicArticles: normalizeArchiveItems(
-    'Türkçe ve Yabancı Dilde Makaleler',
-    'academic',
-    'academic',
-    academicArticleSeeds,
-    'tr',
+  academicArticles: withEnglishView(
+    normalizeArchiveItems(
+      'Türkçe ve Yabancı Dilde Makaleler',
+      'academic',
+      'academic',
+      academicArticleSeeds,
+      'tr',
+    ),
   ),
 }

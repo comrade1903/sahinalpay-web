@@ -4,6 +4,7 @@ import { content, type Lang } from '../../content'
 import type { ArchiveClipping, ArchiveItem } from '../../archive/types'
 import type { ArchiveData } from '../../archive/useArchiveData'
 import { getCachedBody, loadArticleBody } from '../../archive/bodyRegistry'
+import { displayItem } from '../../archive/display'
 import { isRetiredSlug, resolveArchiveSlug } from '../../archive/aliases'
 import { MIRRORED_CATEGORIES, archiveBasePath, mediumLabel, pieceKindLabel, readerBasePath } from '../../archive/links'
 import {
@@ -23,6 +24,7 @@ import { ImageLightbox, type LightboxImage } from '../ImageLightbox'
 import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
 import { DeadEnd } from '../DeadEnd'
+import { ItemTitle } from '../ItemTitle'
 import { useArchiveGate } from '../useArchiveGate'
 
 /**
@@ -315,8 +317,12 @@ export function LoadedArticlePage({
     )
   }
 
-  const photos = item.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
-  const scans = item.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
+  /* What the page shows: on an English page a Turkish record's descriptive
+     text is its English view (see archive/display.ts). The head tags,
+     structured data and citation above keep describing the record itself. */
+  const shown = displayItem(item, lang)
+  const photos = shown.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
+  const scans = shown.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
   const shortOpener = !body || !body[0] || body[0].length < 60
   /* A piece that survives only as a scan has no running text on the page: its
      words are inside the clipping. Rendering an empty body column for it left
@@ -335,7 +341,7 @@ export function LoadedArticlePage({
   /* An academic record's outlet is its section's name in the record's own
      language, not a publication, so a mirrored one names the section in the
      page's language instead — the way a mirrored column's back link reads. */
-  const outletLabel = item.category === 'academic' && itemLang !== lang ? sectionNameFor(lang, 'academic') : item.outlet
+  const outletLabel = item.category === 'academic' && itemLang !== lang ? sectionNameFor(lang, 'academic') : shown.outlet
   const sectionLinkLabel = item.category === 'columns' ? t.columns.title : outletLabel
   /* Back to the list the reader came from — the same paper, page and search
      (the list hands its address over in the link's state). Arriving from
@@ -349,7 +355,7 @@ export function LoadedArticlePage({
       : item.category === 'columns' || item.category === 'analyses'
         ? `${sectionPath}?open=${encodeURIComponent(item.outlet)}`
         : sectionPath
-  const clippingCaption = [cover?.pageLabel ?? item.subtitle, outletLabel, item.date]
+  const clippingCaption = [cover?.pageLabel ?? shown.subtitle, outletLabel, shown.date]
     .filter(Boolean)
     .join(' · ')
   const lightboxImages: LightboxImage[] = [
@@ -359,7 +365,7 @@ export function LoadedArticlePage({
       caption: (
         <>
           <strong>{item.title}</strong>
-          {item.imageCredit ? ` · ${item.imageCredit}` : ''}
+          {shown.imageCredit ? ` · ${shown.imageCredit}` : ''}
         </>
       ),
     })),
@@ -461,25 +467,28 @@ export function LoadedArticlePage({
             )}
             <CiteThis item={item} articleUrl={articleUrl} lang={lang} />
           </div>
-          <h1 className="section-title" {...textLang}>
-            {item.title}
+          <h1 className="section-title" {...(shown.titleTranslation ? {} : textLang)}>
+            <ItemTitle item={shown} pageLang={lang} />
           </h1>
-          {item.subtitle && (
-            <p className="article-subtitle" {...textLang}>
-              {item.subtitle}
+          {shown.subtitle && (
+            <p
+              className="article-subtitle"
+              {...(shown.subtitle === item.subtitle ? textLang : {})}
+            >
+              {shown.subtitle}
             </p>
           )}
           <div className="article-byline">
             <AuthorAvatar className="article-byline-avatar" />
             <span className="article-byline-text">
               <span className="article-byline-name">Şahin Alpay</span>
-              {item.date && (
+              {shown.date && (
                 <>
                   <time
                     className="article-byline-date"
                     {...(articleDateIso ? { dateTime: articleDateIso } : {})}
                   >
-                    {item.date}
+                    {shown.date}
                   </time>
                   {outletLabel ? ' · ' : ''}
                 </>
@@ -633,7 +642,7 @@ export function LoadedArticlePage({
                 </button>
               )}
               <figcaption>
-                {cover.pageLabel ?? item.subtitle}
+                {cover.pageLabel ?? shown.subtitle}
                 {item.pdfPageCount
                   ? ` · ${item.pdfPageCount} ${content[lang].clippingViewer.pagesSuffix}`
                   : ''}
@@ -641,10 +650,10 @@ export function LoadedArticlePage({
             </figure>
           </Reveal>
         )}
-        {item.imageCredit && (
-          <p className="article-image-credit">{item.imageCredit}</p>
+        {shown.imageCredit && (
+          <p className="article-image-credit">{shown.imageCredit}</p>
         )}
-        {item.sourceNote && <p className="article-image-credit">{item.sourceNote}</p>}
+        {shown.sourceNote && <p className="article-image-credit">{shown.sourceNote}</p>}
         {(item.url || item.archiveUrl) && (
           <p className="article-source">
             {item.url && (

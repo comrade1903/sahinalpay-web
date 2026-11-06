@@ -59,6 +59,9 @@ const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mj
 const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
 const photoStory = await loadModule('src/photoStory.ts', 'photo-story-prerender.mjs')
 const query = await loadModule('src/archive/query.ts', 'query-prerender.mjs')
+/* What a page in a given language shows for a record — on an English page a
+   Turkish record's English view (see src/archive/display.ts). */
+const { displayItem } = await loadModule('src/archive/display.ts', 'display-prerender.mjs')
 const { content } = contentModule
 const { paths } = routes
 
@@ -477,7 +480,6 @@ let mirrored = 0
 for (const item of items) {
   if (!item.internal) continue
   const lang = item.lang
-  const t = content[lang]
   const title = `${item.title} — Şahin Alpay`
   const description = item.subtitle ?? item.excerpt ?? item.title
 
@@ -489,18 +491,29 @@ for (const item of items) {
     process.exit(1)
   }
 
-  const byline = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ')
-  const parts = [`<h1>${escapeHtml(item.title)}</h1>`]
+  /* The fallback text as a page in `pageLang` shows the piece: its own
+     language on its own page, the English view on the English mirror of a
+     Turkish record. */
+  const articleParts = async (pageLang) => {
+  const t = content[pageLang]
+  const shown = displayItem(item, pageLang)
+  const byline = [shown.outlet, shown.date].filter(Boolean).map(escapeHtml).join(' · ')
+  const heading = shown.titleTranslation
+    ? `<span lang="${item.lang}">${escapeHtml(item.title)}</span> [${escapeHtml(shown.titleTranslation)}]`
+    : escapeHtml(item.title)
+  const parts = [`<h1>${heading}</h1>`]
   if (byline) parts.push(`<p><small>Şahin Alpay — ${byline}</small></p>`)
-  if (item.subtitle) parts.push(`<p><em>${escapeHtml(item.subtitle)}</em></p>`)
+  if (shown.subtitle) parts.push(`<p><em>${escapeHtml(shown.subtitle)}</em></p>`)
   if (item.excerpt) parts.push(`<p><em>${escapeHtml(item.excerpt)}</em></p>`)
   if (body?.length) {
-    parts.push(body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join(''))
+    parts.push(
+      `<div lang="${item.lang}">${body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`,
+    )
   }
 
   /* Scans are the only form some pieces exist in, so the fallback links the
      page images directly rather than describing a viewer it cannot run. */
-  const scans = (item.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
+  const scans = (shown.clippings ?? []).filter((clipping) => clipping.kind !== 'photo')
   if (scans.length) {
     parts.push(
       `<h2>${escapeHtml(
@@ -523,12 +536,15 @@ for (const item of items) {
   if (item.url) {
     parts.push(`<p><a href="${escapeHtml(item.url)}" rel="noreferrer">${escapeHtml(item.url)}</a></p>`)
   }
-  if (item.sourceNote) parts.push(`<p><small>${escapeHtml(item.sourceNote)}</small></p>`)
+  if (shown.sourceNote) parts.push(`<p><small>${escapeHtml(shown.sourceNote)}</small></p>`)
   parts.push(
-    `<p><a href="${escapeHtml(await sectionPath(item.category, lang))}">${escapeHtml(
+    `<p><a href="${escapeHtml(await sectionPath(item.category, pageLang))}">${escapeHtml(
       t.notFound.browseArchive,
     )}</a></p>`,
   )
+  return parts.join('')
+  }
+  const parts = await articleParts(lang)
 
   const head = headBlock({
     title,
@@ -545,7 +561,7 @@ for (const item of items) {
     sectionUrl: url(await sectionPath(item.category, lang)),
     sectionName: schema.sectionNameFor(lang, item.category),
   })
-  writePage(item.route, { lang, head, jsonLd, noscript: noscriptBlock(lang, parts.join('')) })
+  writePage(item.route, { lang, head, jsonLd, noscript: noscriptBlock(lang, parts) })
 
   /* A column, interview or academic article also reads under the other language's path
      for its section, so opening it from that language's mixed list does not
@@ -561,7 +577,12 @@ for (const item of items) {
       lang: pageLang,
       head,
       jsonLd,
-      noscript: noscriptBlock(pageLang, `<div lang="${lang}">${parts.join('')}</div>`),
+      /* An English record has no Turkish view; on its Turkish mirror the
+         fallback text stays English and says so. */
+      noscript: noscriptBlock(
+        pageLang,
+        item.lang === 'tr' ? await articleParts(pageLang) : `<div lang="${lang}">${await articleParts(pageLang)}</div>`,
+      ),
     })
     mirrored += 1
   }
