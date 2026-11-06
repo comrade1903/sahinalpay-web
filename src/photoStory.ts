@@ -159,7 +159,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
   {
     photos: [{ id: '023', width: 1042, height: 1600 }],
     caption:
-      'Solcu geçmişim nedeniyle üniversitelerde iş bulamayınca, SBF ve devrimcilikten arkadaşım Hasan Cemal\'i beni yakınlarda genel yayın müdürü atandığı *Cumhuriyet* gazetesinde (sonradan buna çok pişman olsa da) işe almaya ikna ettim. 1982-91 arası yılların çoğunda (benden hiç hoşlanmayan kıdemli köşe yazarlarının gözlerinden uzak olmam için özel olarak yaptırılan) gazete arşivindeki dar bölmede çalıştım.',
+      'Solcu geçmişim nedeniyle üniversitelerde iş bulamayınca, SBF ve devrimcilikten arkadaşım Hasan Cemal\'i beni yakınlarda genel yayın müdürü atandığı *Cumhuriyet* gazetesinde (sonradan buna çok pişman olsa da) işe almaya ikna ettim. 1982-91 arası yılların çoğunda (liberal görüşlerim nedeniyle benden hiç hoşlanmayan kıdemli köşe yazarlarının gözlerinden uzak olmam için özel olarak yaptırılan) gazete arşivindeki dar bölmede çalıştım.',
   },
   {
     photos: [{ id: '024', width: 1600, height: 1060 }],
