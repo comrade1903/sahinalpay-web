@@ -35,6 +35,7 @@ import coverDspShp from './assets/covers/dsp-shp.jpg'
 import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import coverPiyasaEkonomisi from './assets/covers/piyasa-ekonomisi-ve-demokrasi.jpg'
 import { trialProcessSections, type NarrativeDocument } from './trialProcess'
+import { birHikayemVarPress, type BookPressItem } from './bookPress'
 
 export type Lang = 'en' | 'tr'
 
@@ -51,6 +52,8 @@ export interface Book {
   /** The book's own foreword or summaries, each opened in a dialog from its
    *  card; the reader's own language comes first. */
   forewords?: BookForeword[]
+  /** What others wrote about the book, listed in a dialog from its card. */
+  press?: BookPressItem[]
 }
 
 export interface BooksSection {
@@ -218,6 +221,7 @@ const BOOKS: Record<Lang, Book[]> = {
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
       forewords: [birHikayemVarForeword],
+      press: birHikayemVarPress,
     },
     {
       year: '2003',
@@ -276,6 +280,7 @@ const BOOKS: Record<Lang, Book[]> = {
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
       forewords: [birHikayemVarForeword],
+      press: birHikayemVarPress,
     },
     {
       year: '2003',

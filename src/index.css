@@ -1797,6 +1797,45 @@ html:has(.foreword-dialog[open]) {
 .foreword-body li + li {
   margin-top: var(--space-1);
 }
+/* What others wrote about a book: one link per piece, headline above its
+   byline, in the foreword sheet. */
+/* Scoped under .foreword-body to outrank the sheet's own bulleted lists. */
+.foreword-body .book-press-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.book-press-item:first-child a {
+  padding-top: 0;
+}
+.book-press-item + .book-press-item {
+  border-top: 1px solid var(--line);
+}
+.book-press-item a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--space-2) 0;
+  color: inherit;
+  text-decoration: none;
+}
+.book-press-title {
+  font-family: var(--headline);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+  transition: color 0.2s var(--ease-out);
+}
+.book-press-item a:hover .book-press-title,
+.book-press-item a:focus-visible .book-press-title {
+  color: var(--accent-ink);
+  text-decoration: underline;
+}
+.book-press-meta {
+  font-family: var(--label);
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+}
 @media (max-width: 559px) {
   .foreword-head {
     padding: var(--space-2);

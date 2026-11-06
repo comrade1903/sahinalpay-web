@@ -20,6 +20,8 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
 import { BookForewordDialog } from './components/BookForewordDialog'
+import { BookPressDialog } from './components/BookPressDialog'
+import { bookPressLabels } from './bookPress'
 import { PhotoStoryPage } from './components/PhotoStoryPage'
 import { paths, langForPath, type PageKey } from './routes'
 import { pageAlternates, pageUrl, usePageMeta, useJsonLd } from './lib/seo'
@@ -510,6 +512,7 @@ function buyButtonLabel(url: string, lang: Lang): string {
 function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
   const [openForeword, setOpenForeword] = useState<{ book: Book; foreword: BookForeword } | null>(null)
+  const [openPress, setOpenPress] = useState<Book | null>(null)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -591,6 +594,23 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                         </span>
                       </button>
                     ))}
+                    {b.press && b.press.length > 0 && (
+                      <button
+                        type="button"
+                        className="book-buy book-foreword-open"
+                        aria-haspopup="dialog"
+                        onClick={() => setOpenPress(b)}
+                      >
+                        {bookPressLabels[lang].open}
+                        <span
+                          className="material-symbols-outlined"
+                          aria-hidden="true"
+                          style={{ fontSize: 'var(--icon-sm)' }}
+                        >
+                          menu_book
+                        </span>
+                      </button>
+                    )}
                     {b.purchaseUrl && (
                       <a
                         className="book-buy"
@@ -619,6 +639,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
         </Reveal>
       </div>
       <BookForewordDialog open={openForeword} lang={lang} onClose={() => setOpenForeword(null)} />
+      <BookPressDialog book={openPress} lang={lang} onClose={() => setOpenPress(null)} />
     </section>
   )
 }
