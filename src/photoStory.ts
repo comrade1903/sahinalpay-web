@@ -178,14 +178,14 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '019', width: 1600, height: 1205 }],
     caption: {
       tr: '1974 yılında çıkarılan siyasi af ile yurda dönüp askerlik yapmam mümkün oldu. 1975 yazında Çanakkale 116. Er Eğitim Alayı\'nda, çoğu SBF ve Robert Lisesi\'nden arkadaş ve tanıdıklarla birlikte, tam olarak yetmiş (70) gün askerlik yaptıktan sonra yedek subay olarak terhis olduk. Birlikte çeşitli maceralar yaşadığım yakın arkadaşlarım Ömer Madra ve Cengiz Çandar ile askerlik hatırası fotoğrafı çektirmeyi ihmal etmedik.',
-      en: 'The political amnesty proclaimed in 1974 made it possible for me to return to Turkey and complete my military service. In the summer of 1975, at the 116th Recruit Training Regiment in Çanakkale, I served alongside friends and acquaintances, most of them from SBF and Robert Academy. We served exactly seventy (70) days before being discharged as reserve officers. My close friends Ömer Madra and Cengiz Çandar, with whom I had shared many adventures, and I made sure to have a commemorative photograph taken during our service.',
+      en: 'The political amnesty proclaimed in 1974 made it possible for me to return to Turkey and complete my military service. In the summer of 1975, at the 116th Recruit Training Regiment in Çanakkale, I served alongside friends and acquaintances, most of them from SBF and Robert Academy. We served exactly seventy (70) days before being discharged as reserve officers. My close friends Ömer Madra and Cengiz Çandar, with whom I had shared many adventures, and I made sure to have a commemorative photograph taken during military service.',
     },
   },
   {
     photos: [{ id: '020', width: 1600, height: 1209 }],
     caption: {
       tr: '2024\'te kaybettiğimiz çok değerli sosyal tarihçimiz Prof. Dr. Zafer Toprak ile dostluğumuz 1965\'te SBF Tiyatro Kulübü\'nde başlayıp ömür boyu sürdü. Çanakkale\'de askerlik yaparken manga komutanım olan Zafer\'le.',
-      en: 'My friendship with Professor Zafer Toprak, our distinguished social historian, whom we lost in 2024, began in 1965 at the SBF Theatre Club and lasted a lifetime. Here I am with Zafer, who was my squad commander during our military service in Çanakkale.',
+      en: 'My friendship with Professor Zafer Toprak, our distinguished social historian, whom we lost in 2024, began in 1965 at the SBF Theatre Club and lasted a lifetime. Here I am with Zafer, who was my squad commander during military service in Çanakkale.',
     },
   },
   {
