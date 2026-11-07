@@ -87,7 +87,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '006', width: 1600, height: 1185 }],
     caption: {
       tr: 'Liseyi Bebek\'teki Robert Kolej\'de okudum. İkinci sınıfta American Field Service bursuyla ABD\'ye gittim ve 1961-62 ders yılında son sınıfına devam ettiğim Webb School of California\'dan mezun oldum. Yıl boyunca okulun öğrenci işleri müdürü Gordon A. Wilson ve ailesine konuk oldum. O günlerde, ailenin okulun bulunduğu Claremont\'taki kışlık evinde çekilen fotoğrafta (soldan sağa) Jackie, Gordon C., Mollie ve Gordon A. Wilson, ben, küçük Barbara, Betty ve Tom.',
-      en: 'I attended high school at Robert College in Bebek. In my second year, I went to the United States on an American Field Service scholarship and graduated from the Webb School of California, where I spent my final year of high school, 1961–62. Throughout that year, I stayed with the family of the school’s dean of students, Gordon A. Wilson. This photograph was taken at the family’s winter home in Claremont, where the school was located. From left to right: Jackie, Gordon C., Mollie, Gordon A. Wilson, me, little Barbara, Betty, and Tom.',
+      en: 'I attended high school at Robert Academy in Bebek. In my second year, I went to the United States on an American Field Service scholarship and graduated from the Webb School of California, where I spent my final year of high school, 1961–62. Throughout that year, I stayed with the family of the school’s dean of students, Gordon A. Wilson. This photograph was taken at the family’s winter home in Claremont, where the school was located. From left to right: Jackie, Gordon C., Mollie, Gordon A. Wilson, me, little Barbara, Betty, and Tom.',
     },
   },
   {
@@ -108,21 +108,21 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '009', width: 1600, height: 1155 }],
     caption: {
       tr: 'Robert Lisesi\'nde son sınıfı okurken Öğrenci Konseyi (Student Council) başkan yardımcısı seçildim. Başkan, ileride Türkiye\'nin en başarılı iş adamlarından biri olacak Hüsnü Özyeğin\'di. Konsey toplantılarından birinde çekilen bu fotoğrafta (baştaki sırada, soldan sağa) ABD\'de okuyup dünyanın en önemli beyin cerrahlarından biri olacak Marsel Meşulam, (yüzünü eliyle örten) ünlü romatizma uzmanı Hasan Yazıcı, Özyeğin, ben, Ali Nun ve tanınmış bir iktisatçı olacak Reşat Kayalı görülüyor.',
-      en: 'In my final year of high school at Robert College, I was elected vice-president of the Student Council. Its president was Hüsnü Özyeğin, who would go on to become one of Turkey’s most successful businessmen. This photograph was taken at one of the Council’s meetings. In the front row, from left to right, are Marsel Meşulam, who would study in the United States and become one of the world’s leading neurosurgeons; the renowned rheumatologist Hasan Yazıcı (covering his face with his hand); Özyeğin; me; Ali Nun; and Reşat Kayalı, who would become a well-known economist.',
+      en: 'In my final year at Robert Academy, I was elected vice-president of the Student Council. Its president was Hüsnü Özyeğin, who would go on to become one of Turkey’s most successful businessmen. This photograph was taken at one of the Council’s meetings. In the front row, from left to right, are Marsel Meşulam, who would study in the United States and become one of the world’s leading neurosurgeons; the renowned rheumatologist Hasan Yazıcı (covering his face with his hand); Özyeğin; me; Ali Nun; and Reşat Kayalı, who would become a well-known economist.',
     },
   },
   {
     photos: [{ id: '010', width: 1122, height: 1600 }],
     caption: {
       tr: 'Haziran 1963\'te Robert Lisesi\'nden mezun olduğumda okul yıllığı *Reflections \'63* için çekilen fotoğrafım.',
-      en: 'My photograph for the school yearbook, *Reflections ’63*, taken when I graduated from Robert College high school in June 1963.',
+      en: 'My photograph for the school yearbook, *Reflections ’63*, taken when I graduated from Robert Academy in June 1963.',
     },
   },
   {
     photos: [{ id: '011', width: 1600, height: 1095 }],
     caption: {
       tr: 'Yüksek öğrenimi 1963-67 arasında Ankara Üniversitesi Siyasal Bilgiler Fakültesi\'nde (SBF) yaptım ve sorunlu geçecek yıllara adım attım. Beni dört yıllık tam bursunu kazandığım New York\'taki Columbia Üniversitesi\'nde değil de SBF\'de okumaya ikna eden Robert Kolej\'den ömür boyu arkadaşım Nuri Çolakoğlu ile 1964 yazında Ayvalık\'tayız.',
-      en: 'I studied at Ankara University’s Faculty of Political Sciences (SBF) from 1963 to 1967, entering what would prove to be turbulent years. Here I am in Ayvalık in the summer of 1964 with my lifelong friend from Robert College, Nuri Çolakoğlu, who persuaded me to study at SBF rather than attend Columbia University in New York, where I had been awarded a full four-year scholarship.',
+      en: 'I studied at Ankara University’s Faculty of Political Sciences (SBF) from 1963 to 1967, entering what would prove to be turbulent years. Here I am in Ayvalık in the summer of 1964 with my lifelong friend from Robert Academy, Nuri Çolakoğlu, who persuaded me to study at SBF rather than attend Columbia University in New York, where I had been awarded a full four-year scholarship.',
     },
   },
   {
@@ -178,7 +178,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '019', width: 1600, height: 1205 }],
     caption: {
       tr: '1974 yılında çıkarılan siyasi af ile yurda dönüp askerlik yapmam mümkün oldu. 1975 yazında Çanakkale 116. Er Eğitim Alayı\'nda, çoğu SBF ve Robert Lisesi\'nden arkadaş ve tanıdıklarla birlikte, tam olarak yetmiş (70) gün askerlik yaptıktan sonra yedek subay olarak terhis olduk. Birlikte çeşitli maceralar yaşadığım yakın arkadaşlarım Ömer Madra ve Cengiz Çandar ile askerlik hatırası fotoğrafı çektirmeyi ihmal etmedik.',
-      en: 'The political amnesty of 1974 made it possible for me to return to Turkey and complete my military service. In the summer of 1975, at the 116th Recruit Training Regiment in Çanakkale, I served alongside friends and acquaintances, most of them from SBF and Robert College. We served exactly seventy (70) days before being discharged as reserve officers. My close friends Ömer Madra and Cengiz Çandar, with whom I had shared many adventures, and I made sure to have a commemorative photograph taken during our service.',
+      en: 'The political amnesty of 1974 made it possible for me to return to Turkey and complete my military service. In the summer of 1975, at the 116th Recruit Training Regiment in Çanakkale, I served alongside friends and acquaintances, most of them from SBF and Robert Academy. We served exactly seventy (70) days before being discharged as reserve officers. My close friends Ömer Madra and Cengiz Çandar, with whom I had shared many adventures, and I made sure to have a commemorative photograph taken during our service.',
     },
   },
   {
@@ -295,14 +295,14 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '035', width: 1600, height: 1189 }],
     caption: {
       tr: 'Robert Lisesi\'nden 1963\'te mezun olan sınıfın bir şansı da Öğrenci Konseyi başkanımız Hüsnü Özyeğin\'in giderek ülkenin en başarılı işadamlarından biri olmasıdır. Hüsnü\'nün yıllık sınıf davetlerinden birinde, 2005\'ten beri sahibi olduğu Swissotel\'in bahçesindeyiz.',
-      en: 'One stroke of good fortune for the Robert College class of 1963 was that our Student Council president, Hüsnü Özyeğin, went on to become one of the country’s most successful businessmen. Here we are at one of Hüsnü’s annual class reunions, held in the garden of the Swissôtel, which he has owned since 2005.',
+      en: 'One stroke of good fortune for the Robert Academy class of 1963 was that our Student Council president, Hüsnü Özyeğin, went on to become one of the country’s most successful businessmen. Here we are at one of Hüsnü’s annual class reunions, held in the garden of the Swissôtel, which he has owned since 2005.',
     },
   },
   {
     photos: [{ id: '036', width: 1600, height: 1063 }],
     caption: {
       tr: 'Robert Lisesi\'nde ömür boyu sürecek dostluklar edindim. 2020\'lerdeki bir sınıf buluşmasında çekilen bu fotoğrafta çok sevdiğim sınıf arkadaşlarım (soldan sağa) Mehmet Araslı, Kemal Dülger, (büyük iyiliklerini gördüğüm, tanınmış tıp profesörü) Hasan Yazıcı ve (kısmen görünen, Boğaziçi Üniversitesi fizik profesörü) Haluk Beker ile birlikteyiz. Ne yazık ki Hasan ve benim dışımdakiler son birkaç yıl içinde rahmetli oldular. Nur içinde yatsınlar.',
-      en: 'At Robert College, I formed friendships that would last a lifetime. In this photograph, taken at a class reunion in the 2020s, I am with my dear classmates. From left to right: Mehmet Araslı, Kemal Dülger, Hasan Yazıcı (the renowned professor of medicine, to whom I owe so much), and Haluk Beker (partly visible, professor of physics at Boğaziçi University). Sadly, all of them except Hasan and me have passed away in recent years. May they rest in peace.',
+      en: 'At Robert Academy, I formed friendships that would last a lifetime. In this photograph, taken at a class reunion in the 2020s, I am with my dear classmates. From left to right: Mehmet Araslı, Kemal Dülger, Hasan Yazıcı (the renowned professor of medicine, to whom I owe so much), and Haluk Beker (partly visible, professor of physics at Boğaziçi University). Sadly, all of them except Hasan and me have passed away in recent years. May they rest in peace.',
     },
   },
   {
