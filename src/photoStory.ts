@@ -73,7 +73,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '004', width: 1146, height: 1600 }],
     caption: {
       tr: 'Fatma 14 Şubat 1944\'te, Şahin 18 Nisan 1944\'te İstanbul\'da dünyaya geldikten sonra, Fatma\'nın babası Mustafa Lütfi Kaptan\'ın inşa ettirdiği Ayvalık\'ın ilk üç katlı apartmanının çatısı altında buluştular: Ev sahibi Kaptanlar üst katta oturuyordu, Alpaylar orta kattaki kiracılarıydı. Denebilir ki, Fatma\'yla hikayemiz orada başladı.',
-      en: 'Fatma was born in Istanbul on 14 February 1944, and I was born on 18 April of the same year. We met in Ayvalık’s first three-storey apartment building, built by Fatma’s father, Mustafa Lütfi Kaptan. The Kaptan family, who owned the building, lived on the top floor, while the Alpays were their tenants on the middle floor. You could say that Fatma’s and my story began there.',
+      en: 'Fatma was born in Istanbul on 14 February 1944, and I on 18 April of the same year. We met in Ayvalık’s first three-storey apartment building, built by Fatma’s father, Mustafa Lütfi Kaptan. The Kaptan family, who owned the building, lived on the top floor, while the Alpays were their tenants on the middle floor. You could say that Fatma’s and my story began there.',
     },
   },
   {
