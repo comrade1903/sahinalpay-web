@@ -59,7 +59,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '002', width: 1101, height: 1600 }],
     caption: {
       tr: 'Sumru ablam benim için yarı-anneydi. 9 Aralık 1950\'de, çok sevdiğim Özbek (Cömert) eniştemle evlendikleri gün birlikte çekilen fotoğrafımız. (Bir tek o gün frak giyip papyon taktım.)',
-      en: 'My sister Sumru was like a second mother to me. This photograph of the two of us was taken on 9 December 1950, the day she married my much-loved brother-in-law Özbek (Cömert). (It was the only day in my life that I ever wore a tailcoat and bow tie.)',
+      en: 'My sister Sumru was like a second mother to me. This photograph was taken on 9 December 1950, the day she married my much-loved brother-in-law Özbek (Cömert). (It was the only day in my life that I ever wore a tailcoat and bow tie.)',
     },
   },
   {
