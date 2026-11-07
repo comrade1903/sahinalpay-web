@@ -52,7 +52,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '001', width: 1600, height: 1199 }],
     caption: {
       tr: '1945\'te, ben bir yaşımdayken çekilen aile fotoğrafımız: (soldan sağa) annem Sabiha, büyük ablam Sumru, ben, ablam Olcay, babam Ahmet, ağabeyim Acar.',
-      en: 'Our family photograph, taken in 1945, when I was one year old. From left to right: my mother Sabiha, my eldest sister Sumru, me, my sister Olcay, my father Ahmet, and my brother Acar.',
+      en: 'Our family photograph, taken in 1945, when I was one year old. From left to right: my mother Sabiha, my elder sister Sumru, me, my sister Olcay, my father Ahmet, and my brother Acar.',
     },
   },
   {
