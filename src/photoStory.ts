@@ -281,35 +281,35 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     ],
     caption: {
       tr: 'Bahçeşehir Üniversitesi\'nde tam zaman öğretim üyeliği yaparken, Kasım 2002\'den itibaren kapatılacağı 2016 yılına kadar *Zaman* gazetesinde haftada üç gün köşe yazdım. 15 Temmuz darbe girişimi üzerine "terör örgütü üyesi olduğum" iddiasıyla tutuklandım ve Mart 2018\'e kadar Silivri cezaevine konuk oldum. Savcılık hakkımda üç kez ağırlaştırılmış ömür boyu hapis cezası istediyse de yargılama sonunda 2022\'de "üye olmamakla beraber terör örgütüne destek verdiğim" gerekçesiyle 2,5 yıl hapse mahkum oldum. Avukatım Aynur Tuncel Yazgan\'ın temyiz ettiği karar halen Yargıtay\'da beklemekte. Fotoğrafta değerli avukatımla birlikte görülüyoruz.',
-      en: 'While teaching full-time at Bahçeşehir University, I wrote a column three days a week for the newspaper *Zaman* from November 2002 until it was shut down in 2016. After the 15 July coup attempt, I was arrested on the allegation that I was “a member of a terrorist organisation” and remained a “guest” of Silivri Prison until March 2018. Although the prosecution sought three aggravated life sentences, at the end of the trial in 2022 I was sentenced to two and a half years in prison on the grounds that, “while not a member”, I had “supported a terrorist organisation”. My appeal against the verdict, lodged by my lawyer Aynur Tuncel Yazgan, is still pending before the Court of Cassation. In this photograph I am with my esteemed lawyer.',
+      en: 'While teaching full-time at Bahçeşehir University, I wrote a column three times a week for *Zaman* from November 2002 until the newspaper was shut down in 2016. Following the attempted coup of 15 July 2016, I was arrested on the allegation that I was “a member of a terrorist organisation” and remained a “guest” of Silivri Prison until March 2018. Although the prosecution sought three aggravated life sentences, at the conclusion of my trial in 2022 I was sentenced to two and a half years in prison on the grounds that, while not a member of a terrorist organisation, I had supported one. My lawyer, Aynur Tuncel Yazgan, appealed the verdict. The appeal is still pending before the Court of Cassation. In this photograph, I am pictured with my esteemed lawyer.',
     },
   },
   {
     photos: [{ id: '034', width: 1600, height: 1200 }],
     caption: {
       tr: '"Terör örgütü üyesi" olduğum iddiasıyla yargılanmam boyunca, gerek yazarak gerekse duruşmalarda yalnız bırakmayarak desteğini esirgemeyen, değerli ve kıdemli meslektaş ve dostum Hasan Cemal ile mahkeme koridorlarındayız.',
-      en: 'In the court corridors with my esteemed senior colleague and friend Hasan Cemal, who, throughout my trial on the allegation that I was a “member of a terrorist organisation”, never withheld his support, both in his writing and by standing by me at the hearings.',
+      en: 'In the courthouse corridors with my esteemed senior colleague and friend Hasan Cemal, who never wavered in his support throughout my trial on the allegation that I was a “member of a terrorist organisation”. He stood by me both through his writing and by attending the hearings.',
     },
   },
   {
     photos: [{ id: '035', width: 1600, height: 1189 }],
     caption: {
       tr: 'Robert Lisesi\'nden 1963\'te mezun olan sınıfın bir şansı da Öğrenci Konseyi başkanımız Hüsnü Özyeğin\'in giderek ülkenin en başarılı işadamlarından biri olmasıdır. Hüsnü\'nün yıllık sınıf davetlerinden birinde, 2005\'ten beri sahibi olduğu Swissotel\'in bahçesindeyiz.',
-      en: 'One stroke of luck for the Robert College class of 1963 is that our Student Council president, Hüsnü Özyeğin, went on to become one of the country’s most successful businessmen. Here we are at one of Hüsnü’s annual class receptions, in the garden of the Swissotel, which he has owned since 2005.',
+      en: 'One stroke of good fortune for the Robert College class of 1963 was that our Student Council president, Hüsnü Özyeğin, went on to become one of the country’s most successful businessmen. Here we are at one of Hüsnü’s annual class reunions, held in the garden of the Swissôtel, which he has owned since 2005.',
     },
   },
   {
     photos: [{ id: '036', width: 1600, height: 1063 }],
     caption: {
       tr: 'Robert Lisesi\'nde ömür boyu sürecek dostluklar edindim. 2020\'lerdeki bir sınıf buluşmasında çekilen bu fotoğrafta çok sevdiğim sınıf arkadaşlarım (soldan sağa) Mehmet Araslı, Kemal Dülger, (büyük iyiliklerini gördüğüm, tanınmış tıp profesörü) Hasan Yazıcı ve (kısmen görünen, Boğaziçi Üniversitesi fizik profesörü) Haluk Beker ile birlikteyiz. Ne yazık ki Hasan ve benim dışımdakiler son birkaç yıl içinde rahmetli oldular. Nur içinde yatsınlar.',
-      en: 'At Robert College I made friendships that would last a lifetime. In this photograph, taken at a class reunion in the 2020s, I am with my dear classmates, from left to right, Mehmet Araslı, Kemal Dülger, Hasan Yazıcı (the renowned professor of medicine, to whom I owe great kindnesses) and Haluk Beker (partly visible, professor of physics at Boğaziçi University). Sadly, all of them except Hasan and me have passed away in the last few years. May they rest in peace.',
+      en: 'At Robert College, I formed friendships that would last a lifetime. In this photograph, taken at a class reunion in the 2020s, I am with my dear classmates. From left to right: Mehmet Araslı, Kemal Dülger, Hasan Yazıcı (the renowned professor of medicine, to whom I owe so much), and Haluk Beker (partly visible, professor of physics at Boğaziçi University). Sadly, all of them except Hasan and me have passed away in recent years. May they rest in peace.',
     },
   },
   {
     photos: [{ id: '037', width: 1600, height: 1189 }],
     caption: {
       tr: 'Fatma\'yla bu fotoğrafımız Mayıs 2018\'de, Ayvalık Çamlık\'taki evimizin bahçesinde elele tutuşmuş olarak, artık hiç ayrılmayacağımızı konuşurken, yeğenimiz Yeşim tarafından bizden habersiz çekildi. Ne yazık ki Fatmam 6 Ekim 2018\'de aramızdan ayrılacaktı...',
-      en: 'This photograph of Fatma and me was taken in May 2018 in the garden of our house in Çamlık, Ayvalık, by our niece Yeşim, without our knowing, as we held hands and talked about never being apart again. Sadly, my Fatma would leave us on 6 October 2018...',
+      en: 'This photograph of Fatma and me was taken in May 2018, in the garden of our house in Çamlık, Ayvalık, by our niece Yeşim, without our knowing. We were holding hands and talking about never being apart again. Sadly, my beloved Fatma passed away on 6 October 2018...',
     },
   },
   {
@@ -319,7 +319,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     ],
     caption: {
       tr: 'Hiç kuşkum yok ki, hayattaki en büyük mutluluk kaynağım, Fatma gibi bir eşe, Elvan ve Acar gibi evlatlara, Defne ve Leyla gibi torunlara sahip olmam. Fotoğraflarda Elvan ile Defne yakınlarda Filibe\'de; Acar\'la Leyla birkaç yıl önce Çamlık, Ayvalık\'ta görülüyor.',
-      en: 'I have no doubt that the greatest source of happiness in my life is having a wife like Fatma, children like Elvan and Acar, and grandchildren like Defne and Leyla. The photographs show Elvan with Defne recently in Plovdiv, and Acar with Leyla a few years ago in Çamlık, Ayvalık.',
+      en: 'I have no doubt that the greatest source of happiness in my life has been having a wife like Fatma, children like Elvan and Acar, and grandchildren like Defne and Leyla. The photographs show Elvan with Defne in Plovdiv recently, and Acar with Leyla in Çamlık, Ayvalık, a few years ago.',
     },
   },
 ]
