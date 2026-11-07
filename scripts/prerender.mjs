@@ -295,16 +295,15 @@ for (const lang of ['tr', 'en']) {
          *italic* / **bold** markers are dropped rather than rendered. */
       inner =
         `<h1>${escapeHtml(copy.title)}</h1>` +
-        (copy.captionNote ? `<p>${escapeHtml(copy.captionNote)}</p>` : '') +
-        `<ol lang="tr">${photoStory.visiblePhotoStoryEntries
+        `<ol>${photoStory.visiblePhotoStoryEntries
           .map(
             (entry) =>
               `<li><figure>${entry.photos
                 .map(
                   (photo) =>
-                    `<img src="${escapeHtml(photoStory.photoSrc(photo.id, 800))}" width="${photo.width}" height="${photo.height}" alt="${escapeHtml(photo.alt ?? '')}" loading="lazy">`,
+                    `<img src="${escapeHtml(photoStory.photoSrc(photo.id, 800))}" width="${photo.width}" height="${photo.height}" alt="${escapeHtml(photo.alt?.[lang] ?? '')}" loading="lazy">`,
                 )
-                .join('')}<figcaption>${escapeHtml(entry.caption.replace(/\*\*?([^*]+)\*\*?/g, '$1'))}</figcaption></figure></li>`,
+                .join('')}<figcaption>${escapeHtml(entry.caption[lang].replace(/\*\*?([^*]+)\*\*?/g, '$1'))}</figcaption></figure></li>`,
           )
           .join('')}</ol>`
       jsonLd = schema.aboutJsonLd({

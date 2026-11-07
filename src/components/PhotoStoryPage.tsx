@@ -22,9 +22,11 @@ function Photo({
   photo,
   enlargeLabel,
   pair,
+  lang,
   onOpen,
 }: {
   photo: PhotoStoryPhoto
+  lang: Lang
   enlargeLabel: string
   pair: boolean
   onOpen: () => void
@@ -52,7 +54,7 @@ function Photo({
         sizes={sizes}
         width={photo.width}
         height={photo.height}
-        alt={photo.alt ?? ''}
+        alt={photo.alt?.[lang] ?? ''}
         loading="lazy"
         decoding="async"
       />
@@ -62,25 +64,30 @@ function Photo({
 
 /* Every photograph in story order, each carrying its entry's caption, so the
    lightbox can step through the whole story; a pair's two photos share one. */
-const gallery: LightboxImage[] = visiblePhotoStoryEntries.flatMap((entry) =>
-  entry.photos.map((photo) => ({
-    src: photoSrc(photo.id, 1600),
-    srcSet: `${photoSrc(photo.id, 800)} 800w, ${photoSrc(photo.id, 1600)} 1600w`,
-    width: photo.width,
-    height: photo.height,
-    alt: photo.alt ?? '',
-    caption: renderCaption(entry.caption),
-    captionLang: 'tr' as const,
-  })),
-)
+const galleries: Record<Lang, LightboxImage[]> = {
+  tr: galleryFor('tr'),
+  en: galleryFor('en'),
+}
+function galleryFor(lang: Lang): LightboxImage[] {
+  return visiblePhotoStoryEntries.flatMap((entry) =>
+    entry.photos.map((photo) => ({
+      src: photoSrc(photo.id, 1600),
+      srcSet: `${photoSrc(photo.id, 800)} 800w, ${photoSrc(photo.id, 1600)} 1600w`,
+      width: photo.width,
+      height: photo.height,
+      alt: photo.alt?.[lang] ?? '',
+      caption: renderCaption(entry.caption[lang]),
+    })),
+  )
+}
 const galleryIndex = new Map(
   visiblePhotoStoryEntries.flatMap((entry) => entry.photos).map((photo, i) => [photo.id, i]),
 )
 
 /** "Fotoğraflarla Hikayem": his photographs and captions in his own order,
  *  photo and caption side by side and alternating sides down the page,
- *  collapsing to photo-above-caption on a phone. Both language pages show
- *  the same Turkish captions; see src/photoStory.ts. */
+ *  collapsing to photo-above-caption on a phone. Each language page shows
+ *  the captions in its own language; see src/photoStory.ts. */
 export function PhotoStoryPage({ lang }: { lang: Lang }) {
   const location = useLocation()
   const copy = content[lang].photoStory
@@ -105,10 +112,9 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
         <Reveal>
           <p className="kicker">{copy.kicker}</p>
           <h1 className="section-title">{copy.title}</h1>
-          {copy.captionNote && <p className="photo-story-note">{copy.captionNote}</p>}
         </Reveal>
 
-        <ol className="photo-story" lang="tr">
+        <ol className="photo-story">
           {visiblePhotoStoryEntries.map((entry) => {
             const pair = entry.photos.length > 1
             return (
@@ -122,11 +128,12 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
                           photo={photo}
                           enlargeLabel={copy.enlargeLabel}
                           pair={pair}
+                          lang={lang}
                           onOpen={() => setOpen(galleryIndex.get(photo.id)!)}
                         />
                       ))}
                     </div>
-                    <figcaption className="photo-story-caption">{renderCaption(entry.caption)}</figcaption>
+                    <figcaption className="photo-story-caption">{renderCaption(entry.caption[lang])}</figcaption>
                   </figure>
                 </Reveal>
               </li>
@@ -135,7 +142,7 @@ export function PhotoStoryPage({ lang }: { lang: Lang }) {
         </ol>
       </div>
       <ImageLightbox
-        images={gallery}
+        images={galleries[lang]}
         index={open}
         onIndexChange={setOpen}
         onClose={() => setOpen(null)}

@@ -3539,11 +3539,6 @@ a.archive-row:hover .archive-row-title {
    structure: alternating photo / caption rows, one column below 769px.
    Each photo sits on a lifted sheet like a print laid on the table — the
    clipping frame's mat — and opens at full size on click. */
-.photo-story-note {
-  margin: var(--space-2) 0 0;
-  font-size: var(--text-body-sm);
-  color: var(--muted);
-}
 .photo-story {
   list-style: none;
   margin: var(--space-5) 0 0;

@@ -110,9 +110,6 @@ export interface Content {
     title: string
     /** Page meta description; not shown on the page. */
     description: string
-    /** Shown on the English page only (empty in Turkish): the captions
-     *  are Turkish. */
-    captionNote: string
     /** Accessible name for the link that opens a photo at full size. */
     enlargeLabel: string
   }
@@ -439,8 +436,7 @@ export const content: Record<Lang, Content> = {
       kicker: 'Life story',
       title: 'My Story in Photographs',
       description:
-        'Şahin Alpay’s life in 36 photographs, from a 1945 family portrait to 2018, with his own captions in Turkish.',
-      captionNote: 'The captions are in Turkish, as I wrote them.',
+        'Şahin Alpay’s life in 36 photographs, from a 1945 family portrait to 2018, with his own captions.',
       enlargeLabel: 'Open the photograph at full size',
     },
     trialProcess: {
@@ -700,8 +696,6 @@ export const content: Record<Lang, Content> = {
       title: 'Fotoğraflarla Hikayem',
       description:
         'Şahin Alpay’ın hayatı, 1945’teki bir aile fotoğrafından 2018’e 36 fotoğraf ve kendi yazdığı açıklamalarla.',
-      /* The captions are already in the page's language. */
-      captionNote: '',
       enlargeLabel: 'Fotoğrafı büyük boyutta aç',
     },
     trialProcess: {
