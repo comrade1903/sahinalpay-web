@@ -8,4 +8,17 @@ describe('photo story', () => {
     for (const entry of hidden) expect(visiblePhotoStoryEntries).not.toContain(entry)
     expect(visiblePhotoStoryEntries).toHaveLength(photoStoryEntries.length - hidden.length)
   })
+
+  it('gives every caption and alt text in both languages', () => {
+    for (const entry of photoStoryEntries) {
+      expect(entry.caption.tr.trim()).not.toBe('')
+      expect(entry.caption.en.trim()).not.toBe('')
+      expect(entry.caption.en).not.toBe(entry.caption.tr)
+      for (const photo of entry.photos) {
+        if (!photo.alt) continue
+        expect(photo.alt.tr.trim()).not.toBe('')
+        expect(photo.alt.en.trim()).not.toBe('')
+      }
+    }
+  })
 })
