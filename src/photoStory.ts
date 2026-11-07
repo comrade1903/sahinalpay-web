@@ -227,7 +227,7 @@ export const photoStoryEntries: PhotoStoryEntry[] = [
     photos: [{ id: '026', width: 1600, height: 1065 }],
     caption: {
       tr: 'İsveç\'ten yurda dönüş sonrasında en yakın arkadaşım ve fikirdaşım, doktora yaptığı Fransa\'dan dönen (o da önce devrimci sonra sosyal demokrat) değerli iktisatçımız Prof. Dr. Seyfettin Gürsel oldu. Onunla *DSP-SHP: Nerede Birleşiyor, Nerede ayrılıyorlar* (AFA, 1986) başlıklı bir kitapçık yazdığımız gibi uzun yıllar Bahçeşehir Üniversitesi\'nde birlikte çalıştık.',
-      en: 'After my return from Sweden, my closest friend and kindred spirit was the distinguished economist Professor Seyfettin Gürsel, who had returned from France, where he had completed his doctorate. Like me, he had begun as a revolutionary before becoming a social democrat. Together, we wrote a booklet entitled *DSP-SHP: Nerede Birleşiyor, Nerede ayrılıyorlar* (*DSP–SHP: Where They Meet, Where They Part*; AFA, 1986), and we worked together for many years at Bahçeşehir University.',
+      en: 'After my return from Sweden, my closest friend was the distinguished economist Professor Seyfettin Gürsel, who had returned from France, where he had completed his doctorate. Like me, he had begun as a revolutionary before becoming a social democrat. Together, we wrote a booklet entitled *DSP-SHP: Nerede Birleşiyor, Nerede ayrılıyorlar* (*DSP–SHP: Where They Meet, Where They Part*; AFA, 1986), and we worked together for many years at Bahçeşehir University.',
     },
   },
   {
