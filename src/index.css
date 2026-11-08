@@ -178,7 +178,14 @@
   /* Header geometry. The wordmark row, and below it on wide screens the
      section bar. Anything positioned against the header reads these. */
   --header-row-h: 72px;
+  /* The wordmark row once the page has scrolled, on wide screens. */
+  --header-row-compact-h: 40px;
+  --control-compact-size: 34px;
   --section-bar-h: 3rem;
+  /* Where in-page sticky elements and anchor targets sit, clear of the
+     pinned header. Raised on wide screens, where the pinned header is the
+     condensed wordmark row over the section bar (see .site-header). */
+  --sticky-offset: 100px;
 
   /* Easing. One curve for every CSS transition — the same one the motion
      entrances use — so a hover and a scroll-reveal settle the same way.
@@ -557,17 +564,70 @@ main:focus {
   border-bottom-color: var(--line);
   box-shadow: 0 1px 0 var(--line);
 }
-/* Wide screens: the header sticks with its wordmark row pulled above the
-   viewport, so scrolling takes the wordmark away and leaves the section
-   bar pinned. The bar draws its own bottom rule, so the scrolled hairline
-   would double it. */
+/* Wide screens: the whole header stays pinned, so the language and theme
+   toggles are always in reach, but once the page scrolls its wordmark row
+   condenses to about half height. The row gives up its height to the
+   header's bottom margin as it shrinks, so the header's footprint in the
+   flow never changes: the page underneath does not jump, and a page only
+   just taller than the viewport cannot flicker between the two states.
+   The bar draws its own bottom rule, so the scrolled hairline would
+   double it. */
 @media (min-width: 1080px) {
+  :root {
+    --sticky-offset: calc(var(--header-row-compact-h) + var(--section-bar-h) + var(--space-3));
+  }
   .site-header {
-    top: calc(-1 * var(--header-row-h));
+    margin-bottom: 0;
+    transition:
+      border-color 0.3s var(--ease-out),
+      background 0.3s var(--ease-out),
+      margin-bottom 0.25s var(--ease-out);
   }
   .site-header[data-scrolled='true'] {
     border-bottom-color: transparent;
     box-shadow: none;
+    margin-bottom: calc(var(--header-row-h) - var(--header-row-compact-h));
+  }
+  .site-header .header-inner {
+    transition: height 0.25s var(--ease-out);
+  }
+  .site-header[data-scrolled='true'] .header-inner {
+    height: var(--header-row-compact-h);
+  }
+  .site-header .wordmark {
+    transition: font-size 0.25s var(--ease-out);
+  }
+  .site-header[data-scrolled='true'] .wordmark {
+    font-size: 1.2rem;
+  }
+  .site-header .lang-toggle,
+  .site-header .theme-toggle {
+    transition:
+      color 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out),
+      background 0.2s var(--ease-out),
+      min-width 0.25s var(--ease-out),
+      min-height 0.25s var(--ease-out),
+      width 0.25s var(--ease-out),
+      height 0.25s var(--ease-out);
+  }
+  .site-header[data-scrolled='true'] .lang-toggle {
+    min-width: var(--control-compact-size);
+    min-height: var(--control-compact-size);
+    padding-inline: 0.6rem;
+  }
+  .site-header[data-scrolled='true'] .theme-toggle {
+    width: var(--control-compact-size);
+    height: var(--control-compact-size);
+  }
+}
+@media (min-width: 1080px) and (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header .header-inner,
+  .site-header .wordmark,
+  .site-header .lang-toggle,
+  .site-header .theme-toggle {
+    transition: none;
   }
 }
 
@@ -1166,7 +1226,7 @@ main:focus {
   line-height: 1.2;
   margin: var(--space-4) 0 var(--space-2);
   /* Clears the fixed header when the jump control lands on this list. */
-  scroll-margin-top: 100px;
+  scroll-margin-top: var(--sticky-offset);
 }
 .press-tally {
   margin: var(--space-3) 0;
@@ -1345,7 +1405,7 @@ main:focus {
 @media (min-width: 900px) {
   .bio-aside {
     position: sticky;
-    top: 100px;
+    top: var(--sticky-offset);
   }
 }
 
@@ -1442,7 +1502,7 @@ main:focus {
   font-size: calc(1rem + 1px);
 }
 .bio-chapter {
-  scroll-margin-top: 100px;
+  scroll-margin-top: var(--sticky-offset);
 }
 .bio-chapter + .bio-chapter {
   margin-top: var(--space-5);
@@ -2091,7 +2151,7 @@ html:has(.lightbox[open]) {
     width: 280px;
     flex-shrink: 0;
     position: sticky;
-    top: 96px;
+    top: var(--sticky-offset);
   }
   .archive-filter-toggle {
     display: none;
@@ -2586,11 +2646,11 @@ a.archive-row:hover .archive-row-title {
   background: transparent;
   z-index: var(--z-progress);
 }
-/* Wide screens: once the wordmark row has scrolled away the pinned header
-   is just the section bar, so the progress line sits under that. */
+/* Wide screens: once the page scrolls the pinned header is the condensed
+   wordmark row over the section bar, so the progress line sits under both. */
 @media (min-width: 1080px) {
   .reading-progress {
-    top: var(--section-bar-h);
+    top: calc(var(--header-row-compact-h) + var(--section-bar-h));
   }
 }
 /* Scaled, not resized. This bar updates on every scroll frame of a
