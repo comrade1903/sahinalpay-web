@@ -7,15 +7,16 @@
  * the app imports it, `vite.config.ts` substitutes it into index.html at build
  * time, and the content scripts read it through scripts/lib/site-config.mjs.
  *
- * The origin is `sahinalpay.com`, registered and confirmed by the owner on
- * 2026-09-08. It replaced the placeholder `sahinalpay.net`, which was never
- * registered, so every canonical, JSON-LD @id, sitemap URL and robots entry
- * pointed at a domain that did not resolve. Changing SITE_ORIGIN below
+ * The origin is `sahinalpay.com.tr`, confirmed by the owner on 2026-11-08.
+ * It replaced `sahinalpay.com` (set 2026-09-08, never served), which had in
+ * turn replaced the placeholder `sahinalpay.net`, never registered, so every
+ * canonical, JSON-LD @id, sitemap URL and robots entry pointed at a domain
+ * that did not resolve. Changing SITE_ORIGIN below
  * rewrites all of them in one edit; regenerate the sitemap and robots.txt
  * after any such change.
  */
 
-export const SITE_ORIGIN = 'https://sahinalpay.com'
+export const SITE_ORIGIN = 'https://sahinalpay.com.tr'
 
 /** The owner's real, monitored mailbox. Deliberately not contact@ on the
  *  site's own domain: that address does not exist, and a published contact

@@ -31,7 +31,7 @@
 
 ## Site
 
-- Homepage: https://sahinalpay.com/ — biography, selected works, and contact.
+- Homepage: https://sahinalpay.com.tr/ — biography, selected works, and contact.
 - His own account of the criminal proceedings against him — arrest, courtroom
   statements, and the Constitutional Court's and European Court of Human
   Rights' rulings in his case — is at /tr/yargilanma-surecim, in Turkish. A
@@ -43,4 +43,4 @@
   reconstructed or paraphrased text presented as his writing. Where a piece
   survives only as a page scan, the accompanying summary is the archive's,
   clearly labelled as such, and is not his words.
-- Sitemap: https://sahinalpay.com/sitemap.xml
+- Sitemap: https://sahinalpay.com.tr/sitemap.xml
