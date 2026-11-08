@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------
-   Bilingual content for sahinalpay.com — English and Turkish.
+   Bilingual content for sahinalpay.com.tr — English and Turkish.
 
    Site is organized as a writing archive:
    Kimdir? / About → Köşe Yazıları / Columns → Söyleşiler →

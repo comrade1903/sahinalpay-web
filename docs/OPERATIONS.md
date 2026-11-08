@@ -397,8 +397,8 @@ on 2026-09-06:
 
 ### Still outside all of the above
 
-- **The production domain's DNS.** The code moved to `sahinalpay.com` on
-  2026-09-08, but the domain still has to be added to the Vercel project with
+- **The production domain's DNS.** The code moved to `sahinalpay.com.tr` on
+  2026-11-08 (from `sahinalpay.com`, set 2026-09-08 and never served), but the domain still has to be added to the Vercel project with
   its DNS pointed there. Until it is, every canonical and sitemap URL names a
   host the site is not served from.
 
