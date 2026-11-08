@@ -588,10 +588,12 @@ only the wordmark and the language and theme toggles, and below it the **section
   The break is chosen per language where the words read naturally, never left to the
   browser, and only the bar uses it; the drawer, page titles and everything else keep
   the one-line `label`.
-- **Scrolling** (from 1080px): the header is sticky at `top: -72px`, so the wordmark row
-  scrolls away and the section bar is what stays pinned. The bar's own bottom rule
-  replaces the scrolled hairline, and the reading-progress line sits under the bar. No
-  script decides this; it is the sticky offset alone.
+- **Scrolling** (from 1080px): the whole header stays pinned at `top: 0`, so the language
+  and theme toggles are always in reach. Once the page scrolls past 8px the wordmark row
+  condenses from `72px` to `40px` over 0.25s (wordmark 1.2rem, toggles 34px; no
+  transition under reduced motion), and the header's bottom margin takes up the height
+  the row gives up, so the page underneath never jumps. The bar's own bottom rule
+  replaces the scrolled hairline, and the reading-progress line sits under the bar.
 - **Below 1080px**: one `72px` row of wordmark, menu button and toggles. The links move
   into a slide-in drawer over a scrim, where the active item gets a filled red wash
   instead of a rule. Phones keep the drawer rather than a sideways-scrolling strip,

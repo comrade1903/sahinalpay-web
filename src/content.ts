@@ -153,6 +153,7 @@ export interface Content {
     rights: string
     tagline: string
     cookieLabel: string
+    creditLabel: string
   }
   cookieNotice: {
     ariaLabel: string
@@ -503,6 +504,7 @@ export const content: Record<Lang, Content> = {
       rights: 'All rights reserved.',
       tagline: 'A life remembered, a body of writing shared.',
       cookieLabel: 'Cookie Policy',
+      creditLabel: 'Site by',
     },
     cookieNotice: {
       ariaLabel: 'Cookie notice',
@@ -745,6 +747,7 @@ export const content: Record<Lang, Content> = {
       rights: 'Tüm hakları saklıdır.',
       tagline: 'Hatırladıklarım ve yazdıklarım.',
       cookieLabel: 'Çerez Politikası',
+      creditLabel: 'Siteyi hazırlayan:',
     },
     cookieNotice: {
       ariaLabel: 'Çerez bildirimi',

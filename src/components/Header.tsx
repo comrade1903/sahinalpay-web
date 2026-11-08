@@ -156,8 +156,9 @@ export function Header() {
         {/* The section bar: every section at equal weight on a ruled strip,
             like a newspaper's section index. Shown from 1080px, where all
             seven labels fit on one line; below that the drawer carries
-            them. On wide screens the wordmark row scrolls away and this
-            strip is what stays pinned (see .site-header in index.css). */}
+            them. On wide screens the whole header stays pinned and the
+            wordmark row condenses once the page scrolls (see .site-header
+            in index.css). */}
         <div className="container">
           <nav className="nav" aria-label={lang === 'tr' ? 'Bölümler' : 'Sections'}>
             {t.nav.map((n) => (
