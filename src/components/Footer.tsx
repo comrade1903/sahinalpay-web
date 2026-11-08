@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { content } from '../content'
 import { langForPath, paths } from '../routes'
-import { CONTACT_EMAIL } from '../siteConfig'
+import { CONTACT_EMAIL, SITE_CREDIT_EMAIL, SITE_CREDIT_NAME } from '../siteConfig'
 
 /* Read once at load rather than during render, which oxlint's react(purity)
    rule flags: a static page only needs the year it was opened in. */
@@ -14,6 +14,7 @@ export function Footer() {
   const lang = langForPath(location.pathname)
   const t = content[lang]
   const reduce = useReducedMotion()
+  const isHome = (location.pathname.replace(/\/+$/, '') || '/') === paths[lang].home
   /* "Back to top" means the top of this page, not the home page. Focus goes
      to <main> as well, so a keyboard user's next Tab starts at the top too. */
   const toTop = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -45,6 +46,14 @@ export function Footer() {
           </span>
           <span>{t.footer.tagline}</span>
         </div>
+        {/* The site's credit, on the home page only: compared exactly, since
+            pageKeyForPath falls back to 'home' for unknown paths. */}
+        {isHome && (
+          <p className="footer-credit">
+            {t.footer.creditLabel}{' '}
+            <a href={`mailto:${SITE_CREDIT_EMAIL}`}>{SITE_CREDIT_NAME}</a>
+          </p>
+        )}
       </div>
     </footer>
   )

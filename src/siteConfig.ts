@@ -26,6 +26,11 @@ export const SITE_ORIGIN = 'https://sahinalpay.com.tr'
  *  this one line. */
 export const CONTACT_EMAIL = 'sahinalpay44@gmail.com'
 
+/** Who built the site, credited in the footer's last line. */
+export const SITE_CREDIT_NAME = 'İnanç Özgirgin'
+
+export const SITE_CREDIT_EMAIL = 'inanc.ozgirgin@gmail.com'
+
 /** Social-preview card. Typographic, drawn from this site's own palette and
  *  display face by scripts/generate-og-image.py; the committed PNG is what
  *  ships. PNG rather than SVG because the major card scrapers do not render
