@@ -34,6 +34,7 @@ import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disari
 import coverDspShp from './assets/covers/dsp-shp.jpg'
 import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import coverPiyasaEkonomisi from './assets/covers/piyasa-ekonomisi-ve-demokrasi.jpg'
+import coverTurkarIStockholm from './assets/covers/turkar-i-stockholm.jpg'
 import { trialProcessSections, type NarrativeDocument } from './trialProcess'
 import { birHikayemVarPress, type BookPressItem } from './bookPress'
 
@@ -258,6 +259,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish and English.',
+      cover: coverTurkarIStockholm,
       forewords: [turksInStockholmSummary, turkarIStockholmSummary],
     },
   ],
@@ -317,6 +319,7 @@ const BOOKS: Record<Lang, Book[]> = {
       year: '1980',
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe ve İngilizce özet bulunuyordu.',
+      cover: coverTurkarIStockholm,
       forewords: [turkarIStockholmSummary, turksInStockholmSummary],
     },
   ],
