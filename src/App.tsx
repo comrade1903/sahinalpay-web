@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Book, type Content, type Lang, type BooksSection } from './content'
 import type { NarrativeDocument } from './trialProcess'
-import { forewordLabels, type BookForeword } from './bookForewords'
+import { forewordLabels, translationLabels, type BookForeword } from './bookForewords'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
@@ -21,6 +21,7 @@ import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
 import { BookForewordDialog } from './components/BookForewordDialog'
 import { BookPressDialog } from './components/BookPressDialog'
+import { BookTranslationDialog } from './components/BookTranslationDialog'
 import { bookPressLabels } from './bookPress'
 import { PhotoStoryPage } from './components/PhotoStoryPage'
 import { paths, langForPath, type PageKey } from './routes'
@@ -513,6 +514,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
   const [openForeword, setOpenForeword] = useState<{ book: Book; foreword: BookForeword } | null>(null)
   const [openPress, setOpenPress] = useState<Book | null>(null)
+  const [openTranslation, setOpenTranslation] = useState<Book | null>(null)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -575,6 +577,13 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     <em lang="tr">{b.title}</em>
                   </h2>
                   <p className="book-desc">{b.desc}</p>
+                  {b.translation && (
+                    <p className="book-translation">
+                      {translationLabels(b.translation, lang).kicker}:{' '}
+                      <em lang={b.translation.lang}>{b.translation.title}</em> ·{' '}
+                      {translationLabels(b.translation, lang).credit}
+                    </p>
+                  )}
                   <div className="book-actions">
                     {b.forewords?.map((foreword) => (
                       <button
@@ -594,6 +603,43 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                         </span>
                       </button>
                     ))}
+                    {b.translation && (
+                      <>
+                        <button
+                          type="button"
+                          className="book-buy book-foreword-open"
+                          aria-haspopup="dialog"
+                          onClick={() => setOpenTranslation(b)}
+                        >
+                          {translationLabels(b.translation, lang).open}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            menu_book
+                          </span>
+                        </button>
+                        <a
+                          className="book-buy"
+                          href={b.translation.pdfUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${b.title}: ${translationLabels(b.translation, lang).pdf} ${
+                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                          }`}
+                        >
+                          {translationLabels(b.translation, lang).pdf}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            picture_as_pdf
+                          </span>
+                        </a>
+                      </>
+                    )}
                     {b.press && b.press.length > 0 && (
                       <button
                         type="button"
@@ -640,6 +686,11 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
       </div>
       <BookForewordDialog open={openForeword} lang={lang} onClose={() => setOpenForeword(null)} />
       <BookPressDialog book={openPress} lang={lang} onClose={() => setOpenPress(null)} />
+      <BookTranslationDialog
+        book={openTranslation}
+        lang={lang}
+        onClose={() => setOpenTranslation(null)}
+      />
     </section>
   )
 }
