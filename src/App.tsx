@@ -585,26 +585,47 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     </p>
                   )}
                   <div className="book-actions">
-                    {b.forewords?.map((foreword) => (
-                      <button
-                        key={foreword.lang ?? 'tr'}
-                        type="button"
-                        className="book-buy book-foreword-open"
-                        aria-haspopup="dialog"
-                        onClick={() => setOpenForeword({ book: b, foreword })}
-                      >
-                        {forewordLabels(foreword, lang).open}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
-                        >
-                          menu_book
-                        </span>
-                      </button>
-                    ))}
+                    {(b.forewords?.length || b.press?.length) ? (
+                      <div className="book-actions-row">
+                        {b.forewords?.map((foreword) => (
+                          <button
+                            key={foreword.lang ?? 'tr'}
+                            type="button"
+                            className="book-buy book-foreword-open"
+                            aria-haspopup="dialog"
+                            onClick={() => setOpenForeword({ book: b, foreword })}
+                          >
+                            {forewordLabels(foreword, lang).open}
+                            <span
+                              className="material-symbols-outlined"
+                              aria-hidden="true"
+                              style={{ fontSize: 'var(--icon-sm)' }}
+                            >
+                              menu_book
+                            </span>
+                          </button>
+                        ))}
+                        {b.press && b.press.length > 0 && (
+                          <button
+                            type="button"
+                            className="book-buy book-foreword-open"
+                            aria-haspopup="dialog"
+                            onClick={() => setOpenPress(b)}
+                          >
+                            {bookPressLabels[lang].open}
+                            <span
+                              className="material-symbols-outlined"
+                              aria-hidden="true"
+                              style={{ fontSize: 'var(--icon-sm)' }}
+                            >
+                              menu_book
+                            </span>
+                          </button>
+                        )}
+                      </div>
+                    ) : null}
                     {b.translation && (
-                      <>
+                      <div className="book-actions-row">
                         <button
                           type="button"
                           className="book-buy book-foreword-open"
@@ -638,44 +659,29 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             picture_as_pdf
                           </span>
                         </a>
-                      </>
-                    )}
-                    {b.press && b.press.length > 0 && (
-                      <button
-                        type="button"
-                        className="book-buy book-foreword-open"
-                        aria-haspopup="dialog"
-                        onClick={() => setOpenPress(b)}
-                      >
-                        {bookPressLabels[lang].open}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
-                        >
-                          menu_book
-                        </span>
-                      </button>
+                      </div>
                     )}
                     {b.purchaseUrl && (
-                      <a
-                        className="book-buy"
-                        href={b.purchaseUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
-                          lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                        }`}
-                      >
-                        {buyButtonLabel(b.purchaseUrl, lang)}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
+                      <div className="book-actions-row">
+                        <a
+                          className="book-buy"
+                          href={b.purchaseUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
+                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                          }`}
                         >
-                          arrow_forward
-                        </span>
-                      </a>
+                          {buyButtonLabel(b.purchaseUrl, lang)}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            arrow_forward
+                          </span>
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>

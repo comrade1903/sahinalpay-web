@@ -1695,6 +1695,14 @@ main:focus {
 .book-actions {
   margin-top: 0.3rem;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+/* One row per kind of link: the book's own texts, its translation, and the
+   retailer last. */
+.book-actions-row {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem 1.5rem;
