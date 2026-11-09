@@ -210,3 +210,53 @@ export const turksInStockholmSummary: BookForeword = {
     'Survey results have given us reasons to believe that the attitude of temporariness among the Turkish immigrants is gradually losing ground. An increasing number begin to understand that their stay in Sweden is perhaps not so temporary. Such a change of attitude may lead to changes in their frames-of-reference. Instead of judging primarily by comparison of their own situations prior to and after migration, they may begin to give priority to the comparison of their situation with others in Sweden. When that happens, they may question their economically and socially segregated position and feel the necessity of changing this position. That may be expected to lead to a greater interest to learn about Swedish society and to a higher degree of interest and involvement in Swedish politics.',
   ],
 }
+
+/** A full translation of a book, read in a dialog from its Markdown text and
+ *  offered as the typeset PDF. Both files are served from public/ and fetched
+ *  only when asked for, so they never weigh on the Books page itself. */
+export interface BookTranslation {
+  lang: 'en' | 'tr'
+  /** The translation's own title. */
+  title: string
+  /** The name the translation's own Translator's Note gives. */
+  translator: string
+  /** Markdown made by scripts/import-book-translation.mjs: `#` chapters,
+   *  `##` sections, paragraphs separated by blank lines. */
+  textUrl: string
+  pdfUrl: string
+}
+
+/* "I Have a Story" — the English translation of the memoir, both volumes
+ * (Bir Hikâyem Var and Hikâyemin Sonu) in one book, supplied by the owner on
+ * 2026-11-09. Its Translator's Note names John MacFarlane. */
+export const iHaveAStoryTranslation: BookTranslation = {
+  lang: 'en',
+  title: 'I Have a Story',
+  translator: 'John MacFarlane',
+  textUrl: '/books/i-have-a-story/i-have-a-story.md',
+  pdfUrl: '/books/i-have-a-story/i-have-a-story.pdf',
+}
+
+/** The opener's, the PDF link's and the dialog's wording for a translation. */
+export function translationLabels(translation: BookTranslation, lang: Lang) {
+  const english = translation.lang === 'en'
+  return lang === 'tr'
+    ? {
+        open: english ? 'İngilizcesini oku' : 'Türkçesini oku',
+        pdf: english ? 'İngilizcesi (PDF)' : 'Türkçesi (PDF)',
+        kicker: english ? 'İngilizce çevirisi' : 'Türkçe çevirisi',
+        credit: `Çeviren Notuyla ${translation.translator}`,
+        contents: 'Bölümler',
+        loading: 'Metin yükleniyor…',
+        failed: 'Metin yüklenemedi. PDF’i açabilirsiniz:',
+      }
+    : {
+        open: english ? 'Read in English' : 'Read in Turkish',
+        pdf: english ? 'English edition (PDF)' : 'Turkish edition (PDF)',
+        kicker: english ? 'English translation' : 'Turkish translation',
+        credit: `With a translator’s note by ${translation.translator}`,
+        contents: 'Chapters',
+        loading: 'Loading the text…',
+        failed: 'The text could not be loaded. You can open the PDF instead:',
+      }
+}

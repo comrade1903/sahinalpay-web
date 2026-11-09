@@ -1695,6 +1695,14 @@ main:focus {
 .book-actions {
   margin-top: 0.3rem;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+/* One row per kind of link: the book's own texts, its translation, and the
+   retailer last. */
+.book-actions-row {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem 1.5rem;
@@ -1715,6 +1723,12 @@ main:focus {
   border-right: 0;
   padding: 0;
   cursor: pointer;
+}
+
+/* The line naming a book's translation and its translator. */
+.book-translation {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
 }
 
 /* ---------- Book foreword dialog ---------- */
@@ -1857,6 +1871,79 @@ html:has(.foreword-dialog[open]) {
 .foreword-body li + li {
   margin-top: var(--space-1);
 }
+/* A whole translated book in the foreword sheet: a wider measure, the PDF
+   and a chapter list under the title, chapter and section headings in the
+   running text. */
+.translation-dialog {
+  width: min(50rem, calc(100% - 2 * var(--space-2)));
+}
+.translation-dialog .foreword-sheet {
+  height: calc(100dvh - 2 * var(--space-2));
+}
+.translation-dialog .foreword-body {
+  flex: 1;
+}
+.translation-tools {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+.translation-tools .book-buy {
+  margin-top: 0;
+}
+.translation-contents {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 700;
+  color: var(--ink);
+}
+.translation-contents select {
+  min-height: 44px;
+  max-width: min(22rem, 100%);
+  padding: 0 0.75rem;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-full);
+  background: var(--control-bg);
+  color: var(--control-fg);
+  font: inherit;
+  font-weight: 400;
+}
+.foreword-body .translation-chapter {
+  margin-top: var(--space-5);
+  font-size: var(--text-title);
+  scroll-margin-top: var(--space-2);
+}
+.foreword-body .translation-chapter:first-child {
+  margin-top: 0;
+}
+.foreword-body .translation-chapter:focus {
+  outline: none;
+}
+.foreword-body .translation-section {
+  margin: var(--space-3) 0 var(--space-1);
+  font-family: var(--headline);
+  font-size: var(--text-title-sm);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ink);
+}
+.foreword-body .translation-rule {
+  width: 4rem;
+  margin: var(--space-3) auto;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.translation-loading {
+  color: var(--muted);
+}
+
 /* What others wrote about a book: one link per piece, headline above its
    byline, in the foreword sheet. */
 /* Scoped under .foreword-body to outrank the sheet's own bulleted lists. */

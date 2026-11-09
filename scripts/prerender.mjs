@@ -318,7 +318,11 @@ for (const lang of ['tr', 'en']) {
       inner = `<h1>${escapeHtml(t.books.title)}</h1><p>${escapeHtml(t.books.intro)}</p><ul>${t.books.books
         .map(
           (book) =>
-            `<li><strong>${escapeHtml(book.title)}</strong> (${escapeHtml(book.year)}) — ${escapeHtml(book.desc)}</li>`,
+            `<li><strong>${escapeHtml(book.title)}</strong> (${escapeHtml(book.year)}) — ${escapeHtml(book.desc)}${
+              book.translation
+                ? ` <a href="${escapeHtml(book.translation.pdfUrl)}">${escapeHtml(book.translation.title)} (PDF)</a>`
+                : ''
+            }</li>`,
         )
         .join('')}</ul>`
       jsonLd = schema.booksJsonLd({

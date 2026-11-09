@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Routes, Route, Link, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { content, type Book, type Content, type Lang, type BooksSection } from './content'
 import type { NarrativeDocument } from './trialProcess'
-import { forewordLabels, type BookForeword } from './bookForewords'
+import { forewordLabels, translationLabels, type BookForeword } from './bookForewords'
 import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSummary'
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
@@ -21,6 +21,7 @@ import { Footer } from './components/Footer'
 import { CookieConsent } from './components/CookieConsent'
 import { BookForewordDialog } from './components/BookForewordDialog'
 import { BookPressDialog } from './components/BookPressDialog'
+import { BookTranslationDialog } from './components/BookTranslationDialog'
 import { bookPressLabels } from './bookPress'
 import { PhotoStoryPage } from './components/PhotoStoryPage'
 import { paths, langForPath, type PageKey } from './routes'
@@ -513,6 +514,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
   const [openForeword, setOpenForeword] = useState<{ book: Book; foreword: BookForeword } | null>(null)
   const [openPress, setOpenPress] = useState<Book | null>(null)
+  const [openTranslation, setOpenTranslation] = useState<Book | null>(null)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -575,61 +577,111 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     <em lang="tr">{b.title}</em>
                   </h2>
                   <p className="book-desc">{b.desc}</p>
+                  {b.translation && (
+                    <p className="book-translation">
+                      {translationLabels(b.translation, lang).kicker}:{' '}
+                      <em lang={b.translation.lang}>{b.translation.title}</em> ·{' '}
+                      {translationLabels(b.translation, lang).credit}
+                    </p>
+                  )}
                   <div className="book-actions">
-                    {b.forewords?.map((foreword) => (
-                      <button
-                        key={foreword.lang ?? 'tr'}
-                        type="button"
-                        className="book-buy book-foreword-open"
-                        aria-haspopup="dialog"
-                        onClick={() => setOpenForeword({ book: b, foreword })}
-                      >
-                        {forewordLabels(foreword, lang).open}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
+                    {(b.forewords?.length || b.press?.length) ? (
+                      <div className="book-actions-row">
+                        {b.forewords?.map((foreword) => (
+                          <button
+                            key={foreword.lang ?? 'tr'}
+                            type="button"
+                            className="book-buy book-foreword-open"
+                            aria-haspopup="dialog"
+                            onClick={() => setOpenForeword({ book: b, foreword })}
+                          >
+                            {forewordLabels(foreword, lang).open}
+                            <span
+                              className="material-symbols-outlined"
+                              aria-hidden="true"
+                              style={{ fontSize: 'var(--icon-sm)' }}
+                            >
+                              menu_book
+                            </span>
+                          </button>
+                        ))}
+                        {b.press && b.press.length > 0 && (
+                          <button
+                            type="button"
+                            className="book-buy book-foreword-open"
+                            aria-haspopup="dialog"
+                            onClick={() => setOpenPress(b)}
+                          >
+                            {bookPressLabels[lang].open}
+                            <span
+                              className="material-symbols-outlined"
+                              aria-hidden="true"
+                              style={{ fontSize: 'var(--icon-sm)' }}
+                            >
+                              menu_book
+                            </span>
+                          </button>
+                        )}
+                      </div>
+                    ) : null}
+                    {b.translation && (
+                      <div className="book-actions-row">
+                        <button
+                          type="button"
+                          className="book-buy book-foreword-open"
+                          aria-haspopup="dialog"
+                          onClick={() => setOpenTranslation(b)}
                         >
-                          menu_book
-                        </span>
-                      </button>
-                    ))}
-                    {b.press && b.press.length > 0 && (
-                      <button
-                        type="button"
-                        className="book-buy book-foreword-open"
-                        aria-haspopup="dialog"
-                        onClick={() => setOpenPress(b)}
-                      >
-                        {bookPressLabels[lang].open}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
+                          {translationLabels(b.translation, lang).open}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            menu_book
+                          </span>
+                        </button>
+                        <a
+                          className="book-buy"
+                          href={b.translation.pdfUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${b.title}: ${translationLabels(b.translation, lang).pdf} ${
+                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                          }`}
                         >
-                          menu_book
-                        </span>
-                      </button>
+                          {translationLabels(b.translation, lang).pdf}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            picture_as_pdf
+                          </span>
+                        </a>
+                      </div>
                     )}
                     {b.purchaseUrl && (
-                      <a
-                        className="book-buy"
-                        href={b.purchaseUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
-                          lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                        }`}
-                      >
-                        {buyButtonLabel(b.purchaseUrl, lang)}
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden="true"
-                          style={{ fontSize: 'var(--icon-sm)' }}
+                      <div className="book-actions-row">
+                        <a
+                          className="book-buy"
+                          href={b.purchaseUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
+                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                          }`}
                         >
-                          arrow_forward
-                        </span>
-                      </a>
+                          {buyButtonLabel(b.purchaseUrl, lang)}
+                          <span
+                            className="material-symbols-outlined"
+                            aria-hidden="true"
+                            style={{ fontSize: 'var(--icon-sm)' }}
+                          >
+                            arrow_forward
+                          </span>
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -640,6 +692,11 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
       </div>
       <BookForewordDialog open={openForeword} lang={lang} onClose={() => setOpenForeword(null)} />
       <BookPressDialog book={openPress} lang={lang} onClose={() => setOpenPress(null)} />
+      <BookTranslationDialog
+        book={openTranslation}
+        lang={lang}
+        onClose={() => setOpenTranslation(null)}
+      />
     </section>
   )
 }

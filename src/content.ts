@@ -25,9 +25,11 @@ import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
 import {
   birHikayemVarForeword,
   hikayeminSonuForeword,
+  iHaveAStoryTranslation,
   turkarIStockholmSummary,
   turksInStockholmSummary,
   type BookForeword,
+  type BookTranslation,
 } from './bookForewords'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
@@ -55,6 +57,8 @@ export interface Book {
   forewords?: BookForeword[]
   /** What others wrote about the book, listed in a dialog from its card. */
   press?: BookPressItem[]
+  /** A full translation, read in a dialog and offered as a PDF. */
+  translation?: BookTranslation
 }
 
 export interface BooksSection {
@@ -221,6 +225,7 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
       forewords: [birHikayemVarForeword],
       press: birHikayemVarPress,
+      translation: iHaveAStoryTranslation,
     },
     {
       year: '2003',
@@ -281,6 +286,7 @@ const BOOKS: Record<Lang, Book[]> = {
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
       forewords: [birHikayemVarForeword],
       press: birHikayemVarPress,
+      translation: iHaveAStoryTranslation,
     },
     {
       year: '2003',
