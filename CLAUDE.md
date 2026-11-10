@@ -82,4 +82,4 @@ Several top-level directories are **not part of the active app** — don't treat
 - `şahin-alpay-arşivi/` — an earlier standalone prototype with its own `package.json`/Vite config.
 - `stitch_ahin_alpay_dijital_ar_ivi/` — static HTML/design mockups (Google Stitch output), reference only.
 - `agent-skills/`, `awesome-claude-code-subagents/` — vendored third-party skill/agent repos, unrelated to this site's code.
-- `docs/superpowers/` — vendored skill docs, not project documentation.
+- `docs/superpowers/` — this project's own design specs (`specs/`) and implementation plans (`plans/`), one pair per feature. They record why a feature is the way it is; they are not vendored.
