@@ -55,6 +55,24 @@ function headersFor(pathname) {
     if (!pattern.test(pathname)) continue
     for (const header of rule.headers) result[header.key] = header.value
   }
+  return withoutHttpsOnlyRules(result)
+}
+
+/* Two production rules tell a browser to use https, and this server speaks
+   plain http. Chrome exempts localhost; Safari does not, so it rewrote every
+   script and stylesheet request to https://localhost, got no answer, and
+   showed a blank page. Both rules are dropped here and nowhere else. */
+function withoutHttpsOnlyRules(headers) {
+  const result = { ...headers }
+  delete result['Strict-Transport-Security']
+  const policy = result['Content-Security-Policy']
+  if (policy) {
+    result['Content-Security-Policy'] = policy
+      .split(';')
+      .map((directive) => directive.trim())
+      .filter((directive) => directive && directive !== 'upgrade-insecure-requests')
+      .join('; ')
+  }
   return result
 }
 
