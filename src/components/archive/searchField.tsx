@@ -44,7 +44,7 @@ export function ArchiveSearchField({
 
   return (
     <div className="search-field">
-      <span className="material-symbols-outlined" aria-hidden="true">
+      <span translate="no" className="material-symbols-outlined" aria-hidden="true">
         search
       </span>
       <input

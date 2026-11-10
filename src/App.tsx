@@ -74,7 +74,7 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
           </div>
           <form className="hero-search" onSubmit={onSearch} role="search">
             <div className="hero-search-field">
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 search
               </span>
               <input
@@ -168,7 +168,7 @@ function HubGrid({
                       <h3>{h.title}</h3>
                       <span className="hub-arrow" aria-hidden="true">
                         {lang === 'tr' ? 'İncele' : 'Explore'}
-                        <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
+                        <span translate="no" className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                           arrow_forward
                         </span>
                       </span>
@@ -427,7 +427,7 @@ function NarrativeBody({
               {section.document && (
                 <p className="bio-document">
                   <a className="btn btn-ghost" href={section.document.href} target="_blank" rel="noopener noreferrer">
-                    <span className="material-symbols-outlined" aria-hidden="true">
+                    <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                       picture_as_pdf
                     </span>
                     {section.document.label}
@@ -545,7 +545,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                     />
                   ) : (
                     <span className="book-cover-placeholder" aria-hidden="true">
-                      <span className="material-symbols-outlined">menu_book</span>
+                      <span translate="no" className="material-symbols-outlined">menu_book</span>
                     </span>
                   )}
                 </div>
@@ -574,7 +574,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             onClick={() => setOpenForeword({ book: b, foreword })}
                           >
                             <span className="book-buy-label">{forewordLabels(foreword, lang).open}</span>
-                            <span
+                            <span translate="no"
                               className="material-symbols-outlined"
                               aria-hidden="true"
                               style={{ fontSize: 'var(--icon-sm)' }}
@@ -591,7 +591,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             onClick={() => setOpenPress(b)}
                           >
                             <span className="book-buy-label">{bookPressLabels[lang].open}</span>
-                            <span
+                            <span translate="no"
                               className="material-symbols-outlined"
                               aria-hidden="true"
                               style={{ fontSize: 'var(--icon-sm)' }}
@@ -611,7 +611,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           onClick={() => setOpenTranslation(b)}
                         >
                           <span className="book-buy-label">{translationLabels(b.translation, lang).open}</span>
-                          <span
+                          <span translate="no"
                             className="material-symbols-outlined"
                             aria-hidden="true"
                             style={{ fontSize: 'var(--icon-sm)' }}
@@ -628,7 +628,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             }`}
                         >
                           <span className="book-buy-label">{translationLabels(b.translation, lang).pdf}</span>
-                          <span
+                          <span translate="no"
                             className="material-symbols-outlined"
                             aria-hidden="true"
                             style={{ fontSize: 'var(--icon-sm)' }}
@@ -649,7 +649,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             }`}
                         >
                           <span className="book-buy-label">{buyButtonLabel(b.purchaseUrl, lang)}</span>
-                          <span
+                          <span translate="no"
                             className="material-symbols-outlined"
                             aria-hidden="true"
                             style={{ fontSize: 'var(--icon-sm)' }}

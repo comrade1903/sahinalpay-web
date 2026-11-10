@@ -37,7 +37,7 @@ function PressRow({ item }: { item: PressItem }) {
             <p className="archive-row-excerpt">{item.author}</p>
           )}
         </div>
-        <span className="archive-row-arrow material-symbols-outlined" aria-hidden="true">
+        <span translate="no" className="archive-row-arrow material-symbols-outlined" aria-hidden="true">
           arrow_forward
         </span>
       </Link>
@@ -170,7 +170,7 @@ export function PressArticlePage({ lang }: { lang: Lang }) {
           </nav>
           <div className="article-tools">
             <Link className="back-link" to={paths[lang].press!}>
-              <span
+              <span translate="no"
                 className="material-symbols-outlined"
                 aria-hidden="true"
                 style={{ fontSize: 'var(--icon-md)' }}
