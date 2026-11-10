@@ -745,6 +745,23 @@ main:focus {
   gap: 0.5rem;
 }
 
+/* 320px phones and 400% zoom: the wordmark and the three header controls
+   did not fit on one row, which widened the whole page to 348px. */
+@media (max-width: 359px) {
+  .container {
+    padding-inline: var(--space-2);
+  }
+  .header-inner {
+    gap: var(--space-1);
+  }
+  .header-actions {
+    gap: 0.25rem;
+  }
+  .wordmark {
+    font-size: 1.2rem;
+  }
+}
+
 .icon-btn {
   appearance: none;
   border: none;
