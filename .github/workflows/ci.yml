@@ -72,6 +72,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check the first-load scripts stay within budget
+        run: npm run check:bundle
+
       - name: Check the build produced the prerendered pages
         run: |
           test -f dist/404.html
