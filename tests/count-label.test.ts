@@ -18,4 +18,12 @@ describe('countLabel', () => {
     expect(countLabel(7, 'en', 'book')).toBe('7 books')
     expect(countLabel(1, 'en', 'book')).toBe('1 book')
   })
+
+  it('names interviews and articles by their own noun', () => {
+    expect(countLabel(11, 'tr', 'interview')).toBe('11 söyleşi')
+    expect(countLabel(1, 'en', 'interview')).toBe('1 interview')
+    expect(countLabel(11, 'en', 'interview')).toBe('11 interviews')
+    expect(countLabel(24, 'tr', 'article')).toBe('24 makale')
+    expect(countLabel(24, 'en', 'article')).toBe('24 articles')
+  })
 })

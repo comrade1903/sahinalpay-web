@@ -40,7 +40,7 @@ import logoSabah from '../../assets/logos/sabah.webp'
 import logoTodaysZaman from '../../assets/logos/todays-zaman.webp'
 import logoZaman from '../../assets/logos/zaman.webp'
 import { ArchiveSearchField } from './searchField'
-import { countLabel } from '../../lib/countLabel'
+import { countLabel, type CountNoun } from '../../lib/countLabel'
 
 /**
  * The archive list pages: the newsstand shelf that fronts the per-outlet
@@ -290,16 +290,19 @@ function ActiveFilterSummary({
   filters,
   count,
   onClearAll,
+  noun = 'piece',
 }: {
   lang: Lang
   filters: ActiveFilter[]
   count: number
   onClearAll: () => void
+  /* What the section counts: interviews and articles are not "yazı". */
+  noun?: CountNoun
 }) {
   return (
     <div className="active-filter-summary" aria-live="polite">
       <span className="archive-count">
-        {countLabel(count, lang)}
+        {countLabel(count, lang, noun)}
       </span>
       {filters.length > 0 && (
         <div className="active-filter-chips">
@@ -1128,9 +1131,11 @@ export function FlatArchivePage({
   data,
   lang,
   foreignItems = [],
+  noun = 'piece',
 }: {
   data: FlatArchiveSection
   lang: Lang
+  noun?: CountNoun
   /* The other language's records for this section. Filtered and paged
      together with the page's own records, then listed after them under
      `foreignArchiveLabel`. */
@@ -1311,6 +1316,7 @@ export function FlatArchivePage({
                 filters={activeFilters}
                 count={filtered.length}
                 onClearAll={resetFilters}
+                noun={noun}
               />
               <SortSelect lang={lang} sort={sort} setSort={(value) => setParam('sort', value)} />
             </div>

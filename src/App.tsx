@@ -8,6 +8,7 @@ import { useArchiveSummary, type ArchiveSummary } from './archive/useArchiveSumm
 import { Reveal } from './components/Reveal'
 import { FlatArchivePage, NewsstandArchivePage } from './components/archive'
 import { countLabel } from './lib/countLabel'
+import { hubCount, hubNoun } from './lib/hubCount'
 import { PORTRAIT } from './components/AuthorAvatar'
 import { NarrativeHeader, BackToTop } from './components/NarrativeHeader'
 import { DeadEnd } from './components/DeadEnd'
@@ -123,30 +124,6 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
  *  circles; `object-fit: cover` takes the centre square of the source,
  *  which lands on head and shoulders. */
 
-/** Real item counts per section — never fabricated. Returns null where a
- *  count doesn't apply (e.g. the About page). */
-function hubCount(
-  key: PageKey,
-  t: Content,
-  lang: Lang,
-  summary: ArchiveSummary | null,
-): number | null {
-  switch (key) {
-    case 'columns':
-      return summary?.counts.columns[lang] ?? null
-    case 'analyses':
-      return summary?.counts.analyses ?? null
-    case 'interviews':
-      return summary?.counts.interviews ?? null
-    case 'academic':
-      return summary?.counts.academic ?? null
-    case 'books':
-      return t.books.books.length
-    default:
-      return null
-  }
-}
-
 function HubGrid({
   t,
   lang,
@@ -165,7 +142,7 @@ function HubGrid({
           <h2 className="section-title">{t.hubTitle}</h2>
           <div className="hub-grid">
             {t.hub.map((h) => {
-              const count = hubCount(h.key, t, lang, summary)
+              const count = hubCount(h.key, t.books.books.length, summary)
               const wide = h.key === 'columns'
               return (
                 <div key={h.key} className={wide ? 'hub-card-wide' : undefined}>
@@ -178,7 +155,7 @@ function HubGrid({
                       <div className="hub-card-top">
                         {count > 0 ? (
                           <span className="hub-card-count">
-                            {countLabel(count, lang, h.key === 'books' ? 'book' : 'piece')}
+                            {countLabel(count, lang, hubNoun(h.key))}
                           </span>
                         ) : (
                           <span className="hub-card-count-empty">
@@ -793,6 +770,7 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
           data={{ ...t.interviews, items: archiveData.interviews }}
           foreignItems={foreign.interviews}
           lang={lang}
+          noun="interview"
         />
       ) : (
         <Navigate to={paths[lang].home!} replace />
@@ -803,6 +781,7 @@ function ArchiveRoutePage({ pageKey, lang }: { pageKey: PageKey; lang: Lang }) {
           data={{ ...t.academicArticles, items: archiveData.academicArticles }}
           foreignItems={foreign.academicArticles}
           lang={lang}
+          noun="article"
         />
       ) : (
         <Navigate to={paths[lang].home!} replace />
