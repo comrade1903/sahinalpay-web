@@ -10,4 +10,9 @@ describe('layout guards', () => {
   it('keeps the footer below the fold while a page loads', () => {
     expect(css).toMatch(/#main-content\s*\{[^}]*min-height:\s*100dvh/)
   })
+
+  /* Measured 2026-11-10: the book links were 21–27px high on a phone. */
+  it('gives a book link a full-height touch target', () => {
+    expect(css).toMatch(/\.book-buy\s*\{[^}]*min-height:\s*var\(--control-hit-size\)/)
+  })
 })

@@ -125,7 +125,7 @@ export function BookTranslationDialog({
                     lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
                   }`}
                 >
-                  {labels.pdf}
+                  <span className="book-buy-label">{labels.pdf}</span>
                   <span
                     className="material-symbols-outlined"
                     aria-hidden="true"

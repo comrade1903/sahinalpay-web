@@ -573,7 +573,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             aria-haspopup="dialog"
                             onClick={() => setOpenForeword({ book: b, foreword })}
                           >
-                            {forewordLabels(foreword, lang).open}
+                            <span className="book-buy-label">{forewordLabels(foreword, lang).open}</span>
                             <span
                               className="material-symbols-outlined"
                               aria-hidden="true"
@@ -590,7 +590,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                             aria-haspopup="dialog"
                             onClick={() => setOpenPress(b)}
                           >
-                            {bookPressLabels[lang].open}
+                            <span className="book-buy-label">{bookPressLabels[lang].open}</span>
                             <span
                               className="material-symbols-outlined"
                               aria-hidden="true"
@@ -610,7 +610,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           aria-haspopup="dialog"
                           onClick={() => setOpenTranslation(b)}
                         >
-                          {translationLabels(b.translation, lang).open}
+                          <span className="book-buy-label">{translationLabels(b.translation, lang).open}</span>
                           <span
                             className="material-symbols-outlined"
                             aria-hidden="true"
@@ -627,7 +627,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           aria-label={`${b.title}: ${translationLabels(b.translation, lang).pdf} ${lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
                             }`}
                         >
-                          {translationLabels(b.translation, lang).pdf}
+                          <span className="book-buy-label">{translationLabels(b.translation, lang).pdf}</span>
                           <span
                             className="material-symbols-outlined"
                             aria-hidden="true"
@@ -648,7 +648,7 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
                             }`}
                         >
-                          {buyButtonLabel(b.purchaseUrl, lang)}
+                          <span className="book-buy-label">{buyButtonLabel(b.purchaseUrl, lang)}</span>
                           <span
                             className="material-symbols-outlined"
                             aria-hidden="true"
