@@ -439,6 +439,14 @@ main:focus {
   outline: none;
 }
 
+/* An archive page renders a one-line loading state first and its content a
+   moment later. Without a floor under <main> the footer sat inside the first
+   viewport and was pushed down when the content arrived. */
+#main-content {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 .material-symbols-outlined {
   /* The first six declarations came from Google's own stylesheet, which the
      site no longer loads (see fonts.css), so the icons keep its spacing and
