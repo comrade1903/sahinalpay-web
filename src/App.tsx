@@ -102,7 +102,7 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
             <div className="portrait-echo" aria-hidden="true" />
             <figure className="portrait">
               {PORTRAIT ? (
-                <img src={PORTRAIT} alt={t.hero.portraitAlt} />
+                <img src={PORTRAIT} width={960} height={1200} alt={t.hero.portraitAlt} />
               ) : (
                 <div className="portrait-placeholder">
                   <span className="portrait-monogram">ŞA</span>
