@@ -166,7 +166,7 @@ function HubGrid({
           <div className="hub-grid">
             {t.hub.map((h) => {
               const count = hubCount(h.key, t, lang, summary)
-              const wide = h.key === 'columns' || h.key === 'books'
+              const wide = h.key === 'columns'
               return (
                 <div key={h.key} className={wide ? 'hub-card-wide' : undefined}>
                   <Link
@@ -545,9 +545,8 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
               href={data.externalUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label={`${data.externalLabel} ${
-                lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-              }`}
+              aria-label={`${data.externalLabel} ${lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                }`}
             >
               {data.externalLabel}
             </a>
@@ -646,9 +645,8 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           href={b.translation.pdfUrl}
                           target="_blank"
                           rel="noreferrer"
-                          aria-label={`${b.title}: ${translationLabels(b.translation, lang).pdf} ${
-                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                          }`}
+                          aria-label={`${b.title}: ${translationLabels(b.translation, lang).pdf} ${lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                            }`}
                         >
                           {translationLabels(b.translation, lang).pdf}
                           <span
@@ -668,9 +666,8 @@ function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
                           href={b.purchaseUrl}
                           target="_blank"
                           rel="noreferrer"
-                          aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${
-                            lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
-                          }`}
+                          aria-label={`${b.title}: ${buyButtonLabel(b.purchaseUrl, lang)} ${lang === 'tr' ? '(yeni sekmede açılır)' : '(opens in a new tab)'
+                            }`}
                         >
                           {buyButtonLabel(b.purchaseUrl, lang)}
                           <span
@@ -851,104 +848,104 @@ function MainShell() {
   return (
     <main id="main-content" tabIndex={-1} ref={mainRef}>
       <Routes>
-          <Route path="/" element={<RouteFor lang="en" pageKey="home" />} />
-          <Route path="/about" element={<RouteFor lang="en" pageKey="about" />} />
-          <Route
-            path="/columns"
-            element={<RouteFor lang="en" pageKey="columns" />}
-          />
-          <Route path="/columns/:slug" element={<ArticlePage lang="en" />} />
-          <Route
-            path="/analyses"
-            element={<RouteFor lang="en" pageKey="analyses" />}
-          />
-          <Route
-            path="/analyses/:slug"
-            element={<TurkishItemRedirect pageKey="analyses" />}
-          />
-          <Route
-            path="/interviews"
-            element={<RouteFor lang="en" pageKey="interviews" />}
-          />
-          <Route
-            path="/interviews/:slug"
-            element={<EnglishMirroredItem pageKey="interviews" />}
-          />
-          <Route
-            path="/academic-articles"
-            element={<RouteFor lang="en" pageKey="academic" />}
-          />
-          <Route
-            path="/academic-articles/:slug"
-            element={<EnglishMirroredItem pageKey="academic" />}
-          />
-          <Route path="/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
-          <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
-          <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
-          <Route path="/about-me-in-the-press" element={<PressPage lang="en" />} />
-          <Route
-            path="/about-me-in-the-press/:slug"
-            element={<TurkishItemRedirect pageKey="press" />}
-          />
-          <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
+        <Route path="/" element={<RouteFor lang="en" pageKey="home" />} />
+        <Route path="/about" element={<RouteFor lang="en" pageKey="about" />} />
+        <Route
+          path="/columns"
+          element={<RouteFor lang="en" pageKey="columns" />}
+        />
+        <Route path="/columns/:slug" element={<ArticlePage lang="en" />} />
+        <Route
+          path="/analyses"
+          element={<RouteFor lang="en" pageKey="analyses" />}
+        />
+        <Route
+          path="/analyses/:slug"
+          element={<TurkishItemRedirect pageKey="analyses" />}
+        />
+        <Route
+          path="/interviews"
+          element={<RouteFor lang="en" pageKey="interviews" />}
+        />
+        <Route
+          path="/interviews/:slug"
+          element={<EnglishMirroredItem pageKey="interviews" />}
+        />
+        <Route
+          path="/academic-articles"
+          element={<RouteFor lang="en" pageKey="academic" />}
+        />
+        <Route
+          path="/academic-articles/:slug"
+          element={<EnglishMirroredItem pageKey="academic" />}
+        />
+        <Route path="/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
+        <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
+        <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
+        <Route path="/about-me-in-the-press" element={<PressPage lang="en" />} />
+        <Route
+          path="/about-me-in-the-press/:slug"
+          element={<TurkishItemRedirect pageKey="press" />}
+        />
+        <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
-          <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
-          <Route
-            path="/tr/kimdir"
-            element={<RouteFor lang="tr" pageKey="about" />}
-          />
-          <Route
-            path="/tr/kose-yazilari"
-            element={<RouteFor lang="tr" pageKey="columns" />}
-          />
-          <Route
-            path="/tr/kose-yazilari/:slug"
-            element={<ArticlePage lang="tr" />}
-          />
-          <Route
-            path="/tr/analizler"
-            element={<RouteFor lang="tr" pageKey="analyses" />}
-          />
-          <Route
-            path="/tr/analizler/:slug"
-            element={<ArticlePage lang="tr" />}
-          />
-          <Route
-            path="/tr/soylesiler"
-            element={<RouteFor lang="tr" pageKey="interviews" />}
-          />
-          <Route
-            path="/tr/soylesiler/:slug"
-            element={<ArticlePage lang="tr" />}
-          />
-          <Route
-            path="/tr/akademik-makaleler"
-            element={<RouteFor lang="tr" pageKey="academic" />}
-          />
-          <Route
-            path="/tr/akademik-makaleler/:slug"
-            element={<ArticlePage lang="tr" />}
-          />
-          <Route path="/tr/fotograflarla-hikayem" element={<PhotoStoryPage lang="tr" />} />
-          <Route
-            path="/tr/kitaplar"
-            element={<RouteFor lang="tr" pageKey="books" />}
-          />
-          <Route
-            path="/tr/yargilanma-surecim"
-            element={<TrialProcessPage lang="tr" />}
-          />
-          <Route path="/tr/basinda-hakkimda" element={<PressPage lang="tr" />} />
-          <Route
-            path="/tr/basinda-hakkimda/:slug"
-            element={<PressArticlePage lang="tr" />}
-          />
-          <Route
-            path="/tr/cerez-politikasi"
-            element={<CookiePolicyPage lang="tr" />}
-          />
+        <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
+        <Route
+          path="/tr/kimdir"
+          element={<RouteFor lang="tr" pageKey="about" />}
+        />
+        <Route
+          path="/tr/kose-yazilari"
+          element={<RouteFor lang="tr" pageKey="columns" />}
+        />
+        <Route
+          path="/tr/kose-yazilari/:slug"
+          element={<ArticlePage lang="tr" />}
+        />
+        <Route
+          path="/tr/analizler"
+          element={<RouteFor lang="tr" pageKey="analyses" />}
+        />
+        <Route
+          path="/tr/analizler/:slug"
+          element={<ArticlePage lang="tr" />}
+        />
+        <Route
+          path="/tr/soylesiler"
+          element={<RouteFor lang="tr" pageKey="interviews" />}
+        />
+        <Route
+          path="/tr/soylesiler/:slug"
+          element={<ArticlePage lang="tr" />}
+        />
+        <Route
+          path="/tr/akademik-makaleler"
+          element={<RouteFor lang="tr" pageKey="academic" />}
+        />
+        <Route
+          path="/tr/akademik-makaleler/:slug"
+          element={<ArticlePage lang="tr" />}
+        />
+        <Route path="/tr/fotograflarla-hikayem" element={<PhotoStoryPage lang="tr" />} />
+        <Route
+          path="/tr/kitaplar"
+          element={<RouteFor lang="tr" pageKey="books" />}
+        />
+        <Route
+          path="/tr/yargilanma-surecim"
+          element={<TrialProcessPage lang="tr" />}
+        />
+        <Route path="/tr/basinda-hakkimda" element={<PressPage lang="tr" />} />
+        <Route
+          path="/tr/basinda-hakkimda/:slug"
+          element={<PressArticlePage lang="tr" />}
+        />
+        <Route
+          path="/tr/cerez-politikasi"
+          element={<CookiePolicyPage lang="tr" />}
+        />
 
-          <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
   )

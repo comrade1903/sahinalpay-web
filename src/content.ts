@@ -374,6 +374,7 @@ export const content: Record<Lang, Content> = {
       { key: 'books', title: 'Books' },
       { key: 'trial', title: 'The 15 July Case Against Me' },
       { key: 'press', title: 'About Me In The Press' },
+      { key: 'photos', title: 'My Story in Photographs' },
     ],
     about: {
       "kicker": "Life story",
@@ -629,6 +630,7 @@ export const content: Record<Lang, Content> = {
       { key: 'books', title: 'Kitaplar' },
       { key: 'trial', title: '15 Temmuz Yargılanma Sürecim' },
       { key: 'press', title: 'Basında Hakkımda Yazılanlar' },
+      { key: 'photos', title: 'Fotoğraflarla Hikayem' },
     ],
     about: {
       "kicker": "Yaşam öyküsü",
