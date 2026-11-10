@@ -65,6 +65,7 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 
   Wait for CI to pass, then merge (squash) — the merge to `main` is what deploys. Delete the branch afterwards and return to `main`. Opening or merging a PR is an outward-facing action: ask the owner first unless they asked for it in this session.
 - When browser-verifying, check both languages (`/` and `/tr`), and for layout work both themes and a mobile-width viewport.
+- `npm run audit:ui` (with `npm run serve:dist` running) measures layout shift, horizontal overflow, touch-target height, smallest type and contrast on every page at phone and desktop widths. Run it before and after layout work; it complements the browser check, it does not replace it.
 
 ## Done definition
 
