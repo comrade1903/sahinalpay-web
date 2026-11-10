@@ -57,7 +57,7 @@ export function BookForewordDialog({
               className="foreword-close"
               onClick={() => ref.current?.close()}
             >
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 close
               </span>
               {lang === 'tr' ? 'Kapat' : 'Close'}

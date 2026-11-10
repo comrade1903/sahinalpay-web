@@ -109,7 +109,7 @@ export function ImageLightbox({
               {zoomed ? labels.unzoomHint : labels.zoomHint}
             </span>
             <button type="button" className="lightbox-close" onClick={() => ref.current?.close()}>
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 close
               </span>
               {labels.close}
@@ -142,7 +142,7 @@ export function ImageLightbox({
                   aria-label={labels.prev}
                   onClick={() => step(-1)}
                 >
-                  <span className="material-symbols-outlined" aria-hidden="true">
+                  <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                     arrow_back
                   </span>
                 </button>
@@ -165,7 +165,7 @@ export function ImageLightbox({
                   aria-label={labels.next}
                   onClick={() => step(1)}
                 >
-                  <span className="material-symbols-outlined" aria-hidden="true">
+                  <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                     arrow_forward
                   </span>
                 </button>

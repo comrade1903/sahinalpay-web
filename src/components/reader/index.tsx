@@ -200,7 +200,7 @@ function CiteThis({
         aria-expanded={open}
         onClick={onClick}
       >
-        <span
+        <span translate="no"
           className="material-symbols-outlined"
           aria-hidden="true"
           style={{ fontSize: 'var(--icon-md)' }}
@@ -416,7 +416,7 @@ export function LoadedArticlePage({
           </nav>
           <div className="article-tools">
             <Link className="back-link" to={backTo}>
-              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                 arrow_back
               </span>
               {sectionLinkLabel}
@@ -439,7 +439,7 @@ export function LoadedArticlePage({
                   )
                 }
               >
-                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
+                <span translate="no" className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                   text_decrease
                 </span>
               </button>
@@ -455,7 +455,7 @@ export function LoadedArticlePage({
                   )
                 }
               >
-                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
+                <span translate="no" className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 'var(--icon-md)' }}>
                   text_increase
                 </span>
               </button>
@@ -587,7 +587,7 @@ export function LoadedArticlePage({
                       loading="lazy"
                     />
                     <span className="clipping-open-hint">
-                      <span className="material-symbols-outlined" aria-hidden="true">
+                      <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                         zoom_in
                       </span>
                       {content[lang].clippingViewer.openPage}
@@ -615,7 +615,7 @@ export function LoadedArticlePage({
                 >
                   <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
                   <span className="clipping-open-hint">
-                    <span className="material-symbols-outlined" aria-hidden="true">
+                    <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                       picture_as_pdf
                     </span>
                     {content[lang].clippingViewer.openPdf}
@@ -634,7 +634,7 @@ export function LoadedArticlePage({
                 >
                   <img src={cover.src} alt={cover.alt ?? item.title} loading="lazy" />
                   <span className="clipping-open-hint">
-                    <span className="material-symbols-outlined" aria-hidden="true">
+                    <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                       zoom_in
                     </span>
                     {content[lang].clippingViewer.openImage}

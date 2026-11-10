@@ -100,7 +100,7 @@ export function ArchiveRow({
         {preview && <p className="archive-row-excerpt">{preview}</p>}
       </div>
       {link && (
-        <span className="archive-row-arrow material-symbols-outlined" aria-hidden="true">
+        <span translate="no" className="archive-row-arrow material-symbols-outlined" aria-hidden="true">
           arrow_forward
         </span>
       )}
@@ -270,7 +270,7 @@ function ArchiveSearchRow({
       )}
       {bodySearch.failed && (
         <p className="search-status search-status-warning" role="alert">
-          <span className="material-symbols-outlined" aria-hidden="true">
+          <span translate="no" className="material-symbols-outlined" aria-hidden="true">
             warning
           </span>
           {lang === 'tr'
@@ -321,7 +321,7 @@ function ActiveFilterSummary({
               <span>
                 {filter.label}: {filter.value}
               </span>
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 close
               </span>
             </button>
@@ -1282,7 +1282,7 @@ export function FlatArchivePage({
               onClick={() => setFiltersOpen((open) => !open)}
             >
               <span>{lang === 'tr' ? 'Filtreler' : 'Filters'}</span>
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 tune
               </span>
             </button>
