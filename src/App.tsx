@@ -444,7 +444,9 @@ function NarrativeBody({
               key={section.id}
             >
               {section.title && (section.sub ? <h3>{section.title}</h3> : <h2>{section.title}</h2>)}
-              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {/* Keyed by position: a statement repeats its salutation, so the
+                  text alone is not unique. The list never reorders. */}
+              {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
               {section.document && (
                 <p className="bio-document">
                   <a className="btn btn-ghost" href={section.document.href} target="_blank" rel="noopener noreferrer">
