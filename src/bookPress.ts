@@ -1,10 +1,10 @@
 /** Writing about a book by other people — reviews, columns and interviews
  *  prompted by it — listed in a dialog from the book's card.
  *
- *  Each entry was given by the owner as a link (2026-11-06). Headline,
- *  author and date are copied from the page's own metadata as read that day;
- *  two pages, blocked from Turkey, could not be read, and their headlines
- *  and dates are the owner's. */
+ *  Each entry was given by the owner as a link (2026-11-06; Medyascope and
+ *  Habertürk on 2026-11-11). Headline, author and date are copied from the
+ *  page's own metadata as read that day; two pages, blocked from Turkey,
+ *  could not be read, and their headlines and dates are the owner's. */
 
 /** The card's button and the dialog's heading. */
 export const bookPressLabels = {
@@ -63,6 +63,15 @@ export const birHikayemVarPress: BookPressItem[] = [
     url: 'https://www.karar.com/yazarlar/taha-akyol/sahin-alpay-ne-diyor-1602190',
   },
   {
+    // Medyascope refuses automated requests; read from the Internet Archive's
+    // copy of 2025-05-18. The page dates it 22 Aralık 2024.
+    title: 'İkonik ve kaotik: Şahin Alpay’ın anıları',
+    author: 'Gökhan Bacık',
+    outlet: 'Medyascope',
+    date: '2024-12-22',
+    url: 'https://medyascope.tv/2024/12/22/ikonik-ve-kaotik-sahin-alpayin-anilari-gokhan-bacik-yazdi/',
+  },
+  {
     // The page is blocked from Turkey and could not be read here. The
     // headline is the owner's (2026-11-06), given as "H. Agah Kalender yazdı I Şahin Alpay'ın
     // hikayesi burada ..." and completed from the page's address
@@ -72,6 +81,13 @@ export const birHikayemVarPress: BookPressItem[] = [
     outlet: 'Turkish Post',
     date: '2025-04-05',
     url: 'https://www.turkishpost.net/h-agah-kalender-yazdi-i-sahin-alpayin-hikayesi-burada-bitmez/',
+  },
+  {
+    title: "Türkiye'ye Maoculuğu kim getirdi?",
+    author: 'Muhsin Kızılkaya',
+    outlet: 'Habertürk',
+    date: '2025-06-11',
+    url: 'https://www.haberturk.com/ozel-icerikler/muhsin-kizilkaya-2291/3798364-turkiyeye-maoculugu-kim-getirdi',
   },
   {
     // Also listed under Interviews.
