@@ -2775,6 +2775,13 @@ a.archive-row:hover .archive-row-title {
   max-width: 100%;
   color: var(--ink-soft);
 }
+/* On a phone the last step repeats the heading right below it; the trail
+   stops at the section. */
+@media (max-width: 559px) {
+  .breadcrumb > :nth-last-child(-n + 2) {
+    display: none;
+  }
+}
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -3633,6 +3640,27 @@ a.archive-row:hover .archive-row-title {
   padding-top: var(--space-4);
   border-top: 1px solid var(--line);
 }
+/* On a wide screen a scan is read, not glanced at: it leaves the 40rem text
+   column and takes up to 52rem, centred on it. It was drawn ~450px wide,
+   too small to read a newspaper column without opening the lightbox. */
+@media (min-width: 900px) {
+  .clipping-viewer {
+    --clipping-width: min(52rem, 100vw - 2 * var(--space-4));
+    width: var(--clipping-width);
+    margin-inline: calc((100% - var(--clipping-width)) / 2);
+  }
+  /* A large scan fills the wider frame; a small one is not stretched past
+     its own pixels to 52rem, where it only blurs (175 of the 1,006 scans are
+     narrower than 860px), but it is never drawn smaller than the text
+     column it used to fill. */
+  .clipping-viewer .clipping-open img,
+  .clipping-viewer .clipping-frame img {
+    width: auto;
+    max-width: 100%;
+    min-width: min(100%, 34rem); /* the ~606px the text column gave it */
+    margin-inline: auto;
+  }
+}
 .clipping-viewer h2 {
   font-size: var(--text-title);
   margin-bottom: var(--space-3);
@@ -3842,8 +3870,12 @@ a.archive-row:hover .archive-row-title {
   }
 }
 @media (hover: none) {
+  /* No hover on a touch screen, so the hint is always shown — under the
+     scan rather than over its last lines. */
   .clipping-open-hint {
     opacity: 1;
+    position: static;
+    margin-top: 0.5rem;
   }
 }
 

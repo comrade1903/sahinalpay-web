@@ -23,6 +23,7 @@ import { paths } from '../../routes'
 import { ImageLightbox, type LightboxImage } from '../ImageLightbox'
 import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
+import { skipsDropCap } from './dropCap'
 import { DeadEnd } from '../DeadEnd'
 import { ItemTitle } from '../ItemTitle'
 import { useArchiveGate } from '../useArchiveGate'
@@ -323,7 +324,7 @@ export function LoadedArticlePage({
   const shown = displayItem(item, lang)
   const photos = shown.clippings?.filter((clipping) => clipping.kind === 'photo') ?? []
   const scans = shown.clippings?.filter((clipping) => clipping.kind !== 'photo') ?? []
-  const shortOpener = !body || !body[0] || body[0].length < 60
+  const shortOpener = skipsDropCap(body?.[0])
   /* A piece that survives only as a scan has no running text on the page: its
      words are inside the clipping. Rendering an empty body column for it left
      a 72px gap under the byline, and the text-size controls resized nothing.
