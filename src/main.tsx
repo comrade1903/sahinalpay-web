@@ -4,6 +4,11 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
+import { installStaleChunkReload } from './lib/chunkReload.ts'
+import { installTranslateGuard } from './lib/translateGuard.ts'
+
+installTranslateGuard()
+installStaleChunkReload()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

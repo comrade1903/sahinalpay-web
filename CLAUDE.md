@@ -65,6 +65,7 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 
   Wait for CI to pass, then merge (squash) — the merge to `main` is what deploys. Delete the branch afterwards and return to `main`. Opening or merging a PR is an outward-facing action: ask the owner first unless they asked for it in this session.
 - When browser-verifying, check both languages (`/` and `/tr`), and for layout work both themes and a mobile-width viewport.
+- `npm run audit:ui` (with `npm run serve:dist` running) measures layout shift, horizontal overflow, touch-target height, smallest type and contrast on every page at phone and desktop widths. Run it before and after layout work; it complements the browser check, it does not replace it.
 
 ## Done definition
 
@@ -82,4 +83,4 @@ Several top-level directories are **not part of the active app** — don't treat
 - `şahin-alpay-arşivi/` — an earlier standalone prototype with its own `package.json`/Vite config.
 - `stitch_ahin_alpay_dijital_ar_ivi/` — static HTML/design mockups (Google Stitch output), reference only.
 - `agent-skills/`, `awesome-claude-code-subagents/` — vendored third-party skill/agent repos, unrelated to this site's code.
-- `docs/superpowers/` — vendored skill docs, not project documentation.
+- `docs/superpowers/` — this project's own design specs (`specs/`) and implementation plans (`plans/`), one pair per feature. They record why a feature is the way it is; they are not vendored.

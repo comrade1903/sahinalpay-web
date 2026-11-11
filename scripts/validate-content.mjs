@@ -445,6 +445,14 @@ if (!fs.existsSync(iconsPath)) {
     })
   for (const absolute of walk(path.join(projectRoot, 'src'))) {
     const source = fs.readFileSync(absolute, 'utf8')
+    /* A page translator reads an icon's ligature ("menu_book") as a word and
+       translates it, so the icon turns into text. Every icon opts out. */
+    for (const match of source.matchAll(/<span\b[^>]*material-symbols-outlined[^>]*>/g)) {
+      if (!/\btranslate="no"/.test(match[0])) {
+        const line = source.slice(0, match.index).split('\n').length
+        fail(`${path.relative(projectRoot, absolute)}:${line}: icon <span> needs translate="no"`)
+      }
+    }
     for (const match of source.matchAll(
       /material-symbols-outlined[^>]*>\s*([a-z_0-9]+)\s*</g,
     )) {

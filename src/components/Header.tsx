@@ -116,7 +116,7 @@ export function Header() {
       </a>
       <header className="site-header" data-scrolled={scrolled}>
         <div className="container header-inner">
-          <Link to={paths[lang].home!} className="wordmark">
+          <Link to={paths[lang].home!} className="wordmark" translate="no">
             Şahin Alpay
           </Link>
           <div className="header-actions">
@@ -129,13 +129,14 @@ export function Header() {
               aria-controls="mobile-nav"
               onClick={() => setMenuOpen((open) => !open)}
             >
-              <span className="material-symbols-outlined" aria-hidden="true">
+              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
                 {menuOpen ? 'close' : 'menu'}
               </span>
             </button>
           <button
             type="button"
             className="lang-toggle"
+            translate="no"
             onClick={onToggleLang}
             aria-label={t.langToggleLabel}
             lang={lang === 'tr' ? 'en' : 'tr'}
