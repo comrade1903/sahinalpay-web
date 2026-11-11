@@ -689,6 +689,9 @@ export function LoadedArticlePage({
             )}
           </p>
         )}
+        {/* On paper, the address a printed copy can be found at again. The
+            address alone, without a label: it explains itself. */}
+        <p className="print-only article-print-source">{articleUrl}</p>
         <ImageLightbox
           images={lightboxImages}
           index={lightbox}

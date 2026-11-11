@@ -4041,3 +4041,86 @@ html {
   font-size: 0.6em;
   margin-top: var(--space-1);
 }
+
+/* ---- Print ----
+   A printed page is the piece itself: title, byline, photographs, text and
+   the address it came from. The site's chrome, the controls that do
+   nothing on paper, the scroll animations and the theme all step aside;
+   the text is black on white whichever theme the reader had chosen. */
+.print-only {
+  display: none;
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .cookie-notice,
+  .skip-link,
+  .breadcrumb,
+  .article-tools,
+  .reading-progress,
+  .back-to-top,
+  .bio-contents,
+  .tag-list,
+  .clipping-open-hint,
+  .mobile-nav,
+  .mobile-nav-backdrop {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+
+  /* Scroll-revealed blocks start hidden and only appear when scrolled into
+     view, which never happens on paper. */
+  [style*='opacity'] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+  body,
+  body * {
+    color: #000 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .container,
+  .container-narrow {
+    max-width: none;
+    padding-inline: 0;
+  }
+  #main-content {
+    min-height: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  figure,
+  img,
+  .page-scan {
+    break-inside: avoid;
+  }
+  /* A page scan fills at most one sheet, with room for its page number, so
+     a 19-page article prints on 19 sheets instead of 40. */
+  .page-scan img,
+  .clipping-frame img {
+    max-height: 21cm;
+    width: auto;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .article-print-source {
+    margin-top: 1.5rem;
+    font-size: 10pt;
+    word-break: break-all;
+  }
+}
+
