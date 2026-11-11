@@ -59,24 +59,24 @@ record is bilingual by construction rather than machine-translated.
   Zaman/Today's Zaman, PDFs for P24, and scanned periodical volumes (TÜSTAV Süreli
   Yayınlar Arşivi) for the older analyses. Import and extraction run through scripts
   in `scripts/`, against directories that live outside the repo.
-- Verification is `npm run build`, `npm run lint`, `npm run validate:content`, and
-  checking the running app in a browser. There is no test suite.
+- Verification is `npm run build`, `npm run lint`, `npm test` (vitest),
+  `npm run validate:content`, `npm run check:bundle`, and checking the running app
+  in a browser; `npm run audit:ui` measures layout shift, overflow, touch targets,
+  type size and contrast on every page.
 - The owner communicates in Turkish. Code, comments and commit messages are English.
 
 ## Capabilities and Constraints
 
 Present:
 
-- Pages: Home, About/Kimdir, Columns, Analyses, Interviews, Academic Articles, Books,
-  Chronicle, Cookie Policy — each with a distinct, differently-worded URL per
-  language (`/about` vs `/tr/kimdir`), not a locale prefix over one route tree.
+- Pages: Home, About/Kimdir, My Story in Photographs, Columns, Interviews, Articles
+  (academic), Books, the 15 July trial, About Me in the Press, Cookie Policy — each
+  with a distinct, differently-worded URL per language (`/about` vs `/tr/kimdir`),
+  not a locale prefix over one route tree. Analyses still has routes but no entries.
 - Language is derived purely from the URL; the switcher navigates to the equivalent
   path and persists the choice to `localStorage`.
 - An article either opens internally on its own reader page (when it has body text or
   scanned clippings) or links out to its original source.
-- A homepage picks section that rotates weekly from a seeded shuffle keyed to the ISO
-  week — no cron, no backend, identical for every visitor that week.
-- Chronicle: published output per year, plotted against the events he wrote through.
 - Light/dark theme following the system by default; motion respects
   `prefers-reduced-motion`.
 - No cookies, no analytics, no third-party tracking. Only language and theme
@@ -84,8 +84,9 @@ Present:
 
 Constraints:
 
-- Columns are per-language. Analyses, interviews and academic articles are Turkish-only
-  as content; English keeps hub pages that explain and link to the Turkish archive.
+- Columns, interviews and academic articles are per-language, and every section page
+  lists both languages' records: the reader's own first, the other language's under
+  their own heading. Analyses are Turkish-only.
 - Any UI string must be written in both languages in the same change. Shipping copy in
   one language only is a defect.
 - Article dates are free-text Turkish or English strings; one parser turns them into
@@ -111,20 +112,21 @@ Undecided / pending:
 
 Real, in the repository:
 
-- 576 archive entries: Zaman (244), Milliyet (127), Today's Zaman (97), P24 (47),
-  Cumhuriyet (43), analyses (7 — Aydınlık 4, Forum 2, İşçi Köylü 1), academic
-  articles (6), interviews (5). Sabah has a section but no entries yet.
+- 695 archive entries (2026-11-11): Zaman (289), Today's Zaman (138), Milliyet (127),
+  P24 (47), Cumhuriyet (43), Sabah (13), Medyascope (3), academic articles (24 — 12
+  per language), interviews (11). Analyses has no entries.
   `npm run inventory:archive` prints the current figures; this list is a snapshot.
-- Six books: Hikâyemin Sonu (2025), Bir Hikâyem Var (2024), Gülen'in Katkısı (2004),
-  Türkiye'nin Tanıkları: İçeriden Bakanlar (2003), Türkiye'nin Tanıkları: Dışarıdan
-  Bakanlar (2002), Sosyal Demokrasi Açısından Kürt Sorunu (1992).
-- 563 page scans under `public/archive/clippings/<outlet>/<year>/<slug>/`, and 48
-  PDFs under `public/archive/pdf/`. 43 of those PDFs — one per Cumhuriyet column —
-  are not referenced by any record; see docs/OPERATIONS.md.
+- Eight books on the Books page: Hikâyemin Sonu (2025), Bir Hikâyem Var (2024),
+  Türkiye’nin Tanıkları: İçeriden Bakanlar (2003), Türkiye’nin Tanıkları: Dışarıdan
+  Bakanlar (2002), 2020 Yılında Türkiye (1991), DSP-SHP: Nerede Birleşiyor, Nerede
+  Ayrılıyorlar? (1986), Piyasa Ekonomisi ve Demokrasi (1985), Turkar i Stockholm
+  (1980).
+- 1,006 page scans under `public/archive/clippings/<outlet>/<year>/<slug>/`, and 49
+  PDFs under `public/archive/pdf/`. 48 of those PDFs (Cumhuriyet 43, Aydınlık 4,
+  İşçi Köylü 1) are not referenced by any record; see docs/OPERATIONS.md.
 - Biography facts, duplicated for crawlers in `public/llms.txt` and as JSON-LD in
   `index.html`; these three must stay consistent with each other.
 
-Empty and to be filled: Sabah.
 
 Absent — must never be invented: testimonials, visitor numbers, awards, press quotes,
 retailer links that were not verified, or any article, date, quote, excerpt or link
