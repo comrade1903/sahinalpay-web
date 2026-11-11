@@ -28,6 +28,7 @@ Prerequisites (not repo dependencies):
 Usage:
     python3 scripts/generate-fonts.py --src /tmp/fonts
     python3 scripts/generate-fonts.py --src /tmp/fonts --icons-only
+    python3 scripts/generate-fonts.py --src /tmp/fonts --text-only
 
 `--icons-only` rebuilds just the icon font, for when ICONS changes. It needs
 only material.ttf, and leaves the text faces byte-for-byte as committed.
@@ -40,16 +41,20 @@ import sys
 
 from fontTools.ttLib import TTFont
 
-# Google's own latin + latin-ext ranges, which is what this site needs:
-# Turkish (ğ Ğ ı İ ş Ş), the typographic quotes and dashes the archive text
-# uses, and the currency and arrow marks in the UI.
+# Google's latin + latin-ext ranges, with one change: the Turkish letters
+# Google files under latin-ext (Ğ ğ İ Ş ş) are moved into latin. Every page,
+# English ones included, draws "Şahin Alpay", so under Google's split every
+# page downloaded both files; now a page needs latin-ext only for the rarer
+# letters of other languages. The ranges must not overlap, or the later
+# face would claim the moved letters back.
 LATIN = (
-    "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,"
-    "U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,"
-    "U+FEFF,U+FFFD"
+    "U+0000-00FF,U+011E-011F,U+0130-0131,U+0152-0153,U+015E-015F,U+02BB-02BC,"
+    "U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,"
+    "U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
 )
 LATIN_EXT = (
-    "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,"
+    "U+0100-011D,U+0120-012F,U+0132-0151,U+0154-015D,U+0160-02BA,"
+    "U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,"
     "U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,"
     "U+2113,U+2C60-2C7F,U+A720-A7FF"
 )
@@ -88,6 +93,11 @@ parser.add_argument(
     "--icons-only",
     action="store_true",
     help="rebuild only material-symbols.woff2 (and icons.json); needs only material.ttf",
+)
+parser.add_argument(
+    "--text-only",
+    action="store_true",
+    help="rebuild only the six text faces; leaves the icon font as committed",
 )
 args = parser.parse_args()
 
@@ -203,24 +213,26 @@ def prune_ligatures(source, target, names):
     return target
 
 
-pruned_icons = prune_ligatures("material.ttf", work / "material-pruned.ttf", set(ICONS))
+if not args.text_only:
+    pruned_icons = prune_ligatures("material.ttf", work / "material-pruned.ttf", set(ICONS))
 
-written["material-symbols.woff2"] = subset(
-    pruned_icons,
-    "material-symbols.woff2",
-    f"--glyphs={','.join(ICONS)}",
-    "--text=abcdefghijklmnopqrstuvwxyz_",
-    # The font registers its ligatures across several feature tags; `liga`
-    # alone silently produces a font with no substitutions at all.
-    "--layout-features=liga,dlig,ccmp,rlig",
-    "--drop-tables+=DSIG",
-)
+    written["material-symbols.woff2"] = subset(
+        pruned_icons,
+        "material-symbols.woff2",
+        f"--glyphs={','.join(ICONS)}",
+        "--text=abcdefghijklmnopqrstuvwxyz_",
+        # The font registers its ligatures across several feature tags; `liga`
+        # alone silently produces a font with no substitutions at all.
+        "--layout-features=liga,dlig,ccmp,rlig",
+        "--drop-tables+=DSIG",
+    )
 
 for leftover in work.iterdir():
     leftover.unlink()
 work.rmdir()
 
-(out / "icons.json").write_text(f"{json.dumps(sorted(ICONS), indent=2)}\n")
+if not args.text_only:
+    (out / "icons.json").write_text(f"{json.dumps(sorted(ICONS), indent=2)}\n")
 
 for name, size in written.items():
     print(f"{name:28} {size / 1024:7.1f} kB")

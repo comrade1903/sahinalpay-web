@@ -492,7 +492,9 @@ const indexHtml = fs.readFileSync(path.join(projectRoot, 'index.html'), 'utf8')
 const referenced = new Set(
   [...indexHtml.matchAll(/(?:href|content)="(\/[^"]+)"/g)]
     .map((match) => match[1])
-    .filter((value) => !value.includes('{{')),
+    .filter((value) => !value.includes('{{'))
+    /* A cache-busting query (?v=2) is part of the address, not the file name. */
+    .map((value) => value.split('?')[0]),
 )
 for (const assetPath of referenced) {
   if (assetPath.endsWith('/') || assetPath.startsWith('/src/') || assetPath === '/') continue
