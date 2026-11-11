@@ -32,6 +32,8 @@ npm run lint               # oxlint
 npm test                   # vitest (happy-dom)
 npm run validate:content   # archive integrity — schema, dates, media, routes, sitemap
 npm run serve:dist         # serve dist/ the way Vercel does (real 404s and headers)
+npm run check:bundle       # fail if the first-load scripts outgrow scripts/bundle-budget.json
+npm run audit:ui           # with serve:dist running: layout shift, overflow, targets, type, contrast
 npm run generate:sitemap   # regenerate public/sitemap.xml + robots.txt (committed)
 npm run generate:summary   # regenerate the home page's archive summary (committed)
 npm run inventory:archive  # diffable dump of every record, for before/after proofs
