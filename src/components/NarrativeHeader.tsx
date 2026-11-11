@@ -1,3 +1,4 @@
+import { Children } from 'react'
 import type { ReactNode } from 'react'
 import type { Lang } from '../content'
 import { AuthorAvatar } from './AuthorAvatar'
@@ -83,12 +84,17 @@ export function NarrativeHeader({
           {subtitle && <p className="bio-subtitle">{subtitle}</p>}
         </Reveal>
 
-        <Reveal className="prose" delay={0.1}>
-          {children}
-          {jumpTargets.length > 1 && (
-            <JumpToSection lang={lang} contentsLabel={contentsLabel} targets={jumpTargets} />
-          )}
-        </Reveal>
+        {/* The second column only when it has something to hold: on the
+            About page there is no lead and no jump control, and the empty
+            column left a ~100px band under the title. */}
+        {(Children.count(children) > 0 || jumpTargets.length > 1) && (
+          <Reveal className="prose" delay={0.1}>
+            {children}
+            {jumpTargets.length > 1 && (
+              <JumpToSection lang={lang} contentsLabel={contentsLabel} targets={jumpTargets} />
+            )}
+          </Reveal>
+        )}
       </div>
     </section>
   )

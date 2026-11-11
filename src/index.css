@@ -1423,6 +1423,15 @@ main:focus {
 .bio-aside {
   align-self: start;
 }
+
+/* The not-found page: kicker, heading, explanation and the two ways out
+   sat flush against each other. */
+.dead-end .lead {
+  margin-top: var(--space-2);
+}
+.dead-end .hero-actions {
+  margin-top: var(--space-3);
+}
 @media (min-width: 900px) {
   .bio-aside {
     position: sticky;
