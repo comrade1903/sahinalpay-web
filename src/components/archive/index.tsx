@@ -96,6 +96,14 @@ export function ArchiveRow({
       <div className="archive-row-body">
         <h3 className="archive-row-title">
           <ItemTitle item={shown} pageLang={lang} />
+          {/* A row that leaves the site says so before it is clicked, on a
+              phone too, where the row arrow is hidden. The link's own
+              accessible name already says it opens in a new tab. */}
+          {link && !link.internal && (
+            <span className="archive-row-external" aria-hidden="true">
+              {' ↗'}
+            </span>
+          )}
         </h3>
         {preview && <p className="archive-row-excerpt">{preview}</p>}
       </div>

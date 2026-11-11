@@ -2616,6 +2616,12 @@ a.archive-row:hover .archive-row-title {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.archive-row-external {
+  color: var(--muted);
+  font-family: var(--label);
+  font-weight: 400;
+  white-space: nowrap;
+}
 .archive-row-arrow {
   display: none;
   font-size: var(--icon-md);
