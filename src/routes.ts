@@ -81,9 +81,3 @@ export function equivalentPath(pathname: string, targetLang: Lang): string {
   const key = pageKeyForPath(pathname)
   return paths[targetLang][key] ?? paths[targetLang].home!
 }
-
-/** Last non-empty path segment of a source URL, used as the slug for full-article pages. */
-export function slugFromUrl(url: string): string {
-  const trimmed = url.replace(/\/$/, '')
-  return trimmed.slice(trimmed.lastIndexOf('/') + 1)
-}
