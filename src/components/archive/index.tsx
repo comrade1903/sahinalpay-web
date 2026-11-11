@@ -1021,10 +1021,28 @@ export function NewsstandArchivePage({
     ? newsstandOutlets.find((entry) => entry.outlet.outlet === effectiveOpenName) ?? null
     : null
 
-  const totalPages = openedEntry
-    ? totalPagesFor(openedEntry.matchingItems.length)
-    : 1
-  const currentPage = clampPage(requestedPage, openedEntry?.matchingItems.length ?? 0)
+  /* A search or a year range lists every matching piece in one list, newest
+     first, each row naming its newspaper. The shelf showed one paper at a
+     time, so "19 yazı" above it used to list a single piece and leave the
+     other 18 behind papers the reader had to open one by one. */
+  const filtering = search.trim() !== '' || fromYear !== '' || toYear !== ''
+  const searchRows = useMemo(
+    () =>
+      filtering
+        ? sortByDate(
+            newsstandOutlets.flatMap((entry) =>
+              entry.matchingItems.map((item) => ({ item, outlet: entry.outlet.outlet })),
+            ),
+            (row) => row.item.date,
+            'newest',
+          )
+        : [],
+    [filtering, newsstandOutlets],
+  )
+
+  const listedCount = filtering ? searchRows.length : (openedEntry?.matchingItems.length ?? 0)
+  const totalPages = filtering || openedEntry ? totalPagesFor(listedCount) : 1
+  const currentPage = clampPage(requestedPage, listedCount)
 
   const setParam = (
     key: string,
@@ -1093,10 +1111,35 @@ export function NewsstandArchivePage({
           <p className="archive-empty" key="empty">
             {data.emptyLabel}
           </p>
+        ) : filtering && searchRows.length === 0 ? (
+          <p className="archive-empty" key="empty-filtered">
+            {lang === 'tr' ? 'Aramayla eşleşen yazı yok.' : 'No pieces match this search.'}
+          </p>
         ) : newsstandOutlets.length === 0 ? (
           <p className="archive-empty" key="empty-filtered">
             {lang === 'tr' ? 'Filtreyle eşleşen gazete yok.' : 'No newspapers match these filters.'}
           </p>
+        ) : filtering ? (
+          <div className="archive-main archive-search-results" key="search-results">
+            <ul className="archive-list">
+              {pageSlice(searchRows, currentPage).map(({ item, outlet }) => (
+                <ArchiveRow item={item} outlet={outlet} lang={lang} key={item.id} />
+              ))}
+            </ul>
+            <Pagination
+              lang={lang}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={(page) =>
+                updateSearchParams(
+                  searchParams,
+                  setSearchParams,
+                  { page: String(page) },
+                  { replace: false, keepPage: true },
+                )
+              }
+            />
+          </div>
         ) : (
           <motion.div
             key="stage-stack"
