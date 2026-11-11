@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { useReducedMotion } from '../../lib/useReducedMotion'
 import { content, type Lang } from '../../content'
 import type {
   ArchiveItem,
@@ -1165,7 +1165,6 @@ export function NewsstandArchivePage({
       {/* The shelf stays inside .container like every other page's content:
           its identity comes from the real mastheads, not from touching the
           viewport edge. */}
-      <AnimatePresence mode="wait" initial={false}>
         {!outlets.some((o) => o.items.length > 0) ? (
           <p className="archive-empty" key="empty">
             {data.emptyLabel}
@@ -1200,13 +1199,9 @@ export function NewsstandArchivePage({
             />
           </div>
         ) : (
-          <motion.div
-            key="stage-stack"
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            {...(reduce ? {} : { exit: { opacity: 0 } })}
-            transition={{ duration: reduce ? 0 : 0.25 }}
-          >
+          // Fades in when the shelf replaces an empty state (.newsstand-stage
+          // in index.css); no exit animation.
+          <div key="stage-stack" className="newsstand-stage">
             <NewsstandStack
               entries={newsstandOutlets}
               lang={lang}
@@ -1227,9 +1222,8 @@ export function NewsstandArchivePage({
               }
               reduce={Boolean(reduce)}
             />
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
       </div>
     </section>
   )

@@ -40,7 +40,7 @@ hides exactly the soft-404 class of bug the prerendering was added to fix.
 - **There is no CSS framework** — Tailwind was removed after sitting unused; don't (re)introduce one or start writing utility classes. Keep the semantic-class approach.
 - Fonts are Literata (display/headline) + Nunito Sans (body/label), **served from `public/fonts/`, not Google Fonts** (see `src/fonts.css`); icons are **Material Symbols Outlined** ligatures (`<span className="material-symbols-outlined">`), not an icon component library — from the same self-hosted subset.
 - Dark/light theme sets `data-theme` on `<html>` (`null` = follow system preference). Visual changes must be checked in both themes.
-- Animations go through `motion` and must respect `useReducedMotion` — the site's audience skews older; never add motion that can't be turned off.
+- Animations are CSS (the "Motion" block near the end of `src/index.css`; `Reveal` toggles `data-inview` through `src/lib/useInView.ts`), and every one is switched off under `prefers-reduced-motion` in that block — the site's audience skews older; never add motion that can't be turned off. Script-driven motion (a smooth scroll) checks `useReducedMotion` from `src/lib/useReducedMotion.ts`. There is no animation library; don't add one back.
 - A `@media print` block at the end of `src/index.css` prints a page as the piece itself: no chrome, black on white in either theme, scroll-revealed blocks forced visible. A new piece of site chrome needs adding to its hide list.
 
 ## Content integrity (hard rules)

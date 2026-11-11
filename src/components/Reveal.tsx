@@ -1,15 +1,16 @@
-import { motion, useReducedMotion, type MotionStyle } from 'motion/react'
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
+import { useInView } from '../lib/useInView'
 
 /**
- * Scroll-reveal wrapper. Every animation on the site goes through motion and
- * respects prefers-reduced-motion: the readership skews older, and motion
- * that cannot be turned off is not acceptable here.
+ * Scroll-reveal wrapper: the block fades and rises into place the first time
+ * it enters the viewport. The animation is CSS (`.reveal` in index.css) and is
+ * switched off entirely under `prefers-reduced-motion` — the readership skews
+ * older, and motion that cannot be turned off is not acceptable here.
  */
 export function Reveal({
   children,
   delay = 0,
-  as = 'div',
+  as: Tag = 'div',
   className,
   id,
   lang,
@@ -21,30 +22,21 @@ export function Reveal({
   className?: string | undefined
   id?: string | undefined
   lang?: string | undefined
-  /* MotionStyle, not React's CSSProperties: the value is forwarded straight
-     to a motion element, and under exactOptionalPropertyTypes the two are
-     genuinely different types (CSSProperties allows `x: undefined`, which
-     motion's transform shorthands do not). */
-  style?: MotionStyle | undefined
+  style?: CSSProperties | undefined
 }) {
-  const reduce = useReducedMotion()
-  const MotionTag = motion[as]
+  const [ref, inView] = useInView<HTMLElement>('-60px')
   return (
-    /* Optional props are spread in only when set rather than passed as
-       `undefined`: motion's prop types do not accept an explicit undefined
-       under exactOptionalPropertyTypes, and "no className" is an absent
-       prop, not a prop whose value is undefined. */
-    <MotionTag
-      {...(className ? { className } : {})}
-      {...(id ? { id } : {})}
-      {...(lang ? { lang } : {})}
-      {...(style ? { style } : {})}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
-      {...(reduce ? {} : { whileInView: { opacity: 1, y: 0 } })}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
+    <Tag
+      // The intrinsic tags differ in element type; the ref is used only to
+      // observe the element, which every one of them is.
+      ref={ref as never}
+      className={className ? `reveal ${className}` : 'reveal'}
+      data-inview={inView}
+      id={id}
+      lang={lang}
+      style={{ ...style, ...(delay ? { '--reveal-delay': `${delay}s` } : {}) } as CSSProperties}
     >
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

@@ -4080,6 +4080,80 @@ html {
   margin-top: var(--space-1);
 }
 
+/* ---- Motion ----
+   Every animation on the site, in CSS. Timings follow the ones the motion
+   library used, on the site's --ease-out curve. Under
+   prefers-reduced-motion nothing moves and nothing waits to appear. */
+
+/* Scroll reveal (components/Reveal.tsx): fades and rises into place the first
+   time the block enters the viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.reveal[data-inview='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* The home page's entrance: the text rises, the portrait settles. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes hero-settle {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+.hero-enter-text {
+  animation: hero-rise 0.7s var(--ease-out) both;
+}
+.hero-enter-portrait {
+  animation: hero-settle 0.8s var(--ease-out) 0.1s both;
+}
+
+/* The cookie notice slides up once; the newspaper shelf fades in when it
+   replaces an empty state. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.cookie-notice {
+  animation: rise-in 0.25s var(--ease-out) both;
+}
+.newsstand-stage {
+  animation: fade-in 0.25s var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-enter-text,
+  .hero-enter-portrait,
+  .cookie-notice,
+  .newsstand-stage {
+    animation: none;
+  }
+}
+
 /* ---- Print ----
    A printed page is the piece itself: title, byline, photographs, text and
    the address it came from. The site's chrome, the controls that do
@@ -4111,6 +4185,7 @@ html {
 
   /* Scroll-revealed blocks start hidden and only appear when scrolled into
      view, which never happens on paper. */
+  .reveal,
   [style*='opacity'] {
     opacity: 1 !important;
     transform: none !important;

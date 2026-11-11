@@ -665,8 +665,9 @@ fading in.
 - **Do** reach for an existing semantic class (`.section`, `.container`, `.kicker`,
   `.btn btn-primary`, `.filter-card`, `.chip`, `.archive-row`) before writing new CSS,
   and for an existing custom property before writing a literal value.
-- **Do** put every animation behind `useReducedMotion` or the global reduced-motion
-  block, and give reduced-motion users the end state rather than nothing.
+- **Do** write every animation in CSS and switch it off in the reduced-motion block of the
+  Motion section of `src/index.css` (script-driven motion checks `useReducedMotion` from
+  `src/lib`), and give reduced-motion users the end state rather than nothing.
 - **Do** time every CSS transition on `--ease-out` (`cubic-bezier(0.22, 1, 0.36, 1)`),
   the same curve the motion entrances use, so a hover and a reveal settle alike. The
   browser's bare `ease` is not used, and neither is a bouncing or overshooting curve.

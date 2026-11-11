@@ -48,7 +48,6 @@ export default defineConfig({
            language then drags that whole chunk in with it. */
         codeSplitting: {
           groups: [
-            { name: 'motion', test: /[\\/]node_modules[\\/]motion[\\/]/ },
             { name: 'vendor', test: /[\\/]node_modules[\\/]/ },
             { name: 'archive-tr-p24', test: /[\\/]src[\\/]archive[\\/]tr[\\/]columns[\\/]p24\.body/ },
             {

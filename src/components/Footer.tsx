@@ -1,4 +1,4 @@
-import { useReducedMotion } from 'motion/react'
+import { useReducedMotion } from '../lib/useReducedMotion'
 import type { MouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { content } from '../content'
