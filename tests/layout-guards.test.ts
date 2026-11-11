@@ -22,4 +22,14 @@ describe('layout guards', () => {
     for (const selector of ['.site-header', '.site-footer', '.cookie-notice', '.article-tools'])
       expect(print).toContain(selector)
   })
+
+  /* Measured 2026-11-10: dates, counts and kickers were 12.2px on a phone.
+     A root in px also ignored the reader's own browser font size. */
+  it('sets the root size in percent so a larger browser default is honoured', () => {
+    expect(css).toMatch(/font-size:\s*112\.5%/)
+    expect(css).not.toMatch(/^\s*font-size:\s*1[78]px;/m)
+  })
+  it('keeps the smallest label at 14px or more', () => {
+    expect(css).toMatch(/--text-label-sm:\s*0\.78rem/)
+  })
 })

@@ -88,7 +88,7 @@ typography:
     letterSpacing: "0.16em"
   label-sm:
     fontFamily: "Nunito Sans, system-ui, sans-serif"
-    fontSize: "0.72rem"
+    fontSize: "0.78rem"
     fontWeight: 800
     lineHeight: 1.3
     letterSpacing: "0.06em"
@@ -205,9 +205,9 @@ imprisonment is documented, never dramatized, so no bar motifs, no alarm reds, n
 campaign-poster urgency. Facts stand calmly.
 
 Density is generous throughout. The readership skews older, so scale, contrast, and
-hit size are load-bearing structure rather than preference: 18px base text, a 1.72
-reading line-height, a 44px floor under every control. Nothing here is small, and
-nothing is fast.
+hit size are load-bearing structure rather than preference: 18px base text (and more when
+the reader's browser asks for it), nothing set below 14px, a 1.72 reading line-height, a
+44px floor under every control. Nothing here is small, and nothing is fast.
 
 **Key Characteristics:**
 - Paper-and-ink palette on one hue axis, currently a deeper violet-lilac; the page is
@@ -369,8 +369,9 @@ When you are operating the site, you are in Nunito Sans.
   controls, footer links, pagination.
 - **Label** (800, 0.78rem, 0.16em, uppercase): Kickers, eyebrows, outlet names, filter
   headings, captions.
-- **Label small** (800, 0.72rem, 0.06em, uppercase): Badges, counts, list-row metadata —
-  the smallest type in the system.
+- **Label small** (800, 0.78rem, 0.06em, uppercase): Badges, counts, list-row metadata —
+  the smallest type in the system: 14px at the 18px root. Below 768px, where the root is
+  17px, both label roles step up to 0.83rem to stay at 14px.
 
 Every one of these ships as a custom property (`--text-title-sm`, `--text-ui`, …). A
 literal `font-size` in this stylesheet is now either the root size, an icon step, or one
@@ -400,7 +401,8 @@ base because they are set in the reading face.
 ### One-Offs
 
 Four values are deliberately outside every scale, each with a reason recorded at its
-declaration: the root size (18px / 17px), the **wordmark** (1.4rem, 1.65rem from 1080px —
+declaration: the root size (112.5% / 106.25% — 18px / 17px at the browser's default, larger
+when the reader has set a larger default), the **wordmark** (1.4rem, 1.65rem from 1080px —
 a brand lockup sized to the 72px header row, given name at 500 and surname at 700 like the
 hero name), the **article body paragraph** (`1em`, inheriting the reader's scaled
 base), and the **drop cap** (`3.4em`, relative to the paragraph it opens).
@@ -458,7 +460,10 @@ observed breakpoints are `560px` (coverage rows stack their year range under the
 track), `640px` (list rows go from stacked to date-column + body), `700px` (two-up hub
 grid), `768px` (container padding, base font size), `800px` (two-up book list),
 `900px` (hero splits `1.1fr / 0.9fr`), and `1080px` (four-up hub grid; the section bar
-replaces the drawer). Below 1080px the navigation lives in a drawer; the header stays
+replaces the drawer). The media queries are written in `em` (`35em`, `40em`, … `67.5em`):
+at the browser's default size these are exactly the pixel widths above, and when a reader
+enlarges their default text the layout steps down to the narrower arrangement instead of
+overflowing. Below 1080px the navigation lives in a drawer; the header stays
 sticky with a saturating backdrop blur, gaining its bottom hairline only once scrolled.
 
 Article list rows are the archive's densest surface: a fixed `9rem` metadata column
