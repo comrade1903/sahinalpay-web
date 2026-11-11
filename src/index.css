@@ -3329,6 +3329,10 @@ a.archive-row:hover .archive-row-title {
   line-height: 1.4;
   text-wrap: pretty;
 }
+#newsstand-contents {
+  /* Clears the sticky header when a phone scrolls the contents into view. */
+  scroll-margin-top: var(--sticky-offset);
+}
 .newsstand-toc-row-date {
   font-family: var(--body);
   font-size: var(--text-label-sm);
@@ -3345,11 +3349,18 @@ a.archive-row:hover .archive-row-title {
     gap: 0.4rem var(--space-2);
     align-items: center;
   }
+  /* Label and date share the first line, the headline the second — by
+     row, not source order, which puts the date after the headline. */
+  .newsstand-toc-row-section {
+    grid-row: 1;
+  }
   .newsstand-toc-row-body {
     grid-column: 1 / -1;
+    grid-row: 2;
   }
   .newsstand-toc-row-date {
-    justify-self: end;
+    grid-row: 1;
+    justify-self: start;
   }
 }
 

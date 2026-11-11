@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { content, type Lang } from '../../content'
@@ -569,6 +569,17 @@ function orderNewsstandOutlets(entries: NewsstandOutlet[]): NewsstandOutlet[] {
   )
 }
 
+/** The paper opened when none is chosen: the one with the most matching
+ *  pieces, the newer on a tie. It used to be the newest, which put a
+ *  three-piece paper in front of a reader arriving at 660 columns. */
+function defaultNewsstandOutlet(entries: NewsstandOutlet[]): NewsstandOutlet | undefined {
+  return orderNewsstandOutlets(entries).reduce<NewsstandOutlet | undefined>(
+    (best, entry) =>
+      !best || entry.matchingItems.length > best.matchingItems.length ? entry : best,
+    undefined,
+  )
+}
+
 /** One upright spine standing on the shelf rail — clicking it lifts it
     forward (see NewsstandStack). Text-only (date band + rotated outlet
     name/count), matching the reference design's book-spine treatment. */
@@ -676,33 +687,51 @@ function deriveNewsstandOutlets(
     when we have body/clippings, external source otherwise) but in the
     design's three-column masthead-index layout instead of ArchiveRow's
     card shape. */
-function NewsstandTOCRow({ item, lang }: { item: ArchiveItem; lang: Lang }) {
-  const link = archiveLink(item, lang)
-  const from = useListAddress()
-  const section = item.pieceKind
+function tocSectionLabel(item: ArchiveItem, lang: Lang): string {
+  return item.pieceKind
     ? pieceKindLabel(item.pieceKind, lang)
     : item.medium
       ? mediumLabel(item.medium, lang)
       : lang === 'tr'
         ? 'Yazı'
         : 'Piece'
+}
+
+function NewsstandTOCRow({
+  item,
+  lang,
+  showSection,
+  showScan,
+}: {
+  item: ArchiveItem
+  lang: Lang
+  /* Labels earn their place only when they tell rows apart: a paper whose
+     every row is a column printed "KÖŞE YAZISI" on each of them. */
+  showSection: boolean
+  showScan: boolean
+}) {
+  const link = archiveLink(item, lang)
+  const from = useListAddress()
+  const section = tocSectionLabel(item, lang)
   const shown = displayItem(item, lang)
   const preview = shown.excerpt ?? shown.subtitle
-  const isScan = itemScanClippings(item).length > 0
+  const isScan = showScan && itemScanClippings(item).length > 0
   const inner = (
     <>
-      <span className="newsstand-toc-row-section">
-        {section}
-        {/* Provenance, not decoration: on a first-party archive the reader
-            has to be able to tell a full-text piece from one that survives
-            only as a page scan — the same badge the other archive lists
-            carry (see ArchiveRow). */}
-        {isScan && (
-          <span className="archive-row-badge archive-row-badge-scan">
-            {lang === 'tr' ? 'Kupür' : 'Clipping'}
-          </span>
-        )}
-      </span>
+      {(showSection || isScan) && (
+        <span className="newsstand-toc-row-section">
+          {showSection && section}
+          {/* Provenance, not decoration: where a paper mixes full-text pieces
+              and ones that survive only as a page scan, the reader has to be
+              able to tell them apart — the same badge the other archive
+              lists carry (see ArchiveRow). */}
+          {isScan && (
+            <span className="archive-row-badge archive-row-badge-scan">
+              {lang === 'tr' ? 'Kupür' : 'Clipping'}
+            </span>
+          )}
+        </span>
+      )}
       <span className="newsstand-toc-row-body">
         <span className="newsstand-toc-row-title">
           <ItemTitle item={shown} pageLang={lang} />
@@ -764,8 +793,13 @@ function NewsstandTOC({
 }) {
   const dateRange = outletDateRangeLabel(outlet.items)
   const logo = outletLogos[outlet.outlet]
+  /* Decided over the whole paper, not the visible page, so a label does not
+     come and go between pages of the same newspaper. */
+  const mixedSections = new Set(outlet.items.map((item) => tocSectionLabel(item, lang))).size > 1
+  const scanCount = outlet.items.filter((item) => itemScanClippings(item).length > 0).length
+  const mixedScans = scanCount > 0 && scanCount < outlet.items.length
   return (
-    <div className="newsstand-toc archive-main">
+    <div className="newsstand-toc archive-main" id="newsstand-contents">
       {/* Focus target for pagination, so a page change is announced and not
           just scrolled to (see Pagination's goToPage). */}
       <h2 className="sr-only" id="archive-results" tabIndex={-1}>
@@ -800,7 +834,13 @@ function NewsstandTOC({
       ) : (
         <ul className="newsstand-toc-list">
           {items.map((item) => (
-            <NewsstandTOCRow item={item} lang={lang} key={item.id} />
+            <NewsstandTOCRow
+              item={item}
+              lang={lang}
+              key={item.id}
+              showSection={mixedSections}
+              showScan={mixedScans}
+            />
           ))}
         </ul>
       )}
@@ -853,6 +893,22 @@ function NewsstandStack({
   const foreign = ordered.filter((entry) => foreignOutletNames.has(entry.outlet.outlet))
   const t = content[lang]
 
+  /* On a phone the shelf is a sideways strip above the contents. A tap used
+     to change the contents below the fold with nothing on screen moving, so
+     after a choice the chosen paper is brought into the strip and the
+     contents to the top of the screen. Only after a tap: arriving on the
+     page must not scroll it. */
+  const chosenByTap = useRef(false)
+  useEffect(() => {
+    if (!chosenByTap.current) return
+    chosenByTap.current = false
+    if (!window.matchMedia('(max-width: 899px)').matches) return
+    document
+      .querySelector<HTMLElement>(`.newsstand-stack-paper[data-active="true"]`)
+      ?.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' })
+    document.getElementById('newsstand-contents')?.scrollIntoView({ block: 'start', behavior: 'instant' })
+  }, [selectedName])
+
   const shelf = (shelfEntries: NewsstandOutlet[], label: string) => (
     <div className="newsstand-stack-shelf" role="group" aria-label={label}>
       {shelfEntries.map((entry) => (
@@ -864,7 +920,10 @@ function NewsstandStack({
           lang={lang}
           active={selected?.outlet.outlet === entry.outlet.outlet}
           reduce={reduce}
-          onSelect={() => onSelect(entry.outlet.outlet)}
+          onSelect={() => {
+            chosenByTap.current = true
+            onSelect(entry.outlet.outlet)
+          }}
         />
       ))}
     </div>
@@ -1008,14 +1067,14 @@ export function NewsstandArchivePage({
     [outlets, activeOutlet, search, fromYear, toYear, bodyIndex],
   )
 
-  /* The shelf always shows a table of contents — defaulting to the newest
-     paper — rather than an empty rack waiting for a click, so it needs a
+  /* The shelf always shows a table of contents — defaulting to the paper
+     with the most matching pieces — rather than an empty rack waiting for a click, so it needs a
      selection even with no `open` param, and one that's still valid if a
      filter just dropped the outlet it pointed at. */
   const effectiveOpenName =
     openOutletName && newsstandOutlets.some((entry) => entry.outlet.outlet === openOutletName)
       ? openOutletName
-      : (orderNewsstandOutlets(newsstandOutlets)[0]?.outlet.outlet ?? null)
+      : (defaultNewsstandOutlet(newsstandOutlets)?.outlet.outlet ?? null)
 
   const openedEntry = effectiveOpenName
     ? newsstandOutlets.find((entry) => entry.outlet.outlet === effectiveOpenName) ?? null
@@ -1110,9 +1169,7 @@ export function NewsstandArchivePage({
               lang={lang}
               foreignOutletNames={foreignOutletNames}
               selectedName={
-                effectiveOpenName ??
-                orderNewsstandOutlets(newsstandOutlets)[0]?.outlet.outlet ??
-                ''
+                effectiveOpenName ?? defaultNewsstandOutlet(newsstandOutlets)?.outlet.outlet ?? ''
               }
               onSelect={(outletName) => setParam('open', outletName, { replace: false })}
               currentPage={currentPage}
@@ -1168,12 +1225,6 @@ export function FlatArchivePage({
     }),
   )
   const [searchParams, setSearchParams] = useSearchParams()
-  /* Arriving on a filtered URL opens the panel, so the controls that produced the
-     result are visible rather than hidden behind a button. Search is excluded —
-     it has its own always-visible row and shouldn't force the panel open. */
-  const [filtersOpen, setFiltersOpen] = useState(() =>
-    ['outlet', 'from', 'to'].some((key) => searchParams.get(key)),
-  )
   const search = searchParams.get('q') ?? ''
   const fromYear = searchParams.get('from') ?? ''
   const toYear = searchParams.get('to') ?? ''
@@ -1282,23 +1333,10 @@ export function FlatArchivePage({
             {/* Named landmarks so the filter and outlet headings below sit at h3
                 under a real h2, instead of skipping a level from the page h1. */}
             <h2 className="sr-only">{lang === 'tr' ? 'Filtreler' : 'Filters'}</h2>
-            <button
-              type="button"
-              className="archive-filter-toggle"
-              aria-expanded={filtersOpen}
-              aria-controls="archive-filters-flat"
-              onClick={() => setFiltersOpen((open) => !open)}
-            >
-              <span>{lang === 'tr' ? 'Filtreler' : 'Filters'}</span>
-              <span translate="no" className="material-symbols-outlined" aria-hidden="true">
-                tune
-              </span>
-            </button>
-            <div
-              id="archive-filters-flat"
-              className="archive-filter-panel"
-              data-open={filtersOpen}
-            >
+            {/* The year range is this page's only filter, so it is shown
+                as it is rather than behind a "Filtreler" button that opened
+                a panel holding nothing else. */}
+            <div id="archive-filters-flat" className="archive-filter-panel" data-open="true">
               <YearRangeFilter
                 lang={lang}
                 items={items}
