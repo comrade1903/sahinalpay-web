@@ -1,11 +1,4 @@
-import type {
-  ArchiveItem,
-  ArchiveLang,
-  FlatArchiveSection,
-  LanguageArchive,
-  OutletArchiveSection,
-  OutletGroup,
-} from './types'
+import type { ArchiveItem, ArchiveLang, LanguageArchive, OutletGroup } from './types'
 import { trArchive } from './tr'
 import { enArchive } from './en'
 
@@ -34,20 +27,6 @@ export const archiveData = {
   } satisfies Record<ArchiveLang, ArchiveItem[]>,
 }
 
-export function withOutletSectionItems(
-  section: Omit<OutletArchiveSection, 'outlets'>,
-  outlets: OutletGroup[],
-): OutletArchiveSection {
-  return { ...section, outlets }
-}
-
-export function withFlatSectionItems(
-  section: Omit<FlatArchiveSection, 'items'>,
-  items: ArchiveItem[],
-): FlatArchiveSection {
-  return { ...section, items }
-}
-
 export function allArchiveItems(): ArchiveItem[] {
   return [
     ...archiveData.columns.tr.flatMap((group) => group.items),
@@ -58,10 +37,6 @@ export function allArchiveItems(): ArchiveItem[] {
     ...archiveData.academicArticles.tr,
     ...archiveData.academicArticles.en,
   ]
-}
-
-export function findArchiveItem(slug: string): ArchiveItem | undefined {
-  return allArchiveItems().find((item) => item.slug === slug)
 }
 
 export type { LanguageArchive }

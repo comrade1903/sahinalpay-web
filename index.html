@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- The browser's own bar takes the page colour (--bg in src/index.css). -->
+    <meta name="theme-color" content="#e1d8e9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#140f19" media="(prefers-color-scheme: dark)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Sets the saved theme before first paint; see public/theme-init.js. -->
     <script src="/theme-init.js"></script>
 
     <meta name="author" content="Şahin Alpay" />
-    <meta
-      name="keywords"
-      content="Şahin Alpay, Sahin Alpay, political scientist, Turkish journalist, author, press freedom, Turkey, Zaman columnist, Bir Hikâyem Var, Hikâyemin Sonu"
-    />
-    <!-- Language / geo -->
-    <meta name="geo.region" content="TR-34" />
-    <meta name="geo.placename" content="Istanbul, Türkiye" />
 
     <!-- Per-route head. scripts/prerender.mjs rewrites everything between
          these markers for each of the site's URLs, so a reader or a social

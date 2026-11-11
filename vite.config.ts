@@ -46,7 +46,7 @@ export default defineConfig({
            bundler, the normalisers both language modules use get folded into
            whichever language chunk is emitted first, and loading the other
            language then drags that whole chunk in with it. */
-        advancedChunks: {
+        codeSplitting: {
           groups: [
             { name: 'motion', test: /[\\/]node_modules[\\/]motion[\\/]/ },
             { name: 'vendor', test: /[\\/]node_modules[\\/]/ },

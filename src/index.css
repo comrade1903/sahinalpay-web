@@ -526,13 +526,6 @@ main:focus {
   font-size: var(--text-headline);
   max-width: 26ch;
 }
-.kicker-center {
-  justify-content: center;
-}
-.section-title-center {
-  max-width: none;
-  text-align: center;
-}
 
 .lead {
   font-family: var(--headline);
@@ -1573,21 +1566,6 @@ main:focus {
 }
 
 /* ---------- Works (books) ---------- */
-.works-grid {
-  display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
-@media (min-width: 640px) {
-  .works-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1000px) {
-  .works-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
 
 .book {
   background: var(--surface-lowest);
@@ -2367,11 +2345,6 @@ html:has(.lightbox[open]) {
   text-decoration-thickness: 2px;
 }
 
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
 .chip {
   appearance: none;
   border: 1px solid var(--line);
@@ -2735,14 +2708,6 @@ a.archive-row:hover .archive-row-title {
   gap: var(--space-2) var(--space-3);
   margin-top: var(--space-4);
   margin-bottom: var(--space-2);
-}
-.btn-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.btn-disabled:hover {
-  transform: none;
-  background: transparent;
 }
 
 /* ---------- Full article page ---------- */
