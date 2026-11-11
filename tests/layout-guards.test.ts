@@ -32,4 +32,11 @@ describe('layout guards', () => {
   it('keeps the smallest label at 14px or more', () => {
     expect(css).toMatch(/--text-label-sm:\s*0\.78rem/)
   })
+  /* The audience skews older: nothing may move when the system asks for
+     reduced motion, and nothing may stay hidden either. */
+  it('shows revealed content without animation under reduced motion', () => {
+    expect(css).toMatch(
+      /prefers-reduced-motion: reduce\)\s*\{\s*\.reveal\s*\{[^}]*opacity:\s*1;[^}]*transition:\s*none/,
+    )
+  })
 })

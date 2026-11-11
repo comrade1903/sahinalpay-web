@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, useReducedMotion } from 'motion/react'
 import { content } from '../content'
 import { langForPath, paths } from '../routes'
 import { CONSENT_KEY, CONSENT_VALUE } from '../lib/preferences'
@@ -19,7 +18,6 @@ export function CookieConsent() {
   const location = useLocation()
   const lang = langForPath(location.pathname)
   const t = content[lang].cookieNotice
-  const reduce = useReducedMotion()
   const [acknowledged, setAcknowledged] = useState(() => readConsent())
 
   if (acknowledged) return null
@@ -32,14 +30,8 @@ export function CookieConsent() {
   }
 
   return (
-    <motion.aside
-      className="cookie-notice"
-      role="region"
-      aria-label={t.ariaLabel}
-      initial={reduce ? false : { y: 24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: reduce ? 0 : 0.25 }}
-    >
+    // Slides in once (.cookie-notice in index.css); still under reduced motion.
+    <aside className="cookie-notice" role="region" aria-label={t.ariaLabel}>
       <div className="container cookie-notice-inner">
         <p className="cookie-notice-text">
           {t.text} <Link to={paths[lang].cookies!}>{t.policyLinkLabel}</Link>
@@ -50,6 +42,6 @@ export function CookieConsent() {
           </button>
         </div>
       </div>
-    </motion.aside>
+    </aside>
   )
 }

@@ -9,7 +9,7 @@ single-page application.
 
 - React 19 + TypeScript, built with Vite
 - react-router-dom v7 (client-side routing; two parallel URL trees, one per language)
-- `motion` for animation, hand-written CSS design system in `src/index.css`
+- CSS animation (no animation library), hand-written CSS design system in `src/index.css`
 - oxlint for linting
 - vitest + happy-dom for tests
 - Deployed as a fully static site on Vercel (pushing to `main` deploys production).

@@ -1,5 +1,4 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { motion, useReducedMotion } from 'motion/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { content, type Content, type Lang } from '../content'
 import { useArchiveSummary, type ArchiveSummary } from '../archive/useArchiveSummary'
@@ -27,7 +26,6 @@ import { readStoredValue } from '../lib/storage'
    Replace this file with a larger camera original when one is available;
    nothing else needs to change. */
 function Hero({ t, lang }: { t: Content; lang: Lang }) {
-  const reduce = useReducedMotion()
   const navigate = useNavigate()
   const [query, setQuery] = useState('')
 
@@ -40,11 +38,9 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
   return (
     <section className="hero">
       <div className="container hero-grid">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {/* Entrance animations live in index.css (.hero-enter-*), off under
+            reduced motion. */}
+        <div className="hero-enter-text">
           <p className="hero-eyebrow">{t.hero.eyebrow}</p>
           <h1 className="hero-name">
             <span className="hero-name-first">Şahin</span> Alpay
@@ -74,13 +70,9 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
               {lang === 'tr' ? 'Ara' : 'Search'}
             </button>
           </form>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        >
+        <div className="hero-enter-portrait">
           <div className="portrait-frame">
             <div className="portrait-echo" aria-hidden="true" />
             <figure className="portrait">
@@ -93,7 +85,7 @@ function Hero({ t, lang }: { t: Content; lang: Lang }) {
               )}
             </figure>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
