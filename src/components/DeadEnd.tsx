@@ -21,7 +21,7 @@ export function DeadEnd({
   const columnsPath = paths[lang].columns!
   return (
     <section className="section section-solo">
-      <div className="container container-narrow">
+      <div className="container container-narrow dead-end">
         <Reveal>
           <p className="kicker">{t.notFound.kicker}</p>
           <h1 className="section-title">{title}</h1>

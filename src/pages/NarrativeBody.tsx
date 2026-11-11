@@ -44,8 +44,12 @@ export default function NarrativeBody({
         contentsLabel={copy.contentsLabel}
         jumpTargets={hasContents ? mainSections : []}
       >
-        {copy.lead && <p className="lead">{copy.lead}</p>}
-        {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
+        {copy.lead || copy.editorialNote ? (
+          <>
+            {copy.lead && <p className="lead">{copy.lead}</p>}
+            {copy.editorialNote && <p className="bio-editorial-note">{copy.editorialNote}</p>}
+          </>
+        ) : null}
       </NarrativeHeader>
 
       <article
