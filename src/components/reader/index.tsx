@@ -24,6 +24,13 @@ import { ImageLightbox, type LightboxImage } from '../ImageLightbox'
 import { Reveal } from '../Reveal'
 import { AuthorAvatar } from '../AuthorAvatar'
 import { skipsDropCap } from './dropCap'
+import {
+  FONT_SCALE_MAX,
+  FONT_SCALE_MIN,
+  FONT_SCALE_STEP,
+  readStoredFontScale,
+  writeStoredFontScale,
+} from '../../lib/preferences'
 import { DeadEnd } from '../DeadEnd'
 import { ItemTitle } from '../ItemTitle'
 import { useArchiveGate } from '../useArchiveGate'
@@ -96,10 +103,6 @@ function useReadingProgress() {
   }, [])
   return progress
 }
-
-const FONT_SCALE_MIN = 0.85
-const FONT_SCALE_MAX = 1.5
-const FONT_SCALE_STEP = 0.125
 
 /* A failed body fetch used to log to the console and leave "Yazı yükleniyor…" on
    screen forever, because `body` stayed undefined and the render fell through to
@@ -252,7 +255,9 @@ export function LoadedArticlePage({
   const retired = Boolean(slug && item && isRetiredSlug(itemLang, slug))
   const { body, failed: bodyFailed, retry: retryBody } = useArticleBody(item)
   const progress = useReadingProgress()
-  const [fontScale, setFontScale] = useState(1)
+  /* Remembered across pieces: a reader who needs larger type sets it once. */
+  const [fontScale, setFontScale] = useState(readStoredFontScale)
+  useEffect(() => writeStoredFontScale(fontScale), [fontScale])
   const [lightbox, setLightbox] = useState<number | null>(null)
   const t = content[lang]
   const articleCanonicalPath = item ? `${archiveBasePath(itemLang, item)}/${item.slug}` : location.pathname

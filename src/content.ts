@@ -515,7 +515,7 @@ export const content: Record<Lang, Content> = {
     },
     cookieNotice: {
       ariaLabel: 'Cookie notice',
-      text: 'This site uses no tracking or advertising cookies. It only stores your language and theme preference in your browser to remember your choices.',
+      text: 'This site uses no tracking or advertising cookies. It only stores your language, theme and article text size in your browser to remember your choices.',
       policyLinkLabel: 'Cookie Policy',
       acceptLabel: 'Got it',
     },
@@ -534,7 +534,7 @@ export const content: Record<Lang, Content> = {
         {
           heading: 'What we store in your browser',
           body: [
-            "To remember your choices, the site saves two functional items in your browser's local storage: your language preference and your light/dark theme preference. These are strictly necessary for the site to work the way you set it and, under KVKK and the GDPR, require disclosure but not prior consent.",
+            "To remember your choices, the site saves up to three functional items in your browser's local storage: your language preference, your light/dark theme preference and, if you change it on an article page, the text size you chose. These are strictly necessary for the site to work the way you set it and, under KVKK and the GDPR, require disclosure but not prior consent.",
             'When you dismiss the notice at the bottom of the page, that acknowledgement is also stored locally (under the key "cookie-consent") so the notice is not shown again. You can remove all of these at any time by clearing your browser\'s site data.',
           ],
         },
@@ -759,7 +759,7 @@ export const content: Record<Lang, Content> = {
     },
     cookieNotice: {
       ariaLabel: 'Çerez bildirimi',
-      text: 'Bu site izleme veya reklam çerezi kullanmaz. Yalnızca tercihlerinizi hatırlamak için dil ve tema seçiminizi tarayıcınızda saklar.',
+      text: 'Bu site izleme veya reklam çerezi kullanmaz. Yalnızca tercihlerinizi hatırlamak için dil, tema ve makale yazı boyutu seçiminizi tarayıcınızda saklar.',
       policyLinkLabel: 'Çerez Politikası',
       acceptLabel: 'Anladım',
     },
@@ -778,7 +778,7 @@ export const content: Record<Lang, Content> = {
         {
           heading: 'Tarayıcınızda ne saklıyoruz',
           body: [
-            'Tercihlerinizi hatırlamak için site, tarayıcınızın yerel deposunda (localStorage) iki işlevsel öğe saklar: dil tercihiniz ve açık/koyu tema tercihiniz. Bunlar sitenin sizin ayarladığınız gibi çalışması için zorunludur ve KVKK ile GDPR kapsamında önceden onay değil, yalnızca bilgilendirme gerektirir.',
+            'Tercihlerinizi hatırlamak için site, tarayıcınızın yerel deposunda (localStorage) en fazla üç işlevsel öğe saklar: dil tercihiniz, açık/koyu tema tercihiniz ve bir makale sayfasında değiştirdiyseniz seçtiğiniz yazı boyutu. Bunlar sitenin sizin ayarladığınız gibi çalışması için zorunludur ve KVKK ile GDPR kapsamında önceden onay değil, yalnızca bilgilendirme gerektirir.',
             'Sayfanın altındaki bildirimi kapattığınızda, bu onay da ("cookie-consent" anahtarıyla) yerel olarak saklanır; böylece bildirim size tekrar gösterilmez. Bunların tümünü, tarayıcınızın site verilerini temizleyerek istediğiniz zaman silebilirsiniz.',
           ],
         },
