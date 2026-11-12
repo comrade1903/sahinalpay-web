@@ -782,6 +782,33 @@ main:focus {
   color: var(--accent-ink);
   background: var(--surface-high);
 }
+/* An icon button that also shows its name; on the narrowest phones the
+   name is left to screen readers so the article toolbar fits one line. */
+.icon-btn-labelled {
+  width: auto;
+  gap: 0.35rem;
+  padding: 0 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--label);
+  font-size: var(--text-ui);
+  font-weight: 700;
+}
+@media (max-width: 29.99em) {
+  .icon-btn-labelled {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+  .icon-btn-labelled .icon-btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
 .icon-btn svg {
   width: 18px;
   height: 18px;
@@ -2863,6 +2890,13 @@ a.archive-row:hover .archive-row-title {
   color: var(--control-fg);
   background: var(--control-bg);
 }
+.tag:hover,
+.tag:focus-visible {
+  color: var(--accent-ink);
+  border-color: var(--action);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 .archive-loading {
   color: var(--muted);
   font-style: italic;
@@ -3655,9 +3689,13 @@ a.archive-row:hover .archive-row-title {
   padding: 0;
   list-style: none;
 }
+/* A tag opens its section's list searched for that word, so it is sized as
+   a control (44px) and reads as a link on hover. */
 .tag {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-hit-size);
+  padding: 0 0.8rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
