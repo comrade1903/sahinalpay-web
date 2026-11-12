@@ -58,6 +58,8 @@ const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs'
 const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
 const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
 const photoStory = await loadModule('src/photoStory.ts', 'photo-story-prerender.mjs')
+const { trialSections } = await loadModule('src/trialCopy.ts', 'trial-copy-prerender.mjs')
+const { withExtras } = await loadModule('src/bookExtras.ts', 'book-extras-prerender.mjs')
 const query = await loadModule('src/archive/query.ts', 'query-prerender.mjs')
 /* What a page in a given language shows for a record — on an English page a
    Turkish record's English view (see src/archive/display.ts). */
@@ -315,7 +317,7 @@ for (const lang of ['tr', 'en']) {
     } else if (pageKey === 'books') {
       title = `${t.books.title} — Şahin Alpay`
       description = t.books.intro
-      inner = `<h1>${escapeHtml(t.books.title)}</h1><p>${escapeHtml(t.books.intro)}</p><ul>${t.books.books
+      inner = `<h1>${escapeHtml(t.books.title)}</h1><p>${escapeHtml(t.books.intro)}</p><ul>${withExtras(t.books.books, lang)
         .map(
           (book) =>
             `<li><strong>${escapeHtml(book.title)}</strong> (${escapeHtml(book.year)}) — ${escapeHtml(book.desc)}${
@@ -342,7 +344,7 @@ for (const lang of ['tr', 'en']) {
         )
         .join('')}`
     } else if (pageKey === 'trial') {
-      const trial = t.trialProcess
+      const trial = { ...t.trialProcess, sections: trialSections[lang] }
       title = `${trial.title} — Şahin Alpay`
       description = trial.lead || trial.sections[0]?.paragraphs[0] || trial.title
       inner = `<h1>${escapeHtml(trial.title)}</h1><p>${escapeHtml(trial.subtitle)}</p><p>${escapeHtml(trial.lead)}</p><p>${escapeHtml(trial.editorialNote)}</p>${trial.sections

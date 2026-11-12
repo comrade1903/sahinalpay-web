@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef } from 'react'
-import type { Book, Lang } from '../content'
+import type { Lang } from '../content'
+import type { BookWithExtras } from '../bookExtras'
 import { bookPressLabels } from '../bookPress'
 
 function formatDate(iso: string, lang: Lang): string {
@@ -17,7 +18,7 @@ export function BookPressDialog({
   lang,
   onClose,
 }: {
-  book: Book | null
+  book: BookWithExtras | null
   lang: Lang
   onClose: () => void
 }) {

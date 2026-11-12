@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { translationLabels, type BookTranslation } from '../bookForewords'
-import type { Book, Lang } from '../content'
+import type { Lang } from '../content'
+import type { BookWithExtras } from '../bookExtras'
 
 type Block =
   | { kind: 'chapter'; text: string; id: string }
@@ -46,7 +47,7 @@ export function BookTranslationDialog({
   lang,
   onClose,
 }: {
-  book: Book | null
+  book: BookWithExtras | null
   lang: Lang
   onClose: () => void
 }) {

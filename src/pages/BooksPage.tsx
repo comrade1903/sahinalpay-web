@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { type Book, type Lang, type BooksSection } from '../content'
+import { type Lang, type BooksSection } from '../content'
+import { withExtras, type BookWithExtras } from '../bookExtras'
 import { forewordLabels, translationLabels, type BookForeword } from '../bookForewords'
 import { Reveal } from '../components/Reveal'
 import { BookForewordDialog } from '../components/BookForewordDialog'
@@ -37,9 +38,10 @@ function buyButtonLabel(url: string, lang: Lang): string {
  *  (often third-party, sometimes defunct) source link. */
 export default function BooksPage({ data, lang }: { data: BooksSection; lang: Lang }) {
   const location = useLocation()
-  const [openForeword, setOpenForeword] = useState<{ book: Book; foreword: BookForeword } | null>(null)
-  const [openPress, setOpenPress] = useState<Book | null>(null)
-  const [openTranslation, setOpenTranslation] = useState<Book | null>(null)
+  const [openForeword, setOpenForeword] = useState<{ book: BookWithExtras; foreword: BookForeword } | null>(null)
+  const [openPress, setOpenPress] = useState<BookWithExtras | null>(null)
+  const [openTranslation, setOpenTranslation] = useState<BookWithExtras | null>(null)
+  const books = withExtras(data.books, lang)
   usePageMeta({
     title: `${data.title} — Şahin Alpay`,
     description: data.intro,
@@ -80,7 +82,7 @@ export default function BooksPage({ data, lang }: { data: BooksSection; lang: La
 
         <Reveal delay={0.05}>
           <ul className="books-list">
-            {data.books.map((b) => (
+            {books.map((b) => (
               <li key={`${b.year}-${b.title}`} className="book-card">
                 <div className="book-cover">
                   {b.cover ? (

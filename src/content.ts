@@ -22,23 +22,12 @@ import type {
 } from './archive'
 import coverHikayeminSonu from './assets/covers/hikayemin-sonu.jpg'
 import coverBirHikayemVar from './assets/covers/bir-hikayem-var.jpg'
-import {
-  birHikayemVarForeword,
-  hikayeminSonuForeword,
-  iHaveAStoryTranslation,
-  turkarIStockholmSummary,
-  turksInStockholmSummary,
-  type BookForeword,
-  type BookTranslation,
-} from './bookForewords'
 import coverTaniklariIceriden from './assets/covers/turkiyenin-taniklari-iceriden.jpg'
 import coverTaniklariDisaridan from './assets/covers/turkiyenin-taniklari-disaridan.jpg'
 import coverDspShp from './assets/covers/dsp-shp.jpg'
 import cover2020Turkiye from './assets/covers/2020-yilinda-turkiye.jpg'
 import coverPiyasaEkonomisi from './assets/covers/piyasa-ekonomisi-ve-demokrasi.jpg'
 import coverTurkarIStockholm from './assets/covers/turkar-i-stockholm.jpg'
-import { trialProcessSections, type NarrativeDocument } from './trialProcess'
-import { birHikayemVarPress, type BookPressItem } from './bookPress'
 
 export type Lang = 'en' | 'tr'
 
@@ -52,13 +41,6 @@ export interface Book {
   cover?: string
   /** Real retailer product page (e.g. Kitapyurdu) — never a fabricated link. */
   purchaseUrl?: string
-  /** The book's own foreword or summaries, each opened in a dialog from its
-   *  card; the reader's own language comes first. */
-  forewords?: BookForeword[]
-  /** What others wrote about the book, listed in a dialog from its card. */
-  press?: BookPressItem[]
-  /** A full translation, read in a dialog and offered as a PDF. */
-  translation?: BookTranslation
 }
 
 export interface BooksSection {
@@ -127,7 +109,6 @@ export interface Content {
     lead: string
     editorialNote: string
     contentsLabel: string
-    sections: { id: string; title: string; sub?: boolean; paragraphs: string[]; document?: NarrativeDocument }[]
   }
   /** "Silivri'den…" — what other people wrote about him in the press. Not
    *  his own work, so it lives outside src/archive and never reaches the
@@ -215,7 +196,6 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'My years writing for Zaman... my hopes and disappointments of the early 2000s... the notes I kept in prison in Silivri... my last months together with Fatma... In this second book of my memoirs I reconsider the choices whose consequences reached as far as my family life.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
-      forewords: [hikayeminSonuForeword],
     },
     {
       year: '2024',
@@ -223,9 +203,6 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'This book covers my memories from my childhood in Istanbul and Ayvalık to my revolutionary youth, from taking refuge in Sweden and earning my doctorate there to my return home and my years as a newspaper columnist. In telling how my ideas changed over time, and under which influences, I look at the place Fatma, my family and my friends have had in my life.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
-      forewords: [birHikayemVarForeword],
-      press: birHikayemVarPress,
-      translation: iHaveAStoryTranslation,
     },
     {
       year: '2003',
@@ -266,7 +243,6 @@ const BOOKS: Record<Lang, Book[]> = {
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'My doctoral thesis at Stockholm University (1974-1980), in Sweden, where I had gone as a political refugee. Translated from the English original and published in Swedish, it was based on research into the political values and behaviour of the immigrants from Turkey living in Stockholm at the time. The book closed with a summary in Turkish and English.',
       cover: coverTurkarIStockholm,
-      forewords: [turksInStockholmSummary, turkarIStockholmSummary],
     },
   ],
   tr: [
@@ -276,7 +252,6 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'Zaman gazetesinde yazdığım yıllar... 2000’lerin başındaki umutlarım ve hayal kırıklıklarım... Silivri’de hapislikte tuttuğum notlar... Fatma’yla birlikte son aylarımız... Anılarımın bu ikinci kitabında sonuçları aile hayatıma kadar uzanan tercihlerimi yeniden değerlendiriyorum.',
       cover: coverHikayeminSonu,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/hikayemin-sonu-anilar-ikinci-kitap/710333.html',
-      forewords: [hikayeminSonuForeword],
     },
     {
       year: '2024',
@@ -284,9 +259,6 @@ const BOOKS: Record<Lang, Book[]> = {
       desc: 'İstanbul ve Ayvalık’taki çocukluğumdan devrimci gençliğime, İsveç’e sığınıp doktora yapmamdan, yurda dönüş ve gazete yazarlığına uzanan anılarımı kapsayan bu kitapta fikirlerimin nasıl zamanla, hangi etkiler altında değiştiğini anlatırken Fatma’nın, ailemin ve dostlarımın hayatımdaki yerine bakıyorum.',
       cover: coverBirHikayemVar,
       purchaseUrl: 'https://www.kitapyurdu.com/kitap/bir-hikayem-var-anilar-birinci-kitap/698652.html',
-      forewords: [birHikayemVarForeword],
-      press: birHikayemVarPress,
-      translation: iHaveAStoryTranslation,
     },
     {
       year: '2003',
@@ -327,7 +299,6 @@ const BOOKS: Record<Lang, Book[]> = {
       title: 'Turkar i Stockholm: en studie av invandrare, politik och samhälle',
       desc: 'Siyasi mülteci olarak gittiğim İsveç’in Stockholm Üniversitesi’nde (1974-1980) İngilizce aslından İsveççeye çevrilerek yayımlanan doktora tezim, o tarihlerde Stockholm’de yaşayan Türkiyeli göçmenlerin siyasal değer ve davranışlarının araştırılmasına dayanıyordu. Kitabın sonunda Türkçe ve İngilizce özet bulunuyordu.',
       cover: coverTurkarIStockholm,
-      forewords: [turkarIStockholmSummary, turksInStockholmSummary],
     },
   ],
 }
@@ -457,24 +428,6 @@ export const content: Record<Lang, Content> = {
       lead: '',
       editorialNote: '',
       contentsLabel: 'On this page',
-      sections: [
-        {
-          id: 'overview',
-          title: '',
-          paragraphs: [
-            'On 27 July 2016, days after the failed military coup of 15 July, I was detained at my home in Istanbul and, three days later, arrested on suspicion of membership in the Fethullahist Terror Organization (FETÖ/PDY), the movement blamed for the coup attempt. The evidence cited against me was a handful of newspaper columns I had written for Zaman between December 2013 and March 2014.',
-            "I spent close to twenty months in Silivri Prison before Turkey's Constitutional Court, and then the European Court of Human Rights, both ruled that my detention had violated my rights to liberty and to freedom of expression, finding no credible evidence that my columns served any organization's aims. I was released under house arrest in March 2018, and fully released a few months later.",
-            'In July 2018 a criminal court convicted me of membership in a terrorist organization and sentenced me to eight years and nine months in prison, without detention pending appeal. Turkey’s Court of Cassation quashed that verdict in 2020 for insufficient evidence and ordered a retrial.',
-            'The retrial concluded in November 2022 with a different verdict: not membership, but knowingly aiding a terrorist organization, carrying a sentence of two years and six months. I have appealed that decision, and it remains before the Court of Cassation.',
-            'I have written my own detailed account of these proceedings — my courtroom statements and the Constitutional Court’s and European Court of Human Rights’ rulings in full — in Turkish, on this site’s Turkish pages.',
-            'The defence statement I gave at the first hearing, at Silivri on 18 September 2017, can be read in English below.',
-          ],
-          document: {
-            href: '/archive/pdf/trial/sahin-alpay-defence-2017-09-18.pdf',
-            label: 'My defence statement, 18 September 2017',
-          },
-        },
-      ],
     },
     press: {
       kicker: 'Selections from the Press',
@@ -718,7 +671,6 @@ export const content: Record<Lang, Content> = {
       lead: '',
       editorialNote: '',
       contentsLabel: 'Bu sayfada',
-      sections: trialProcessSections,
     },
     press: {
       kicker: 'Basından Seçmeler',
