@@ -49,6 +49,12 @@ function copyForPage(lang, pageKey) {
   if (pageKey === 'home') {
     return { hero: t.hero, hubKicker: t.hubKicker, hubTitle: t.hubTitle, hub: t.hub }
   }
+  if (pageKey === 'trial') {
+    return t.trialProcess ? { ...t.trialProcess, sections: trialSections[lang] } : null
+  }
+  if (pageKey === 'books') {
+    return { ...t.books, books: t.books.books.map((book) => ({ ...book, ...bookExtras[lang][book.title] })) }
+  }
   const key =
     pageKey === 'academic'
       ? 'academicArticles'
@@ -91,6 +97,10 @@ const { content } = contentModule
 
 const items = await readArchiveItems()
 const press = await loadModule('src/press/index.ts', 'press-sitemap.mjs')
+/* Copy that lives outside content.ts so it downloads with its own page only;
+   still part of what those pages' lastmod is fingerprinted against. */
+const { trialSections } = await loadModule('src/trialCopy.ts', 'trial-copy-sitemap.mjs')
+const { bookExtras } = await loadModule('src/bookExtras.ts', 'book-extras-sitemap.mjs')
 
 const entries = []
 
