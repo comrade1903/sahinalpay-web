@@ -153,7 +153,7 @@ any header Vercel adds on its own. Header and status behaviour in production
 must be confirmed against a real deployment:
 
 ```bash
-curl -sI https://<deployment>/tr/kose-yazilari/<slug> | head -20
+curl -sI https://<deployment>/kose-yazilari/<slug> | head -20
 curl -s -o /dev/null -w '%{http_code}\n' https://<deployment>/bir-adres-yok
 ```
 
@@ -300,7 +300,7 @@ headers. Use the Vercel CLI, which sends the caller's own credentials:
 
 ```bash
 npx vercel login          # once, interactively — a person has to do this
-npx vercel curl https://<preview-url>/tr/kose-yazilari/<slug> -I
+npx vercel curl https://<preview-url>/kose-yazilari/<slug> -I
 ```
 
 ### Branch protection on `main` — on since 2026-09-08

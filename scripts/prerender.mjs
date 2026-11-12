@@ -103,9 +103,9 @@ function headBlock({
       `<link rel="alternate" hreflang="${alternateLang}" href="${escapeHtml(url(alternatePath))}" />`,
     )
   }
-  if (alternates.en) {
+  if (alternates.tr) {
     lines.push(
-      `<link rel="alternate" hreflang="x-default" href="${escapeHtml(url(alternates.en))}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${escapeHtml(url(alternates.tr))}" />`,
     )
   }
   lines.push(
@@ -202,7 +202,7 @@ function writePage(routePath, { head, jsonLd, noscript, lang }) {
       /<!--route-noscript-->[\s\S]*?<!--\/route-noscript-->/,
       `<!--route-noscript-->${noscript}<!--/route-noscript-->`,
     )
-  html = html.replace('<html lang="en">', `<html lang="${lang}">`)
+  html = html.replace('<html lang="tr">', `<html lang="${lang}">`)
 
   const target =
     routePath === '/'

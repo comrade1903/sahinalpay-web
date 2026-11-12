@@ -6,7 +6,7 @@ import { ErrorBoundary } from '../src/components/ErrorBoundary'
 afterEach(() => {
   vi.restoreAllMocks()
   vi.doUnmock('../src/pages/BooksPage')
-  window.history.pushState({}, '', '/')
+  window.history.pushState({}, '', '/en')
 })
 
 /* Its own file: React.lazy remembers a module once any earlier test in the
@@ -22,10 +22,10 @@ describe('a page whose code cannot be loaded', () => {
     })
     const { default: App } = await import('../src/App')
     // The boundary reads its language from the address bar.
-    window.history.pushState({}, '', '/tr/kitaplar')
+    window.history.pushState({}, '', '/kitaplar')
     render(
       <ErrorBoundary>
-        <MemoryRouter initialEntries={['/tr/kitaplar']}>
+        <MemoryRouter initialEntries={['/kitaplar']}>
           <App />
         </MemoryRouter>
       </ErrorBoundary>,

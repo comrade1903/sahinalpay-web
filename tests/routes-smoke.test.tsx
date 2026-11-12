@@ -34,20 +34,43 @@ describe('every route renders', () => {
   })
 
   it('opens a column on its own page', async () => {
-    expect(await open('/tr/kose-yazilari/demokrasinin-zaferi')).toContain('Demokrasinin zaferi')
+    expect(await open('/kose-yazilari/demokrasinin-zaferi')).toContain('Demokrasinin zaferi')
   })
 
   /* The English page may add a bracketed translation after the title. */
   it('opens a Turkish column under the English columns path', async () => {
-    expect(await open('/columns/demokrasinin-zaferi')).toContain('Demokrasinin zaferi')
+    expect(await open('/en/columns/demokrasinin-zaferi')).toContain('Demokrasinin zaferi')
   })
 
   it('opens a press piece', async () => {
-    expect((await open('/tr/basinda-hakkimda/ali-bayramoglu-28-temmuz-2016')).length).toBeGreaterThan(0)
+    expect((await open('/basinda-hakkimda/ali-bayramoglu-28-temmuz-2016')).length).toBeGreaterThan(0)
+  })
+
+  /* Turkish is the root's language; a reader who chose English with the
+     switch gets English again, and nobody else is sent away from it. */
+  it('serves the Turkish home at the root', async () => {
+    const { content } = await import('../src/content')
+    await open('/')
+    expect(document.body.textContent).toContain(content.tr.hero.eyebrow)
+    expect(document.body.textContent).not.toContain(content.en.hero.eyebrow)
+    expect(document.querySelector('a[href="/kose-yazilari"]')).not.toBeNull()
+  })
+
+  it('sends a reader who chose English from the root to /en', async () => {
+    window.localStorage.setItem('lang', 'en')
+    try {
+      await open('/')
+      const { content } = await import('../src/content')
+      await waitFor(() => expect(document.body.textContent).toContain(content.en.hero.eyebrow), {
+        timeout: 15000,
+      })
+    } finally {
+      window.localStorage.removeItem('lang')
+    }
   })
 
   it('answers an unknown address with the not-found page', async () => {
     const { content } = await import('../src/content')
-    expect(await open('/tr/yok-boyle-bir-sayfa')).toBe(content.tr.notFound.title)
+    expect(await open('/yok-boyle-bir-sayfa')).toBe(content.tr.notFound.title)
   })
 })

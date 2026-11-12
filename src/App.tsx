@@ -78,100 +78,100 @@ function MainShell() {
           page's code arrives. */}
       <Suspense fallback={<PageLoading lang={langForPath(location.pathname)} />}>
       <Routes>
-        <Route path="/" element={<RouteFor lang="en" pageKey="home" />} />
-        <Route path="/about" element={<RouteFor lang="en" pageKey="about" />} />
+        <Route path="/en" element={<RouteFor lang="en" pageKey="home" />} />
+        <Route path="/en/about" element={<RouteFor lang="en" pageKey="about" />} />
         <Route
-          path="/columns"
+          path="/en/columns"
           element={<RouteFor lang="en" pageKey="columns" />}
         />
-        <Route path="/columns/:slug" element={<ArticlePage lang="en" />} />
+        <Route path="/en/columns/:slug" element={<ArticlePage lang="en" />} />
         <Route
-          path="/analyses"
+          path="/en/analyses"
           element={<RouteFor lang="en" pageKey="analyses" />}
         />
         <Route
-          path="/analyses/:slug"
+          path="/en/analyses/:slug"
           element={<TurkishItemRedirect pageKey="analyses" />}
         />
         <Route
-          path="/interviews"
+          path="/en/interviews"
           element={<RouteFor lang="en" pageKey="interviews" />}
         />
         <Route
-          path="/interviews/:slug"
+          path="/en/interviews/:slug"
           element={<EnglishMirroredItem pageKey="interviews" />}
         />
         <Route
-          path="/academic-articles"
+          path="/en/academic-articles"
           element={<RouteFor lang="en" pageKey="academic" />}
         />
         <Route
-          path="/academic-articles/:slug"
+          path="/en/academic-articles/:slug"
           element={<EnglishMirroredItem pageKey="academic" />}
         />
-        <Route path="/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
-        <Route path="/books" element={<RouteFor lang="en" pageKey="books" />} />
-        <Route path="/trial-process" element={<TrialProcessPage lang="en" />} />
-        <Route path="/about-me-in-the-press" element={<PressPage lang="en" />} />
+        <Route path="/en/my-story-in-photographs" element={<PhotoStoryPage lang="en" />} />
+        <Route path="/en/books" element={<RouteFor lang="en" pageKey="books" />} />
+        <Route path="/en/trial-process" element={<TrialProcessPage lang="en" />} />
+        <Route path="/en/about-me-in-the-press" element={<PressPage lang="en" />} />
         <Route
-          path="/about-me-in-the-press/:slug"
+          path="/en/about-me-in-the-press/:slug"
           element={<TurkishItemRedirect pageKey="press" />}
         />
-        <Route path="/cookie-policy" element={<CookiePolicyPage lang="en" />} />
+        <Route path="/en/cookie-policy" element={<CookiePolicyPage lang="en" />} />
 
-        <Route path="/tr" element={<RouteFor lang="tr" pageKey="home" />} />
+        <Route path="/" element={<RouteFor lang="tr" pageKey="home" />} />
         <Route
-          path="/tr/kimdir"
+          path="/kimdir"
           element={<RouteFor lang="tr" pageKey="about" />}
         />
         <Route
-          path="/tr/kose-yazilari"
+          path="/kose-yazilari"
           element={<RouteFor lang="tr" pageKey="columns" />}
         />
         <Route
-          path="/tr/kose-yazilari/:slug"
+          path="/kose-yazilari/:slug"
           element={<ArticlePage lang="tr" />}
         />
         <Route
-          path="/tr/analizler"
+          path="/analizler"
           element={<RouteFor lang="tr" pageKey="analyses" />}
         />
         <Route
-          path="/tr/analizler/:slug"
+          path="/analizler/:slug"
           element={<ArticlePage lang="tr" />}
         />
         <Route
-          path="/tr/soylesiler"
+          path="/soylesiler"
           element={<RouteFor lang="tr" pageKey="interviews" />}
         />
         <Route
-          path="/tr/soylesiler/:slug"
+          path="/soylesiler/:slug"
           element={<ArticlePage lang="tr" />}
         />
         <Route
-          path="/tr/akademik-makaleler"
+          path="/akademik-makaleler"
           element={<RouteFor lang="tr" pageKey="academic" />}
         />
         <Route
-          path="/tr/akademik-makaleler/:slug"
+          path="/akademik-makaleler/:slug"
           element={<ArticlePage lang="tr" />}
         />
-        <Route path="/tr/fotograflarla-hikayem" element={<PhotoStoryPage lang="tr" />} />
+        <Route path="/fotograflarla-hikayem" element={<PhotoStoryPage lang="tr" />} />
         <Route
-          path="/tr/kitaplar"
+          path="/kitaplar"
           element={<RouteFor lang="tr" pageKey="books" />}
         />
         <Route
-          path="/tr/yargilanma-surecim"
+          path="/yargilanma-surecim"
           element={<TrialProcessPage lang="tr" />}
         />
-        <Route path="/tr/basinda-hakkimda" element={<PressPage lang="tr" />} />
+        <Route path="/basinda-hakkimda" element={<PressPage lang="tr" />} />
         <Route
-          path="/tr/basinda-hakkimda/:slug"
+          path="/basinda-hakkimda/:slug"
           element={<PressArticlePage lang="tr" />}
         />
         <Route
-          path="/tr/cerez-politikasi"
+          path="/cerez-politikasi"
           element={<CookiePolicyPage lang="tr" />}
         />
 

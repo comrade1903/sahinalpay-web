@@ -312,18 +312,13 @@ export default function HomePage({ lang }: { lang: Lang }) {
     }),
   )
 
-  /* On a bare "/" visit (not a deep link), honour a previously chosen
-     language so returning Turkish readers land on /tr automatically. */
+  /* On a bare "/" visit (not a deep link), a reader who chose English with the
+     language switch lands on /en again. Only an explicit choice counts: going
+     by the browser's language would also send search crawlers, which report
+     English, away from the Turkish home page the root is meant to be. */
   useEffect(() => {
-    if (lang !== 'en' || location.pathname !== '/') return
-    const saved = readStoredValue(LANG_KEY)
-    const preferred: Lang =
-      saved === 'tr' || saved === 'en'
-        ? saved
-        : navigator.language.toLowerCase().startsWith('tr')
-          ? 'tr'
-          : 'en'
-    if (preferred === 'tr') navigate(paths.tr.home!, { replace: true })
+    if (lang !== 'tr' || location.pathname !== '/') return
+    if (readStoredValue(LANG_KEY) === 'en') navigate(paths.en.home!, { replace: true })
   }, [lang, location.pathname, navigate])
 
   return (

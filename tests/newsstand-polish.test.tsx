@@ -22,7 +22,7 @@ const outlet = (name: string, titles: string[], year: number, scans: boolean[] =
 
 function newsstand(outlets: ReturnType<typeof outlet>[]) {
   render(
-    <MemoryRouter initialEntries={['/tr/kose-yazilari']}>
+    <MemoryRouter initialEntries={['/kose-yazilari']}>
       <NewsstandArchivePage lang="tr" data={{ ...content.tr.columns, outlets }} />
     </MemoryRouter>,
   )
@@ -52,7 +52,7 @@ describe('newsstand', () => {
 describe('flat list', () => {
   it('shows the year range without a Filtreler button', async () => {
     render(
-      <MemoryRouter initialEntries={['/tr/soylesiler']}>
+      <MemoryRouter initialEntries={['/soylesiler']}>
         <FlatArchivePage
           lang="tr"
           data={{ ...content.tr.interviews!, items: outlet('S', ['Söyleşi'], 2010).items }}

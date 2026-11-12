@@ -4,98 +4,188 @@
   "cleanUrls": false,
   "redirects": [
     {
-      "source": "/tr/analizler/forum-338-turk-is",
-      "destination": "/tr/analizler",
+      "source": "/analizler/forum-338-turk-is",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/forum-339-gucbirligine-dogru-ilk-adim",
-      "destination": "/tr/analizler",
+      "source": "/analizler/forum-339-gucbirligine-dogru-ilk-adim",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/aydinlik-devrimci-teorik-egitim",
-      "destination": "/tr/analizler",
+      "source": "/analizler/aydinlik-devrimci-teorik-egitim",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/aydinlik-osmanli-ticaret-sozlesmeleri",
-      "destination": "/tr/analizler",
+      "source": "/analizler/aydinlik-osmanli-ticaret-sozlesmeleri",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/aydinlik-turkiyenin-duzeni-uzerine",
-      "destination": "/tr/analizler",
+      "source": "/analizler/aydinlik-turkiyenin-duzeni-uzerine",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/pda-isci-sinifi-milli-demokratik-devrim",
-      "destination": "/tr/analizler",
+      "source": "/analizler/pda-isci-sinifi-milli-demokratik-devrim",
+      "destination": "/analizler",
       "permanent": true
     },
     {
-      "source": "/tr/analizler/isci-koylu-1-mayis-1970",
-      "destination": "/tr/analizler",
+      "source": "/analizler/isci-koylu-1-mayis-1970",
+      "destination": "/analizler",
+      "permanent": true
+    },
+    {
+      "source": "/en/analyses/:slug",
+      "destination": "/analizler/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/about-me-in-the-press/:slug",
+      "destination": "/basinda-hakkimda/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/kamusalin-siyasal-topografisi-bianet-2003",
+      "destination": "/soylesiler/kamusalin-siyasal-topografisi-bianet-2003",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/bir-hikayem-var-medyascope-2024",
+      "destination": "/soylesiler/bir-hikayem-var-medyascope-2024",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "destination": "/soylesiler/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/bir-hikayem-var-acik-radyo-2024",
+      "destination": "/soylesiler/bir-hikayem-var-acik-radyo-2024",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/hikayemin-sonu-medyascope-2025",
+      "destination": "/soylesiler/hikayemin-sonu-medyascope-2025",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/liberal-demokratlikta-israrciyim-k24-2025",
+      "destination": "/soylesiler/liberal-demokratlikta-israrciyim-k24-2025",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "destination": "/soylesiler/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/ahmet-turan-alkana-veda-khktv-2026",
+      "destination": "/soylesiler/ahmet-turan-alkana-veda-khktv-2026",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/sahin-alpay-newsroom-media-2026",
+      "destination": "/soylesiler/sahin-alpay-newsroom-media-2026",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/medya-konusmalari-acik-radyo-2006",
+      "destination": "/soylesiler/medya-konusmalari-acik-radyo-2006",
+      "permanent": true
+    },
+    {
+      "source": "/en/interviews/turk-solu-ve-filistin-sorunu-medyascope-2026",
+      "destination": "/soylesiler/turk-solu-ve-filistin-sorunu-medyascope-2026",
+      "permanent": true
+    },
+    {
+      "source": "/tr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/en/about",
+      "permanent": true
+    },
+    {
+      "source": "/my-story-in-photographs",
+      "destination": "/en/my-story-in-photographs",
+      "permanent": true
+    },
+    {
+      "source": "/columns",
+      "destination": "/en/columns",
+      "permanent": true
+    },
+    {
+      "source": "/columns/:slug",
+      "destination": "/en/columns/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/analyses",
+      "destination": "/en/analyses",
       "permanent": true
     },
     {
       "source": "/analyses/:slug",
-      "destination": "/tr/analizler/:slug",
+      "destination": "/analizler/:slug",
       "permanent": true
     },
     {
-      "source": "/interviews/kamusalin-siyasal-topografisi-bianet-2003",
-      "destination": "/tr/soylesiler/kamusalin-siyasal-topografisi-bianet-2003",
+      "source": "/interviews",
+      "destination": "/en/interviews",
       "permanent": true
     },
     {
-      "source": "/interviews/bir-hikayem-var-medyascope-2024",
-      "destination": "/tr/soylesiler/bir-hikayem-var-medyascope-2024",
+      "source": "/interviews/:slug",
+      "destination": "/en/interviews/:slug",
       "permanent": true
     },
     {
-      "source": "/interviews/olmek-icin-gonullu-oldum-serbestiyet-2024",
-      "destination": "/tr/soylesiler/olmek-icin-gonullu-oldum-serbestiyet-2024",
+      "source": "/academic-articles",
+      "destination": "/en/academic-articles",
       "permanent": true
     },
     {
-      "source": "/interviews/bir-hikayem-var-acik-radyo-2024",
-      "destination": "/tr/soylesiler/bir-hikayem-var-acik-radyo-2024",
+      "source": "/academic-articles/:slug",
+      "destination": "/en/academic-articles/:slug",
       "permanent": true
     },
     {
-      "source": "/interviews/hikayemin-sonu-medyascope-2025",
-      "destination": "/tr/soylesiler/hikayemin-sonu-medyascope-2025",
+      "source": "/books",
+      "destination": "/en/books",
       "permanent": true
     },
     {
-      "source": "/interviews/liberal-demokratlikta-israrciyim-k24-2025",
-      "destination": "/tr/soylesiler/liberal-demokratlikta-israrciyim-k24-2025",
+      "source": "/trial-process",
+      "destination": "/en/trial-process",
       "permanent": true
     },
     {
-      "source": "/interviews/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
-      "destination": "/tr/soylesiler/sol-devrimcilikten-liberal-demokratliga-khktv-2025",
+      "source": "/about-me-in-the-press",
+      "destination": "/en/about-me-in-the-press",
       "permanent": true
     },
     {
-      "source": "/interviews/ahmet-turan-alkana-veda-khktv-2026",
-      "destination": "/tr/soylesiler/ahmet-turan-alkana-veda-khktv-2026",
+      "source": "/about-me-in-the-press/:slug",
+      "destination": "/basinda-hakkimda/:slug",
       "permanent": true
     },
     {
-      "source": "/interviews/sahin-alpay-newsroom-media-2026",
-      "destination": "/tr/soylesiler/sahin-alpay-newsroom-media-2026",
-      "permanent": true
-    },
-    {
-      "source": "/interviews/medya-konusmalari-acik-radyo-2006",
-      "destination": "/tr/soylesiler/medya-konusmalari-acik-radyo-2006",
-      "permanent": true
-    },
-    {
-      "source": "/interviews/turk-solu-ve-filistin-sorunu-medyascope-2026",
-      "destination": "/tr/soylesiler/turk-solu-ve-filistin-sorunu-medyascope-2026",
+      "source": "/cookie-policy",
+      "destination": "/en/cookie-policy",
       "permanent": true
     }
   ],

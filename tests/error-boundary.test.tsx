@@ -8,7 +8,7 @@ function Boom(): never {
 
 afterEach(() => {
   vi.restoreAllMocks()
-  window.history.pushState({}, '', '/')
+  window.history.pushState({}, '', '/en')
 })
 
 describe('ErrorBoundary', () => {
@@ -35,9 +35,9 @@ describe('ErrorBoundary', () => {
     expect(screen.getByRole('link', { name: 'Back to the home page' })).toBeTruthy()
   })
 
-  it('speaks Turkish and links to /tr on a Turkish route', () => {
+  it('speaks Turkish and links to the root on a Turkish route', () => {
     vi.spyOn(console, 'error').mockImplementation(() => {})
-    window.history.pushState({}, '', '/tr/kose-yazilari')
+    window.history.pushState({}, '', '/kose-yazilari')
     render(
       <ErrorBoundary>
         <Boom />
@@ -45,7 +45,7 @@ describe('ErrorBoundary', () => {
     )
     expect(screen.getByRole('heading').textContent).toBe('Bir şeyler ters gitti')
     expect(screen.getByRole('link', { name: 'Ana sayfaya dön' }).getAttribute('href')).toBe(
-      '/tr',
+      '/',
     )
   })
 })

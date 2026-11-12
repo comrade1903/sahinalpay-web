@@ -1,3042 +1,3042 @@
 {
-  "/": {
+  "/en": {
     "fingerprint": "1bb77e3a0fcd0597",
-    "date": "2026-11-10"
+    "date": "2026-11-12"
   },
-  "/about": {
+  "/en/about": {
     "fingerprint": "6403213f7a136b0a",
-    "date": "2026-11-07"
+    "date": "2026-11-12"
   },
-  "/my-story-in-photographs": {
+  "/en/my-story-in-photographs": {
     "fingerprint": "28c39895613294df",
-    "date": "2026-11-07"
+    "date": "2026-11-12"
   },
-  "/columns": {
+  "/en/columns": {
     "fingerprint": "313fedb0d29c6670",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/interviews": {
+  "/en/interviews": {
     "fingerprint": "7d5aa649d1dfd5a7",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/academic-articles": {
+  "/en/academic-articles": {
     "fingerprint": "bf2d677445236949",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/books": {
+  "/en/books": {
     "fingerprint": "bea40335874f4fe5",
-    "date": "2026-11-11"
+    "date": "2026-11-12"
   },
-  "/trial-process": {
+  "/en/trial-process": {
     "fingerprint": "876ba83b66856817",
-    "date": "2026-10-28"
+    "date": "2026-11-12"
   },
-  "/about-me-in-the-press": {
+  "/en/about-me-in-the-press": {
     "fingerprint": "e0e84caaeb73dcf5",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/cookie-policy": {
+  "/en/cookie-policy": {
     "fingerprint": "ad932b8440ee3e26",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr": {
+  "/": {
     "fingerprint": "33515bbf142e7546",
-    "date": "2026-11-10"
+    "date": "2026-11-12"
   },
-  "/tr/kimdir": {
+  "/kimdir": {
     "fingerprint": "9e994e1f6bc7950c",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/fotograflarla-hikayem": {
+  "/fotograflarla-hikayem": {
     "fingerprint": "f922f7a338138202",
-    "date": "2026-11-07"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari": {
+  "/kose-yazilari": {
     "fingerprint": "f1b00e7f8c81692b",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr/soylesiler": {
+  "/soylesiler": {
     "fingerprint": "ebba62ce0bcc7f3d",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler": {
+  "/akademik-makaleler": {
     "fingerprint": "98ee482b301b00e4",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr/kitaplar": {
+  "/kitaplar": {
     "fingerprint": "3098518a7069012b",
-    "date": "2026-11-11"
+    "date": "2026-11-12"
   },
-  "/tr/yargilanma-surecim": {
+  "/yargilanma-surecim": {
     "fingerprint": "946f4e4db35c377f",
-    "date": "2026-10-28"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda": {
+  "/basinda-hakkimda": {
     "fingerprint": "bd278934f2d98e07",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr/cerez-politikasi": {
+  "/cerez-politikasi": {
     "fingerprint": "a7b798ff343db396",
-    "date": "2026-10-27"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
+  "/basinda-hakkimda/hasan-cemal-sahin-alpaylar-yalniz-kalmayacak": {
     "fingerprint": "e81596619f3dbd2b",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-tiranlik-uzerine": {
+  "/basinda-hakkimda/hasan-cemal-tiranlik-uzerine": {
     "fingerprint": "07c8a207bd90f41f",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-hukukun-evrensel-ilkelerinin-unutuldugu-bir-dava": {
+  "/basinda-hakkimda/hasan-cemal-hukukun-evrensel-ilkelerinin-unutuldugu-bir-dava": {
     "fingerprint": "21f3a487e6c8c545",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-ne-hazin-h-l-unutabiliyorum-bunun-adinin-fasizm-oldugunu": {
+  "/basinda-hakkimda/hasan-cemal-ne-hazin-h-l-unutabiliyorum-bunun-adinin-fasizm-oldugunu": {
     "fingerprint": "ea189c86a2a621dd",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/cengiz-candar-nazli-sahin": {
+  "/basinda-hakkimda/cengiz-candar-nazli-sahin": {
     "fingerprint": "8191011f569447a8",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ali-bayramoglu-28-temmuz-2016": {
+  "/basinda-hakkimda/ali-bayramoglu-28-temmuz-2016": {
     "fingerprint": "144ea75fb9494de6",
-    "date": "2026-10-07"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-28-temmuz-2016": {
+  "/basinda-hakkimda/taha-akyol-28-temmuz-2016": {
     "fingerprint": "79a97e64929bff84",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/okay-gonensin-28-temmuz-2016": {
+  "/basinda-hakkimda/okay-gonensin-28-temmuz-2016": {
     "fingerprint": "a0fe212b4228ff36",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/okay-gonensin-30-temmuz-2016": {
+  "/basinda-hakkimda/okay-gonensin-30-temmuz-2016": {
     "fingerprint": "8059c468e5d42867",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ertugrul-ozkok-acik-toplum-dusmanlarini-turkiyeye-tanitan-yazar": {
+  "/basinda-hakkimda/ertugrul-ozkok-acik-toplum-dusmanlarini-turkiyeye-tanitan-yazar": {
     "fingerprint": "76ef465f3e4968aa",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/umur-talu-hilmi-yavuz-sahin-alpay-ali-bulac-ters-kelepce-ve-demokrasinin-zaferi": {
+  "/basinda-hakkimda/umur-talu-hilmi-yavuz-sahin-alpay-ali-bulac-ters-kelepce-ve-demokrasinin-zaferi": {
     "fingerprint": "3813f203f0cffd23",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-4-eylul-2016": {
+  "/basinda-hakkimda/taha-akyol-4-eylul-2016": {
     "fingerprint": "1dd90efb6b959a45",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-hukuk-krizi": {
+  "/basinda-hakkimda/taha-akyol-hukuk-krizi": {
     "fingerprint": "c84b7895e344c430",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/mehmet-y-yilmaz-30-kasim-2016": {
+  "/basinda-hakkimda/mehmet-y-yilmaz-30-kasim-2016": {
     "fingerprint": "886f02ffcdf52f5b",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/mehmet-y-yilmaz-9-kasim-2017": {
+  "/basinda-hakkimda/mehmet-y-yilmaz-9-kasim-2017": {
     "fingerprint": "a0aa21cdacc50dbf",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/mehmet-y-yilmaz-etik-kodlari-merakla-bekliyorum": {
+  "/basinda-hakkimda/mehmet-y-yilmaz-etik-kodlari-merakla-bekliyorum": {
     "fingerprint": "862d885d13558dbb",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ataol-behramoglu-4-subat-2017": {
+  "/basinda-hakkimda/ataol-behramoglu-4-subat-2017": {
     "fingerprint": "d6f0a60acd8fa21f",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/sedat-ergin-aihm-sahin-alpay-dosyasina-oncelik-veriyor": {
+  "/basinda-hakkimda/sedat-ergin-aihm-sahin-alpay-dosyasina-oncelik-veriyor": {
     "fingerprint": "2cab333f6cb97164",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/oya-baydar-cocuk-istismarcisi-hirsiz-terorist-149-gazeteci": {
+  "/basinda-hakkimda/oya-baydar-cocuk-istismarcisi-hirsiz-terorist-149-gazeteci": {
     "fingerprint": "e79141161573c730",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/aydin-engin-3-muebbet-arti-15-yil": {
+  "/basinda-hakkimda/aydin-engin-3-muebbet-arti-15-yil": {
     "fingerprint": "56a74592e9f2a9b1",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ali-sirmen-iceridekiler": {
+  "/basinda-hakkimda/ali-sirmen-iceridekiler": {
     "fingerprint": "4b36a9e9cf80db35",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/metin-munir-dusunulmuyorsunuz-sanmayin-unutulmadiniz-dusunuluyorsunuz-seviliyorsunuz-ve-sayiliyorsunuz": {
+  "/basinda-hakkimda/metin-munir-dusunulmuyorsunuz-sanmayin-unutulmadiniz-dusunuluyorsunuz-seviliyorsunuz-ve-sayiliyorsunuz": {
     "fingerprint": "704b85d26c4d3d57",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/aydin-engin-tutuklanan-hukuk-devletidir": {
+  "/basinda-hakkimda/aydin-engin-tutuklanan-hukuk-devletidir": {
     "fingerprint": "edf20896ccb6cef5",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ahmet-hakan-net-konusuyorum-ilicak-bulac-alpay-ve-alkan-orgut-uyesi-degil": {
+  "/basinda-hakkimda/ahmet-hakan-net-konusuyorum-ilicak-bulac-alpay-ve-alkan-orgut-uyesi-degil": {
     "fingerprint": "c5a7f57ea91f22a5",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/mehves-evin-vurun-liboslara-bu-mudur": {
+  "/basinda-hakkimda/mehves-evin-vurun-liboslara-bu-mudur": {
     "fingerprint": "41ac0111d804fb26",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/sedat-ergin-sahin-alpaydan-darbeci-cikar-mi": {
+  "/basinda-hakkimda/sedat-ergin-sahin-alpaydan-darbeci-cikar-mi": {
     "fingerprint": "bf360ae8cfeb3934",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/etyen-mahcupyan-sahin-alpay-ne-yapmisti": {
+  "/basinda-hakkimda/etyen-mahcupyan-sahin-alpay-ne-yapmisti": {
     "fingerprint": "f95747c4a9746f10",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/erkan-aktug-elvan-alpay-iyilik-gecirmek-istiyorum": {
+  "/basinda-hakkimda/erkan-aktug-elvan-alpay-iyilik-gecirmek-istiyorum": {
     "fingerprint": "09ae26950bb7dc9b",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/fehmi-koru-fehmi-koru-ilker-basbug-kararini-hatirlatti-dun-tutuklanmis-insanlar-degil-sahin-alpay-ve-mehmet-altan": {
+  "/basinda-hakkimda/fehmi-koru-fehmi-koru-ilker-basbug-kararini-hatirlatti-dun-tutuklanmis-insanlar-degil-sahin-alpay-ve-mehmet-altan": {
     "fingerprint": "cb6d8b12536bbcaa",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ozgur-mumcu-aym-kararindan-sonra": {
+  "/basinda-hakkimda/ozgur-mumcu-aym-kararindan-sonra": {
     "fingerprint": "845c67d93dc285e5",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/riza-turmen-aihm-eski-yargici-hukuk-devleti-olmamak": {
+  "/basinda-hakkimda/riza-turmen-aihm-eski-yargici-hukuk-devleti-olmamak": {
     "fingerprint": "d4a7e9ae84e6c5ad",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-yargiya-guven": {
+  "/basinda-hakkimda/taha-akyol-yargiya-guven": {
     "fingerprint": "5faf01a69566491f",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-darbe-sucu": {
+  "/basinda-hakkimda/taha-akyol-darbe-sucu": {
     "fingerprint": "93be38755698386a",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/ertugrul-ozkok-dista-dusmanla-savasirken-kendimizle-barisma-zamani": {
+  "/basinda-hakkimda/ertugrul-ozkok-dista-dusmanla-savasirken-kendimizle-barisma-zamani": {
     "fingerprint": "0149bef875ce8c87",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-meclisi-bombalamanin-cezasi-nedir": {
+  "/basinda-hakkimda/taha-akyol-meclisi-bombalamanin-cezasi-nedir": {
     "fingerprint": "b1fe4d5c6356dd75",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-ey-adalet": {
+  "/basinda-hakkimda/taha-akyol-ey-adalet": {
     "fingerprint": "fe57b181c86bce44",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/fehmi-koru-biraz-olsun-olaganlasiyoruz-sahin-alpay-ozgur": {
+  "/basinda-hakkimda/fehmi-koru-biraz-olsun-olaganlasiyoruz-sahin-alpay-ozgur": {
     "fingerprint": "f78e064e59c2580a",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/taha-akyol-fevkalade-uzuldum": {
+  "/basinda-hakkimda/taha-akyol-fevkalade-uzuldum": {
     "fingerprint": "153b9899a746b3ce",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/kurdo-baksi-sahin-alpay-isvecin-destegini-asla-unutmayacagim": {
+  "/basinda-hakkimda/kurdo-baksi-sahin-alpay-isvecin-destegini-asla-unutmayacagim": {
     "fingerprint": "54d4f3269c7574eb",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-caglayanda-huzun-ve-sevinc": {
+  "/basinda-hakkimda/hasan-cemal-caglayanda-huzun-ve-sevinc": {
     "fingerprint": "afeacb79e84ce7f7",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hasan-cemal-huzun": {
+  "/basinda-hakkimda/hasan-cemal-huzun": {
     "fingerprint": "39a43a1cb6d1d68f",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/michael-thumann-erdogan-hesaplasma-gununun-geldigini-dusunuyor": {
+  "/basinda-hakkimda/michael-thumann-erdogan-hesaplasma-gununun-geldigini-dusunuyor": {
     "fingerprint": "643d9b6e8a6451ad",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/bitte-hammargren-gazeteci-sahin-alpay-ilmigin-sikildigini-gordu": {
+  "/basinda-hakkimda/bitte-hammargren-gazeteci-sahin-alpay-ilmigin-sikildigini-gordu": {
     "fingerprint": "f82f2fdf885031ca",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/rainer-hermann-boyun-egmeyen-susturuluyor": {
+  "/basinda-hakkimda/rainer-hermann-boyun-egmeyen-susturuluyor": {
     "fingerprint": "ff0bb5dd32711814",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/alpay-avrupa-ile-turkiye-arasindaki-koprudur-30-temmuz-2016": {
+  "/basinda-hakkimda/alpay-avrupa-ile-turkiye-arasindaki-koprudur-30-temmuz-2016": {
     "fingerprint": "ff112ee6718f7eac",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/filip-johansson-prof-michele-micheletti-turk-hukumetine-baski-yapilmali": {
+  "/basinda-hakkimda/filip-johansson-prof-michele-micheletti-turk-hukumetine-baski-yapilmali": {
     "fingerprint": "94c9954e65319b66",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/michael-winiarski-babamin-goturuldugunu-duydugumda-kalbim-duracak-gibi-oldu": {
+  "/basinda-hakkimda/michael-winiarski-babamin-goturuldugunu-duydugumda-kalbim-duracak-gibi-oldu": {
     "fingerprint": "c4e34f622fc5f64b",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/sahin-alpayi-serbest-birakin": {
+  "/basinda-hakkimda/sahin-alpayi-serbest-birakin": {
     "fingerprint": "2d8c33e89ec29868",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/turkiyenin-stockholm-buyukelcisine-mektup-11-ekim-2016": {
+  "/basinda-hakkimda/turkiyenin-stockholm-buyukelcisine-mektup-11-ekim-2016": {
     "fingerprint": "7e2fd117322d5edd",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/michael-thumann-turkiyenin-liberal-ve-bagimsiz-sesleri-baski-altinda": {
+  "/basinda-hakkimda/michael-thumann-turkiyenin-liberal-ve-bagimsiz-sesleri-baski-altinda": {
     "fingerprint": "832a58c251d5d0e9",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/isvecli-akademisyen-ve-gazetecilerden-sahin-alpay-cagrisi": {
+  "/basinda-hakkimda/isvecli-akademisyen-ve-gazetecilerden-sahin-alpay-cagrisi": {
     "fingerprint": "9ea22d8629384570",
-    "date": "2026-10-18"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/stephen-kinzer-turk-dostum-icin-uc-kez-omur-boyu-hapis-isteniyor": {
+  "/basinda-hakkimda/stephen-kinzer-turk-dostum-icin-uc-kez-omur-boyu-hapis-isteniyor": {
     "fingerprint": "4b4fd8179e1aa348",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/nathan-shacharlent-turk-siyaset-bilimci-ve-gazeteci-sahin-alpay-bir-yildir-tutuklu-ama-hala-mahkemeye-cikarilmadi": {
+  "/basinda-hakkimda/nathan-shacharlent-turk-siyaset-bilimci-ve-gazeteci-sahin-alpay-bir-yildir-tutuklu-ama-hala-mahkemeye-cikarilmadi": {
     "fingerprint": "1684581e0ebb32dd",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/sahin-alpay-aklanmali-ve-serbest-birakilmali-14-09-2017": {
+  "/basinda-hakkimda/sahin-alpay-aklanmali-ve-serbest-birakilmali-14-09-2017": {
     "fingerprint": "875ae1abbcbdbe7d",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/31-temmuz-2016dan-beri-cezaevinde-bulunan-eski-zaman-gazetesi-yazarlarindan-sahin-alpay-icin-isvecli-bir-akademisyen-dostundan-destek-aciklamasi-geldi": {
+  "/basinda-hakkimda/31-temmuz-2016dan-beri-cezaevinde-bulunan-eski-zaman-gazetesi-yazarlarindan-sahin-alpay-icin-isvecli-bir-akademisyen-dostundan-destek-aciklamasi-geldi": {
     "fingerprint": "9c2ee0f9206def4a",
-    "date": "2026-10-20"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/umar-farooq-abdde-yerel-mahkeme-yuksek-mahkemenin-kararina-uymazsa-nasil-bir-kargasa-dogar-tahmin-edin-simdilerde-turkiyede-bu-oluyor": {
+  "/basinda-hakkimda/umar-farooq-abdde-yerel-mahkeme-yuksek-mahkemenin-kararina-uymazsa-nasil-bir-kargasa-dogar-tahmin-edin-simdilerde-turkiyede-bu-oluyor": {
     "fingerprint": "5a8f54e5c6ef95b7",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/basinda-hakkimda/hukumet-turkiyenin-en-yuksek-yargi-organini-dinlemiyor-08-subat-2018": {
+  "/basinda-hakkimda/hukumet-turkiyenin-en-yuksek-yargi-organini-dinlemiyor-08-subat-2018": {
     "fingerprint": "b20faab891b8675c",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baslarken": {
+  "/kose-yazilari/baslarken": {
     "fingerprint": "afe95c7f8e6e3aa2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sabri-ulgenerle-sohbet": {
+  "/kose-yazilari/sabri-ulgenerle-sohbet": {
     "fingerprint": "4c9a877837adf3e9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ideoloji-uzerine-serif-mardinle-sohbet": {
+  "/kose-yazilari/ideoloji-uzerine-serif-mardinle-sohbet": {
     "fingerprint": "5b388a14e6c44dc2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyede-milli-iktisat": {
+  "/kose-yazilari/turkiyede-milli-iktisat": {
     "fingerprint": "538d034c958068a2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mete-tuncayla-sohbet": {
+  "/kose-yazilari/mete-tuncayla-sohbet": {
     "fingerprint": "538e184c75485175",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilimsel-devrimlerin-yapisi": {
+  "/kose-yazilari/bilimsel-devrimlerin-yapisi": {
     "fingerprint": "4d4511aea8c66d4a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/karl-popperin-bilim-felsefesi-ve-siyaset-kurami": {
+  "/kose-yazilari/karl-popperin-bilim-felsefesi-ve-siyaset-kurami": {
     "fingerprint": "39a81e715e77b492",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/saglikli-bir-bilim-anlayisi": {
+  "/kose-yazilari/saglikli-bir-bilim-anlayisi": {
     "fingerprint": "275c7fe357cf1064",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilim-demokrasi-iliskisi": {
+  "/kose-yazilari/bilim-demokrasi-iliskisi": {
     "fingerprint": "6890e70bdba620af",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/zor-zamanda-konusmak": {
+  "/kose-yazilari/zor-zamanda-konusmak": {
     "fingerprint": "5816e064ae717956",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sosyal-demokrasi-ve-marksizm-iliskisi": {
+  "/kose-yazilari/sosyal-demokrasi-ve-marksizm-iliskisi": {
     "fingerprint": "632bf46ab71db15e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fkonun-seruveni": {
+  "/kose-yazilari/fkonun-seruveni": {
     "fingerprint": "21b91bd452f98df7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siyasetin-kendine-ozgu-yasalari-var-midir": {
+  "/kose-yazilari/siyasetin-kendine-ozgu-yasalari-var-midir": {
     "fingerprint": "535371c28d2c83c3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/toplumu-bicimlendiren-doga-midir": {
+  "/kose-yazilari/toplumu-bicimlendiren-doga-midir": {
     "fingerprint": "cb7f551b6765dccf",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/weber-ilk-kez-dilimize-cevrildi": {
+  "/kose-yazilari/weber-ilk-kez-dilimize-cevrildi": {
     "fingerprint": "835d020b98135720",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mspnin-gelisimi-ve-ideolojisi": {
+  "/kose-yazilari/mspnin-gelisimi-ve-ideolojisi": {
     "fingerprint": "b4b3e21888c6fbbf",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/enerji-teknik-bir-sorun-mudur": {
+  "/kose-yazilari/enerji-teknik-bir-sorun-mudur": {
     "fingerprint": "0c392a4be20cd1a6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ceyrek-asir-sonra-abd": {
+  "/kose-yazilari/ceyrek-asir-sonra-abd": {
     "fingerprint": "67e925f54f34adfe",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kalkinmada-bir-strateji-arayisi-mi": {
+  "/kose-yazilari/kalkinmada-bir-strateji-arayisi-mi": {
     "fingerprint": "cf73a8544da5aeb8",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islami-hayat-tarzi-amaclaniyor": {
+  "/kose-yazilari/islami-hayat-tarzi-amaclaniyor": {
     "fingerprint": "1696d18e4aef9a27",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pragda-bahar": {
+  "/kose-yazilari/pragda-bahar": {
     "fingerprint": "a6d373928ad7a7ec",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/japonlarin-calisma-hastaligi": {
+  "/kose-yazilari/japonlarin-calisma-hastaligi": {
     "fingerprint": "9c08d1a10a0d8a82",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-tarihinin-sifir-noktasi": {
+  "/kose-yazilari/turk-tarihinin-sifir-noktasi": {
     "fingerprint": "71483cff2577d5ef",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mehmet-ali-aybarin-anilari": {
+  "/kose-yazilari/mehmet-ali-aybarin-anilari": {
     "fingerprint": "0f2d5cd89ecf3d25",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sair-ismet-ozelin-masali": {
+  "/kose-yazilari/sair-ismet-ozelin-masali": {
     "fingerprint": "f712c02e43e5ec47",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kadro-ve-kadrocular": {
+  "/kose-yazilari/kadro-ve-kadrocular": {
     "fingerprint": "b6b818ddf0a6ce91",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasinin-gelecegi": {
+  "/kose-yazilari/demokrasinin-gelecegi": {
     "fingerprint": "165d2a661d6e5440",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilim-iktisat-ve-piyasa": {
+  "/kose-yazilari/bilim-iktisat-ve-piyasa": {
     "fingerprint": "abd55dd890485661",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sosyalizmin-gelecegi": {
+  "/kose-yazilari/sosyalizmin-gelecegi": {
     "fingerprint": "48a45a28df9c7388",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasi-olmadan-sosyalizm-olamaz": {
+  "/kose-yazilari/demokrasi-olmadan-sosyalizm-olamaz": {
     "fingerprint": "811ff2dd2a0b652c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/inonu-stadinda-pazar-keyfi": {
+  "/kose-yazilari/inonu-stadinda-pazar-keyfi": {
     "fingerprint": "5efe627f05234ec9",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkler-icin-ne-getirecek-ne-goturecek": {
+  "/kose-yazilari/turkler-icin-ne-getirecek-ne-goturecek": {
     "fingerprint": "ed51d6ed680561f1",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ayet-mi-slogan-mi": {
+  "/kose-yazilari/ayet-mi-slogan-mi": {
     "fingerprint": "8f679435439cc2da",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-yuzyilin-ilk-yillarini-yasiyor": {
+  "/kose-yazilari/pkk-yuzyilin-ilk-yillarini-yasiyor": {
     "fingerprint": "a4005510c06b5b65",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/parlamentoda-deprem": {
+  "/kose-yazilari/parlamentoda-deprem": {
     "fingerprint": "68bcc493081324b5",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dis-dusmanlar-ic-dusmanlar": {
+  "/kose-yazilari/dis-dusmanlar-ic-dusmanlar": {
     "fingerprint": "97be93419478fd7b",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sosyalizm-oldu-mu": {
+  "/kose-yazilari/sosyalizm-oldu-mu": {
     "fingerprint": "ca4ff66913b56580",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ayrilikci-teror-ve-ispanya": {
+  "/kose-yazilari/ayrilikci-teror-ve-ispanya": {
     "fingerprint": "52485058992f8e0e",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turki-halklar-ve-biz": {
+  "/kose-yazilari/turki-halklar-ve-biz": {
     "fingerprint": "301c104b11f790ff",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-aydinlara-dusen-gorev": {
+  "/kose-yazilari/kurt-aydinlara-dusen-gorev": {
     "fingerprint": "95354406c4377c51",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/batiyi-nasil-yargilamali": {
+  "/kose-yazilari/batiyi-nasil-yargilamali": {
     "fingerprint": "fef6366e778b05ef",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ah-su-emperyalizm": {
+  "/kose-yazilari/ah-su-emperyalizm": {
     "fingerprint": "af3599176f207050",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/marxi-kesfediyoruz": {
+  "/kose-yazilari/marxi-kesfediyoruz": {
     "fingerprint": "38050f752fd56103",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/solculuk-neden-tutuculuk-oldu": {
+  "/kose-yazilari/solculuk-neden-tutuculuk-oldu": {
     "fingerprint": "ddd220e378736bc8",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturk-ve-zeitgeist": {
+  "/kose-yazilari/ataturk-ve-zeitgeist": {
     "fingerprint": "0fa6c86a4b664999",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyeye-ozgurlukcu-ve-reformcu-bir-sol-gerekiyor": {
+  "/kose-yazilari/turkiyeye-ozgurlukcu-ve-reformcu-bir-sol-gerekiyor": {
     "fingerprint": "c7c9e364d663fc34",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/komplo-teorisi-ve-tarihten-cektigimiz": {
+  "/kose-yazilari/komplo-teorisi-ve-tarihten-cektigimiz": {
     "fingerprint": "498aee4f6e74f8b5",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/din-ile-bilim-rakip-midir": {
+  "/kose-yazilari/din-ile-bilim-rakip-midir": {
     "fingerprint": "1c45bc1c02087750",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasi-icin-iki-turlu-secim": {
+  "/kose-yazilari/demokrasi-icin-iki-turlu-secim": {
     "fingerprint": "d31b43ee161150a0",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/1984-on-yil-geride-kaldi": {
+  "/kose-yazilari/1984-on-yil-geride-kaldi": {
     "fingerprint": "4b60689a284ce924",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/seriat-gelsin-diyen-tek-koyluye-rastlamadim": {
+  "/kose-yazilari/seriat-gelsin-diyen-tek-koyluye-rastlamadim": {
     "fingerprint": "d43572b712e9242f",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/alevi-kulturu-cumhuriyetci-ideolojiyle-uyum-halinde": {
+  "/kose-yazilari/alevi-kulturu-cumhuriyetci-ideolojiyle-uyum-halinde": {
     "fingerprint": "d300596a34d7c023",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilimsiz-arastirmasiz-politika-coktan-tikandi": {
+  "/kose-yazilari/bilimsiz-arastirmasiz-politika-coktan-tikandi": {
     "fingerprint": "09d574557e374f61",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siyasal-katilim-arttikca-teror-azaldi": {
+  "/kose-yazilari/siyasal-katilim-arttikca-teror-azaldi": {
     "fingerprint": "c2e4f35621b12afb",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-neden-islamin-yildizi": {
+  "/kose-yazilari/turkiye-neden-islamin-yildizi": {
     "fingerprint": "0b3d89cf0dcfd616",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/halk-degisme-ve-uzlasmaya-siyasilerden-daha-yatkin": {
+  "/kose-yazilari/halk-degisme-ve-uzlasmaya-siyasilerden-daha-yatkin": {
     "fingerprint": "7d4fb2c128a648e6",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abd-ve-refah": {
+  "/kose-yazilari/abd-ve-refah": {
     "fingerprint": "cf8ceb1a1ee188d7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medya-egemenligi-surmeyecek": {
+  "/kose-yazilari/medya-egemenligi-surmeyecek": {
     "fingerprint": "967197c45e2b279c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/egitimde-somuru": {
+  "/kose-yazilari/egitimde-somuru": {
     "fingerprint": "143c6c9ca20318b0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sansasyon-promosyon": {
+  "/kose-yazilari/sansasyon-promosyon": {
     "fingerprint": "fb8884cb950c5a80",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bir-numarali-sorunumuz": {
+  "/kose-yazilari/bir-numarali-sorunumuz": {
     "fingerprint": "7343e0293f734ab1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ic-islerimiz": {
+  "/kose-yazilari/ic-islerimiz": {
     "fingerprint": "7ab706208fe6527d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/entellektuel": {
+  "/kose-yazilari/entellektuel": {
     "fingerprint": "1e5b9316daab1472",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uygarligin-dili": {
+  "/kose-yazilari/uygarligin-dili": {
     "fingerprint": "0b74143022509372",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sag-ve-solun-anlami": {
+  "/kose-yazilari/sag-ve-solun-anlami": {
     "fingerprint": "403952dd6cd78464",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/entel": {
+  "/kose-yazilari/entel": {
     "fingerprint": "1dfb9a7119cde3eb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-meselesi": {
+  "/kose-yazilari/pkk-meselesi": {
     "fingerprint": "3f056ea47b49937e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sosyal-demokrasi-ve-kemalizm": {
+  "/kose-yazilari/sosyal-demokrasi-ve-kemalizm": {
     "fingerprint": "74ddc1db9f552975",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dusunce-ozgurlugu": {
+  "/kose-yazilari/dusunce-ozgurlugu": {
     "fingerprint": "3c1ed174142cae48",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kulturel-relativizm": {
+  "/kose-yazilari/kulturel-relativizm": {
     "fingerprint": "e82b6a2e17542243",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyenin-realiteleri": {
+  "/kose-yazilari/turkiyenin-realiteleri": {
     "fingerprint": "1c2fb35122da8036",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/guvenligimiz": {
+  "/kose-yazilari/guvenligimiz": {
     "fingerprint": "badbaba6a7ff229c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yeni-demokrasi": {
+  "/kose-yazilari/yeni-demokrasi": {
     "fingerprint": "fd00054984a2e900",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurtler-kardeslerimizdir": {
+  "/kose-yazilari/kurtler-kardeslerimizdir": {
     "fingerprint": "80213427cef8e8ae",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fundamentalistler-ve-islamcilar": {
+  "/kose-yazilari/fundamentalistler-ve-islamcilar": {
     "fingerprint": "afdbf578006aef82",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/tartisma-adabi": {
+  "/kose-yazilari/tartisma-adabi": {
     "fingerprint": "9e428e3a319a7f54",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ahmet-altan-olayi": {
+  "/kose-yazilari/ahmet-altan-olayi": {
     "fingerprint": "e386112da3b0bd33",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/muhtesem-donek": {
+  "/kose-yazilari/muhtesem-donek": {
     "fingerprint": "efb998261d480b00",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uc-tarz-i-siyaset": {
+  "/kose-yazilari/uc-tarz-i-siyaset": {
     "fingerprint": "67e0d5d8b9587e40",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/rp-ve-osmanli-mirasi": {
+  "/kose-yazilari/rp-ve-osmanli-mirasi": {
     "fingerprint": "acca81243ee7c4d9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aleviligin-ayaga-kalkisi": {
+  "/kose-yazilari/aleviligin-ayaga-kalkisi": {
     "fingerprint": "804f5ee198df9736",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/guleryuzlu-sosyalist": {
+  "/kose-yazilari/guleryuzlu-sosyalist": {
     "fingerprint": "6523b745d9108d50",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamin-martin-lutheri": {
+  "/kose-yazilari/islamin-martin-lutheri": {
     "fingerprint": "e2f88df274f52b96",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/firtinalar": {
+  "/kose-yazilari/firtinalar": {
     "fingerprint": "07eca929eda216f2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yarim-demokrasimiz": {
+  "/kose-yazilari/yarim-demokrasimiz": {
     "fingerprint": "62131735e3f3c7d7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-kimligini-taniyoruz": {
+  "/kose-yazilari/kurt-kimligini-taniyoruz": {
     "fingerprint": "e494aee9a14d1cfb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/refahin-iki-yuzu": {
+  "/kose-yazilari/refahin-iki-yuzu": {
     "fingerprint": "3960295714b766c5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kaos-teorisi-ve-siyasetimiz": {
+  "/kose-yazilari/kaos-teorisi-ve-siyasetimiz": {
     "fingerprint": "9fa74f00b1da4967",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/feodalizmmis": {
+  "/kose-yazilari/feodalizmmis": {
     "fingerprint": "de79579e1dcb6504",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/isciler-neden-solcu-degil": {
+  "/kose-yazilari/isciler-neden-solcu-degil": {
     "fingerprint": "54124d0f7dd0b44a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siddetin-kaynagi": {
+  "/kose-yazilari/siddetin-kaynagi": {
     "fingerprint": "20b1a7aa31d6bdc5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasiler-savasmaz": {
+  "/kose-yazilari/demokrasiler-savasmaz": {
     "fingerprint": "6141e8a4333a2993",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/asker-sivil-iliskileri": {
+  "/kose-yazilari/asker-sivil-iliskileri": {
     "fingerprint": "dbb7b74419ee6e44",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-ve-demokrasi": {
+  "/kose-yazilari/pkk-ve-demokrasi": {
     "fingerprint": "3cca6094032d4fa3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-politikasi-degismeli": {
+  "/kose-yazilari/kurt-politikasi-degismeli": {
     "fingerprint": "c8cb827b8cde77bb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/niye-sinif-degil-de-kimlik": {
+  "/kose-yazilari/niye-sinif-degil-de-kimlik": {
     "fingerprint": "7f3b831f3dae6d7f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sevr-sendromu": {
+  "/kose-yazilari/sevr-sendromu": {
     "fingerprint": "a0276e7ca24efd2c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/erbakan-irkciliktan-yargilanmali": {
+  "/kose-yazilari/erbakan-irkciliktan-yargilanmali": {
     "fingerprint": "1a5d2cf49e79db13",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamcilari-taniyalim": {
+  "/kose-yazilari/islamcilari-taniyalim": {
     "fingerprint": "d2d73be92ea367d0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkun-dostu-yoktur": {
+  "/kose-yazilari/turkun-dostu-yoktur": {
     "fingerprint": "76ee97f8ef2cdf13",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sehitlerimiz": {
+  "/kose-yazilari/sehitlerimiz": {
     "fingerprint": "cebbf3035e12ecfc",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/laiklik-ve-demokrasi": {
+  "/kose-yazilari/laiklik-ve-demokrasi": {
     "fingerprint": "f3a2133f511e5776",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/apoletli-medya": {
+  "/kose-yazilari/apoletli-medya": {
     "fingerprint": "7ce67094e87c38f5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamcilar-ve-laikciler": {
+  "/kose-yazilari/islamcilar-ve-laikciler": {
     "fingerprint": "379dff91c4becd6d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/diyarbakirdan-bakinca-susurluk": {
+  "/kose-yazilari/diyarbakirdan-bakinca-susurluk": {
     "fingerprint": "2e1a5b24e8c7e03e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ab-kandiriyor-mu": {
+  "/kose-yazilari/ab-kandiriyor-mu": {
     "fingerprint": "d60baefa79c7ec92",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamin-yildizi-ne-alemde": {
+  "/kose-yazilari/islamin-yildizi-ne-alemde": {
     "fingerprint": "820e926519a7985f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/seriat-ne-demek": {
+  "/kose-yazilari/seriat-ne-demek": {
     "fingerprint": "c28a75c09c2c2b75",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/muhtesem-revizyonist": {
+  "/kose-yazilari/muhtesem-revizyonist": {
     "fingerprint": "7d5a319b4fa370c7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kibrisin-kimligi": {
+  "/kose-yazilari/kibrisin-kimligi": {
     "fingerprint": "6c9fb6cd2420300a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/imam-hatip-meselesi": {
+  "/kose-yazilari/imam-hatip-meselesi": {
     "fingerprint": "aa6ed9ce25af2033",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilim-ve-yanilgi-1997": {
+  "/kose-yazilari/bilim-ve-yanilgi-1997": {
     "fingerprint": "189d6252b6584fe7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/millet-ve-kimlik": {
+  "/kose-yazilari/millet-ve-kimlik": {
     "fingerprint": "4e9124398e4fdac1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/rp-pragmatizm-ya-da-ideoloji": {
+  "/kose-yazilari/rp-pragmatizm-ya-da-ideoloji": {
     "fingerprint": "38e90dcc8c6acc12",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamin-protestanlasmasi": {
+  "/kose-yazilari/islamin-protestanlasmasi": {
     "fingerprint": "590dd15c3b1d0ce7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/refahin-uyarisi": {
+  "/kose-yazilari/refahin-uyarisi": {
     "fingerprint": "cba26c02b3ceb2f4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sol-din-ve-devlet": {
+  "/kose-yazilari/sol-din-ve-devlet": {
     "fingerprint": "de993427519337bd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturk-kultu": {
+  "/kose-yazilari/ataturk-kultu": {
     "fingerprint": "b499b256bac408d3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurtleri-turk-yapmak": {
+  "/kose-yazilari/kurtleri-turk-yapmak": {
     "fingerprint": "3013dede61cae6dc",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/refah-karari": {
+  "/kose-yazilari/refah-karari": {
     "fingerprint": "4e40009be2e98aba",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/tsknin-siyasi-ozerkligi": {
+  "/kose-yazilari/tsknin-siyasi-ozerkligi": {
     "fingerprint": "722f04e052e722d1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/din-ve-bilim": {
+  "/kose-yazilari/din-ve-bilim": {
     "fingerprint": "0e0bc406ae89eaad",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/devletin-ceteleri": {
+  "/kose-yazilari/devletin-ceteleri": {
     "fingerprint": "010fdd62fbc1749d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/milliyet-onemlidir": {
+  "/kose-yazilari/milliyet-onemlidir": {
     "fingerprint": "e0a57408265a7727",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/muasir-medeniyet": {
+  "/kose-yazilari/muasir-medeniyet": {
     "fingerprint": "a1a3a975728de2f2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazeteci": {
+  "/kose-yazilari/gazeteci": {
     "fingerprint": "2f643bff104f4d8d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorunu-ve-pkk": {
+  "/kose-yazilari/kurt-sorunu-ve-pkk": {
     "fingerprint": "f756659a77603989",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/talihsiz-bir-karar": {
+  "/kose-yazilari/talihsiz-bir-karar": {
     "fingerprint": "4f20659c0c20543a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kktcyi-taniyin": {
+  "/kose-yazilari/kktcyi-taniyin": {
     "fingerprint": "58d6009b817f2881",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/tarafsiz-gazeteci": {
+  "/kose-yazilari/tarafsiz-gazeteci": {
     "fingerprint": "b52b40c8a9e1a111",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/milliyetcilik-ve-yurtseverlik": {
+  "/kose-yazilari/milliyetcilik-ve-yurtseverlik": {
     "fingerprint": "21c334461e3f639d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mao-ve-dengin-kenti": {
+  "/kose-yazilari/mao-ve-dengin-kenti": {
     "fingerprint": "fa2196f4044cfcfc",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islam-ve-iran": {
+  "/kose-yazilari/islam-ve-iran": {
     "fingerprint": "0ad2625298bf46ee",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aponun-cagrisi": {
+  "/kose-yazilari/aponun-cagrisi": {
     "fingerprint": "195e111541e7c117",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kibrisi-cozelim": {
+  "/kose-yazilari/kibrisi-cozelim": {
     "fingerprint": "f7ecc95e33c57fd0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamin-yildizi": {
+  "/kose-yazilari/islamin-yildizi": {
     "fingerprint": "48802dc588b8b6a4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/helsinki": {
+  "/kose-yazilari/helsinki": {
     "fingerprint": "a941a87dca91e32d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/temkinli-iyimser": {
+  "/kose-yazilari/temkinli-iyimser": {
     "fingerprint": "8610d430bbc8d7ac",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islam-ve-siddet": {
+  "/kose-yazilari/islam-ve-siddet": {
     "fingerprint": "96ece47270a12560",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fazilet-paradoksu": {
+  "/kose-yazilari/fazilet-paradoksu": {
     "fingerprint": "809eb07fc3318c2a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fpnin-iki-yuzu": {
+  "/kose-yazilari/fpnin-iki-yuzu": {
     "fingerprint": "5e597e06150b2440",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/inkar-kulturu": {
+  "/kose-yazilari/inkar-kulturu": {
     "fingerprint": "5dcaad4ac1ff6b9b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/soykirim-somurusu": {
+  "/kose-yazilari/soykirim-somurusu": {
     "fingerprint": "dcf92edd6af9525c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/1915-tabusu": {
+  "/kose-yazilari/1915-tabusu": {
     "fingerprint": "a5054b885c429dbf",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medyada-kalite": {
+  "/kose-yazilari/medyada-kalite": {
     "fingerprint": "7603e7ef416f8590",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/seytana-uymak": {
+  "/kose-yazilari/seytana-uymak": {
     "fingerprint": "6b053abfbb987f5c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/din-ile-bilim": {
+  "/kose-yazilari/din-ile-bilim": {
     "fingerprint": "2b824af341cf511e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/batidaki-catlak": {
+  "/kose-yazilari/batidaki-catlak": {
     "fingerprint": "e50a6d37f50ae85c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/herkes-baskasinin-teroristini-hosgorme-egiliminde": {
+  "/kose-yazilari/herkes-baskasinin-teroristini-hosgorme-egiliminde": {
     "fingerprint": "4569b13fe8afa232",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hizli-kalkinma-ozgurlukle-olur": {
+  "/kose-yazilari/hizli-kalkinma-ozgurlukle-olur": {
     "fingerprint": "9e1e52dd694e7876",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cesitlilik-icinde-mumkun-birlik": {
+  "/kose-yazilari/cesitlilik-icinde-mumkun-birlik": {
     "fingerprint": "f45e319103a48d12",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/haklar-inanctan-once-gelir": {
+  "/kose-yazilari/haklar-inanctan-once-gelir": {
     "fingerprint": "705e69fe0b88c295",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/etnik-ayristirma-tehlikeli-bir-oyun": {
+  "/kose-yazilari/etnik-ayristirma-tehlikeli-bir-oyun": {
     "fingerprint": "63abb6051a9a3fc5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/duzeltmelerin-zamani-geldi": {
+  "/kose-yazilari/duzeltmelerin-zamani-geldi": {
     "fingerprint": "d6b6eee90f1d909c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-islamin-lideri-olmali": {
+  "/kose-yazilari/turkiye-islamin-lideri-olmali": {
     "fingerprint": "6386484eef34bd9f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islam-laiklesebilir-mi": {
+  "/kose-yazilari/islam-laiklesebilir-mi": {
     "fingerprint": "907dd37c015bd60b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mgk-anayasadan-cikmali": {
+  "/kose-yazilari/mgk-anayasadan-cikmali": {
     "fingerprint": "c66d3ff8986518d7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/avrupa-turkiyenin-kadrini-bilmiyor": {
+  "/kose-yazilari/avrupa-turkiyenin-kadrini-bilmiyor": {
     "fingerprint": "e65fd067f8aa662f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gelecege-umutla-bakiyorum": {
+  "/kose-yazilari/gelecege-umutla-bakiyorum": {
     "fingerprint": "dc5955fafca546ab",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/federasyon-disinda-cozum-olamaz": {
+  "/kose-yazilari/federasyon-disinda-cozum-olamaz": {
     "fingerprint": "f66e237685c47e77",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-habercinin-cenneti": {
+  "/kose-yazilari/turkiye-habercinin-cenneti": {
     "fingerprint": "8223c2255684146c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasi-batili-degildir": {
+  "/kose-yazilari/demokrasi-batili-degildir": {
     "fingerprint": "7be26a71075f17b0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cogulcu-islama-donmeliyiz": {
+  "/kose-yazilari/cogulcu-islama-donmeliyiz": {
     "fingerprint": "65b0756deb6082f6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ekonomik-dev-siyasi-cuce": {
+  "/kose-yazilari/ekonomik-dev-siyasi-cuce": {
     "fingerprint": "5e7515dd7526ba5b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/avrupa-kaplani-olurduk": {
+  "/kose-yazilari/avrupa-kaplani-olurduk": {
     "fingerprint": "992e6ceb78435e41",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kalkinmanin-sarti-hukuk-devleti": {
+  "/kose-yazilari/kalkinmanin-sarti-hukuk-devleti": {
     "fingerprint": "09ea6c01a7af1c78",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/refah-kapatilmamali": {
+  "/kose-yazilari/refah-kapatilmamali": {
     "fingerprint": "260a6a3b9edab4b3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sol-islamla-barismali": {
+  "/kose-yazilari/sol-islamla-barismali": {
     "fingerprint": "d3354b8489d9da8e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/biyografik-politika": {
+  "/kose-yazilari/biyografik-politika": {
     "fingerprint": "9c39ee046767b50f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nufus-tespiti-kaynak-israfi": {
+  "/kose-yazilari/nufus-tespiti-kaynak-israfi": {
     "fingerprint": "ad8bf1f093b34a8e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ronesans-bize-de-gerekli": {
+  "/kose-yazilari/ronesans-bize-de-gerekli": {
     "fingerprint": "ec365344277df98d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uzlasma-esitliktedir": {
+  "/kose-yazilari/uzlasma-esitliktedir": {
     "fingerprint": "f1e2450b7d2abf8c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bizim-icin-turkiye-adaydir": {
+  "/kose-yazilari/bizim-icin-turkiye-adaydir": {
     "fingerprint": "4f69f4516c207d57",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkler-alman-olmasin": {
+  "/kose-yazilari/turkler-alman-olmasin": {
     "fingerprint": "c9e4a19275844fe1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/isi-strasbourga-birakmayin": {
+  "/kose-yazilari/isi-strasbourga-birakmayin": {
     "fingerprint": "6d9948ab5583c348",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ayni-bakis-farkli-tavir": {
+  "/kose-yazilari/ayni-bakis-farkli-tavir": {
     "fingerprint": "9422c33e465b2520",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturk-demokrasinin-kurumlarini-getirdi": {
+  "/kose-yazilari/ataturk-demokrasinin-kurumlarini-getirdi": {
     "fingerprint": "ea466f814d39daf1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ders-kitaplari-ayiklanmali": {
+  "/kose-yazilari/ders-kitaplari-ayiklanmali": {
     "fingerprint": "3ec2a9f9e12552f4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturkun-dusu-bati-uyeligiydi": {
+  "/kose-yazilari/ataturkun-dusu-bati-uyeligiydi": {
     "fingerprint": "bb849e87253bf5b7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ekonomide-devlet-gerekli": {
+  "/kose-yazilari/ekonomide-devlet-gerekli": {
     "fingerprint": "d17a6d203638ff47",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ab-yuruyecegine-kosuyor": {
+  "/kose-yazilari/ab-yuruyecegine-kosuyor": {
     "fingerprint": "15153d6c56c23e74",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siddet-tesvik-edilemez": {
+  "/kose-yazilari/siddet-tesvik-edilemez": {
     "fingerprint": "3d0b1acda661f4e9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/denktas-cozum-istemiyor": {
+  "/kose-yazilari/denktas-cozum-istemiyor": {
     "fingerprint": "5c01f01879b27877",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasinin-zaferi": {
+  "/kose-yazilari/demokrasinin-zaferi": {
     "fingerprint": "80b9a61c05f2f5b7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-sozunu-tut-ve-kibrisi-coz": {
+  "/kose-yazilari/akp-sozunu-tut-ve-kibrisi-coz": {
     "fingerprint": "7219c749d807733c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basbakan-erdogan": {
+  "/kose-yazilari/basbakan-erdogan": {
     "fingerprint": "fb2180c13d7d833b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/firsat-kacti-ama-tukenmedi": {
+  "/kose-yazilari/firsat-kacti-ama-tukenmedi": {
     "fingerprint": "ce200a82eb74f80a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/denktas-turkiyenin-gelecegini-karartiyor": {
+  "/kose-yazilari/denktas-turkiyenin-gelecegini-karartiyor": {
     "fingerprint": "10ea64f67b64dc16",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/otoriter-zihniyet-nasil-asilacak": {
+  "/kose-yazilari/otoriter-zihniyet-nasil-asilacak": {
     "fingerprint": "612d9e34156ae81a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gecikmemis-bir-kitap-kurtler": {
+  "/kose-yazilari/gecikmemis-bir-kitap-kurtler": {
     "fingerprint": "f8913894d34c8fa4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/guclu-olmak-ne-demektir": {
+  "/kose-yazilari/guclu-olmak-ne-demektir": {
     "fingerprint": "4f8489d3ee19d752",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyenin-gucu-demokrasisinde": {
+  "/kose-yazilari/turkiyenin-gucu-demokrasisinde": {
     "fingerprint": "2fea857c8f7e1cc4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basortusu-sorununda-sonun-baslangici": {
+  "/kose-yazilari/basortusu-sorununda-sonun-baslangici": {
     "fingerprint": "306f27d8ee6d8641",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/batinin-batiyla-hesaplasmasi": {
+  "/kose-yazilari/batinin-batiyla-hesaplasmasi": {
     "fingerprint": "75ff51ac031d5d4e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/deprem-din-ve-bilim": {
+  "/kose-yazilari/deprem-din-ve-bilim": {
     "fingerprint": "169efb6fbbd95d7b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/laiklige-evet-islamofobiye-hayir": {
+  "/kose-yazilari/laiklige-evet-islamofobiye-hayir": {
     "fingerprint": "1a282d01946f83b6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siyasette-din-istismari": {
+  "/kose-yazilari/siyasette-din-istismari": {
     "fingerprint": "55b468f1f0b1dcb6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ankara-erbil-mihveri": {
+  "/kose-yazilari/ankara-erbil-mihveri": {
     "fingerprint": "b8dd24a9fa318246",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/birlesik-kibris-cumhuriyetine-evet": {
+  "/kose-yazilari/birlesik-kibris-cumhuriyetine-evet": {
     "fingerprint": "8665c15376dd3a03",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-kimlik-politikasini-yeniliyor": {
+  "/kose-yazilari/turkiye-kimlik-politikasini-yeniliyor": {
     "fingerprint": "976126396ba96c46",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-kartini-turkiye-oynamali": {
+  "/kose-yazilari/kurt-kartini-turkiye-oynamali": {
     "fingerprint": "85e81687ce0c66f4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gule-gule-ecevit": {
+  "/kose-yazilari/gule-gule-ecevit": {
     "fingerprint": "81c9fd1163025c19",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/marxi-anlamak-mumkun-mu": {
+  "/kose-yazilari/marxi-anlamak-mumkun-mu": {
     "fingerprint": "84e51299e7a6bf46",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/liberal-olmak-ne-demek-2005": {
+  "/kose-yazilari/liberal-olmak-ne-demek-2005": {
     "fingerprint": "cb8a83e79af766ee",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baykala-yol-gorundu": {
+  "/kose-yazilari/baykala-yol-gorundu": {
     "fingerprint": "6ae382446a1af114",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nasil-bir-ordu-istiyoruz": {
+  "/kose-yazilari/nasil-bir-ordu-istiyoruz": {
     "fingerprint": "584946d5aaa72480",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/diyanet-nasil-ozerklesebilir": {
+  "/kose-yazilari/diyanet-nasil-ozerklesebilir": {
     "fingerprint": "74a057b00fd838fa",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/1915te-ne-oldu": {
+  "/kose-yazilari/1915te-ne-oldu": {
     "fingerprint": "3e454b9ebcbcb709",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/soykirim-ne-demek": {
+  "/kose-yazilari/soykirim-ne-demek": {
     "fingerprint": "4dbd9aa7a7a1a12d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazeteciler-ve-medya-patronlari": {
+  "/kose-yazilari/gazeteciler-ve-medya-patronlari": {
     "fingerprint": "bc1cfc5e4524d04c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ermenistan-kapilari-acilsin": {
+  "/kose-yazilari/ermenistan-kapilari-acilsin": {
     "fingerprint": "040e280986cc83dd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/asker-sivil-iliskilerinde-ab-nato-ve-agit-normlari": {
+  "/kose-yazilari/asker-sivil-iliskilerinde-ab-nato-ve-agit-normlari": {
     "fingerprint": "8b9c0690a0007a69",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ucuncu-ses": {
+  "/kose-yazilari/ucuncu-ses": {
     "fingerprint": "ad1473ecf38497d9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasinin-degerini-bilelim": {
+  "/kose-yazilari/demokrasinin-degerini-bilelim": {
     "fingerprint": "c2ed27acf13bf1d6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kaybeden-turkiye-oldu": {
+  "/kose-yazilari/kaybeden-turkiye-oldu": {
     "fingerprint": "e2ef1c2e3883635c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hatalarimiz-ve-gunahlarimizla-yuzlesmek": {
+  "/kose-yazilari/hatalarimiz-ve-gunahlarimizla-yuzlesmek": {
     "fingerprint": "50364e1cbaca750d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aponun-ayetleri": {
+  "/kose-yazilari/aponun-ayetleri": {
     "fingerprint": "1ce01c4f18e4df99",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turklerle-kurtlerin-ortak-kaderi": {
+  "/kose-yazilari/turklerle-kurtlerin-ortak-kaderi": {
     "fingerprint": "27d1a5d772b25194",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/soykirim-tezinin-zaaflari": {
+  "/kose-yazilari/soykirim-tezinin-zaaflari": {
     "fingerprint": "866895b7921a57e8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-ermeni-dostlugunun-yeniden-tesisi": {
+  "/kose-yazilari/turk-ermeni-dostlugunun-yeniden-tesisi": {
     "fingerprint": "57cc2e602dc0ccc0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islami-kalvinistler": {
+  "/kose-yazilari/islami-kalvinistler": {
     "fingerprint": "bb3585d039c62578",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyede-laiklik-geriliyor-mu": {
+  "/kose-yazilari/turkiyede-laiklik-geriliyor-mu": {
     "fingerprint": "b3477bd6abc4ae97",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medyadaki-derin-kargasa": {
+  "/kose-yazilari/medyadaki-derin-kargasa": {
     "fingerprint": "f2b6d35484a6a3b4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medyada-mulkiyet-temerkuzu-onlenmeli": {
+  "/kose-yazilari/medyada-mulkiyet-temerkuzu-onlenmeli": {
     "fingerprint": "1c0a6bbd12a01efa",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ab-turkiyeye-ayna-tutuyor": {
+  "/kose-yazilari/ab-turkiyeye-ayna-tutuyor": {
     "fingerprint": "85e3179172a27b71",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/erdoganin-dogrulari-ve-yanlislari": {
+  "/kose-yazilari/erdoganin-dogrulari-ve-yanlislari": {
     "fingerprint": "dc954f41f05c38d8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hata-ve-gunahlarimizin-en-buyugu": {
+  "/kose-yazilari/hata-ve-gunahlarimizin-en-buyugu": {
     "fingerprint": "2867de3f882d4e10",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hasan-cemalin-vazosu": {
+  "/kose-yazilari/hasan-cemalin-vazosu": {
     "fingerprint": "e872e1d57cf68db8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cagdas-uygarlik-ne-demektir": {
+  "/kose-yazilari/cagdas-uygarlik-ne-demektir": {
     "fingerprint": "4beb89c9748956e2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hamas-ziyareti-ankaradan-iyi-diplomasi": {
+  "/kose-yazilari/hamas-ziyareti-ankaradan-iyi-diplomasi": {
     "fingerprint": "5419c1007cc21a9e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/militarizm-geri-teper": {
+  "/kose-yazilari/militarizm-geri-teper": {
     "fingerprint": "4ec7f16bc0fb3ea3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ak-parti-ya-da-akp": {
+  "/kose-yazilari/ak-parti-ya-da-akp": {
     "fingerprint": "ca4fc7b08ef8cb77",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokradura": {
+  "/kose-yazilari/demokradura": {
     "fingerprint": "8d8660f87eca1b24",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorunu-ve-akp": {
+  "/kose-yazilari/kurt-sorunu-ve-akp": {
     "fingerprint": "bef120c1a9cf1df1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ifade-ozgurlugu-uygarligin-ozu": {
+  "/kose-yazilari/ifade-ozgurlugu-uygarligin-ozu": {
     "fingerprint": "f667fe294390b6a6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasi-kulturunun-ozu": {
+  "/kose-yazilari/demokrasi-kulturunun-ozu": {
     "fingerprint": "a0ce110711b00213",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/adaletsiz-guvenlik-olmaz": {
+  "/kose-yazilari/adaletsiz-guvenlik-olmaz": {
     "fingerprint": "f6d47e8589dcf6b2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/batinin-utanc-verici-cifte-standardi": {
+  "/kose-yazilari/batinin-utanc-verici-cifte-standardi": {
     "fingerprint": "9fa1fcc357660e81",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-kurt-kardesligini-pekistirelim": {
+  "/kose-yazilari/turk-kurt-kardesligini-pekistirelim": {
     "fingerprint": "d03b5f5df0ca2bd3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/johan-galtung": {
+  "/kose-yazilari/johan-galtung": {
     "fingerprint": "d19888059e95bf3e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-nedir-ne-degildir": {
+  "/kose-yazilari/akp-nedir-ne-degildir": {
     "fingerprint": "829cb3fe642ae123",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turklerin-ilk-nobel-odulu": {
+  "/kose-yazilari/turklerin-ilk-nobel-odulu": {
     "fingerprint": "576a22f76d8ed849",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dunya-nicin-daha-dindar": {
+  "/kose-yazilari/dunya-nicin-daha-dindar": {
     "fingerprint": "cab93f7c715a8c5e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bulent-ecevit-anilarim": {
+  "/kose-yazilari/bulent-ecevit-anilarim": {
     "fingerprint": "b7123f6a5610a274",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bilim-acisindan-tarikatlar": {
+  "/kose-yazilari/bilim-acisindan-tarikatlar": {
     "fingerprint": "c878bd5e2b0030c6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyenin-yumusak-gucu": {
+  "/kose-yazilari/turkiyenin-yumusak-gucu": {
     "fingerprint": "30b74c36424fbaf3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aleviler-islam-ve-akp": {
+  "/kose-yazilari/aleviler-islam-ve-akp": {
     "fingerprint": "01a49e81b3ab2116",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ordu-ne-zaman-siyasete-karismaya-basladi": {
+  "/kose-yazilari/ordu-ne-zaman-siyasete-karismaya-basladi": {
     "fingerprint": "59b876bb41eff0a0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abdulkerim-sorus-ve-islami-liberalizm": {
+  "/kose-yazilari/abdulkerim-sorus-ve-islami-liberalizm": {
     "fingerprint": "366eb0f5ddaa1e51",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazeteciligin-meslek-ilkeleri-de-vardir": {
+  "/kose-yazilari/gazeteciligin-meslek-ilkeleri-de-vardir": {
     "fingerprint": "85eec755464c9830",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/derin-devlet-nedir": {
+  "/kose-yazilari/derin-devlet-nedir": {
     "fingerprint": "50893b8cbc394f98",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abd-kongresi-ermeni-soykirimini-tanirsa-ne-olur": {
+  "/kose-yazilari/abd-kongresi-ermeni-soykirimini-tanirsa-ne-olur": {
     "fingerprint": "a4d6644d7df9e1a0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nukleer-enerji-meselesi": {
+  "/kose-yazilari/nukleer-enerji-meselesi": {
     "fingerprint": "13f99f7634b16f45",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/irakli-kurtlerle-konusun-anlasin": {
+  "/kose-yazilari/irakli-kurtlerle-konusun-anlasin": {
     "fingerprint": "9d4c4a522a514355",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/parlamenter-sistemi-yikmayin-guclendirin": {
+  "/kose-yazilari/parlamenter-sistemi-yikmayin-guclendirin": {
     "fingerprint": "c0a771a43570fec2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/militarizm-fasizme-goturur": {
+  "/kose-yazilari/militarizm-fasizme-goturur": {
     "fingerprint": "07d669e9044a8583",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ufuk-guldemir-anisina": {
+  "/kose-yazilari/ufuk-guldemir-anisina": {
     "fingerprint": "ce342471fd0a7b77",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturk-somurusu-chpnin-son-caresi": {
+  "/kose-yazilari/ataturk-somurusu-chpnin-son-caresi": {
     "fingerprint": "dfc823dae87e86d9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/profesor-mardine-saygi-ve-sukranla": {
+  "/kose-yazilari/profesor-mardine-saygi-ve-sukranla": {
     "fingerprint": "52d664cc8890df71",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hatalardan-donmek-erdemdir": {
+  "/kose-yazilari/hatalardan-donmek-erdemdir": {
     "fingerprint": "a6cebfab77ccdacd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-islami-neden-kendine-ozgu": {
+  "/kose-yazilari/turk-islami-neden-kendine-ozgu": {
     "fingerprint": "80edfce5552e0727",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-demokrasisinin-yeni-zaferi": {
+  "/kose-yazilari/turk-demokrasisinin-yeni-zaferi": {
     "fingerprint": "c7e4552e438efe8f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sezerin-cumhurbaskani-secilmesini-desteklemistim": {
+  "/kose-yazilari/sezerin-cumhurbaskani-secilmesini-desteklemistim": {
     "fingerprint": "8ff5a58efd462ba1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-ve-kadinlar": {
+  "/kose-yazilari/akp-ve-kadinlar": {
     "fingerprint": "f7298387da8a3bd0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/postmodernizm-degil-modernizm": {
+  "/kose-yazilari/postmodernizm-degil-modernizm": {
     "fingerprint": "10a6775a70f0f304",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazetecilik-ahlaki-diye-bir-sey-yok-mu": {
+  "/kose-yazilari/gazetecilik-ahlaki-diye-bir-sey-yok-mu": {
     "fingerprint": "1f75d2f8fb7093a2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bayraminiz-kutlu-oyunuz-hayir-olsun": {
+  "/kose-yazilari/bayraminiz-kutlu-oyunuz-hayir-olsun": {
     "fingerprint": "3243a28aee2c2803",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fikirler-ozgur-degilse-sorunlar-cozulemez": {
+  "/kose-yazilari/fikirler-ozgur-degilse-sorunlar-cozulemez": {
     "fingerprint": "49530c7eaa077644",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/krizi-firsata-cevirmek-icin": {
+  "/kose-yazilari/krizi-firsata-cevirmek-icin": {
     "fingerprint": "cd4d5c8848a7366c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/asker-neden-siyasete-karismamali": {
+  "/kose-yazilari/asker-neden-siyasete-karismamali": {
     "fingerprint": "15b967a39c36c0ca",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-nasil-silahsizlandirilabilir": {
+  "/kose-yazilari/pkk-nasil-silahsizlandirilabilir": {
     "fingerprint": "9ae5015a8aae5942",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medya-adam-olmadan": {
+  "/kose-yazilari/medya-adam-olmadan": {
     "fingerprint": "c01188b443ae002b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ulke-butunlugu-nasil-korunur": {
+  "/kose-yazilari/ulke-butunlugu-nasil-korunur": {
     "fingerprint": "08995e0319a8393c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uygarliktan-uzaklastigimiz-bir-yil": {
+  "/kose-yazilari/uygarliktan-uzaklastigimiz-bir-yil": {
     "fingerprint": "73115ac1a9453054",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorununda-yapilmasi-gerekenler-belli": {
+  "/kose-yazilari/kurt-sorununda-yapilmasi-gerekenler-belli": {
     "fingerprint": "9f76ecb09a9317a6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-abyi-gozden-cikariyor-mu": {
+  "/kose-yazilari/akp-abyi-gozden-cikariyor-mu": {
     "fingerprint": "671c39f25a607870",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nicin-sadece-demokrat-degilim": {
+  "/kose-yazilari/nicin-sadece-demokrat-degilim": {
     "fingerprint": "f3c20bd3ed188c37",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basortusu-yasagi-insan-haklari-sorunu": {
+  "/kose-yazilari/basortusu-yasagi-insan-haklari-sorunu": {
     "fingerprint": "2dd4f76868600a19",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bana-gore-liberaller-ve-akp": {
+  "/kose-yazilari/bana-gore-liberaller-ve-akp": {
     "fingerprint": "10f267705206f083",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamcilik-ve-akp": {
+  "/kose-yazilari/islamcilik-ve-akp": {
     "fingerprint": "b191ef98f945cbb3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kirk-yil-sonra-68-kusagi": {
+  "/kose-yazilari/kirk-yil-sonra-68-kusagi": {
     "fingerprint": "c7c6f1ab51abb0eb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akpye-yapilanlar-ne-hukuka-sigar-ne-ahlaka": {
+  "/kose-yazilari/akpye-yapilanlar-ne-hukuka-sigar-ne-ahlaka": {
     "fingerprint": "67eea7c02aa8a350",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kemalizm-yeniden-yorumlanmali": {
+  "/kose-yazilari/kemalizm-yeniden-yorumlanmali": {
     "fingerprint": "6a3b7d8e610c2632",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/asker-nicin-siyasete-karismasin": {
+  "/kose-yazilari/asker-nicin-siyasete-karismasin": {
     "fingerprint": "a3f42d32687278fe",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silahlari-terk-etme-zamani": {
+  "/kose-yazilari/silahlari-terk-etme-zamani": {
     "fingerprint": "10daf57062e72106",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/darbeler-ve-askerin-siyasi-rolu": {
+  "/kose-yazilari/darbeler-ve-askerin-siyasi-rolu": {
     "fingerprint": "c3b52c568a05d05e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sekizinci-yilinda-akp-nedir-ne-degildir": {
+  "/kose-yazilari/sekizinci-yilinda-akp-nedir-ne-degildir": {
     "fingerprint": "607ef252512c83d6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/komplo-teorileri-zihinleri-zehirliyor": {
+  "/kose-yazilari/komplo-teorileri-zihinleri-zehirliyor": {
     "fingerprint": "32a30da5944ce425",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ic-baris-ve-huzura-dogru-buyuk-adim": {
+  "/kose-yazilari/ic-baris-ve-huzura-dogru-buyuk-adim": {
     "fingerprint": "80da985436a0963c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/neden-ikinci-cumhuriyet": {
+  "/kose-yazilari/neden-ikinci-cumhuriyet": {
     "fingerprint": "c2871353067f4a90",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/militarizm-cokuyor-mu": {
+  "/kose-yazilari/militarizm-cokuyor-mu": {
     "fingerprint": "6b91dfece088ae76",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturke-adil-davranma-zamani": {
+  "/kose-yazilari/ataturke-adil-davranma-zamani": {
     "fingerprint": "02c71974e3b8f475",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kan-kanla-siddet-siddetle-temizlenemez": {
+  "/kose-yazilari/kan-kanla-siddet-siddetle-temizlenemez": {
     "fingerprint": "839a47c0a317f2e6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/inadina-kardeslik-demokrasi-birlik-ve-beraberlik": {
+  "/kose-yazilari/inadina-kardeslik-demokrasi-birlik-ve-beraberlik": {
     "fingerprint": "bafb723c51f8f319",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gelecek-kusaklara-karsi-sorumluyuz": {
+  "/kose-yazilari/gelecek-kusaklara-karsi-sorumluyuz": {
     "fingerprint": "74bc071a04e852ac",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/balyoz-zihniyeti-yenilmeye-mahkum": {
+  "/kose-yazilari/balyoz-zihniyeti-yenilmeye-mahkum": {
     "fingerprint": "9cce379682a7c289",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazete-dukkan-degildir": {
+  "/kose-yazilari/gazete-dukkan-degildir": {
     "fingerprint": "1f8b188e60de477b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/soykirim-tasarisi-nereden-baksan-komedi": {
+  "/kose-yazilari/soykirim-tasarisi-nereden-baksan-komedi": {
     "fingerprint": "25e27652520166c6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-silah-biraksin-siyaset-yapsin-1": {
+  "/kose-yazilari/pkk-silah-biraksin-siyaset-yapsin-1": {
     "fingerprint": "b73a219b196ff456",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/medyada-reform-yargidaki-kadar-onemli": {
+  "/kose-yazilari/medyada-reform-yargidaki-kadar-onemli": {
     "fingerprint": "d8b5b91caf8586a4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/anayasa-degisikliklerine-nicin-evet": {
+  "/kose-yazilari/anayasa-degisikliklerine-nicin-evet": {
     "fingerprint": "6ac4d6b54923491e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nasil-bir-anayasa-istiyoruz": {
+  "/kose-yazilari/nasil-bir-anayasa-istiyoruz": {
     "fingerprint": "0f0abd44379a7a13",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baykalin-istifasi-boyle-olmamaliydi": {
+  "/kose-yazilari/baykalin-istifasi-boyle-olmamaliydi": {
     "fingerprint": "8689c3e6c16321f8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kilicdaroglunun-uyandirdigi-umut": {
+  "/kose-yazilari/kilicdaroglunun-uyandirdigi-umut": {
     "fingerprint": "8248b1b12c66260d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/israil-yalniz-kalmaya-dogru-gidiyor": {
+  "/kose-yazilari/israil-yalniz-kalmaya-dogru-gidiyor": {
     "fingerprint": "9e0b6b11dcce7d5a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-acilimi-bitti-mi": {
+  "/kose-yazilari/kurt-acilimi-bitti-mi": {
     "fingerprint": "b913211355dbf26f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hukumetten-beklenen-baris-ve-demokrasi-taarruzu": {
+  "/kose-yazilari/hukumetten-beklenen-baris-ve-demokrasi-taarruzu": {
     "fingerprint": "9c5deffc4ba198e4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sorunlar-siyasallasmadan-cozulemez": {
+  "/kose-yazilari/sorunlar-siyasallasmadan-cozulemez": {
     "fingerprint": "b605547917d75142",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/savasarak-degil-konusarak-cozeriz": {
+  "/kose-yazilari/savasarak-degil-konusarak-cozeriz": {
     "fingerprint": "77970eea22b74499",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bahcesehir-universitesinde-on-yil": {
+  "/kose-yazilari/bahcesehir-universitesinde-on-yil": {
     "fingerprint": "5e3327c34fac2fa9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/orduda-reform-ihtiyaci-kapiya-dayandi": {
+  "/kose-yazilari/orduda-reform-ihtiyaci-kapiya-dayandi": {
     "fingerprint": "d6a342b60545a0e3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/askeri-okullarda-endoktrinasyona-son": {
+  "/kose-yazilari/askeri-okullarda-endoktrinasyona-son": {
     "fingerprint": "0e77d3bf6bc346c8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokratik-acilim-nereden-nereye": {
+  "/kose-yazilari/demokratik-acilim-nereden-nereye": {
     "fingerprint": "e5808a61338f5dcd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baskanlik-kotu-parlamenter-sistem-iyidir": {
+  "/kose-yazilari/baskanlik-kotu-parlamenter-sistem-iyidir": {
     "fingerprint": "97d92fdcaa118059",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurtleri-inkar-bitti-simdi-sira-tanimada": {
+  "/kose-yazilari/kurtleri-inkar-bitti-simdi-sira-tanimada": {
     "fingerprint": "d44f9720e3e2f8e1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aydinlanmanin-iki-yuzu": {
+  "/kose-yazilari/aydinlanmanin-iki-yuzu": {
     "fingerprint": "bcc268c3cb8b32ad",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ifade-ozgurlugunun-nimetleri": {
+  "/kose-yazilari/ifade-ozgurlugunun-nimetleri": {
     "fingerprint": "2e091c02535b3984",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gelismisligin-temel-olcutu-kadinlarin-katilimi": {
+  "/kose-yazilari/gelismisligin-temel-olcutu-kadinlarin-katilimi": {
     "fingerprint": "2b86735668b7fb6e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ortadogu-niye-geri-kaldi": {
+  "/kose-yazilari/ortadogu-niye-geri-kaldi": {
     "fingerprint": "fd7dc0c131fae313",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-tek-devlet-tek-millet-ama-nasil": {
+  "/kose-yazilari/evet-tek-devlet-tek-millet-ama-nasil": {
     "fingerprint": "379d708af7600f15",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yarin-saat-3te-vuruldugu-yerde": {
+  "/kose-yazilari/yarin-saat-3te-vuruldugu-yerde": {
     "fingerprint": "a9ff268374168dd8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasilerde-siyasilere-ve-aydinlara-dair": {
+  "/kose-yazilari/demokrasilerde-siyasilere-ve-aydinlara-dair": {
     "fingerprint": "089996a36f708747",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/erdogan-putin-olmak-mi-istiyor": {
+  "/kose-yazilari/erdogan-putin-olmak-mi-istiyor": {
     "fingerprint": "8534d88128dad766",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/israil-icin-aklini-basina-toplama-zamani": {
+  "/kose-yazilari/israil-icin-aklini-basina-toplama-zamani": {
     "fingerprint": "0f5c6ffbf548f77e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/necmettin-erbakani-ebediyete-ugurlarken": {
+  "/kose-yazilari/necmettin-erbakani-ebediyete-ugurlarken": {
     "fingerprint": "570ece803387a952",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/carsi-grubu-fenomeninin-oykusu-yazildi": {
+  "/kose-yazilari/carsi-grubu-fenomeninin-oykusu-yazildi": {
     "fingerprint": "f62ae1d0383744b2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nukleer-belayi-basimiza-sarmayin": {
+  "/kose-yazilari/nukleer-belayi-basimiza-sarmayin": {
     "fingerprint": "93d9c1ade2d9cf95",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/osmanli-ermenileri-konferansi-cok-sey-basardi": {
+  "/kose-yazilari/osmanli-ermenileri-konferansi-cok-sey-basardi": {
     "fingerprint": "6e0c89ed5ed3c337",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazete-buzdolabi-degildir": {
+  "/kose-yazilari/gazete-buzdolabi-degildir": {
     "fingerprint": "8a7b7238444c1af0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/editoryal-bagimsizlik-olmadan-olmaz": {
+  "/kose-yazilari/editoryal-bagimsizlik-olmadan-olmaz": {
     "fingerprint": "0bff28d7ff27b92c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorunu-cozulmeden-demokrasi-olmaz": {
+  "/kose-yazilari/kurt-sorunu-cozulmeden-demokrasi-olmaz": {
     "fingerprint": "c6270f0448549375",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kulturel-cesitliligimize-saygiyi-yeniden-tesis-etmeliyiz": {
+  "/kose-yazilari/kulturel-cesitliligimize-saygiyi-yeniden-tesis-etmeliyiz": {
     "fingerprint": "c1bfdaa87cad1dd4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cozum-mumkun-firsat-kacmamali": {
+  "/kose-yazilari/cozum-mumkun-firsat-kacmamali": {
     "fingerprint": "ec7d1e0ba1fb0d9c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basbakan-erdogan-barisi-saglayip-tarihe-gecebilir": {
+  "/kose-yazilari/basbakan-erdogan-barisi-saglayip-tarihe-gecebilir": {
     "fingerprint": "5b800c3513065267",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ab-turkiye-uzerindeki-etkisini-yitirdi": {
+  "/kose-yazilari/ab-turkiye-uzerindeki-etkisini-yitirdi": {
     "fingerprint": "60e279672c9fb504",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ataturku-efsanelerden-arindirma": {
+  "/kose-yazilari/ataturku-efsanelerden-arindirma": {
     "fingerprint": "7d277596249913ac",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/militarizmden-nasil-kurtuluruz": {
+  "/kose-yazilari/militarizmden-nasil-kurtuluruz": {
     "fingerprint": "9288bb883b5ae871",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/savasma-konus": {
+  "/kose-yazilari/savasma-konus": {
     "fingerprint": "bfd053dea2b79a29",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/tsk-da-degisir": {
+  "/kose-yazilari/tsk-da-degisir": {
     "fingerprint": "1c6eed3dc0d226cb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bdp-ic-barisa-hizmet-edebilir-ve-etmelidir": {
+  "/kose-yazilari/bdp-ic-barisa-hizmet-edebilir-ve-etmelidir": {
     "fingerprint": "2815f112862a44c3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yasasin-bagimsiz-filistin-devleti": {
+  "/kose-yazilari/yasasin-bagimsiz-filistin-devleti": {
     "fingerprint": "63fba878f5fc083c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-turkiye-milleti": {
+  "/kose-yazilari/evet-turkiye-milleti": {
     "fingerprint": "655e7fbf556b769c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/murat-karayilanin-mantigindaki-yanlis": {
+  "/kose-yazilari/murat-karayilanin-mantigindaki-yanlis": {
     "fingerprint": "6d39949db864079e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yeter-oldurme-konus-ve-bitir": {
+  "/kose-yazilari/yeter-oldurme-konus-ve-bitir": {
     "fingerprint": "4fbae062316d8558",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/serif-mardine-itirazlarim": {
+  "/kose-yazilari/serif-mardine-itirazlarim": {
     "fingerprint": "1ae87ea10e397c19",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baskici-ve-ozgurlukcu-islam": {
+  "/kose-yazilari/baskici-ve-ozgurlukcu-islam": {
     "fingerprint": "602003226d27a510",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkkyi-ancak-kurtler-bitirebilir": {
+  "/kose-yazilari/pkkyi-ancak-kurtler-bitirebilir": {
     "fingerprint": "2d5d63accab16bc6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyenin-abye-katilim-sureci-sona-mi-erdi": {
+  "/kose-yazilari/turkiyenin-abye-katilim-sureci-sona-mi-erdi": {
     "fingerprint": "961aae1dba28a1ee",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyenin-vakarinin-ve-onurunun-geregi": {
+  "/kose-yazilari/turkiyenin-vakarinin-ve-onurunun-geregi": {
     "fingerprint": "0264c2dae431f351",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/oldurmeye-silahlara-son": {
+  "/kose-yazilari/oldurmeye-silahlara-son": {
     "fingerprint": "39cd95dadd54aa0c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nicin-silahlari-gommek-zamani": {
+  "/kose-yazilari/nicin-silahlari-gommek-zamani": {
     "fingerprint": "2d3a480db1f723c2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/darbelerden-yalniz-askerler-mi-sorumlu": {
+  "/kose-yazilari/darbelerden-yalniz-askerler-mi-sorumlu": {
     "fingerprint": "8290bb2d0008c222",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-islami-kemalist-midir": {
+  "/kose-yazilari/akp-islami-kemalist-midir": {
     "fingerprint": "52e9a9775290fd30",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fikri-hur-vicdani-hur-irfani-hur-toplum": {
+  "/kose-yazilari/fikri-hur-vicdani-hur-irfani-hur-toplum": {
     "fingerprint": "c6795f1e638f5de1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/muhalefetin-sefaleti": {
+  "/kose-yazilari/muhalefetin-sefaleti": {
     "fingerprint": "0cb78a5422bab958",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nasil-bir-anayasa": {
+  "/kose-yazilari/nasil-bir-anayasa": {
     "fingerprint": "eaad4e2815ca993b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nasil-bir-anayasa-2": {
+  "/kose-yazilari/nasil-bir-anayasa-2": {
     "fingerprint": "40c71f0e329fba30",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasi-yalnizca-milli-irade-degildir": {
+  "/kose-yazilari/demokrasi-yalnizca-milli-irade-degildir": {
     "fingerprint": "f4d02f5391dd0c30",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/din-ozgurlugu-ve-seffaflik-meselesi": {
+  "/kose-yazilari/din-ozgurlugu-ve-seffaflik-meselesi": {
     "fingerprint": "9504c942635cc4fb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evliyalar-diyari-tilloda-bir-sabah": {
+  "/kose-yazilari/evliyalar-diyari-tilloda-bir-sabah": {
     "fingerprint": "5b15b4c8e172b8fa",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uludere-ankaranin-karanlik-dehlizlerinde": {
+  "/kose-yazilari/uludere-ankaranin-karanlik-dehlizlerinde": {
     "fingerprint": "51f390e3aa1874e6",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baskanlik-nicin-bize-yaramaz": {
+  "/kose-yazilari/baskanlik-nicin-bize-yaramaz": {
     "fingerprint": "ab9cdb82708791ac",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-iktidari-nereye-gidiyor": {
+  "/kose-yazilari/akp-iktidari-nereye-gidiyor": {
     "fingerprint": "7cd26ebb65623699",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gazetecinin-gorevi-hukumete-degil-gercege-sadakattir": {
+  "/kose-yazilari/gazetecinin-gorevi-hukumete-degil-gercege-sadakattir": {
     "fingerprint": "44e7e6591be4413e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akpnin-neden-iki-yuzu-var": {
+  "/kose-yazilari/akpnin-neden-iki-yuzu-var": {
     "fingerprint": "46c32e67d5d9f699",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-kadin-cumhurbaskani": {
+  "/kose-yazilari/evet-kadin-cumhurbaskani": {
     "fingerprint": "4dbbc19fcf031a59",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gonulleri-kazanmadan-siddet-bitmez": {
+  "/kose-yazilari/gonulleri-kazanmadan-siddet-bitmez": {
     "fingerprint": "50c48b854249fa70",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/solcu-bir-filozof-tanriyi-kesfettiginde-ne-olur": {
+  "/kose-yazilari/solcu-bir-filozof-tanriyi-kesfettiginde-ne-olur": {
     "fingerprint": "5848dcab9ab196d0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ateistler-icin-din": {
+  "/kose-yazilari/ateistler-icin-din": {
     "fingerprint": "224e9ad0cd66ef14",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/din-mezhep-ve-siyaset-iliskisi": {
+  "/kose-yazilari/din-mezhep-ve-siyaset-iliskisi": {
     "fingerprint": "f16ed13ac4410d29",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/orduda-reform-ihtiyacinin-boyutlari": {
+  "/kose-yazilari/orduda-reform-ihtiyacinin-boyutlari": {
     "fingerprint": "48cbe1af8e19bdc2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kemalizmin-zincirlerinden-kurtulmadan-olmaz": {
+  "/kose-yazilari/kemalizmin-zincirlerinden-kurtulmadan-olmaz": {
     "fingerprint": "aaa4e1d3cfe5c592",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nefret-yayma-ozgurlugu-olamaz": {
+  "/kose-yazilari/nefret-yayma-ozgurlugu-olamaz": {
     "fingerprint": "b5f193a98275e5f1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kimse-kizmasin-muhafazakarlasmiyoruz": {
+  "/kose-yazilari/kimse-kizmasin-muhafazakarlasmiyoruz": {
     "fingerprint": "076b6a20bcbcbf7b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islamda-en-yuce-deger-olarak-ozgurluk": {
+  "/kose-yazilari/islamda-en-yuce-deger-olarak-ozgurluk": {
     "fingerprint": "7cddc31778479605",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cumhuriyet-mi-demokrasi-mi": {
+  "/kose-yazilari/cumhuriyet-mi-demokrasi-mi": {
     "fingerprint": "f9c4c53abb54d4a4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorunu-dunu-bugunu-ve-yarini": {
+  "/kose-yazilari/kurt-sorunu-dunu-bugunu-ve-yarini": {
     "fingerprint": "9f9fd9f6a4d87982",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurt-sorunu-dunu-bugunu-ve-yarini-2": {
+  "/kose-yazilari/kurt-sorunu-dunu-bugunu-ve-yarini-2": {
     "fingerprint": "1fe89d60cfef0530",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/erbil-bagdattan-uzaklasiyor-istanbula-yakinlasiyor": {
+  "/kose-yazilari/erbil-bagdattan-uzaklasiyor-istanbula-yakinlasiyor": {
     "fingerprint": "543a18678e9201c4",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyede-kurtler-de-var": {
+  "/kose-yazilari/turkiyede-kurtler-de-var": {
     "fingerprint": "49767c78b11003bb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dogruya-destek-yanlisa-tenkit": {
+  "/kose-yazilari/dogruya-destek-yanlisa-tenkit": {
     "fingerprint": "5b9323f2e6c01015",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turklerle-kurtlerin-cikarlari-ortak": {
+  "/kose-yazilari/turklerle-kurtlerin-cikarlari-ortak": {
     "fingerprint": "46a92d300f74ce58",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dis-politika-milli-cikarlara-endeksli": {
+  "/kose-yazilari/dis-politika-milli-cikarlara-endeksli": {
     "fingerprint": "f79c83ae81ca2d02",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ruh-ikizleri-chp-ve-mhp-niye-farkli": {
+  "/kose-yazilari/ruh-ikizleri-chp-ve-mhp-niye-farkli": {
     "fingerprint": "6f9ea10115ba7b00",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/batiyla-ask-ve-nefret-niye": {
+  "/kose-yazilari/batiyla-ask-ve-nefret-niye": {
     "fingerprint": "b3ae2ee7bda1a05e",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/milletin-turkiye-seruveni": {
+  "/kose-yazilari/milletin-turkiye-seruveni": {
     "fingerprint": "f2a3458346fc4859",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/islam-ve-demokrasi-tartismasi-bitti": {
+  "/kose-yazilari/islam-ve-demokrasi-tartismasi-bitti": {
     "fingerprint": "d4e34a633a4ffae3",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akpnin-baskanlik-onerisine-hayir": {
+  "/kose-yazilari/akpnin-baskanlik-onerisine-hayir": {
     "fingerprint": "83d78c0cc9d83518",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ab-ile-ne-yapmali": {
+  "/kose-yazilari/ab-ile-ne-yapmali": {
     "fingerprint": "d029c87627433d40",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/buyuk-turk-kurt-barisi": {
+  "/kose-yazilari/buyuk-turk-kurt-barisi": {
     "fingerprint": "a07cdb4d4a774cd7",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurdistani-kapsayan-turkiye": {
+  "/kose-yazilari/kurdistani-kapsayan-turkiye": {
     "fingerprint": "26dac2a5a3f71d90",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baris-ancak-demokrasiyle-kazanilir": {
+  "/kose-yazilari/baris-ancak-demokrasiyle-kazanilir": {
     "fingerprint": "67fe211fa5699ddd",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/siyonizm-insanlik-sucu-mudur": {
+  "/kose-yazilari/siyonizm-insanlik-sucu-mudur": {
     "fingerprint": "62535446b1b67487",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turk-usulu-baskanliktan-vazgecin": {
+  "/kose-yazilari/turk-usulu-baskanliktan-vazgecin": {
     "fingerprint": "35fec6cf091418be",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silahlar-sussun-fi-kirler-konussun": {
+  "/kose-yazilari/silahlar-sussun-fi-kirler-konussun": {
     "fingerprint": "18f408f4a0c28487",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baris-nicin-savastan-zor": {
+  "/kose-yazilari/baris-nicin-savastan-zor": {
     "fingerprint": "64b04594f5d4abe8",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/liberal-olmak-ne-demek-2013": {
+  "/kose-yazilari/liberal-olmak-ne-demek-2013": {
     "fingerprint": "d8918f33d4961741",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiyede-liberal-olmanin-anlami": {
+  "/kose-yazilari/turkiyede-liberal-olmanin-anlami": {
     "fingerprint": "7f8e36492856f3d9",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akil-insanlardan-beklenen-fayda": {
+  "/kose-yazilari/akil-insanlardan-beklenen-fayda": {
     "fingerprint": "ebb0e91db11ba5c0",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/askeri-vesayet-niye-geriledi": {
+  "/kose-yazilari/askeri-vesayet-niye-geriledi": {
     "fingerprint": "668bf4dcf3020a20",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/farkliliga-saygi-uygarligin-temel-tasi": {
+  "/kose-yazilari/farkliliga-saygi-uygarligin-temel-tasi": {
     "fingerprint": "598cfe5585173a5b",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/1915-oncesinde-osmanli-ermenileri": {
+  "/kose-yazilari/1915-oncesinde-osmanli-ermenileri": {
     "fingerprint": "145465368a81b5d4",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/editoryal-bagimsizlik-ne-demek": {
+  "/kose-yazilari/editoryal-bagimsizlik-ne-demek": {
     "fingerprint": "9d2377b752b4d03e",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-ne-zaman-terorist-olmaktan-cikar": {
+  "/kose-yazilari/pkk-ne-zaman-terorist-olmaktan-cikar": {
     "fingerprint": "025799fe26f7bace",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hayat-tarzi-kaygisi-niye": {
+  "/kose-yazilari/hayat-tarzi-kaygisi-niye": {
     "fingerprint": "5bc5624c49e28f94",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basbakan-degismeli": {
+  "/kose-yazilari/basbakan-degismeli": {
     "fingerprint": "23f2036f53a15e94",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/milli-irade-yuzde-50den-ibaret-degildir": {
+  "/kose-yazilari/milli-irade-yuzde-50den-ibaret-degildir": {
     "fingerprint": "94664077a4b06bac",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gezi-parki-dersleri": {
+  "/kose-yazilari/gezi-parki-dersleri": {
     "fingerprint": "e6ba2b3b120a43b1",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/basbakan-erdogana-icten-bir-cagri": {
+  "/kose-yazilari/basbakan-erdogana-icten-bir-cagri": {
     "fingerprint": "f2041e38d2d4fc40",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abnin-turkiyeye-degil-turkiyenin-abye-ihtiyaci-var": {
+  "/kose-yazilari/abnin-turkiyeye-degil-turkiyenin-abye-ihtiyaci-var": {
     "fingerprint": "c376203fe9aa13ca",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/nukleeri-unut-gunese-saril": {
+  "/kose-yazilari/nukleeri-unut-gunese-saril": {
     "fingerprint": "1de04fae547da016",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-basbakanina-mektup-skandali": {
+  "/kose-yazilari/turkiye-basbakanina-mektup-skandali": {
     "fingerprint": "98c06fb4a237feaa",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uluderenin-dersleri": {
+  "/kose-yazilari/uluderenin-dersleri": {
     "fingerprint": "a5eac4fa17ef25ea",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/askeri-vesayetin-sonu-mu": {
+  "/kose-yazilari/askeri-vesayetin-sonu-mu": {
     "fingerprint": "76d750603878f79c",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kutuplasmadan-kimseye-hayir-gelmez": {
+  "/kose-yazilari/kutuplasmadan-kimseye-hayir-gelmez": {
     "fingerprint": "c7a96d8f647fb508",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/iceride-kutuplasma-disarida-yalnizlasma": {
+  "/kose-yazilari/iceride-kutuplasma-disarida-yalnizlasma": {
     "fingerprint": "aa0d608d2f460d36",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aleviler-ve-sunniler-esittir": {
+  "/kose-yazilari/aleviler-ve-sunniler-esittir": {
     "fingerprint": "d0c3d59cfdfad05f",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/liberaller-ne-demek": {
+  "/kose-yazilari/liberaller-ne-demek": {
     "fingerprint": "cd60a64f1cc91532",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasinin-namusu-ozgurluklerdir": {
+  "/kose-yazilari/demokrasinin-namusu-ozgurluklerdir": {
     "fingerprint": "a7dcb11abc36d6a0",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cogulculugu-kabulden-kacinilamaz": {
+  "/kose-yazilari/cogulculugu-kabulden-kacinilamaz": {
     "fingerprint": "a18ac2ba0712189e",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-ama-yetmez": {
+  "/kose-yazilari/evet-ama-yetmez": {
     "fingerprint": "97c4452a7d9c3858",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-ama-niye-yetmez": {
+  "/kose-yazilari/evet-ama-niye-yetmez": {
     "fingerprint": "65e5a2932135fe68",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ulus-devletin-sonu-mu": {
+  "/kose-yazilari/ulus-devletin-sonu-mu": {
     "fingerprint": "db91a96604176296",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pozitivizm-kilisesi-nicin-cokuyor": {
+  "/kose-yazilari/pozitivizm-kilisesi-nicin-cokuyor": {
     "fingerprint": "306680dc62639aca",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/oryantalist-gozle-liberalizm": {
+  "/kose-yazilari/oryantalist-gozle-liberalizm": {
     "fingerprint": "b4fce86d3610a093",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-natodan-cikar-mi": {
+  "/kose-yazilari/turkiye-natodan-cikar-mi": {
     "fingerprint": "ba16865f2e1dfc3d",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/normallesmeye-bir-adim-daha": {
+  "/kose-yazilari/normallesmeye-bir-adim-daha": {
     "fingerprint": "848178090d2071d5",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ozel-hayata-karisilamaz": {
+  "/kose-yazilari/ozel-hayata-karisilamaz": {
     "fingerprint": "1a6b1d09256c4f3b",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hos-geldiniz-sayin-barzani": {
+  "/kose-yazilari/hos-geldiniz-sayin-barzani": {
     "fingerprint": "3d67d0cc385937cf",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/barzaninin-ziyareti-neden-tarihi": {
+  "/kose-yazilari/barzaninin-ziyareti-neden-tarihi": {
     "fingerprint": "bb93abae73f7a8cb",
-    "date": "2026-09-10"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kemalistlerle-akpnin-ortak-yanlari": {
+  "/kose-yazilari/kemalistlerle-akpnin-ortak-yanlari": {
     "fingerprint": "949447aa138b5a56",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kokusmus-bir-seyler-var": {
+  "/kose-yazilari/kokusmus-bir-seyler-var": {
     "fingerprint": "dc9654fec9ce2707",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/komplo-teorisi-zirve-yapti": {
+  "/kose-yazilari/komplo-teorisi-zirve-yapti": {
     "fingerprint": "856812c5c359f278",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/uludere-katliami-cezasiz-kalamaz": {
+  "/kose-yazilari/uludere-katliami-cezasiz-kalamaz": {
     "fingerprint": "44dc011a263be9bb",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/komplo-teorileri-ise-yaramaz": {
+  "/kose-yazilari/komplo-teorileri-ise-yaramaz": {
     "fingerprint": "1551cb232fb8a236",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/evet-suc-da-ceza-da-sahs-dir": {
+  "/kose-yazilari/evet-suc-da-ceza-da-sahs-dir": {
     "fingerprint": "28a654019232e491",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/meselenin-ozu-ozgurluk-mucadelesi": {
+  "/kose-yazilari/meselenin-ozu-ozgurluk-mucadelesi": {
     "fingerprint": "39cbed9839244e9e",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hizmet-hareketinin-nihai-amaci": {
+  "/kose-yazilari/hizmet-hareketinin-nihai-amaci": {
     "fingerprint": "6b10d8313bd9a1aa",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bu-millet-bidon-kafali-degildir": {
+  "/kose-yazilari/bu-millet-bidon-kafali-degildir": {
     "fingerprint": "1971b63e9c674b03",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kumpas-degil-safsata": {
+  "/kose-yazilari/kumpas-degil-safsata": {
     "fingerprint": "ecfe7fa96e97e9eb",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-bile-bu-erdogana-katlanamaz": {
+  "/kose-yazilari/akp-bile-bu-erdogana-katlanamaz": {
     "fingerprint": "88da18e3c83485d0",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hukuksuzluk-ve-yolsuzluga-evet-denemez": {
+  "/kose-yazilari/hukuksuzluk-ve-yolsuzluga-evet-denemez": {
     "fingerprint": "231ed08a66147c74",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/turkiye-bu-zihniyetle-yonetilemez": {
+  "/kose-yazilari/turkiye-bu-zihniyetle-yonetilemez": {
     "fingerprint": "ee162b3c8481c754",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/muhaberat-devletine-dogru-bir-adim-daha": {
+  "/kose-yazilari/muhaberat-devletine-dogru-bir-adim-daha": {
     "fingerprint": "bab966d8506c3ad7",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/erdogana-hayir": {
+  "/kose-yazilari/erdogana-hayir": {
     "fingerprint": "9dcf1791af20f6b7",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/otoriterlesmeye-karsi-durma-zamani": {
+  "/kose-yazilari/otoriterlesmeye-karsi-durma-zamani": {
     "fingerprint": "efa2ead58e04ded3",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hukuk-degil-tek-adam-devleti": {
+  "/kose-yazilari/hukuk-degil-tek-adam-devleti": {
     "fingerprint": "d32ba334ef43a800",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sivil-toplum-boyun-egmez": {
+  "/kose-yazilari/sivil-toplum-boyun-egmez": {
     "fingerprint": "6e71b8a51bf9229d",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/demokrasiye-evet-erdogana-hayir": {
+  "/kose-yazilari/demokrasiye-evet-erdogana-hayir": {
     "fingerprint": "02ae4c3041fcf4ed",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/coban-suluye-veda": {
+  "/kose-yazilari/coban-suluye-veda": {
     "fingerprint": "50219bd88065d2d3",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/akp-ile-helallesmek-mumkun-mu": {
+  "/kose-yazilari/akp-ile-helallesmek-mumkun-mu": {
     "fingerprint": "b009cf4397e1ebad",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hdp-firsati-heba-edilmemeli": {
+  "/kose-yazilari/hdp-firsati-heba-edilmemeli": {
     "fingerprint": "15004419ba09e639",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hdpnin-dislanmasi-buyuk-risktir": {
+  "/kose-yazilari/hdpnin-dislanmasi-buyuk-risktir": {
     "fingerprint": "6a5587da8707d1fd",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ortadogu-diktatorlugune-dogru-gidis": {
+  "/kose-yazilari/ortadogu-diktatorlugune-dogru-gidis": {
     "fingerprint": "3446fbaa46c85f76",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/baskici-rejimler-nasil-coker": {
+  "/kose-yazilari/baskici-rejimler-nasil-coker": {
     "fingerprint": "9739e96f3ab8a647",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/secimli-otokrasiye-dogru": {
+  "/kose-yazilari/secimli-otokrasiye-dogru": {
     "fingerprint": "33e145d59962ebd7",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gobels-rejimi": {
+  "/kose-yazilari/gobels-rejimi": {
     "fingerprint": "3a387248c3b6b37b",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/17-25-aralik-hukuk-devletinde-sonun-baslangici": {
+  "/kose-yazilari/17-25-aralik-hukuk-devletinde-sonun-baslangici": {
     "fingerprint": "7626d04569b8d10a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ne-hukuk-kaldi-ne-de-mantik": {
+  "/kose-yazilari/ne-hukuk-kaldi-ne-de-mantik": {
     "fingerprint": "6a01e535d259dbd3",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/koktendinciler-kavgasinin-verdigi-dersler": {
+  "/kose-yazilari/koktendinciler-kavgasinin-verdigi-dersler": {
     "fingerprint": "866767654df000bc",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/insanligindan-utanmasi-gerekenler": {
+  "/kose-yazilari/insanligindan-utanmasi-gerekenler": {
     "fingerprint": "82de282483c9e2ab",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/suriyeli-cocuklarin-gelecegi": {
+  "/kose-yazilari/suriyeli-cocuklarin-gelecegi": {
     "fingerprint": "5dafba93ed1bf256",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/liberalizmin-krizi-mi": {
+  "/kose-yazilari/liberalizmin-krizi-mi": {
     "fingerprint": "754c1ea834c6ac0a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dokuzuncu-gezegenin-mesaji": {
+  "/kose-yazilari/dokuzuncu-gezegenin-mesaji": {
     "fingerprint": "a328682ab3558e29",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-ile-daes-farksiz-mi": {
+  "/kose-yazilari/pkk-ile-daes-farksiz-mi": {
     "fingerprint": "eec7f862837e215f",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/chp-iktidar-olabilir-mi": {
+  "/kose-yazilari/chp-iktidar-olabilir-mi": {
     "fingerprint": "3f1733a9935ef2ee",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abd-fasist-olur-mu": {
+  "/kose-yazilari/abd-fasist-olur-mu": {
     "fingerprint": "4b659c92e603bf44",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/pkk-geriliyor-mu": {
+  "/kose-yazilari/pkk-geriliyor-mu": {
     "fingerprint": "fd58fca84e8e24a7",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abnin-ihaneti-mi": {
+  "/kose-yazilari/abnin-ihaneti-mi": {
     "fingerprint": "231658acbef19d7b",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/terorle-mucadele-stratejisi-yurumuyor": {
+  "/kose-yazilari/terorle-mucadele-stratejisi-yurumuyor": {
     "fingerprint": "249df1284bb32f10",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/abdyle-guven-bunalimi-nereye-varacak": {
+  "/kose-yazilari/abdyle-guven-bunalimi-nereye-varacak": {
     "fingerprint": "e933dcdcd7c8b71b",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/tosun-terzioglu-bir-rol-modeli": {
+  "/kose-yazilari/tosun-terzioglu-bir-rol-modeli": {
     "fingerprint": "8865baab99e95733",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hocam-ve-dostum-tomas-hammara-veda": {
+  "/kose-yazilari/hocam-ve-dostum-tomas-hammara-veda": {
     "fingerprint": "d64f16e709ad5792",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ergun-abiye-veda": {
+  "/kose-yazilari/ergun-abiye-veda": {
     "fingerprint": "ce65d8627814911e",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ne-zaman-geleceksin": {
+  "/kose-yazilari/ne-zaman-geleceksin": {
     "fingerprint": "abd82d5383262501",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bir-dostluk-hik-yesi": {
+  "/kose-yazilari/bir-dostluk-hik-yesi": {
     "fingerprint": "4d8e1019ca0b445a",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fark-karizma-olabilir-mi": {
+  "/kose-yazilari/fark-karizma-olabilir-mi": {
     "fingerprint": "29c03f8342076d43",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/manga-komutanima-veda": {
+  "/kose-yazilari/manga-komutanima-veda": {
     "fingerprint": "5622f86b176f3612",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ali-kemalin-fikirleri-degerini-koruyor": {
+  "/kose-yazilari/ali-kemalin-fikirleri-degerini-koruyor": {
     "fingerprint": "aeab08eb8e5c8b5a",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/artik-bilelim-deprem-degil-bina-oldurur": {
+  "/kose-yazilari/artik-bilelim-deprem-degil-bina-oldurur": {
     "fingerprint": "3c4e01aeb72102c8",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/buyukelcilikten-insan-haklari-savunuculuguna": {
+  "/kose-yazilari/buyukelcilikten-insan-haklari-savunuculuguna": {
     "fingerprint": "84fb13bdfe042ce9",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/stockholm-e-donus": {
+  "/kose-yazilari/stockholm-e-donus": {
     "fingerprint": "3f7071eeb6228b9e",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gun-zileli-nin-anilari-uzerine": {
+  "/kose-yazilari/gun-zileli-nin-anilari-uzerine": {
     "fingerprint": "afb127b07a53769d",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/sevgili-dost-oblomov-erdala-veda": {
+  "/kose-yazilari/sevgili-dost-oblomov-erdala-veda": {
     "fingerprint": "f4070e1cb08c9b55",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bana-ne-lan-diyememek": {
+  "/kose-yazilari/bana-ne-lan-diyememek": {
     "fingerprint": "22fde14a59e05705",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/aydin-engin-anisina-saygi-ve-sukranlarimla": {
+  "/kose-yazilari/aydin-engin-anisina-saygi-ve-sukranlarimla": {
     "fingerprint": "107c4eb1878ee045",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hayat-hanimin-iki-yuzu": {
+  "/kose-yazilari/hayat-hanimin-iki-yuzu": {
     "fingerprint": "56a604ed24f0de7b",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/harikalar-diyarinda": {
+  "/kose-yazilari/harikalar-diyarinda": {
     "fingerprint": "b2c74fc726ccc792",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kacik-radyoya-uzun-omurler": {
+  "/kose-yazilari/kacik-radyoya-uzun-omurler": {
     "fingerprint": "31a9b53ec6edb310",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kemalizmin-amaclanmayan-sonuclari": {
+  "/kose-yazilari/kemalizmin-amaclanmayan-sonuclari": {
     "fingerprint": "465a0a6582374d89",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kurucu-felsefenin-esin-kaynaklari": {
+  "/kose-yazilari/kurucu-felsefenin-esin-kaynaklari": {
     "fingerprint": "588b14d380e5fa91",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/darbecilikle-bogusurken-populizme-yakalanmak": {
+  "/kose-yazilari/darbecilikle-bogusurken-populizme-yakalanmak": {
     "fingerprint": "e120f80ce2fd0bfb",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/assar-lindbeck-ve-liberal-sosyal-demokrasi": {
+  "/kose-yazilari/assar-lindbeck-ve-liberal-sosyal-demokrasi": {
     "fingerprint": "510455236d47fccf",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yeni-dunya-gorusum": {
+  "/kose-yazilari/yeni-dunya-gorusum": {
     "fingerprint": "b94a6924f7c7839d",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/kadri-bilinmemis-bir-sah-eser": {
+  "/kose-yazilari/kadri-bilinmemis-bir-sah-eser": {
     "fingerprint": "e1a5f1f5dd1698bb",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/trumpin-dunyaya-verdigi-dersler": {
+  "/kose-yazilari/trumpin-dunyaya-verdigi-dersler": {
     "fingerprint": "f8a4328c69a968a5",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/ne-umduk-ne-bulduk": {
+  "/kose-yazilari/ne-umduk-ne-bulduk": {
     "fingerprint": "578ea6167c3ae37d",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/koronanin-da-isvec-modeli-var": {
+  "/kose-yazilari/koronanin-da-isvec-modeli-var": {
     "fingerprint": "01797d2e82d17c8c",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bu-dunyadan-oguz-da-gecti": {
+  "/kose-yazilari/bu-dunyadan-oguz-da-gecti": {
     "fingerprint": "781b800003baff8e",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/haluk-bekerin-ardindan": {
+  "/kose-yazilari/haluk-bekerin-ardindan": {
     "fingerprint": "8f7cfbd97578253c",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/gercekle-aramiz-hic-iyi-degil": {
+  "/kose-yazilari/gercekle-aramiz-hic-iyi-degil": {
     "fingerprint": "07fef2b48ece1ea7",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/2020-yilinda-turkiye": {
+  "/kose-yazilari/2020-yilinda-turkiye": {
     "fingerprint": "b20d4115231d100b",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/vargas-llosanin-kesfi": {
+  "/kose-yazilari/vargas-llosanin-kesfi": {
     "fingerprint": "38224c262ae5c4c4",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hayat-bir-mucize": {
+  "/kose-yazilari/hayat-bir-mucize": {
     "fingerprint": "5d406d1c7ba8c209",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi": {
+  "/kose-yazilari/cumhuriyet-demokrasi-ve-ozgurluk-iliskisi": {
     "fingerprint": "60451adfa32ab7a9",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine": {
+  "/kose-yazilari/mirasi-siyasi-ozgurluk-ve-arkadaslik-uzerine": {
     "fingerprint": "ff99fd23309ee507",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fikirdaslik-ve-arkadaslik-uzerine": {
+  "/kose-yazilari/fikirdaslik-ve-arkadaslik-uzerine": {
     "fingerprint": "b6c5a37e8d69b3ff",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/komplo-teorisi-nedir-ne-degildir": {
+  "/kose-yazilari/komplo-teorisi-nedir-ne-degildir": {
     "fingerprint": "4535d3e9a1491f7b",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/fatma-ya-veda": {
+  "/kose-yazilari/fatma-ya-veda": {
     "fingerprint": "e54312eae9b43f1f",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivriden-sonra-ev-hapsinde": {
+  "/kose-yazilari/silivriden-sonra-ev-hapsinde": {
     "fingerprint": "5b4bf0bee8d8ac1f",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/dunyayi-guzellik-kurtaracak": {
+  "/kose-yazilari/dunyayi-guzellik-kurtaracak": {
     "fingerprint": "16eeb63796fe6cc4",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/yalanda-yasamayi-reddetmek": {
+  "/kose-yazilari/yalanda-yasamayi-reddetmek": {
     "fingerprint": "c05c9e48f77063cc",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivri-mektubu-ugradigim-haksizlik-son-bulmali": {
+  "/kose-yazilari/silivri-mektubu-ugradigim-haksizlik-son-bulmali": {
     "fingerprint": "d0dd22f26c20b109",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/anjiyo-oldum": {
+  "/kose-yazilari/anjiyo-oldum": {
     "fingerprint": "f2a137d1fd44e46f",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/hayatin-ironisi": {
+  "/kose-yazilari/hayatin-ironisi": {
     "fingerprint": "4fb435bad63063e3",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivri-mektubu-sagligim-gittikce-kotuluyor": {
+  "/kose-yazilari/silivri-mektubu-sagligim-gittikce-kotuluyor": {
     "fingerprint": "378f05ffed40c688",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivri-de-masumiyet-muzesi": {
+  "/kose-yazilari/silivri-de-masumiyet-muzesi": {
     "fingerprint": "9efd4338832310f8",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivri-mektubu-sagmalcilar-dan-silivri-ye": {
+  "/kose-yazilari/silivri-mektubu-sagmalcilar-dan-silivri-ye": {
     "fingerprint": "992b76b776237829",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/silivri-mektubu-hurriyet-denen-sey": {
+  "/kose-yazilari/silivri-mektubu-hurriyet-denen-sey": {
     "fingerprint": "df9f0d46dc4e2693",
-    "date": "2026-09-05"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/20-yuzyilda-rusyada-ne-oldu-ve-bitti": {
+  "/kose-yazilari/20-yuzyilda-rusyada-ne-oldu-ve-bitti": {
     "fingerprint": "9701e8380607d6ff",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/bir-turk-ermeni-ask-hikayesi": {
+  "/kose-yazilari/bir-turk-ermeni-ask-hikayesi": {
     "fingerprint": "4795417fd9a53cf2",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/tr/kose-yazilari/cesur-yeni-dunya": {
+  "/kose-yazilari/cesur-yeni-dunya": {
     "fingerprint": "267c61e638b7ec57",
-    "date": "2026-09-16"
+    "date": "2026-11-12"
   },
-  "/columns/what-to-do-about-the-genocide-resolutions": {
+  "/en/columns/what-to-do-about-the-genocide-resolutions": {
     "fingerprint": "f3633b3b7646cf71",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/legacy-of-military-interventions-in-turkey": {
+  "/en/columns/legacy-of-military-interventions-in-turkey": {
     "fingerprint": "a7c1bad8602c5912",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/is-turkey-moving-away-from-the-west": {
+  "/en/columns/is-turkey-moving-away-from-the-west": {
     "fingerprint": "0f42833c334098e8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/socialist-international-must-expel-the-chp": {
+  "/en/columns/socialist-international-must-expel-the-chp": {
     "fingerprint": "b5b679f4b3770e4e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/dont-destroy-the-parliamentary-system": {
+  "/en/columns/dont-destroy-the-parliamentary-system": {
     "fingerprint": "db48099869e41a95",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/lessons-of-the-fight-against-terrorism": {
+  "/en/columns/lessons-of-the-fight-against-terrorism": {
     "fingerprint": "52744d4e376716fa",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/islamophobia-and-the-west": {
+  "/en/columns/islamophobia-and-the-west": {
     "fingerprint": "b200b644e3ab2cef",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkeys-tests-of-conscience-and-rule-of-law": {
+  "/en/columns/turkeys-tests-of-conscience-and-rule-of-law": {
     "fingerprint": "b0a361d8d77c5ba5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/a-new-victory-for-democracy": {
+  "/en/columns/a-new-victory-for-democracy": {
     "fingerprint": "42c5e5515a4f8629",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkish-islamic-exceptionalism": {
+  "/en/columns/turkish-islamic-exceptionalism": {
     "fingerprint": "1e723a75d6f45db1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/social-democracy-kemalism-and-the-chp": {
+  "/en/columns/social-democracy-kemalism-and-the-chp": {
     "fingerprint": "9c447306d0e7e0eb",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-akp-and-alevis": {
+  "/en/columns/the-akp-and-alevis": {
     "fingerprint": "05bf4e9a77b770bd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/elections-and-the-kurdish-problem": {
+  "/en/columns/elections-and-the-kurdish-problem": {
     "fingerprint": "9cc9dd050a81a0f5",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-has-the-house-committee-achieved": {
+  "/en/columns/what-has-the-house-committee-achieved": {
     "fingerprint": "7a156b0811c1b6dc",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkeys-kurdish-problem-and-the-pkk": {
+  "/en/columns/turkeys-kurdish-problem-and-the-pkk": {
     "fingerprint": "079aed46b03cc9b3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/is-official-recognition-of-alevism-impending": {
+  "/en/columns/is-official-recognition-of-alevism-impending": {
     "fingerprint": "b11c9599595c262a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-european-union-turkey-and-islam": {
+  "/en/columns/the-european-union-turkey-and-islam": {
     "fingerprint": "befca18ca5ea326a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/status-quo-fights-back": {
+  "/en/columns/status-quo-fights-back": {
     "fingerprint": "65a1c4fb6b4c9eee",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/akp-is-not-even-mildly-islamist": {
+  "/en/columns/akp-is-not-even-mildly-islamist": {
     "fingerprint": "d29d7c1f6c8046b7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/can-turkish-armenian-relations-normalize": {
+  "/en/columns/can-turkish-armenian-relations-normalize": {
     "fingerprint": "346ca53bf1b46ab9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-mother-of-all-turkeys-problems": {
+  "/en/columns/the-mother-of-all-turkeys-problems": {
     "fingerprint": "128b514c0a7ec900",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/iran-and-the-united-states-whats-next": {
+  "/en/columns/iran-and-the-united-states-whats-next": {
     "fingerprint": "93ce343cfee90e4c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/high-time-for-post-kemalism": {
+  "/en/columns/high-time-for-post-kemalism": {
     "fingerprint": "0829d008d9911b34",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/end-of-the-road-to-accession": {
+  "/en/columns/end-of-the-road-to-accession": {
     "fingerprint": "ffa1538feddeae1b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/why-is-the-turkish-military-involved-in-politics": {
+  "/en/columns/why-is-the-turkish-military-involved-in-politics": {
     "fingerprint": "0327e8a9fb60c9ee",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-if-the-akp-is-closed": {
+  "/en/columns/what-if-the-akp-is-closed": {
     "fingerprint": "e2394604f01a3426",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/normalize-relations-with-armenia": {
+  "/en/columns/normalize-relations-with-armenia": {
     "fingerprint": "3adb423f0036f51f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/recognize-kurdish-rights-isolate-pkk": {
+  "/en/columns/recognize-kurdish-rights-isolate-pkk": {
     "fingerprint": "1e0f7b91efa32c68",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/beginning-of-the-end-for-akp-power": {
+  "/en/columns/beginning-of-the-end-for-akp-power": {
     "fingerprint": "183cc7b6af2e6513",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkeys-journey-from-a-muslim-to-a-civic-nation": {
+  "/en/columns/turkeys-journey-from-a-muslim-to-a-civic-nation": {
     "fingerprint": "fa223ad1d45bb93e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turks-kurds-and-the-pkk": {
+  "/en/columns/turks-kurds-and-the-pkk": {
     "fingerprint": "d677355d280b585b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/why-do-i-apologize-to-our-armenian-brothers-and-sisters": {
+  "/en/columns/why-do-i-apologize-to-our-armenian-brothers-and-sisters": {
     "fingerprint": "4888bb185f5a2ade",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/sources-of-intolerance-and-discrimination-in-turkey": {
+  "/en/columns/sources-of-intolerance-and-discrimination-in-turkey": {
     "fingerprint": "0d9dbad1ed29e290",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/on-israeli-comparisons-between-the-pkk-and-hamas": {
+  "/en/columns/on-israeli-comparisons-between-the-pkk-and-hamas": {
     "fingerprint": "6d2ca89ae0669e44",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/why-do-most-turks-side-with-erdogan-at-davos": {
+  "/en/columns/why-do-most-turks-side-with-erdogan-at-davos": {
     "fingerprint": "c4db26c1bd3bcb37",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/justice-and-development-party-sins-and-good-deeds": {
+  "/en/columns/justice-and-development-party-sins-and-good-deeds": {
     "fingerprint": "503021860ed69e12",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/commendable-move-by-ankara-and-yerevan": {
+  "/en/columns/commendable-move-by-ankara-and-yerevan": {
     "fingerprint": "3a42a7c7e5501921",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/opportunity-for-peace-at-home-must-not-be-missed": {
+  "/en/columns/opportunity-for-peace-at-home-must-not-be-missed": {
     "fingerprint": "01372ea4663731d9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-sort-of-politician-is-prime-minister-erdogan": {
+  "/en/columns/what-sort-of-politician-is-prime-minister-erdogan": {
     "fingerprint": "33535be18c83225f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/democratic-control-of-the-military-is-imperative": {
+  "/en/columns/democratic-control-of-the-military-is-imperative": {
     "fingerprint": "3a172e9f6a3ab573",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-keeps-the-s-vres-syndrome-alive-and-kicking": {
+  "/en/columns/what-keeps-the-s-vres-syndrome-alive-and-kicking": {
     "fingerprint": "feb8ee55ac2e6d7d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-future-of-the-political-role-of-the-military-in-turkey": {
+  "/en/columns/the-future-of-the-political-role-of-the-military-in-turkey": {
     "fingerprint": "994495c4120faff3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-the-akp-is-and-is-not": {
+  "/en/columns/what-the-akp-is-and-is-not": {
     "fingerprint": "3cf132c2d193f801",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-if-turkey-slams-the-door-on-the-eu": {
+  "/en/columns/what-if-turkey-slams-the-door-on-the-eu": {
     "fingerprint": "10701f963e3263c2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/time-for-the-turkish-media-to-look-at-itself-in-the-mirror": {
+  "/en/columns/time-for-the-turkish-media-to-look-at-itself-in-the-mirror": {
     "fingerprint": "088fe85a330ba7d3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/sign-up-to-the-international-criminal-court": {
+  "/en/columns/sign-up-to-the-international-criminal-court": {
     "fingerprint": "dad42c0de73c06cf",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkish-miracle-of-the-21st-century": {
+  "/en/columns/turkish-miracle-of-the-21st-century": {
     "fingerprint": "37ad179e60aeefb0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/a-response-to-israeli-president-shimon-peres": {
+  "/en/columns/a-response-to-israeli-president-shimon-peres": {
     "fingerprint": "3a3a35cd698c63a3",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/closure-of-the-dtp-a-serious-blow-to-democratization": {
+  "/en/columns/closure-of-the-dtp-a-serious-blow-to-democratization": {
     "fingerprint": "836b8c9cc9cd02ec",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-legacy-of-hrant-dink-on-the-third-anniversary-of-his-death": {
+  "/en/columns/the-legacy-of-hrant-dink-on-the-third-anniversary-of-his-death": {
     "fingerprint": "ea35452808cb27cd",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/a-tentative-step-towards-official-recognition-of-alevi-identity": {
+  "/en/columns/a-tentative-step-towards-official-recognition-of-alevi-identity": {
     "fingerprint": "234b9a76b24d22f7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/whats-wrong-with-hard-line-secularism-in-turkey": {
+  "/en/columns/whats-wrong-with-hard-line-secularism-in-turkey": {
     "fingerprint": "2db9008606409b55",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-armenian-problem-intellectuals-and-politicians-in-turkey": {
+  "/en/columns/the-armenian-problem-intellectuals-and-politicians-in-turkey": {
     "fingerprint": "8bb65d8756ff9ae0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/how-badly-does-turkey-want-membership-in-the-european-union": {
+  "/en/columns/how-badly-does-turkey-want-membership-in-the-european-union": {
     "fingerprint": "7a0b7e0709079423",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/why-turkey-needs-a-professional-army": {
+  "/en/columns/why-turkey-needs-a-professional-army": {
     "fingerprint": "2983b10d46866ad0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/liberal-principles-inspire-turkish-foreign-policy": {
+  "/en/columns/liberal-principles-inspire-turkish-foreign-policy": {
     "fingerprint": "ed06bf938258e324",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/transforming-the-pkk-through-negotiations": {
+  "/en/columns/transforming-the-pkk-through-negotiations": {
     "fingerprint": "640db15dbd3a5933",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/chps-new-leader-kilicdaroglu-continues-to-disappoint": {
+  "/en/columns/chps-new-leader-kilicdaroglu-continues-to-disappoint": {
     "fingerprint": "8ef7be4a1881e400",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/basic-principles-of-a-liberal-democratic-constitution-for-turkey": {
+  "/en/columns/basic-principles-of-a-liberal-democratic-constitution-for-turkey": {
     "fingerprint": "fefa58770cf2d600",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/how-to-reduce-tensions-between-the-west-and-the-muslim-world": {
+  "/en/columns/how-to-reduce-tensions-between-the-west-and-the-muslim-world": {
     "fingerprint": "0a2800c5c99365e9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-mood-in-greece-and-cyprus": {
+  "/en/columns/the-mood-in-greece-and-cyprus": {
     "fingerprint": "31c04ffdb34ac360",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-brains-behind-turkeys-global-reawakening": {
+  "/en/columns/the-brains-behind-turkeys-global-reawakening": {
     "fingerprint": "e1c6e3baa7e2db5e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-made-the-middle-east-fall-behind-the-west": {
+  "/en/columns/what-made-the-middle-east-fall-behind-the-west": {
     "fingerprint": "27c1c95d5f265fb7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-state-of-freedom-of-expression-and-the-press-in-turkey": {
+  "/en/columns/the-state-of-freedom-of-expression-and-the-press-in-turkey": {
     "fingerprint": "4e2784bce19fd81d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/the-modernist-tradition-in-turkish-islam-and-said-nursi": {
+  "/en/columns/the-modernist-tradition-in-turkish-islam-and-said-nursi": {
     "fingerprint": "aed49752958999bc",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/how-is-democracy-to-arrive-in-the-arab-world": {
+  "/en/columns/how-is-democracy-to-arrive-in-the-arab-world": {
     "fingerprint": "43c576dfd917abfa",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-not-iran-will-inspire-arab-democracies": {
+  "/en/columns/turkey-not-iran-will-inspire-arab-democracies": {
     "fingerprint": "606db0657c73c293",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/time-for-israel-to-come-to-its-senses": {
+  "/en/columns/time-for-israel-to-come-to-its-senses": {
     "fingerprint": "8c6ddaf857e62523",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/estrangement-bad-for-turkey-and-especially-for-the-eu": {
+  "/en/columns/estrangement-bad-for-turkey-and-especially-for-the-eu": {
     "fingerprint": "295c221179a5cb8c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkeys-political-parties-are-owned-by-their-leaders": {
+  "/en/columns/turkeys-political-parties-are-owned-by-their-leaders": {
     "fingerprint": "a7540a4e48b40d07",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/both-islamism-and-baathism-are-spent-forces-in-the-middle-east": {
+  "/en/columns/both-islamism-and-baathism-are-spent-forces-in-the-middle-east": {
     "fingerprint": "5d526f58d6bceec2",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/paradox-of-press-freedom-in-turkey": {
+  "/en/columns/paradox-of-press-freedom-in-turkey": {
     "fingerprint": "9fa4f28b3781caa8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/demythologizing-ataturk": {
+  "/en/columns/demythologizing-ataturk": {
     "fingerprint": "b870a4b0783f990c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/uniculturalism-breeds-violence": {
+  "/en/columns/uniculturalism-breeds-violence": {
     "fingerprint": "815b041430cf0b6c",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/regime-change-in-turkey": {
+  "/en/columns/regime-change-in-turkey": {
     "fingerprint": "51833c2ce5d7fb7f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/whats-wrong-with-the-pkks-logic": {
+  "/en/columns/whats-wrong-with-the-pkks-logic": {
     "fingerprint": "0f58861dbce17984",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/lessons-of-the-arab-awakening": {
+  "/en/columns/lessons-of-the-arab-awakening": {
     "fingerprint": "ce5ce6bcf483c2e7",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-dignity-and-self-respect-require": {
+  "/en/columns/what-dignity-and-self-respect-require": {
     "fingerprint": "16a4e5563002f094",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/future-of-the-kurdish-question-in-turkey": {
+  "/en/columns/future-of-the-kurdish-question-in-turkey": {
     "fingerprint": "eb606af945d0099b",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/time-for-the-pkk-to-bury-their-guns-in-history": {
+  "/en/columns/time-for-the-pkk-to-bury-their-guns-in-history": {
     "fingerprint": "885a0be98a2bfaf8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/is-the-akp-islamic-kemalist": {
+  "/en/columns/is-the-akp-islamic-kemalist": {
     "fingerprint": "93225146eeaf9954",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/whats-the-problem-with-the-media-in-turkey": {
+  "/en/columns/whats-the-problem-with-the-media-in-turkey": {
     "fingerprint": "62430f38518bff62",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/naked-truth-kemalism-incompatible-with-democracy": {
+  "/en/columns/naked-truth-kemalism-incompatible-with-democracy": {
     "fingerprint": "2e52bc05a7120994",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-and-the-eu-still-relevant-for-each-other": {
+  "/en/columns/turkey-and-the-eu-still-relevant-for-each-other": {
     "fingerprint": "10d1b8edd0ce89c1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/whats-wrong-with-ankaras-foreign-policy": {
+  "/en/columns/whats-wrong-with-ankaras-foreign-policy": {
     "fingerprint": "067f4a47c1f39757",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/positive-agenda-from-the-eu-most-welcome": {
+  "/en/columns/positive-agenda-from-the-eu-most-welcome": {
     "fingerprint": "20318663949fa63f",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/whats-wrong-with-the-government-in-turkey": {
+  "/en/columns/whats-wrong-with-the-government-in-turkey": {
     "fingerprint": "9aff2806082c52a0",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-if-the-chp-becomes-a-truly-new-chp": {
+  "/en/columns/what-if-the-chp-becomes-a-truly-new-chp": {
     "fingerprint": "0e11642ba9a2399d",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/why-the-turkish-paradox": {
+  "/en/columns/why-the-turkish-paradox": {
     "fingerprint": "a0c03623257e238e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-and-the-kurds": {
+  "/en/columns/turkey-and-the-kurds": {
     "fingerprint": "bbc0c5e50766ad05",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/what-is-to-be-done-about-the-pkk": {
+  "/en/columns/what-is-to-be-done-about-the-pkk": {
     "fingerprint": "65f05a45d6d217f1",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/neither-islam-nor-islamism-is-monolithic": {
+  "/en/columns/neither-islam-nor-islamism-is-monolithic": {
     "fingerprint": "a1ab556c2bba924a",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/a-radical-redefinition-of-secularism-needed": {
+  "/en/columns/a-radical-redefinition-of-secularism-needed": {
     "fingerprint": "5dd69bb35ced7ac8",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/neither-denial-nor-recognition-first-but-cognition": {
+  "/en/columns/neither-denial-nor-recognition-first-but-cognition": {
     "fingerprint": "5979a08f97c7df19",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/obama-surrenders-to-the-israel-lobby": {
+  "/en/columns/obama-surrenders-to-the-israel-lobby": {
     "fingerprint": "1f0e7647e1fd654e",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/putinism-wont-work-in-turkey": {
+  "/en/columns/putinism-wont-work-in-turkey": {
     "fingerprint": "9e30066a15223000",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/theories-about-erdogan-i-and-ii": {
+  "/en/columns/theories-about-erdogan-i-and-ii": {
     "fingerprint": "63f2bb65e29340f9",
-    "date": "2026-09-09"
+    "date": "2026-11-12"
   },
-  "/columns/turks-and-kurds-have-common-interests": {
+  "/en/columns/turks-and-kurds-have-common-interests": {
     "fingerprint": "6710f09bc1ee5d30",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-love-hate-with-the-west": {
+  "/en/columns/why-love-hate-with-the-west": {
     "fingerprint": "56a3fad8055afa2a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/what-should-turkey-do-with-the-european-union": {
+  "/en/columns/what-should-turkey-do-with-the-european-union": {
     "fingerprint": "7ccbd11262469e3f",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/the-growing-role-of-women-in-turkey": {
+  "/en/columns/the-growing-role-of-women-in-turkey": {
     "fingerprint": "2db8243d372fd383",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/a-major-step-towards-turkish-kurdish-peace": {
+  "/en/columns/a-major-step-towards-turkish-kurdish-peace": {
     "fingerprint": "23d1fa63a61a463a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-is-the-turkish-militarys-political-role-waning": {
+  "/en/columns/why-is-the-turkish-militarys-political-role-waning": {
     "fingerprint": "2f977e760aaad97c",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/is-erdogan-mildly-moderately-or-slightly-islamist": {
+  "/en/columns/is-erdogan-mildly-moderately-or-slightly-islamist": {
     "fingerprint": "4dfa0fd6269e8322",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/when-would-the-pkk-cease-to-be-terrorist": {
+  "/en/columns/when-would-the-pkk-cease-to-be-terrorist": {
     "fingerprint": "c302ffa703c034b5",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-will-not-bow-to-authoritarianism": {
+  "/en/columns/turkey-will-not-bow-to-authoritarianism": {
     "fingerprint": "9d5969b1f227dea2",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-needs-europe-but-europe-does-not-care": {
+  "/en/columns/turkey-needs-europe-but-europe-does-not-care": {
     "fingerprint": "49ad6738f80c9af4",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-is-erdogan-polarizing-turkey": {
+  "/en/columns/why-is-erdogan-polarizing-turkey": {
     "fingerprint": "3646dfa4ceb3ded5",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/is-humanitarian-intervention-good-or-bad": {
+  "/en/columns/is-humanitarian-intervention-good-or-bad": {
     "fingerprint": "94802abab7f91ea0",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/conspiracy-theory-par-excellence": {
+  "/en/columns/conspiracy-theory-par-excellence": {
     "fingerprint": "132f3d625f963d6b",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/you-cannot-fool-all-the-people-all-the-time": {
+  "/en/columns/you-cannot-fool-all-the-people-all-the-time": {
     "fingerprint": "5c02fb89f4fb0862",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/vote-out-erdogan-and-his-clique": {
+  "/en/columns/vote-out-erdogan-and-his-clique": {
     "fingerprint": "6dbba7261379969f",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/a-step-toward-turkish-armenian-reconciliation": {
+  "/en/columns/a-step-toward-turkish-armenian-reconciliation": {
     "fingerprint": "bbade5687728d86d",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/kurdish-right-to-autonomy": {
+  "/en/columns/kurdish-right-to-autonomy": {
     "fingerprint": "c5645a641f7bb6e2",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/turkeys-erdogan-problem": {
+  "/en/columns/turkeys-erdogan-problem": {
     "fingerprint": "604b67870f48eaaa",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-cant-turkey-consolidate-democracy": {
+  "/en/columns/why-cant-turkey-consolidate-democracy": {
     "fingerprint": "d21bcd17026336d5",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/erdogans-witch-hunt-goes-crazy": {
+  "/en/columns/erdogans-witch-hunt-goes-crazy": {
     "fingerprint": "c3d0a3d77fb61a55",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-does-erdogan-keep-winning": {
+  "/en/columns/why-does-erdogan-keep-winning": {
     "fingerprint": "2597bdc104dd63ee",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/where-erdogan-falls-short-of-putin": {
+  "/en/columns/where-erdogan-falls-short-of-putin": {
     "fingerprint": "c6212556bd94a8e9",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/no-secularism-or-democracy-without-religious-freedom": {
+  "/en/columns/no-secularism-or-democracy-without-religious-freedom": {
     "fingerprint": "48a3691e63f20b3c",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/civil-society-will-not-bow": {
+  "/en/columns/civil-society-will-not-bow": {
     "fingerprint": "6cda407c910c7f84",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/a-better-understanding-of-the-akp-required": {
+  "/en/columns/a-better-understanding-of-the-akp-required": {
     "fingerprint": "1309dbca9018b6f1",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/media-and-democracy-in-turkey": {
+  "/en/columns/media-and-democracy-in-turkey": {
     "fingerprint": "c0bc28a84cec7b2a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/how-do-i-view-the-west": {
+  "/en/columns/how-do-i-view-the-west": {
     "fingerprint": "4e7ac1a8bce0e952",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/erdogan-and-huntington": {
+  "/en/columns/erdogan-and-huntington": {
     "fingerprint": "0cb335949e67187f",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/dark-clouds-blown-away": {
+  "/en/columns/dark-clouds-blown-away": {
     "fingerprint": "5eeac33ad91b7712",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/political-crisis-in-turkey": {
+  "/en/columns/political-crisis-in-turkey": {
     "fingerprint": "12d866f324bb3545",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/the-root-cause-of-turkeys-problems": {
+  "/en/columns/the-root-cause-of-turkeys-problems": {
     "fingerprint": "67c1860bc299b8b9",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/why-vote-for-hdp": {
+  "/en/columns/why-vote-for-hdp": {
     "fingerprint": "0c5e3146ff3ec3c2",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/how-the-rule-of-law-has-been-dismantled": {
+  "/en/columns/how-the-rule-of-law-has-been-dismantled": {
     "fingerprint": "f69c4ccaa08a8c83",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/revive-the-peace-process": {
+  "/en/columns/revive-the-peace-process": {
     "fingerprint": "5e0db6bfc4e3abfc",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/demanding-autonomy-is-not-treason": {
+  "/en/columns/demanding-autonomy-is-not-treason": {
     "fingerprint": "32c4d16e517e2032",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/clash-of-religious-fundamentalists": {
+  "/en/columns/clash-of-religious-fundamentalists": {
     "fingerprint": "2982e46132cbfb78",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/the-difference-between-the-pkk-and-daesh": {
+  "/en/columns/the-difference-between-the-pkk-and-daesh": {
     "fingerprint": "c70f3bf8482181dd",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/risks-involved-for-turkey": {
+  "/en/columns/risks-involved-for-turkey": {
     "fingerprint": "b8211eb69e77b030",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/turkey-in-erdogans-grip-and-the-eu": {
+  "/en/columns/turkey-in-erdogans-grip-and-the-eu": {
     "fingerprint": "1c2e4d1bcec2835f",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/akp-rule-means-chaos-and-war": {
+  "/en/columns/akp-rule-means-chaos-and-war": {
     "fingerprint": "b6d60abfa673440a",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/columns/even-erdogan-needs-the-west": {
+  "/en/columns/even-erdogan-needs-the-west": {
     "fingerprint": "9fb9f028a078547c",
-    "date": "2026-10-13"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987": {
+  "/akademik-makaleler/cagdas-bir-sosyal-demokrasi-icin-gorusler-1987": {
     "fingerprint": "d51a7dfed5fab0b9",
-    "date": "2026-10-22"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988": {
+  "/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988": {
     "fingerprint": "092502c01aa1e349",
-    "date": "2026-10-22"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/turkiyede-devlet-sivil-toplum-dengesi-1991": {
+  "/akademik-makaleler/turkiyede-devlet-sivil-toplum-dengesi-1991": {
     "fingerprint": "8845f83bcc9de21b",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/bizde-sosyal-demokrasi-marksizmden-degil-1991": {
+  "/akademik-makaleler/bizde-sosyal-demokrasi-marksizmden-degil-1991": {
     "fingerprint": "05b6e73259311f23",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992": {
+  "/akademik-makaleler/sosyal-demokrat-partiler-ve-ulusal-azinliklar-sorunu-1992": {
     "fingerprint": "24f5fd9c4aff1b3a",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996": {
+  "/akademik-makaleler/kurt-sorunu-nasil-asilabilir-1996": {
     "fingerprint": "a6d1e68122c20937",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002": {
+  "/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002": {
     "fingerprint": "20402b991eac28a9",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003": {
+  "/akademik-makaleler/medyanin-krizi-krizin-medyasi-2003": {
     "fingerprint": "c729d00b7596930a",
-    "date": "2026-10-22"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/toplum-bilimlerinin-mantigi-1983": {
+  "/akademik-makaleler/toplum-bilimlerinin-mantigi-1983": {
     "fingerprint": "776ea0837314343a",
-    "date": "2026-10-22"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/toplum-bilimlerinde-ondeyi-ve-kehanet-1982": {
+  "/akademik-makaleler/toplum-bilimlerinde-ondeyi-ve-kehanet-1982": {
     "fingerprint": "79895fc93843504e",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/anglosakson-bilim-felsefesi-1982": {
+  "/akademik-makaleler/anglosakson-bilim-felsefesi-1982": {
     "fingerprint": "b085d025e8457af8",
-    "date": "2026-10-22"
+    "date": "2026-11-12"
   },
-  "/tr/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007": {
+  "/akademik-makaleler/turkiyedeki-laiklik-islam-ve-islamcilik-hakkinda-yanlis-anlayislar-2007": {
     "fingerprint": "bca0039d15eb7205",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/journalists-cautious-democrats-1993": {
+  "/en/academic-articles/journalists-cautious-democrats-1993": {
     "fingerprint": "cd7269041ec66e74",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/turkey-crisis-of-political-will-1998": {
+  "/en/academic-articles/turkey-crisis-of-political-will-1998": {
     "fingerprint": "c199272d1ddfe4bb",
-    "date": "2026-10-25"
+    "date": "2026-11-12"
   },
-  "/academic-articles/borders-of-europe-a-turkish-perspective-2003": {
+  "/en/academic-articles/borders-of-europe-a-turkish-perspective-2003": {
     "fingerprint": "ebaf8a04cf4dfd9f",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/crisis-in-the-identity-politics-of-turkey-2005": {
+  "/en/academic-articles/crisis-in-the-identity-politics-of-turkey-2005": {
     "fingerprint": "30432927b4206aa7",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/misconceptions-about-secularism-islam-and-islamism-in-turkey-2006": {
+  "/en/academic-articles/misconceptions-about-secularism-islam-and-islamism-in-turkey-2006": {
     "fingerprint": "1cce697169c3186e",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/turkey-and-westernization-2007": {
+  "/en/academic-articles/turkey-and-westernization-2007": {
     "fingerprint": "3eb1e8116e13470d",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/making-sense-of-turkish-politics-2008": {
+  "/en/academic-articles/making-sense-of-turkish-politics-2008": {
     "fingerprint": "a1076264679c743f",
-    "date": "2026-10-25"
+    "date": "2026-11-12"
   },
-  "/academic-articles/the-declining-soft-power-of-the-eu-2009": {
+  "/en/academic-articles/the-declining-soft-power-of-the-eu-2009": {
     "fingerprint": "e3f5f576edccd04e",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/the-european-union-and-the-consolidation-of-democracy-2009": {
+  "/en/academic-articles/the-european-union-and-the-consolidation-of-democracy-2009": {
     "fingerprint": "c015b9387831e4fa",
-    "date": "2026-10-25"
+    "date": "2026-11-12"
   },
-  "/academic-articles/two-faces-of-the-press-2010": {
+  "/en/academic-articles/two-faces-of-the-press-2010": {
     "fingerprint": "74d3c86a93d87480",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   },
-  "/academic-articles/will-turkey-veer-towards-authoritarianism-2011": {
+  "/en/academic-articles/will-turkey-veer-towards-authoritarianism-2011": {
     "fingerprint": "7f9228876d2e3741",
-    "date": "2026-11-06"
+    "date": "2026-11-12"
   }
 }
