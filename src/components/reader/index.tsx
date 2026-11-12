@@ -198,9 +198,7 @@ function CiteThis({
     <>
       <button
         type="button"
-        className="icon-btn"
-        aria-label={t.citeLabel}
-        title={t.citeLabel}
+        className="icon-btn icon-btn-labelled"
         aria-expanded={open}
         onClick={onClick}
       >
@@ -211,6 +209,7 @@ function CiteThis({
         >
           content_copy
         </span>
+        <span className="icon-btn-label">{t.citeLabel}</span>
       </button>
       {open && (
         <div className="cite-box">
@@ -361,9 +360,13 @@ export function LoadedArticlePage({
       : item.category === 'columns' || item.category === 'analyses'
         ? `${sectionPath}?open=${encodeURIComponent(item.outlet)}`
         : sectionPath
-  const clippingCaption = [cover?.pageLabel ?? shown.subtitle, outletLabel, shown.date]
-    .filter(Boolean)
+  /* "Milliyet, 3. Göz, 30 Eylül 2000 · Milliyet · 30 Eylül 2000": a subtitle
+     that already names the outlet or the date is not followed by them again. */
+  const captionLead = cover?.pageLabel ?? shown.subtitle
+  const clippingCaption = [captionLead, outletLabel, shown.date]
+    .filter((part, i): part is string => Boolean(part) && (i === 0 || !captionLead?.includes(part!)))
     .join(' · ')
+  const dateInSubtitle = Boolean(shown.date && shown.subtitle?.includes(shown.date))
   const lightboxImages: LightboxImage[] = [
     ...photos.map((clipping) => ({
       src: clipping.src,
@@ -490,13 +493,15 @@ export function LoadedArticlePage({
               <span className="article-byline-name">Şahin Alpay</span>
               {shown.date && (
                 <>
+                  {/* Kept for machines when the subtitle above already
+                      shows the date to readers. */}
                   <time
-                    className="article-byline-date"
+                    className={dateInSubtitle ? 'sr-only' : 'article-byline-date'}
                     {...(articleDateIso ? { dateTime: articleDateIso } : {})}
                   >
                     {shown.date}
                   </time>
-                  {outletLabel ? ' · ' : ''}
+                  {outletLabel && !dateInSubtitle ? ' · ' : ''}
                 </>
               )}
               {outletLabel}
@@ -513,8 +518,11 @@ export function LoadedArticlePage({
           {item.tags && item.tags.length > 0 && (
             <ul className="tag-list">
               {item.tags.map((tag) => (
-                <li className="tag" key={tag}>
-                  {tag}
+                <li key={tag}>
+                  {/* The section's own search, which matches tags too. */}
+                  <Link className="tag" to={`${sectionPath}?q=${encodeURIComponent(tag)}`}>
+                    {tag}
+                  </Link>
                 </li>
               ))}
             </ul>
