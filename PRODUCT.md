@@ -79,8 +79,10 @@ Present:
   scanned clippings) or links out to its original source.
 - Light/dark theme following the system by default; motion respects
   `prefers-reduced-motion`.
-- No cookies, no analytics, no third-party tracking. Only language and theme
-  preference are stored, and the cookie/KVKK/GDPR notice states this.
+- No cookies, no analytics, no third-party tracking. Only the language and theme
+  preference, the article text size and the notice acknowledgement are stored, and
+  the cookie/KVKK/GDPR notice states this — anything new stored in the browser
+  needs adding to that notice in both languages.
 
 Constraints:
 
