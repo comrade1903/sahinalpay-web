@@ -57,6 +57,7 @@ const contentModule = await loadModule('src/content.ts', 'content-prerender.mjs'
    cannot describe a page differently if there is one implementation. */
 const schema = await loadModule('src/lib/structuredData.ts', 'structured-data.mjs')
 const press = await loadModule('src/press/index.ts', 'press-prerender.mjs')
+const { formatPressDate } = await loadModule('src/press/utils.ts', 'press-utils-prerender.mjs')
 const photoStory = await loadModule('src/photoStory.ts', 'photo-story-prerender.mjs')
 const query = await loadModule('src/archive/query.ts', 'query-prerender.mjs')
 /* What a page in a given language shows for a record — on an English page a
@@ -364,7 +365,7 @@ for (const lang of ['tr', 'en']) {
             (entry) =>
               `<li><a href="${escapeHtml(`${paths.tr.press}/${entry.slug}`)}">${escapeHtml(
                 entry.title ?? entry.author,
-              )}</a> — ${escapeHtml([entry.author, entry.outlet, entry.date].filter(Boolean).join(' · '))}</li>`,
+              )}</a> — ${escapeHtml([entry.author, entry.outlet, entry.date && formatPressDate(entry.date)].filter(Boolean).join(' · '))}</li>`,
           )
           .join('')}</ul>`
       inner =
@@ -449,7 +450,7 @@ for (const entry of press.allPressItems) {
   const copy = t.press
   const heading = entry.title ?? entry.author
   const routePath = `${paths.tr.press}/${entry.slug}`
-  const byline = [entry.author, entry.outlet, entry.date].filter(Boolean).map(escapeHtml).join(' · ')
+  const byline = [entry.author, entry.outlet, entry.date && formatPressDate(entry.date)].filter(Boolean).map(escapeHtml).join(' · ')
   const parts = [`<h1>${escapeHtml(heading)}</h1>`, `<p><small>${byline}</small></p>`]
   parts.push(entry.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join(''))
   if (entry.url) {
