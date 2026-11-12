@@ -17,44 +17,47 @@ export type PageKey =
    remain language-specific: only English-language articles get English readers. */
 export const paths: Record<Lang, Partial<Record<PageKey, string>>> = {
   en: {
-    home: '/',
-    about: '/about',
+    home: '/en',
+    about: '/en/about',
     /* The captions are his own and Turkish only; this page shows them
        untranslated (see src/photoStory.ts). */
-    photos: '/my-story-in-photographs',
-    columns: '/columns',
-    analyses: '/analyses',
-    interviews: '/interviews',
-    academic: '/academic-articles',
-    books: '/books',
+    photos: '/en/my-story-in-photographs',
+    columns: '/en/columns',
+    analyses: '/en/analyses',
+    interviews: '/en/interviews',
+    academic: '/en/academic-articles',
+    books: '/en/books',
     /* His full account — courtroom statements, and the Constitutional
        Court's and ECHR's rulings — is only in Turkish (see
        src/trialProcess.ts); this English page is a short factual summary,
        not a translation of that record. */
-    trial: '/trial-process',
+    trial: '/en/trial-process',
     /* Other people's writing about him. The pieces themselves are Turkish,
-       so only /tr carries item routes; this English page lists the same
+       so only the Turkish side carries item routes; this English page lists the same
        selection and links into them. */
-    press: '/about-me-in-the-press',
-    cookies: '/cookie-policy',
+    press: '/en/about-me-in-the-press',
+    cookies: '/en/cookie-policy',
   },
   tr: {
-    home: '/tr',
-    about: '/tr/kimdir',
-    photos: '/tr/fotograflarla-hikayem',
-    columns: '/tr/kose-yazilari',
-    analyses: '/tr/analizler',
-    interviews: '/tr/soylesiler',
-    academic: '/tr/akademik-makaleler',
-    books: '/tr/kitaplar',
-    trial: '/tr/yargilanma-surecim',
-    press: '/tr/basinda-hakkimda',
-    cookies: '/tr/cerez-politikasi',
+    home: '/',
+    about: '/kimdir',
+    photos: '/fotograflarla-hikayem',
+    columns: '/kose-yazilari',
+    analyses: '/analizler',
+    interviews: '/soylesiler',
+    academic: '/akademik-makaleler',
+    books: '/kitaplar',
+    trial: '/yargilanma-surecim',
+    press: '/basinda-hakkimda',
+    cookies: '/cerez-politikasi',
   },
 }
 
+/** Turkish is the site's own language and lives at the root; English is the
+ *  alternative under /en (switched on 2026-11-12 — the root used to be
+ *  English and Turkish lived under /tr; vercel.json redirects both). */
 export function langForPath(pathname: string): Lang {
-  return pathname === '/tr' || pathname.startsWith('/tr/') ? 'tr' : 'en'
+  return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'tr'
 }
 
 export function pageKeyForPath(pathname: string): PageKey {

@@ -17,7 +17,7 @@ const outlet = (name: string, titles: string[], year = 2010) => ({
 
 function open(query: string) {
   render(
-    <MemoryRouter initialEntries={[`/tr/kose-yazilari${query}`]}>
+    <MemoryRouter initialEntries={[`/kose-yazilari${query}`]}>
       <NewsstandArchivePage
         lang="tr"
         data={{ ...content.tr.columns, outlets: [outlet('Zaman', ['Ermeni sorunu', 'Seçim sistemi'])] }}

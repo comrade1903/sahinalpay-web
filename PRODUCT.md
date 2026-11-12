@@ -71,7 +71,7 @@ Present:
 
 - Pages: Home, About/Kimdir, My Story in Photographs, Columns, Interviews, Articles
   (academic), Books, the 15 July trial, About Me in the Press, Cookie Policy — each
-  with a distinct, differently-worded URL per language (`/about` vs `/tr/kimdir`),
+  with a distinct, differently-worded URL per language (`/kimdir` vs `/en/about`) — Turkish at the root, English under `/en`,
   not a locale prefix over one route tree. Analyses still has routes but no entries.
 - Language is derived purely from the URL; the switcher navigates to the equivalent
   path and persists the choice to `localStorage`.

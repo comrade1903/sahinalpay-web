@@ -18,7 +18,7 @@
   detention violated his fundamental rights; he was released in 2018.
 - Married Fatma in 1965; she died on 6 October 2018. Their life together is central
   to his two memoirs, Bir Hikâyem Var and Hikâyemin Sonu.
-- The life story at /tr/kimdir and /about is his own first-person biography text.
+- The life story at /kimdir and /en/about is his own first-person biography text.
 
 ## Selected works
 
@@ -34,11 +34,11 @@
 - Homepage: https://sahinalpay.com.tr/ — biography, selected works, and contact.
 - His own account of the criminal proceedings against him — arrest, courtroom
   statements, and the Constitutional Court's and European Court of Human
-  Rights' rulings in his case — is at /tr/yargilanma-surecim, in Turkish. A
-  short English-language factual summary of the case is at /trial-process.
+  Rights' rulings in his case — is at /yargilanma-surecim, in Turkish. A
+  short English-language factual summary of the case is at /en/trial-process.
 - Archive: 615 catalogued pieces across Cumhuriyet, Sabah, Milliyet, Zaman,
   Today's Zaman and P24, plus political analyses, interviews and academic
-  articles. Turkish index at /tr/kose-yazilari, English at /columns.
+  articles. Turkish index at /kose-yazilari, English at /en/columns.
 - Every entry traces to a verifiable source; the archive contains no
   reconstructed or paraphrased text presented as his writing. Where a piece
   survives only as a page scan, the accompanying summary is the archive's,

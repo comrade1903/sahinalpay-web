@@ -17,7 +17,7 @@ async function open(path: string) {
    the byline and the scan's caption used to repeat as "30 Eylül 2000 · Milliyet". */
 describe('the article page', () => {
   it('does not show the date twice when the subtitle carries it', async () => {
-    await open('/tr/kose-yazilari/1915-tabusu')
+    await open('/kose-yazilari/1915-tabusu')
     const time = document.querySelector('.article-byline time')!
     expect(time.className).toBe('sr-only')
     expect(time.getAttribute('dateTime')).toBe('2000-09-30')
@@ -25,15 +25,15 @@ describe('the article page', () => {
   })
 
   it('links each tag to its section searched for that tag', async () => {
-    await open('/tr/kose-yazilari/1915-tabusu')
+    await open('/kose-yazilari/1915-tabusu')
     const tag = [...document.querySelectorAll<HTMLAnchorElement>('a.tag')].find(
       (link) => link.textContent === 'Ermeni tehciri',
     )!
-    expect(tag.getAttribute('href')).toBe('/tr/kose-yazilari?q=Ermeni%20tehciri')
+    expect(tag.getAttribute('href')).toBe('/kose-yazilari?q=Ermeni%20tehciri')
   })
 
   it('names the cite button in visible text', async () => {
-    await open('/tr/kose-yazilari/1915-tabusu')
+    await open('/kose-yazilari/1915-tabusu')
     const button = document.querySelector('.icon-btn-labelled')!
     expect(button.textContent).toContain('Künyeyi kopyala')
     expect(button.hasAttribute('title')).toBe(false)

@@ -126,12 +126,13 @@ export function usePageMeta(titleOrMeta: string | PageMeta, description?: string
       tag.setAttribute('data-route-alternate', 'true')
       document.head.appendChild(tag)
     })
-    const englishPath = alternateEntries.find(([langCode]) => langCode === 'en')?.[1]
-    if (englishPath) {
+    /* x-default is the Turkish page: Turkish is the site's own language. */
+    const defaultPath = alternateEntries.find(([langCode]) => langCode === 'tr')?.[1]
+    if (defaultPath) {
       const tag = document.createElement('link')
       tag.setAttribute('rel', 'alternate')
       tag.setAttribute('hreflang', 'x-default')
-      tag.setAttribute('href', pageUrl(englishPath))
+      tag.setAttribute('href', pageUrl(defaultPath))
       tag.setAttribute('data-route-alternate', 'true')
       document.head.appendChild(tag)
     }

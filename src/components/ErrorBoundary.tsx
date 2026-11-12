@@ -54,9 +54,9 @@ export class ErrorBoundary extends Component<Props, State> {
     if (!error) return this.props.children
 
     const lang =
-      typeof window === 'undefined' ? 'en' : langForPath(window.location.pathname)
+      typeof window === 'undefined' ? 'tr' : langForPath(window.location.pathname)
     const t = copy[lang]
-    const homePath = lang === 'tr' ? '/tr' : '/'
+    const homePath = lang === 'tr' ? '/' : '/en'
 
     return (
       <main className="section section-solo" id="main-content">

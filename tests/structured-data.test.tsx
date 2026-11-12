@@ -64,9 +64,9 @@ describe('route-scoped JSON-LD', () => {
   it('adopts the prerendered block instead of adding a second one', () => {
     plantPrerenderedBlock({ '@type': 'Article', headline: 'A', description: 'static' })
     render(
-      <MemoryRouter initialEntries={['/tr/kose-yazilari/a']}>
+      <MemoryRouter initialEntries={['/kose-yazilari/a']}>
         <Routes>
-          <Route path="/tr/kose-yazilari/:slug" element={<Article slug="a" title="A" />} />
+          <Route path="/kose-yazilari/:slug" element={<Article slug="a" title="A" />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -92,7 +92,7 @@ describe('route-scoped JSON-LD', () => {
   it('removes a stale prerendered block on a page that has none of its own', () => {
     plantPrerenderedBlock({ '@type': 'Article', headline: 'A' })
     render(
-      <MemoryRouter initialEntries={['/tr/cerez-politikasi']}>
+      <MemoryRouter initialEntries={['/cerez-politikasi']}>
         <PlainPage />
       </MemoryRouter>,
     )

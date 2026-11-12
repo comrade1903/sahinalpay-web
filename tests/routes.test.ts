@@ -8,44 +8,45 @@ describe('readerBasePath', () => {
     ({ category, lang }) as ArchiveItem
 
   it('keeps a column, interview or academic article under the page language', () => {
-    expect(readerBasePath(item('academic', 'en'), 'tr')).toBe('/tr/akademik-makaleler')
-    expect(readerBasePath(item('academic', 'tr'), 'en')).toBe('/academic-articles')
-    expect(readerBasePath(item('interviews', 'tr'), 'en')).toBe('/interviews')
-    expect(readerBasePath(item('columns', 'en'), 'tr')).toBe('/tr/kose-yazilari')
+    expect(readerBasePath(item('academic', 'en'), 'tr')).toBe('/akademik-makaleler')
+    expect(readerBasePath(item('academic', 'tr'), 'en')).toBe('/en/academic-articles')
+    expect(readerBasePath(item('interviews', 'tr'), 'en')).toBe('/en/interviews')
+    expect(readerBasePath(item('columns', 'en'), 'tr')).toBe('/kose-yazilari')
   })
 
   it('sends analyses to their own language', () => {
-    expect(readerBasePath(item('analyses', 'tr'), 'en')).toBe('/tr/analizler')
+    expect(readerBasePath(item('analyses', 'tr'), 'en')).toBe('/analizler')
   })
 })
 
 describe('langForPath', () => {
-  it('treats /tr and its children as Turkish', () => {
-    expect(langForPath('/tr')).toBe('tr')
-    expect(langForPath('/tr/kose-yazilari')).toBe('tr')
-    expect(langForPath('/tr/kose-yazilari/bir-yazi')).toBe('tr')
+  /* Turkish is at the root since 2026-11-12; English lives under /en. */
+  it('treats the root and everything outside /en as Turkish', () => {
+    expect(langForPath('/')).toBe('tr')
+    expect(langForPath('/kose-yazilari')).toBe('tr')
+    expect(langForPath('/kose-yazilari/bir-yazi')).toBe('tr')
   })
 
-  it('treats everything else as English', () => {
-    expect(langForPath('/')).toBe('en')
-    expect(langForPath('/columns')).toBe('en')
+  it('treats /en and its children as English', () => {
+    expect(langForPath('/en')).toBe('en')
+    expect(langForPath('/en/columns')).toBe('en')
   })
 
-  /* "/translations" starts with "/tr" as a string but is not the Turkish tree. */
-  it('does not mistake a path that merely starts with the letters "tr"', () => {
-    expect(langForPath('/translations')).toBe('en')
+  it('does not mistake a path that merely starts with the letters "en"', () => {
+    expect(langForPath('/english')).toBe('tr')
+    expect(langForPath('/enstitu')).toBe('tr')
   })
 })
 
 describe('pageKeyForPath', () => {
   it('maps each language’s own wording to the same page key', () => {
-    expect(pageKeyForPath('/columns')).toBe('columns')
-    expect(pageKeyForPath('/tr/kose-yazilari')).toBe('columns')
-    expect(pageKeyForPath('/tr/akademik-makaleler')).toBe('academic')
+    expect(pageKeyForPath('/en/columns')).toBe('columns')
+    expect(pageKeyForPath('/kose-yazilari')).toBe('columns')
+    expect(pageKeyForPath('/akademik-makaleler')).toBe('academic')
   })
 
   it('maps an article route to its section', () => {
-    expect(pageKeyForPath('/tr/kose-yazilari/bir-yazi')).toBe('columns')
+    expect(pageKeyForPath('/kose-yazilari/bir-yazi')).toBe('columns')
   })
 
   it('falls back to home for an unknown path', () => {
@@ -55,8 +56,8 @@ describe('pageKeyForPath', () => {
 
 describe('equivalentPath', () => {
   it('switches language while staying on the same page', () => {
-    expect(equivalentPath('/columns', 'tr')).toBe('/tr/kose-yazilari')
-    expect(equivalentPath('/tr/kimdir', 'en')).toBe('/about')
+    expect(equivalentPath('/en/columns', 'tr')).toBe('/kose-yazilari')
+    expect(equivalentPath('/kimdir', 'en')).toBe('/en/about')
   })
 
   it('is an involution across the two languages for every shared page', () => {
@@ -68,27 +69,27 @@ describe('equivalentPath', () => {
   })
 
   it('keeps a column open across languages', () => {
-    expect(equivalentPath('/columns/a-new-victory-for-democracy', 'tr')).toBe(
-      '/tr/kose-yazilari/a-new-victory-for-democracy',
+    expect(equivalentPath('/en/columns/a-new-victory-for-democracy', 'tr')).toBe(
+      '/kose-yazilari/a-new-victory-for-democracy',
     )
-    expect(equivalentPath('/tr/kose-yazilari/baslarken', 'en')).toBe('/columns/baslarken')
+    expect(equivalentPath('/kose-yazilari/baslarken', 'en')).toBe('/en/columns/baslarken')
   })
 
   it('keeps an interview open across languages', () => {
-    expect(equivalentPath('/tr/soylesiler/bir-soylesi', 'en')).toBe('/interviews/bir-soylesi')
+    expect(equivalentPath('/soylesiler/bir-soylesi', 'en')).toBe('/en/interviews/bir-soylesi')
   })
 
   it('keeps an academic article open across languages', () => {
-    expect(equivalentPath('/academic-articles/making-sense-of-turkish-politics-2008', 'tr')).toBe(
-      '/tr/akademik-makaleler/making-sense-of-turkish-politics-2008',
+    expect(equivalentPath('/en/academic-articles/making-sense-of-turkish-politics-2008', 'tr')).toBe(
+      '/akademik-makaleler/making-sense-of-turkish-politics-2008',
     )
-    expect(equivalentPath('/tr/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002', 'en')).toBe(
-      '/academic-articles/mukayeseli-acidan-turkiyede-laiklik-2002',
+    expect(equivalentPath('/akademik-makaleler/mukayeseli-acidan-turkiyede-laiklik-2002', 'en')).toBe(
+      '/en/academic-articles/mukayeseli-acidan-turkiyede-laiklik-2002',
     )
   })
 
   it('falls back to the target language home for an unknown path', () => {
-    expect(equivalentPath('/nope', 'tr')).toBe('/tr')
+    expect(equivalentPath('/nope', 'tr')).toBe('/')
   })
 })
 
@@ -100,9 +101,12 @@ describe('path table integrity', () => {
     }
   })
 
-  it('prefixes every Turkish path with /tr', () => {
+  it('prefixes every English path with /en and no Turkish one', () => {
+    for (const path of Object.values(paths.en)) {
+      expect(path === '/en' || path.startsWith('/en/')).toBe(true)
+    }
     for (const path of Object.values(paths.tr)) {
-      expect(path === '/tr' || path.startsWith('/tr/')).toBe(true)
+      expect(path === '/en' || path.startsWith('/en/')).toBe(false)
     }
   })
 })

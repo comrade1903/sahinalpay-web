@@ -14,6 +14,8 @@
  *      address keeps resolving.
  *   3. Withdrawn records from the same file, whose addresses lead to the
  *      section they were removed from rather than to a 404.
+ *   4. The addresses of the layout before 2026-11-12, when English was at the
+ *      root and Turkish under /tr.
  *
  * vercel.json is committed and CI fails if it is stale, the same way it does
  * for the sitemap.
@@ -29,9 +31,11 @@ const aliasesModule = await loadModule('src/archive/aliases.ts', 'aliases-redire
 const routes = await loadModule('src/routes.ts', 'routes-redirects.mjs')
 const { paths } = routes
 
-/* Analyses are Turkish-only content, but their English URLs are real
-   addresses that appear in citations. */
-const LANGUAGE_REDIRECTS = ['analyses'].map((pageKey) => ({
+/* Analyses and the press pieces about him are Turkish-only content, but
+   their English URLs are real addresses that appear in citations and in the
+   English press list. The app redirects them too, but only after it loads,
+   and with no file at the English address the server answered 404 first. */
+const LANGUAGE_REDIRECTS = ['analyses', 'press'].map((pageKey) => ({
   source: `${paths.en[pageKey]}/:slug`,
   destination: `${paths.tr[pageKey]}/:slug`,
   permanent: true,
@@ -85,6 +89,28 @@ for (const [lang, table] of Object.entries(aliasesModule.withdrawnArchiveSlugs))
   }
 }
 
+/* Until 2026-11-12 English lived at the root and Turkish under /tr. Every
+   address of that layout is in citations, search indexes and shared links,
+   so each one leads to its page in the new one: /tr/<x> to /<x>, and the old
+   English paths to the same page under /en. The old English root "/" is the
+   one address that cannot follow — it is the Turkish home page now. */
+const LEGACY_PREFIX = '/en'
+const SLUG_PAGES = ['columns', 'analyses', 'interviews', 'academic', 'press']
+const legacyRedirects = [
+  { source: '/tr', destination: paths.tr.home, permanent: true },
+  { source: '/tr/:path*', destination: '/:path*', permanent: true },
+]
+for (const [pageKey, current] of Object.entries(paths.en)) {
+  if (pageKey === 'home' || !current.startsWith(`${LEGACY_PREFIX}/`)) continue
+  const old = current.slice(LEGACY_PREFIX.length)
+  legacyRedirects.push({ source: old, destination: current, permanent: true })
+  if (SLUG_PAGES.includes(pageKey)) {
+    /* Turkish-only sections go straight to the Turkish page, not via /en. */
+    const target = ['analyses', 'press'].includes(pageKey) ? paths.tr[pageKey] : current
+    legacyRedirects.push({ source: `${old}/:slug`, destination: `${target}/:slug`, permanent: true })
+  }
+}
+
 const configPath = path.join(projectRoot, 'vercel.json')
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'))
 /* Aliases first: they name an exact path, the language rules a pattern. */
@@ -93,11 +119,13 @@ config.redirects = [
   ...withdrawnRedirects,
   ...LANGUAGE_REDIRECTS,
   ...itemRedirects,
+  ...legacyRedirects,
 ]
 fs.writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`)
 
 console.log(
   `Wrote ${config.redirects.length} redirect(s) to vercel.json: ` +
     `${aliasRedirects.length} retired slug(s), ${withdrawnRedirects.length} withdrawn record(s), ` +
-    `${LANGUAGE_REDIRECTS.length} language rule(s), ${itemRedirects.length} interview/academic record(s).`,
+    `${LANGUAGE_REDIRECTS.length} language rule(s), ${itemRedirects.length} interview/academic record(s), ` +
+    `${legacyRedirects.length} rule(s) for the pre-2026-11-12 addresses.`,
 )

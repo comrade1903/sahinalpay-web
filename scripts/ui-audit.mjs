@@ -41,22 +41,22 @@ const VIEWPORTS = {
 }
 const PAGES = {
   tr: {
-    home: '/tr',
-    about: '/tr/kimdir',
-    columns: '/tr/kose-yazilari',
-    article: '/tr/kose-yazilari/1915-tabusu',
-    reader: '/tr/kose-yazilari/hocam-ve-dostum-tomas-hammara-veda',
-    interviews: '/tr/soylesiler',
-    academic: '/tr/akademik-makaleler',
-    scan: '/tr/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988',
-    books: '/tr/kitaplar',
-    trial: '/tr/yargilanma-surecim',
-    press: '/tr/basinda-hakkimda',
-    photos: '/tr/fotograflarla-hikayem',
-    cookies: '/tr/cerez-politikasi',
-    notfound: '/tr/yok-boyle-bir-sayfa',
+    home: '/',
+    about: '/kimdir',
+    columns: '/kose-yazilari',
+    article: '/kose-yazilari/1915-tabusu',
+    reader: '/kose-yazilari/hocam-ve-dostum-tomas-hammara-veda',
+    interviews: '/soylesiler',
+    academic: '/akademik-makaleler',
+    scan: '/akademik-makaleler/68-kusagi-uzerine-bir-deneme-1988',
+    books: '/kitaplar',
+    trial: '/yargilanma-surecim',
+    press: '/basinda-hakkimda',
+    photos: '/fotograflarla-hikayem',
+    cookies: '/cerez-politikasi',
+    notfound: '/yok-boyle-bir-sayfa',
   },
-  en: { home: '/', columns: '/columns', books: '/books' },
+  en: { home: '/en', columns: '/en/columns', books: '/en/books' },
 }
 const SMALL_SCREEN_PAGES = ['home', 'columns', 'article', 'books']
 

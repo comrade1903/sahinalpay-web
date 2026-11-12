@@ -249,16 +249,16 @@ export function readArchiveEntries() {
 export function routeForEntry(entry, lang = 'tr') {
   const paths = {
     tr: {
-      columns: '/tr/kose-yazilari',
-      analyses: '/tr/analizler',
-      interviews: '/tr/soylesiler',
-      academic: '/tr/akademik-makaleler',
+      columns: '/kose-yazilari',
+      analyses: '/analizler',
+      interviews: '/soylesiler',
+      academic: '/akademik-makaleler',
     },
     en: {
-      columns: '/columns',
-      analyses: '/analyses',
-      interviews: '/interviews',
-      academic: '/academic-articles',
+      columns: '/en/columns',
+      analyses: '/en/analyses',
+      interviews: '/en/interviews',
+      academic: '/en/academic-articles',
     },
   }
   return `${paths[lang][entry.category]}/${entry.slug}`

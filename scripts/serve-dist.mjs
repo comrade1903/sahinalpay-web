@@ -39,10 +39,15 @@ const MIME = {
   '.woff2': 'font/woff2',
 }
 
-/** vercel.json's `:param` source patterns, as regular expressions. */
+/** vercel.json's `:param` and `:param*` source patterns, as regular
+ *  expressions: `:param` is one path segment, `:param*` any number of them
+ *  (the /tr/:path* rule for the layout before 2026-11-12). */
 const redirects = (config.redirects ?? []).map((rule) => ({
   pattern: new RegExp(
-    `^${rule.source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/:(\w+)/g, '(?<$1>[^/]+)')}$`,
+    `^${rule.source
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/:(\w+)\\\*/g, '(?<$1>.*)')
+      .replace(/:(\w+)/g, '(?<$1>[^/]+)')}$`,
   ),
   destination: rule.destination,
   status: rule.permanent ? 308 : 307,
@@ -93,7 +98,7 @@ const server = http.createServer((request, response) => {
     const match = rule.pattern.exec(pathname)
     if (!match) continue
     const location = rule.destination.replace(
-      /:(\w+)/g,
+      /:(\w+)\*?/g,
       (_, name) => match.groups?.[name] ?? '',
     )
     response.writeHead(rule.status, { Location: location })
