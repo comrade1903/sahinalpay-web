@@ -7,6 +7,7 @@ import { NarrativeHeader, BackToTop } from '../NarrativeHeader'
 import { DeadEnd } from '../DeadEnd'
 import { foreignPress, turkishPress, findPressItem } from '../../press'
 import type { PressItem } from '../../press/types'
+import { formatPressDate } from '../../press/utils'
 
 /** The pieces themselves are Turkish, so their reader pages exist only under
  *  /tr — the English list links straight into them, the same rule the archive
@@ -18,7 +19,7 @@ function pressItemPath(item: PressItem): string {
 /** Author, publication and date, skipping whatever the manuscript does not
  *  record rather than printing an empty separator. */
 function byline(item: PressItem): string {
-  return [item.author, item.outlet, item.date].filter(Boolean).join(' · ')
+  return [item.author, item.outlet, item.date && formatPressDate(item.date)].filter(Boolean).join(' · ')
 }
 
 function PressRow({ item }: { item: PressItem }) {
@@ -26,7 +27,7 @@ function PressRow({ item }: { item: PressItem }) {
     <li>
       <Link to={pressItemPath(item)} className="archive-row">
         <div className="archive-row-meta">
-          {item.date && <span className="archive-row-date">{item.date}</span>}
+          {item.date && <span className="archive-row-date">{formatPressDate(item.date)}</span>}
           {item.outlet && (
             <span className="archive-row-outlet press-row-outlet">{item.outlet}</span>
           )}
